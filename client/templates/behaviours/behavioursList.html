@@ -1,0 +1,41 @@
+<template name="behavioursList">
+  {{> myBreadcrumb}}
+  {{> myNav}}
+  <p class="text-center">
+    <button id="btn-positive" type="button" class="btn {{btnSelected true}} btn-lg">Positives</button>
+    <button id="btn-negative" type="button" class="btn {{btnSelected false}} btn-lg">Negatives</button>
+  </p>
+  <div class="container">
+    <div class="list-group">
+    {{#each behaviourList}}
+          <div class="form-group {{fGreen}} has-feedback form-inline">
+            <div class="input-group col-xs-8">
+              <span class="input-group-addon">Description</span>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
+            </div>
+            <div class="input-group col-xs-3">
+              <span class="input-group-addon">Points</span>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
+            </div>
+          </div>
+    {{/each}}
+    </div>
+    <form>
+      <div class="form-group {{fGreen}} has-feedback">
+        <label class="control-label" for="inputGroupSuccess1">New behaviour</label>
+        <div class="form-inline">
+          <div class="input-group col-xs-8">
+            <span class="input-group-addon">Description</span>
+            <input type="text" class="form-control" name="behaviourDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+          </div>
+          <div class="input-group col-xs-3">
+            <span class="input-group-addon">Points</span>
+            <input type="text" class="form-control" name="behaviourPoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status">
+          </div>
+          <input type="submit" id="btn-save" value="Save" class="btn {{bGreen}}">
+        </div>
+      </div>
+    </form>
+    
+  </div>
+</template>

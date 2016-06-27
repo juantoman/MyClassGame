@@ -1,0 +1,16 @@
+Instal·lació màquines:
+----------------------
+sudo apt-get install git
+git init
+
+
+1a Màquina:
+-----------
+git add .
+git commit -m "Commit message"
+git pull
+git push -u origin master
+
+2a Màquina:
+-----------
+git pull origin master

@@ -1,0 +1,151 @@
+<!-- Classes Modals -->
+<template name="studentsModals">
+  
+  <!-- Add Student Modal -->
+  
+  <div class="modal" id="add_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="add_student_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="AddStudentModalLabel">Crear alumne</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="student-name" class="control-label">Nom del alumne</label>
+                <input type="text" class="form-control" id="student-name" name="student-name">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+            <input type="submit" class="btn btn-primary" value="Save">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Add Group Modal -->
+  
+  <div class="modal" id="add_group_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="add_group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="AddGroupModalLabel">Add group</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="student-name" class="control-label">Group name</label>
+                <input type="text" class="form-control" id="group-name" name="group-name">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary" value="Save">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+    <!-- XP Modal -->
+  
+   <div class="modal" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_xp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="XPModalLabel">Increase XP</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each xps}} 
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comment</label>
+                <input type="text" class="form-control" id="commentXP" name="commentXP">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- HP Modal -->
+  
+   <div class="modal" id="hp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_hp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="HPModalLabel">Decrease HP</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each hps}} 
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comment</label>
+                <input type="text" class="form-control" id="commentHP" name="commentHP">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" id="hpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Group Modal -->
+  
+  <div class="modal" id="group_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GroupModalLabel">Add students to the group</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each students}} 
+                    <button type="button" class="list-group-item  {{studentInGroup _id}}" id="{{_id}}">
+                      {{studentName}}
+                    </button>
+                  {{/each}}
+                </ul>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" id="groupModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</template>
+

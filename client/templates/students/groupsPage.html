@@ -1,0 +1,49 @@
+<template name="groupsPage">
+  <div class="row">
+      {{#each groups}}
+        <div class="col-xs-12 col-md-3">
+          <div class="thumbnail">
+              <h2 class="text-center bg-primary">{{groupName}}</h2>
+              <img src="/images/user_128.png" alt="...">
+              <h2 class="text-center">
+                <span class="label label-success">{{XP}} XP</span>
+                <span class="label label-warning">{{HP}} HP</span>  
+              </h2>
+              <h2 class="text-center">
+                <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal" name="{{_id}}">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      XP
+                </button>
+                <button type="button" class="btn btn-warning btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
+                      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                      HP
+                </button>
+              </h2>
+              <div class="caption">
+                <h2 class="text-center">
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#group_modal" name="{{_id}}">{{groupName}}</button>
+                  <button type="button" class="btn btn-danger btn-delete" name="{{_id}}">
+                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                    Delete
+                  </button>
+                </h2>  
+              </div>
+          </div>
+        </div>
+      {{/each}}
+      <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <h2 class="text-center bg-success">Add group</h2>
+            <img src="/images/add_user_128.png" alt="...">
+            <div class="caption">
+              <h2 class="text-center">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_group_modal">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  Group
+                </button>
+              </h2>
+            </div>
+        </div>
+      </div>
+  </div>
+</template>

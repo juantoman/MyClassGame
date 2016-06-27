@@ -1,0 +1,56 @@
+<template name="statisticsPage">
+  {{> myBreadcrumb}}
+  {{> myNav}}
+  <div class="container">
+    <h2 class="text-center bg-info">Statistics</h2>
+    <!-- 
+    {{#each statistics}}
+      <h3>{{student}}</h3>
+      <p>{{behavior}}</p>
+      <p>{{studentName}}</p>
+      <p>{{behaviour.behaviourDescription}}</p>
+      <p>{{behaviour.points}}</p>
+    {{/each}}
+     -->
+    <table class="table table-hover">
+      <tr>
+        <th>
+          Student
+        </th>
+        <th>
+          Behaviour
+        </th>
+        <th>
+          Comment
+        </th>
+        <th>
+          Points
+        </th>
+        <th>
+          Created on
+        </th> 
+      </tr>
+      <tbody>
+      {{#each statistics}}
+            <tr>
+              <td>
+                {{student.studentName}}
+              </td>
+              <td>
+                {{behaviour.behaviourDescription}}
+              </td>
+              <td>
+                {{comment}}
+              </td>
+              <td>
+                {{behaviour.points}}
+              </td>
+              <td>
+                {{createdOnFormatted createdOn}}
+              </td>
+            </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>

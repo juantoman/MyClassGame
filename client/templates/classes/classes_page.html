@@ -1,0 +1,39 @@
+<template name="classesPage">
+  {{> myBreadcrumb}}
+  <div  class="container-fluid myContent">
+    <div class="row">
+      {{#each classe}}
+        <div class="col-xs-12 col-md-3">
+          <div class="thumbnail">
+              <h2 class="text-center bg-info">{{className}}</h2>
+              <img src="/images/user_group_128.png" alt="...">
+              <div class="caption">
+                <h2 class="text-center">
+                  <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
+                  <button type="button" class="btn btn-danger btn-delete" name="{{_id}}">
+                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                    Delete
+                  </button>
+                </h2>
+              </div>
+          </div>
+        </div>
+      {{/each}}
+      <div class="col-xs-12 col-md-3">
+        <div class="thumbnail">
+            <h2 class="text-center bg-success">Add class</h2>
+            <img src="/images/user_group_128.png" alt="...">
+            <div class="caption">
+              <h2 class="text-center">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_class_modal">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  Class
+                </button>
+              </h2>
+            </div>
+        </div>
+      </div>
+    </div>
+    {{> classesModals}}
+  </div>
+</template>
