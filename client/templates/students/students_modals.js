@@ -9,7 +9,6 @@ Template.studentsModals.helpers({
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
   },
   studentInGroup: function(studentId) {
-    //console.log(students.findOne({_id: studentId}).groupId);
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
   }
 });

@@ -7,7 +7,6 @@ Template.studentsMainPage.helpers({
     if ( option == "groups" && Session.get('sogBtn') == "groups" ) {return "btn-primary"; }
   },
   studentsSelected: function() {
-    console.log(Session.get('sogBtn'));
     if ( Session.get('sogBtn') == "students" ) {
       return true;
     } else {

@@ -2,6 +2,7 @@ Instal·lació màquines:
 ----------------------
 sudo apt-get install git
 git init
+git remote add origin <server>
 
 
 1a Màquina:

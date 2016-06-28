@@ -2,30 +2,52 @@
   {{> myBreadcrumb}}
   {{> myNav}}
   <div class="container">
-    <h2 class="text-center bg-info">Random Events</h2>
-    <div class="list-group">
-    {{#each randomEvents}}
-          <div class="form-group has-error has-feedback">
-            <div class="input-group">
-              <span class="input-group-addon"></span>
-              <input type="text" class="form-control inputGroup" id="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{eventDescription}}">
+    
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation"><a href="#behaviours" aria-controls="behaviours" role="tab" data-toggle="tab">Behaviours</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+      </ul>
+    
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="events">
+          <h2 class="text-center bg-info">Random Events</h2>
+            <div class="list-group">
+            {{#each randomEvents}}
+                  <div class="form-group has-error has-feedback">
+                    <div class="input-group">
+                      <span class="input-group-addon"></span>
+                      <input type="text" class="form-control inputGroup" id="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{eventDescription}}">
+                    </div>
+                    <span class="glyphicon glyphicon-cross form-control-feedback" aria-hidden="true"></span>
+                    <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+                  </div>
+            {{/each}}
             </div>
-            <span class="glyphicon glyphicon-cross form-control-feedback" aria-hidden="true"></span>
-            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
-          </div>
-    {{/each}}
-    </div>
-    <form>
-      <div class="form-group has-success has-feedback">
-        <label class="control-label" for="inputGroupSuccess1">New random event</label>
-        <div class="input-group">
-          <span class="input-group-addon">New</span>
-          <input type="text" class="form-control" name="eventDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+            <form>
+              <div class="form-group has-success has-feedback">
+                <label class="control-label" for="inputGroupSuccess1">New random event</label>
+                <div class="input-group">
+                  <span class="input-group-addon">New</span>
+                  <input type="text" class="form-control" name="eventDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                </div>
+                <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+              </div>
+            </form>
         </div>
-        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-        <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+        <div role="tabpanel" class="tab-pane" id="behaviours">
+          Behaviours
+        </div>
+        <div role="tabpanel" class="tab-pane" id="messages">...</div>
+        <div role="tabpanel" class="tab-pane" id="settings">...</div>
       </div>
-    </form>
+    
+    </div>
     
   </div>
 </template>
