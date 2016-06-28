@@ -8,8 +8,13 @@ Template.groupsPage.events({
     event.preventDefault();
     Meteor.call('groupDelete', event.target.name);
   },
-  'click .btn-xp,.btn-hp,.btn-primary': function(event) {
+  'click .btn-xp,.btn-hp': function(event) {
     event.preventDefault();
     Session.setPersistent('groupId', event.target.name);
+  },
+  'click .btn-primary': function(event) {
+    event.preventDefault();
+    Session.setPersistent('groupId', event.target.name);
+    Modal.show('groupModal');
   }
 });

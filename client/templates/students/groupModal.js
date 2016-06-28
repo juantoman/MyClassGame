@@ -1,20 +1,13 @@
-Template.studentsModals.helpers({
-  xps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: true });
-  },
-  hps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: false });
-  },
+Template.groupModal.helpers({
   students: function() {
-    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+    return students.find( { $or: [ { groupId: Session.get('groupId') }, { groupId: 0 } ] } );
   },
   studentInGroup: function(studentId) {
-    //console.log(students.findOne({_id: studentId}).groupId);
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
   }
 });
 
-Template.studentsModals.events({
+Template.groupModal.events({
   'submit form#add_student_form': function(event) {
     event.preventDefault();
     var user = Meteor.user();
@@ -84,10 +77,18 @@ Template.studentsModals.events({
   },
   'click #groupModalSubmit': function(event) {
     event.preventDefault();
-    $('#group_modal').find(".list-group-item-danger").each( function() {
+    $('.modal').find(".list-group-item").each( function() {
+      i=this.id;
+      Meteor.call('studentGroup', 0, i);
+    });
+    $('.modal').find(".list-group-item-danger").each( function() {
       i=this.id;
       Meteor.call('studentGroup', Session.get('groupId'), i);
     });
-    $('#group_modal').modal('hide');
+    Modal.hide('groupModal');
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('groupModal');
   }
 });
