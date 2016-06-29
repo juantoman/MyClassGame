@@ -1,9 +1,27 @@
 <template name="myNav">
+  {{> myBreadcrumb}}
   <h2 class="text-center bg-primary">{{className}}</h2>
+   <!--
   <ul class="nav nav-pills nav-justified">
     <li id="Students" role="presentation" class="{{n "Students"}}"><a href="studentsMainPage">Students</a></li>
     <li id="Events" role="presentation" class="{{n "Events"}}"><a href="randomEventPage">Events</a></li>
     <li id="Statistics" role="presentation" class="{{n "Statistics"}}"><a href="statisticsPage">Statistics</a></li>
     <li id="Configuration" role="presentation" class="{{n "Configuration"}}"><a href="randomEventsList">Configuration</a></li>
   </ul>
+  -->
+   <!-- Nav tabs -->
+  <ul class="nav nav-pills nav-justified" role="tablist">
+    <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab">Students</a></li>
+    <li role="presentation"><a href="#event" aria-controls="event" role="tab" data-toggle="tab">Event</a></li>
+    <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Statistics</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="studentsMain">{{> studentsMainPage}}</div>
+    <div role="tabpanel" class="tab-pane" id="event">{{> randomEventPage}}</div>
+    <div role="tabpanel" class="tab-pane" id="statistics">{{> statisticsPage}}</div>
+    <div role="tabpanel" class="tab-pane" id="settings">{{> randomEventsList}}</div>
+  </div>
 </template>

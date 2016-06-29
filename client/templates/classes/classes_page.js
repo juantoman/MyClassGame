@@ -10,7 +10,7 @@ Template.classesPage.events({
     Session.setPersistent('classId', event.target.id);
     Session.setPersistent('className', event.target.name);
     Session.setPersistent('navItem', "Students");
-    Router.go('studentsMainPage');
+    Router.go('myNav');
   },
   'click .btn-delete': function(event) {
     event.preventDefault();

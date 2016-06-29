@@ -8,11 +8,11 @@ Template.myNav.helpers({
     }
   }
 });
-Template.myNav.events({
+/*Template.myNav.events({
   'click a': function(event) {
     event.preventDefault();
     //event.target.parentNode.className="active";
     Router.go(event.target.href)
     Session.setPersistent('navItem',event.target.parentNode.id);
   }
-});
+});*/
