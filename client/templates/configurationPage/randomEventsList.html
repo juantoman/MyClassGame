@@ -8,8 +8,6 @@
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
         <li role="presentation"><a href="#behaviours" aria-controls="behaviours" role="tab" data-toggle="tab">Behaviours</a></li>
-        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
       </ul>
     
       <!-- Tab panes -->
@@ -41,10 +39,9 @@
             </form>
         </div>
         <div role="tabpanel" class="tab-pane" id="behaviours">
-          Behaviours
+          <h2 class="text-center bg-info">Behaviours</h2>
+          {{> behavioursList}}
         </div>
-        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-        <div role="tabpanel" class="tab-pane" id="settings">...</div>
       </div>
     
     </div>
