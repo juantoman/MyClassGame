@@ -86,3 +86,6 @@ body {
 .myInput{
   width:90%;
 }
+.tab-content .tab-content{
+  border:1px solid lightgray;
+}
