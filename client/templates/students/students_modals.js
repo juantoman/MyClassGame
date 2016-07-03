@@ -20,6 +20,7 @@ Template.studentsModals.events({
     var student = {
       classId: Session.get('classId'),
       studentName: $(event.target).find('[name=student-name]').val(),
+      email: $(event.target).find('[name=email]').val(),
       groupId: 0,
       createdOn: new Date()
     };

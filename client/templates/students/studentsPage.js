@@ -1,6 +1,14 @@
 Template.studentsPage.helpers({
   students: function() {
     return students.find({classId: Session.get('classId')}, {sort: {createdOn: -1}});
+  },
+  image: function(email) {
+    //return "/images/user_128.png";
+    if (!email) {
+      return "/images/user_128.png";
+    } else  {
+      return Meteor.users.findOne({"services.google.email":email}).services.google.picture;
+    }  
   }
 });
 Template.studentsPage.events({
