@@ -19,3 +19,6 @@ Meteor.publish('behavioursLog', function() {
 Meteor.publish('allUsers', function() {
   return Meteor.users.find({}, {fields: {"services.google": 1}});
 });
+Meteor.publish('prizes', function() {
+  return Meteor.users.find();
+});
