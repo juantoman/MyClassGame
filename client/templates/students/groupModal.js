@@ -1,6 +1,6 @@
 Template.groupModal.helpers({
   students: function() {
-    return students.find( { $or: [ { groupId: Session.get('groupId') }, { groupId: 0 } ] } );
+    return students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } );
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
