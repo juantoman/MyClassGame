@@ -22,6 +22,9 @@ Template.studentsModals.events({
       studentName: $(event.target).find('[name=student-name]').val(),
       email: $(event.target).find('[name=email]').val(),
       groupId: 0,
+      XP: 0,
+      HP: 5,
+      coins: 0,
       createdOn: new Date()
     };
     Meteor.call('studentInsert', student);

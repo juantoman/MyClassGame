@@ -6,17 +6,18 @@
               <h2 class="text-center bg-primary">{{studentName}}</h2>
               <img src="{{image email}}" alt="..." width="256px">
               <h2 class="text-center">
-                <span class="label label-success">{{XP}} XP</span>
-                <span class="label label-warning">{{HP}} HP</span>
+                <span class="label label-success">{{XP}} LP</span>
+                <span class="label label-danger">{{HP}} WC</span>
+                <span class="label label-warning">{{coins}} Coins</span>
               </h2>
               <h2 class="text-center">
                 <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal" name="{{_id}}">
                       <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      XP
+                      LP
                 </button>
-                <button type="button" class="btn btn-warning btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
+                <button type="button" class="btn btn-danger btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
                       <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                      HP
+                      WC
                 </button>
               </h2>
               <div class="caption">

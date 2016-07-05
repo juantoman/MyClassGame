@@ -22,3 +22,6 @@ Meteor.publish('allUsers', function() {
 Meteor.publish('badges', function() {
   return badges.find();
 });
+Meteor.publish('convictions', function() {
+  return convictions.find();
+});
