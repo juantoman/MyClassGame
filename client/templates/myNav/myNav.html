@@ -1,13 +1,5 @@
 <template name="myNav">
   {{> myBreadcrumb}}
-   <!--
-  <ul class="nav nav-pills nav-justified">
-    <li id="Students" role="presentation" class="{{n "Students"}}"><a href="studentsMainPage">Students</a></li>
-    <li id="Events" role="presentation" class="{{n "Events"}}"><a href="randomEventPage">Events</a></li>
-    <li id="Statistics" role="presentation" class="{{n "Statistics"}}"><a href="statisticsPage">Statistics</a></li>
-    <li id="Configuration" role="presentation" class="{{n "Configuration"}}"><a href="randomEventsList">Configuration</a></li>
-  </ul>
-  -->
    <!-- Nav tabs -->
   <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab">Students</a></li>
@@ -23,6 +15,6 @@
     <div role="tabpanel" class="tab-pane" id="random">{{> randomPage}}</div>
     <div role="tabpanel" class="tab-pane" id="tasks">Tasks</div>
     <div role="tabpanel" class="tab-pane" id="statistics">{{> statisticsPage}}</div>
-    <div role="tabpanel" class="tab-pane" id="settings">{{> randomEventsList}}</div>
+    <div role="tabpanel" class="tab-pane" id="settings">{{> settingsPage}}</div>
   </div>
 </template>

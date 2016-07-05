@@ -1,10 +1,10 @@
-Template.randomEventsList.helpers({
+Template.eventsList.helpers({
   randomEvents: function() {
     return randomEvents.find({classId: Session.get('classId')});
   }
 });
 
-Template.randomEventsList.events({
+Template.eventsList.events({
   'submit form': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())

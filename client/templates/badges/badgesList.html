@@ -1,11 +1,11 @@
-<template name="prizesList">
+<template name="badgesList">
   <div class="container">
     <div class="list-group">
-    {{#each prizesList}}
+    {{#each badgesList}}
           <div class="form-group has-feedback form-inline">
             <div class="input-group col-xs-8">
               <span class="input-group-addon">Description</span>
-              <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
+              <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{badgeDescription}}">
             </div>
             <div class="input-group col-xs-3">
               <span class="input-group-addon">Points</span>
@@ -16,17 +16,17 @@
     </div>
     <form>
       <div class="form-group has-feedback">
-        <label class="control-label" for="inputGroupSuccess1">New prize</label>
+        <label class="control-label" for="inputGroupSuccess1">New badge</label>
         <div class="form-inline">
           <div class="input-group col-xs-8">
             <span class="input-group-addon">Description</span>
-            <input type="text" class="form-control" name="behaviourDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+            <input type="text" class="form-control" name="badgeDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
           </div>
           <div class="input-group col-xs-3">
             <span class="input-group-addon">Points</span>
-            <input type="text" class="form-control" name="behaviourPoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status">
+            <input type="text" class="form-control" name="badgePoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status">
           </div>
-          <input type="submit" id="btn-save" value="Save" class="btn {{bGreen}}">
+          <input type="submit" id="btn-save" value="Save" class="btn">
         </div>
       </div>
     </form>

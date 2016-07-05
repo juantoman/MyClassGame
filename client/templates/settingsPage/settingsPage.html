@@ -1,0 +1,47 @@
+<template name="settingsPage">
+  <!--
+  {{> myBreadcrumb}}
+  {{> myNav}}
+  -->
+  <div class="container">
+
+    <div>
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events</a></li>
+        <li role="presentation"><a href="#behaviours" aria-controls="behaviours" role="tab" data-toggle="tab">Behaviours</a></li>
+        <li role="presentation"><a href="#badges" aria-controls="badges" role="tab" data-toggle="tab">Badges</a></li>
+        <li role="presentation"><a href="#store" aria-controls="store" role="tab" data-toggle="tab">Store</a></li>
+        <li role="presentation"><a href="#convictions" aria-controls="convictions" role="tab" data-toggle="tab">Convictions</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content container">
+        <div role="tabpanel" class="tab-pane active" id="events">
+          <h2 class="text-center bg-info">Events</h2>
+          {{> eventsList}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="behaviours">
+          <h2 class="text-center bg-info">Behaviours</h2>
+          {{> behavioursList}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="badges">
+          <h2 class="text-center bg-info">Badges</h2>
+          {{> badgesList}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="store">
+          <h2 class="text-center bg-info">Store</h2>
+          itemsList
+        </div>
+        <div role="tabpanel" class="tab-pane" id="convictions">
+          <h2 class="text-center bg-info">Convictions</h2>
+          convictionsList
+        </div>
+
+      </div>
+      <br>
+
+    </div>
+
+  </div>
+</template>
