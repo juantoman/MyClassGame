@@ -17,6 +17,11 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         t = e[r].groupName;
         break;
+      case "conviction":
+        var e = convictions.find({classId: Session.get('classId')}).fetch();
+        var r = Math.floor(Math.random() * e.length);
+        t = e[r].convictionDescription;
+        break;
     }
 
 

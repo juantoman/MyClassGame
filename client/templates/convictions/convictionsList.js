@@ -18,7 +18,7 @@ Template.convictionsList.events({
     event.preventDefault();
     if (event.currentTarget.value )
     {
-      Meteor.call('convictiontUpdate', event.target.id, event.currentTarget.value);
+      Meteor.call('convictionUpdate', event.target.id, event.currentTarget.value);
     } else {
       Meteor.call('convictionDelete',event.target.id);
     }
