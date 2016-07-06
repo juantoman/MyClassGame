@@ -8,7 +8,7 @@ Template.studentsPage.helpers({
       return "/images/user_128.png";
     } else  {
       return Meteor.users.findOne({"services.google.email":email}).services.google.picture;
-    }  
+    }
   }
 });
 Template.studentsPage.events({
@@ -24,6 +24,13 @@ Template.studentsPage.events({
   'click .btn-hp': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId', event.target.name);
+    //Meteor.call('studentHP', event.target.name, 10);
+  },
+  'click .btn-badge': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId', event.target.name);
+    Modal.show('badgeModal');
+    //Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
   }
 });

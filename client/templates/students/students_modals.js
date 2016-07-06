@@ -25,6 +25,7 @@ Template.studentsModals.events({
       XP: 0,
       HP: 5,
       coins: 0,
+      badges: null,
       createdOn: new Date()
     };
     Meteor.call('studentInsert', student);
