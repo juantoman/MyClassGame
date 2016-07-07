@@ -15,9 +15,11 @@ Template.badgeModal.events({
   },
   'click #badgeModalSubmit': function(event) {
     event.preventDefault();
-    $('.modal').find(".list-group-item-danger").each( function() {
+    $('.badgeModal').find(".list-group-item-danger").each( function() {
       badgeId=this.id;
       Meteor.call('studentBadge', Session.get('studentId'), badgeId);
+      p=parseInt($(this).find(".badge").text());
+      Meteor.call('studentXP', Session.get('studentId'), p);
     });
     Modal.hide('badgeModal');
   },

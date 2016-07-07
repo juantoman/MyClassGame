@@ -1,6 +1,6 @@
 Template.studentsPage.helpers({
   students: function() {
-    return students.find({classId: Session.get('classId')}, {sort: {createdOn: -1}});
+    return students.find({classId: Session.get('classId')}, {sort: {XP: -1}});
   },
   image: function(email) {
     //return "/images/user_128.png";
