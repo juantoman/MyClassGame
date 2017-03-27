@@ -32,5 +32,9 @@ Template.studentsPage.events({
     Modal.show('badgeModal');
     //Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
+  },
+  'click #drive': function(event) {
+    console.log("Drive");
+    loadPicker();
   }
 });
