@@ -1,1 +1,6 @@
-{ "student": "Alumno" }
+{
+    "student": "Alumno",
+    "add_student": "Añadir alumno",
+    "store": "Tienda",
+    "badges": "Insignias"
+}

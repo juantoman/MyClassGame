@@ -4,40 +4,39 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="thumbnail">
               <h2 class="text-center bg-primary">{{studentName}}</h2>
-              
-              <div class="text-center">
-                <img src="{{image email}}" alt="..." width="100px" class="img-circle">
-                <ul class="list-group">
-                  <li class="list-group-item "><span class="label label-success">{{XP}} XP</span></li>
-                  <li class="list-group-item"><span class="label label-danger">{{HP}} HP</span></li>
-                  <li class="list-group-item"><span class="label label-warning">{{coins}} Coins</span></li>
-                  <li class="list-group-item"><span class="label label-info">{{badges.length}} Badges</span></li>
-                </ul>
+              <div class="caixa">
+                <div class="imatge">
+                  <p><img src="{{image email}}" alt="..." class="img-circle foto"></p>
+                </div>
+                <div class="punts">
+                  <div class="list-group">
+                    <li class="list-group-item list-group-item-success">{{XP}} XP</li>
+                    <li class="list-group-item list-group-item-danger">{{HP}} HP</li>
+                    <li class="list-group-item list-group-item-info">{{badges.length}} Badges</li>
+                    <li class="list-group-item list-group-item-warning">{{coins}} Coins</li>
+                  </div>
+                </div>
               </div>
-              <h2 class="text-center">
-                <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal" name="{{_id}}">
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      XP
-                </button>
-                <button type="button" class="btn btn-danger btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
-                      <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-                      HP
-                </button>
-                <button type="button" class="btn btn-info btn-badge" data-toggle="modal" name="{{_id}}">
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      Badge
-                </button>
-                <button type="button" class="btn btn-primary btn-store" data-toggle="modal" data-target="#store_modal" name="{{_id}}">
-                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                      Store
-                </button>
-              </h2>
-              <div class="caption">
+              <div class="botons">
                 <h2 class="text-center">
-                  <button type="button" class="btn btn-primary">{{studentName}}</button>
-                  <button type="button" class="btn btn-danger btn-delete" name="{{_id}}">
-                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
-                    Delete
+                  <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal" name="{{_id}}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        XP
+                  </button>
+                  <button type="button" class="btn btn-danger btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
+                        <span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+                        HP
+                  </button>
+                  <button type="button" class="btn btn-info btn-badge" data-toggle="modal" name="{{_id}}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        {{_ "badges"}}
+                  </button>
+                  <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal" name="{{_id}}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        {{_ "store"}}
+                  </button>
+                  <button type="button" class="btn btn-danger btn-delete text-right" name="{{_id}}">
+                      <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
                   </button>
                 </h2>
               </div>
@@ -46,8 +45,8 @@
       {{/each}}
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="thumbnail">
-            <h2 class="text-center bg-success">Add student</h2>
-            <img src="/images/add_user_128.png" alt="...">
+            <h2 class="text-center bg-success">{{_ "add_student"}}</h2>
+            <img src="/images/add_user_128.png" alt="..." class="foto">
             <div class="caption">
               <h2 class="text-center">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_student_modal">

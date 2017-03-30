@@ -1,1 +1,6 @@
-{ "student": "Student" }
+{
+    "student": "Student",
+    "add_student": "Add student",
+    "store": "Store",
+    "badges": "Badges"
+}
