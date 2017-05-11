@@ -30,3 +30,72 @@
   </div>
   
 </template>
+
+<!-- XP Modal -->
+<template name="groupXPModal">
+   <div class="modal" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_xp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="XPModalLabel">Increase XP to all members in the group</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each xps}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comment</label>
+                <input type="text" class="form-control" id="commentXPGroup" name="commentXPGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- HP Modal -->
+<template name="groupHPModal">
+   <div class="modal" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_hp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="HPModalLabel">Decrease HP to all members</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each hps}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comment</label>
+                <input type="text" class="form-control" id="commentHPGroup" name="commentHPGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" id="hpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

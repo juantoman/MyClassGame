@@ -92,3 +92,108 @@ Template.groupModal.events({
     Modal.hide('groupModal');
   }
 });
+
+Template.groupXPModal.helpers({
+  xps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: true });
+  },
+  hps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: false });
+  },
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  studentInGroup: function(studentId) {
+    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  }
+});
+
+Template.groupXPModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      $(event.currentTarget).removeClass("list-group-item-danger");
+    } else {
+      $(event.currentTarget).addClass("list-group-item-danger");
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('groupXPModal');
+  },
+  'click #xpModalSubmit': function(event) {
+    event.preventDefault();
+    $('#xp_modal_group').find(".list-group-item-danger").each( function() {
+      i=this.id;
+      p=parseInt($(this).find(".badge").text());
+      var user = Meteor.user();
+      console.log("Grup");
+      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+        console.log(item["_id"]);
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: i,
+          comment: $("#commentXPGroup").val(),
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentXP', item["_id"], p);
+      });
+    });
+    Modal.hide('groupXPModal');
+  },
+});
+
+Template.groupHPModal.helpers({
+  xps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: true });
+  },
+  hps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: false });
+  },
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  studentInGroup: function(studentId) {
+    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  }
+});
+
+Template.groupHPModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      $(event.currentTarget).removeClass("list-group-item-danger");
+    } else {
+      $(event.currentTarget).addClass("list-group-item-danger");
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('groupHPModal');
+  },
+  'click #hpModalSubmit': function(event) {
+    event.preventDefault();
+    $('#hp_modal_group').find(".list-group-item-danger").each( function() {
+      i=this.id;
+      p=parseInt($(this).find(".badge").text());
+      var user = Meteor.user();
+      console.log("Grup");
+      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+        console.log(item["_id"]);
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: i,
+          comment: $("#commentHPGroup").val(),
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentHP', item["_id"], p);
+      });
+    });
+    Modal.hide('groupHPModal');
+  },
+});
+

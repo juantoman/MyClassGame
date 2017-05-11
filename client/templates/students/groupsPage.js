@@ -8,9 +8,15 @@ Template.groupsPage.events({
     event.preventDefault();
     Meteor.call('groupDelete', event.target.name);
   },
-  'click .btn-xp,.btn-hp': function(event) {
+  'click .btn-xp': function(event) {
     event.preventDefault();
     Session.setPersistent('groupId', event.target.name);
+    Modal.show('groupXPModal');
+  },
+  'click .btn-hp': function(event) {
+    event.preventDefault();
+    Session.setPersistent('groupId', event.target.name);
+    Modal.show('groupHPModal');
   },
   'click .btn-primary': function(event) {
     event.preventDefault();
