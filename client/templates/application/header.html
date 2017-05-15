@@ -10,14 +10,9 @@
       <a class="navbar-brand" href="{{pathFor 'llistaAlumnes'}}">My Class Game</a>
     </div>
     <div class="collapse navbar-collapse" id="navigation">
-      <!-- <ul class="nav navbar-nav">
-        {{#if currentUser}}<li><a href="{{pathFor 'alumneSubmit'}}">Submit Post</a></li>{{/if}}
-      </ul> -->
       <ul class="nav navbar-nav navbar-right">
-        {{> loginButtons}}
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {{> i18n_dropdown}}
+          {{> i18n_buttons_semantic}}
+          {{> loginButtons}}
       </ul>
     </div>
   </nav>

@@ -22,6 +22,9 @@ Meteor.publish('allUsers', function() {
 Meteor.publish('badges', function() {
   return badges.find();
 });
+Meteor.publish('store', function() {
+  return store.find();
+});
 Meteor.publish('convictions', function() {
   return convictions.find();
 });
