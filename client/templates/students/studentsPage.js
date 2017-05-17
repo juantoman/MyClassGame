@@ -109,6 +109,13 @@ Template.studentsPage.events({
     //Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
   },
+  'click .btn-store': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId', event.target.name);
+    Modal.show('storeModal');
+    //Session.setPersistent('studentId', event.target.name);
+    //Meteor.call('studentHP', event.target.name, 10);
+  },
   'click .foto': function(event) {
     event.preventDefault();
     console.log("Dades alumne");

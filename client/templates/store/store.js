@@ -23,7 +23,7 @@ Template.store.events({
       {
         Meteor.call('itemUpdateDesc', event.target.name, event.currentTarget.value);
       } else {
-        Meteor.call('itemUpdatePoints', event.target.name, event.currentTarget.value);
+        Meteor.call('itemUpdatePrice', event.target.name, event.currentTarget.value);
       }
     } else {
       Meteor.call('itemDelete',event.target.name);
