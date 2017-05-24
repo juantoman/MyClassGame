@@ -56,6 +56,7 @@ Template.behavioursList.events({
       classId: Session.get('classId'),
       behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),
       positive: positiveBehaviour,
+      behaviourType: $(event.target).find('[name=behaviourType]').val(),
       points: $(event.target).find('[name=behaviourPoints]').val(),
       createdOn: new Date()
     };

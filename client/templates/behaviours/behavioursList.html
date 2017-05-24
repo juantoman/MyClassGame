@@ -10,9 +10,13 @@
     <div class="list-group">
     {{#each behaviourList}}
           <div class="form-group {{fGreen}} has-feedback form-inline">
-            <div class="input-group col-xs-8">
+            <div class="input-group col-xs-5">
               <span class="input-group-addon">Description</span>
               <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
+            </div>
+            <div class="input-group col-xs-3">
+              <span class="input-group-addon">Type</span>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" id="inputType" aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
             </div>
             <div class="input-group col-xs-3">
               <span class="input-group-addon">Points</span>
@@ -25,9 +29,13 @@
       <div class="form-group {{fGreen}} has-feedback">
         <label class="control-label" for="inputGroupSuccess1">New behaviour</label>
         <div class="form-inline">
-          <div class="input-group col-xs-8">
+          <div class="input-group col-xs-5">
             <span class="input-group-addon">Description</span>
             <input type="text" class="form-control" name="behaviourDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+          </div>
+          <div class="input-group col-xs-3">
+            <span class="input-group-addon">Type</span>
+            <input type="text" class="form-control" name="behaviourType" id="inputType" aria-describedby="inputGroupSuccess1Status">
           </div>
           <div class="input-group col-xs-3">
             <span class="input-group-addon">Points</span>
