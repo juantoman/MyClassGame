@@ -16,7 +16,7 @@
             </div>
             <div class="input-group col-xs-3">
               <span class="input-group-addon">Type</span>
-              <input type="text" class="form-control inputGroup  input-lg" name="{{_id}}" id="inputType" aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
+              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
             </div>
             <div class="input-group col-xs-3">
               <span class="input-group-addon">Points</span>
@@ -35,7 +35,13 @@
           </div>
           <div class="input-group col-xs-3">
             <span class="input-group-addon">Type</span>
-            <input type="text" class="form-control input-lg" name="behaviourType" id="inputType" aria-describedby="inputGroupSuccess1Status">
+            <select class="form-control inputGroup  input-lg" name="behaviourType" id="inputType" aria-describedby="inputGroupSuccess1Status">>
+              <option value="Attitude">Attitude</option>
+              <option value="Behaviour">Behaviour</option>
+              <option value="Concepts">Concepts</option>
+              <option value="Speaking">Speaking</option>
+              <option value="Writing">Writing</option>
+            </select>
           </div>
           <div class="input-group col-xs-3">
             <span class="input-group-addon">Points</span>
