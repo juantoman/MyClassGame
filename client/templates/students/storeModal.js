@@ -15,11 +15,16 @@ Template.storeModal.events({
   },
   'click #storeModalSubmit': function(event) {
     event.preventDefault();
+    studentId=Session.get('studentId');
+    coins = students.findOne({_id: studentId}).coins;
     $('.storeModal').find(".list-group-item-danger").each( function() {
-      badgeId=this.id;
-      Meteor.call('studentBadge', Session.get('studentId'), badgeId);
-      p=parseInt($(this).find(".badge").text());
-      Meteor.call('studentXP', Session.get('studentId'), p);
+      itemId=this.id;
+      price=parseInt($(this).find(".price").text());
+      if ( coins >= price ) {
+        Meteor.call('buyingItem', Session.get('studentId'), price);
+      } else {
+        alert("No coins");
+      }
     });
     Modal.hide('storeModal');
   },
