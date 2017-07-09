@@ -4,6 +4,8 @@
     <div id="main">
       {{#if currentUser}}
         {{> yield}}
+      {{else}}
+        {{> register}}
       {{/if}}  
     </div>
   </div>

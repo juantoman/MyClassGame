@@ -8,6 +8,7 @@ Template.classesModals.events({
       createdOn: new Date()
     };
     Meteor.call('classInsert', classe);
+    $('#add_class_modal').modal('hide');
     return false;
   }
 });
