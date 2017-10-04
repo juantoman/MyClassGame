@@ -21,7 +21,7 @@ Template.storeModal.events({
       itemId=this.id;
       price=parseInt($(this).find(".price").text());
       if ( coins >= price ) {
-        Meteor.call('buyingItem', Session.get('studentId'), price);
+        Meteor.call('buyingItem', Session.get('studentId'), itemId, price);
       } else {
         alert("No coins");
       }

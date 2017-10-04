@@ -79,9 +79,8 @@ Template.studentsPage.helpers({
     return students.find({classId: Session.get('classId')}, {sort: {XP: -1}});
   },
   image: function(email) {
-    //return "/images/user_128.png";
     if (!email) {
-      return "/images/user_128.png";
+      return "https://lh6.googleusercontent.com/TDdkGSgBuQkaLeFq0QeJAYi-qkqehhRcYHOy41RXEWjYHwYOSiHnQAm9-attShcc2G7-XcaKeWx89dc=w1023-h645";
     } else  {
       return Meteor.users.findOne({"services.google.email":email}).services.google.picture;
     }
