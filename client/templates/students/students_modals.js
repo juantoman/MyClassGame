@@ -20,13 +20,18 @@ Template.studentsModals.events({
     var student = {
       classId: Session.get('classId'),
       studentName: $(event.target).find('[name=student-name]').val(),
+      alias: $(event.target).find('[name=alias]').val(),
+      avatar: $(event.target).find('[name=avatar]').val(),
       email: $(event.target).find('[name=email]').val(),
       groupId: 0,
       XP: 0,
       HP: 5,
+      level: 0,
       coins: 0,
       badges: [],
       items: [],
+      powers: [],
+      collection: [],
       createdOn: new Date()
     };
     Meteor.call('studentInsert', student);

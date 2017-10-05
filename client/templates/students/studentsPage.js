@@ -78,11 +78,11 @@ Template.studentsPage.helpers({
   students: function() {
     return students.find({classId: Session.get('classId')}, {sort: {XP: -1}});
   },
-  image: function(email) {
-    if (!email) {
-      return "https://lh6.googleusercontent.com/TDdkGSgBuQkaLeFq0QeJAYi-qkqehhRcYHOy41RXEWjYHwYOSiHnQAm9-attShcc2G7-XcaKeWx89dc=w1023-h645";
+  image: function(avatar) {
+    if (!avatar) {
+      return "https://drive.google.com/uc?id=0Bx9qnvCsgO7TR09VS2syMENXR3M";
     } else  {
-      return Meteor.users.findOne({"services.google.email":email}).services.google.picture;
+      return avatar
     }
   }
 });
