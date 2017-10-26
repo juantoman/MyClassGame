@@ -1,6 +1,9 @@
+var sort = new ReactiveVar({});
+
 Template.statisticsPage.helpers({
   statistics: function() {
-    return behavioursLog.find({classId: Session.get('classId')});
+    return behavioursLog.find({classId: Session.get('classId')},{sort: sort.get()});
+    //return behavioursLog.find({classId: Session.get('classId')},{sort: {student: -1}});
   },
   student: function(){
     return students.findOne({_id: this.student});
@@ -16,7 +19,15 @@ Template.statisticsPage.helpers({
 Template.statisticsPage.events({
   'click #student_th': function(event) {
     event.preventDefault();
-    console.log("th");
+    sort.set({ student: 1 });
+  },
+  'click #date_th': function(event) {
+    event.preventDefault();
+    sort.set({ createdOn: 1 });
+  },
+  'click #behaviour_th': function(event) {
+    event.preventDefault();
+    sort.set({ behavior: 1 });
   }
 });
 
