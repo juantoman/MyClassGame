@@ -9,11 +9,13 @@
 
 body {
   background: #eee;
+  background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");
   color: #666666; }
 
 #main {
   position: relative;
   background: white;
+  /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   border:1px solid lightgray;
   top: -11px;
 }
@@ -109,5 +111,9 @@ body {
 }
 .list-group-item{
   font-weight: bold;
-  font-size: 150%
+  font-size: 150%;
+}
+.list-group-item:hover{
+  background-color: white;
+  color: blue;
 }

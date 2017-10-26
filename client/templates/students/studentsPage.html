@@ -1,7 +1,7 @@
 <template name="studentsPage">
     <div class="row">
       {{#each students}}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-12 col-md-4 col-lg-3">
           <div class="thumbnail">
               <h2 class="text-center bg-primary">{{studentName}}</h2>
               <div class="caixa">
@@ -9,48 +9,38 @@
                   <p><img src="{{image avatar}}" alt="..." class="img-circle foto"></p>
                 </div>
                 <div class="punts">
-                  <div class="list-group">
-                    <li class="list-group-item list-group-item-success">{{XP}} XP</li>
-                    <li class="list-group-item list-group-item-danger">{{HP}} HP</li>
-                    <li class="list-group-item list-group-item-info">{{badges.length}} Badges</li>
-                    <li class="list-group-item list-group-item-warning">{{coins}} Coins</li>
+                  <div class="list-group" id="{{_id}}">
+                    <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal" data-target="#xp_modal">{{XP}} XP</li>
+                    <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal" data-target="#hp_modal">{{HP}} HP</li>
+                    <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
+                    <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
                   </div>
                 </div>
               </div>
               <div class="botons">
                 <h2 class="text-center">
-                  <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal" name="{{_id}}">
-                        <span class="glyphicon glyphicon-plus btn-xp" aria-hidden="true" name="{{_id}}"></span>
-                        XP
+
+                  <button type="button" class="btn btn-info btn-data" data-toggle="modal" name="{{_id}}">
+                    Información
                   </button>
-                  <button type="button" class="btn btn-danger btn-hp" data-toggle="modal" data-target="#hp_modal" name="{{_id}}">
-                        <span class="glyphicon glyphicon-minus" aria-hidden="true" name="{{_id}}"></span>
-                        HP
+                  <button type="button" class="btn btn-warning btn-powers" data-toggle="modal" data-target="#data_modal" name="{{_id}}">
+                    Poderes
                   </button>
-                  <button type="button" class="btn btn-info btn-badge" data-toggle="modal" name="{{_id}}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" name="{{_id}}"></span>
-                        {{_ "badges"}}
-                  </button>
-                  <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal" name="{{_id}}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" name="{{_id}}"></span>
-                        {{_ "store"}}
-                  </button>
-                  <button type="button" class="btn btn-danger btn-delete text-right" name="{{_id}}">
-                      <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>
+                  <button type="button" class="btn btn-danger btn-delete" name="{{_id}}">
+                    Eliminar
                   </button>
                 </h2>
               </div>
           </div>
         </div>
       {{/each}}
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="col-sm-12 col-md-4 col-lg-3">
         <div class="thumbnail">
             <h2 class="text-center bg-success">{{_ "add_student"}}</h2>
             <img src="/images/add_user_128.png" alt="..." class="foto">
             <div class="caption">
               <h2 class="text-center">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_student_modal">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   {{_ "student"}}
                 </button>
                 <button id="drive" type="button" class="btn btn-primary">

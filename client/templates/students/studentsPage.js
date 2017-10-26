@@ -89,28 +89,29 @@ Template.studentsPage.helpers({
 Template.studentsPage.events({
   'click .btn-delete': function(event) {
     event.preventDefault();
-    Meteor.call('studentDelete', event.target.name);
+    alert("Borrar alumne");
+    //Meteor.call('studentDelete', event.target.name);
   },
   'click .btn-xp': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', event.target.name);
+    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     //Meteor.call('studentXP', event.target.name, 100);
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', event.target.name);
+    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', event.target.name);
+    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     Modal.show('badgeModal');
     //Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-store': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', event.target.name);
+    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     Modal.show('storeModal');
     //Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
@@ -118,6 +119,7 @@ Template.studentsPage.events({
   'click .foto': function(event) {
     event.preventDefault();
     console.log("Dades alumne");
+    alert("Dades alumne");
   },
   'click #drive': function(event) {
     console.log("Drive");

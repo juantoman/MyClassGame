@@ -3,23 +3,23 @@
   {{> myBreadcrumb}}
   {{> myNav}} -->
   <p class="text-center">
-    <button id="btn-positive" type="button" class="btn {{btnSelected true}} btn-lg">Positives</button>
-    <button id="btn-negative" type="button" class="btn {{btnSelected false}} btn-lg">Negatives</button>
+    <button id="btn-positive" type="button" class="btn {{btnSelected true}} btn-lg">Positivos</button>
+    <button id="btn-negative" type="button" class="btn {{btnSelected false}} btn-lg">Negativos</button>
   </p>
   <div class="container">
     <div class="list-group">
     {{#each behaviourList}}
           <div class="form-group {{fGreen}} has-feedback form-inline">
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Description</span>
+              <span class="input-group-addon">Descripción</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
             </div>
             <div class="input-group col-xs-3">
-              <span class="input-group-addon">Type</span>
+              <span class="input-group-addon">Tipo</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
             </div>
             <div class="input-group col-xs-3">
-              <span class="input-group-addon">Points</span>
+              <span class="input-group-addon">Puntos</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
             </div>
           </div>
@@ -27,27 +27,26 @@
     </div>
     <form>
       <div class="form-group {{fGreen}} has-feedback">
-        <label class="control-label" for="inputGroupSuccess1">New behaviour</label>
+        <label class="control-label" for="inputGroupSuccess1">Nuevo comportamiento</label>
         <div class="form-inline">
           <div class="input-group col-xs-5">
-            <span class="input-group-addon">Description</span>
+            <span class="input-group-addon">Descripción</span>
             <input type="text" class="form-control input-lg" name="behaviourDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
           </div>
           <div class="input-group col-xs-3">
-            <span class="input-group-addon">Type</span>
+            <span class="input-group-addon">Tipo</span>
             <select class="form-control inputGroup  input-lg" name="behaviourType" id="inputType" aria-describedby="inputGroupSuccess1Status">>
-              <option value="Attitude">Attitude</option>
-              <option value="Behaviour">Behaviour</option>
-              <option value="Concepts">Concepts</option>
-              <option value="Speaking">Speaking</option>
-              <option value="Writing">Writing</option>
+              <option value="actitud">Actitud</option>
+              <option value="comportamiento">Comportament</option>
+              <option value="conceptos">Conceptual</option>
+              <option value="grupo">Trabajo grupal</option>
             </select>
           </div>
           <div class="input-group col-xs-3">
-            <span class="input-group-addon">Points</span>
+            <span class="input-group-addon">Puntos</span>
             <input type="text" class="form-control input-lg" name="behaviourPoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status">
           </div>
-          <input type="submit" id="btn-save" value="Save" class="btn {{bGreen}}">
+          <input type="submit" id="btn-save" value="Guardar" class="btn {{bGreen}}">
         </div>
       </div>
     </form>
