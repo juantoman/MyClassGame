@@ -126,3 +126,6 @@ body {
 .list-inline{
   text-align: left;
 }
+.list-inline-item button{
+  width: 100px;
+}
