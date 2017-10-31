@@ -1,4 +1,5 @@
 <template name="studentsPage">
+  {{#if lista}}
     <div class="row">
       {{#each students}}
         <div class="col-sm-12 col-md-4 col-lg-3">
@@ -51,4 +52,48 @@
         </div>
       </div>
     </div>
+  {{else}}
+    <div class="list-group">
+      {{#each students}}
+          <div class="list-group-item">
+              <div class="caixa">
+                <ul class="list-inline">
+                  <li class="list-inline-item"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"></li>
+                  <li class="list-inline-item">
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                      <button type="button" class="btn btn-default" ><h4>Grupo</h4></button>
+                      <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal"><h4>{{XP}} XP</h4></button>
+                      <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal" data-target="#hp_modal"><h4>{{HP}} HP</h4></button>
+                      <button type="button" class="btn btn-info btn-badge" data-toggle="modal"><h4>{{badges.length}} BG</h4></button>
+                      <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal"><h4>{{coins}} €</h4></button>
+                    </div>
+                  </li>
+                  <li class="list-inline-item">
+                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                      <button type="button" class="btn btn-default" ><h4>{{studentName}}</h4></button>
+                      <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal"><h4>{{XP}} XP</h4></button>
+                      <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal" data-target="#hp_modal"><h4>{{HP}} HP</h4></button>
+                      <button type="button" class="btn btn-info btn-badge" data-toggle="modal"><h4>{{badges.length}} BG</h4></button>
+                      <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal"><h4>{{coins}} €</h4></button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+          </div>
+      {{/each}}
+      <div class="list-group-item">
+        <div class="caixa">
+          <ul class="list-inline">
+            <li class="list-inline-item"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor"></li>
+            <li class="list-inline-item">
+              <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">{{_ "add_student"}}</button>
+                <button id="drive" type="button" class="btn btn-primary">Drive</button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  {{/if}}
 </template>

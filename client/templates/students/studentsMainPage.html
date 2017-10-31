@@ -9,6 +9,14 @@
       <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-lg">Estudiantes</button>
       <button id="groups" type="button" class="btn btn-sog {{btnSelected "groups"}} btn-lg">Grupos</button>
     </p>
+    <p class="text-center">
+      <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-lg">
+        Cuadrícula
+      </button>
+      <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-lg">
+        Lista
+      </button>
+    </p>
     <br>
     {{#if studentsSelected}}
       {{> studentsPage}}

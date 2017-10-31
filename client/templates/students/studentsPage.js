@@ -84,7 +84,14 @@ Template.studentsPage.helpers({
     } else  {
       return avatar
     }
-  }
+  },
+  lista: function() {
+    if ( Session.get('golBtn') == "grid" ) {
+      return true;
+    } else {
+      return false;
+    }
+  }  
 });
 Template.studentsPage.events({
   'click .btn-delete': function(event) {

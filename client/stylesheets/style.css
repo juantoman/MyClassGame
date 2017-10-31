@@ -102,6 +102,9 @@ body {
 .foto{
   width:150px;
 }
+.foto-hor{
+  width:50px;
+}
 .punts {
   float:right;
   width:35%;
