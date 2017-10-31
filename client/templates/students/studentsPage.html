@@ -57,20 +57,18 @@
       {{#each students}}
           <div class="list-group-item">
               <div class="caixa">
+                
                 <ul class="list-inline">
                   <li class="list-inline-item"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"></li>
                   <li class="list-inline-item">
                     <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-default" ><h4>Grupo</h4></button>
-                      <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal"><h4>{{XP}} XP</h4></button>
-                      <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal" data-target="#hp_modal"><h4>{{HP}} HP</h4></button>
-                      <button type="button" class="btn btn-info btn-badge" data-toggle="modal"><h4>{{badges.length}} BG</h4></button>
-                      <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal"><h4>{{coins}} €</h4></button>
+                      <button type="button" class="btn btn-default" ><h4>{{studentName}}</h4></button>
+                      <button type="button" class="btn btn-success btn-xp"><h4>Grupo</h4></button>
+                      <button type="button" class="btn btn-danger btn-hp"><h4>Nivel</h4></button>
                     </div>
                   </li>
                   <li class="list-inline-item">
                     <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-default" ><h4>{{studentName}}</h4></button>
                       <button type="button" class="btn btn-success btn-xp" data-toggle="modal" data-target="#xp_modal"><h4>{{XP}} XP</h4></button>
                       <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal" data-target="#hp_modal"><h4>{{HP}} HP</h4></button>
                       <button type="button" class="btn btn-info btn-badge" data-toggle="modal"><h4>{{badges.length}} BG</h4></button>
@@ -94,6 +92,14 @@
           </ul>
         </div>
       </div>
+      <table class="table table-bordered">
+        {{#each students}}
+          <tr>
+            <td><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"></td>
+            <td><button type="button" class="btn btn-default" ><h4>{{studentName}}</h4></button></td>
+          </tr>
+        {{/each}}
+      </table>
     </div>
   {{/if}}
 </template>

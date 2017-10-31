@@ -120,3 +120,9 @@ body {
   background-color: white;
   color: blue;
 }
+.list-inline{
+  width:100%;
+}
+.list-inline{
+  text-align: left;
+}
