@@ -31,6 +31,39 @@
       </div>
     </div>
   </div>
+  
+  <!-- Modify Student Modal -->
+
+  <div class="modal" id="mod_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="mod_student_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="AddStudentModalLabel">Modificar datos...</h4>
+          </div>
+          {{#with student}}
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="sName" class="control-label">Nombre estudiante</label>
+                <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}">
+                <label for="sAlias" class="control-label">Alias</label>
+                <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}">
+                <label for="sAvatar" class="control-label">Avatar</label>
+                <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}">
+                <label for="sEmail" class="control-label">email</label>
+                <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}">
+              </div>
+            </div>
+          {{/with}}
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" class="btn btn-primary" value="Save">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>  
 
   <!-- Add Group Modal -->
 

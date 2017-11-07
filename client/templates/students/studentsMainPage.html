@@ -3,17 +3,21 @@
   
   
   <div  class="container-fluid  myContent">
-    <h2 class="text-center"> {{className}} </h2>
+    <form class="form-inline text-center">
+      <div class="form-group">
+        <input class="form-control form-control-lg text-center" id="className" type="text" value="{{className}}">
+      </div>
+    </form>
     <br>
     <p class="text-center">
-      <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-lg">Estudiantes</button>
-      <button id="groups" type="button" class="btn btn-sog {{btnSelected "groups"}} btn-lg">Grupos</button>
+      <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-sm">Estudiantes</button>
+      <button id="groups" type="button" class="btn btn-sog {{btnSelected "groups"}} btn-sm">Grupos</button>
     </p>
     <p class="text-center">
-      <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-lg">
+      <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-sm">
         Cuadrícula
       </button>
-      <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-lg">
+      <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-sm">
         Lista
       </button>
     </p>

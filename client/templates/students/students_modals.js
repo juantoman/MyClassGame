@@ -10,6 +10,9 @@ Template.studentsModals.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  },
+  student: function() {
+    return students.findOne({ _id: Session.get('studentId') } );
   }
 });
 
@@ -36,6 +39,17 @@ Template.studentsModals.events({
     };
     Meteor.call('studentInsert', student);
     $('#add_student_modal').modal('hide');
+  },
+  'submit form#mod_student_form': function(event) {
+    event.preventDefault();
+    var user = Meteor.user();
+    studentId=Session.get('studentId');
+    studentName=$(event.target).find('[name=sName]').val();
+    alias=$(event.target).find('[name=sAlias]').val();
+    avatar=$(event.target).find('[name=sAvatar]').val();
+    email=$(event.target).find('[name=sEmail]').val();
+    Meteor.call('studentModify',studentId,studentName,alias,avatar,email);
+    $('#mod_student_modal').modal('hide');
   },
   'submit form#add_group_form': function(event) {
     event.preventDefault();

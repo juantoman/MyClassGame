@@ -4,6 +4,9 @@ Template.groupModal.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  },
+  groupName: function() {
+    return groups.findOne( { _id: Session.get('groupId') }).groupName;
   }
 });
 
@@ -85,6 +88,8 @@ Template.groupModal.events({
       i=this.id;
       Meteor.call('studentGroup', Session.get('groupId'), i);
     });
+    gName=$("#gName").val();
+    Meteor.call('groupModify', Session.get('groupId'), gName);
     Modal.hide('groupModal');
   },
   'click .btn-default': function(event) {

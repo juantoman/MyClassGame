@@ -34,5 +34,9 @@ Template.studentsMainPage.events({
   'click .btn-gol': function(event) {
     event.preventDefault();
     Session.setPersistent('golBtn', event.target.id);
+  },
+  'change #className': function(event) {
+    event.preventDefault();
+    Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);
   }
 });

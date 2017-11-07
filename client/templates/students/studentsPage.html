@@ -11,6 +11,7 @@
                 </div>
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
+                    <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal" data-target="#level_modal">Nivel {{level}}</li>
                     <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal" data-target="#xp_modal">{{XP}} XP</li>
                     <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal" data-target="#hp_modal">{{HP}} HP</li>
                     <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
@@ -21,7 +22,7 @@
               <div class="botons">
                 <h2 class="text-center">
 
-                  <button type="button" class="btn btn-info btn-data" data-toggle="modal" name="{{_id}}">
+                  <button type="button" class="btn btn-info btn-data" data-toggle="modal"  data-target="#mod_student_modal" name="{{_id}}">
                     Información
                   </button>
                   <button type="button" class="btn btn-warning btn-powers" data-toggle="modal" data-target="#data_modal" name="{{_id}}">
@@ -62,8 +63,8 @@
                   <li class="list-inline-item"><button type="button" class="btn btn-success btn-xp"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"><h4>{{studentName}}</h4></button></li>
                   <li class="list-inline-item">
                     <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-success btn-xp"><h4>Grupo</h4></button>
-                      <button type="button" class="btn btn-danger btn-hp"><h4>Nivel</h4></button>
+                      <button type="button" class="btn btn-success btn-xp"><h4>{{grupo.groupName}}</h4></button>
+                      <button type="button" class="btn btn-danger btn-hp"><h4>Nivel {{level}}</h4></button>
                     </div>
                   </li>
                   <li class="list-inline-item">

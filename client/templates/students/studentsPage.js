@@ -91,7 +91,10 @@ Template.studentsPage.helpers({
     } else {
       return false;
     }
-  }  
+  },
+  grupo: function() {
+    return groups.findOne({_id: this.groupId});
+  }
 });
 Template.studentsPage.events({
   'click .btn-delete': function(event) {
@@ -107,6 +110,11 @@ Template.studentsPage.events({
   'click .btn-hp': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    //Meteor.call('studentHP', event.target.name, 10);
+  },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId', event.target.name);
     //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-badge': function(event) {
