@@ -3,13 +3,17 @@
     <div class="list-group">
     {{#each badgesList}}
           <div class="form-group has-feedback form-inline">
-            <div class="input-group col-xs-8">
-              <span class="input-group-addon">Description</span>
+            <div class="input-group col-xs-7">
+              <span class="input-group-addon">Descripción</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{badgeDescription}}">
             </div>
-            <div class="input-group col-xs-3">
-              <span class="input-group-addon">Points</span>
+            <div class="input-group col-xs-2">
+              <span class="input-group-addon">XP</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
+            </div>
+            <div class="input-group col-xs-2">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputLevel"  aria-describedby="inputGroupSuccess1Status" value="{{level}}">
             </div>
           </div>
     {{/each}}
@@ -18,13 +22,17 @@
       <div class="form-group has-feedback">
         <label class="control-label" for="inputGroupSuccess1">New badge</label>
         <div class="form-inline">
-          <div class="input-group col-xs-8">
-            <span class="input-group-addon">Description</span>
+          <div class="input-group col-xs-7">
+            <span class="input-group-addon">Descripción</span>
             <input type="text" class="form-control input-lg" name="badgeDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
           </div>
-          <div class="input-group col-xs-3">
-            <span class="input-group-addon">Points</span>
+          <div class="input-group col-xs-2">
+            <span class="input-group-addon">XP</span>
             <input type="text" class="form-control input-lg" name="badgePoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status">
+          </div>
+          <div class="input-group col-xs-2">
+            <span class="input-group-addon">Nivel</span>
+            <input type="text" class="form-control input-lg" name="badgeLevel" id="Level" aria-describedby="inputGroupSuccess1Status">
           </div>
           <input type="submit" id="btn-save" value="Guardar" class="btn">
         </div>

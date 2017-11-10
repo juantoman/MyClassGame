@@ -11,6 +11,7 @@ Template.badgesList.events({
       classId: Session.get('classId'),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
       points: $(event.target).find('[name=badgePoints]').val(),
+      level: $(event.target).find('[name=badgeLevel]').val(),
       createdOn: new Date()
     };
     Meteor.call('badgeInsert', badge);
@@ -22,8 +23,14 @@ Template.badgesList.events({
       if (event.target.id=="inputDesc")
       {
         Meteor.call('badgeUpdateDesc', event.target.name, event.currentTarget.value);
-      } else {
+      }
+      if (event.target.id=="inputPoints")
+      {
         Meteor.call('badgeUpdatePoints', event.target.name, event.currentTarget.value);
+      }
+      if (event.target.id=="inputLevel")
+      {
+        Meteor.call('badgeUpdateLevel', event.target.name, event.currentTarget.value);
       }
     } else {
       Meteor.call('badgeDelete',event.target.name);
