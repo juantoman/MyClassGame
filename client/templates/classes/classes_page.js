@@ -1,7 +1,12 @@
 Template.classesPage.helpers({
   classe: function() {
     var teacherId = Meteor.user();
-    return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
+    var userType=Session.get('userType');
+    if ( userType == "teacher") {
+      return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
+    } else {
+      return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
+    }
   }
 });
 Template.classesPage.events({

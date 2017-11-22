@@ -6,7 +6,14 @@ Template.myNav.helpers({
     }else{
       return "";
     }
-  }
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
+  }  
 });
 /*Template.myNav.events({
   'click a': function(event) {

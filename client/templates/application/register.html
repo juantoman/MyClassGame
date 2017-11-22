@@ -1,16 +1,19 @@
 <template name="register">
   <div  class="container myContent">
     <div class="row">
+      <h2 class="text-center">¿Qué tipo de usuario eres?{{userType}}</h2>
       <div class="col-lg-6">
-        <div class="thumbnail ">
+        <div class="thumbnail text-center">
             <h2 class="text-center bg-success">Profesor</h2>
-            <img src="/images/teacher.png" alt="...">
+            <!-- <img src="/images/teacher.png" alt="..."> -->
+            <button type="button" class="btn btn-primary btn-teacher">Profesor</button>
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="thumbnail">
+        <div class="thumbnail text-center">
             <h2 class="text-center bg-success">Estudiante</h2>
-            <img src="/images/student.png" alt="...">
+            <!-- <img src="/images/student.png" alt="..."> -->
+            <button type="button" class="btn btn-primary btn-student">Estudiante</button>            
         </div>
       </div>
     </div>

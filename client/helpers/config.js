@@ -1,4 +1,4 @@
-Accounts.ui.config({
+/*Accounts.ui.config({
   passwordSignupFields: 'USERNAME_ONLY',
   extraSignupFields: [
     {
@@ -19,7 +19,7 @@ Accounts.ui.config({
         }],
         visible: true
     }]
-});
-accountsUIBootstrap3.setLanguage('en');
+});*/
+accountsUIBootstrap3.setLanguage('es');
 
 
