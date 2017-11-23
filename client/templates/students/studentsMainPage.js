@@ -23,7 +23,14 @@ Template.studentsMainPage.helpers({
     } else {
       return false;
     }
-  }
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
+  }  
 });
 
 Template.studentsMainPage.events({

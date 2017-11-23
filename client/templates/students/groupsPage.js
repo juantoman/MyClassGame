@@ -1,13 +1,6 @@
 Template.groupsPage.helpers({
   groups: function() {
     return groups.find({classId: Session.get('classId')}, {sort: {createdOn: -1}});
-  },
-  teacher: function() {
-    if (Session.get('userType')=="teacher") {
-     return true;
-    } else {
-     return false;
-    };
   }
 });
 Template.groupsPage.events({
