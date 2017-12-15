@@ -6,6 +6,15 @@
       </div>
     </form>
     <br>
+    <div class="text-center">
+      <label for="evaluacion">Evaluación</label>
+      <select id="evaluacion" name="evaluacion">
+        <option value="1" selected="selected">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+    </div>
+    <br>
     {{#if teacher}}
       <p class="text-center">
         <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-sm">Estudiantes</button>

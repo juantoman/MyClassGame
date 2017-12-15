@@ -45,5 +45,9 @@ Template.studentsMainPage.events({
   'change #className': function(event) {
     event.preventDefault();
     Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);
-  }
+  },
+  'change select': function(event) {
+    event.preventDefault();
+    alert($(this).find(":selected").val());
+  },
 });
