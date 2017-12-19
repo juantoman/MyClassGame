@@ -23,7 +23,7 @@ Template.statisticsPage.events({
   },
   'click #date_th': function(event) {
     event.preventDefault();
-    sort.set({ createdOn: 1 });
+    sort.set({ createdOn: -1 });
   },
   'click #behaviour_th': function(event) {
     event.preventDefault();

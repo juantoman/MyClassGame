@@ -1,3 +1,6 @@
+Template.studentsMainPage.rendered = function() {
+  $('#evaluacion').val(Session.get('evaluation'));
+}
 Template.studentsMainPage.helpers({
   className: function() {
     return Session.get('className');
@@ -48,6 +51,6 @@ Template.studentsMainPage.events({
   },
   'change select': function(event) {
     event.preventDefault();
-    alert($(this).find(":selected").val());
+    Session.setPersistent('evaluation', $(event.target).val());
   },
 });

@@ -27,7 +27,9 @@ Template.xpModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
-        comment: $("#commentXP").val(),
+        behaviourType: 'XP',
+        comment: $("#commentHP").val(),
+        evaluation: Session.get('evaluation'),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);

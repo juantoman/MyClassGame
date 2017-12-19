@@ -72,6 +72,7 @@ Template.studentsModals.events({
   },
   'click #hpModalSubmit': function(event) {
     event.preventDefault();
+    alert("Hola");
     $('#hp_modal').find(".list-group-item-danger").each( function() {
       i=this.id;
       p=parseInt($(this).find(".badge").text());
@@ -80,7 +81,9 @@ Template.studentsModals.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
+        behaviourType: 'HP',
         comment: $("#commentHP").val(),
+        evaluation: Session.get('evaluation'),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);
@@ -98,7 +101,9 @@ Template.studentsModals.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
+        behaviourType: 'XP',
         comment: $("#commentXP").val(),
+        evaluation: Session.get('evaluation'),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);

@@ -31,7 +31,9 @@ Template.hpModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
+        behaviourType: 'HP',
         comment: $("#commentHP").val(),
+        evaluation: Session.get('evaluation'),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);

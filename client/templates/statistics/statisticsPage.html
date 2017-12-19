@@ -4,7 +4,7 @@
   {{> myNav}}
   -->
   <div class="container">
-    <h2 class="text-center bg-info">Estadísticas</h2>
+    <h2 class="text-center bg-info">Historial</h2>
     <!-- 
     {{#each statistics}}
       <h3>{{student}}</h3>
@@ -19,8 +19,14 @@
         <th id="student_th">
           Estudiante
         </th>
+        <th id="evaluation_th">
+          Evaluación
+        </th>
         <th id="behaviour_th">
           Comportamiento
+        </th>
+        <th id="behaviour_type_th">
+          Tipo
         </th>
         <th>
           Comentarios
@@ -39,7 +45,13 @@
                 {{student.studentName}}
               </td>
               <td>
+                {{evaluation}}
+              </td>
+              <td>
                 {{behaviour.behaviourDescription}}
+              </td>
+              <td>
+                {{behaviourType}}
               </td>
               <td>
                 {{comment}}
