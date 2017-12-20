@@ -14,30 +14,32 @@
       <p>{{behaviour.points}}</p>
     {{/each}}
      -->
-    <table class="table table-hover">
-      <tr>
-        <th id="student_th">
-          Estudiante
-        </th>
-        <th id="evaluation_th">
-          Evaluación
-        </th>
-        <th id="behaviour_th">
-          Comportamiento
-        </th>
-        <th id="behaviour_type_th">
-          Tipo
-        </th>
-        <th>
-          Comentarios
-        </th>
-        <th>
-          Puntos
-        </th>
-        <th id="date_th">
-          Fecha
-        </th> 
-      </tr>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th id="student_th">
+            Estudiante
+          </th>
+          <th id="evaluation_th">
+            Evaluación
+          </th>
+          <th id="behaviour_th">
+            Comportamiento
+          </th>
+          <th>
+            Comentarios
+          </th>
+          <th>
+            Puntos
+          </th>
+           <th id="behaviour_type_th">
+            Tipo
+          </th>
+          <th id="date_th">
+            Fecha
+          </th> 
+        </tr>
+      </thead>
       <tbody>
       {{#each statistics}}
             <tr>
@@ -51,13 +53,13 @@
                 {{behaviour.behaviourDescription}}
               </td>
               <td>
-                {{behaviourType}}
-              </td>
-              <td>
                 {{comment}}
               </td>
               <td>
                 {{behaviour.points}}
+              </td>
+              <td>
+                {{behaviourType}}
               </td>
               <td>
                 {{createdOnFormatted createdOn}}

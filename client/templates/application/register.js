@@ -24,14 +24,14 @@ Template.register.helpers({
 Template.register.events({
   'click .btn-teacher': function(event) {
     event.preventDefault();
-    Session.set('userType', "teacher");
+    Session.setPersistent('userType', "teacher");
     Meteor.call('userTypeInsert', "teacher");
     //Meteor.users.update(Meteor.userId(), {$set: {userType: "teacher"}});
     Router.go('classesPage');
   },
   'click .btn-student': function(event) {
     event.preventDefault();
-    Session.set('userType', "student");
+    Session.setPersistent('userType', "student");
     Meteor.call('userTypeInsert', "student");
     //Meteor.users.update(Meteor.userId(), {$set: {userType: "student"}});
     Router.go('classesPage');
