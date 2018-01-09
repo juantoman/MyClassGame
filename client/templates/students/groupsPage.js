@@ -13,7 +13,8 @@ Template.groupsPage.helpers({
 Template.groupsPage.events({
   'click .btn-delete': function(event) {
     event.preventDefault();
-    Meteor.call('groupDelete', event.target.name);
+    alert("Borrar grupo");
+    //Meteor.call('groupDelete', event.target.name);
   },
   'click .btn-xp': function(event) {
     event.preventDefault();
