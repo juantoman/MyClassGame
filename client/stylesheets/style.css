@@ -14,7 +14,7 @@ body {
 
 #main {
   position: relative;
-  background: white;
+  background: #888;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   border:1px solid lightgray;
   top: -11px;
@@ -131,4 +131,15 @@ body {
 }
 .form-control-lg{
   font-size: 200%;
+}
+.carousel-inner > .item > img {
+      width: 70%;
+      margin: auto;
+}
+.footer{
+  color:white;
+  text-align: center;
+}
+.footer p{
+  line-height: 6pt;
 }
