@@ -80,7 +80,7 @@ Template.studentsPage.helpers({
   },
   image: function(avatar) {
     if (!avatar) {
-      return "https://drive.google.com/uc?id=0Bx9qnvCsgO7TR09VS2syMENXR3M";
+      return "/images/user_128.png";
     } else  {
       return avatar
     }
