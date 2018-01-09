@@ -19,6 +19,7 @@ Template.classesPage.events({
   },
   'click .btn-delete': function(event) {
     event.preventDefault();
-    Meteor.call('classDelete', event.target.name);
+    alert("Borrar clase");
+    //Meteor.call('classDelete', event.target.name);
   }
 });
