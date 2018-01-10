@@ -15,6 +15,8 @@ Template.classesPage.events({
     Session.setPersistent('classId', event.target.id);
     Session.setPersistent('className', event.target.name);
     Session.setPersistent('navItem', "Students");
+    Session.setPersistent('sogBtn',"students");
+    Session.setPersistent('golBtn',"grid");
     Router.go('myNav');
   },
   'click .btn-delete': function(event) {
