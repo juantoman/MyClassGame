@@ -55,6 +55,7 @@ function createPicker() {
         .enableFeature(google.picker.Feature.NAV_HIDDEN)
         .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
         .setAppId(appId)
+        .setLocale('es')
         .setOAuthToken(oauthToken)
         .addView(view)
         .addView(new google.picker.DocsUploadView())
