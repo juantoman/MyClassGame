@@ -1,12 +1,12 @@
 Template.myNav.helpers({
-  n(m) {
+  /*n(m) {
     var navSelected = Session.get('navItem');
     if ( m == navSelected ) {
       return "active";
     }else{
       return "";
     }
-  },
+  },*/
   teacher: function() {
     if (Session.get('userType')=="teacher") {
      return true;

@@ -1,3 +1,8 @@
+Template.classesPage.rendered = function() {
+  Session.set('className', "");
+}
+
+
 Template.classesPage.helpers({
   classe: function() {
     var teacherId = Meteor.user();
@@ -7,17 +12,25 @@ Template.classesPage.helpers({
     } else {
       return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
     }
+  },
+  cName: function() {
+    var cName=Session.get('className');
+    if ( cName == "") {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 Template.classesPage.events({
   'click .btn-class': function(event) {
     event.preventDefault();
-    Session.setPersistent('classId', event.target.id);
-    Session.setPersistent('className', event.target.name);
+    Session.set('classId', event.target.id);
+    Session.set('className', event.target.name);
     Session.setPersistent('navItem', "Students");
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");
-    Router.go('myNav');
+    //Router.go('myNav');
   },
   'click .btn-delete': function(event) {
     event.preventDefault();

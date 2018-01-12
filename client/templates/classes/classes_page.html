@@ -1,5 +1,6 @@
 <template name="classesPage">
   {{> myBreadcrumb}}
+  {{#if cName}}
   <div  class="container-fluid myContent">
     <div class="row">
       {{#each classe}}
@@ -21,7 +22,7 @@
       {{/each}}
       <div class="col-xs-12 col-md-3">
         <div class="thumbnail">
-            <h2 class="text-center bg-success">Add class</h2>
+            <h2 class="text-center bg-success">Nueva clase</h2>
             <img src="/images/user_group_128.png" alt="...">
             <div class="caption">
               <h2 class="text-center">
@@ -34,6 +35,9 @@
         </div>
       </div>
     </div>
-    {{> classesModals}}
   </div>
+  {{else}}
+    {{> myNav}}
+  {{/if}}
+  {{> classesModals}}
 </template>

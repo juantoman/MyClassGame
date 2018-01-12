@@ -14,3 +14,10 @@ Template.myBreadcrumb.helpers({
   };
  }
 });
+Template.myBreadcrumb.events({
+  'click a': function(event) {
+    event.preventDefault();
+    Session.set('className', '');
+    //Router.go('/');
+  }
+});
