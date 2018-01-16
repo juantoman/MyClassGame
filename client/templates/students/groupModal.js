@@ -201,4 +201,3 @@ Template.groupHPModal.events({
     Modal.hide('groupHPModal');
   },
 });
-

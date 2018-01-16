@@ -6,8 +6,8 @@ Template.studentsMainPage.helpers({
     return Session.get('className');
   },
   btnSelected: function(option) {
-    if ( option == "students" && Session.get('sogBtn') == "students" ) {return "btn-primary"; }
-    if ( option == "groups" && Session.get('sogBtn') == "groups" ) {return "btn-primary"; }
+    if ( option == "students" && Session.get('sogBtn') == "students" ) {return "btn-warning"; }
+    if ( option == "groups" && Session.get('sogBtn') == "groups" ) {return "btn-warning"; }
   },
   studentsSelected: function() {
     if ( Session.get('sogBtn') == "students" ) {
@@ -44,6 +44,16 @@ Template.studentsMainPage.events({
   'click .btn-gol': function(event) {
     event.preventDefault();
     Session.setPersistent('golBtn', event.target.id);
+  },
+  'click .btn-all': function(event) {
+    event.preventDefault();
+    if (Session.get('allBtn')=="All") {
+     Session.set('allBtn', 'None');
+     $('#all').removeClass('btn-warning');
+    } else {
+     Session.set('allBtn', 'All');
+     $('#all').addClass('btn-warning');
+    };
   },
   'change #className': function(event) {
     event.preventDefault();

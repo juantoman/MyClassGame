@@ -143,3 +143,13 @@ body {
 .footer p{
   line-height: 6pt;
 }
+label {
+  color:white;
+}
+.input-group {
+  padding: 5px;
+  background-color: #89a;
+}
+.btn-group {
+  margin:2px;
+}

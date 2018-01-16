@@ -86,7 +86,7 @@ Template.studentsPage.helpers({
       return avatar
     }
   },
-  lista: function() {
+  grid: function() {
     if ( Session.get('golBtn') == "grid" ) {
       return true;
     } else {
