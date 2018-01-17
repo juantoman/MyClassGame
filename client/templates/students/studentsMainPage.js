@@ -55,6 +55,12 @@ Template.studentsMainPage.events({
      $('#all').addClass('btn-warning');
     };
   },
+  'click .btn-xp': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('xpModal');
+    }
+  },
   'change #className': function(event) {
     event.preventDefault();
     Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);

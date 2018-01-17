@@ -105,6 +105,12 @@ body {
 .foto-hor{
   width:50px;
 }
+.userSelected{
+  background-color: #0a0;  
+}
+.userNotSelected{
+  background-color: #002b36;  
+}
 .punts {
   float:right;
   width:35%;

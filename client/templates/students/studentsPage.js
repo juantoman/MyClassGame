@@ -102,6 +102,13 @@ Template.studentsPage.helpers({
     } else {
      return false;
     };
+  },
+  thumbSelected: function() {
+    if (Session.get('allBtn')=="All") {
+      return 'userSelected';
+    } else {
+      return 'userNotSelected';
+    };
   }
 });
 
@@ -152,11 +159,14 @@ Template.studentsPage.events({
   },
   'click .foto': function(event) {
     event.preventDefault();
-    console.log("Dades alumne");
     alert("Dades alumne");
+    
   },
   'click #drive': function(event) {
     console.log("Drive");
     loadPicker();
+  },
+  'click .btn-select': function(event) {
+    $(event.target).toggleClass("userSelected userNotSelected");
   }
 });
