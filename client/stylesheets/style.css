@@ -106,10 +106,12 @@ body {
   width:50px;
 }
 .userSelected{
+  color:white;
   background-color: #0a0;  
 }
 .userNotSelected{
-  background-color: #002b36;  
+  color:white;
+  background-color: gray;  
 }
 .punts {
   float:right;

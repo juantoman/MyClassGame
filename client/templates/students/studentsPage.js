@@ -103,12 +103,12 @@ Template.studentsPage.helpers({
      return false;
     };
   },
-  thumbSelected: function() {
-    if (Session.get('allBtn')=="All") {
+  thumbSelected: function(id) {
+    if ( parseInt(students.findOne({"_id": id}).selected) == 1 ) {
       return 'userSelected';
     } else {
       return 'userNotSelected';
-    };
+    }
   }
 });
 
@@ -167,6 +167,6 @@ Template.studentsPage.events({
     loadPicker();
   },
   'click .btn-select': function(event) {
-    $(event.target).toggleClass("userSelected userNotSelected");
+    Meteor.call('studentSelection', event.target.name);
   }
 });

@@ -48,17 +48,23 @@ Template.studentsMainPage.events({
   'click .btn-all': function(event) {
     event.preventDefault();
     if (Session.get('allBtn')=="All") {
-     Session.set('allBtn', 'None');
-     $('#all').removeClass('btn-warning');
+      Session.set('allBtn', 'None');
+      $('#all').removeClass('btn-warning');
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        Meteor.call('studentSelection', item["_id"]);
+      });
     } else {
-     Session.set('allBtn', 'All');
-     $('#all').addClass('btn-warning');
+      Session.set('allBtn', 'All');
+      $('#all').addClass('btn-warning');
+      students.find( { $and: [ { selected: 0 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        Meteor.call('studentSelection', item["_id"]);
+      });
     };
   },
   'click .btn-xp': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
-      Modal.show('xpModal');
+      Modal.show('allXPModal');
     }
   },
   'change #className': function(event) {
@@ -68,5 +74,5 @@ Template.studentsMainPage.events({
   'change select': function(event) {
     event.preventDefault();
     Session.setPersistent('evaluation', $(event.target).val());
-  },
+  }
 });

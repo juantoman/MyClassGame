@@ -35,6 +35,8 @@ Template.studentsModals.events({
       items: [],
       powers: [],
       collection: [],
+      selected: 0,
+      conected: 0,
       createdOn: new Date()
     };
     Meteor.call('studentInsert', student);

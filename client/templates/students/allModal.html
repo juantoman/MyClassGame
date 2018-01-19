@@ -1,0 +1,106 @@
+<template name="allModal">
+  <!-- All Modal -->
+  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GroupModalLabel">Añadir estudiantes al grupo "{{groupName}}"</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <label for="student-name" class="control-label">Nombre grupo</label>
+                <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}">
+              </div>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each students}} 
+                    <button type="button" class="list-group-item  {{studentInGroup _id}}" id="{{_id}}">
+                      {{studentName}}
+                    </button>
+                  {{/each}}
+                </ul>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Cerrar</button>
+            <input type="submit" id="groupModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</template>
+
+<!-- All XP Modal -->
+<template name="allXPModal">
+   <div class="modal" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_xp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="XPModalLabel">Incrementar XP a todos los alumnos seleccionados</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each xps}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comentarios</label>
+                <input type="text" class="form-control" id="commentXPGroup" name="commentXPGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- All HP Modal -->
+<template name="allHPModal">
+   <div class="modal" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_hp_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="HPModalLabel">Reducir HP a todos los miembros del grupo</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each hps}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{behaviourDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comentarios</label>
+                <input type="text" class="form-control" id="commentHPGroup" name="commentHPGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" id="hpModalSubmit" class="btn btn-primary" value="Save">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

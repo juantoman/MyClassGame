@@ -1,4 +1,4 @@
-Template.groupModal.helpers({
+Template.allModal.helpers({
   students: function() {
     return students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } );
   },
@@ -10,7 +10,7 @@ Template.groupModal.helpers({
   }
 });
 
-Template.groupModal.events({
+Template.allModal.events({
   'submit form#add_student_form': function(event) {
     event.preventDefault();
     var user = Meteor.user();
@@ -70,8 +70,6 @@ Template.groupModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
-        behaviourType: 'XP',          
-        comment: $("#commentXPGroup").val(),        
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
@@ -100,7 +98,7 @@ Template.groupModal.events({
   }
 });
 
-Template.groupXPModal.helpers({
+Template.allXPModal.helpers({
   xps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: true });
   },
@@ -115,7 +113,7 @@ Template.groupXPModal.helpers({
   }
 });
 
-Template.groupXPModal.events({
+Template.allXPModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
@@ -135,24 +133,26 @@ Template.groupXPModal.events({
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
       console.log("Grup");
-      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
         console.log(item["_id"]);
         var behaviour = {
           classId: Session.get('classId'),
           student: item["_id"],
           behavior: i,
+          behaviourType: 'XP',          
           comment: $("#commentXPGroup").val(),
+          evaluation: Session.get('evaluation'),          
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', item["_id"], p);
       });
     });
-    Modal.hide('groupXPModal');
+    Modal.hide('allXPModal');
   },
 });
 
-Template.groupHPModal.helpers({
+Template.allHPModal.helpers({
   xps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: true });
   },
@@ -167,7 +167,7 @@ Template.groupHPModal.helpers({
   }
 });
 
-Template.groupHPModal.events({
+Template.allHPModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
