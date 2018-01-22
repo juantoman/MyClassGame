@@ -113,10 +113,10 @@ Template.studentsPage.helpers({
 });
 
 Template.studentsPage.events({
-  'click .btn-delete': function(event) {
+  'click .btn-delete-student': function(event) {
     event.preventDefault();
-    alert("Borrar alumne");
-    //Meteor.call('studentDelete', event.target.name);
+    Session.set('studentId', event.target.name);
+    Modal.show('deleteStudent');
   },
   'click .btn-xp': function(event) {
     event.preventDefault();

@@ -11,10 +11,10 @@ Template.groupsPage.helpers({
   }
 });
 Template.groupsPage.events({
-  'click .btn-delete': function(event) {
+  'click .btn-delete-group': function(event) {
     event.preventDefault();
-    alert("Borrar grupo");
-    //Meteor.call('groupDelete', event.target.name);
+    Session.set('groupId', event.target.name);
+    Modal.show('deleteGroup');
   },
   'click .btn-xp': function(event) {
     event.preventDefault();

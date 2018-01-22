@@ -2,12 +2,13 @@ Template.classesModals.helpers({
   mensaje: function(){
     var userType=Session.get('userType');
     if ( userType == "teacher") {
-      return "Nova classe";
+      return "Nueva clase";
     } else {
       return "Código del alumno"
     }
   }
 });
+
 Template.classesModals.events({
   'submit form': function(event) {
     var userType=Session.get('userType');
@@ -37,3 +38,11 @@ Template.classesModals.events({
     }
   }
 });
+
+Template.deleteClass.events({
+  'submit form': function(event) {
+    Meteor.call('classDelete', Session.get('classId'));
+    Modal.hide('deleteClass');
+  }
+});
+

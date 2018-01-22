@@ -32,9 +32,9 @@ Template.classesPage.events({
     Session.setPersistent('golBtn',"grid");
     //Router.go('myNav');
   },
-  'click .btn-delete': function(event) {
+  'click .btn-delete-class': function(event) {
     event.preventDefault();
-    alert("Borrar clase");
-    //Meteor.call('classDelete', event.target.name);
+    Session.set('classId', event.target.name);
+    Modal.show('deleteClass');
   }
 });

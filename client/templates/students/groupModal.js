@@ -208,3 +208,11 @@ Template.groupHPModal.events({
     Modal.hide('groupHPModal');
   },
 });
+
+
+Template.deleteGroup.events({
+  'submit form': function(event) {
+    Meteor.call('groupDelete', Session.get('groupId'));
+    Modal.hide('deleteGroup');
+  }
+});
