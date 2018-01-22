@@ -70,7 +70,8 @@ Template.groupModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
-        behaviourType: 'XP',          
+        behaviourType: 'XP',
+        evaluation: Session.get('evaluation'),       
         comment: $("#commentXPGroup").val(),        
         comment: $("#commentXP").val(),
         createdOn: new Date()
@@ -141,6 +142,8 @@ Template.groupXPModal.events({
           classId: Session.get('classId'),
           student: item["_id"],
           behavior: i,
+          behaviourType: 'XP',
+          evaluation: Session.get('evaluation'),           
           comment: $("#commentXPGroup").val(),
           createdOn: new Date()
         };
@@ -193,6 +196,8 @@ Template.groupHPModal.events({
           classId: Session.get('classId'),
           student: item["_id"],
           behavior: i,
+          behaviourType: 'HP',
+          evaluation: Session.get('evaluation'),           
           comment: $("#commentHPGroup").val(),
           createdOn: new Date()
         };

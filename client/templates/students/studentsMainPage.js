@@ -67,6 +67,12 @@ Template.studentsMainPage.events({
       Modal.show('allXPModal');
     }
   },
+  'click .btn-hp': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allHPModal');
+    }
+  },
   'change #className': function(event) {
     event.preventDefault();
     Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);

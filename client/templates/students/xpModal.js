@@ -28,8 +28,8 @@ Template.xpModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'XP',
+        evaluation: Session.get('evaluation'), 
         comment: $("#commentHP").val(),
-        evaluation: Session.get('evaluation'),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);

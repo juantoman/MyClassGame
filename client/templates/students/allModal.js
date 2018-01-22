@@ -52,6 +52,8 @@ Template.allModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
+        behaviourType: 'HP',
+        evaluation: Session.get('evaluation'),         
         comment: $("#commentHP").val(),
         createdOn: new Date()
       };
@@ -70,6 +72,8 @@ Template.allModal.events({
         classId: Session.get('classId'),
         student: Session.get('studentId'),
         behavior: i,
+        behaviourType: 'XP',
+        evaluation: Session.get('evaluation'),         
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
@@ -139,9 +143,9 @@ Template.allXPModal.events({
           classId: Session.get('classId'),
           student: item["_id"],
           behavior: i,
-          behaviourType: 'XP',          
+          behaviourType: 'XP',
+          evaluation: Session.get('evaluation'), 
           comment: $("#commentXPGroup").val(),
-          evaluation: Session.get('evaluation'),          
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
@@ -187,12 +191,14 @@ Template.allHPModal.events({
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
       console.log("Grup");
-      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
         console.log(item["_id"]);
         var behaviour = {
           classId: Session.get('classId'),
           student: item["_id"],
           behavior: i,
+          behaviourType: 'HP',
+          evaluation: Session.get('evaluation'),           
           comment: $("#commentHPGroup").val(),
           createdOn: new Date()
         };
