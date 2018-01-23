@@ -111,7 +111,6 @@ Template.studentsPage.helpers({
     }
   },
   levelC: function(id) {
-    
     levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
     XP=students.findOne({_id: id}).XP;
     return parseInt(XP/levelXP);
