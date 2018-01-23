@@ -212,6 +212,10 @@ Template.groupHPModal.events({
 
 Template.deleteGroup.events({
   'submit form': function(event) {
+    students.find( { $and: [ { groupId: Session.get('groupId') } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      studentId=item._id;
+      Meteor.call('studentGroup', 0, studentId);
+    });
     Meteor.call('groupDelete', Session.get('groupId'));
     Modal.hide('deleteGroup');
   }
