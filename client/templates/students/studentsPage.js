@@ -109,7 +109,14 @@ Template.studentsPage.helpers({
     } else {
       return 'userNotSelected';
     }
-  }
+  },
+  levelC: function(id) {
+    
+    levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    XP=students.findOne({_id: id}).XP;
+    return parseInt(XP/levelXP);
+  }  
+  
 });
 
 Template.studentsPage.events({

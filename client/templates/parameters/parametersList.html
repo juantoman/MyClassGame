@@ -1,0 +1,17 @@
+<template name="parametersList">
+  <div class="container">
+    {{#with parametersClass}}
+    <form>
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputGroupSuccess1">Parámetros de mi clase</label>
+        <div class="input-group col-xs-11">
+          <span class="input-group-addon">Cambio de nivel</span>
+          <input type="text" class="form-control input-lg" name="levelXP" value="{{levelXP}}" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>          
+        </div>
+      </div>
+    </form>
+    {{/with}}
+  </div>
+</template>
