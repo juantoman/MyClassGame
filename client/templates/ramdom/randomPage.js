@@ -17,7 +17,7 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         t = e[r].groupName;
         break;
-      case "castigo":
+      case "penalización":
         var e = convictions.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
         t = e[r].convictionDescription;
@@ -25,7 +25,7 @@ Template.randomPage.events({
     }
 
 
-    $("#ModalHeader").text(randomElement + " aleatorio");
+    $("#ModalHeader").text(randomElement);
     $("#ModalLabel").text(t);
     event.preventDefault();
     Session.setPersistent('navItem',event.target.parentNode.id);
