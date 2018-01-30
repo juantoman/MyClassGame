@@ -22,6 +22,11 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         t = e[r].convictionDescription;
         break;
+      case "frase":
+        var e = quotes.find({classId: Session.get('classId')}).fetch();
+        var r = Math.floor(Math.random() * e.length);
+        t = e[r].quoteText;
+        break;
     }
 
 

@@ -28,3 +28,6 @@ Meteor.publish('store', function() {
 Meteor.publish('convictions', function() {
   return convictions.find();
 });
+Meteor.publish('quotes', function() {
+  return quotes.find();
+});
