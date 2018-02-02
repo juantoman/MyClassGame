@@ -3,6 +3,7 @@
    <!-- Nav tabs -->
   <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab">Estudiantes</a></li>
+    <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
     <li role="presentation"><a href="#tasks" aria-controls="tasks" role="tab" data-toggle="tab">Tareas</a></li>
     <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Historial</a></li>
     {{#if teacher}}
@@ -15,7 +16,24 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="studentsMain">{{> studentsMainPage}}</div>
     <div role="tabpanel" class="tab-pane" id="random">{{> randomPage}}</div>
-    <div role="tabpanel" class="tab-pane" id="tasks">Tareas</div>
+    <div role="tabpanel" class="tab-pane" id="projects">
+      Proyectos
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Proyectos</h1>
+          <p class="lead">En construcción</p>
+        </div>
+      </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="tasks">
+      Tareas
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Tareas</h1>
+          <p class="lead">En construcción</p>
+        </div>
+      </div>      
+    </div>
     <div role="tabpanel" class="tab-pane" id="statistics">{{> statisticsPage}}</div>
     <div role="tabpanel" class="tab-pane" id="settings">{{> settingsPage}}</div>
   </div>
