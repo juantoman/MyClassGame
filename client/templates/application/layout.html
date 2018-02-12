@@ -5,7 +5,11 @@
       {{#if currentUser}}
         {{> yield}}
       {{else}}
-        {{> carrusel}}
+        {{#if seeTutorial}}
+          {{> tutorial}}
+        {{else}}
+          {{> carrusel}}
+        {{/if}}
       {{/if}}  
     </div>
   </div>
