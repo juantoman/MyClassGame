@@ -77,7 +77,7 @@ function pickerCallback(data) {
 
 Template.studentsPage.helpers({
   students: function() {
-    return students.find({classId: Session.get('classId')}, {sort: {XP: -1}});
+    return students.find({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}});
   },
   image: function(avatar) {
     if (!avatar) {
