@@ -63,57 +63,27 @@
   {{else}}
     <div class="list-group">
       {{#each students}}
-          <div class="list-group-item">
+          <div class="list-group-item lista-item">
             <div class="caixa">
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <div class="btn-group" role="group" aria-label="Basic example">
-                    <li class="list-inline-item"><button type="button" class="btn btn-success btn-xp"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"><h6>{{studentName}}</h6></button></li>
+                    <button type="button" class="btn btn-info btn-xp"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor">{{studentName}}</button>
                   </div>
-                 
-                  <li class="list-inline-item">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-success"><h6>{{grupo.groupName}}</h6></button>
-                      <button type="button" class="btn btn-danger"><h6>Nivel {{levelC (_id)}}</h6></button>
-                    </div>
-                  </li>
-
-                  <div class="btn-group" role="group" aria-label="Cuadrícula o lista">
-                    <button id="grid" type="button" class="btn btn-gol btn-sm">Cuadrícula</button>
-                    <button id="list" type="button" class="btn btn-gol btn-sm">Lista</button>
+                  <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                    <button type="button" class="btn btn-success">{{grupo.groupName}}</button>
+                    <button type="button" class="btn btn-danger">Nivel {{levelC (_id)}}</button>
                   </div>
-                  {{#if teacher}}
-                  <div class="btn-group" role="group" aria-label="Basic example">
-                    <button id="all" type="button" class="btn btn-all btn-sm">Todos</button>
-                    <button id="all_xp" type="button" class="btn btn-xp btn-sm">XP</button>
-                    <button id="all_hp" type="button" class="btn btn-hp btn-sm">HP</button>
-                    <button id="all_bg" type="button" class="btn btn-bg btn-sm">BG</button>
-                    <button id="all_euros" type="button" class="btn btn-euros btn-sm">€</button>        
+                  <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                    <button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button>
+                    <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal">{{HP}} HP</button>
+                    <button type="button" class="btn btn-info btn-badge" data-toggle="modal">{{badges.length}} BG</button>
+                    <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button>
+                    <button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button>
                   </div>
-                  {{/if}}        
                 </div>
               </div>            
-              
-                
-                <ul class="list-inline">
-                  <li class="list-inline-item"><button type="button" class="btn btn-success btn-xp"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor"><h6>{{studentName}}</h6></button></li>
-                  <li class="list-inline-item">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-success"><h6>{{grupo.groupName}}</h6></button>
-                      <button type="button" class="btn btn-danger"><h6>Nivel {{levelC (_id)}}</h6></button>
-                    </div>
-                  </li>
-                  <li class="list-inline-item">
-                    <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
-                      <button type="button" class="btn btn-success btn-xp" data-toggle="modal"><h6>{{XP}} XP</h6></button>
-                      <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal"><h6>{{HP}} HP</h6></button>
-                      <button type="button" class="btn btn-info btn-badge" data-toggle="modal"><h6>{{badges.length}} BG</h6></button>
-                      <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal"><h6>{{coins}} €</h6></button>
-                      <button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}"><h6>Seleccionar</h6></button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+            </div>
           </div>
       {{/each}}
       {{#if teacher}}

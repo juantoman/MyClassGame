@@ -125,6 +125,9 @@ body {
   font-weight: bold;
   font-size: 150%;
 }
+.lista-item{
+  background-color: lightgray;
+}
 .list-group-item:hover{
   background-color: white;
   color: blue;
@@ -155,7 +158,7 @@ body {
 label {
   color:white;
 }
-.input-group {
+.submenu {
   padding: 5px;
   background-color: #89a;
 }
@@ -167,4 +170,7 @@ label {
 }
 .carousel-caption{
   color:#073642;
+}
+.container {
+  background-color: white;
 }
