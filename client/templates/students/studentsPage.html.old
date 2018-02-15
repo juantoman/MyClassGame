@@ -61,42 +61,46 @@
       {{/if}}
     </div>
   {{else}}
-    <div class="container">
-      <table class="table">
-      <thead>
-        <tr>
-          <th>Estudiante</th>
-          <th>Grupo</th>
-          <th>Nivel</th>
-          <th>XP</th>
-          <th>HP</th>
-          <th>Badges</th>
-          <th>€</th>
-          <th>Seleccionar</th>
-        </tr>
-      </thead>
-      <tbody>
+    <div class="list-group">
       {{#each students}}
-        <tr>
-            <td><button type="button" class="btn btn-info btn-xp btn-xs"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor">{{studentName}}</button></td>
-            <td><button type="button" class="btn btn-success">{{grupo.groupName}}</button></td>
-            <td><button type="button" class="btn btn-danger">Nivel {{levelC (_id)}}</button></td>
-            <td><button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button></td>
-            <td><button type="button" class="btn btn-danger btn-hp"  data-toggle="modal">{{HP}} HP</button></td>
-            <td><button type="button" class="btn btn-info btn-badge" data-toggle="modal">{{badges.length}} BG</button></td>
-            <td><button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button></td>
-            <td><button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button></td>
-        </tr>
+          <div class="list-group-item lista-item">
+            <div class="caixa">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info btn-xp"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor">{{studentName}}</button>
+                  </div>
+                  <div class="btn-group btn-group-sm" role="group" aria-label="..." id="{{_id}}">
+                    <button type="button" class="btn btn-success">{{grupo.groupName}}</button>
+                    <button type="button" class="btn btn-danger">Nivel {{levelC (_id)}}</button>
+                  </div>
+                  <div class="btn-group btn-group-sm" role="group" aria-label="..." id="{{_id}}">
+                    <button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button>
+                    <button type="button" class="btn btn-danger btn-hp"  data-toggle="modal">{{HP}} HP</button>
+                    <button type="button" class="btn btn-info btn-badge" data-toggle="modal">{{badges.length}} BG</button>
+                    <button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button>
+                    <button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button>
+                  </div>
+                </div>
+              </div>            
+            </div>
+          </div>
       {{/each}}
       {{#if teacher}}
-        <tr>
-                  <td><button type="button" class="btn btn-success btn-xp"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor">Nuevo estudiante</button></td>
-                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
-                  <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
-        </tr>        
+        <div class="list-group-item">
+          <div class="caixa">
+            <ul class="list-inline">
+              <li class="list-inline-item"><button type="button" class="btn btn-success btn-xp"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor"></button></li>
+              <li class="list-inline-item">
+                <div class="btn-group btn-group-lg" role="group" aria-label="..." id="{{_id}}">
+                  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button>
+                  <button id="drive" type="button" class="btn btn-primary">Drive</button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       {{/if}}
-    </tbody>
-  </table>  
-  </div>
+    </div>
   {{/if}}
 </template>
