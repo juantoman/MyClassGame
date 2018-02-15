@@ -61,7 +61,7 @@
       {{/if}}
     </div>
   {{else}}
-    <div class="container">
+    <div class="container table-responsive">
       <table class="table">
       <thead>
         <tr>
@@ -72,12 +72,12 @@
           <th>HP</th>
           <th>Badges</th>
           <th>€</th>
-          <th>Seleccionar</th>
+          <th>Seleccionados</th>
         </tr>
       </thead>
       <tbody>
       {{#each students}}
-        <tr>
+        <tr class="linea">
             <td><button type="button" class="btn btn-info btn-xp btn-xs"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor">{{studentName}}</button></td>
             <td><button type="button" class="btn btn-success">{{grupo.groupName}}</button></td>
             <td><button type="button" class="btn btn-danger">Nivel {{levelC (_id)}}</button></td>
@@ -90,9 +90,9 @@
       {{/each}}
       {{#if teacher}}
         <tr>
-                  <td><button type="button" class="btn btn-success btn-xp"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor">Nuevo estudiante</button></td>
-                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
-                  <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
+          <td><button type="button" class="btn btn-success btn-xp btn-xs"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor">Nuevo estudiante</button></td>
+          <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
+          <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
         </tr>        
       {{/if}}
     </tbody>

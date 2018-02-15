@@ -104,7 +104,7 @@ body {
   width:150px;
 }
 .foto-hor{
-  width:50px;
+  height:30px;
 }
 .userSelected{
   color:white;
@@ -173,4 +173,8 @@ label {
 }
 .container {
   background-color: white;
+}
+.linea:hover{
+  background-color: lightgreen;
+  color: blue;
 }
