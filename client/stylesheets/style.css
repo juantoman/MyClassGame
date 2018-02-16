@@ -171,9 +171,13 @@ label {
 .carousel-caption{
   color:#073642;
 }
-.container {
+.container-responsive {
+  background-color: lightgray;
+}
+.table-responsive {
   background-color: white;
 }
+
 .linea:hover{
   background-color: lightgreen;
   color: blue;

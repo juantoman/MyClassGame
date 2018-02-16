@@ -61,7 +61,7 @@
       {{/if}}
     </div>
   {{else}}
-    <div class="container table-responsive">
+    <div class="container-responsive table-responsive">
       <table class="table">
       <thead>
         <tr>
@@ -77,14 +77,14 @@
       </thead>
       <tbody>
       {{#each students}}
-        <tr class="linea">
+        <tr class="linea" id="{{_id}}">
             <td><button type="button" class="btn btn-info btn-xp btn-xs"><img src="{{image avatar}}" alt="..." class="img-circle foto-hor">{{studentName}}</button></td>
-            <td><button type="button" class="btn btn-success">{{grupo.groupName}}</button></td>
-            <td><button type="button" class="btn btn-danger">Nivel {{levelC (_id)}}</button></td>
+            <td><button type="button" class="btn btn-warning">{{grupo.groupName}}</button></td>
+            <td><button type="button" class="btn btn-default">Nivel {{levelC (_id)}}</button></td>
             <td><button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button></td>
             <td><button type="button" class="btn btn-danger btn-hp"  data-toggle="modal">{{HP}} HP</button></td>
             <td><button type="button" class="btn btn-info btn-badge" data-toggle="modal">{{badges.length}} BG</button></td>
-            <td><button type="button" class="btn btn-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button></td>
+            <td><button type="button" class="btn btn-primary btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button></td>
             <td><button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button></td>
         </tr>
       {{/each}}

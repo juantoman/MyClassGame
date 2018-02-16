@@ -126,42 +126,51 @@ Template.studentsPage.events({
   },
   'click .btn-xp': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
     }    
-    //Meteor.call('studentXP', event.target.name, 100);
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
     }  
-    //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-info': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId', event.target.name);
-    //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
     if ( Session.get('userType')=="teacher") {
       Modal.show('badgeModal');
     }
-    //Session.setPersistent('studentId', event.target.name);
-    //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .btn-store': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');
     }
-    //Session.setPersistent('studentId', event.target.name);
-    //Meteor.call('studentHP', event.target.name, 10);
   },
   'click .foto': function(event) {
     event.preventDefault();

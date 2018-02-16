@@ -18,7 +18,6 @@ Template.hpModal.helpers({
 
 Template.hpModal.events({
   'click #hpModalSubmit': function(event) {
-    
     event.preventDefault();
     hp = students.findOne({_id:  Session.get('studentId')}).HP;
     var wc = 0;
