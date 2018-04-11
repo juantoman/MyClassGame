@@ -1,0 +1,32 @@
+<template name="projects">
+   <div class="container">
+    <div class="list-group">
+    {{#each projects}}
+          <div class="form-group has-success">
+            <div class="form-inline">
+              <div class="input-group col-xs-11">
+                <span class="input-group-addon">Nombre</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{itemDescription}}">
+              </div>
+              <span class="input-group-addon">Descripción</span>
+              <div class="input-group col-xs-11">
+                
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{price}}">
+              </div>
+              <label for="comment">Comment:</label>
+              <textarea class="form-control" rows="5" id="comment">Hola</textarea>
+            </div>
+          </div>
+    {{/each}}
+    </div>
+    <form>
+      <div class="form-group has-success">
+        <label class="control-label" for="inputGroupSuccess1">Nuevo proyecto</label>
+        <input type="email" class="form-control" id="project_name" placeholder="Nombre proyecto">
+        <textarea class="form-control" rows="5" id="project_description" placeholder="Descrición"></textarea>
+        <input type="submit" id="btn-save" value="Guardar" class="btn btn-success">
+      </div>
+    </form>
+
+  </div>
+</template>
