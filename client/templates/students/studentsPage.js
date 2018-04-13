@@ -81,7 +81,11 @@ Template.studentsPage.helpers({
   },
   image: function(avatar) {
     if (!avatar) {
-      return "/images/user_128.png";
+      if (classes.findOne({_id: Session.get('classId')}).studentImg) {
+        return classes.findOne({_id: Session.get('classId')}).studentImg;
+      } else {
+        return "/images/user_128.png";
+      }
     } else  {
       return avatar
     }

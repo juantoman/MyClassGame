@@ -8,6 +8,13 @@ Template.groupsPage.helpers({
     } else {
      return false;
     };
+  },
+  image: function() {
+    if (classes.findOne({_id: Session.get('classId')}).groupImg) {
+     return classes.findOne({_id: Session.get('classId')}).groupImg;
+    } else {
+     return "/images/user_group_128.png";
+    };
   }
 });
 Template.groupsPage.events({
