@@ -23,9 +23,7 @@ Template.groupsPage.helpers({
   gXP: function(idG) {
     xp=0;
     n=students.find( { groupId:idG } ).count();
-    students.find( { groupId:idG } ).forEach(function(s){
-      xp+=s.XP;
-    });
+    students.find( { groupId:idG } ).forEach(function(s){ xp+=s.XP; });
     r=parseInt(xp/n);
     return r;
   }

@@ -80,14 +80,14 @@ Template.studentsPage.helpers({
     return students.find({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}});
   },
   image: function(avatar) {
-    if (!avatar) {
-      if (classes.findOne({_id: Session.get('classId')}).studentImg) {
+    if ( avatar=="" || !avatar ) {
+      if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
         return classes.findOne({_id: Session.get('classId')}).studentImg;
       } else {
         return "/images/user_128.png";
       }
     } else  {
-      return avatar
+      return avatar;
     }
   },
   grid: function() {

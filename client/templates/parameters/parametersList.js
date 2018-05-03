@@ -14,16 +14,10 @@ Template.parametersList.events({
   },
   'change #studentImg': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
-    {
-      Meteor.call('studentImgUpdate', Session.get('classId'), event.currentTarget.value);
-    }
+    Meteor.call('studentImgUpdate', Session.get('classId'), event.currentTarget.value);
   },
   'change #groupImg': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
-    {
-      Meteor.call('groupImgUpdate', Session.get('classId'), event.currentTarget.value);
-    }
+    Meteor.call('groupImgUpdate', Session.get('classId'), event.currentTarget.value);
   }
 });
