@@ -7,6 +7,9 @@ Template.groupModal.helpers({
   },
   groupName: function() {
     return groups.findOne( { _id: Session.get('groupId') }).groupName;
+  },
+  groupImg: function() {
+    return groups.findOne( { _id: Session.get('groupId') }).groupImg;
   }
 });
 
@@ -92,7 +95,8 @@ Template.groupModal.events({
       Meteor.call('studentGroup', Session.get('groupId'), i);
     });
     gName=$("#gName").val();
-    Meteor.call('groupModify', Session.get('groupId'), gName);
+    gImage=$("#gImage").val();
+    Meteor.call('groupModify', Session.get('groupId'), gName, gImage);
     Modal.hide('groupModal');
   },
   'click .btn-default': function(event) {

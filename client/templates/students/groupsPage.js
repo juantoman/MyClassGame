@@ -9,12 +9,25 @@ Template.groupsPage.helpers({
      return false;
     };
   },
-  image: function() {
-    if (classes.findOne({_id: Session.get('classId')}).groupImg) {
-     return classes.findOne({_id: Session.get('classId')}).groupImg;
+  gImage: function(image) {
+    if (image) {
+     return image;
     } else {
-     return "/images/user_group_128.png";
-    };
+      if (classes.findOne({_id: Session.get('classId')}).groupImg) {
+        return classes.findOne({_id: Session.get('classId')}).groupImg;
+      } else {
+        return "/images/user_group_128.png";
+      }
+    }
+  },
+  gXP: function(idG) {
+    xp=0;
+    n=students.find( { groupId:idG } ).count();
+    students.find( { groupId:idG } ).forEach(function(s){
+      xp+=s.XP;
+    });
+    r=parseInt(xp/n);
+    return r;
   }
 });
 Template.groupsPage.events({
