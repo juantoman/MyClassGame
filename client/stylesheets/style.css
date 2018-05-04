@@ -101,7 +101,10 @@ body {
   width:65%;
 }
 .foto{
-  width:150px;
+  border:2px black solid;
+  margin-top:20px;
+  width:180px;
+  height:180px;
 }
 .foto-hor{
   height:30px;
