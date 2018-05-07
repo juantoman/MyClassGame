@@ -188,3 +188,8 @@ label {
 .form-control {
   background-color: white;
 }
+
+#alias{
+  color: blue;
+  font-weight: bold;
+}
