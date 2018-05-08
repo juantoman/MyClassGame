@@ -31,3 +31,6 @@ Meteor.publish('convictions', function() {
 Meteor.publish('quotes', function() {
   return quotes.find();
 });
+Meteor.publish('levels', function() {
+  return levels.find();
+});

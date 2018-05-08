@@ -117,7 +117,11 @@ Template.studentsPage.helpers({
   levelC: function(id) {
     levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
     XP=students.findOne({_id: id}).XP;
-    return parseInt(XP/levelXP);
+    n=String(students.findOne({_id: id}).level);
+    desc=levels.findOne({classId: Session.get('classId'),level: n }).levelDescription;
+    //d=desc[0].levelDescription;
+    //return parseInt(XP/levelXP);
+    return desc;
   }  
   
 });

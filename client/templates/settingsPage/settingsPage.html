@@ -14,6 +14,7 @@
         <li role="presentation"><a href="#badges" aria-controls="badges" role="tab" data-toggle="tab">Insignias</a></li>
         <li role="presentation"><a href="#store" aria-controls="store" role="tab" data-toggle="tab">Tienda</a></li>
         <li role="presentation"><a href="#quotes" aria-controls="quotes" role="tab" data-toggle="tab">Frases</a></li>       
+        <li role="presentation"><a href="#levels" aria-controls="quotes" role="tab" data-toggle="tab">Niveles</a></li>
         <li role="presentation"><a href="#timing" aria-controls="parameters" role="tab" data-toggle="tab">Parámetros</a></li>
       </ul>
 
@@ -43,8 +44,12 @@
           <h2 class="text-center bg-info">Penalizaciones</h2>
           {{> convictionsList}}
         </div>
+        <div role="tabpanel" class="tab-pane" id="levels">
+          <h2 class="text-center bg-info">Niveles</h2>
+          {{> levelsTemplate}}
+        </div>
         <div role="tabpanel" class="tab-pane" id="timing">
-          <h2 class="text-center bg-info">Parámetos</h2>
+          <h2 class="text-center bg-info">Parámetros</h2>
           {{> parametersList}}
         </div>        
 
