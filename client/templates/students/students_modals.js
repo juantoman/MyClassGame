@@ -47,10 +47,11 @@ Template.studentsModals.events({
     var user = Meteor.user();
     studentId=Session.get('studentId');
     studentName=$(event.target).find('[name=sName]').val();
+    level=$(event.target).find('[name=sLevel]').val();
     alias=$(event.target).find('[name=sAlias]').val();
     avatar=$(event.target).find('[name=sAvatar]').val();
     email=$(event.target).find('[name=sEmail]').val();
-    Meteor.call('studentModify',studentId,studentName,alias,avatar,email);
+    Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
     $('#mod_student_modal').modal('hide');
   },
   'submit form#add_group_form': function(event) {

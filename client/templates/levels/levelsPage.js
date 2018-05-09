@@ -15,6 +15,10 @@ Template.levelsTemplate.events({
       Meteor.call('levelXPUpdate', Session.get('classId'), event.currentTarget.value);
     }
   },
+  'change #xpCheck': function(event) {
+    event.preventDefault();
+    Meteor.call('xpChangeLevel', Session.get('classId'), event.currentTarget.checked);
+  },
   'submit form': function(event) {
     event.preventDefault();
     var level = {

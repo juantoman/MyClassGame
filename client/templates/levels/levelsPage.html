@@ -2,7 +2,7 @@
   <div class="container">
     {{#with parametersClass}}
 
-      <div class="form-group has-success has-feedback">
+      <div class="list-group has-success has-feedback">
         <label class="control-label" for="inputGroupSuccess1">Parámetros de los niveles</label>
         <div class="form-group has-success has-feedback">
           <div class="input-group col-xs-11">
@@ -10,6 +10,10 @@
             <input type="text" class="form-control input-lg" name="levelXP" value="{{levelXP}}" id="levelXP" aria-describedby="inputGroupSuccess1Status">
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+          <div class="input-group col-xs-11">
+            <input type="checkbox" id="xpCheck" checked="{{xpChangeLevel}}">
+            <label class="control-label" for="xpCheck"> Cambio de nivel automático en función de los XP</label>
           </div>
         </div>
       </div>

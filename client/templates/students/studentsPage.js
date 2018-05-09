@@ -114,16 +114,29 @@ Template.studentsPage.helpers({
       return 'userNotSelected';
     }
   },
-  levelC: function(id) {
-    levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-    XP=students.findOne({_id: id}).XP;
-    n=String(students.findOne({_id: id}).level);
+  levelAutomatic: function(id) {
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: id}).XP;
+      n=parseInt(XP/levelXP);
+    } else {
+      n=students.findOne({_id: id}).level;
+    }
+    return n;
+  },
+  levelDesc: function(id) {
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: id}).XP;
+      n=String(parseInt(XP/levelXP));
+    } else {
+      n=String(students.findOne({_id: id}).level);
+    }
     desc=levels.findOne({classId: Session.get('classId'),level: n }).levelDescription;
-    //d=desc[0].levelDescription;
-    //return parseInt(XP/levelXP);
     return desc;
-  }  
-  
+  }
 });
 
 Template.studentsPage.events({
