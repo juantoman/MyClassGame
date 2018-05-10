@@ -7,7 +7,7 @@
               <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
               <div class="caixa">
                 <div class="imatge">
-                  <p><img src="{{image avatar}}" alt="..." class="img foto"></p>
+                  <p><img src="{{image avatar}}" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}" alt="..." class="img foto"></p>
                 </div>
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
@@ -22,9 +22,9 @@
               <div class="botons">
                 <h2 class="text-center">
 
-                  <button type="button" class="btn btn-info btn-data" data-toggle="modal"  data-target="#mod_student_modal" name="{{_id}}">
+                  <!-- <button type="button" class="btn btn-info btn-data" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}">
                     Información
-                  </button>
+                  </button> -->
                   <button type="button" class="btn btn-warning btn-powers" data-toggle="modal" name="{{_id}}">
                     Poderes
                   </button>
@@ -33,7 +33,7 @@
                       Eliminar
                     </button>
                     <button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">
-                      Seleccionar
+                      X
                     </button>
                   {{/if}}
                 </h2>

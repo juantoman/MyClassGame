@@ -195,7 +195,8 @@ Template.studentsPage.events({
   },
   'click .foto': function(event) {
     event.preventDefault();
-    alert("Dades alumne");
+    //alert("Dades alumne");
+    Session.setPersistent('studentId', event.target.name);
     
   },
   'click #drive': function(event) {
