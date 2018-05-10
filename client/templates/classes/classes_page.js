@@ -10,7 +10,10 @@ Template.classesPage.helpers({
     if ( userType == "teacher") {
       return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
     } else {
-      return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
+      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+      //c=Meteor.users.find({_id:Meteor.userId()});
+      return classes.find({"_id": { "$in": c }});
+      //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
     }
   },
   cName: function() {

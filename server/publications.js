@@ -17,7 +17,7 @@ Meteor.publish('behavioursLog', function() {
   return behavioursLog.find();
 });
 Meteor.publish('allUsers', function() {
-  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1}});
+  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1}});
 });
 Meteor.publish('badges', function() {
   return badges.find();

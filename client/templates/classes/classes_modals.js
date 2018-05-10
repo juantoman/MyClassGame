@@ -4,7 +4,7 @@ Template.classesModals.helpers({
     if ( userType == "teacher") {
       return "Nueva clase";
     } else {
-      return "Código del alumno"
+      return "Código de la clase"
     }
   }
 });
@@ -25,14 +25,8 @@ Template.classesModals.events({
       return false;
     } else {
       event.preventDefault();
-      var user = Meteor.user();
-      var studentId= $(event.target).find('[name=class-name]').val();
       var classId= $(event.target).find('[name=class-name]').val();
-      var StudentClass = {
-        studentId: studentId,
-        classId: classId
-      };
-      //Meteor.call('userStudent', StudentClass);
+      Meteor.call('studentClassInsert', classId);
       $('#add_class_modal').modal('hide');
       return false;
     }
