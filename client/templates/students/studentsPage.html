@@ -7,7 +7,7 @@
               <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
               <div class="caixa">
                 <div class="imatge">
-                  <p><img src="{{image avatar}}" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}" alt="..." class="img foto"></p>
+                  <p><img src="{{image avatar}}" data-toggle="modal" data-target="{{modalTeacher}}" name="{{_id}}" alt="..." class="img foto"></p>
                 </div>
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
@@ -72,7 +72,9 @@
           <th>HP</th>
           <th>Badges</th>
           <th>€</th>
-          <th>Seleccionados</th>
+          {{#if teacher}}
+            <th>Seleccionados</th>
+          {{/if}}
         </tr>
       </thead>
       <tbody>
@@ -85,7 +87,9 @@
             <td><button type="button" class="btn btn-danger btn-hp"  data-toggle="modal">{{HP}} HP</button></td>
             <td><button type="button" class="btn btn-info btn-badge" data-toggle="modal">{{badges.length}} BG</button></td>
             <td><button type="button" class="btn btn-primary btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</button></td>
-            <td><button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button></td>
+            {{#if teacher}}
+              <td><button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">Seleccionar</button></td>
+            {{/if}}
         </tr>
       {{/each}}
       {{#if teacher}}
