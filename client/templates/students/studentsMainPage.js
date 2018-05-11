@@ -33,7 +33,10 @@ Template.studentsMainPage.helpers({
     } else {
      return false;
     };
-  }  
+  },
+  idClass: function() {
+    return Session.get('classId');
+  },  
 });
 
 Template.studentsMainPage.events({

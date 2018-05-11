@@ -193,3 +193,8 @@ label {
   color: blue;
   font-weight: bold;
 }
+.idClass{
+  font-size: 250%;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
