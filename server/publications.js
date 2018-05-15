@@ -34,3 +34,6 @@ Meteor.publish('quotes', function() {
 Meteor.publish('levels', function() {
   return levels.find();
 });
+Meteor.publish('challenges', function() {
+  return challenges.find();
+});

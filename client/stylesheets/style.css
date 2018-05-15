@@ -198,3 +198,6 @@ label {
   font-weight: bold;
   letter-spacing: 2px;
 }
+.input-group {
+  margin: 4px;
+}

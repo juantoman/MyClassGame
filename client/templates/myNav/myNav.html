@@ -4,7 +4,8 @@
   <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab">Estudiantes</a></li>
     <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
-    <li role="presentation"><a href="#tasks" aria-controls="tasks" role="tab" data-toggle="tab">Tareas</a></li>
+    <li role="presentation"><a href="#missions" aria-controls="missions" role="tab" data-toggle="tab">Misiones</a></li>    
+    <li role="presentation"><a href="#challenges" aria-controls="challenges" role="tab" data-toggle="tab">Retos</a></li>
     <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Historial</a></li>
     {{#if teacher}}
       <li role="presentation"><a href="#random" aria-controls="random" role="tab" data-toggle="tab">Random</a></li>
@@ -26,13 +27,16 @@
         </div>
       </div>
     </div>
-    <div role="tabpanel" class="tab-pane" id="tasks">
+    <div role="tabpanel" class="tab-pane" id="missions">
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
-          <h1 class="display-4">Tareas</h1>
+          <h1 class="display-4">Misiones</h1>
           <p class="lead">En construcción</p>
         </div>
       </div>      
+    </div>
+    <div role="tabpanel" class="tab-pane" id="challenges">
+      {{> challenges}}
     </div>
     <div role="tabpanel" class="tab-pane" id="statistics">{{> statisticsPage}}</div>
     <div role="tabpanel" class="tab-pane" id="settings">{{> settingsPage}}</div>
