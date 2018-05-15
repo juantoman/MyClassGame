@@ -109,10 +109,10 @@ Template.studentsPage.helpers({
   },
   modalTeacher: function() {
     if (Session.get('userType')=="teacher") {
-     return "#mod_student_modal";
+     //return "#mod_student_modal";
     } else {
      return "";
-    };
+    }
   },
   thumbSelected: function(id) {
     if ( parseInt(students.findOne({"_id": id}).selected) == 1 ) {
@@ -204,6 +204,7 @@ Template.studentsPage.events({
     event.preventDefault();
     //alert("Dades alumne");
     Session.setPersistent('studentId', event.target.name);
+    Session.set('studentSelected', true);
   },
   'click #drive': function(event) {
     console.log("Drive");

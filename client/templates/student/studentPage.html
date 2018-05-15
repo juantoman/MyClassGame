@@ -1,0 +1,34 @@
+<template name="studentPage">
+  {{#with student}}
+    <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+    <div class="imatge">
+      <p><img src="{{image avatar}}" name="{{_id}}" alt="..." class="img foto"></p>
+      <div class="form-group">
+        <label for="sName" class="control-label">Nombre estudiante</label>
+        <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}">
+        <label for="sLevel" class="control-label">Nivel</label>
+        <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}">
+        <label for="sAlias" class="control-label">Alias</label>
+        <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}">
+        <label for="sAvatar" class="control-label">Avatar</label>
+        <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}">
+        <label for="sEmail" class="control-label">email</label>
+        <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}">
+      </div>
+    </div>
+  {{/with}}
+  {{#each challenge}}
+    <div class="form-group has-success">
+      <div class="form-inline">
+        <div class="input-group col-xs-9">
+          <span class="input-group-addon">Reto</span>
+          <input type="text" class="form-control inputGroup input-lg" name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName chalId}}">
+        </div>
+        <div class="input-group col-xs-2">
+          <span class="input-group-addon">Puntuación</span>
+          <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{chalId}}"  aria-describedby="inputGroupSuccess1Status" value="{{chalCP}}">
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</template>

@@ -2,7 +2,6 @@ Template.classesPage.rendered = function() {
   Session.set('className', "");
 }
 
-
 Template.classesPage.helpers({
   classe: function() {
     var teacherId = Meteor.user();
@@ -33,6 +32,7 @@ Template.classesPage.events({
     Session.setPersistent('navItem', "Students");
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");
+    Session.set('studentSelected', false);
     //Router.go('myNav');
   },
   'click .btn-delete-class': function(event) {

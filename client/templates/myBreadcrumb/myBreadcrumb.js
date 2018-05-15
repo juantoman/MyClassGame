@@ -6,6 +6,13 @@ Template.myBreadcrumb.helpers({
  className: function() {
   return Session.get('className');
  },
+ studentName: function() {
+  if (Session.get('studentSelected')) {
+   return students.findOne({ _id: Session.get('studentId') } ).studentName;
+  } else {
+   return "";
+  }
+ },
  userType: function() {
   if (Session.get('userType')=="teacher") {
    return "PROFESOR";
@@ -15,9 +22,15 @@ Template.myBreadcrumb.helpers({
  }
 });
 Template.myBreadcrumb.events({
-  'click a': function(event) {
+  'click .clases': function(event) {
     event.preventDefault();
     Session.set('className', '');
+    Session.set('studentSelected', false);
+    //Router.go('/');
+  },
+  'click .clase': function(event) {
+    event.preventDefault();
+    Session.set('studentSelected', false);
     //Router.go('/');
   }
 });

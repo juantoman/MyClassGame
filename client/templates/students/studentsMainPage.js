@@ -36,7 +36,10 @@ Template.studentsMainPage.helpers({
   },
   idClass: function() {
     return Session.get('classId');
-  },  
+  },
+  selected: function() {
+    return Session.get('studentSelected');
+  }
 });
 
 Template.studentsMainPage.events({
