@@ -20,6 +20,13 @@ Template.studentPage.helpers({
     } else  {
       return avatar;
     }
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return "";
+    } else {
+     return "disabled";
+    };
   }
 });
 
