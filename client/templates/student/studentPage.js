@@ -21,11 +21,18 @@ Template.studentPage.helpers({
       return avatar;
     }
   },
-  teacher: function() {
+  inputDisabled: function() {
     if (Session.get('userType')=="teacher") {
      return "";
     } else {
      return "disabled";
+    };
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
     };
   }
 });
@@ -50,5 +57,16 @@ Template.studentPage.events({
       };
       Meteor.call('chalInsertPoints', chalCP);
     }
+  },
+  'submit form': function(event) {
+    event.preventDefault();
+    var user = Meteor.user();
+    studentId=Session.get('studentId');
+    studentName=$(event.target).find('[name=sName]').val();
+    level=$(event.target).find('[name=sLevel]').val();
+    alias=$(event.target).find('[name=sAlias]').val();
+    avatar=$(event.target).find('[name=sAvatar]').val();
+    email=$(event.target).find('[name=sEmail]').val();
+    Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
   }
 });

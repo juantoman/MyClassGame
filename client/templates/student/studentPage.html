@@ -3,18 +3,24 @@
     <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
     <div class="imatge">
       <p><img src="{{image avatar}}" name="{{_id}}" alt="..." class="img foto"></p>
-      <div class="form-group">
-        <label for="sName" class="control-label">Nombre estudiante</label>
-        <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{teacher}}>
-        <label for="sLevel" class="control-label">Nivel</label>
-        <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{teacher}}>
-        <label for="sAlias" class="control-label">Alias</label>
-        <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{teacher}}>
-        <label for="sAvatar" class="control-label">Avatar</label>
-        <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{teacher}}>
-        <label for="sEmail" class="control-label">email</label>
-        <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{teacher}}>
-      </div>
+      <form id="mod_student_form">
+        <div class="form-group">
+          <label for="sName" class="control-label">Nombre estudiante</label>
+          <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
+          <label for="sLevel" class="control-label">Nivel</label>
+          <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>
+          <label for="sAlias" class="control-label">Alias</label>
+          <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
+          <label for="sAvatar" class="control-label">Avatar</label>
+          <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
+          <label for="sEmail" class="control-label">email</label>
+          <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
+        </div>
+        {{# if teacher}}
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+          <input type="submit" class="btn btn-primary" value="Save">
+        {{/if}}
+      </form>  
     </div>
   {{/with}}
   {{#each challenge}}
@@ -22,11 +28,11 @@
       <div class="form-inline">
         <div class="input-group col-xs-9">
           <span class="input-group-addon">Reto</span>
-          <input type="text" class="form-control inputGroup input-lg" {{teacher}} name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+          <input type="text" class="form-control inputGroup input-lg" {{inputDisabled}} name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
         </div>
         <div class="input-group col-xs-2">
           <span class="input-group-addon">Puntuación</span>
-          <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+          <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
         </div>
       </div>
     </div>
