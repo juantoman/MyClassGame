@@ -103,8 +103,9 @@ body {
 .foto{
   border:2px black solid;
   margin-top:20px;
-  width:180px;
-  height:180px;
+  width:90%;
+  height:90%;
+  max-height: 250px;
 }
 .foto-hor{
   height:30px;
@@ -200,4 +201,7 @@ label {
 }
 .input-group {
   margin: 4px;
+}
+.thumbnail {
+  height:450px;
 }
