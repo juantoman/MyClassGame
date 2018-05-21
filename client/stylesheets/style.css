@@ -105,7 +105,6 @@ body {
   margin-top:20px;
   width:90%;
   height:90%;
-  max-height: 250px;
 }
 .foto-hor{
   height:30px;
@@ -202,6 +201,11 @@ label {
 .input-group {
   margin: 4px;
 }
+.row{
+  display: flex;
+  flex-wrap: wrap;
+}
 .thumbnail {
-  height:450px;
+  width:auto;
+  height:97%;
 }
