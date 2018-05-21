@@ -2,15 +2,15 @@
   <div class="container">
     <div class="list-group">
       <div class="form-group has-success">
-        <label class="control-label" for="inputGroupSuccess1">Retos</label>
+        <label class="control-label" for="inputGroupSuccess1">Misiones y retos</label>
         {{#each challenge}}
-              <div class="form-group has-success">
+              <div class="form-group {{moc type}}">
                 <div class="form-inline">
-                  <div class="input-group col-xs-8">
-                    <span class="input-group-addon">Nombre reto</span>
+                  <div class="input-group col-xs-3">
+                    <span class="input-group-addon">{{type}}</span>
                     <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                   </div>
-                  <div class="input-group col-xs-3">
+                  <div class="input-group col-xs-8">
                     <span class="input-group-addon">Descripción</span>
                     <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalDesc"  aria-describedby="inputGroupSuccess1Status" value="{{chalDesc}}">
                   </div>
@@ -21,26 +21,41 @@
     </div>
     <form>
       <div class="form-group has-success">
-        <label class="control-label" for="inputGroupSuccess1">Nuevo reto</label>
+        <label class="control-label" for="inputGroupSuccess1">Nuevo</label>
+        
+        <div class="input-group mb-3">
+            <div class="input-group-addon">
+            <span class="input-group-text">Elige tipo...</span>
+          </div> 
+          <select class="custom-select form-control" id="selectMoC" name="MoC">
+            <option value="Misión">Misión</option>
+            <option value="Reto">Reto</option>
+          </select>
+        
+        </div>
+        
         <div class="input-group  mb-3">
           <div class="input-group-addon">
-            <span class="input-group-text" id="basic-addon1">Nombre reto</span>
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
           </div>
           <input type="text" class="form-control" name="chalName" placeholder="Nombre del reto" aria-label="Nombre del reto" aria-describedby="basic-addon1">
         </div>
         
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
           <div class="input-group-addon">
             <span class="input-group-text" id="basic-addon2">Descripción</span>
-          </div>         
+          </div> 
+          <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
         </div>
         
         <div class="input-group mb-3">
-          <input type="submit" id="btn-save" value="Guardar" class="btn btn-success">
-        </div>            
+          <input type="submit" id="btn-save" value="Crear" class="btn btn-success">
+        </div>
+        
+
       </div>
     </form>
+
 
   </div>
 </template>

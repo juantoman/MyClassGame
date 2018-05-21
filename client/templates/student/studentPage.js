@@ -6,6 +6,10 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId')});
   },
+  badges: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return students.findOne({_id: Session.get('studentId')}).badges;
+  },
   CP: function(cId) {
     return chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     //return challenges.find({classId: Session.get('classId')});
@@ -34,7 +38,18 @@ Template.studentPage.helpers({
     } else {
      return false;
     };
-  }
+  },
+  moc: function(type) {
+    if (type == "Reto")
+    {
+      return "has-error";
+    } else {
+      return "has-success"
+    }
+  },
+  badge: function(){
+    return badges.findOne({_id: this.badgeId});
+  },
 });
 
 Template.studentPage.events({

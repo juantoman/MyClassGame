@@ -1,40 +1,86 @@
 <template name="studentPage">
-  {{#with student}}
-    <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
-    <div class="imatge">
-      <p><img src="{{image avatar}}" name="{{_id}}" alt="..." class="img foto"></p>
-      <form id="mod_student_form">
-        <div class="form-group">
-          <label for="sName" class="control-label">Nombre estudiante</label>
-          <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
-          <label for="sLevel" class="control-label">Nivel</label>
-          <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>
-          <label for="sAlias" class="control-label">Alias</label>
-          <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
-          <label for="sAvatar" class="control-label">Avatar</label>
-          <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
-          <label for="sEmail" class="control-label">email</label>
-          <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
+  <div>
+    <div class="list-group">
+      {{#with student}}
+        <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+        <div class="">
+          <p><img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent"></p>
+          <form class="dataStudent">
+            <div class="form-group">
+              <label for="sName" class="control-label">Nombre estudiante</label>
+              <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
+              <label for="sLevel" class="control-label">Nivel</label>
+              <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>
+              <label for="sAlias" class="control-label">Alias</label>
+              <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
+              <label for="sAvatar" class="control-label">Avatar</label>
+              <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
+              <label for="sEmail" class="control-label">email</label>
+              <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
+            </div>
+            {{# if teacher}}
+            <div style="float:right;">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <input type="submit" class="btn btn-primary" value="Guardar">
+            </div>
+            {{/if}}
+          </form>  
         </div>
-        {{# if teacher}}
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-          <input type="submit" class="btn btn-primary" value="Save">
-        {{/if}}
-      </form>  
+      {{/with}}
     </div>
-  {{/with}}
-  {{#each challenge}}
-    <div class="form-group has-success">
-      <div class="form-inline">
-        <div class="input-group col-xs-9">
-          <span class="input-group-addon">Reto</span>
-          <input type="text" class="form-control inputGroup input-lg" {{inputDisabled}} name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+    <div class="container section">
+      
+      <h2 class="text-center bg-info">Misiones y Retos</h2>
+      
+      {{#each challenge}}
+        <div class="form-group {{moc type}}">
+          <div class="form-inline">
+            <div class="input-group col-xs-9">
+              <span class="input-group-addon">{{type}}</span>
+              <input type="text" class="form-control inputGroup input-lg" {{inputDisabled}} name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+            </div>
+            <div class="input-group col-xs-2">
+              <span class="input-group-addon">Puntuación</span>
+              <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+            </div>
+          </div>
         </div>
-        <div class="input-group col-xs-2">
-          <span class="input-group-addon">Puntuación</span>
-          <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
-        </div>
-      </div>
+      {{/each}}
+
+      <h2 class="text-center bg-info">Insignias</h2>
+    
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              Descripción
+            </th>
+            <th>
+              XP
+            </th>            
+            <th>
+              Fecha
+            </th> 
+          </tr>
+        </thead>
+        <tbody>
+        {{#each badges}}
+          <tr>
+            <td>
+              {{badge.badgeDescription}}
+            </td>
+            <td>
+              {{badge.points}}
+            </td>
+            <td>
+              {{createdOn}}
+            </td>                
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+      
+      <h2 class="text-center bg-info">Historial</h2>
     </div>
-  {{/each}}
+  </div>
 </template>

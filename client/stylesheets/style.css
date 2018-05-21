@@ -206,6 +206,23 @@ label {
   flex-wrap: wrap;
 }
 .thumbnail {
-  width:auto;
+  width:100%;
   height:97%;
+}
+.fotoStudent{
+  float:left;
+  border:2px black solid;
+  margin-top:20px;
+  width:30%;
+  height:30%;
+  margin-left:10px;
+}
+.dataStudent{
+  float:right;
+  width:65%;
+  height:100%;
+  margin-right:10px;
+}
+.section{
+  clear:both;
 }
