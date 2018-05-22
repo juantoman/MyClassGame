@@ -50,6 +50,16 @@ Template.studentPage.helpers({
   badge: function(){
     return badges.findOne({_id: this.badgeId});
   },
+  statistics: function() {
+    return behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId')});
+    //return behavioursLog.find({classId: Session.get('classId')},{sort: {student: -1}});
+  },
+  behaviour: function(){
+    return behaviours.findOne({_id: this.behavior});
+  },
+  createdOnFormatted: function (date) {
+    return moment(date).format('LLLL');
+  }
 });
 
 Template.studentPage.events({
@@ -83,5 +93,8 @@ Template.studentPage.events({
     avatar=$(event.target).find('[name=sAvatar]').val();
     email=$(event.target).find('[name=sEmail]').val();
     Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
+  },
+  'click .btn-default': function() {
+    Session.set('studentSelected', false);
   }
 });

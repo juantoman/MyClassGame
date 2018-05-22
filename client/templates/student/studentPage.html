@@ -20,7 +20,7 @@
             </div>
             {{# if teacher}}
             <div style="float:right;">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-default">Volver a clase</button>
               <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
             {{/if}}
@@ -81,6 +81,55 @@
       </table>
       
       <h2 class="text-center bg-info">Historial</h2>
+      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th id="evaluation_th">
+              Evaluación
+            </th>
+            <th id="behaviour_th">
+              Comportamiento
+            </th>
+            <th>
+              Comentarios
+            </th>
+            <th>
+              Puntos
+            </th>
+             <th id="behaviour_type_th">
+              Tipo
+            </th>
+            <th id="date_th">
+              Fecha
+            </th> 
+          </tr>
+        </thead>
+        <tbody>
+        {{#each statistics}}
+              <tr>
+                <td>
+                  {{evaluation}}
+                </td>
+                <td>
+                  {{behaviour.behaviourDescription}}
+                </td>
+                <td>
+                  {{comment}}
+                </td>
+                <td>
+                  {{behaviour.points}}
+                </td>
+                <td>
+                  {{behaviourType}}
+                </td>
+                <td>
+                  {{createdOnFormatted createdOn}}
+                </td>
+              </tr>
+        {{/each}}
+        </tbody>
+      </table>      
     </div>
   </div>
 </template>
