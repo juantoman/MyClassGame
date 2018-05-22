@@ -83,7 +83,7 @@ Template.studentPage.events({
       Meteor.call('chalInsertPoints', chalCP);
     }
   },
-  'submit form': function(event) {
+  'submit form.dataStudent': function(event) {
     event.preventDefault();
     var user = Meteor.user();
     studentId=Session.get('studentId');
@@ -93,6 +93,9 @@ Template.studentPage.events({
     avatar=$(event.target).find('[name=sAvatar]').val();
     email=$(event.target).find('[name=sEmail]').val();
     Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
+  },
+  'submit .diario': function(event) {
+    event.preventDefault();
   },
   'click .btn-default': function() {
     Session.set('studentSelected', false);

@@ -1,5 +1,5 @@
 <template name="studentPage">
-  <div>
+  <div style="background-color:#002B36;">
     <div class="list-group">
       {{#with student}}
         <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
@@ -19,7 +19,7 @@
               <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
             </div>
             {{# if teacher}}
-            <div style="float:right;">
+            <div style="float:right;margin-bottom:20px;">
               <button type="button" class="btn btn-default">Volver a clase</button>
               <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
@@ -28,7 +28,7 @@
         </div>
       {{/with}}
     </div>
-    <div class="container section">
+    <div class="container section table-responsive">
       
       <h2 class="text-center bg-info">Misiones y Retos</h2>
       
@@ -129,7 +129,26 @@
               </tr>
         {{/each}}
         </tbody>
-      </table>      
+      </table>
+    </div>
+    <div class="container">
+      <h2 class="text-center bg-info">Diario de aprendizaje</h2>
+      <form class="diario">
+        <div class="form-group">
+          <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
+          <input type="text" class="form-control" id="que" name="que" value="">
+          <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>
+          <input type="text" class="form-control" id="como" name="como" value="">
+          <label for="entendido" class="control-label">¿Qué he entendido bien?</label>
+          <input type="text" class="form-control" id="entendido" name="entendido"  value="">
+          <label for="noentendido" class="control-label">¿Qué cosas no acabo de entender?</label>
+          <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-default">Volver a clase</button>
+          <input type="submit" class="btn btn-primary" value="Guardar entrada diario">
+        </div>
+      </form>  
     </div>
   </div>
 </template>
