@@ -114,6 +114,14 @@ Template.studentsPage.helpers({
      return "";
     }
   },
+  myuser: function(emailStudent) {
+    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    if ( emailStudent == emailUser) {
+      return "myuser";
+    } else {
+      return "";
+    }
+  },  
   thumbSelected: function(id) {
     if ( parseInt(students.findOne({"_id": id}).selected) == 1 ) {
       return 'userSelected';
@@ -202,7 +210,7 @@ Template.studentsPage.events({
   },
   'click .foto': function(event) {
     event.preventDefault();
-    //alert("Dades alumne");
+    //alert(Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
     Session.setPersistent('studentId', event.target.name);
     Session.set('studentSelected', true);
   },
