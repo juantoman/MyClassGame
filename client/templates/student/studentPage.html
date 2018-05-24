@@ -3,8 +3,17 @@
     <div class="list-group">
       {{#with student}}
         <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
-        <div class="">
-          <p><img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent"></p>
+        <div class="container-fluid">
+          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent">
+          <div class="puntsStudent">
+              <div class="list-group" id="{{_id}}">
+                <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
+                <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
+                <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
+                <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
+                <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
+              </div>
+          </div>
           <form class="dataStudent">
             <div class="form-group">
               <label for="sName" class="control-label">Nombre estudiante</label>
@@ -18,17 +27,17 @@
               <label for="sEmail" class="control-label">email</label>
               <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
             </div>
-            {{# if teacher}}
+            {{#if teacher}}
             <div style="float:right;margin-bottom:20px;">
               <button type="button" class="btn btn-default">Volver a clase</button>
               <input type="submit" class="btn btn-primary" value="Guardar">
             </div>
             {{/if}}
-          </form>  
+          </form>
         </div>
       {{/with}}
     </div>
-    <div class="container section table-responsive">
+    <div class="container-fluid section table-responsive">
       
       <h2 class="text-center bg-info">Misiones y Retos</h2>
       
@@ -131,7 +140,7 @@
         </tbody>
       </table>
     </div>
-    <div class="container">
+    <div class="container-fluid">
       <h2 class="text-center bg-info">Diario de aprendizaje</h2>
       <form class="diario">
         <div class="form-group">

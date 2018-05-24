@@ -1,4 +1,5 @@
 Template.studentsMainPage.rendered = function() {
+  Session.set('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
   $('#evaluacion').val(Session.get('evaluation'));
 }
 Template.studentsMainPage.helpers({
@@ -86,5 +87,6 @@ Template.studentsMainPage.events({
   'change select': function(event) {
     event.preventDefault();
     Session.setPersistent('evaluation', $(event.target).val());
+    Meteor.call('changeEvaluation', Session.get('classId'),$(event.target).val());
   }
 });

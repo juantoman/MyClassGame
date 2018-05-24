@@ -106,6 +106,10 @@ body {
   width:90%;
   height:90%;
 }
+.foto:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
 .foto-hor{
   height:30px;
 }
@@ -218,9 +222,15 @@ label {
   margin-left:10px;
   margin-bottom: 20px;
 }
+.puntsStudent {
+  float:left;
+  width:15%;
+  margin-top:20px;
+  margin-left:2%;
+}
 .dataStudent{
   float:right;
-  width:65%;
+  width:50%;
   height:100%;
   margin-right:10px;
 }
@@ -229,4 +239,7 @@ label {
 }
 .myuser{
   background-color: gold;
+}
+.thumbnail:hover {
+  background-color: #3958D0;
 }
