@@ -26,6 +26,9 @@ Template.groupsPage.helpers({
     students.find( { groupId:idG } ).forEach(function(s){ xp+=s.XP; });
     r=parseInt(xp/n);
     return r;
+  },
+  selected: function() {
+    return Session.get('groupSelected');
   }
 });
 Template.groupsPage.events({
@@ -44,9 +47,15 @@ Template.groupsPage.events({
     Session.setPersistent('groupId', event.target.name);
     Modal.show('groupHPModal');
   },
-  'click .btn-primary': function(event) {
+  'click .btn-group': function(event) {
     event.preventDefault();
     Session.setPersistent('groupId', event.target.name);
     Modal.show('groupModal');
+  },
+  'click .foto': function(event) {
+    event.preventDefault();
+    //alert(Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
+    Session.setPersistent('groupId', event.target.name);
+    Session.set('groupSelected', true);
   }
 });

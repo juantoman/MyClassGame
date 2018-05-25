@@ -1,43 +1,47 @@
 <template name="groupsPage">
-  <div class="row">
-      {{#each groups}}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="thumbnail">
-              <h2 class="text-center bg-primary">{{groupName}}</h2>
-              <img src="{{gImage groupImg}}" alt="...">
-              <h2 class="text-center">
-                <button type="button" class="btn btn-success btn-xp" data-toggle="modal" name="{{_id}}">
-                      + {{gXP this._id}} XP
-                </button>
-                <button type="button" class="btn btn-warning btn-hp" data-toggle="modal" name="{{_id}}">
-                     - HP
-                </button>
-              </h2>
-              <div class="caption">
+  {{#if selected}}
+      {{> groupPage}}    
+  {{else}}
+    <div class="row">
+        {{#each groups}}
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="thumbnail">
+                <h2 class="text-center bg-primary">{{groupName}}</h2>
+                <img src="{{gImage groupImg}}" alt="..." class="foto" name="{{_id}}" title="Propiedades grupo">
                 <h2 class="text-center">
-                  <button type="button" class="btn btn-primary" data-toggle="modal" name="{{_id}}">{{groupName}}</button>
-                  <button type="button" class="btn btn-danger btn-delete-group" name="{{_id}}">
-                    Eliminar
+                  <button type="button" class="btn btn-success btn-xp" name="{{_id}}">
+                        + {{gXP this._id}} XP
                   </button>
-                </h2>  
-              </div>
-          </div>
-        </div>
-      {{/each}}
-      {{#if teacher}}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="thumbnail">
-              <h2 class="text-center bg-success">Añadir grupo</h2>
-              <img src="{{gImage}}" alt="...">
-              <div class="caption">
-                <h2 class="text-center">
-                  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_group_modal">
-                    Grupo
+                  <button type="button" class="btn btn-warning btn-hp" name="{{_id}}">
+                       - HP
                   </button>
                 </h2>
-              </div>
+                <div class="caption">
+                  <h2 class="text-center">
+                    <button type="button" class="btn btn-primary btn-group" name="{{_id}}">{{groupName}}</button>
+                    <button type="button" class="btn btn-danger btn-delete-group" name="{{_id}}">
+                      Eliminar
+                    </button>
+                  </h2>  
+                </div>
+            </div>
           </div>
-        </div>
-      {{/if}}
-  </div>
+        {{/each}}
+        {{#if teacher}}
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="thumbnail">
+                <h2 class="text-center bg-success">Añadir grupo</h2>
+                <img src="{{gImage}}" alt="...">
+                <div class="caption">
+                  <h2 class="text-center">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_group_modal">
+                      Grupo
+                    </button>
+                  </h2>
+                </div>
+            </div>
+          </div>
+        {{/if}}
+    </div>
+  {{/if}}
 </template>

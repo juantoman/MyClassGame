@@ -1,0 +1,67 @@
+<template name="groupPage">
+  <div style="background-color:#002B36;">
+    <div class="list-group">
+      {{#with group}}
+        <h2 class="text-center bg-primary">GRUPO: <span id="alias">{{groupName}}</span></h2>
+        <div class="container-fluid">
+          <img src="{{gImage groupImg}}" name="{{_id}}" alt="..." class="img fotoStudent">
+          <div class="puntsStudent">
+              <div class="list-group" id="{{_id}}">
+                <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{gXP this._id}} XP</li>
+                <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
+                <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">BG</li>
+                <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">€</li>
+              </div>
+          </div>
+          <form class="dataStudent">
+                <div class="form-group">
+                  <label for="gName" class="control-label">Nombre grupo</label>
+                  <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}">
+                </div>
+                <div class="form-group">
+                  <label for="gImage" class="control-label">Imagen grupo</label>
+                  <input type="text" class="form-control" id="gImage" name="gImage" value="{{groupImg}}">
+                </div>
+                <div class="form-group">
+                  <label for="gImage" class="control-label">Estudiantes</label>
+                  <ul class="list-group">
+                    {{#each students}} 
+                      <button type="button" class="list-group-item  {{studentInGroup _id}}" id="{{_id}}">
+                        {{studentName}}
+                      </button>
+                    {{/each}}
+                  </ul>
+                </div>
+                <div class="form-group" style="float:right;margin-bottom:20px;">
+                  <button type="button" class="btn btn-default">Cerrar</button>
+                  <input type="submit" id="groupModalSubmit2" class="btn btn-primary" value="Save">
+                </div>
+          </form>
+
+        </div>
+      {{/with}}
+    </div>
+    <div class="container-fluid">
+      
+    </div>
+    <div class="container-fluid">
+      <h2 class="text-center bg-info">Cuaderno de grupo</h2>
+      <form class="diario">
+        <div class="form-group">
+          <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
+          <input type="text" class="form-control" id="que" name="que" value="">
+          <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>
+          <input type="text" class="form-control" id="como" name="como" value="">
+          <label for="entendido" class="control-label">¿Qué he entendido bien?</label>
+          <input type="text" class="form-control" id="entendido" name="entendido"  value="">
+          <label for="noentendido" class="control-label">¿Qué cosas no acabo de entender?</label>
+          <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
+        </div>
+        <div class="form-group">
+          <button type="button" class="btn btn-default">Volver a los grupos</button>
+          <input type="submit" class="btn btn-primary" value="Guardar entrada cuaderno">
+        </div>
+      </form>  
+    </div>
+  </div>
+</template>

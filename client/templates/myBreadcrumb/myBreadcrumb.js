@@ -26,11 +26,13 @@ Template.myBreadcrumb.events({
     event.preventDefault();
     Session.set('className', '');
     Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
     //Router.go('/');
   },
   'click .clase': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
     //Router.go('/');
   }
 });
