@@ -39,6 +39,13 @@ Template.groupPage.helpers({
     students.find( { groupId:idG } ).forEach(function(s){ xp+=s.XP; });
     r=parseInt(xp/n);
     return r;
+  },
+  inputDisabled: function() {
+    if (Session.get('userType')=="teacher") {
+     return "";
+    } else {
+     return "disabled";
+    };
   }
 });
 
@@ -66,12 +73,28 @@ Template.groupPage.events({
     Meteor.call('groupInsert', group);
     $('#add_group_modal').modal('hide');
   },*/
-  'click .list-group-item': function(event) {
+  'click button.list-group-item': function(event) {
+    if (Session.get('userType')=="teacher") {
+      event.preventDefault();
+      if ($(event.currentTarget).hasClass("list-group-item-danger")){
+        $(event.currentTarget).removeClass("list-group-item-danger");
+      } else {
+        $(event.currentTarget).addClass("list-group-item-danger");
+      }
+    }
+  },
+  'click .btn-xp2': function(event) {
     event.preventDefault();
-    if ($(event.currentTarget).hasClass("list-group-item-danger")){
-      $(event.currentTarget).removeClass("list-group-item-danger");
-    } else {
-      $(event.currentTarget).addClass("list-group-item-danger");
+    //Session.setPersistent('groupId', event.target.name);
+    if (Session.get('userType')=="teacher") {
+      Modal.show('groupXPModal');
+    }
+  },
+  'click .btn-hp2': function(event) {
+    event.preventDefault();
+    //Session.setPersistent('groupId', event.target.name);
+    if (Session.get('userType')=="teacher") {
+      Modal.show('groupHPModal');
     }
   },
   /*'click #hpModalSubmit': function(event) {

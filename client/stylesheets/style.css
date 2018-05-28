@@ -243,3 +243,6 @@ label {
 .thumbnail:hover {
   background-color: #3958D0;
 }
+.userType{
+  width:50%;
+}

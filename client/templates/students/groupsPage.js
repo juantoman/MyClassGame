@@ -38,9 +38,11 @@ Template.groupsPage.events({
     Modal.show('deleteGroup');
   },
   'click .btn-xp': function(event) {
-    event.preventDefault();
-    Session.setPersistent('groupId', event.target.name);
-    Modal.show('groupXPModal');
+    if (Session.get('userType')=="teacher") {
+      event.preventDefault();
+      Session.setPersistent('groupId', event.target.name);
+      Modal.show('groupXPModal');
+    }
   },
   'click .btn-hp': function(event) {
     event.preventDefault();

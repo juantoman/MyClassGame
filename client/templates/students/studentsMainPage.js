@@ -40,6 +40,13 @@ Template.studentsMainPage.helpers({
   },
   selected: function() {
     return Session.get('studentSelected');
+  },
+  selEval: function(e) {
+    if (Session.get('evaluation')==e) {
+      return "selected"
+    } else {
+      return "";
+    }
   }
 });
 
@@ -68,13 +75,13 @@ Template.studentsMainPage.events({
       });
     };
   },
-  'click .btn-xp': function(event) {
+  'click .btn-xp3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
       Modal.show('allXPModal');
     }
   },
-  'click .btn-hp': function(event) {
+  'click .btn-hp3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
       Modal.show('allHPModal');

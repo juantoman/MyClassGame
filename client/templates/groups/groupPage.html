@@ -7,20 +7,20 @@
           <img src="{{gImage groupImg}}" name="{{_id}}" alt="..." class="img fotoStudent">
           <div class="puntsStudent">
               <div class="list-group" id="{{_id}}">
-                <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{gXP this._id}} XP</li>
-                <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
-                <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">BG</li>
-                <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">€</li>
+                <li class="list-group-item list-group-item-success btn-xp2">{{gXP this._id}} XP</li>
+                <li class="list-group-item list-group-item-danger btn-hp2">{{HP}} HP</li>
+                <li class="list-group-item list-group-item-info btn-badge">BG</li>
+                <li class="list-group-item list-group-item-warning btn-store" data-target="#store_modal">€</li>
               </div>
           </div>
           <form class="dataStudent">
                 <div class="form-group">
                   <label for="gName" class="control-label">Nombre grupo</label>
-                  <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}">
+                  <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}" {{inputDisabled}}>
                 </div>
                 <div class="form-group">
                   <label for="gImage" class="control-label">Imagen grupo</label>
-                  <input type="text" class="form-control" id="gImage" name="gImage" value="{{groupImg}}">
+                  <input type="text" class="form-control" id="gImage" name="gImage" value="{{groupImg}}" {{inputDisabled}}>
                 </div>
                 <div class="form-group">
                   <label for="gImage" class="control-label">Estudiantes</label>
@@ -32,10 +32,12 @@
                     {{/each}}
                   </ul>
                 </div>
-                <div class="form-group" style="float:right;margin-bottom:20px;">
-                  <button type="button" class="btn btn-default">Cerrar</button>
-                  <input type="submit" id="groupModalSubmit2" class="btn btn-primary" value="Save">
-                </div>
+                {{#if teacher}}
+                  <div class="form-group" style="float:right;margin-bottom:20px;">
+                    <button type="button" class="btn btn-default">Cerrar</button>
+                    <input type="submit" id="groupModalSubmit2" class="btn btn-primary" value="Save">
+                  </div>
+                {{/if}}
           </form>
 
         </div>

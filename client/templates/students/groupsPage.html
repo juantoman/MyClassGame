@@ -12,18 +12,22 @@
                   <button type="button" class="btn btn-success btn-xp" name="{{_id}}">
                         + {{gXP this._id}} XP
                   </button>
+                  {{#if teacher}}
                   <button type="button" class="btn btn-warning btn-hp" name="{{_id}}">
                        - HP
                   </button>
+                  {{/if}}
                 </h2>
-                <div class="caption">
-                  <h2 class="text-center">
-                    <button type="button" class="btn btn-primary btn-group" name="{{_id}}">{{groupName}}</button>
-                    <button type="button" class="btn btn-danger btn-delete-group" name="{{_id}}">
-                      Eliminar
-                    </button>
-                  </h2>  
-                </div>
+                {{#if teacher}}
+                  <div class="caption">
+                    <h2 class="text-center">
+                      <button type="button" class="btn btn-primary btn-group" name="{{_id}}">{{groupName}}</button>
+                      <button type="button" class="btn btn-danger btn-delete-group" name="{{_id}}">
+                        Eliminar
+                      </button>
+                    </h2>  
+                  </div>
+                {{/if}}
             </div>
           </div>
         {{/each}}

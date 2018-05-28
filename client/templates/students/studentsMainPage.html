@@ -15,25 +15,25 @@
           {{#if teacher}}
             <div class="btn-group" role="group" aria-label="Basic example">
               <label for="evaluacion">Evaluación</label>
-              <select id="evaluacion" name="evaluacion" value="{{evaluation}}">
-                <option value="1" selected>1ª Evaluación</option>
-                <option value="2">2ª Evaluación</option>
-                <option value="3">3ª Evaluación</option>
+              <select id="evaluacion" name="evaluacion">
+                <option value="1" {{selEval "1"}}>1ª Evaluación</option>
+                <option value="2" {{selEval "2"}}>2ª Evaluación</option>
+                <option value="3" {{selEval "3"}}>3ª Evaluación</option>
               </select>
-            </div>
-            <div class="btn-group" role="group" aria-label="Estudiantes o grupos">
-              <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-sm">Estudiantes</button>
-              <button id="groups" type="button" class="btn btn-sog {{btnSelected "groups"}} btn-sm">Grupos</button>
             </div>
             <label>Selección</label>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button id="all" type="button" class="btn btn-all btn-sm">Todos</button>
-              <button id="all_xp" type="button" class="btn btn-xp btn-sm">XP</button>
-              <button id="all_hp" type="button" class="btn btn-hp btn-sm">HP</button>
+              <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
+              <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
               <button id="all_bg" type="button" class="btn btn-bg btn-sm">BG</button>
               <button id="all_euros" type="button" class="btn btn-euros btn-sm">€</button>        
             </div>
-          {{/if}}   
+          {{/if}}
+          <div class="btn-group" role="group" aria-label="Estudiantes o grupos">
+            <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-sm">Estudiantes</button>
+            <button id="groups" type="button" class="btn btn-sog {{btnSelected "groups"}} btn-sm">Grupos</button>
+          </div>
           <div class="btn-group" role="group" aria-label="Cuadrícula o lista">
             <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-sm">Cuadrícula</button>
             <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-sm">Lista</button>
