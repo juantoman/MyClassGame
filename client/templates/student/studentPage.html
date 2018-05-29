@@ -19,7 +19,12 @@
               <label for="sName" class="control-label">Nombre estudiante</label>
               <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
               <label for="sLevel" class="control-label">Nivel</label>
-              <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>
+              <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>--> 
+              <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
+                {{#each selectLevels}}
+                  <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
+                {{/each}}
+              </select>
               <label for="sAlias" class="control-label">Alias</label>
               <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
               <label for="sAvatar" class="control-label">Avatar</label>

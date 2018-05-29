@@ -82,6 +82,16 @@ Template.studentPage.helpers({
     }
     desc=levels.findOne({classId: Session.get('classId'),level: n }).levelDescription;
     return desc;
+  },
+  selectLevels: function(){
+    return levels.find({classId: Session.get('classId')});
+  },
+  levelSelected: function(l){
+    if ( students.findOne({_id: Session.get('studentId')}).level == l ) {
+      return "selected"
+    } else {
+      return "";
+    }
   }
 });
 
