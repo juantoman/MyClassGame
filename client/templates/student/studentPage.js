@@ -109,6 +109,15 @@ Template.studentPage.helpers({
   },
   mision: function(){
     return challenges.findOne({_id: this.mission});
+  },
+  myuser: function() {
+    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    emailStudent=$('#sEmail').val();
+    if ( emailStudent == emailUser ) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 
@@ -146,18 +155,30 @@ Template.studentPage.events({
   },
   'submit form.diario': function(event) {
     event.preventDefault();
-    var diaryInput = {
-      studentId:Session.get('studentId'),
-      mission:$('#mission').val(),
-      what:$(event.target).find('[name=que]').val(),
-      how:$(event.target).find('[name=como]').val(),
-      understood:$(event.target).find('[name=entendido]').val(),
-      notunderstood:$(event.target).find('[name=noentendido]').val(),
-      validated:false,
-      createdOn: new Date()
-    };
-    console.log(diaryInput);
-    Meteor.call('diaryInsert',diaryInput);
+    var f = new Date();
+    n=diary.find({'studentId': Session.get('studentId')},{createdOn: {$gte: f}}).count();
+    if ( n == 0 )
+    {
+      var diaryInput = {
+        studentId:Session.get('studentId'),
+        mission:$('#mission').val(),
+        what:$(event.target).find('[name=que]').val(),
+        how:$(event.target).find('[name=como]').val(),
+        understood:$(event.target).find('[name=entendido]').val(),
+        notunderstood:$(event.target).find('[name=noentendido]').val(),
+        validated:false,
+        createdOn: new Date()
+      };
+      /*var start = moment("2018-05-29");
+      var end = moment(d);
+      end.diff(start, "days")
+      alert(end.diff(start, "days"));*/
+      
+      Meteor.call('diaryInsert',diaryInput);
+    } else {
+      alert("Ya has introducido una entrada hoy en tu diario!!!")
+    }
+    
   },
   'click .btn-default': function() {
     Session.set('studentSelected', false);
