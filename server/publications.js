@@ -40,3 +40,6 @@ Meteor.publish('challenges', function() {
 Meteor.publish('chalPoints', function() {
   return chalPoints.find();
 });
+Meteor.publish('diary', function() {
+  return diary.find();
+});

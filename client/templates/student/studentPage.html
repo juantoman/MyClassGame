@@ -144,11 +144,75 @@
         {{/each}}
         </tbody>
       </table>
-    </div>
-    <div class="container-fluid">
+
       <h2 class="text-center bg-info">Diario de aprendizaje</h2>
+      
+      <table class="table table-bordered">
+        <tbody>
+        {{#each diary}}
+        <tr>
+          <th id="evaluation_th">
+            Misión
+          </th>
+          <th id="evaluation_th">
+            {{mision.chalName}}
+          </th>
+        </tr>
+        <tr>
+          <td>
+            ¿Qué hemos aprendido hoy?
+          </td>
+          <td>
+            {{what}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ¿Cómo lo hemos aprendido?
+          </td>
+          <td>
+            {{how}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ¿Qué he entendido bien?
+          </td>
+          <td>
+            {{understood}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            ¿Qué cosas no acabo de entender?
+          </td>
+          <td>
+            {{notunderstood}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fecha
+          </td>
+          <td>
+            {{createdOn}}
+          </td>
+        </tr>        
+        {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="container-fluid">    
       <form class="diario">
         <div class="form-group">
+          <h2 class="text-center bg-info">Misión actual</h2>
+          <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>--> 
+          <select class="form-control" id="mission" name="mission" {{inputDisabled}}>
+            {{#each selectMissions}}
+              <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
+            {{/each}}
+          </select>
+          <h4 class="text-center bg-warning">Entrada diario</h4>
           <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
           <input type="text" class="form-control" id="que" name="que" value="">
           <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>

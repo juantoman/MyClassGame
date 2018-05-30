@@ -92,6 +92,23 @@ Template.studentPage.helpers({
     } else {
       return "";
     }
+  },
+  selectMissions: function(){
+    return challenges.find( { classId: Session.get('classId'), type : "Misión" });
+  },
+  missionSelected: function(m){
+    if ( students.findOne({_id: Session.get('studentId')}).mission == m ) {
+      return "selected"
+    } else {
+      return "";
+    }
+  },
+  diary: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return diary.find({studentId: Session.get('studentId')});
+  },
+  mision: function(){
+    return challenges.findOne({_id: this.mission});
   }
 });
 
@@ -127,8 +144,20 @@ Template.studentPage.events({
     email=$(event.target).find('[name=sEmail]').val();
     Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
   },
-  'submit .diario': function(event) {
+  'submit form.diario': function(event) {
     event.preventDefault();
+    var diaryInput = {
+      studentId:Session.get('studentId'),
+      mission:$('#mission').val(),
+      what:$(event.target).find('[name=que]').val(),
+      how:$(event.target).find('[name=como]').val(),
+      understood:$(event.target).find('[name=entendido]').val(),
+      notunderstood:$(event.target).find('[name=noentendido]').val(),
+      validated:false,
+      createdOn: new Date()
+    };
+    console.log(diaryInput);
+    Meteor.call('diaryInsert',diaryInput);
   },
   'click .btn-default': function() {
     Session.set('studentSelected', false);
@@ -176,5 +205,10 @@ Template.studentPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');
     }
+  },
+  'change #mission': function(event) {
+    event.preventDefault();
+    missionId=$(event.target).val();
+    Meteor.call('studentMission',Session.get('studentId'),missionId);
   }
 });
