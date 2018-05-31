@@ -113,7 +113,7 @@ Template.studentPage.helpers({
   myuser: function() {
     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     emailStudent=$('#sEmail').val();
-    if ( emailStudent == emailUser ) {
+    if ( emailStudent == emailUser || Session.get('userType')=="teacher" ) {
       return true;
     } else {
       return false;
@@ -156,7 +156,11 @@ Template.studentPage.events({
   'submit form.diario': function(event) {
     event.preventDefault();
     var f = new Date();
-    n=diary.find({'studentId': Session.get('studentId')},{createdOn: {$gte: f}}).count();
+    d=f.getDate();
+    m=f.getMonth()+1;
+    y=f.getFullYear();
+    hoy=m+"/"+d+"/"+y;
+    n=diary.find({'studentId': Session.get('studentId'),'createdOn': {$gt: new Date(hoy)}}).count();
     if ( n == 0 )
     {
       var diaryInput = {
