@@ -44,6 +44,39 @@
       {{/with}}
     </div>
     <div class="container-fluid">
+      <h2 class="text-center bg-info">Cuaderno de grupo</h2>
+      
+      <table class="table table-bordered">
+        <tbody>
+        {{#each notebook}}
+        <tr>
+          <th id="evaluation_th">
+            Misión
+          </th>
+          <th id="evaluation_th">
+            {{mision.chalName}}
+          </th>
+        </tr>
+        <tr>
+          <td>
+            ¿Qué hemos aprendido hoy?
+          </td>
+          <td>
+            {{done}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Fecha
+          </td>
+          <td>
+            {{createdOn}}
+          </td>
+        </tr>        
+        {{/each}}
+        </tbody>
+      </table>
+      {{#if studentInNotebook}}
       <form class="notebook">
         <div class="form-group">
           <h2 class="text-center bg-info">Misión actual</h2>
@@ -89,7 +122,8 @@
           <button type="button" class="btn btn-default">Volver a los grupos</button>
           <input type="submit" class="btn btn-primary" value="Guardar entrada cuaderno">
         </div>
-      </form>  
+      </form>
+      {{/if}}
     </div>
   </div>
 </template>

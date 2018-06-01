@@ -11,6 +11,10 @@ Template.groupPage.helpers({
   group: function() {
     return groups.findOne({ _id: Session.get('groupId') } );
   },
+  notebook: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return notebook.find({groupId: Session.get('groupId')});
+  },
   inputDisabled: function() {
     if (Session.get('userType')=="teacher") {
      return "";
@@ -59,6 +63,18 @@ Template.groupPage.helpers({
     } else {
       return "";
     }
+  },
+  studentInNotebook: function() {
+    inNote=false;
+    students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
+        i=u._id;
+        emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+        emailStudent=u.email;
+        if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
+          inNote=true;
+        }
+    });
+    return inNote;
   }
 });
 
