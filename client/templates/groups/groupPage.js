@@ -2,6 +2,9 @@ Template.groupPage.helpers({
   students: function() {
     return students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } );
   },
+  studentsIn: function() {
+    return students.find( { groupId: Session.get('groupId') } );
+  },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
   },
@@ -46,6 +49,16 @@ Template.groupPage.helpers({
     } else {
      return "disabled";
     };
+  },
+  selectMissions: function(){
+    return challenges.find( { classId: Session.get('classId'), type : "Misión" });
+  },
+  missionSelected: function(m){
+    if ( groups.findOne({_id: Session.get('groupId')}).mission == m ) {
+      return "selected"
+    } else {
+      return "";
+    }
   }
 });
 
@@ -151,94 +164,50 @@ Template.groupPage.events({
     Meteor.call('groupModify', Session.get('groupId'), gName, gImage);
     //Modal.hide('groupModal');
   },
+  'submit form.notebook': function(event) {
+    event.preventDefault();
+    var f = new Date();
+    d=f.getDate();
+    m=f.getMonth()+1;
+    y=f.getFullYear();
+    hoy=m+"/"+d+"/"+y;
+    n=notebook.find({'groupId': Session.get('groupId'),'createdOn': {$gt: new Date(hoy)}}).count();
+    if ( n == 0 )
+    {
+      var trabajos=[];
+      $('.puntos').find(".selectStudent").each( function() {
+        i=this.id;
+        v=this.value;
+        var workStudent={
+          studentId:i,
+          work:v
+        };
+        trabajos.push(workStudent);
+      });
+      var notebookInput = {
+        groupId:Session.get('groupId'),
+        mission:$('#missionG').val(),
+        done:$(event.target).find('[name=hecho]').val(),
+        assesment:$('#assessment').val(),
+        observations:$(event.target).find('[name=observaciones]').val(),
+        works: trabajos,
+        validated:false,
+        createdOn: new Date()
+      };
+      //console.log(notebookInput);
+      Meteor.call('notebookInsert',notebookInput);
+    } else {
+      alert("Ya has introducido una entrada hoy en tu diario!!!")
+    }
+  },
   'click .btn-default': function(event) {
     event.preventDefault();
     //Modal.hide('groupModal');
     Session.set('groupSelected', false);
+  },
+  'change #missionG': function(event) {
+    event.preventDefault();
+    missionId=$(event.target).val();
+    Meteor.call('groupMission',Session.get('groupId'),missionId);
   }
 });
-
-/*Template.groupPage.events({
-  'change .cp': function(event) {
-    event.preventDefault();
-    studentId=Session.get('studentId');
-    chalId=event.target.id;
-    chalCP=$(event.target).val();
-    //alert("cambio" + studentId + " " + chalId + " " + chalCP);
-    //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
-    if ( Meteor.call('chalUpdatePoints', studentId, chalId, chalCP) )
-    {
-      return;
-    } else {
-      var chalCP = {
-        studentId: studentId,
-        chalId: chalId,
-        chalCP: chalCP,
-        createdOn: new Date()
-      };
-      Meteor.call('chalInsertPoints', chalCP);
-    }
-  },
-  'submit form.dataStudent': function(event) {
-    event.preventDefault();
-    var user = Meteor.user();
-    studentId=Session.get('studentId');
-    studentName=$(event.target).find('[name=sName]').val();
-    level=$(event.target).find('[name=sLevel]').val();
-    alias=$(event.target).find('[name=sAlias]').val();
-    avatar=$(event.target).find('[name=sAvatar]').val();
-    email=$(event.target).find('[name=sEmail]').val();
-    Meteor.call('studentModify',studentId,studentName,level,alias,avatar,email);
-  },
-  'submit .diario': function(event) {
-    event.preventDefault();
-  },
-  'click .btn-default': function() {
-    Session.set('groupSelected', false);
-  },
-  'click .btn-xp': function(event) {
-    event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
-    if ( Session.get('userType')=="teacher") {
-      Modal.show('xpModal');
-    }    
-  },
-  'click .btn-hp': function(event) {
-    event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
-    if ( Session.get('userType')=="teacher") {
-      Modal.show('hpModal');
-    }  
-  },
-  'click .btn-badge': function(event) {
-    event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
-    if ( Session.get('userType')=="teacher") {
-      Modal.show('badgeModal');
-    }
-  },
-  'click .btn-store': function(event) {
-    event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
-    if ( Session.get('userType')=="teacher") {
-      Modal.show('storeModal');
-    }
-  }
-});
-*/

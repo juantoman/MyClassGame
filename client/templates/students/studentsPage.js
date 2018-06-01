@@ -116,7 +116,7 @@ Template.studentsPage.helpers({
   },
   myuser: function(emailStudent) {
     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-    if ( emailStudent == emailUser) {
+    if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
       return "myuser";
     } else {
       return "";

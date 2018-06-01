@@ -43,3 +43,6 @@ Meteor.publish('chalPoints', function() {
 Meteor.publish('diary', function() {
   return diary.find();
 });
+Meteor.publish('notebook', function() {
+  return notebook.find();
+});
