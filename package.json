@@ -5,8 +5,9 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "babel-runtime": "^6.23.0",
-    "bcrypt": "^1.0.2",
+    "@babel/runtime": "^7.0.0-beta.49",
+    "babel-runtime": "^6.26.0",
+    "bcrypt": "^1.0.3",
     "google-auth-library": "^0.10.0",
     "googleapis": "^18.0.0",
     "meteor-node-stubs": "^0.2.6"

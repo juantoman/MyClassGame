@@ -219,7 +219,10 @@ Template.groupPage.events({
   'click .btn-default': function(event) {
     event.preventDefault();
     //Modal.hide('groupModal');
-    Session.set('groupSelected', false);
+    console.log(notebook.findOne( { "_id" : "ubeHXBtpXajsjxqbW", "works.studentId" : "CxJwSbRSG3FDQMWDo" } , { fields: { _id:0} } ).works);
+    //Meteor.call('notebookProva');
+    //notebook.update( { "_id" : "ubeHXBtpXajsjxqbW", "works.studentId" : "CxJwSbRSG3FDQMWDo" } , { $set: { 'works.$.work' : "29" } } );
+    //Session.set('groupSelected', false);
   },
   'change #missionG': function(event) {
     event.preventDefault();

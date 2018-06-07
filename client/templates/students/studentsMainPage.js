@@ -1,7 +1,3 @@
-Template.studentsMainPage.rendered = function() {
-  Session.set('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-  $('#evaluacion').val(Session.get('evaluation'));
-}
 Template.studentsMainPage.helpers({
   className: function() {
     return Session.get('className');
@@ -42,7 +38,7 @@ Template.studentsMainPage.helpers({
     return Session.get('studentSelected');
   },
   selEval: function(e) {
-    if (Session.get('evaluation')==e) {
+    if (classes.findOne({_id:Session.get('classId')}).evaluation==e) {
       return "selected"
     } else {
       return "";

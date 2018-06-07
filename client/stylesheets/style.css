@@ -246,3 +246,7 @@ label {
 .userType{
   width:50%;
 }
+.navbar-brand{
+  font-weight: bold;
+  font-family: Verdana, Geneva, sans-serif;
+}

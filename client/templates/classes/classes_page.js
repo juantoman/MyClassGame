@@ -33,6 +33,7 @@ Template.classesPage.events({
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
+    Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     //Router.go('myNav');
   },
   'click .btn-delete-class': function(event) {

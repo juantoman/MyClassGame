@@ -43,7 +43,8 @@
         </div>
       {{/with}}
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid section table-responsive">
+      
       <h2 class="text-center bg-info">Cuaderno de grupo</h2>
       
       <table class="table table-bordered">
@@ -72,10 +73,22 @@
           <td>
             {{createdOn}}
           </td>
-        </tr>        
+        </tr>
+        <tr>
+          {{#each works}}
+            <td>
+              {{studentId}}
+            </td>
+            <td>
+              {{work}}
+            </td>
+          {{/each}}
+        </tr>
         {{/each}}
         </tbody>
       </table>
+      </div>
+      <div class="container-fluid">
       {{#if studentInNotebook}}
       <form class="notebook">
         <div class="form-group">
