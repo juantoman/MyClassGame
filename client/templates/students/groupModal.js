@@ -140,7 +140,7 @@ Template.groupXPModal.events({
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
       console.log("Grup");
-      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+      students.find( { groupId: Session.get('groupId') } ).forEach(function (item){
         console.log(item["_id"]);
         var behaviour = {
           classId: Session.get('classId'),
@@ -194,7 +194,7 @@ Template.groupHPModal.events({
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
       console.log("Grup");
-      students.find( { $or: [ { groupId: Session.get('groupId') }, { $and: [ { groupId: 0 } , { classId: Session.get('classId')  } ] } ] } ).forEach(function (item){
+      students.find( { groupId: Session.get('groupId') } ).forEach(function (item){
         console.log(item["_id"]);
         var behaviour = {
           classId: Session.get('classId'),
