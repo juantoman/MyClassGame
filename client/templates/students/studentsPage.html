@@ -25,8 +25,8 @@
                   <!-- <button type="button" class="btn btn-info btn-data" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}">
                     Información
                   </button> -->
-                  <button type="button" class="btn btn-warning btn-powers" data-toggle="modal" name="{{_id}}">
-                    Poderes
+                  <button type="button" class="btn btn-warning btn-info" data-toggle="modal" name="{{_id}}">
+                    Información
                   </button>
                   {{#if teacher}}
                     <button type="button" class="btn btn-danger btn-delete-student" name="{{_id}}">
@@ -97,10 +97,10 @@
           <td><button type="button" class="btn btn-success btn-xp btn-xs"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor">Nuevo estudiante</button></td>
           <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
           <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
-        </tr>        
+        </tr>
       {{/if}}
     </tbody>
-  </table>  
+  </table>
   </div>
   {{/if}}
 </template>

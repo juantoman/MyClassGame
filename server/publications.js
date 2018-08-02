@@ -46,3 +46,6 @@ Meteor.publish('diary', function() {
 Meteor.publish('notebook', function() {
   return notebook.find();
 });
+Meteor.publish('notebookWork', function() {
+  return notebookWork.find();
+});

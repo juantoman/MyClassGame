@@ -2,9 +2,17 @@ Template.studentPage.helpers({
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
   },
-  challenge: function() {
+  mac: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId')});
+  },
+  challenges: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return challenges.find({classId: Session.get('classId'),type:"Reto"});
+  },
+  missions: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return challenges.find({classId: Session.get('classId'),type:"Misión"});
   },
   badges: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
@@ -118,6 +126,96 @@ Template.studentPage.helpers({
     } else {
       return false;
     }
+  },
+  notaXP: function(xp){
+    max=students.findOne({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}}).XP;
+    nota=100*xp/max;
+    Session.set('nXP',nota);
+    return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;
+  },
+  notaBadges: function(nb){
+    max=0;
+    students.find({classId: Session.get('classId')}).forEach(function(bg){
+      if ( bg.badges.length > max ) { max=bg.badges.length; }
+    });
+    nota=100*nb/max;
+    Session.set('nBg',nota);
+    return "( " + nb + " Badges de un máximo de " + max + " Badges ) = " + nota;
+  },
+  notaMision: function(cId){
+    n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+    nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
+    w=0;
+    notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).forEach(function(sw){ w+=parseInt(sw.work); });
+    nota=(n*w/nm)/100;
+    notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
+    return notas + " = " + nota;
+  },
+  notaMediaMisiones: function(){
+    nmm=0;
+    cm=0;
+    notas="";
+    challenges.find({classId: Session.get('classId'),type:"Misión"}).forEach(function(m){
+      cId=m._id;
+      n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
+      w=0;
+      notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).forEach(function(sw){ w+=parseInt(sw.work); });
+      nota=(n*w/nm)/100;
+      if (notas=="") {
+        notas=nota;
+      } else {
+        notas=notas+" + "+nota;
+      }
+      nmm+=nota;
+      cm++;
+    });
+    nota=nmm/cm;
+    notas="( "+notas+" ) / "+cm;
+    Session.set('nMM',nota);
+    return notas + " = " + nota;
+  },
+  notaRetos: function(xp){
+    nota=0;
+    notas="";
+    n=chalPoints.find({'studentId':Session.get('studentId'),chalType:"Reto"}).count();
+    chalPoints.find({'studentId':Session.get('studentId'),chalType:"Reto"}).forEach(function(nc){
+      nota+=parseInt(nc.chalCP);
+      if (notas=="") {
+        notas=nc.chalCP;
+      } else {
+        notas=notas+" + "+nc.chalCP;
+      }
+    });
+    nota=nota/n;
+    Session.set('nR',nota);
+    notas="( "+notas+" ) / "+n;
+    return  notas + " = " + nota;
+  },
+  notaHP: function(){
+    //nHP=behavioursLog.aggregate({$group: {_id: '', nHP: { $sum: '$evaluation' }}},{$project: {_id: 0, nHP: '$evaluation'}});
+    n=0;
+    behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId'),behaviourType: 'HP'}).forEach(function(b){
+      n+=parseInt(behaviours.findOne({_id: b.behavior}).points);
+    });
+    /*nota=100*xp/max;
+    Session.set('nXP',nota);
+    return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;*/
+    perHP=classes.findOne({_id: Session.get('classId')}).perHP;
+    nota=perHP*n;
+    Session.set('nHP',nota);
+    notas=perHP + " * " + n + " HP "
+    return notas + " = " + nota;
+  },
+  notaFinal: function(){
+    perXP=classes.findOne({_id: Session.get('classId')}).perXP;
+    perBG=classes.findOne({_id: Session.get('classId')}).perBG;
+    perMissions=classes.findOne({_id: Session.get('classId')}).perMissions;
+    perChallenges=classes.findOne({_id: Session.get('classId')}).perChallenges;
+    perHP=classes.findOne({_id: Session.get('classId')}).perHP;
+    nota=Session.get('nXP')*perXP/100+Session.get('nBg')*perBG/100+Session.get('nMM')*perMissions/100+Session.get('nR')*perChallenges/100-Session.get('nHP');
+    notas="{ " + Session.get('nXP')*perXP/100 + " [ " + perXP + " % XP ] + " + Session.get('nBg')*perBG/100 + " [ " + perBG + " % BG ] + " + Session.get('nMM')*perMissions/100 + " [ " + perMissions + " % Misiones ] + " + Session.get('nR')*perChallenges/100 + " [ " + perChallenges + " % Retos ] } - " + Session.get('nHP') + " [ " + perHP + " * HP ]";
+    return notas + " = " + nota;
   }
 });
 
@@ -126,17 +224,18 @@ Template.studentPage.events({
     event.preventDefault();
     studentId=Session.get('studentId');
     chalId=event.target.id;
-    chalCP=$(event.target).val();
+    chalCP=$(event.target).val();perMissions
     //alert("cambio" + studentId + " " + chalId + " " + chalCP);
     //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
-    if ( Meteor.call('chalUpdatePoints', studentId, chalId, chalCP) )
-    {
-      return;
+    n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
+    if ( n==1 ) {
+      Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
     } else {
       var chalCP = {
         studentId: studentId,
         chalId: chalId,
         chalCP: chalCP,
+        chalType:event.target.name,
         createdOn: new Date()
       };
       Meteor.call('chalInsertPoints', chalCP);
@@ -177,12 +276,12 @@ Template.studentPage.events({
       var end = moment(d);
       end.diff(start, "days")
       alert(end.diff(start, "days"));*/
-      
+
       Meteor.call('diaryInsert',diaryInput);
     } else {
       alert("Ya has introducido una entrada hoy en tu diario!!!")
     }
-    
+
   },
   'click .btn-default': function() {
     Session.set('studentSelected', false);
@@ -190,29 +289,29 @@ Template.studentPage.events({
   'click .btn-xp': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
-    }    
+    }
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
-    }  
+    }
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
@@ -223,7 +322,7 @@ Template.studentPage.events({
   'click .btn-store': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }

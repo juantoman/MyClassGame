@@ -15,6 +15,10 @@ Template.groupPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return notebook.find({groupId: Session.get('groupId')});
   },
+  works: function(nbId) {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return notebookWork.find({notebookId: nbId});
+  },
   inputDisabled: function() {
     if (Session.get('userType')=="teacher") {
      return "";
@@ -29,7 +33,7 @@ Template.groupPage.helpers({
      return false;
     };
   },
-   gImage: function(image) {
+  gImage: function(image) {
     if (image) {
      return image;
     } else {
@@ -47,13 +51,6 @@ Template.groupPage.helpers({
     r=parseInt(xp/n);
     return r;
   },
-  inputDisabled: function() {
-    if (Session.get('userType')=="teacher") {
-     return "";
-    } else {
-     return "disabled";
-    };
-  },
   selectMissions: function(){
     return challenges.find( { classId: Session.get('classId'), type : "Misión" });
   },
@@ -64,11 +61,20 @@ Template.groupPage.helpers({
       return "";
     }
   },
+  mision: function(){
+    return challenges.findOne({_id: this.mission});
+  },
+  sn: function(sn){
+    return students.findOne({_id: sn}).studentName;
+  },
   studentInNotebook: function() {
     inNote=false;
     students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
         i=u._id;
-        emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+        emailUser=Meteor.users.findOne().emails[0].address;
+        if (emailUser=="") {
+          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+        }
         emailStudent=u.email;
         if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
           inNote=true;
@@ -155,8 +161,8 @@ Template.groupPage.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'XP',
-        evaluation: Session.get('evaluation'),       
-        comment: $("#commentXPGroup").val(),        
+        evaluation: Session.get('evaluation'),
+        comment: $("#commentXPGroup").val(),
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
@@ -190,28 +196,34 @@ Template.groupPage.events({
     n=notebook.find({'groupId': Session.get('groupId'),'createdOn': {$gt: new Date(hoy)}}).count();
     if ( n == 0 )
     {
-      var trabajos=[];
-      $('.puntos').find(".selectStudent").each( function() {
-        i=this.id;
-        v=this.value;
-        var workStudent={
-          studentId:i,
-          work:v
-        };
-        trabajos.push(workStudent);
-      });
+      //var trabajos=[];
       var notebookInput = {
+        classId: Session.get('classId'),
         groupId:Session.get('groupId'),
         mission:$('#missionG').val(),
         done:$(event.target).find('[name=hecho]').val(),
         assesment:$('#assessment').val(),
         observations:$(event.target).find('[name=observaciones]').val(),
-        works: trabajos,
+        //works: trabajos,
         validated:false,
+        seen:false,
         createdOn: new Date()
       };
       //console.log(notebookInput);
-      Meteor.call('notebookInsert',notebookInput);
+      nid=Meteor.call('notebookInsert',notebookInput);
+      $('.puntos').find(".selectStudent").each( function() {
+        i=this.id;
+        v=this.value;
+        var workStudent={
+          classId: Session.get('classId'),
+          notebookId: Session.get("nid"),
+          mission:$('#missionG').val(),
+          studentId:i,
+          work:v
+        };
+        Meteor.call('notebookWorkInsert',workStudent);
+        //trabajos.push(workStudent);
+      });
     } else {
       alert("Ya has introducido una entrada hoy en tu diario!!!")
     }
@@ -219,10 +231,10 @@ Template.groupPage.events({
   'click .btn-default': function(event) {
     event.preventDefault();
     //Modal.hide('groupModal');
-    console.log(notebook.findOne( { "_id" : "ubeHXBtpXajsjxqbW", "works.studentId" : "CxJwSbRSG3FDQMWDo" } , { fields: { _id:0} } ).works);
+    //console.log(notebook.findOne( { "_id" : "ubeHXBtpXajsjxqbW", "works.studentId" : "CxJwSbRSG3FDQMWDo" } , { fields: { _id:0} } ).works);
     //Meteor.call('notebookProva');
     //notebook.update( { "_id" : "ubeHXBtpXajsjxqbW", "works.studentId" : "CxJwSbRSG3FDQMWDo" } , { $set: { 'works.$.work' : "29" } } );
-    //Session.set('groupSelected', false);
+    Session.set('groupSelected', false);
   },
   'change #missionG': function(event) {
     event.preventDefault();

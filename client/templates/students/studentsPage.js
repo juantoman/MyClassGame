@@ -115,13 +115,16 @@ Template.studentsPage.helpers({
     }
   },
   myuser: function(emailStudent) {
-    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    emailUser=Meteor.users.findOne().emails[0].address;
+    if (emailUser=="") {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
       return "myuser";
     } else {
       return "";
     }
-  },  
+  },
   thumbSelected: function(id) {
     if ( parseInt(students.findOne({"_id": id}).selected) == 1 ) {
       return 'userSelected';
@@ -163,33 +166,34 @@ Template.studentsPage.events({
   'click .btn-xp': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
-    }    
+    }
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
-    }  
+    }
   },
   'click .btn-info': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId', event.target.name);
+    Session.set('studentSelected', true);
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
@@ -200,7 +204,7 @@ Template.studentsPage.events({
   'click .btn-store': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));  
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }

@@ -25,7 +25,7 @@
                 <div class="form-group">
                   <label for="gImage" class="control-label">Estudiantes</label>
                   <ul class="list-group">
-                    {{#each students}} 
+                    {{#each students}}
                       <button type="button" class="list-group-item  {{studentInGroup _id}}" id="{{_id}}">
                         {{studentName}}
                       </button>
@@ -44,46 +44,54 @@
       {{/with}}
     </div>
     <div class="container-fluid section table-responsive">
-      
+
       <h2 class="text-center bg-info">Cuaderno de grupo</h2>
-      
+
       <table class="table table-bordered">
         <tbody>
         {{#each notebook}}
-        <tr>
-          <th id="evaluation_th">
-            Misión
-          </th>
-          <th id="evaluation_th">
-            {{mision.chalName}}
-          </th>
-        </tr>
-        <tr>
-          <td>
-            ¿Qué hemos aprendido hoy?
-          </td>
-          <td>
-            {{done}}
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Fecha
-          </td>
-          <td>
-            {{createdOn}}
-          </td>
-        </tr>
-        <tr>
-          {{#each works}}
+          <tr>
+            <th id="evaluation_th">
+              Misión
+            </th>
+            <th id="evaluation_th">
+              {{mision.chalName}}
+            </th>
+          </tr>
+          <tr>
             <td>
-              {{studentId}}
+              Fecha
             </td>
             <td>
-              {{work}}
+              {{createdOn}}
             </td>
+          </tr>
+          <tr>
+            <td>
+              ¿Qué hemos aprendido hoy?
+            </td>
+            <td>
+              {{done}}
+            </td>
+          </tr>
+          {{#each works _id}}
+            <tr>
+              <td>
+                {{sn studentId}}
+              </td>
+              <td>
+                {{work}}
+              </td>
+            </tr>
           {{/each}}
-        </tr>
+          <tr>
+            <td>
+              Observaciones
+            </td>
+            <td>
+              {{observations}}
+            </td>
+          </tr>
         {{/each}}
         </tbody>
       </table>
@@ -93,7 +101,7 @@
       <form class="notebook">
         <div class="form-group">
           <h2 class="text-center bg-info">Misión actual</h2>
-          <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>--> 
+          <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
           <select class="form-control" id="missionG" name="mission" {{inputDisabled}}>
             {{#each selectMissions}}
               <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
@@ -108,7 +116,7 @@
             <option value="2">2.- Regular</option>
             <option value="3" selected>3.- Buena</option>
             <option value="4">4.- Positiva</option>
-            <option value="5">5.- Excelente</option>            
+            <option value="5">5.- Excelente</option>
             </select>
           <label class="control-label">Puntuación por miembro</label>
           <div class="row container puntos">

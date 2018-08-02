@@ -19,7 +19,7 @@
               <label for="sName" class="control-label">Nombre estudiante</label>
               <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
               <label for="sLevel" class="control-label">Nivel</label>
-              <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>--> 
+              <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
               <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
                 {{#each selectLevels}}
                   <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
@@ -43,10 +43,10 @@
       {{/with}}
     </div>
     <div class="container-fluid section table-responsive">
-      
+
       <h2 class="text-center bg-info">Misiones y Retos</h2>
-      
-      {{#each challenge}}
+
+      {{#each mac}}
         <div class="form-group {{moc type}}">
           <div class="form-inline">
             <div class="input-group col-xs-9">
@@ -55,14 +55,14 @@
             </div>
             <div class="input-group col-xs-2">
               <span class="input-group-addon">Puntuación</span>
-              <input type="text" class="form-control inputGroup input-lg cp" name="CP" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+              <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
             </div>
           </div>
         </div>
       {{/each}}
 
       <h2 class="text-center bg-info">Insignias</h2>
-    
+
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -71,10 +71,10 @@
             </th>
             <th>
               XP
-            </th>            
+            </th>
             <th>
               Fecha
-            </th> 
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -88,14 +88,14 @@
             </td>
             <td>
               {{createdOn}}
-            </td>                
+            </td>
           </tr>
         {{/each}}
         </tbody>
       </table>
-      
+
       <h2 class="text-center bg-info">Historial</h2>
-      
+
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -116,7 +116,7 @@
             </th>
             <th id="date_th">
               Fecha
-            </th> 
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -146,7 +146,7 @@
       </table>
 
       <h2 class="text-center bg-info">Diario de aprendizaje</h2>
-      
+
       <table class="table table-bordered">
         <tbody>
         {{#each diary}}
@@ -197,17 +197,17 @@
           <td>
             {{createdOn}}
           </td>
-        </tr>        
+        </tr>
         {{/each}}
         </tbody>
       </table>
     </div>
     {{#if myuser}}
-      <div class="container-fluid">    
+      <div class="container-fluid">
         <form class="diario">
           <div class="form-group">
             <h2 class="text-center bg-info">Misión actual</h2>
-            <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>--> 
+            <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
             <select class="form-control" id="mission" name="mission" {{inputDisabled}}>
               {{#each selectMissions}}
                 <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
@@ -227,8 +227,98 @@
             <button type="button" class="btn btn-default">Volver a clase</button>
             <input type="submit" class="btn btn-primary" value="Guardar entrada diario">
           </div>
-        </form>  
+        </form>
       </div>
     {{/if}}
+
+    <div class="container-fluid section table-responsive">
+      <h2 class="text-center bg-info">Notas</h2>
+
+      <table class="table table-bordered">
+        {{#with student}}
+        <tbody>
+          <tr>
+            <td>
+              XP
+            </td>
+            <td>
+              {{XP}}
+            </td>
+            <td>
+              {{notaXP XP}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Badges
+            </td>
+            <td>
+              {{badges.length}}
+            </td>
+            <td>
+              {{notaBadges badges.length}}
+            </td>
+          </tr>
+          {{#each missions}}
+            <tr>
+              <td>
+                Misión: {{chalName}}
+              </td>
+              <td>
+                {{CP _id}}
+              </td>
+              <td class="nota_mision">
+                {{notaMision _id}}
+              </td>
+            </tr>
+          {{/each}}
+          <tr>
+            <td>
+              Misiones:
+            </td>
+            <td>
+              Media
+            </td>
+            <td>
+              {{notaMediaMisiones}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Retos:
+            </td>
+            <td>
+              Media
+            </td>
+            <td>
+              {{notaRetos}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Puntos HP
+            </td>
+            <td>
+              Puntos perdidos por HP
+            </td>
+            <td>
+              {{notaHP}}
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Nota Final
+            </td>
+            <td>
+              Media ponderada XP, Misiones y Retos
+            </td>
+            <td>
+              {{notaFinal}}
+            </td>
+          </tr>
+        </tbody>
+        {{/with}}
+      </table>
+    </div>
   </div>
 </template>
