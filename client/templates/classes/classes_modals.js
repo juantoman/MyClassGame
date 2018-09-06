@@ -18,6 +18,7 @@ Template.classesModals.events({
       var classe = {
         teacherId: user._id,
         className: $(event.target).find('[name=class-name]').val(),
+        iniHP: 10,
         createdOn: new Date()
       };
       Meteor.call('classInsert', classe);
@@ -39,4 +40,3 @@ Template.deleteClass.events({
     Modal.hide('deleteClass');
   }
 });
-

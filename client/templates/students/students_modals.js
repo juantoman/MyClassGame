@@ -20,6 +20,7 @@ Template.studentsModals.events({
   'submit form#add_student_form': function(event) {
     event.preventDefault();
     var user = Meteor.user();
+    var iniHP = classes.findOne({_id: Session.get('classId')}).iniHP;
     var student = {
       classId: Session.get('classId'),
       studentName: $(event.target).find('[name=student-name]').val(),
@@ -28,7 +29,7 @@ Template.studentsModals.events({
       email: $(event.target).find('[name=email]').val(),
       groupId: 0,
       XP: 0,
-      HP: 5,
+      HP: iniHP,
       level: 0,
       coins: 0,
       badges: [],

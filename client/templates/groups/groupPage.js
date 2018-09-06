@@ -240,5 +240,15 @@ Template.groupPage.events({
     event.preventDefault();
     missionId=$(event.target).val();
     Meteor.call('groupMission',Session.get('groupId'),missionId);
+  },
+  'change .seen': function(event) {
+    event.preventDefault();
+    Meteor.call('seenChange', event.currentTarget.value, event.currentTarget.checked);
+  },
+  'change .validated': function(event) {
+    event.preventDefault();
+    Meteor.call('seenChange', event.currentTarget.value, true);
+    Meteor.call('validatedChange', event.currentTarget.value, event.currentTarget.checked);
+    Meteor.call('validatedWork', event.currentTarget.value, event.currentTarget.checked);
   }
 });

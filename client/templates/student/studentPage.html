@@ -202,35 +202,6 @@
         </tbody>
       </table>
     </div>
-    {{#if myuser}}
-      <div class="container-fluid">
-        <form class="diario">
-          <div class="form-group">
-            <h2 class="text-center bg-info">Misión actual</h2>
-            <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-            <select class="form-control" id="mission" name="mission" {{inputDisabled}}>
-              {{#each selectMissions}}
-                <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
-              {{/each}}
-            </select>
-            <h4 class="text-center bg-warning">Entrada diario</h4>
-            <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
-            <input type="text" class="form-control" id="que" name="que" value="">
-            <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>
-            <input type="text" class="form-control" id="como" name="como" value="">
-            <label for="entendido" class="control-label">¿Qué he entendido bien?</label>
-            <input type="text" class="form-control" id="entendido" name="entendido"  value="">
-            <label for="noentendido" class="control-label">¿Qué cosas no acabo de entender?</label>
-            <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
-          </div>
-          <div class="form-group">
-            <button type="button" class="btn btn-default">Volver a clase</button>
-            <input type="submit" class="btn btn-primary" value="Guardar entrada diario">
-          </div>
-        </form>
-      </div>
-    {{/if}}
-
     <div class="container-fluid section table-responsive">
       <h2 class="text-center bg-info">Notas</h2>
 
@@ -320,5 +291,33 @@
         {{/with}}
       </table>
     </div>
+    {{#if myuser}}
+      <div class="container-fluid">
+        <form class="diario">
+          <div class="form-group">
+            <h2 class="text-center bg-info">Misión actual</h2>
+            <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+            <select class="form-control" id="mission" name="mission" {{inputDisabled}}>
+              {{#each selectMissions}}
+                <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
+              {{/each}}
+            </select>
+            <h4 class="text-center bg-warning">Entrada diario</h4>
+            <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
+            <input type="text" class="form-control" id="que" name="que" value="">
+            <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>
+            <input type="text" class="form-control" id="como" name="como" value="">
+            <label for="entendido" class="control-label">¿Qué he entendido bien?</label>
+            <input type="text" class="form-control" id="entendido" name="entendido"  value="">
+            <label for="noentendido" class="control-label">¿Qué cosas no acabo de entender?</label>
+            <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-default">Volver a clase</button>
+            <input type="submit" class="btn btn-primary" value="Guardar entrada diario">
+          </div>
+        </form>
+      </div>
+    {{/if}}
   </div>
 </template>

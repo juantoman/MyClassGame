@@ -92,6 +92,22 @@
               {{observations}}
             </td>
           </tr>
+          <tr>
+            <td>
+              Visto
+            </td>
+            <td>
+              <input class="seen" type="checkbox" value={{_id}} checked="{{seen}}"  {{inputDisabled}}>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Validado
+            </td>
+            <td>
+              <input class="validated" type="checkbox" value={{_id}} checked="{{validated}}"  {{inputDisabled}}>
+            </td>
+          </tr>
         {{/each}}
         </tbody>
       </table>

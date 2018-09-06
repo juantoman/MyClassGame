@@ -13,6 +13,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('groupImgUpdate', Session.get('classId'), event.currentTarget.value);
   },
+  'change #iniHP': function(event) {
+    event.preventDefault();
+    Meteor.call('iniHPUpdate', Session.get('classId'), event.currentTarget.value);
+  },
   'change #perXP': function(event) {
     event.preventDefault();
     Meteor.call('perXPUpdate', Session.get('classId'), event.currentTarget.value);

@@ -119,7 +119,10 @@ Template.studentPage.helpers({
     return challenges.findOne({_id: this.mission});
   },
   myuser: function() {
-    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    emailUser=Meteor.users.findOne().emails[0].address;
+    if (emailUser=="") {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
     emailStudent=$('#sEmail').val();
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
       return true;
@@ -144,9 +147,9 @@ Template.studentPage.helpers({
   },
   notaMision: function(cId){
     n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-    nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
+    nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
     w=0;
-    notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).forEach(function(sw){ w+=parseInt(sw.work); });
+    notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
     nota=(n*w/nm)/100;
     notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
     return notas + " = " + nota;
@@ -158,9 +161,9 @@ Template.studentPage.helpers({
     challenges.find({classId: Session.get('classId'),type:"Misión"}).forEach(function(m){
       cId=m._id;
       n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
+      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
       w=0;
-      notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).forEach(function(sw){ w+=parseInt(sw.work); });
+      notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
       nota=(n*w/nm)/100;
       if (notas=="") {
         notas=nota;
