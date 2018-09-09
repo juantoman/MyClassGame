@@ -6,7 +6,7 @@ import { Accounts } from 'meteor/accounts-base';
 Meteor.startup(() => {
   process.env.MAIL_URL = "smtps://myclassgame%40gmail.com:mcgholita06@smtp.gmail.com:465";
 });
-
+/*
 Accounts.emailTemplates.siteName = '@MyClassGame';
 
 Accounts.emailTemplates.from = '@MyClassGame Admin <myclassgame@gmail.com>';
@@ -34,3 +34,4 @@ Accounts.emailTemplates.verifyEmail = {
       return `Hey ${user}! Verify your e-mail by following this link: ${url}`;
    }
 };
+*/
