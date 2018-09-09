@@ -4,7 +4,8 @@ import { Accounts } from 'meteor/accounts-base';
 
 
 Meteor.startup(() => {
-  process.env.MAIL_URL = "smtps://myclassgame%40gmail.com:mcgholita06@smtp.gmail.com:465";
+  process.env.MAIL_URL = "smtp://postmaster%40sandboxf79701b64ce042faa189110d75ccb5b3.mailgun.org:4a85270dea1bfae09bae93ba79a0b0f5-f45b080f-e139242b@smtp.mailgun.org:587";
+  //  "smtps://myclassgame%40gmail.com:mcgholita06@smtp.gmail.com:465";
 });
 /*
 Accounts.emailTemplates.siteName = '@MyClassGame';
