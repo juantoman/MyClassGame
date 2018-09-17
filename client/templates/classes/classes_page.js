@@ -15,6 +15,13 @@ Template.classesPage.helpers({
       //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
     }
   },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
+  },
   cName: function() {
     var cName=Session.get('className');
     if ( cName == "") {
