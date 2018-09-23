@@ -185,9 +185,9 @@ Template.studentsPage.events({
       Modal.show('hpModal');
     }
   },
-  'click .btn-info': function(event) {
+  'click .info': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId', event.target.name);
+    Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     Session.set('studentSelected', true);
   },
   'click .btn-badge': function(event) {

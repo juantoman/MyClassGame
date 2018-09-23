@@ -43,6 +43,28 @@ Template.classesPage.events({
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     //Router.go('myNav');
   },
+  'click .btn-double-class': function(event) {
+    event.preventDefault();
+    Session.set('classId', event.target.id);
+    cId=Session.get('classId');
+    /*Session.set('className', event.target.name);
+    Session.setPersistent('navItem', "Students");
+    Session.setPersistent('sogBtn',"students");
+    Session.setPersistent('golBtn',"grid");
+    Session.set('studentSelected', false);
+    Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
+    var c = classes.findOne({'_id': event.target.id});
+    delete c._id;
+    c.className="Copia_" + event.target.name;
+    Meteor.call('classDuplicate',c,cId);
+    /*students.find({'classId': cId}).forEach(function(student){
+      var newStudent = student;
+      delete student._id;
+      student.classId=Session.get('classId');
+      Meteor.call('studentInsert',student);
+    });*/
+    //Router.go('myNav');
+  },
   'click .btn-delete-class': function(event) {
     event.preventDefault();
     Session.set('classId', event.target.name);
