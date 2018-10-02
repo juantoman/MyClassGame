@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
-
+//Provar gmail-node
 
 Meteor.startup(() => {
   process.env.MAIL_URL = "smtps://myclassgame%40gmail.com:mcgholita06@smtp.gmail.com:465";
