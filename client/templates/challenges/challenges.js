@@ -15,15 +15,21 @@ Template.challenges.helpers({
 Template.challenges.events({
   'submit form': function(event) {
     event.preventDefault();
-    alert($(event.target).find('[name=MoC]').val())
+    //alert($(event.target).find('[name=MoC]').val())
     var chal = {
       classId: Session.get('classId'),
       type: $(event.target).find('[name=MoC]').val(),
+      IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
       createdOn: new Date()
     };
     Meteor.call('chalInsert', chal);
+  },
+  'click .notas': function(event) {
+    event.preventDefault();
+    Session.set('chalId',event.target.name)
+    Modal.show('notes');
   },
   'change .inputGroup': function(event) {
     event.preventDefault();

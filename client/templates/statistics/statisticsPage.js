@@ -50,6 +50,11 @@ Template.statisticsPage.events({
     if (log.behaviourType=="HP") {
       Meteor.call('studentHP', student, -p);
     }
+    if (log.behaviourType=="BG") {
+      beh=badges.findOne({_id: log.behavior});
+      p=beh.points;
+      Meteor.call('studentXP', student, -p);
+    }
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',event.target.name);
   }

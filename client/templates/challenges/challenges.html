@@ -7,12 +7,15 @@
               <div class="form-group {{moc type}}">
                 <div class="form-inline">
                   <div class="input-group col-xs-3">
-                    <span class="input-group-addon">{{type}}</span>
+                    <span class="input-group-addon">{{type}} {{IoG}}</span>
                     <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                   </div>
-                  <div class="input-group col-xs-8">
+                  <div class="input-group col-xs-7">
                     <span class="input-group-addon">Descripción</span>
                     <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalDesc"  aria-describedby="inputGroupSuccess1Status" value="{{chalDesc}}">
+                  </div>
+                  <div class="input-group col-xs-1">
+                    <button class="notas" name="{{_id}}">Introducir Notas</button>
                   </div>
                 </div>
               </div>
@@ -24,12 +27,23 @@
         <label class="control-label" for="inputGroupSuccess1">Nuevo</label>
         
         <div class="input-group mb-3">
-            <div class="input-group-addon">
-            <span class="input-group-text">Elige tipo...</span>
+          <div class="input-group-addon">
+            <span class="input-group-text">Misión o Reto</span>
           </div> 
           <select class="custom-select form-control" id="selectMoC" name="MoC">
             <option value="Misión">Misión</option>
             <option value="Reto">Reto</option>
+          </select>
+        
+        </div>
+        
+        <div class="input-group mb-3">
+          <div class="input-group-addon">
+            <span class="input-group-text">Individual o Grupal</span>
+          </div> 
+          <select class="custom-select form-control" id="selectIoG" name="IoG">
+            <option value="Individual">Individual</option>
+            <option value="Grupal">Grupal</option>
           </select>
         
         </div>
