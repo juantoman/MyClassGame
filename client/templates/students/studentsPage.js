@@ -215,7 +215,7 @@ Template.studentsPage.events({
       Modal.show('storeModal');
     }
   },
-  'click .foto': function(event) {
+  'click .foto,.btn-info': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId', event.target.name);
     Session.set('studentSelected', true);
