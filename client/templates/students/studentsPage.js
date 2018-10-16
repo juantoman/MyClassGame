@@ -115,11 +115,14 @@ Template.studentsPage.helpers({
     }
   },
   myuser: function(emailStudent) {
-    emailUser=Meteor.users.findOne().emails[0].address;
-    if (emailUser=="") {
+    //alert("hola");
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    }
+    catch(err) {
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
-    if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
+    if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
       return "myuser";
     } else {
       return "";
@@ -214,7 +217,6 @@ Template.studentsPage.events({
   },
   'click .foto': function(event) {
     event.preventDefault();
-    //alert(Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
     Session.setPersistent('studentId', event.target.name);
     Session.set('studentSelected', true);
   },

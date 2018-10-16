@@ -119,8 +119,10 @@ Template.studentPage.helpers({
     return challenges.findOne({_id: this.mission});
   },
   myuser: function() {
-    emailUser=Meteor.users.findOne().emails[0].address;
-    if (emailUser=="") {
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    }
+    catch(err) {
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
     emailStudent=$('#sEmail').val();

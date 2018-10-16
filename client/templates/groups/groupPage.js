@@ -71,8 +71,10 @@ Template.groupPage.helpers({
     inNote=false;
     students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
         i=u._id;
-        emailUser=Meteor.users.findOne().emails[0].address;
-        if (emailUser=="") {
+        try {
+          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+        }
+        catch(err) {
           emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
         }
         emailStudent=u.email;
