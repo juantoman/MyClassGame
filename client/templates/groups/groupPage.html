@@ -32,12 +32,13 @@
                     {{/each}}
                   </ul>
                 </div>
-                {{#if teacher}}
-                  <div class="form-group" style="float:right;margin-bottom:20px;">
-                    <button type="button" class="btn btn-default">Cerrar</button>
+                <div class="form-group" style="float:right;margin-bottom:20px;">
+                  <button type="button" class="btn btn-default">Cerrar</button>
+                  {{#if teacher}}
                     <input type="submit" id="groupModalSubmit2" class="btn btn-primary" value="Save">
-                  </div>
-                {{/if}}
+                  {{/if}}
+                </div>
+                
           </form>
 
         </div>
