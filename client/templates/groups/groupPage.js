@@ -78,7 +78,7 @@ Template.groupPage.helpers({
           emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
         }
         emailStudent=u.email;
-        if ( emailStudent.toUpperCase() == emailUser.toUpperCase()) {
+        if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
           inNote=true;
         }
     });

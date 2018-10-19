@@ -118,7 +118,7 @@
         <div class="form-group">
           <h2 class="text-center bg-info">Misión actual</h2>
           <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-          <select class="form-control" id="missionG" name="mission" {{inputDisabled}}>
+          <select class="form-control" id="missionG" name="mission">
             {{#each selectMissions}}
               <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
             {{/each}}
@@ -127,7 +127,7 @@
           <label for="hecho" class="control-label">¿Qué hemos hecho hoy?</label>
           <input type="text" class="form-control" id="hecho" name="hecho" value="">
           <label for="assessment" class="control-label">Valoración</label>
-          <select class="form-control" id="assessment" name="assessment" {{inputDisabled}}>
+          <select class="form-control" id="assessment" name="assessment">
             <option value="1">1.- Negativa</option>
             <option value="2">2.- Regular</option>
             <option value="3" selected>3.- Buena</option>
