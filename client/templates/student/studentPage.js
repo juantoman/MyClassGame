@@ -152,7 +152,6 @@ Template.studentPage.helpers({
   notaMision: function(cId){
     n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
-    alert(nm);
     w=0;
     notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
     nota=(n*w/nm)/100;
@@ -171,6 +170,7 @@ Template.studentPage.helpers({
       w=0;
       notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
       nota=(n*w/nm)/100;
+      if (isNaN(nota)) { nota=0; }
       if (notas=="") {
         notas=nota;
       } else {
