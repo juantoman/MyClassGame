@@ -152,6 +152,7 @@ Template.studentPage.helpers({
   notaMision: function(cId){
     n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+    alert(nm);
     w=0;
     notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
     nota=(n*w/nm)/100;
@@ -227,6 +228,7 @@ Template.studentPage.helpers({
     perChallenges=classes.findOne({_id: Session.get('classId')}).perChallenges;
     perHP=classes.findOne({_id: Session.get('classId')}).perHP;
     nota=Session.get('nXP')*perXP/100+Session.get('nBg')*perBG/100+Session.get('nMM')*perMissions/100+Session.get('nR')*perChallenges/100-Session.get('nHP');
+    if (isNaN(nota)) { nota=0; }
     notas="{ " + Session.get('nXP')*perXP/100 + " [ " + perXP + " % XP ] + " + Session.get('nBg')*perBG/100 + " [ " + perBG + " % BG ] + " + Session.get('nMM')*perMissions/100 + " [ " + perMissions + " % Misiones ] + " + Session.get('nR')*perChallenges/100 + " [ " + perChallenges + " % Retos ] } - " + Session.get('nHP') + " [ " + perHP + " * HP ]";
     return notas + " = " + nota;
   }
