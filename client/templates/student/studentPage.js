@@ -135,6 +135,7 @@ Template.studentPage.helpers({
   notaXP: function(xp){
     max=students.findOne({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}}).XP;
     nota=100*xp/max;
+    if (isNaN(nota)) { nota=0; }
     Session.set('nXP',nota);
     return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;
   },
@@ -144,6 +145,7 @@ Template.studentPage.helpers({
       if ( bg.badges.length > max ) { max=bg.badges.length; }
     });
     nota=100*nb/max;
+    if (isNaN(nota)) { nota=0; }
     Session.set('nBg',nota);
     return "( " + nb + " Badges de un máximo de " + max + " Badges ) = " + nota;
   },
@@ -153,6 +155,7 @@ Template.studentPage.helpers({
     w=0;
     notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
     nota=(n*w/nm)/100;
+    if (isNaN(nota)) { nota=0; }
     notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
     return notas + " = " + nota;
   },
@@ -176,7 +179,9 @@ Template.studentPage.helpers({
       cm++;
     });
     nota=nmm/cm;
+    if (isNaN(notas)) { notas=0; }
     notas="( "+notas+" ) / "+cm;
+    if (isNaN(nota)) { nota=0; }
     Session.set('nMM',nota);
     return notas + " = " + nota;
   },
@@ -193,7 +198,9 @@ Template.studentPage.helpers({
       }
     });
     nota=nota/n;
+    if (isNaN(nota)) { nota=0; }
     Session.set('nR',nota);
+    if (isNaN(notas)) { notas=0; }
     notas="( "+notas+" ) / "+n;
     return  notas + " = " + nota;
   },
@@ -208,6 +215,7 @@ Template.studentPage.helpers({
     return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;*/
     perHP=classes.findOne({_id: Session.get('classId')}).perHP;
     nota=perHP*n;
+    if (isNaN(nota)) { nota=0; }
     Session.set('nHP',nota);
     notas=perHP + " * " + n + " HP "
     return notas + " = " + nota;
