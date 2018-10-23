@@ -150,14 +150,19 @@ Template.studentPage.helpers({
     return "( " + nb + " Badges de un máximo de " + max + " Badges ) = " + nota;
   },
   notaMision: function(cId){
-    n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-    nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
-    w=0;
-    notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
-    nota=(n*w/nm)/100;
-    if (isNaN(nota)) { nota=0; }
-    notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
-    return notas + " = " + nota;
+    try {
+      n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+      w=0;
+      notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
+      nota=(n*w/nm)/100;
+      if (isNaN(nota)) { nota=0; }
+      notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
+      return notas + " = " + nota;
+    }
+    catch(err){
+      return "Misión sin calificar";
+    }
   },
   notaMediaMisiones: function(){
     nmm=0;
@@ -165,24 +170,28 @@ Template.studentPage.helpers({
     notas="";
     challenges.find({classId: Session.get('classId'),type:"Misión"}).forEach(function(m){
       cId=m._id;
-      n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
-      w=0;
-      notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
-      nota=(n*w/nm)/100;
-      if (isNaN(nota)) { nota=0; }
-      if (notas=="") {
-        notas=nota;
-      } else {
-        notas=notas+" + "+nota;
+      try {
+        n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+        nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+        w=0;
+        notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
+        nota=(n*w/nm)/100;
+        if (isNaN(nota)) { nota=0; }
+        if (notas=="") {
+          notas=nota;
+        } else {
+          notas=notas+" + "+nota;
+        }
+        nmm+=nota;
+        cm++;
       }
-      nmm+=nota;
-      cm++;
+      catch(err){
+        
+      }
     });
     nota=nmm/cm;
-    if (isNaN(notas)) { notas=0; }
-    notas="( "+notas+" ) / "+cm;
     if (isNaN(nota)) { nota=0; }
+    notas="( "+notas+" ) / "+cm;
     Session.set('nMM',nota);
     return notas + " = " + nota;
   },
@@ -201,7 +210,6 @@ Template.studentPage.helpers({
     nota=nota/n;
     if (isNaN(nota)) { nota=0; }
     Session.set('nR',nota);
-    if (isNaN(notas)) { notas=0; }
     notas="( "+notas+" ) / "+n;
     return  notas + " = " + nota;
   },
