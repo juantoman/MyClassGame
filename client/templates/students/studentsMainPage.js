@@ -91,5 +91,9 @@ Template.studentsMainPage.events({
     event.preventDefault();
     Session.setPersistent('evaluation', $(event.target).val());
     Meteor.call('changeEvaluation', Session.get('classId'),$(event.target).val());
+  },
+  'click #hashClase': function(event) {
+    event.preventDefault();
+    Modal.show('messageModal');
   }
 });
