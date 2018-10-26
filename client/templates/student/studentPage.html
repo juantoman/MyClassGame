@@ -2,7 +2,7 @@
   <div style="background-color:#002B36;">
     <div class="list-group">
       {{#with student}}
-        <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}}) id:{{_id}}</h2>
+        <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
         <div class="container-fluid">
           <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent">
           <div class="puntsStudent">
@@ -16,6 +16,8 @@
           </div>
           <form class="dataStudent">
             <div class="form-group">
+              <label for="sName" class="control-label">ID estudiante</label>
+              <input type="text" class="form-control" id="sName" name="sName" value="{{_id}}" readonly="readonly">
               <label for="sName" class="control-label">Nombre estudiante</label>
               <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
               <label for="sLevel" class="control-label">Nivel</label>
