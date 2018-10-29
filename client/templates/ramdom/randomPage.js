@@ -12,7 +12,7 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         t = e[r].studentName;
         break;
-      case "grupo":
+      case "equipo":
         var e = groups.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
         t = e[r].groupName;

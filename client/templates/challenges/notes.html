@@ -5,19 +5,28 @@
         <div id="group_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="GroupModalLabel">Introducir Notas</h4>
+            <h4 class="modal-title" id="GroupModalLabel">Introducir Notas {{sog}}</h4>
           </div>
           <div class="modal-body">
+          {{#if mision}}
+            {{#each groups}}
+              <div class="input-group col-xs-12">
+                  <span class="input-group-addon">{{groupName}}</span>
+                  <input type="text" class="form-control inputGroup nota_g input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+              </div>
+            {{/each}}
+          {{else}}
             {{#each students}}
               <div class="input-group col-xs-12">
                   <span class="input-group-addon">{{studentName}}</span>
-                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+                  <input type="text" class="form-control inputGroup nota_s input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
               </div>
             {{/each}}
+          {{/if}}
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">Cerrar</button>
-            <input type="submit" id="groupModalSubmit" class="btn btn-primary" value="Guardar">
+            <input type="submit" id="notesSubmit" class="btn btn-primary" value="Guardar">
           </div>
         </div>
       </div>

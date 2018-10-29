@@ -53,7 +53,7 @@
           <div class="form-inline">
             <div class="input-group col-xs-9">
               <span class="input-group-addon">{{type}}</span>
-              <input type="text" class="form-control inputGroup input-lg" {{inputDisabled}} name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+              <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
             </div>
             <div class="input-group col-xs-2">
               <span class="input-group-addon">Puntuación</span>
@@ -118,6 +118,9 @@
             </th>
             <th id="date_th">
               Fecha
+            </th>
+            <th id="borrar_th">
+              Borrar
             </th>
           </tr>
         </thead>

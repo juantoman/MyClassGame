@@ -40,6 +40,13 @@ Template.studentPage.helpers({
      return "disabled";
     };
   },
+  /*roMission: function(type) {
+    if (type == "Reto") {
+     return "";
+    } else {
+     return "readonly";
+    };
+  }*/  
   teacher: function() {
     if (Session.get('userType')=="teacher") {
      return true;
@@ -247,7 +254,7 @@ Template.studentPage.events({
     event.preventDefault();
     studentId=Session.get('studentId');
     chalId=event.target.id;
-    chalCP=$(event.target).val();perMissions
+    chalCP=$(event.target).val();
     //alert("cambio" + studentId + " " + chalId + " " + chalCP);
     //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
     n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
