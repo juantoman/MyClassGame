@@ -71,6 +71,12 @@ Template.studentsMainPage.events({
       });
     };
   },
+  'click .invert': function(event) {
+    event.preventDefault();
+    students.find( { classId: Session.get('classId')  } ).forEach(function (item){
+        Meteor.call('studentSelection', item["_id"]);
+    });
+  },
   'click .btn-xp3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
