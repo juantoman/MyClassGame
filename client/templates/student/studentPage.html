@@ -142,6 +142,11 @@
                 <td>
                   {{createdOnFormatted createdOn}}
                 </td>
+                {{#if teacher}}
+                  <td>
+                    <button name="{{_id}}" class="borrar">Borrar</button>
+                  </td>
+                {{/if}}
               </tr>
         {{/each}}
         </tbody>
