@@ -42,7 +42,15 @@ Template.challenges.events({
         Meteor.call('chalUpdateDesc', event.target.name, event.currentTarget.value);
       }
     } else {
-      Meteor.call('chalDelete',event.target.name);
+      Meteor.call('chalDelete',selectMoC);
     }
+  },
+  'change #selectMoC': function(event) {
+    event.preventDefault();
+    if (event.currentTarget.value == "Misión"){
+      $("#selectIoG").val("Grupal");
+    } else {
+      $("#selectIoG").val("Individual");
+    };
   }
 });
