@@ -1,5 +1,5 @@
 Template.studentPage.onRendered(function() {
-   $.getScript("https://widget.cloudinary.com/global/all.js");
+   $.getScript("https://widget.cloudinary.com/v2.0/global/all.js");
 });
 
 Template.studentPage.helpers({
@@ -393,12 +393,18 @@ Template.studentPage.events({
   },
   'click #cloudinary': function(event) {
     event.preventDefault();
-    cloudinary.openUploadWidget({ cloud_name: 'myclassgame', upload_preset: 'myclassgame',folder: 'myclassgame',sources: [ 'local', 'url', 'camera', 'imageSearch'],
-      googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, 
-      function(error, result) { 
-        $("#sAvatar").val(result[0].url);
-        //console.log(error, result)
+    cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
+      //console.log(result);
+      if (result.event=="success"){
+        $("#sAvatar").val(result.info.url);
       }
-    );
+    });
+    //cloudinary.v2.api.resources({ type: 'upload', prefix: 'myclassgame/' }, function(error, result){console.log(error)});
+    /*cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',folder: 'myclassgame', multiple: false, sources: [ 'local', 'url', 'camera', 'imageSearch'], googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'},
+      function(error, result) {
+        //$("#sAvatar").val(result[0].url);
+        console.log(result)
+      }
+    );*/
   }
 });
