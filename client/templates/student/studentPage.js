@@ -1,3 +1,7 @@
+Template.studentPage.onRendered(function() {
+   $.getScript("https://widget.cloudinary.com/global/all.js");
+});
+
 Template.studentPage.helpers({
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
@@ -386,5 +390,15 @@ Template.studentPage.events({
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',event.target.name);
+  },
+  'click #cloudinary': function(event) {
+    event.preventDefault();
+    cloudinary.openUploadWidget({ cloud_name: 'myclassgame', upload_preset: 'myclassgame',folder: 'myclassgame',sources: [ 'local', 'url', 'camera', 'imageSearch'],
+      googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, 
+      function(error, result) { 
+        $("#sAvatar").val(result[0].url);
+        //console.log(error, result)
+      }
+    );
   }
 });

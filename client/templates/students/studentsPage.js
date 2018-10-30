@@ -221,7 +221,6 @@ Template.studentsPage.events({
     Session.set('studentSelected', true);
   },
   'click #drive': function(event) {
-    console.log("Drive");
     loadPicker();
   },
   'click .btn-select': function(event) {
