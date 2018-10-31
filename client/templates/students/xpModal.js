@@ -29,7 +29,7 @@ Template.xpModal.events({
         behavior: i,
         behaviourType: 'XP',
         evaluation: Session.get('evaluation'), 
-        comment: $("#commentHP").val(),
+        comment: $("#commentXP").val(),
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);
