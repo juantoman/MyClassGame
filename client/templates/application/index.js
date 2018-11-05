@@ -19,7 +19,7 @@ Template.index.helpers({
   'userType': function() {
     tipo=Meteor.users.findOne(Meteor.user()).userType;
     Session.setPersistent('userType', tipo);
-    if ( tipo ) {
+    if ( tipo != "" ) {
       return true;
     } else {
       return false;

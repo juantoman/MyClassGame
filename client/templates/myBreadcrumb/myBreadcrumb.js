@@ -16,9 +16,13 @@ Template.myBreadcrumb.helpers({
  userType: function() {
   if (Session.get('userType')=="teacher") {
    return "PROFESOR";
-  } else {
-   return "ESTUDIANTE";
-  };
+  }
+  if (Session.get('userType')=="student") {
+    return "ESTUDIANTE";
+  }
+  if (Session.get('userType')=="parent") {
+    return "PADRE/MADRE";
+  }
  }
 });
 Template.myBreadcrumb.events({

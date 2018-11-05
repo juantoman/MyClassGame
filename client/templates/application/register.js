@@ -35,5 +35,12 @@ Template.register.events({
     Meteor.call('userTypeInsert', "student");
     //Meteor.users.update(Meteor.userId(), {$set: {userType: "student"}});
     Router.go('classesPage');
+  },
+  'click .btn-parent': function(event) {
+    event.preventDefault();
+    Session.setPersistent('userType', "parent");
+    Meteor.call('userTypeInsert', "parent");
+    //Meteor.users.update(Meteor.userId(), {$set: {userType: "student"}});
+    Router.go('classesPage');
   }
 });
