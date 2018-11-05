@@ -7,11 +7,23 @@ Template.classesPage.helpers({
     var teacherId = Meteor.user();
     var userType=Session.get('userType');
     if ( userType == "teacher") {
-      return classes.find({teacherId: teacherId._id}, {sort: {submitted: -1}});
+      return classes.find({teacherId: teacherId._id, stored: false }, {sort: {submitted: -1}});
     } else {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       //c=Meteor.users.find({_id:Meteor.userId()});
-      return classes.find({"_id": { "$in": c }});
+      return classes.find({"_id": { "$in": c }, stored: false });
+      //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
+    }
+  },
+  stored: function() {
+    var teacherId = Meteor.user();
+    var userType=Session.get('userType');
+    if ( userType == "teacher") {
+      return classes.find({teacherId: teacherId._id, stored: true }, {sort: {submitted: -1}});
+    } else {
+      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+      //c=Meteor.users.find({_id:Meteor.userId()});
+      return classes.find({"_id": { "$in": c }, stored: true });
       //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
     }
   },
@@ -69,6 +81,11 @@ Template.classesPage.events({
     event.preventDefault();
     Session.set('classId', event.target.name);
     Modal.show('deleteClass');
+  },
+  'click .btn-store-class': function(event) {
+    event.preventDefault();
+    Session.set('classId', event.target.name);
+    Meteor.call('classStore',Session.get('classId'));
   },
   'click #changeRol': function(event) {
     event.preventDefault();

@@ -2,6 +2,7 @@
   {{> myBreadcrumb}}
   {{#if cName}}
   <div  class="container-fluid myContent">
+    <h4>Clases activas</h4>
     <div class="row">
       {{#each classe}}
         <div class="col-xs-12 col-md-3">
@@ -15,8 +16,8 @@
                     <button id="{{_id}}" type="button" class="btn btn-success btn-double-class" name="{{className}}">
                       Duplicar
                     </button>
-                    <button type="button" class="btn btn-danger btn-delete-class" name="{{_id}}">
-                      Eliminar
+                    <button type="button" class="btn btn-danger btn-store-class" name="{{_id}}">
+                      Archivar
                     </button>
                   {{/if}}
                 </h2>
@@ -41,6 +42,32 @@
             </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div  class="container-fluid myContent stored_classes">
+    <h4>Clases archivadas</h4>
+    <div class="row">
+      {{#each stored}}
+        <div class="col-xs-12 col-md-3">
+          <div class="thumbnail">
+              <h2 class="text-center bg-info">{{className}}</h2>
+              <img src="/images/user_group_128.png" alt="...">
+              <div class="caption">
+                <h2 class="text-center">
+                  <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
+                  {{#if teacher}}
+                    <button id="{{_id}}" type="button" class="btn btn-success btn-double-class" name="{{className}}">
+                      Duplicar
+                    </button>
+                    <button type="button" class="btn btn-danger btn-delete-class" name="{{_id}}">
+                      Borrar
+                    </button>
+                  {{/if}}
+                </h2>
+              </div>
+          </div>
+        </div>
+      {{/each}}
     </div>
   </div>
   {{else}}
