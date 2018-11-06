@@ -254,3 +254,7 @@ label {
 .stored_classes {
   background-color: lightblue;
 }
+
+#changeRol {
+  margin-bottom: 1em;
+}

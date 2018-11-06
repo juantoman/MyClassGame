@@ -87,6 +87,11 @@ Template.classesPage.events({
     Session.set('classId', event.target.name);
     Meteor.call('classStore',Session.get('classId'));
   },
+  'click .btn-restore': function(event) {
+    event.preventDefault();
+    Session.set('classId', event.target.name);
+    Meteor.call('classStore',Session.get('classId'));
+  },
   'click #changeRol': function(event) {
     event.preventDefault();
     type=Meteor.users.findOne(Meteor.user()).userType;

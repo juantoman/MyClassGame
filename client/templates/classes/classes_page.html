@@ -35,14 +35,14 @@
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                   Clase
                 </button>
-                <button type="button" id="changeRol" class="btn btn-danger">
-                  Cambiar rol
-                </button>
               </h2>
             </div>
         </div>
       </div>
     </div>
+    <button type="button" id="changeRol" class="btn btn-danger">
+      Cambiar ROL
+    </button>
   </div>
   <div  class="container-fluid myContent stored_classes">
     <h4>Clases archivadas</h4>
@@ -56,8 +56,8 @@
                 <h2 class="text-center">
                   <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
                   {{#if teacher}}
-                    <button id="{{_id}}" type="button" class="btn btn-success btn-double-class" name="{{className}}">
-                      Duplicar
+                    <button id="{{_id}}" type="button" class="btn btn-success btn-restore" name="{{_id}}">
+                      Recuperar
                     </button>
                     <button type="button" class="btn btn-danger btn-delete-class" name="{{_id}}">
                       Borrar
