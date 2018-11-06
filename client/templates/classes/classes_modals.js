@@ -19,6 +19,7 @@ Template.classesModals.events({
         teacherId: user._id,
         className: $(event.target).find('[name=class-name]').val(),
         iniHP: 10,
+        stored: false,
         evaluation: 1,
         createdOn: new Date()
       };
