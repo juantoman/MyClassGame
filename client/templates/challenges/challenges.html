@@ -18,6 +18,10 @@
                     <button class="notas" name="{{_id}}">Introducir Notas</button>
                   </div>
                 </div>
+                <div class="input-group mb-3">
+                  <input type="checkbox" id="nbDepCheck" name={{_id}} checked={{notebookDependence}}>
+                  <label class="control-label" for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                </div>
               </div>
         {{/each}}
       </div>
@@ -60,6 +64,11 @@
             <span class="input-group-text" id="basic-addon2">Descripción</span>
           </div> 
           <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
+        </div>
+        
+        <div class="input-group mb-3">
+          <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+          <label class="control-label" for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
         </div>
         
         <div class="input-group mb-3">

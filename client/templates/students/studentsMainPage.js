@@ -95,6 +95,7 @@ Template.studentsMainPage.events({
   },
   'change select#evaluacion': function(event) {
     event.preventDefault();
+    alert($(event.target).val());
     Session.setPersistent('evaluation', $(event.target).val());
     Meteor.call('changeEvaluation', Session.get('classId'),$(event.target).val());
   },

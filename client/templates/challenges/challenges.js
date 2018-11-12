@@ -16,12 +16,14 @@ Template.challenges.events({
   'submit form': function(event) {
     event.preventDefault();
     //alert($(event.target).find('[name=MoC]').val())
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
     var chal = {
       classId: Session.get('classId'),
       type: $(event.target).find('[name=MoC]').val(),
       IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
+      notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked'),
       createdOn: new Date()
     };
     Meteor.call('chalInsert', chal);
@@ -52,5 +54,10 @@ Template.challenges.events({
     } else {
       $("#selectIoG").val("Individual");
     };
-  }
+  },
+  'change #nbDepCheck': function(event) {
+    event.preventDefault();
+    //alert(event.currentTarget.checked);
+    Meteor.call('nbDepChange', event.target.name, event.currentTarget.checked);
+  },
 });

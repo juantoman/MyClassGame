@@ -6,6 +6,13 @@ Template.parametersList.onRendered(function() {
 Template.parametersList.helpers({
   parametersClass: function() {
     return classes.findOne({_id: Session.get('classId')});
+  },
+  selEval: function(e) {
+    if (classes.findOne({_id:Session.get('classId')}).evaluation==e) {
+      return "selected"
+    } else {
+      return "";
+    }
   }
 });
 
@@ -61,5 +68,10 @@ Template.parametersList.events({
         Meteor.call('groupImgUpdate', Session.get('classId'), result.info.url);
       }
     });
-  }
+  },
+  'change select#evaluacion': function(event) {
+    event.preventDefault();
+    Session.setPersistent('evaluation', $(event.target).val());
+    Meteor.call('changeEvaluation', Session.get('classId'),$(event.target).val());
+  },
 });

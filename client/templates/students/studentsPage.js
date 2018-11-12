@@ -190,6 +190,11 @@ Template.studentsPage.events({
   },
   'click .info': function(event) {
     event.preventDefault();
+    Session.set('nXP',0);
+    Session.set('nBg',0);
+    Session.set('nMM',0);
+    Session.set('nR',0);
+    Session.set('nHP',0);
     Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     Session.set('studentSelected', true);
   },
@@ -217,6 +222,11 @@ Template.studentsPage.events({
   },
   'click .foto,.btn-info': function(event) {
     event.preventDefault();
+    Session.set('nXP',0);
+    Session.set('nBg',0);
+    Session.set('nMM',0);
+    Session.set('nR',0);
+    Session.set('nHP',0);
     Session.setPersistent('studentId', event.target.name);
     Session.set('studentSelected', true);
   },

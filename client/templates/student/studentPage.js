@@ -162,18 +162,34 @@ Template.studentPage.helpers({
     return "( " + nb + " Badges de un máximo de " + max + " Badges ) = " + nota;
   },
   notaMision: function(cId){
-    try {
-      n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-      nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
-      w=0;
-      notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
-      nota=(n*w/nm)/100;
-      if (isNaN(nota)) { nota=0; }
-      notas="( "+ n + " [nota] * " + w + " [puntos de trabajo] / " + nm + " [trabajos realizados] ) / 100";
-      return notas + " = " + nota;
-    }
-    catch(err){
-      return "Misión sin calificar";
+    if ( ! challenges.findOne({'_id':cId}).notebookDependence ) {
+      if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
+        n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+        return n;
+      }else {
+        return "Misión sin calificar";
+      }
+    } else {
+      if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
+        n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
+        //nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+        nm=0;
+        notebookWork.find({'mission':cId}).forEach(function(sw){
+          st=sw.studentId;
+          cm=notebookWork.find({'mission':cId,'studentId':st}).count();
+          if (nm<cm) {
+            nm=cm;
+          }
+        });
+        w=0;
+        notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
+        nota=(n*w/nm)/100;
+        if (isNaN(nota)) { nota=0; }
+        notas="( "+ n + " [nota] * " + w + " [puntos de trabajos validados] / " + nm + " [entradas cuaderno] ) / 100";
+        return notas + " = " + nota;
+      } else {
+        return "Misión sin calificar";
+      }      
     }
   },
   notaMediaMisiones: function(){
@@ -182,25 +198,66 @@ Template.studentPage.helpers({
     notas="";
     challenges.find({classId: Session.get('classId'),type:"Misión"}).forEach(function(m){
       cId=m._id;
-      try {
-        n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
-        nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
-        w=0;
-        notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
-        nota=(n*w/nm)/100;
-        if (isNaN(nota)) { nota=0; }
-        if (notas=="") {
-          notas=nota;
-        } else {
-          notas=notas+" + "+nota;
+      //console.log(cId);
+      if ( ! challenges.findOne({'_id':cId}).notebookDependence ) {
+        //console.log(chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count());
+        //console.log(chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count());
+        if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
+          nota=parseInt(chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP);
+          if (isNaN(nota)) {
+            nota=0; 
+          } else {
+            if (notas=="") {
+              notas=nota;
+            } else {
+              notas=notas+" + "+nota;
+            }
+            nmm+=nota;
+            cm++;
+            //console.log("pp");
+          }
         }
-        nmm+=nota;
-        cm++;
-      }
-      catch(err){
-        
+      } else {
+        //cId=m._id;
+        //try {
+          //console.log(chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count());
+          if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
+            n=parseInt(chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP);
+            nm=0;            
+            //nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+            notebookWork.find({'mission':cId}).forEach(function(sw){
+              st=sw.studentId;
+              cnm=notebookWork.find({'mission':cId,'studentId':st}).count();
+              if (nm<cnm) {
+                nm=cnm;
+              }
+            });
+            w=0;
+            notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
+            nota=(n*w/nm)/100;
+            if (isNaN(nota)) { 
+              nota=0; 
+            } else {
+              if (notas=="") {
+                notas=nota;
+              } else {
+                notas=notas+" + "+nota;
+              }
+              nmm+=nota;
+              cm++;
+              //console.log(cm);
+            }
+          }
+          
+          //console.log(nmm);
+        /*}
+        catch(err){
+          console.error(nmm);
+        }*/
+        //console.log("Dep");
       }
     });
+    //console.log(nmm);
     nota=nmm/cm;
     if (isNaN(nota)) { nota=0; }
     notas="( "+notas+" ) / "+cm;
