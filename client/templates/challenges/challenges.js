@@ -44,8 +44,12 @@ Template.challenges.events({
         Meteor.call('chalUpdateDesc', event.target.name, event.currentTarget.value);
       }
     } else {
-      Meteor.call('chalDelete',selectMoC);
+      Meteor.call('chalDelete',event.target.name);
     }
+  },
+  'click #chalDel': function(event) {
+    event.preventDefault();
+    Meteor.call('chalDelete',event.target.name);
   },
   'change #selectMoC': function(event) {
     event.preventDefault();

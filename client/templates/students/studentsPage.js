@@ -188,7 +188,7 @@ Template.studentsPage.events({
       Modal.show('hpModal');
     }
   },
-  'click .info': function(event) {
+  'click .info-list': function(event) {
     event.preventDefault();
     Session.set('nXP',0);
     Session.set('nBg',0);
@@ -220,7 +220,7 @@ Template.studentsPage.events({
       Modal.show('storeModal');
     }
   },
-  'click .foto,.btn-info': function(event) {
+  'click .foto,.info-grid': function(event) {
     event.preventDefault();
     Session.set('nXP',0);
     Session.set('nBg',0);

@@ -112,6 +112,7 @@ body {
 }
 .foto-hor{
   height:30px;
+  padding:2px;
 }
 .userSelected{
   color:white;
@@ -257,4 +258,17 @@ label {
 
 #changeRol {
   margin-bottom: 1em;
+}
+
+.fotoIcono{
+  margin-top:20px;
+  width:40%;
+}
+
+td button {
+  width:100%;
+}
+
+.linea td {
+  width:10%;
 }

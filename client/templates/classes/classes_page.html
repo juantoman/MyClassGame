@@ -4,10 +4,10 @@
   <div  class="container-fluid myContent">
     <h4>Clases activas</h4>
     <div class="row">
-      <div class="col-xs-12 col-md-3">
+      <div class="col-sm-12 col-md-4 col-lg-3">
         <div class="thumbnail">
             <h2 class="text-center bg-success">Nueva clase</h2>
-            <img src="/images/user_group_128.png" class="img foto" alt="...">
+            <img src="/images/user_group_128.png" class="fotoIcono" alt="...">
             <div class="caption">
               <h2 class="text-center">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_class_modal">
@@ -19,10 +19,10 @@
         </div>
       </div>
       {{#each classe}}
-        <div class="col-xs-12 col-md-3">
+        <div class="col-sm-12 col-md-4 col-lg-3">
           <div class="thumbnail">
               <h2 class="text-center bg-info">{{className}}</h2>
-              <img src="/images/user_group_128.png" class="img foto" alt="...">
+              <img src="/images/user_group_128.png" class="fotoIcono" alt="...">
               <div class="caption">
                 <h2 class="text-center">
                   <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
@@ -48,10 +48,10 @@
     <h4>Clases archivadas</h4>
     <div class="row">
       {{#each stored}}
-        <div class="col-xs-12 col-md-3">
+        <div class="col-sm-12 col-md-4 col-lg-3">
           <div class="thumbnail">
               <h2 class="text-center bg-info">{{className}}</h2>
-              <img src="/images/user_group_128.png" alt="...">
+              <img src="/images/user_group_128.png" class="fotoIcono" alt="...">
               <div class="caption">
                 <h2 class="text-center">
                   <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>

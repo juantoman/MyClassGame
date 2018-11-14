@@ -52,7 +52,7 @@ Template.groupPage.helpers({
     return r;
   },
   selectMissions: function(){
-    return challenges.find( { classId: Session.get('classId'), type : "Misión" });
+    return challenges.find( { classId: Session.get('classId'), type : "Misión" , notebookDependence : true});
   },
   missionSelected: function(m){
     if ( groups.findOne({_id: Session.get('groupId')}).mission == m ) {
