@@ -3,7 +3,7 @@
     <div class="list-group">
     {{#each badgesList}}
           <div class="form-group has-success form-inline">
-            <div class="input-group col-xs-7">
+            <div class="input-group col-xs-6">
               <span class="input-group-addon">Descripción</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{badgeDescription}}">
             </div>
@@ -11,12 +11,12 @@
               <span class="input-group-addon">XP</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
             </div>
-            <div class="input-group col-xs-1">
+            <div class="input-group col-xs-2">
               <span class="input-group-addon">Nivel</span>
               <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputLevel"  aria-describedby="inputGroupSuccess1Status" value="{{level}}">
             </div>
             <div class="input-group col-xs-1">
-              <button class="form-control input-lg badgeImage"><img src="{{badge_src badgeImage}}" width="20px" /></button>
+              <button class="form-control input-lg bImage" id="{{_id}}"><img src="{{badge_src badgeImage}}" width="20px" /></button>
             </div>
           </div>
     {{/each}}
@@ -25,7 +25,7 @@
       <div class="form-group has-success">
         <label class="control-label" for="inputGroupSuccess1">New badge</label>
         <div class="form-inline">
-          <div class="input-group col-xs-7">
+          <div class="input-group col-xs-6">
             <span class="input-group-addon">Descripción</span>
             <input type="text" class="form-control input-lg" name="badgeDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
           </div>
@@ -33,12 +33,12 @@
             <span class="input-group-addon">XP</span>
             <input type="text" class="form-control input-lg" name="badgePoints" id="inputPoints" aria-describedby="inputGroupSuccess1Status" value=1>
           </div>
-          <div class="input-group col-xs-1">
+          <div class="input-group col-xs-2">
             <span class="input-group-addon">Nivel</span>
             <input type="text" class="form-control input-lg" name="badgeLevel" id="Level" aria-describedby="inputGroupSuccess1Status" value=1>
           </div>
           <div class="input-group col-xs-1">
-            <button class="form-control input-lg badgeImage"><img src="" alt="Imagen" /></button>
+            <button class="form-control input-lg bImage"><img width="28px" alt="Imagen" src="{{badge_src}}" /></button>
             <!--<button class="form-control input-lg badgeImage" name="badgeImage" id="badgeImage" aria-describedby="inputGroupSuccess1Status">Imagen</button>-->
           </div>
           <input type="submit" id="btn-save" value="Guardar" class="btn btn-success">

@@ -14,7 +14,7 @@
                     <div class="input-group">
                         <img src="{{image_url}}" id="{{_id}}" class="img-thumbnail"/>
                     </div>
-                    <input type="radio" value="{{_id}}" name="imageId" checked="{{checkedImage}}" />
+                    <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} />
                   </div>
                 </div>
               {{/each}}
@@ -23,7 +23,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">Cerrar</button>
-            <input type="submit" id="notesSubmit" class="btn btn-primary" value="Guardar">
+            <input type="submit" id="notesSubmit" class="btn btn-primary" value="Seleccionar">
           </div>
         </div>
       </div>

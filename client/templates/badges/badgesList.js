@@ -3,7 +3,11 @@ Template.badgesList.helpers({
     return badges.find({classId: Session.get('classId')});
   },
   badge_src: function(imageId) {
-    return images.findOne({_id: imageId}).image_url;
+    if (imageId) {
+      return images.findOne({_id: imageId}).image_url;
+    } else {
+      return images.findOne({_id: Session.get('selectedImage')}).image_url;
+    }
   }
 });
 
@@ -15,7 +19,7 @@ Template.badgesList.events({
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
       points: $(event.target).find('[name=badgePoints]').val(),
       level: $(event.target).find('[name=badgeLevel]').val(),
-      badgeImage: "http://res.cloudinary.com/myclassgame/image/upload/v1542367714/myclassgame/S01-570_sjzmdg.jpg",
+      badgeImage: Session.get('selectedImage'),
       createdOn: new Date()
     };
     Meteor.call('badgeInsert', badge);
@@ -40,9 +44,10 @@ Template.badgesList.events({
       Meteor.call('badgeDelete',event.target.name);
     }
   },
- 'click .badgeImage': function(event) {
+ 'click .bImage': function(event) {
     event.preventDefault();
     Session.set('imageType','badge');
+    Session.set('idElementImage',event.currentTarget.id);
     Modal.show('images');
   }
 });
