@@ -144,6 +144,20 @@ Template.studentPage.helpers({
       return false;
     }
   },
+  myuserEnabled: function() {
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    }
+    catch(err) {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
+    emailStudent=$('#sEmail').val();
+    if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+      return "";
+    } else {
+      return "readonly";
+    }
+  },
   notaXP: function(xp){
     max=students.findOne({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}}).XP;
     nota=100*xp/max;

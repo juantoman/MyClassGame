@@ -52,7 +52,7 @@
         <div class="form-inline">
           <div class="input-group col-xs-10">
             <span class="input-group-addon">Diario</span>
-            <input type="text" class="form-control inputGroup input-lg" id="Diary" aria-describedby="inputGroupSuccess1Status" value="{{diary}}">
+            <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myGroupEnabled}} value="{{diary}}">
           </div>
           <div class="input-group col-xs-1">
             <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
@@ -61,7 +61,7 @@
         <div class="form-inline">
           <div class="input-group col-xs-10">
             <span class="input-group-addon">Portfolio</span>
-            <input type="text" class="form-control inputGroup input-lg" id="Portfolio" aria-describedby="inputGroupSuccess1Status" value="{{portfolio}}">
+            <input type="text" class="form-control inputGroup input-lg" id="Portfolio" {{myGroupEnabled}} value="{{portfolio}}">
           </div>
           <div class="input-group col-xs-1">
             <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>

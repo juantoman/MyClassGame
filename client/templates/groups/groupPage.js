@@ -83,6 +83,23 @@ Template.groupPage.helpers({
         }
     });
     return inNote;
+  },
+  myGroupEnabled: function() {
+    inNote="readonly";
+    students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
+        i=u._id;
+        try {
+          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+        }
+        catch(err) {
+          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+        }
+        emailStudent=u.email;
+        if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+          inNote="";
+        }
+    });
+    return inNote;
   }
 });
 
