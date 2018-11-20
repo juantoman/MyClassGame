@@ -1,8 +1,8 @@
 Meteor.publish('classes', function() {
-  c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+  //c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
   //c=Meteor.users.find({_id:Meteor.userId()});
   //return classes.find({"_id": { "$in": c }, stored: false });
-  return classes.find({'teacherId':Meteor.userId()});
+  return classes.find();
 });
 Meteor.publish('students', function() {
   return students.find();

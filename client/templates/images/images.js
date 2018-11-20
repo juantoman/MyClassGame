@@ -7,7 +7,7 @@ Template.images.helpers({
     return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
   },
   checkedImage: function(idImage) {
-    id=badges.findOne({_id: Session.get('idElementImage')}).badgeImage;
+    idElement=badges.findOne({_id: Session.get('idElementImage')}).badgeImage;
     if (idImage==idElement) {
       return "checked";
     } else {
