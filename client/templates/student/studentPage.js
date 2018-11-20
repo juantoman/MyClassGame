@@ -123,7 +123,7 @@ Template.studentPage.helpers({
       return "";
     }
   },
-  diary: function() {
+  mydiary: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return diary.find({studentId: Session.get('studentId')});
   },
@@ -474,5 +474,13 @@ Template.studentPage.events({
            }*/
          }
       )
-    }
+  },
+  'change #Diary': function(event) {
+    event.preventDefault();
+    Meteor.call('studentDiary',Session.get('studentId'),$(event.target).val());
+  },
+  'change #Portfolio': function(event) {
+    event.preventDefault();
+    Meteor.call('studentPortfolio',Session.get('studentId'),$(event.target).val());
+  }
 });
