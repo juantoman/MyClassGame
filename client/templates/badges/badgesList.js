@@ -6,7 +6,11 @@ Template.badgesList.helpers({
     if (imageId) {
       return images.findOne({_id: imageId}).image_url;
     } else {
-      return images.findOne({_id: Session.get('selectedImage')}).image_url;
+      if (Session.get('selectedImage')) {
+        return images.findOne({_id: Session.get('selectedImage')}).image_url;
+      } else {
+        return "http://res.cloudinary.com/myclassgame/image/upload/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
+      }
     }
   }
 });
