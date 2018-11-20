@@ -80,7 +80,7 @@
       <tbody>
       {{#each students}}
         <tr class="linea" id="{{_id}}">
-            <td class="btn-student"><button type="button" class="btn-info info-list btn-xs"><img src="{{image avatar}}" alt="..." class="foto-hor"> {{studentName}}</button></td>
+            <td class="btn-student align-middle"><button type="button" class="btn-info info-list btn-xs"><img src="{{image avatar}}" alt="..." class="foto-hor"><span> {{studentName}}</span></button></td>
             <td><button type="button" class="btn btn-warning">{{grupo.groupName}}</button></td>
             <td><button type="button" class="btn btn-default">{{levelAutomatic (_id)}} {{levelDesc (_id)}}</button></td>
             <td><button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button></td>
@@ -93,10 +93,14 @@
         </tr>
       {{/each}}
       {{#if teacher}}
-        <tr>
-          <td><button type="button" class="btn btn-success btn-xp btn-xs"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor">Nuevo estudiante</button></td>
-          <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
+        <tr class="linea">
+          <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#add_student_modal"><img src="/images/add_user_128.png" alt="..." class="img-circle foto-hor"><span> Nuevo</span></button></td>
+          <!--<td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>-->
           <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
+          <td></td><td></td><td></td><td></td><td></td>
+          {{#if teacher}}
+              <td></td>
+          {{/if}}
         </tr>
       {{/if}}
     </tbody>

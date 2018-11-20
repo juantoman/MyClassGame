@@ -1,5 +1,8 @@
 Meteor.publish('classes', function() {
-  return classes.find();
+  c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+  //c=Meteor.users.find({_id:Meteor.userId()});
+  //return classes.find({"_id": { "$in": c }, stored: false });
+  return classes.find({'teacherId':Meteor.userId()});
 });
 Meteor.publish('students', function() {
   return students.find();
@@ -48,4 +51,7 @@ Meteor.publish('notebook', function() {
 });
 Meteor.publish('notebookWork', function() {
   return notebookWork.find();
+});
+Meteor.publish('images', function() {
+  return images.find();
 });

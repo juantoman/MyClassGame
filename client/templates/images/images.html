@@ -1,0 +1,32 @@
+<template name="images">
+  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <h4 class="modal-title" id="GroupModalLabel">Imagenes</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              {{#each images}}
+                <div class="col-container col-sm-12 col-md-4 col-lg-3">
+                  <div class="thumbnail">
+                    <div class="input-group">
+                        <img src="{{image_url}}" id="{{_id}}" class="img-thumbnail"/>
+                    </div>
+                    <input type="radio" value="{{_id}}" name="imageId" checked="{{checkedImage}}" />
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+            <button id="cloudinary" name="cloudinary" {{inputDisabled}}>Subir imágenes</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Cerrar</button>
+            <input type="submit" id="notesSubmit" class="btn btn-primary" value="Guardar">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

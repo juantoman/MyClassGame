@@ -113,6 +113,7 @@ body {
 .foto-hor{
   height:30px;
   padding:2px;
+  float:left;
 }
 .userSelected{
   color:white;
@@ -189,6 +190,7 @@ label {
 .linea:hover{
   background-color: lightgreen;
   color: blue;
+  
 }
 .form-control {
   background-color: white;
@@ -271,4 +273,12 @@ td button {
 
 .linea td {
   width:10%;
+}
+.linea td span {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  padding-top:5px;
+  display: inline-block;
 }

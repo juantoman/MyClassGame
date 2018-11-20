@@ -44,7 +44,31 @@
         </div>
       {{/with}}
     </div>
+    
     <div class="container-fluid section table-responsive">
+      {{#with group}}
+      <h2 class="text-center bg-info">Diario y Portfolio del Equipo</h2>
+      <div class="form-group has-success">
+        <div class="form-inline">
+          <div class="input-group col-xs-10">
+            <span class="input-group-addon">Diario</span>
+            <input type="text" class="form-control inputGroup input-lg" id="Diary" aria-describedby="inputGroupSuccess1Status" value="{{diary}}">
+          </div>
+          <div class="input-group col-xs-1">
+            <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
+          </div>
+        </div>
+        <div class="form-inline">
+          <div class="input-group col-xs-10">
+            <span class="input-group-addon">Portfolio</span>
+            <input type="text" class="form-control inputGroup input-lg" id="Portfolio" aria-describedby="inputGroupSuccess1Status" value="{{portfolio}}">
+          </div>
+          <div class="input-group col-xs-1">
+            <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>
+          </div>
+        </div>
+      </div>
+      {{/with}}
 
       <h2 class="text-center bg-info">Cuaderno de equipo</h2>
 

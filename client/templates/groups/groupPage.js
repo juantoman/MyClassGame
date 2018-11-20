@@ -252,5 +252,13 @@ Template.groupPage.events({
     Meteor.call('seenChange', event.currentTarget.value, true);
     Meteor.call('validatedChange', event.currentTarget.value, event.currentTarget.checked);
     Meteor.call('validatedWork', event.currentTarget.value, event.currentTarget.checked);
+  },
+  'change #Diary': function(event) {
+    event.preventDefault();
+    Meteor.call('groupDiary',Session.get('groupId'),$(event.target).val());
+  },
+  'change #Portfolio': function(event) {
+    event.preventDefault();
+    Meteor.call('groupPortfolio',Session.get('groupId'),$(event.target).val());
   }
 });
