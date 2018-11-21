@@ -500,11 +500,12 @@ Template.studentPage.events({
     event.preventDefault();
     Meteor.call('studentPortfolio',Session.get('studentId'),$(event.target).val());
   },
-  'click .student_li': function(event) {
+  'click .student_button': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId',$(event.target).closest('li').attr("id"));
+    Session.setPersistent('studentId',event.target.id);
+    Session.set('studentSelected', true);
   },
-  'click .students_li': function(event) {
+  'click .all_button': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
   }

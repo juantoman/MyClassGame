@@ -1,14 +1,13 @@
 <template name="studentPage">
-  <div class="text-center">
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item students_li"><a class="page-link" href="#">Estudiantes</a></li>
-        {{#each students}}
-          <li class="page-item student_li" id="{{_id}}"><a class="page-link" href="#">{{studentName}}</a></li>
-        {{/each}}
-      </ul>
-    </nav>
-  </div>
+  
+  <!--
+    <div class="students_buttons">
+      <button type="button" class="btn btn-danger all_button">Todos</button>
+      {{#each students}}
+        <button type="button" class="btn btn-info student_button" id="{{_id}}">{{studentName}}</button>
+      {{/each}}
+    </div>
+  -->
   <div style="background-color:#002B36;">
     <div class="list-group">
       {{#with student}}

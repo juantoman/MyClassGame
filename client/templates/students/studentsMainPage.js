@@ -43,7 +43,10 @@ Template.studentsMainPage.helpers({
     } else {
       return "";
     }
-  }
+  },
+  students: function() {
+    return students.find({ classId: Session.get('classId') } );
+  },
 });
 
 Template.studentsMainPage.events({
@@ -102,5 +105,14 @@ Template.studentsMainPage.events({
   'click #hashClase': function(event) {
     event.preventDefault();
     Modal.show('messageModal');
+  },
+  'click .student_button': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId',event.target.id);
+    Session.set('studentSelected', true);
+  },
+  'click .all_button': function(event) {
+    event.preventDefault();
+    Session.set('studentSelected', false);
   }
 });

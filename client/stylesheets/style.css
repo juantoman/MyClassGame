@@ -282,3 +282,14 @@ td button {
   padding-top:5px;
   display: inline-block;
 }
+.page-link{
+  background-color: white !important;
+  color:black !important;
+}
+.page-link:focus{
+  background-color: lightblue !important;
+  color: blue !important;
+}
+.student_button, .all_button{
+  margin: 2px !important;
+}
