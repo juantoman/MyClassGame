@@ -45,8 +45,11 @@ Template.studentsMainPage.helpers({
     }
   },
   students: function() {
-    return students.find({ classId: Session.get('classId') } );
+    return students.find({ classId: Session.get('classId') }, {sort: {XP: -1,_id: 1}} );
   },
+  groups: function() {
+    return groups.find({classId: Session.get('classId')});
+  }
 });
 
 Template.studentsMainPage.events({
@@ -110,9 +113,19 @@ Template.studentsMainPage.events({
     event.preventDefault();
     Session.setPersistent('studentId',event.target.id);
     Session.set('studentSelected', true);
+    Session.setPersistent('sogBtn', "students");
+    Session.set('groupSelected', false);
   },
   'click .all_button': function(event) {
     event.preventDefault();
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+  },
+  'click .group_button': function(event) {
+    event.preventDefault();
+    Session.setPersistent('groupId',event.target.id);
+    Session.set('groupSelected', true);
+    Session.setPersistent('sogBtn', "groups");
     Session.set('studentSelected', false);
   }
 });

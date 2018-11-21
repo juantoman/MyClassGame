@@ -10,9 +10,12 @@
     </form>
     <br>
     <div class="students_buttons">
-      <button type="button" class="btn btn-danger all_button">Todos</button>
+      <button type="button" class="btn btn-danger all_button btn-sm">Todos</button>
       {{#each students}}
-        <button type="button" class="btn btn-info student_button" id="{{_id}}">{{studentName}}</button>
+        <button type="button" class="btn btn-info student_button btn-sm" id="{{_id}}">{{studentName}}</button>
+      {{/each}}
+      {{#each groups}}
+        <button type="button" class="btn btn-default group_button btn-sm" id="{{_id}}">{{groupName}}</button>
       {{/each}}
     </div>
     {{#if selected}}
