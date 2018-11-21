@@ -7,6 +7,9 @@ Template.studentPage.helpers({
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
   },
+  students: function() {
+    return students.find({ classId: Session.get('classId') } );
+  },
   mac: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId')});
@@ -496,5 +499,13 @@ Template.studentPage.events({
   'change #Portfolio': function(event) {
     event.preventDefault();
     Meteor.call('studentPortfolio',Session.get('studentId'),$(event.target).val());
+  },
+  'click .student_li': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId',$(event.target).closest('li').attr("id"));
+  },
+  'click .students_li': function(event) {
+    event.preventDefault();
+    Session.set('studentSelected', false);
   }
 });
