@@ -107,6 +107,13 @@ Template.studentsPage.helpers({
      return false;
     };
   },
+  parent: function() {
+    if (Session.get('userType')=="parent") {
+     return true;
+    } else {
+     return false;
+    };
+  },
   modalTeacher: function() {
     if (Session.get('userType')=="teacher") {
      //return "#mod_student_modal";

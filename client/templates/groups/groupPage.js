@@ -100,6 +100,13 @@ Template.groupPage.helpers({
         }
     });
     return inNote;
+  },
+  parent: function() {
+    if (Session.get('userType')=="parent") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

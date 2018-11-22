@@ -27,7 +27,11 @@
                   <ul class="list-group">
                     {{#each students}}
                       <button type="button" class="list-group-item  {{studentInGroup _id}}" id="{{_id}}">
-                        {{studentName}}
+                        {{#if parent}}
+                          {{alias}}
+                        {{else}}
+                          {{studentName}}
+                        {{/if}}
                       </button>
                     {{/each}}
                   </ul>

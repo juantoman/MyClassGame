@@ -49,6 +49,13 @@ Template.studentsMainPage.helpers({
   },
   groups: function() {
     return groups.find({classId: Session.get('classId')});
+  },
+  parent: function() {
+    if (Session.get('userType')=="parent") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 
@@ -128,4 +135,4 @@ Template.studentsMainPage.events({
     Session.setPersistent('sogBtn', "groups");
     Session.set('studentSelected', false);
   }
-});
+ });

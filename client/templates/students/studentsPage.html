@@ -4,7 +4,11 @@
       {{#each students}}
         <div class="col-container col-sm-12 col-md-4 col-lg-3">
           <div class="thumbnail {{myuser email}}">
-              <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+              {{#if parent}}
+                <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span></h2>
+              {{else}}
+                <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+              {{/if}}
               <div class="caixa">
                 <div class="imatge">
                   <p><img src="{{image avatar}}" data-toggle="modal" data-target="{{modalTeacher}}" name="{{_id}}" title="Propiedades estudiante" class="img foto"></p>
@@ -80,7 +84,11 @@
       <tbody>
       {{#each students}}
         <tr class="linea" id="{{_id}}">
-            <td class="btn-student align-middle"><button type="button" class="btn-info info-list btn-xs"><img src="{{image avatar}}" alt="..." class="foto-hor"><span> {{studentName}}</span></button></td>
+            {{#if parent}}
+              <td class="btn-student align-middle"><button type="button" class="btn-info info-list btn-xs"><img src="{{image avatar}}" alt="..." class="foto-hor"><span> {{alias}}</span></button></td>
+            {{else}}
+              <td class="btn-student align-middle"><button type="button" class="btn-info info-list btn-xs"><img src="{{image avatar}}" alt="..." class="foto-hor"><span> {{studentName}}</span></button></td>
+            {{/if}}
             <td><button type="button" class="btn btn-warning">{{grupo.groupName}}</button></td>
             <td><button type="button" class="btn btn-default">{{levelAutomatic (_id)}} {{levelDesc (_id)}}</button></td>
             <td><button type="button" class="btn btn-success btn-xp" data-toggle="modal">{{XP}} XP</button></td>

@@ -325,6 +325,13 @@ Template.studentPage.helpers({
     if (isNaN(nota)) { nota=0; }
     notas="{ " + Session.get('nXP')*perXP/100 + " [ " + perXP + " % XP ] + " + Session.get('nBg')*perBG/100 + " [ " + perBG + " % BG ] + " + Session.get('nMM')*perMissions/100 + " [ " + perMissions + " % Misiones ] + " + Session.get('nR')*perChallenges/100 + " [ " + perChallenges + " % Retos ] } - " + Session.get('nHP') + " [ " + perHP + " * HP ]";
     return notas + " = " + nota;
+  },
+  parent: function() {
+    if (Session.get('userType')=="parent") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

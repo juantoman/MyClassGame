@@ -11,7 +11,11 @@
   <div style="background-color:#002B36;">
     <div class="list-group">
       {{#with student}}
-        <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+        {{#if parent}}
+          <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span></h2>
+        {{else}}
+          <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+        {{/if}}
         <div class="container-fluid">
           <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent">
           <div class="puntsStudent">
@@ -28,7 +32,11 @@
               <label for="sName" class="control-label">ID estudiante</label>
               <input type="text" class="form-control" id="sName" name="idName" value="{{_id}}" readonly="readonly">
               <label for="sName" class="control-label">Nombre estudiante</label>
-              <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
+              {{#if parent}}
+                <input type="text" class="form-control" id="sName" name="sName" value="{{alias}}" {{inputDisabled}}>
+              {{else}}
+                <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
+              {{/if}}
               <label for="sLevel" class="control-label">Nivel</label>
               <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
               <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
