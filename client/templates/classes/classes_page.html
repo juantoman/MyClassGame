@@ -40,9 +40,11 @@
         </div>
       {{/each}}
     </div>
-    <button type="button" id="changeRol" class="btn btn-danger">
-      Cambiar ROL
-    </button>
+    {{#if teacher}}
+      <button type="button" id="changeRol" class="btn btn-danger">
+        Cambiar ROL
+      </button>
+    {{/if}}
   </div>
   <div  class="container-fluid myContent stored_classes">
     <h4>Clases archivadas</h4>

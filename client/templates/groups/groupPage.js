@@ -67,6 +67,9 @@ Template.groupPage.helpers({
   sn: function(sn){
     return students.findOne({_id: sn}).studentName;
   },
+  sa: function(sa){
+    return students.findOne({_id: sa}).alias;
+  },
   studentInNotebook: function() {
     inNote=false;
     students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
