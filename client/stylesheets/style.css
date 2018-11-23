@@ -13,11 +13,11 @@ body {
   color: #666666; }
 
 #main {
+  margin-top:-10px;
   position: relative;
   background: #abb;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   border:1px solid lightgray;
-  top: -11px;
 }
 
 .navbar {
@@ -158,11 +158,16 @@ body {
       margin: auto;
 }
 .footer{
-  color:#334;
+  color:white;
   text-align: center;
+  background-color: #073642;
 }
 .footer p{
   line-height: 6pt;
+}
+.footer a:hover{
+  text-decoration: none;
+  color:lightblue;
 }
 label {
   color:white;
@@ -290,6 +295,9 @@ td button {
   background-color: lightblue !important;
   color: blue !important;
 }
-.student_button, .all_button, .group_button{
+.student_button, .all_button, group_button{
   margin: 2px !important;
+}
+.jumbointro {
+  margin-bottom: 0px;
 }
