@@ -134,5 +134,12 @@ Template.studentsMainPage.events({
     Session.set('groupSelected', true);
     Session.setPersistent('sogBtn', "groups");
     Session.set('studentSelected', false);
+  },
+  'click .clases': function(event) {
+    event.preventDefault();
+    Session.set('className', '');
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+    //Router.go('/');
   }
  });
