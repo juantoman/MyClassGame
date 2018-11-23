@@ -1,27 +1,44 @@
 <template name="register">
   <div  class="container myContent">
     <h2 class="text-center">¿Qué tipo de usuario eres?{{userType}}</h2>
-    
-      <div class="">
-        <div class="thumbnail text-center">
-            <h2 class="text-center bg-success">Profesor</h2>
-            <!-- <img src="/images/teacher.png" alt="..."> -->
-            <button type="button" class="btn btn-primary btn-teacher">Profesor</button>
+       <div class="row">
+        <div class="col-container col-sm-12 col-md-4">
+          <div class="thumbnail text-center">
+            <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542962764/proves/YODA.png" class="foto btn-teacher"></p>
+            <h2 class="text-center">
+              <button type="button" class="btn btn-warning btn-teacher info-grid">
+                Profesor
+              </button>
+            </h2>
+          </div>
+        </div>
+        <div class="col-container col-sm-12 col-md-4">
+          <div class="thumbnail text-center">
+              <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png" class="foto btn-student"></p>
+              <h2>
+                <button type="button" class="btn btn-warning btn-student info-grid">
+                  Estudiante
+                </button>
+              </h2>
+          </div>
+        </div>
+        <div class="col-container col-sm-12 col-md-4">
+          <div class="thumbnail text-center">
+            <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542966099/proves/vader.png" class="foto btn-parent"></p>
+            <h2 class="text-center">
+              <button type="button" class="btn btn-warning btn-parent info-grid">
+                Padre/Madre
+              </button>
+            </h2>
+          </div>
         </div>
       </div>
-      <div class="">
-        <div class="thumbnail text-center">
-            <h2 class="text-center bg-success">Estudiante</h2>
-            <!-- <img src="/images/student.png" alt="..."> -->
-            <button type="button" class="btn btn-primary btn-student">Estudiante</button>            
-        </div>
-      </div>
-      <div class="">
-        <div class="thumbnail text-center">
-            <h2 class="text-center bg-success">Padre/Madre</h2>
-            <!-- <img src="/images/student.png" alt="..."> -->
-            <button type="button" class="btn btn-primary btn-parent">Padre/Madre</button>            
-        </div>
-      </div>
+  </div>
+  <div class="footer">
+      <br />
+      <p>Proyecto desarrollado por <a href="https://juantoman.wixsite.com/juantoman" target="_blank">Juan Torres</a></p>
+      <p><a href="https://twitter.com/juantoman" target="_blank">@juantoman</a></p>      
+      <p><a href="mailto:myclassgame@google.com" target="_blank">myclassgame@google.com</a></p>
+      <br />
   </div>
 </template>

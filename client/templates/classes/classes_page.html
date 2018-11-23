@@ -2,7 +2,7 @@
   {{> myBreadcrumb}}
   {{#if cName}}
   <div  class="container-fluid myContent">
-    <h4>Clases activas</h4>
+    <h4 id="changeRol">Clases activas</h4>
     <div class="row">
       <div class="col-sm-12 col-md-4 col-lg-3">
         <div class="thumbnail">
@@ -40,9 +40,6 @@
         </div>
       {{/each}}
     </div>
-      <button type="button" id="changeRol" disabled class="btn btn-danger">
-        Ca<span>m</span>biar ROL
-      </button>
   </div>
   <div  class="container-fluid myContent stored_classes">
     <h4>Clases archivadas</h4>
