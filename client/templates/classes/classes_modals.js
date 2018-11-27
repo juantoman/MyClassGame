@@ -2,7 +2,7 @@ Template.classesModals.helpers({
   mensaje: function(){
     var userType=Session.get('userType');
     if ( userType == "teacher") {
-      return "Nueva clase";
+      return "Nueva clase o proyecto";
     } else {
       return "Código de la clase"
     }
