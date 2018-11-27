@@ -20,6 +20,6 @@
         visible: true
     }]
 });*/
-accountsUIBootstrap3.setLanguage('es');
+
 
 
