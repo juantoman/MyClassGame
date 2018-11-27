@@ -2,17 +2,17 @@
   {{> myBreadcrumb}}
   {{#if cName}}
   <div  class="container-fluid myContent">
-    <h4 id="changeRol">Clases activas</h4>
+    <h4 id="changeRol">{{_ "aclasses"}}</h4>
     <div class="row">
       <div class="col-sm-12 col-md-4 col-lg-3">
         <div class="thumbnail">
-            <h2 class="text-center bg-success">Nueva clase</h2>
+            <h2 class="text-center bg-success">{{_ "nclass"}}</h2>
             <img src="/images/user_group_128.png" class="fotoIcono" alt="...">
             <div class="caption">
               <h2 class="text-center">
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add_class_modal">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                  Clase
+                  {{_ "class"}}
                 </button>
               </h2>
             </div>
@@ -28,10 +28,10 @@
                   <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
                   {{#if teacher}}
                     <button id="{{_id}}" type="button" class="btn btn-success btn-double-class" name="{{className}}">
-                      Duplicar
+                      {{_ "copy"}}
                     </button>
                     <button type="button" class="btn btn-danger btn-store-class" name="{{_id}}">
-                      Archivar
+                      {{_ "vstore"}}
                     </button>
                   {{/if}}
                 </h2>
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div  class="container-fluid myContent stored_classes">
-    <h4>Clases archivadas</h4>
+    <h4>{{_ "sclasses"}}</h4>
     <div class="row">
       {{#each stored}}
         <div class="col-sm-12 col-md-4 col-lg-3">
@@ -54,10 +54,10 @@
                   <button id="{{_id}}" type="button" class="btn btn-primary btn-class" name="{{className}}">{{className}}</button>
                   {{#if teacher}}
                     <button id="{{_id}}" type="button" class="btn btn-success btn-restore" name="{{_id}}">
-                      Recuperar
+                      {{_ "restore"}}
                     </button>
                     <button type="button" class="btn btn-danger btn-delete-class" name="{{_id}}">
-                      Borrar
+                      {{_ "delete"}}
                     </button>
                   {{/if}}
                 </h2>

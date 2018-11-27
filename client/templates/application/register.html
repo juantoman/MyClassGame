@@ -1,13 +1,13 @@
 <template name="register">
   <div  class="container myContent">
-    <h2 class="text-center">¿Qué tipo de usuario eres?{{userType}}</h2>
+    <h2 class="text-center">{{_ "usertype"}}</h2>
        <div class="row">
         <div class="col-container col-sm-12 col-md-4">
           <div class="thumbnail text-center">
             <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542962764/proves/YODA.png" class="foto btn-teacher"></p>
             <h2 class="text-center">
               <button type="button" class="btn btn-warning btn-teacher info-grid">
-                Maestro/a
+                {{_ "teacher"}}
               </button>
             </h2>
           </div>
@@ -17,7 +17,7 @@
               <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png" class="foto btn-student"></p>
               <h2>
                 <button type="button" class="btn btn-warning btn-student info-grid">
-                  Estudiante
+                  {{_ "student"}}
                 </button>
               </h2>
           </div>
@@ -27,7 +27,7 @@
             <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542966099/proves/vader.png" class="foto btn-parent"></p>
             <h2 class="text-center">
               <button type="button" class="btn btn-warning btn-parent info-grid">
-                Padre/Madre
+                {{_ "parent"}}
               </button>
             </h2>
           </div>
