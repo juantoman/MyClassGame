@@ -84,7 +84,7 @@ Template.studentsPage.helpers({
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
         return classes.findOne({_id: Session.get('classId')}).studentImg;
       } else {
-        return "/images/user_128.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
       }
     } else  {
       return avatar;
@@ -98,7 +98,14 @@ Template.studentsPage.helpers({
     }
   },
   grupo: function() {
-    return groups.findOne({_id: this.groupId});
+    if (this.groupId) {
+      return groups.findOne({_id: this.groupId});
+    } else {
+      var group = {
+        groupName:"No asignado"
+      };
+      return group;
+    }
   },
   teacher: function() {
     if (Session.get('userType')=="teacher") {

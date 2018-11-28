@@ -7,6 +7,7 @@
     "restore":"Recuperar",
     "copy":"Copiar",
     "vstore": "Archivar",
+    "save": "Guardar",
     "class": "Clase o Proyecto",
     "nclass": "Nueva Clase o Proyecto",
     "aclasses": "Clases o proyectos activos",

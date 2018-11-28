@@ -40,7 +40,7 @@ Template.groupPage.helpers({
       if (classes.findOne({_id: Session.get('classId')}).groupImg) {
         return classes.findOne({_id: Session.get('classId')}).groupImg;
       } else {
-        return "/images/user_group_128.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
       }
     }
   },
