@@ -102,7 +102,7 @@ Template.studentsPage.helpers({
       return groups.findOne({_id: this.groupId});
     } else {
       var group = {
-        groupName:"No asignado"
+        groupName:"Sin asignar"
       };
       return group;
     }

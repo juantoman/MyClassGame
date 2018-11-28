@@ -1,19 +1,20 @@
 <template name="myNav">
   <!--{{> myBreadcrumb}}-->
-   <!-- Nav tabs -->
+  <!-- Nav tabs -->
+  {{#if teacher}}
   <ul class="nav nav-pills nav-justified" role="tablist">
     <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab">Estudiantes y equipos</a></li>
     <!--
       <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
     -->
-    <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Historial</a></li>
-    {{#if teacher}}
+    
+      <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab">Historial</a></li>
       <li role="presentation"><a href="#challenges" aria-controls="challenges" role="tab" data-toggle="tab">Misiones y Retos</a></li>
       <li role="presentation"><a href="#random" aria-controls="random" role="tab" data-toggle="tab">Random</a></li>
       <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Configuración</a></li>
-    {{/if}}
+    
   </ul>
-
+  {{/if}}
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="studentsMain">{{> studentsMainPage}}</div>
