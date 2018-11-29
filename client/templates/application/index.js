@@ -21,7 +21,7 @@ Template.index.helpers({
     if (typeof tipo == "undefined") {
       Meteor.call('userTypeInsert', "");
     }
-    Session.set('userType', tipo);
+    Session.setPersistent('userType', tipo);
     if ( tipo != "" ) {
       return true;
     } else {

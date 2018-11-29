@@ -8,6 +8,7 @@
     "copy":"Copy",
     "vstore": "Store",
     "save": "Save",
+    "level": "Level",
     "class": "Class or Project",
     "nclass": "New Class or Project",
     "aclasses": "Active Classes or Projects",

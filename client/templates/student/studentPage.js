@@ -515,5 +515,13 @@ Template.studentPage.events({
   'click .all_button': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
+  },
+  'click .ocultable': function(event) {
+    event.preventDefault();
+    if ($(event.target).next("table").hasClass("oculto")) {
+      $(event.target).next("table").removeClass("oculto");
+    } else {
+      $(event.target).next("table").addClass("oculto");
+    }
   }
 });

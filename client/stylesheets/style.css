@@ -301,3 +301,9 @@ td button {
 .jumbointro {
   margin-bottom: 0px;
 }
+.oculto {
+  display: none;
+}
+.visible {
+  display: block;
+}
