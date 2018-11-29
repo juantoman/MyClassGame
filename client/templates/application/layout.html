@@ -5,11 +5,7 @@
       {{#if currentUser}}
         {{> yield}}
       {{else}}
-        {{#if seeTutorial}}
-          {{> tutorial}}
-        {{else}}
-          {{> carrusel}}
-        {{/if}}
+        {{> carrusel}}
       {{/if}}  
     </div>
     {{> footer}}

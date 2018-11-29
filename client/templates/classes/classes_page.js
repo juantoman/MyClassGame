@@ -95,13 +95,6 @@ Template.classesPage.events({
   'click #changeRol': function(event) {
     event.preventDefault();
     type=Meteor.users.findOne(Meteor.user()).userType;
-    /*if (type=="teacher") {
-      Meteor.call('userTypeInsert', "student");
-      Session.setPersistent('userType', "student");
-    } else {
-      Meteor.call('userTypeInsert', "teacher");
-      Session.setPersistent('userType', "teacher");
-    }*/
     Meteor.call('userTypeInsert', "");
     Session.setPersistent('userType', "");
     Router.go('index');
