@@ -67,305 +67,338 @@
       {{/with}}
     </div>
     <div class="container-fluid section table-responsive">
-
-      {{#with student}}
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseDiaryPort">Diario y Portfolio del alumno</h2>
-      <div class="collapse" id="collapseDiaryPort">
-        <div class="card card-body">
-          <div class="form-group has-success">
-            <div class="form-inline">
-              <div class="input-group col-xs-10">
-                <span class="input-group-addon">Diario</span>
-                <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myuserEnabled}} value="{{diary}}">
-              </div>
-              <div class="input-group col-xs-1">
-                <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
-              </div>
+      <br />
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" id="headingDaP"  data-toggle="collapse" data-parent="#accordion" href="#collapseDaP" aria-expanded="false" aria-controls="collapseDaP">
+            <h4 class="panel-title">
+                Diario y Portfolio del estudiante
+            </h4>
+          </div>
+          <div id="collapseDaP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDaP">
+            <div class="panel-body">
+              {{#with student}}
+                <div class="form-group has-success">
+                  <div class="form-inline">
+                    <div class="input-group col-xs-10">
+                      <span class="input-group-addon">Diario</span>
+                      <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myuserEnabled}} value="{{diary}}">
+                    </div>
+                    <div class="input-group col-xs-1">
+                      <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
+                    </div>
+                  </div>
+                  <div class="form-inline">
+                    <div class="input-group col-xs-10">
+                      <span class="input-group-addon">Portfolio</span>
+                      <input type="text" class="form-control inputGroup input-lg" id="Portfolio" {{myuserEnabled}} value="{{portfolio}}">
+                    </div>
+                    <div class="input-group col-xs-1">
+                      <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>
+                    </div>
+                  </div>
+                </div>
+              {{/with}}
             </div>
-            <div class="form-inline">
-              <div class="input-group col-xs-10">
-                <span class="input-group-addon">Portfolio</span>
-                <input type="text" class="form-control inputGroup input-lg" id="Portfolio" {{myuserEnabled}} value="{{portfolio}}">
-              </div>
-              <div class="input-group col-xs-1">
-                <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>
-              </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMaC" aria-expanded="false" aria-controls="collapseMaC" id="headingMaC">
+            <h4 class="panel-title">
+                Misiones y Retos
+            </h4>
+          </div>
+          <div id="collapseMaC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMaC">
+            <div class="panel-body">
+              {{#each mac}}
+                <div class="form-group {{moc type}}">
+                  <div class="form-inline">
+                    <div class="input-group col-xs-9">
+                      <span class="input-group-addon">{{type}}</span>
+                      <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                    </div>
+                    <div class="input-group col-xs-2">
+                      <span class="input-group-addon">Puntuación</span>
+                      <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBadges" aria-expanded="false" aria-controls="collapseBadges" id="headingBadges">
+            <h4 class="panel-title">
+                Insignias
+            </h4>
+          </div>
+          <div id="collapseBadges" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBadges">
+            <div class="panel-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
+            <h4 class="panel-title">
+                Historial
+            </h4>
+          </div>
+          <div id="collapseHistory" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHistory">
+            <div class="panel-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th id="evaluation_th">
+                      Evaluación
+                    </th>
+                    <th id="behaviour_th">
+                      Comportamiento
+                    </th>
+                    <th>
+                      Comentarios
+                    </th>
+                    <th>
+                      Puntos
+                    </th>
+                     <th id="behaviour_type_th">
+                      Tipo
+                    </th>
+                    <th id="date_th">
+                      Fecha
+                    </th>
+                    <th id="borrar_th">
+                      Borrar
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each statistics}}
+                      <tr>
+                        <td>
+                          {{evaluation}}
+                        </td>
+                        <td>
+                          {{behaviour.behaviourDescription}}
+                        </td>
+                        <td>
+                          {{comment}}
+                        </td>
+                        <td>
+                          {{behaviour.points}}
+                        </td>
+                        <td>
+                          {{behaviourType}}
+                        </td>
+                        <td>
+                          {{createdOnFormatted createdOn}}
+                        </td>
+                        {{#if teacher}}
+                          <td class="text-center">
+                            <button name="{{_id}}" class="borrar">Borrar</button>
+                          </td>
+                        {{/if}}
+                      </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
+            <h4 class="panel-title">
+                Diario de aprendizaje
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              <table class="table table-bordered" id="tabla_diario">
+                <tbody>
+                {{#each mydiary}}
+                <tr>
+                  <th id="evaluation_th">
+                    Misión
+                  </th>
+                  <th id="evaluation_th">
+                    {{mision.chalName}}
+                  </th>
+                </tr>
+                <tr>
+                  <td>
+                    ¿Qué hemos aprendido hoy?
+                  </td>
+                  <td>
+                    {{what}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ¿Cómo lo hemos aprendido?
+                  </td>
+                  <td>
+                    {{how}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ¿Qué he entendido bien?
+                  </td>
+                  <td>
+                    {{understood}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    ¿Qué cosas no acabo de entender?
+                  </td>
+                  <td>
+                    {{notunderstood}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Fecha
+                  </td>
+                  <td>
+                    {{createdOn}}
+                  </td>
+                </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="headingThree">
+            <h4 class="panel-title">
+                Notas
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              <table class="table table-bordered">
+                {{#with student}}
+                <tbody>
+                  <tr>
+                    <td>
+                      XP
+                    </td>
+                    <td>
+                      {{XP}}
+                    </td>
+                    <td>
+                      {{notaXP XP}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Badges
+                    </td>
+                    <td>
+                      {{badges.length}}
+                    </td>
+                    <td>
+                      {{notaBadges badges.length}}
+                    </td>
+                  </tr>
+                  {{#each missions}}
+                    <tr>
+                      <td>
+                        Misión: {{chalName}}
+                      </td>
+                      <td>
+                        {{CP _id}}
+                      </td>
+                      <td class="nota_mision">
+                        {{notaMision _id}}
+                      </td>
+                    </tr>
+                  {{/each}}
+                  <tr>
+                    <td>
+                      Misiones:
+                    </td>
+                    <td>
+                      Media
+                    </td>
+                    <td>
+                      {{notaMediaMisiones}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Retos:
+                    </td>
+                    <td>
+                      Media
+                    </td>
+                    <td>
+                      {{notaRetos}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Puntos HP
+                    </td>
+                    <td>
+                      Puntos perdidos por HP
+                    </td>
+                    <td>
+                      {{notaHP}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Nota Final
+                    </td>
+                    <td>
+                      Media ponderada XP, Misiones y Retos
+                    </td>
+                    <td>
+                      {{notaFinal}}
+                    </td>
+                  </tr>
+                </tbody>
+                {{/with}}
+              </table>
             </div>
           </div>
         </div>
       </div>
-      {{/with}}
-      
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseMaC">Misiones y Retos</h2>
-      <div class="collapse" id="collapseMaC">
-        <div class="card card-body">
-          {{#each mac}}
-            <div class="form-group {{moc type}}">
-              <div class="form-inline">
-                <div class="input-group col-xs-9">
-                  <span class="input-group-addon">{{type}}</span>
-                  <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-                </div>
-                <div class="input-group col-xs-2">
-                  <span class="input-group-addon">Puntuación</span>
-                  <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
-                </div>
-              </div>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-      
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseBadges">Insignias</h2>
-      <div class="collapse" id="collapseBadges">
-        <div class="card card-body">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>
-                  Descripción
-                </th>
-                <th>
-                  XP
-                </th>
-                <th>
-                  Fecha
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-            {{#each badges}}
-              <tr>
-                <td>
-                  {{badge.badgeDescription}}
-                </td>
-                <td>
-                  {{badge.points}}
-                </td>
-                <td>
-                  {{createdOn}}
-                </td>
-              </tr>
-            {{/each}}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseHistory">Historial</h2>
-      <div class="collapse" id="collapseHistory">
-        <div class="card card-body">
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th id="evaluation_th">
-                  Evaluación
-                </th>
-                <th id="behaviour_th">
-                  Comportamiento
-                </th>
-                <th>
-                  Comentarios
-                </th>
-                <th>
-                  Puntos
-                </th>
-                 <th id="behaviour_type_th">
-                  Tipo
-                </th>
-                <th id="date_th">
-                  Fecha
-                </th>
-                <th id="borrar_th">
-                  Borrar
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-            {{#each statistics}}
-                  <tr>
-                    <td>
-                      {{evaluation}}
-                    </td>
-                    <td>
-                      {{behaviour.behaviourDescription}}
-                    </td>
-                    <td>
-                      {{comment}}
-                    </td>
-                    <td>
-                      {{behaviour.points}}
-                    </td>
-                    <td>
-                      {{behaviourType}}
-                    </td>
-                    <td>
-                      {{createdOnFormatted createdOn}}
-                    </td>
-                    {{#if teacher}}
-                      <td class="text-center">
-                        <button name="{{_id}}" class="borrar">Borrar</button>
-                      </td>
-                    {{/if}}
-                  </tr>
-            {{/each}}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseDiary">Diario de aprendizaje</h2>
-      <div class="collapse" id="collapseDiary">
-        <div class="card card-body">
-          <table class="table table-bordered" id="tabla_diario">
-            <tbody>
-            {{#each mydiary}}
-            <tr>
-              <th id="evaluation_th">
-                Misión
-              </th>
-              <th id="evaluation_th">
-                {{mision.chalName}}
-              </th>
-            </tr>
-            <tr>
-              <td>
-                ¿Qué hemos aprendido hoy?
-              </td>
-              <td>
-                {{what}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                ¿Cómo lo hemos aprendido?
-              </td>
-              <td>
-                {{how}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                ¿Qué he entendido bien?
-              </td>
-              <td>
-                {{understood}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                ¿Qué cosas no acabo de entender?
-              </td>
-              <td>
-                {{notunderstood}}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Fecha
-              </td>
-              <td>
-                {{createdOn}}
-              </td>
-            </tr>
-            {{/each}}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      
-      <h2 class="text-center bg-info" data-toggle="collapse" href="#collapseScore">Notas</h2>
-      <div class="collapse" id="collapseScore">
-        <div class="card card-body">
-          <table class="table table-bordered">
-            {{#with student}}
-            <tbody>
-              <tr>
-                <td>
-                  XP
-                </td>
-                <td>
-                  {{XP}}
-                </td>
-                <td>
-                  {{notaXP XP}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Badges
-                </td>
-                <td>
-                  {{badges.length}}
-                </td>
-                <td>
-                  {{notaBadges badges.length}}
-                </td>
-              </tr>
-              {{#each missions}}
-                <tr>
-                  <td>
-                    Misión: {{chalName}}
-                  </td>
-                  <td>
-                    {{CP _id}}
-                  </td>
-                  <td class="nota_mision">
-                    {{notaMision _id}}
-                  </td>
-                </tr>
-              {{/each}}
-              <tr>
-                <td>
-                  Misiones:
-                </td>
-                <td>
-                  Media
-                </td>
-                <td>
-                  {{notaMediaMisiones}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Retos:
-                </td>
-                <td>
-                  Media
-                </td>
-                <td>
-                  {{notaRetos}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Puntos HP
-                </td>
-                <td>
-                  Puntos perdidos por HP
-                </td>
-                <td>
-                  {{notaHP}}
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Nota Final
-                </td>
-                <td>
-                  Media ponderada XP, Misiones y Retos
-                </td>
-                <td>
-                  {{notaFinal}}
-                </td>
-              </tr>
-            </tbody>
-            {{/with}}
-          </table>
-        </div>
-      </div>
     </div>
-    
+
     {{#if myuser}}
       <div class="container-fluid">
         <form class="diario">
