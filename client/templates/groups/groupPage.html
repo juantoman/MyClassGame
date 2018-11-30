@@ -96,7 +96,7 @@
             <div class="panel-body">
               <div class="panel-group" id="accordionDiary" role="tablist" aria-multiselectable="true">
                   {{#each notebook}}
-                  <div class="panel panel-success">
+                  <div class="panel panel-info">
                     <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
                       <h4 class="panel-title">
                           Misión "{{mision.chalName}}" ( {{createdOn}} )
@@ -106,15 +106,15 @@
                       <div class="panel-body">
                         <div class="panel panel-default">
                           <ul class="list-group">
-                              <a href="#" class="list-group-item list-group-item-default">
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">¿Qué hemos aprendido hoy? </h4>
                                 <p class="list-group-item-text">{{done}}</p>
-                              </a>
-                              <a href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">Observaciones </h4>
                                 <p class="list-group-item-text">{{observations}}</p>
-                              </a>
-                              <a href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">Trabajo realizado por estudiantes</h4>
                                 <p class="list-group-item-text">
                                   {{#each works _id}}
@@ -127,8 +127,8 @@
                                         <br />
                                   {{/each}}
                                 </p>
-                              </a>
-                              <li href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">
                                   <input class="seen" type="checkbox" value="{{_id}}" checked="{{seen}}"  {{inputDisabled}}> {{_ "seen"}}
                                   <input class="validated" type="checkbox" value="{{_id}}" checked="{{validated}}"  {{inputDisabled}}> {{_ "validated"}}

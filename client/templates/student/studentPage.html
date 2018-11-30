@@ -245,7 +245,7 @@
             <div class="panel-body">
               <div class="panel-group" id="accordionDiary" role="tablist" aria-multiselectable="true">
                   {{#each mydiary}}
-                  <div class="panel panel-success">
+                  <div class="panel panel-info">
                     <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
                       <h4 class="panel-title">
                           Misión "{{mision.chalName}}" ( {{createdOn}} )
@@ -255,22 +255,22 @@
                       <div class="panel-body">
                         <div class="panel panel-default">
                           <ul class="list-group">
-                              <a href="#" class="list-group-item list-group-item-default">
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">¿Qué hemos aprendido hoy? </h4>
                                 <p class="list-group-item-text">{{what}}</p>
-                              </a>
-                              <a href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">¿Cómo lo hemos aprendido? </h4>
                                 <p class="list-group-item-text">{{how}}</p>
-                              </a>
-                              <a href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">¿Qué he entendido bien? </h4>
                                 <p class="list-group-item-text">{{understood}}</p>
-                              </a>
-                              <a href="#" class="list-group-item list-group-item-default">
+                              </li>
+                              <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">¿Qué cosas no acabo de entender?</h4>
                                 <p class="list-group-item-text">{{notunderstood}}</p>
-                              </a>
+                              </li>
                           </ul>
                         </div>
                       </div>
