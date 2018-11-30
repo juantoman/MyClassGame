@@ -1,5 +1,9 @@
 {
     "student": "Student",
+    "student_name": "Student ame",
+    "name": "Name",
+    "team": "Team",
+    "team_name": "Team Name",
     "add_student": "New",
     "store": "Store",
     "badges": "Badges",
@@ -30,4 +34,7 @@
     "intro1": "is a web application that aims to help any teacher to introduce new methodologies in their classes easily and intuitively",
     "intro2": "The idea is that Gamified Cooperative Projects (GCP) can be created through the platform and in this way manage all the relevant data to have a follow-up of each task carried out by the students",
     "intro3": "Currently the platform is in continuous development so we are open to any idea and suggestion",
-    "intro4": "If you like to share on your social networks using"}
+    "intro4": "If you like to share on your social networks using",
+    "seen": "Seen",
+    "validated": "Validated"
+}

@@ -1,5 +1,9 @@
 {
-    "student": "Alumno",
+    "student": "Estudiante",
+    "student_name": "Nombre Estudiante",
+    "name": "Nombre",
+    "team": "Equipo",
+    "team_name": "Nombre Equipo",
     "add_student": "Nuevo",
     "store": "Tienda",
     "badges": "Insignias",
@@ -30,5 +34,7 @@
     "intro1": "es una aplicación web que pretende ayudar a cualquier docente a introducir nuevas metodologías en sus clases de forma fácil e intuitiva",
     "intro2": "La idea es que se puedan crear Proyectos Cooperativos Gamificados (PCG) a través de la plataforma y de esa forma gestionar todos los datos relevantes para tener un seguimiento de cada tarea que realizan los alumnos",
     "intro3": "Actualmente la plataforma está en continuo desarrollo con lo que estamos abiertos a cualquier idea y sugerencia",
-    "intro4": "Si te gusta comparte en tus redes sociales usando"
+    "intro4": "Si te gusta comparte en tus redes sociales usando",
+    "seen": "Visto",
+    "validated": "Validado"
 }

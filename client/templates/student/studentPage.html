@@ -29,9 +29,9 @@
           </div>
           <form class="dataStudent">
             <div class="form-group">
-              <label for="sName" class="control-label">ID estudiante</label>
+              <label for="sName" class="control-label">ID {{_ "student"}}</label>
               <input type="text" class="form-control" id="sName" name="idName" value="{{_id}}" readonly="readonly">
-              <label for="sName" class="control-label">Nombre estudiante</label>
+              <label for="sName" class="control-label">{{_ "student_name"}}</label>
               {{#if parent}}
                 <input type="text" class="form-control" id="sName" name="sName" value="{{alias}}" {{inputDisabled}}>
               {{else}}
