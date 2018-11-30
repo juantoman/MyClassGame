@@ -69,11 +69,11 @@
     <div class="container-fluid section table-responsive">
       <br />
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading" role="button" id="headingDaP"  data-toggle="collapse" data-parent="#accordion" href="#collapseDaP" aria-expanded="false" aria-controls="collapseDaP">
-            <h4 class="panel-title">
+            <li class="panel-title list-group-item">
                 Diario y Portfolio del estudiante
-            </h4>
+            </li>
           </div>
           <div id="collapseDaP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDaP">
             <div class="panel-body">
@@ -102,11 +102,11 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMaC" aria-expanded="false" aria-controls="collapseMaC" id="headingMaC">
-            <h4 class="panel-title">
+            <li class="panel-title list-group-item">
                 Misiones y Retos
-            </h4>
+            </li>
           </div>
           <div id="collapseMaC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMaC">
             <div class="panel-body">
@@ -127,11 +127,11 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBadges" aria-expanded="false" aria-controls="collapseBadges" id="headingBadges">
-            <h4 class="panel-title">
+            <li class="panel-title list-group-item">
                 Insignias
-            </h4>
+            </li>
           </div>
           <div id="collapseBadges" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBadges">
             <div class="panel-body">
@@ -168,11 +168,11 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
-            <h4 class="panel-title">
+            <li class="panel-title list-group-item">
                 Historial
-            </h4>
+            </li>
           </div>
           <div id="collapseHistory" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHistory">
             <div class="panel-body">
@@ -235,78 +235,60 @@
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="headingTwo">
-            <h4 class="panel-title">
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDiary" aria-expanded="false" aria-controls="collapseDiary" id="headingDiary">
+            <li class="panel-title list-group-item">
                 Diario de aprendizaje
-            </h4>
+            </li>
           </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div id="collapseDiary" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDiary">
             <div class="panel-body">
-              <table class="table table-bordered" id="tabla_diario">
-                <tbody>
-                {{#each mydiary}}
-                <tr>
-                  <th id="evaluation_th">
-                    Misión
-                  </th>
-                  <th id="evaluation_th">
-                    {{mision.chalName}}
-                  </th>
-                </tr>
-                <tr>
-                  <td>
-                    ¿Qué hemos aprendido hoy?
-                  </td>
-                  <td>
-                    {{what}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    ¿Cómo lo hemos aprendido?
-                  </td>
-                  <td>
-                    {{how}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    ¿Qué he entendido bien?
-                  </td>
-                  <td>
-                    {{understood}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    ¿Qué cosas no acabo de entender?
-                  </td>
-                  <td>
-                    {{notunderstood}}
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    Fecha
-                  </td>
-                  <td>
-                    {{createdOn}}
-                  </td>
-                </tr>
-                {{/each}}
-                </tbody>
-              </table>
+              <div class="panel-group" id="accordionDiary" role="tablist" aria-multiselectable="true">
+                  {{#each mydiary}}
+                  <div class="panel panel-success">
+                    <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
+                      <h4 class="panel-title">
+                          Misión "{{mision.chalName}}" ( {{createdOn}} )
+                    </h4>
+                    </div>
+                    <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
+                      <div class="panel-body">
+                        <div class="panel panel-default">
+                          <ul class="list-group">
+                              <a href="#" class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">¿Qué hemos aprendido hoy? </h4>
+                                <p class="list-group-item-text">{{what}}</p>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">¿Cómo lo hemos aprendido? </h4>
+                                <p class="list-group-item-text">{{how}}</p>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">¿Qué he entendido bien? </h4>
+                                <p class="list-group-item-text">{{understood}}</p>
+                              </a>
+                              <a href="#" class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">¿Qué cosas no acabo de entender?</h4>
+                                <p class="list-group-item-text">{{notunderstood}}</p>
+                              </a>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+
+              </div>
             </div>
           </div>
         </div>
-        <div class="panel panel-default">
-          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="headingThree">
-            <h4 class="panel-title">
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGrades" aria-expanded="false" aria-controls="collapseGrades" id="headingGrades">
+            <li class="panel-title list-group-item">
                 Notas
-            </h4>
+            </li>
           </div>
-          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div id="collapseGrades" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGrades">
             <div class="panel-body">
               <table class="table table-bordered">
                 {{#with student}}
