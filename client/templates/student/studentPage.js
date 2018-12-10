@@ -200,7 +200,7 @@ Template.studentPage.helpers({
           }
         });
         //registrats per usuari
-        nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+        nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
         w=0;
         notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
         nota=(n*w/nm)/100;
@@ -255,7 +255,7 @@ Template.studentPage.helpers({
             });
             w=0;
             //registrats per usuari
-            nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+            nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
             notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
             nota=(n*w/nm)/100;
             if (isNaN(nota)) { 
