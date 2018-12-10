@@ -241,8 +241,10 @@ Template.studentsPage.events({
     Session.set('nMM',0);
     Session.set('nR',0);
     Session.set('nHP',0);
-    Session.setPersistent('studentId', event.target.name);
-    Session.set('studentSelected', true);
+    if (event.target.name!=""){
+      Session.setPersistent('studentId', event.target.name);
+      Session.set('studentSelected', true);
+    }
   },
   'click #drive': function(event) {
     loadPicker();

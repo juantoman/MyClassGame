@@ -190,6 +190,7 @@ Template.studentPage.helpers({
       if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
         n=chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
         //nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+        //màxim registrats per tots els grups
         nm=0;
         notebookWork.find({'mission':cId}).forEach(function(sw){
           st=sw.studentId;
@@ -198,6 +199,8 @@ Template.studentPage.helpers({
             nm=cm;
           }
         });
+        //registrats per usuari
+        nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
         w=0;
         notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
         nota=(n*w/nm)/100;
@@ -242,6 +245,7 @@ Template.studentPage.helpers({
             n=parseInt(chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP);
             nm=0;            
             //nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
+            //màxim registrats per tots els grups
             notebookWork.find({'mission':cId}).forEach(function(sw){
               st=sw.studentId;
               cnm=notebookWork.find({'mission':cId,'studentId':st}).count();
@@ -250,6 +254,8 @@ Template.studentPage.helpers({
               }
             });
             w=0;
+            //registrats per usuari
+            nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
             notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
             nota=(n*w/nm)/100;
             if (isNaN(nota)) { 

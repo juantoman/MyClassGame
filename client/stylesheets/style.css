@@ -103,12 +103,18 @@ body {
 .foto{
   border:2px black solid;
   margin-top:20px;
-  width:90%;
-  height:90%;
+  width:80%;
+  height:80%;
 }
-.foto:hover{
+.foto:hover, .fotog:hover{
   cursor: pointer;
   opacity: 0.7;
+}
+.fotog{
+  border:2px black solid;
+  margin-top:20px;
+  width:50%;
+  height:50%;
 }
 .foto-hor{
   height:30px;

@@ -58,7 +58,7 @@
             </div>
             {{#if teacher}}
             <div style="float:right;margin-bottom:20px;">
-              <button type="button" class="btn btn-default">Volver a clase</button>
+              <button type="button" class="btn btn-default">{{_ "close"}}</button>
               <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
             </div>
             {{/if}}
@@ -81,7 +81,7 @@
                 <div class="form-group has-success">
                   <div class="form-inline">
                     <div class="input-group col-xs-10">
-                      <span class="input-group-addon">Diario</span>
+                      <span class="input-group-addon">{{_ "diary"}}</span>
                       <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myuserEnabled}} value="{{diary}}">
                     </div>
                     <div class="input-group col-xs-1">
@@ -171,7 +171,7 @@
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
             <li class="panel-title list-group-item">
-                Historial
+                {{_ "history"}}
             </li>
           </div>
           <div id="collapseHistory" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHistory">
@@ -180,25 +180,25 @@
                 <thead>
                   <tr>
                     <th id="evaluation_th">
-                      Evaluación
+                      {{_ "evaluation"}}
                     </th>
                     <th id="behaviour_th">
-                      Comportamiento
+                      {{_ "behavior"}}
                     </th>
                     <th>
-                      Comentarios
+                      {{_ "comments"}}
                     </th>
                     <th>
-                      Puntos
+                      {{_ "points"}}
                     </th>
                      <th id="behaviour_type_th">
-                      Tipo
+                      {{_ "type"}}
                     </th>
                     <th id="date_th">
-                      Fecha
+                      {{_ "date"}}
                     </th>
                     <th id="borrar_th">
-                      Borrar
+                      {{_ "delete"}}
                     </th>
                   </tr>
                 </thead>
@@ -225,7 +225,7 @@
                         </td>
                         {{#if teacher}}
                           <td class="text-center">
-                            <button name="{{_id}}" class="borrar">Borrar</button>
+                            <button name="{{_id}}" class="borrar">{{_ "delete"}}</button>
                           </td>
                         {{/if}}
                       </tr>
@@ -238,7 +238,7 @@
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDiary" aria-expanded="false" aria-controls="collapseDiary" id="headingDiary">
             <li class="panel-title list-group-item">
-                Diario de aprendizaje
+                {{_ "knowledge_diary"}}
             </li>
           </div>
           <div id="collapseDiary" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDiary">
@@ -248,7 +248,7 @@
                   <div class="panel panel-info">
                     <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
                       <h4 class="panel-title">
-                          Misión "{{mision.chalName}}" ( {{createdOn}} )
+                          {{_ "mission"}} "{{mision.chalName}}" ( {{createdOn}} )
                     </h4>
                     </div>
                     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
@@ -256,19 +256,19 @@
                         <div class="panel panel-default">
                           <ul class="list-group">
                               <li class="list-group-item list-group-item-default">
-                                <h4 class="list-group-item-heading">¿Qué hemos aprendido hoy? </h4>
+                                <h4 class="list-group-item-heading">{{_ "what"}}</h4>
                                 <p class="list-group-item-text">{{what}}</p>
                               </li>
                               <li class="list-group-item list-group-item-default">
-                                <h4 class="list-group-item-heading">¿Cómo lo hemos aprendido? </h4>
+                                <h4 class="list-group-item-heading">{{_ "how"}}</h4>
                                 <p class="list-group-item-text">{{how}}</p>
                               </li>
                               <li class="list-group-item list-group-item-default">
-                                <h4 class="list-group-item-heading">¿Qué he entendido bien? </h4>
+                                <h4 class="list-group-item-heading">{{_ "understood"}}</h4>
                                 <p class="list-group-item-text">{{understood}}</p>
                               </li>
                               <li class="list-group-item list-group-item-default">
-                                <h4 class="list-group-item-heading">¿Qué cosas no acabo de entender?</h4>
+                                <h4 class="list-group-item-heading">{{_ "notunderstood"}}</h4>
                                 <p class="list-group-item-text">{{notunderstood}}</p>
                               </li>
                           </ul>
@@ -318,7 +318,7 @@
                   {{#each missions}}
                     <tr>
                       <td>
-                        Misión: {{chalName}}
+                        {{_ "mission"}}: {{chalName}}
                       </td>
                       <td>
                         {{CP _id}}
@@ -330,7 +330,7 @@
                   {{/each}}
                   <tr>
                     <td>
-                      Misiones:
+                      {{_ "mission"}}s:
                     </td>
                     <td>
                       Media
@@ -385,26 +385,26 @@
       <div class="container-fluid">
         <form class="diario">
           <div class="form-group">
-            <h2 class="text-center bg-info">Entrada diario</h2>
+            <h2 class="text-center bg-info">{{_ "daily_entry"}}</h2>
             <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-            <label for="que" class="control-label">Misión actual</label>
+            <label for="que" class="control-label">{{_ "current_mission"}}</label>
             <select class="form-control" id="mission" name="mission">
               {{#each selectMissions}}
                 <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
               {{/each}}
             </select>
-            <label for="que" class="control-label">¿Qué hemos aprendido hoy?</label>
+            <label for="que" class="control-label">{{_ "what"}}</label>
             <input type="text" class="form-control" id="que" name="que" value="">
-            <label for="como" class="control-label">¿Cómo lo hemos aprendido? </label>
+            <label for="como" class="control-label">{{_ "how"}}</label>
             <input type="text" class="form-control" id="como" name="como" value="">
-            <label for="entendido" class="control-label">¿Qué he entendido bien?</label>
+            <label for="entendido" class="control-label">{{_ "understood"}}</label>
             <input type="text" class="form-control" id="entendido" name="entendido"  value="">
-            <label for="noentendido" class="control-label">¿Qué cosas no acabo de entender?</label>
+            <label for="noentendido" class="control-label">{{_ "notunderstood"}}</label>
             <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-default">Volver a clase</button>
-            <input type="submit" class="btn btn-primary" value="Guardar entrada diario">
+            <button type="button" class="btn btn-default">{{_ "close"}}</button>
+            <input type="submit" class="btn btn-primary" value="{{_ "save"}} {{_ "daily_entry"}}">
           </div>
         </form>
       </div>

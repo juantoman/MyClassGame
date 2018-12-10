@@ -54,7 +54,7 @@ Template.groupsPage.events({
     Session.setPersistent('groupId', event.target.name);
     Modal.show('groupModal');
   },
-  'click .foto': function(event) {
+  'click .fotog': function(event) {
     event.preventDefault();
     //alert(Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
     Session.setPersistent('groupId', event.target.name);
