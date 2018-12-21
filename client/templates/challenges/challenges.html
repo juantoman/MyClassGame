@@ -4,28 +4,102 @@
       <div class="form-group has-success">
         <label class="control-label" for="inputGroupSuccess1">Misiones y retos</label>
         {{#each challenge}}
-              <div class="form-group {{moc type}}">
-                <div class="form-inline">
-                  <div class="input-group col-xs-3">
-                    <span class="input-group-addon">{{type}} {{IoG}}</span>
-                    <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+          <div class="panel panel-info">
+            <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
+              <h4 class="panel-title">
+                {{type}} {{IoG}}: {{chalName}}
+              </h4>
+            </div>
+            <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
+              <div class="panel-body">
+                <div class="form-group {{moc type}}">
+                  <div class="input-group col-xs-12">
+                    <label for="chalDesc">Nombre {{type}} {{IoG}}</label>
+                    <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                   </div>
-                  <div class="input-group col-xs-6">
-                    <span class="input-group-addon">Descripción</span>
-                    <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="chalDesc"  aria-describedby="inputGroupSuccess1Status" value="{{chalDesc}}">
+                  <div class="input-group col-xs-12">
+                    <label for="chalDesc">Descripción</label>
+                    <textarea class="form-control" name="{{_id}}" id="chalDesc" rows="3">{{chalDesc}}</textarea>
                   </div>
-                  <div class="input-group col-xs-1">
+                  <div class="input-group mb-3">
+                    <input type="checkbox" id="nbDepCheck" name={{_id}} checked={{notebookDependence}}>
+                    <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
+                  </div>
+                  <div class="input-group mb-3">
                     <button class="notas" name="{{_id}}">Introducir Notas</button>
-                  </div>
-                  <div class="input-group col-xs-1">
                     <button name="{{_id}}" id="chalDel">Eliminar</button>
                   </div>
-                </div>
-                <div class="input-group mb-3">
-                  <input type="checkbox" id="nbDepCheck" name={{_id}} checked={{notebookDependence}}>
-                  <label class="control-label" for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                  <br />
+                  <div class="input-group col-xs-12">
+                    <div class="panel panel-info">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Retos</div>
+                  
+                    <!-- Table -->
+                      <table class="table" style="background-color: #ddd;" id="{{_id}}">
+                        <tbody>
+                          {{#each chalMissions _id}}
+                            <tr id="{{_id}}">
+                              <td>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-addon">
+                                    <span class="input-group-text" id="basic-addon1">Reto</span>
+                                  </div>
+                                  <input type="text" class="form-control" name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                </div>
+                              </td>
+                              <td>
+                                <div class="input-group mb-3">
+                                  <div class="input-group-addon">
+                                    <span class="input-group-text" id="basic-addon1">XP</span>
+                                  </div>
+                                  <input type="text" class="form-control" name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                                </div>
+                              </td>
+                              <td>
+                                <div class="btn-group" data-toggle="buttons">
+                                  <label class="btn btn-info">
+                                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                                  </label>
+                                  <label class="btn btn-info chalMissionDel">
+                                    <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                                  </label>
+                                  <label class="btn btn-info chalMissionUp">
+                                    <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                                  </label>
+                                  <label class="btn btn-info chalMissionDown">
+                                    <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                                  </label>
+                                </div>
+                              </td>
+                            </tr>
+                          {{/each}}
+                        </tbody>
+                        <tfoot>
+                          <tr class="bg-info">
+                            <td>
+                              <input type="text" class="form-control" placeholder="Reto" id="chalMissionDesc{{_id}}">
+                            </td>
+                            <td>
+                              <input type="text" class="form-control" placeholder="XP" id="chalMissionXP{{_id}}">
+                            </td>
+                            <td>
+                              <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-info chalSave" id="{{_id}}">
+                                  <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+              
         {{/each}}
       </div>
     </div>

@@ -40,6 +40,9 @@ Meteor.publish('levels', function() {
 Meteor.publish('challenges', function() {
   return challenges.find();
 });
+Meteor.publish('chalMissions', function() {
+  return chalMissions.find();
+});
 Meteor.publish('chalPoints', function() {
   return chalPoints.find();
 });
