@@ -116,5 +116,15 @@ Template.challenges.events({
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
+  },
+  'click .chalMissionUpdate': function(event) {
+    event.preventDefault();
+    desc=$("#cmd"+this._id).val();
+    xp=$("#cmxp"+this._id).val();
+    Meteor.call('chalMissionUpdateData', this._id, desc, xp);
+    //o=this.order;
+    //alert($(event.target).find('[name=MoC]').val())
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   }
 });

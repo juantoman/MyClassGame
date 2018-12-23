@@ -43,9 +43,9 @@
                               <td>
                                 <div class="input-group mb-3">
                                   <div class="input-group-addon">
-                                    <span class="input-group-text" id="basic-addon1">Reto</span>
+                                    <span class="input-group-text" id="basic-addon1">Reto {{order}}</span>
                                   </div>
-                                  <input type="text" class="form-control" name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                  <input id="cmd{{_id}}" type="text" class="form-control" name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
                                 </div>
                               </td>
                               <td>
@@ -53,12 +53,12 @@
                                   <div class="input-group-addon">
                                     <span class="input-group-text" id="basic-addon1">XP</span>
                                   </div>
-                                  <input type="text" class="form-control" name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                                  <input id="cmxp{{_id}}" type="text" class="form-control" name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
                                 </div>
                               </td>
                               <td>
                                 <div class="btn-group" data-toggle="buttons">
-                                  <label class="btn btn-info">
+                                  <label class="btn btn-info chalMissionUpdate">
                                     <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
                                   </label>
                                   <label class="btn btn-info chalMissionDel">
