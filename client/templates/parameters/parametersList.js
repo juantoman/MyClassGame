@@ -27,27 +27,27 @@ Template.parametersList.events({
   },*/
   'change #iniHP': function(event) {
     event.preventDefault();
-    Meteor.call('iniHPUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('iniHPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'change #perXP': function(event) {
     event.preventDefault();
-    Meteor.call('perXPUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('perXPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'change #perBG': function(event) {
     event.preventDefault();
-    Meteor.call('perBGUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('perBGUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'change #perMissions': function(event) {
     event.preventDefault();
-    Meteor.call('perMissionsUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('perMissionsUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'change #perChallenges': function(event) {
     event.preventDefault();
-    Meteor.call('perChallengesUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('perChallengesUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'change #perHP': function(event) {
     event.preventDefault();
-    Meteor.call('perHPUpdate', Session.get('classId'), event.currentTarget.value);
+    Meteor.call('perHPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
   'click #studentImg': function(event) {
     event.preventDefault();
