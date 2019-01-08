@@ -98,5 +98,16 @@ Template.classesPage.events({
     Meteor.call('userTypeInsert', "");
     Session.setPersistent('userType', "");
     Router.go('index');
+  },
+  'click #adminClass': function(event) {
+    event.preventDefault();
+    Modal.show('adminClass');
+    /*Session.set('classId', event.target.id);
+    Session.set('className', event.target.name);
+    Session.setPersistent('navItem', "Students");
+    Session.setPersistent('sogBtn',"students");
+    Session.setPersistent('golBtn',"grid");
+    Session.set('studentSelected', false);
+    Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
   }
 });
