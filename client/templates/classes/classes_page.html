@@ -1,7 +1,7 @@
 <template name="classesPage">
   {{> myBreadcrumb}}
   {{#if cName}}
-  <div  class="container-fluid myContent">
+  <div class="container-fluid myContent activeClasses">
     <h4 id="changeRol">{{_ "aclasses"}}</h4>
     <div class="row">
       <div class="col-sm-12 col-md-4 col-lg-3">
@@ -41,7 +41,7 @@
       {{/each}}
     </div>
   </div>
-  <div  class="container-fluid myContent stored_classes">
+  <div class="container-fluid myContent storedClasses">
     <h4 id="adminClass">{{_ "sclasses"}}</h4>
     <div class="row">
       {{#each stored}}

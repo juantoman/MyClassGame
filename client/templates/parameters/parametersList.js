@@ -69,6 +69,16 @@ Template.parametersList.events({
       }
     });
   },
+  'click #backImg': function(event) {
+    event.preventDefault();
+    cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
+      //console.log(result);
+      if (result.event=="success"){
+        $("#backImg").val(result.info.url);
+        Meteor.call('backImgUpdate', Session.get('classId'), result.info.url);
+      }
+    });
+  },
   'change select#evaluacion': function(event) {
     event.preventDefault();
     Session.setPersistent('evaluation', $(event.target).val());

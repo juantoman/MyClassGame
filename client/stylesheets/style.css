@@ -15,16 +15,20 @@ body {
 #main {
   margin-top:-10px;
   position: relative;
-  background: #abb;
+  background: white;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   border:1px solid lightgray;
 }
 
 .navbar {
-  margin-bottom: 10px; }
+  margin-bottom: 10px; 
+  border-radius: 0px;
+}
   /* line 32, ../sass/style.scss */
-  .navbar .navbar-inner {
-    border-radius: 0px 0px 3px 3px; }
+  
+.navbar .navbar-inner {
+    border-radius: 0px 0px 3px 3px;
+}
 
 #spinner {
   height: 300px; }
@@ -75,13 +79,14 @@ body {
 }
 .nav-pills {
   position: relative;
-  background-color: #eee;
-  border-bottom: 1px solid lightgray;
+  background-color: #ddd;
+  border: 1px solid lightgray;
   top: -20px;
 }
 .breadcrumb{
   background-color: white;
-  border-bottom: 1px solid lightgray;
+  border: 1px solid lightgray;
+  border-radius: 0px;
 }
 .jumbotron{
   background-color: white;
@@ -265,8 +270,17 @@ label {
   font-family: Verdana, Geneva, sans-serif;
 }
 
-.stored_classes {
-  background-color: lightblue;
+.register {
+  background-color: white;
+}
+.activeClasses {
+  background-color: #eff;
+  margin-top:-20px;
+}
+
+.storedClasses {
+  background-color: #dee;
+  border-top:1px lightgray solid;
 }
 
 #changeRol {
@@ -312,4 +326,21 @@ td button {
 }
 .visible {
   display: block;
+}
+#settingsMenu {
+  background-color:#fff;
+  border-top: 1px solid black;
+  margin-top:-20px;
+}
+
+.panel {
+  background-color: #eff;
+  color:#888;
+}
+
+label{
+  color:#888;
+}
+#accordionMissions .panel-info{
+  background-color: #eee;
 }

@@ -5,7 +5,7 @@
   -->
   <div class="container-responsive">
 
-    <div>
+    <div id="settingsMenu">
       <!-- Nav tabs -->
       <ul class="nav nav-tabs" role="tablist">
         <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Eventos</a></li>
@@ -18,8 +18,8 @@
         <li role="presentation"><a href="#timing" aria-controls="parameters" role="tab" data-toggle="tab">Parámetros</a></li>
       </ul>
 
-      <!-- Tab panes -->
-      <div class="tab-content container-responsive">
+      <!-- Tab panels -->
+      <div class="tab-content container-responsive" style="background-color:#eee;">
         <div role="tabpanel" class="tab-pane active" id="events">
           <h2 class="text-center bg-info">Eventos</h2>
           {{> eventsList}}
@@ -54,7 +54,6 @@
         </div>        
 
       </div>
-      <br>
 
     </div>
 

@@ -13,16 +13,24 @@ Template.challenges.helpers({
       return "has-success"
     }
   },
+  class: function() {
+    return classes.findOne({ _id: Session.get('classId') } );
+  }
 });
 
 Template.challenges.events({
   'submit form': function(event) {
     event.preventDefault();
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
+    if ($(event.target).find('[name=IoG]').val() == "Grupal"){
+      MoC="Misión";
+    } else {
+      MoC="Reto";
+    };
     var chal = {
       classId: Session.get('classId'),
-      type: $(event.target).find('[name=MoC]').val(),
+      type: MoC,
       IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
@@ -53,7 +61,11 @@ Template.challenges.events({
     event.preventDefault();
     Meteor.call('chalDelete',event.target.name);
   },
-  'change #selectMoC': function(event) {
+  'click #saveAdventure': function(event) {
+    event.preventDefault();
+    Meteor.call('saveAdventure', Session.get('classId'), $("#adventureName").val(), $("#adventureDesc").val(), $("#adventureWeb").val());
+  },
+  /*'change #selectMoC': function(event) {
     event.preventDefault();
     if (event.currentTarget.value == "Misión"){
       $("#selectIoG").val("Grupal");
@@ -61,6 +73,14 @@ Template.challenges.events({
       $("#selectIoG").val("Individual");
     };
   },
+  'change #selectIoG': function(event) {
+    event.preventDefault();
+    if (event.currentTarget.value == "Grupal"){
+      $("#selectMoC").val("Misión");
+    } else {
+      $("#selectMoC").val("Reto");
+    };
+  },*/
   'change #nbDepCheck': function(event) {
     event.preventDefault();
     //alert(event.currentTarget.checked);

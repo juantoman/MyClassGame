@@ -20,7 +20,7 @@ Template.studentsModals.events({
   'submit form#add_student_form': function(event) {
     event.preventDefault();
     var user = Meteor.user();
-    var iniHP = classes.findOne({_id: Session.get('classId')}).iniHP;
+    var iniHP = parseInt(classes.findOne({_id: Session.get('classId')}).iniHP);
     var student = {
       classId: Session.get('classId'),
       studentName: $(event.target).find('[name=student-name]').val(),

@@ -53,6 +53,8 @@ Template.classesPage.events({
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+    backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
+    $("#main").css("background-image", "url("+backImg+")");
     //Router.go('myNav');
   },
   'click .btn-double-class': function(event) {
