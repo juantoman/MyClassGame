@@ -5,17 +5,26 @@ Template.challenges.helpers({
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
   },
-  moc: function(type) {
-    if (type == "Reto")
-    {
-      return "has-error";
-    } else {
-      return "has-success"
-    }
-  },
   class: function() {
     return classes.findOne({ _id: Session.get('classId') } );
-  }
+  },
+  teacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "readonly";
+    };
+  },
+  disTeacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disabled";
+    };
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
+  }  
 });
 
 Template.challenges.events({
@@ -65,6 +74,17 @@ Template.challenges.events({
     event.preventDefault();
     Meteor.call('saveAdventure', Session.get('classId'), $("#adventureName").val(), $("#adventureDesc").val(), $("#adventureWeb").val());
   },
+  'click #embebido': function(event) {
+    event.preventDefault();
+    if ($("#iframeWeb").css("display")=="table"){
+      $("#iframeWeb").css("display","none");
+      event.currentTarget.value="Ver";
+    } else {  
+      $("#iframeWeb").css("display","table");
+      event.currentTarget.value="Ocultar";
+    }
+    
+  },
   /*'change #selectMoC': function(event) {
     event.preventDefault();
     if (event.currentTarget.value == "Misión"){
@@ -112,8 +132,8 @@ Template.challenges.events({
     Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
   'click .chalMissionUp': function(event) {
-    event.preventDefault();
-    missionId=$(event.currentTarget).closest('table').attr("id");
+    event.preventDefault
+    missionId=$(event.currentTarget).closest('.panel').attr("id");
     o=chalMissions.findOne({_id: this._id}).order;
     //Meteor.call('chalMissionOrder', this._id, 0);
     a=chalMissions.findOne({missionId: missionId, order: o-1})._id;
@@ -126,7 +146,7 @@ Template.challenges.events({
   },
   'click .chalMissionDown': function(event) {
     event.preventDefault();
-    missionId=$(event.currentTarget).closest('table').attr("id");
+    missionId=$(event.currentTarget).closest('.panel').attr("id");
     o=chalMissions.findOne({_id: this._id}).order;
     //Meteor.call('chalMissionOrder', this._id, 0);
     s=chalMissions.findOne({missionId: missionId, order: o+1})._id;

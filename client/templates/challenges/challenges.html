@@ -13,23 +13,31 @@
               <div class="form-group">
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Nombre aventura</label>
-                  <input type="text" id="adventureName" class="form-control inputGroup" aria-describedby="inputGroupSuccess1Status" value="{{adventureName}}">
+                  <input type="text" id="adventureName" class="form-control inputGroup" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureName}}">
                 </div>
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Descripción</label>
-                  <textarea class="form-control" id="adventureDesc" rows="3">{{adventureDesc}}</textarea>
+                  <textarea class="form-control" id="adventureDesc" {{teacher}} rows="3">{{adventureDesc}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Web sobre la aventura</label>
-                  <input type="text" class="form-control inputGroup" id="adventureWeb" aria-describedby="inputGroupSuccess1Status" value="{{adventureWeb}}">
+                  <input type="text" class="form-control inputGroup" id="adventureWeb" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureWeb}}">
                 </div>
-                <div class="input-group col-xs-12">
-                  <br />
+                
+                <div class="input-group mb-3">
+                  {{#if adventureWeb}}
+                    <a class="btn btn-info" href="{{adventureWeb}}" target="_blank">Visitar web</a>
+                    <button id="embebido" value="Mostrar" class="btn btn-info">Mostrar</button>
+                  {{/if}}
+                  {{#if isTeacher}}
+                    <button id="saveAdventure" value="Guardar" class="btn btn-info">Guardar</button>
+                  {{/if}}
+                </div>
+                {{#if adventureWeb}}
+                <div class="input-group col-xs-12" id="iframeWeb">
                   <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="{{adventureWeb}}" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
                 </div>
-                <div class="input-group mb-3">
-                    <input type="submit" id="saveAdventure" value="Guardar" class="btn btn-info">
-                  </div>
+                {{/if}}
               </div>
             </div>
           </div>
@@ -55,87 +63,67 @@
                     </div>
                     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
                       <div class="panel-body">
-                        <div class="form-group {{moc type}}">
+                        <div class="form-group">
                           <div class="input-group col-xs-12">
-                            <label for="chalDesc">Nombre {{type}} {{IoG}}</label>
-                            <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                            <label for="chalDesc">Nombre misión {{IoG}}</label>
+                            <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                           </div>
                           <div class="input-group col-xs-12">
                             <label for="chalDesc">Descripción</label>
-                            <textarea class="form-control" name="{{_id}}" id="chalDesc" rows="3">{{chalDesc}}</textarea>
+                            <textarea class="form-control" name="{{_id}}" id="chalDesc" {{teacher}} rows="3">{{chalDesc}}</textarea>
                           </div>
                           <div class="input-group mb-3">
-                            <input type="checkbox" id="nbDepCheck" name={{_id}} checked={{notebookDependence}}>
+                            <input type="checkbox" id="nbDepCheck" name={{_id}} {{disTeacher}} checked={{notebookDependence}}>
                             <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
                           </div>
-                          <div class="input-group mb-3">
-                            <button class="notas" name="{{_id}}">Introducir Notas</button>
-                            <button name="{{_id}}" id="chalDel">Eliminar</button>
-                          </div>
-                          <br />
+                          {{#if isTeacher}}
+                            <div class="input-group mb-3">
+                              <button class="notas btn btn-info" name="{{_id}}">Introducir Notas</button>
+                              <button class="notas btn btn-info" name="{{_id}}" id="chalDel">Eliminar</button>
+                            </div>
+                          {{/if}}
                           <div class="input-group col-xs-12">
-                            <div class="panel panel-info">
-                            <!-- Default panel contents -->
-                            <div class="panel-heading">Retos</div>
-                          
-                            <!-- Table -->
-                              <table class="table" style="background-color: #ddd;" id="{{_id}}">
-                                <tbody>
-                                  {{#each chalMissions _id}}
-                                    <tr id="{{_id}}">
-                                      <td>
-                                        <div class="input-group mb-3">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text" id="basic-addon1">Reto {{order}}</span>
-                                          </div>
-                                          <input id="cmd{{_id}}" type="text" class="form-control" name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div class="input-group mb-3">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text" id="basic-addon1">XP</span>
-                                          </div>
-                                          <input id="cmxp{{_id}}" type="text" class="form-control" name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
-                                        </div>
-                                      </td>
-                                      <td>
-                                        <div class="btn-group" data-toggle="buttons">
-                                          <label class="btn btn-info chalMissionUpdate">
-                                            <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                                          </label>
-                                          <label class="btn btn-info chalMissionDel">
-                                            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                                          </label>
-                                          <label class="btn btn-info chalMissionUp">
-                                            <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
-                                          </label>
-                                          <label class="btn btn-info chalMissionDown">
-                                            <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
-                                          </label>
-                                        </div>
-                                      </td>
-                                    </tr>
-                                  {{/each}}
-                                </tbody>
-                                <tfoot>
-                                  <tr class="bg-info">
-                                    <td>
-                                      <input type="text" class="form-control" placeholder="Reto" id="chalMissionDesc{{_id}}">
-                                    </td>
-                                    <td>
-                                      <input type="text" class="form-control" placeholder="XP" id="chalMissionXP{{_id}}">
-                                    </td>
-                                    <td>
-                                      <div class="btn-group" data-toggle="buttons">
-                                        <label class="btn btn-info chalSave" id="{{_id}}">
-                                          <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
-                                        </label>
+                            <div class="panel panel-info" id="{{_id}}">
+                              <div class="panel-heading">Retos</div>
+                              <div class="panel-body panelChal">
+                                {{#each chalMissions _id}}
+                                  <div class="input-group bg-info">
+                                    <div class="input-group-addon">
+                                      <span class="input-group-text">Reto {{order}}</span>
+                                    </div>
+                                    <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                    <div class="input-group-addon">
+                                      <span class="input-group-text">XP</span>
+                                    </div>
+                                    <input id="cmxp{{_id}}" type="text" class="form-control" {{teacher}} name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                                    {{#if isTeacher}}
+                                      <div class="input-group-btn">
+                                        <button class="btn btn-info chalMissionUpdate" type="button"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
+                                        <button class="btn btn-info chalMissionDel" type="button"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                                        <button class="btn btn-info chalMissionUp" type="button"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></button>
+                                        <button class="btn btn-info chalMissionDown" type="button"><span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></button>
                                       </div>
-                                    </td>
-                                  </tr>
-                                </tfoot>
-                              </table>
+                                    {{/if}}
+                                  </div>
+                                {{/each}}
+                              </div>
+                              {{#if isTeacher}}
+                                <div class="panel-footer">
+                                  <div class="input-group">
+                                    <div class="input-group-addon">
+                                      <span class="input-group-text">Nuevo</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Reto" id="chalMissionDesc{{_id}}">
+                                    <div class="input-group-addon">
+                                      <span class="input-group-text"></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="XP" id="chalMissionXP{{_id}}">
+                                    <div class="input-group-btn">
+                                      <button class="btn btn-info chalSave" id="{{_id}}" type="button"><span class="glyphicon glyphicon-ok-circle chalSave" aria-hidden="true"></span></button>
+                                    </div>
+                                  </div>
+                                </div>  
+                              {{/if}}
                             </div>
                           </div>
                         </div>
@@ -145,58 +133,60 @@
                 {{/each}}
               </div>
             </div>
-            <form>
-              <div class="form-group has-error">
-                <label class="control-label" for="inputGroupSuccess1">Crear misión</label>
-                
-                <!--
-                <div class="input-group mb-3">
-                  <div class="input-group-addon">
-                    <span class="input-group-text">Misión o Reto</span>
-                  </div> 
-                  <select class="custom-select form-control" id="selectMoC" name="MoC">
-                    <option value="Misión">Misión</option>
-                    <option value="Reto">Reto</option>
-                  </select>
-                </div>
-                -->
-                
-                <div class="input-group  mb-3">
-                  <div class="input-group-addon">
-                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+            {{#if isTeacher}}
+              <form>
+                <div class="form-group">
+                  <label class="control-label" for="inputGroupSuccess1">Crear misión</label>
+                  
+                  <!--
+                  <div class="input-group mb-3">
+                    <div class="input-group-addon">
+                      <span class="input-group-text">Misión o Reto</span>
+                    </div> 
+                    <select class="custom-select form-control" id="selectMoC" name="MoC">
+                      <option value="Misión">Misión</option>
+                      <option value="Reto">Reto</option>
+                    </select>
                   </div>
-                  <input type="text" class="form-control" name="chalName" placeholder="Nombre del reto" aria-label="Nombre del reto" aria-describedby="basic-addon1">
+                  -->
+                  
+                  <div class="input-group  mb-3">
+                    <div class="input-group-addon">
+                      <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    </div>
+                    <input type="text" class="form-control" name="chalName" placeholder="Nombre del reto" aria-label="Nombre del reto" aria-describedby="basic-addon1">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <div class="input-group-addon">
+                      <span class="input-group-text" id="basic-addon2">Descripción</span>
+                    </div> 
+                    <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <div class="input-group-addon">
+                      <span class="input-group-text">Tipo</span>
+                    </div> 
+                    <select class="custom-select form-control" id="selectIoG" name="IoG">
+                      <option value="Grupal">Grupal</option>
+                      <option value="Individual">Individual</option>
+                    </select>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+                    <label class="control-label" for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                  </div>
+                  
+                  <div class="input-group mb-3">
+                    <input type="submit" id="btn-save" value="Crear" class="btn btn-info">
+                  </div>
+                  
+          
                 </div>
-                
-                <div class="input-group mb-3">
-                  <div class="input-group-addon">
-                    <span class="input-group-text" id="basic-addon2">Descripción</span>
-                  </div> 
-                  <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
-                </div>
-                
-                <div class="input-group mb-3">
-                  <div class="input-group-addon">
-                    <span class="input-group-text">Tipo</span>
-                  </div> 
-                  <select class="custom-select form-control" id="selectIoG" name="IoG">
-                    <option value="Grupal">Grupal</option>
-                    <option value="Individual">Individual</option>
-                  </select>
-                </div>
-                
-                <div class="input-group mb-3">
-                  <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
-                  <label class="control-label" for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
-                </div>
-                
-                <div class="input-group mb-3">
-                  <input type="submit" id="btn-save" value="Crear" class="btn btn-info">
-                </div>
-                
-        
-              </div>
-            </form>
+              </form>
+            {{/if}}
           </div>
         </div>
       </div>
@@ -204,3 +194,4 @@
  
   </div>
 </template>
+

@@ -334,13 +334,51 @@ td button {
 }
 
 .panel {
-  background-color: #eff;
-  color:#888;
+  background-color: #d1ebfc;
+  color:white;
+}
+
+.panelChal {
+  background-color: #d1ebfc;
+}
+
+.panel .input-group-addon {
+  background-color: #268BD2;
+  border: 1px solid #268BD2;
+}
+
+.panel .input-group-text {
+  color:white !important;  
+}
+
+textarea {
+  border: 1px solid #268BD2 !important;
+}
+
+.panel input, iframe  {
+  border: 1px solid #268BD2;
 }
 
 label{
-  color:#888;
+  color:#268BD2;
 }
 #accordionMissions .panel-info{
-  background-color: #eee;
+  background-color: #eaf7ff;
 }
+#iframeWeb{
+  display:none;
+}
+
+.panel-footer{
+  background-color: #268BD2 !important;
+  padding: 2px 0px;
+}
+
+input:read-only, textarea:read-only {
+   background-color: #fff !important;
+}
+
+input:-moz-read-only, textarea:-moz-read-only { /* For Firefox */
+  background-color: #fff !important;
+}
+
