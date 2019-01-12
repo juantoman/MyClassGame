@@ -342,9 +342,9 @@ td button {
   background-color: #d1ebfc;
 }
 
-.panel .input-group-addon {
-  background-color: #268BD2;
-  border: 1px solid #268BD2;
+.panel .input-group-addon, #btn-save {
+  background-color: #268BD2 !important;
+  border: 1px solid #268BD2 !important;
 }
 
 .panel .input-group-text {
@@ -375,10 +375,10 @@ label{
 }
 
 input:read-only, textarea:read-only {
-   background-color: #fff !important;
+   background-color: #ddd !important;
 }
 
 input:-moz-read-only, textarea:-moz-read-only { /* For Firefox */
-  background-color: #fff !important;
+  background-color: #ddd !important;
 }
 
