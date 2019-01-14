@@ -2,9 +2,9 @@
   <div class="container">
     {{#with parametersClass}}
 
-      <div class="list-group has-success has-feedback">
+      <div class="list-group">
         <label class="control-label" for="inputGroupSuccess1">Parámetros de los niveles</label>
-        <div class="form-group has-success has-feedback">
+        <div class="form-group">
           <div class="input-group col-xs-11">
             <span class="input-group-addon">Cambio de nivel</span>
             <input type="text" class="form-control input-lg" name="levelXP" value="{{levelXP}}" id="levelXP" aria-describedby="inputGroupSuccess1Status">
@@ -20,10 +20,10 @@
 
     {{/with}}
 
-    <div class="list-group has-success">
+    <div class="list-group">
       <label class="control-label" for="inputGroupSuccess1">Niveles</label>
       {{#each levelObj}}
-            <div class="form-group has-success">
+            <div class="form-group">
               <div class="form-inline">
                 <div class="input-group col-xs-3">
                   <span class="input-group-addon">Nivel</span>
@@ -38,7 +38,7 @@
       {{/each}}
     </div>
     <form>
-      <div class="form-group has-success">
+      <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Nuevo nivel</label>
         <div class="form-inline">
           <div class="input-group col-xs-2">

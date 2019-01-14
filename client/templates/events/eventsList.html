@@ -2,7 +2,7 @@
   <div class="container">
     <div class="list-group">
     {{#each randomEvents}}
-          <div class="form-group has-error has-feedback">
+          <div class="form-group">
             <div class="input-group col-xs-11">
               <span class="input-group-addon"></span>
               <input type="text" class="form-control inputGroup input-lg" id="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{eventDescription}}">
@@ -13,7 +13,7 @@
     {{/each}}
     </div>
     <form>
-      <div class="form-group has-success has-feedback">
+      <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Nuevo evento aleatorio</label>
         <div class="input-group col-xs-11">
           <span class="input-group-addon">Nuevo</span>

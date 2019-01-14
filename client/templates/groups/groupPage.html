@@ -1,8 +1,8 @@
 <template name="groupPage">
-  <div style="background-color:#002B36;">
+  <div id="groupPage">
     <div class="list-group">
       {{#with group}}
-        <h2 class="text-center bg-primary">{{_ "team"}}EQUIPO: <span id="alias">{{groupName}}</span></h2>
+        <h2 class="text-center bg-info">{{_ "team"}}: <span id="alias">{{groupName}}</span></h2>
         <div class="container-fluid">
           <img src="{{gImage groupImg}}" name="{{_id}}" alt="..." class="img fotoStudent">
           <div class="puntsStudent">

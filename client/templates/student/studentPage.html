@@ -8,13 +8,13 @@
       {{/each}}
     </div>
   -->
-  <div style="background-color:#002B36;">
+  <div id="studentPage">
     <div class="list-group">
       {{#with student}}
         {{#if parent}}
-          <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span></h2>
+          <h2 class="text-center bg-info"><span id="alias">{{alias}}</span></h2>
         {{else}}
-          <h2 class="text-center bg-primary"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+          <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
         {{/if}}
         <div class="container-fluid">
           <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent">
@@ -67,7 +67,7 @@
       {{/with}}
     </div>
     <div class="container-fluid section table-responsive">
-      <br />
+      <h2 class="text-center bg-info"><span id="alias">Información estudiante</span></h2>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-info">
           <div class="panel-heading" role="button" id="headingDaP"  data-toggle="collapse" data-parent="#accordion" href="#collapseDaP" aria-expanded="false" aria-controls="collapseDaP">
