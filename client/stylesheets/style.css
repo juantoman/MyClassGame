@@ -206,8 +206,13 @@ label {
 }
 .submenu {
   padding: 5px;
-  background-color: #89a;
+  background-color: #268BD2;
 }
+
+.submenu label{
+  color: white;
+}
+
 .btn-group {
   margin:2px;
 }
@@ -338,9 +343,7 @@ td button {
   background-color: lightblue !important;
   color: blue !important;
 }
-.student_button, .all_button, group_button{
-  margin: 2px !important;
-}
+
 .jumbointro {
   margin-bottom: 0px;
 }
@@ -489,9 +492,29 @@ input[type=submit] {
 }
 
 .navbar-brand span{
-  text-shadow:0 0 15px #ffffff, 0 0 2px #000000;
+  text-shadow:0 0 1px #ffffff, 0 0 2px #000000;
 }
 
 .navbar-brand p{
   text-shadow: 0 0 10px #000000, 0 0 15px #ffffff;
+}
+
+.myContent {
+  z-index:10;
+}
+
+.menu-lateral {
+  position:absolute;
+  color:white !important;
+  z-index:1;
+  left:20px;
+  top: 90px;
+  opacity: 0.9;
+}
+
+.menu-lateral button {
+  font-size: 1em;
+  padding:2px;
+  text-transform: uppercase;
+  text-align: center !important;
 }
