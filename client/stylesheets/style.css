@@ -500,7 +500,7 @@ input[type=submit] {
 }
 
 .myContent {
-  z-index:10;
+  z-index: 1 !important;
 }
 
 .menu-lateral {
@@ -517,4 +517,23 @@ input[type=submit] {
   padding:2px;
   text-transform: uppercase;
   text-align: center !important;
+}
+
+.menu-lateral-derecho {
+  position:fixed;
+  color:white !important;
+  z-index:10;
+  right:15px;
+  top: 115px;
+  opacity: 0.85;
+  width: 20%;
+}
+
+.menu-lateral-derecho .nav {
+  margin-top:21px;
+  margin-bottom: -20px;
+}
+
+#adventurePage input{
+  z-index:1;
 }
