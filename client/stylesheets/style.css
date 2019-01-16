@@ -539,7 +539,7 @@ input[type=submit] {
   border-bottom: 2px solid black !important;
   border-right: 2px solid black !important;
   border-left: 2px solid black !important;
-  border-radius: 0px 0px 3px 3px;
+  border-radius: 0px 0px 10px 10px;
 }
 
 #adventurePage input{

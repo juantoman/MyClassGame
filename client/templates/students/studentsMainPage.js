@@ -142,5 +142,28 @@ Template.studentsMainPage.events({
     Session.set('groupSelected', false);
     $("#main").css("background-image", "");
     //Router.go('/');
+  },
+  'click .student_button': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId',event.target.id);
+    Session.set('studentSelected', true);
+    Session.setPersistent('sogBtn', "students");
+    Session.set('groupSelected', false);
+  },
+  'click .all_button': function(event) {
+    event.preventDefault();
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+  },
+  'click .group_button': function(event) {
+    event.preventDefault();
+    Session.setPersistent('groupId',event.target.id);
+    Session.set('groupSelected', true);
+    Session.setPersistent('sogBtn', "groups");
+    Session.set('studentSelected', false);
+  },
+  'change #orderSelect': function(event) {
+    event.preventDefault();
+    Session.set('orderStudents', $("#orderSelect").val());
   }
  });

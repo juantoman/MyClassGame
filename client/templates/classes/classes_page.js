@@ -55,6 +55,7 @@ Template.classesPage.events({
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
     $("#main").css("background-image", "url("+backImg+")");
+    Session.set('orderStudents', "XP");
     //Router.go('myNav');
   },
   'click .btn-double-class': function(event) {

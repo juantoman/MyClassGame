@@ -77,7 +77,13 @@ function pickerCallback(data) {
 
 Template.studentsPage.helpers({
   students: function() {
-    return students.find({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}});
+    var sortOrder = {};
+    if (Session.get('orderStudents')=="studentName") {
+      sortOrder[Session.get('orderStudents')]=1;
+    } else {
+      sortOrder[Session.get('orderStudents')]=-1;
+    }
+    return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
   },
   image: function(avatar) {
     if ( avatar=="" || !avatar ) {
