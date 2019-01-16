@@ -1,16 +1,31 @@
 <template name="myNav">
   <!--{{> myBreadcrumb}}-->
   <!-- Nav tabs -->
-  <div class="list-group menu-lateral-derecho">
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-info">
-          <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMenu" aria-expanded="true" aria-controls="collapseOne">
-                Menú
-              </a>
-            </h4>
+  <div class="menu-superior">
+    <div class="list-group">
+    
+        <a class="btn btn-warning" data-toggle="collapse" href="#collapseStudents" role="button" aria-expanded="false">Estudiantes y grupos</a>
+        <a class="btn btn-warning" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false">Menú</a>
+          <div id="collapseStudents" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-success clases text-center">Clases</button>
+                <button type="button" class="list-group-item list-group-item-danger all_button">Todos</button>
+                {{#each students}}
+                  {{#if parent}}
+                    <button type="button" class="student_button list-group-item list-group-item-info" id="{{_id}}">{{alias}}</button>
+                  {{else}}
+                    <button type="button" class="student_button list-group-item list-group-item-info" id="{{_id}}">{{studentName}}</button>
+                  {{/if}}
+                {{/each}}
+                {{#each groups}}
+                  <button type="button" class="group_button list-group-item list-group-item-warning" id="{{_id}}">{{groupName}}</button>
+                {{/each}}
+              </div>
+            </div>
           </div>
+    </div>
+    <div class="list-group menu-derecho">
           <div id="collapseMenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <ul class="nav nav-pills nav-stacked" role="tablist">
               <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Estudiantes</a></li>
@@ -25,11 +40,11 @@
               {{/if}}
             </ul>
           </div>
-        </div>
-      </div>
+
     </div>
+  </div>
   <ul class="nav nav-pills nav-justified" role="tablist">
-    <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Estudiantes</a></li>
+    <li role="presentation" class="active" id="sM"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Estudiantes</a></li>
     <!--
       <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
     -->

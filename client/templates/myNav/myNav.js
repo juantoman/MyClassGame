@@ -13,13 +13,61 @@ Template.myNav.helpers({
     } else {
      return false;
     };
-  }  
+  },
+  students: function() {
+    return students.find({ classId: Session.get('classId') }, {sort: {XP: -1,_id: 1}} );
+  },
+  groups: function() {
+    return groups.find({classId: Session.get('classId')});
+  },
 });
-/*Template.myNav.events({
-  'click a': function(event) {
+Template.myNav.events({
+    'click .student_button': function(event) {
     event.preventDefault();
-    //event.target.parentNode.className="active";
-    Router.go(event.target.href)
-    Session.setPersistent('navItem',event.target.parentNode.id);
+    Session.setPersistent('studentId',event.target.id);
+    Session.set('studentSelected', true);
+    Session.setPersistent('sogBtn', "students");
+    Session.set('groupSelected', false);
+    $("#studentsMain").addClass("active");
+    $("#sM").addClass("active");
+  },
+  'click .all_button': function(event) {
+    event.preventDefault();
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+    $("#studentsMain").addClass("active");
+  },
+  'click .group_button': function(event) {
+    event.preventDefault();
+    Session.setPersistent('groupId',event.target.id);
+    Session.set('groupSelected', true);
+    Session.setPersistent('sogBtn', "groups");
+    Session.set('studentSelected', false);
+    $("#studentsMain").addClass("active");
+    $("#sM").addClass("active");
+  },
+  'click .clases': function(event) {
+    event.preventDefault();
+    Session.set('className', '');
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+    $("#main").css("background-image", "");
+    //Router.go('/');
   }
-});*/
+  /*,
+  'click a.btn-warning': function(event) {
+    event.preventDefault();
+    b=$(event.target).attr("href").substr(1);
+    alert(b);
+    hasIn=$("#"+b).hasClass("in");
+    alert(hasIn);
+    $(".panel-collapse").addClass("in");
+    if ( hasIn ) {
+      $("#"+b).removeClass("in");
+      alert("esconder");
+    } else {
+      $("#"+b).addClass("in");
+      alert("sacar");
+    }
+  }*/
+});

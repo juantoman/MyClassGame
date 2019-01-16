@@ -1,51 +1,5 @@
 <template name="studentsMainPage">
   <div  class="container-fluid  myContent">
-    <div class="list-group menu-lateral">
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <div class="panel panel-info">
-          <div class="panel-heading" role="tab" id="headingOne">
-            <h4 class="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Estudiantes
-              </a>
-            </h4>
-          </div>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">
-              <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-success clases text-center">Clases</button>
-                <button type="button" class="list-group-item list-group-item-danger all_button">Todos</button>
-                {{#each students}}
-                  {{#if parent}}
-                    <button type="button" class="student_button list-group-item list-group-item-info" id="{{_id}}">{{alias}}</button>
-                  {{else}}
-                    <button type="button" class="student_button list-group-item list-group-item-info" id="{{_id}}">{{studentName}}</button>
-                  {{/if}}
-                {{/each}}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-info">
-          <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Grupos
-              </a>
-            </h4>
-          </div>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="panel-body">
-              <div class="list-group">
-                {{#each groups}}
-                  <button type="button" class="group_button list-group-item list-group-item-info" id="{{_id}}">{{groupName}}</button>
-                {{/each}}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <form class="form-inline text-center">
       <div class="form-group">
         {{#if teacher}}

@@ -503,35 +503,44 @@ input[type=submit] {
   z-index: 1 !important;
 }
 
-.menu-lateral {
-  position:absolute;
+.menu-superior {
+  position:fixed;
   color:white !important;
   z-index:1;
-  left:20px;
-  top: 90px;
-  opacity: 0.9;
+  left:40%;
+  top: 0px;
+  opacity: 0.8;
+  
 }
 
-.menu-lateral button {
+.menu-superior button {
   font-size: 1em;
   padding:2px;
   text-transform: uppercase;
   text-align: center !important;
 }
 
-.menu-lateral-derecho {
-  position:fixed;
+.menu-derecho {
   color:white !important;
   z-index:10;
-  right:15px;
-  top: 115px;
   opacity: 0.85;
   width: 20%;
 }
 
-.menu-lateral-derecho .nav {
+.menu-derecho .nav {
   margin-top:21px;
   margin-bottom: -20px;
+}
+
+.menu-superior > .list-group {
+  display: inline;
+}
+
+.menu-superior a.btn-warning {
+  border-bottom: 2px solid black !important;
+  border-right: 2px solid black !important;
+  border-left: 2px solid black !important;
+  border-radius: 0px 0px 3px 3px;
 }
 
 #adventurePage input{
