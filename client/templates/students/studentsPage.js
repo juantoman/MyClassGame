@@ -78,10 +78,10 @@ function pickerCallback(data) {
 Template.studentsPage.helpers({
   students: function() {
     var sortOrder = {};
-    if (Session.get('orderStudents')=="studentName") {
-      sortOrder[Session.get('orderStudents')]=1;
-    } else {
+    if (Session.get('invertOrder')=="checked") {
       sortOrder[Session.get('orderStudents')]=-1;
+    } else {
+      sortOrder[Session.get('orderStudents')]=1;
     }
     return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
   },

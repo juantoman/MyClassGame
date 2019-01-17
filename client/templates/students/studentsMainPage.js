@@ -56,6 +56,9 @@ Template.studentsMainPage.helpers({
     } else {
      return false;
     };
+  },
+  invertChecked: function() {
+    return Session.get('invertOrder');
   }
 });
 
@@ -165,5 +168,14 @@ Template.studentsMainPage.events({
   'change #orderSelect': function(event) {
     event.preventDefault();
     Session.set('orderStudents', $("#orderSelect").val());
+  },
+  'change #invertCheck': function(event) {
+    event.preventDefault();
+    if (event.currentTarget.checked){
+      c="checked";
+    } else {
+      c="";
+    }
+    Session.set('invertOrder', c);
   }
  });
