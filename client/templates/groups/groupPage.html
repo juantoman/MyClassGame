@@ -168,29 +168,12 @@
             <option value="3" selected>3.- Buena</option>
             <option value="4">4.- Positiva</option>
             <option value="5">5.- Excelente</option>
-            </select>
+          </select>
           <label class="control-label">Puntuación por miembro</label>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width:20%">
-                  20
-                </div>
-                <div class="progress-bar progress-bar-warning" style="width: 20%">
-                  40
-                </div>
-                <div class="progress-bar progress-bar-danger" style="width: 20%">
-                  60
-                </div>
-                <div class="progress-bar progress-bar-warning" style="width: 20%">
-                  80
-                </div>
-                <div class="progress-bar progress-bar-info" style="width: 20%">
-                  100
-                </div>
-              </div>
           <div class="row container puntos">
-          {{#each studentsIn}}
+            {{#each studentsIn}}
             <div class="form-group has-error form-inline">
-              <div class="input-group col-4">
+              <div class="input-group col-12">
                 <span class="input-group-addon">{{studentName}}</span>
                 <select class="custom-select form-control inputGroup input-md selectStudent" id="{{_id}}">
                   <option selected value="0">0</option>
@@ -200,20 +183,40 @@
                   <option value="100">100</option>
                 </select>
               </div>
-              <div class="progress">
-                <div class="progress-bar progress-bar-success" style="width:20%">
-                  <span class="sr-only">0</span>
-                </div>
-                <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 20%">
-                  <span class="sr-only">20</span>
-                </div>
-                <div class="progress-bar progress-bar-danger" style="width: 20%">
-                  <span class="sr-only">40</span>
-                </div>
-              </div>
             </div>
-
-          {{/each}}
+            {{/each}}
+          </div>
+          <div id="studentsPoints">
+            {{#each studentsIn}}
+              <div class="btn-group btn-group-toggle btn-group-justified" id="{{_id}}" data-toggle="buttons">
+                <label class="btn btn-info btn-lg">
+                  {{studentName}}
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <input type="radio" name="options" id="option1" value="20" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/2.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <input type="radio" name="options" id="option2" value="40" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/4.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <input type="radio" name="options" id="option3" value="60" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/6.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <input type="radio" name="options" id="option4" value="80" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/8.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <input type="radio" name="options" id="option5" value="100" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/10.png"/>
+                </label>
+              </div>
+              <br />
+              <!--<button class="btn btn-info btn-emoticon" type="button" value="20"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/2.png"/></button>
+              <button class="btn btn-info btn-emoticon" type="button" value="40"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/4.png"/></button>
+              <button class="btn btn-info btn-emoticon" type="button" value="60"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/6.png"/></button>
+              <button class="btn btn-info btn-emoticon" type="button" value="80"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/8.png"/></button>
+              <button class="btn btn-info btn-emoticon" type="button" value="100"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/10.png"/></button>-->
+            
+            
+            {{/each}}
           </div>
           <label for="observaciones" class="control-label">Observaciones</label>
           <input type="text" class="form-control" id="observaciones" name="observaciones"  value="">

@@ -22,7 +22,7 @@ Template.myNav.helpers({
   },
 });
 Template.myNav.events({
-    'click .student_button': function(event) {
+  'click .student_button': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId',event.target.id);
     Session.set('studentSelected', true);
@@ -30,12 +30,14 @@ Template.myNav.events({
     Session.set('groupSelected', false);
     $("#studentsMain").addClass("active");
     $("#sM").addClass("active");
+    $("#collapseStudents").removeClass("in");
   },
   'click .all_button': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
     $("#studentsMain").addClass("active");
+    $("#collapseStudents").removeClass("in");
   },
   'click .group_button': function(event) {
     event.preventDefault();
@@ -45,6 +47,7 @@ Template.myNav.events({
     Session.set('studentSelected', false);
     $("#studentsMain").addClass("active");
     $("#sM").addClass("active");
+    $("#collapseStudents").removeClass("in");
   },
   'click .clases': function(event) {
     event.preventDefault();
@@ -52,6 +55,16 @@ Template.myNav.events({
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
     $("#main").css("background-image", "");
+    //Router.go('/');
+  },
+  'mouseenter #btnStudents': function(event) {
+    event.preventDefault();
+    $("#collapseStudents").addClass("in");
+    //Router.go('/');
+  },
+  'mouseleave #collapseStudents .panel-body': function(event) {
+    event.preventDefault();
+    $("#collapseStudents").removeClass("in");
     //Router.go('/');
   }
   /*,

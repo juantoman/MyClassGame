@@ -83,6 +83,7 @@ Template.studentsPage.helpers({
     } else {
       sortOrder[Session.get('orderStudents')]=1;
     }
+    sortOrder["_id"]=-1;
     return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
   },
   image: function(avatar) {
@@ -153,6 +154,16 @@ Template.studentsPage.helpers({
       return 'userSelected';
     } else {
       return 'userNotSelected';
+    }
+  },
+  checkSelected: function(s) {
+    if ( s ) {
+      return 'checked';
+    }
+  },
+  studentSelected: function(s) {
+    if ( s ) {
+      return 'studentSelected';
     }
   },
   levelAutomatic: function(id) {
@@ -255,7 +266,7 @@ Template.studentsPage.events({
   'click #drive': function(event) {
     loadPicker();
   },
-  'click .btn-select': function(event) {
+  'click .btn-select,#selectedStudent': function(event) {
     Meteor.call('studentSelection', event.target.name);
   }
 });

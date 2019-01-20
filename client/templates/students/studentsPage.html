@@ -3,11 +3,13 @@
     <div class="row">
       {{#each students}}
         <div class="col-container col-sm-12 col-md-4 col-lg-3">
-          <div class="thumbnail {{myuser email}}">
+          <div class="thumbnail {{myuser email}} {{studentSelected selected}}">
               {{#if parent}}
                 <h2 class="text-center bg-info"><span id="alias">{{alias}}</span></h2>
               {{else}}
-                <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+                <h5 class="text-center bg-info descStudent">{{studentName}}</h5>
+                <h2 class="text-center bg-info descStudent"><span id="alias">{{alias}}</span></h2>
+                <h4 class="text-center bg-warning descStudent">Nivel {{levelAutomatic (_id)}}: {{levelDesc (_id)}}</h4>
               {{/if}}
               <div class="caixa">
                 <div class="imatge">
@@ -15,7 +17,7 @@
                 </div>
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
-                    <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">Nivel {{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
+                    <!--<li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">Nivel {{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>-->
                     <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
                     <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
                     <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
@@ -36,9 +38,10 @@
                     <button type="button" class="btn btn-danger btn-delete-student" name="{{_id}}">
                       Eliminar
                     </button>
-                    <button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">
+                    <!--<button type="button" class="btn btn-select {{thumbSelected _id}}" name="{{_id}}">
                       ·
-                    </button>
+                    </button>-->
+                    <input type="checkbox" class="big-checkbox" id="selectedStudent" {{checkSelected selected}} name="{{_id}}">
                   {{/if}}
                 </h2>
               </div>

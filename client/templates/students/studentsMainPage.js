@@ -73,7 +73,10 @@ Template.studentsMainPage.events({
   },
   'click .btn-all': function(event) {
     event.preventDefault();
-    if (Session.get('allBtn')=="All") {
+    students.find( { $and: [ { selected: 0 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      Meteor.call('studentSelection', item["_id"]);
+    });
+    /*if (Session.get('allBtn')=="All") {
       Session.set('allBtn', 'None');
       $('#all').removeClass('btn-warning');
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
@@ -85,7 +88,7 @@ Template.studentsMainPage.events({
       students.find( { $and: [ { selected: 0 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
         Meteor.call('studentSelection', item["_id"]);
       });
-    };
+    };*/
   },
   'click .invert': function(event) {
     event.preventDefault();

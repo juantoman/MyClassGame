@@ -49,7 +49,7 @@ Template.groupsPage.events({
     Session.setPersistent('groupId', event.target.name);
     Modal.show('groupHPModal');
   },
-  'click .btn-group': function(event) {
+  'click .btnGroup': function(event) {
     event.preventDefault();
     Session.setPersistent('groupId', event.target.name);
     Modal.show('groupModal');

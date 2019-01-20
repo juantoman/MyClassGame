@@ -239,8 +239,8 @@ Template.groupPage.events({
         createdOn: new Date()
       };
       //console.log(notebookInput);
-      nid=Meteor.call('notebookInsert',notebookInput);
-      $('.puntos').find(".selectStudent").each( function() {
+      //nid=Meteor.call('notebookInsert',notebookInput);
+      /*$('.puntos').find(".selectStudent").each( function() {
         i=this.id;
         v=this.value;
         var workStudent={
@@ -250,7 +250,20 @@ Template.groupPage.events({
           studentId:i,
           work:v
         };
-        Meteor.call('notebookWorkInsert',workStudent);
+        Meteor.call('notebookWorkInsert',workStudent);*/
+        //trabajos.push(workStudent);
+        $('#studentsPoints').find(".btn-group").each( function() {
+          i=this.id;
+          v=this.value;
+          alert(v)
+          var workStudent={
+            classId: Session.get('classId'),
+            notebookId: Session.get("nid"),
+            mission:$('#missionG').val(),
+            studentId:i,
+            work:v
+        };
+        //Meteor.call('notebookWorkInsert',workStudent);
         //trabajos.push(workStudent);
       });
     } else {
@@ -287,5 +300,11 @@ Template.groupPage.events({
   'change #Portfolio': function(event) {
     event.preventDefault();
     Meteor.call('groupPortfolio',Session.get('groupId'),$(event.target).val());
+  },
+  'click .btn-emoticon': function(event) {
+    event.preventDefault();
+    //alert($(event.target).closest('div').attr("id"));
+    //alert(this._id);
+    //console.log($(event.currentTarget).find("input").val())
   }
 });

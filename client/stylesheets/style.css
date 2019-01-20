@@ -114,6 +114,7 @@ a:hover, a:link {
 .caixa{
   vertical-align: middle;
   text-align: center;
+  margin-top:10px;
 }
 .imatge {
   float:left;
@@ -142,7 +143,7 @@ a:hover, a:link {
 }
 .userSelected{
   color:white;
-  background-color: #0a0;  
+  background-color: #0a0 !important;  
 }
 .userNotSelected{
   color:white;
@@ -262,6 +263,9 @@ label {
 }
 .thumbnail:hover {
   background-color: white !important;
+}
+.studentSelected {
+  background-color: #d0f9cf !important;
 }
 .fotoStudent{
   float:left;
@@ -549,4 +553,21 @@ input[type=submit] {
 .big-checkbox {
   width: 20px;
   height: 20px;
+}
+
+.descStudent {
+  margin:0;
+  padding: 2px;
+}
+
+.emoticon {
+  height: 32px;
+}
+
+.btn-emoticon {
+  background-color: #d1ebfc;
+}
+
+.btn-emoticon.active {
+  background-color: #268BD2;
 }
