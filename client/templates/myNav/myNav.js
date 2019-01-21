@@ -28,16 +28,21 @@ Template.myNav.events({
     Session.set('studentSelected', true);
     Session.setPersistent('sogBtn', "students");
     Session.set('groupSelected', false);
+    $(".tab-pane").removeClass("active");
     $("#studentsMain").addClass("active");
+    $(".nav-pills li").removeClass("active");
     $("#sM").addClass("active");
+    $("#collapseStudents").removeClass("in");
     $("#collapseStudents").removeClass("in");
   },
   'click .all_button': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
+    $(".tab-pane").removeClass("active");
+    $(".nav-pills li").removeClass("active");
     $("#studentsMain").addClass("active");
-    $("#collapseStudents").removeClass("in");
+    $("#sM").addClass("active");
   },
   'click .group_button': function(event) {
     event.preventDefault();
@@ -45,6 +50,8 @@ Template.myNav.events({
     Session.set('groupSelected', true);
     Session.setPersistent('sogBtn', "groups");
     Session.set('studentSelected', false);
+    $(".tab-pane").removeClass("active");
+    $(".nav-pills li").removeClass("active");
     $("#studentsMain").addClass("active");
     $("#sM").addClass("active");
     $("#collapseStudents").removeClass("in");

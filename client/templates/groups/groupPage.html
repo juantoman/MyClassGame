@@ -170,27 +170,14 @@
             <option value="5">5.- Excelente</option>
           </select>
           <label class="control-label">Puntuación por miembro</label>
-          <div class="row container puntos">
-            {{#each studentsIn}}
-            <div class="form-group has-error form-inline">
-              <div class="input-group col-12">
-                <span class="input-group-addon">{{studentName}}</span>
-                <select class="custom-select form-control inputGroup input-md selectStudent" id="{{_id}}">
-                  <option selected value="0">0</option>
-                  <option value="25">25</option>
-                  <option value="50">50</option>
-                  <option value="75">75</option>
-                  <option value="100">100</option>
-                </select>
-              </div>
-            </div>
-            {{/each}}
-          </div>
           <div id="studentsPoints">
             {{#each studentsIn}}
               <div class="btn-group btn-group-toggle btn-group-justified" id="{{_id}}" data-toggle="buttons">
                 <label class="btn btn-info btn-lg">
                   {{studentName}}
+                </label>
+                <label class="btn btn-info btn-emoticon active">
+                  <input type="radio" name="options" id="option1" value="0" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1548069072/images/0.png"/>
                 </label>
                 <label class="btn btn-info btn-emoticon">
                   <input type="radio" name="options" id="option1" value="20" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1547723233/images/2.png"/>
