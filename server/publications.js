@@ -46,6 +46,9 @@ Meteor.publish('chalMissions', function() {
 Meteor.publish('chalPoints', function() {
   return chalPoints.find();
 });
+Meteor.publish('challengesXP', function() {
+  return challengesXP.find();
+});
 Meteor.publish('diary', function() {
   return diary.find();
 });

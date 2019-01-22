@@ -18,6 +18,17 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Reto"});
   },
+  challenge: function() {
+    return challenges.find({classId: Session.get('classId')});
+  },
+  chalMissions: function(id) {
+    return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
+  },
+  disTeacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disabled";
+    };
+  },
   missions: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Misión"});
@@ -29,6 +40,16 @@ Template.studentPage.helpers({
   CP: function(cId) {
     return chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     //return challenges.find({classId: Session.get('classId')});
+  },
+  studentChalXP: function() {
+    xp=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).chalXP;
+    return xp;
+  },
+  activeInput: function(n) {
+    per=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).per;
+    if (per==n) {
+      return "active";
+    }
   },
   image: function(avatar) {
     if ( avatar=="" || !avatar ) {
@@ -528,6 +549,27 @@ Template.studentPage.events({
       $(event.target).next("table").removeClass("oculto");
     } else {
       $(event.target).next("table").addClass("oculto");
+    }
+  },
+  'click .btn-emoticon': function(event) {
+    event.preventDefault();
+    //alert($(event.target).closest('div').attr("id"));
+    per=$(event.currentTarget).find("input").val();
+    cXP=this.chalMissionXP;
+    XP=parseInt(per*cXP/100);
+    n=challengesXP.find({'studentId': Session.get('studentId'), 'chalId': this._id} ).count();
+    if ( n==0 ) {
+      var chalXP = {
+        classId: Session.get('classId'),
+        studentId: Session.get('studentId'),
+        chalId: this._id,
+        per: per,
+        chalXP: XP,
+        createdOn: new Date()
+      };
+      Meteor.call('chalInsertXP', chalXP);
+    } else {
+      Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
     }
   }
 });
