@@ -574,3 +574,7 @@ input[type=submit] {
   color:#268BD2;
   font-weight: bold;
 }
+
+.missionGrade {
+  float:right;
+}

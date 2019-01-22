@@ -45,6 +45,18 @@ Template.studentPage.helpers({
     xp=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).chalXP;
     return xp;
   },
+  missionGrade: function() {
+    cXP=0;
+    t=0;
+    chalMissions.find({'missionId':this._id}).forEach(function(c){
+      t+=parseInt(c.chalMissionXP);
+    });
+    challengesXP.find({'missionId':this._id,'studentId':Session.get('studentId')}).forEach(function(c){
+      cXP+=parseInt(c.chalXP);
+    });
+    g=parseInt(100*cXP/t);
+    return g;
+  },
   activeInput: function(n) {
     per=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).per;
     if (per==n) {
@@ -375,6 +387,7 @@ Template.studentPage.events({
       Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
     } else {
       var chalCP = {
+        classId: Session.get('classId'),
         studentId: studentId,
         chalId: chalId,
         chalCP: chalCP,
@@ -406,6 +419,7 @@ Template.studentPage.events({
     if ( n == 0 )
     {
       var diaryInput = {
+        classId: Session.get('classId'),
         studentId:Session.get('studentId'),
         mission:$('#mission').val(),
         what:$(event.target).find('[name=que]').val(),
@@ -557,11 +571,14 @@ Template.studentPage.events({
     per=$(event.currentTarget).find("input").val();
     cXP=this.chalMissionXP;
     XP=parseInt(per*cXP/100);
+    mId=$(event.currentTarget).closest(".panel-info").attr("id");
+    max=this.chalMissionXP;
     n=challengesXP.find({'studentId': Session.get('studentId'), 'chalId': this._id} ).count();
     if ( n==0 ) {
       var chalXP = {
         classId: Session.get('classId'),
         studentId: Session.get('studentId'),
+        missionId:mId,
         chalId: this._id,
         per: per,
         chalXP: XP,
