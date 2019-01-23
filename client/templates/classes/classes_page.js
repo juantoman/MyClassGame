@@ -54,7 +54,7 @@ Template.classesPage.events({
     Session.set('studentSelected', false);
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
-    $("#main").css("background-image", "url("+backImg+")");
+    $("#fondo").css("background-image", "url("+backImg+")");
     Session.set('orderStudents', "XP");
     Session.set('invertOrder', "checked");
     //Router.go('myNav');

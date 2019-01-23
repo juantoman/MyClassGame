@@ -102,33 +102,6 @@
             </div>
           </div>
         </div>
-        <!--
-        <div class="panel panel-info">
-          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMaC" aria-expanded="false" aria-controls="collapseMaC" id="headingMaC">
-            <h4 class="panel-title">
-                Misiones y Retos
-            </h4>
-          </div>
-          <div id="collapseMaC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMaC">
-            <div class="panel-body">
-              {{#each mac}}
-                <div class="form-group {{moc type}}">
-                  <div class="form-inline">
-                    <div class="input-group col-xs-9">
-                      <span class="input-group-addon">{{type}}</span>
-                      <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-                    </div>
-                    <div class="input-group col-xs-2">
-                      <span class="input-group-addon">Puntuación</span>
-                      <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
-                    </div>
-                  </div>
-                </div>
-              {{/each}}
-            </div>
-          </div>
-        </div>
-        -->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">
             <h4 class="panel-title">
@@ -219,6 +192,31 @@
                   {{/each}}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMaC" aria-expanded="false" aria-controls="collapseMaC" id="headingMaC">
+            <h4 class="panel-title">
+                Misiones (Notas)
+            </h4>
+          </div>
+          <div id="collapseMaC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMaC">
+            <div class="panel-body">
+              {{#each mac}}
+                <div class="form-group {{moc type}}">
+                  <div class="form-inline">
+                    <div class="input-group col-xs-9">
+                      <span class="input-group-addon">{{type}}</span>
+                      <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                    </div>
+                    <div class="input-group col-xs-2">
+                      <span class="input-group-addon">Puntuación</span>
+                      <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
             </div>
           </div>
         </div>

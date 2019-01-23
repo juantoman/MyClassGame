@@ -61,7 +61,7 @@ Template.myNav.events({
     Session.set('className', '');
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    $("#main").css("background-image", "");
+    $("#fondo").css("background-image", "");
     //Router.go('/');
   },
   'mouseenter #btnStudents': function(event) {

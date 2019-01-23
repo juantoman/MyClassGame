@@ -67,7 +67,7 @@ Template.studentPage.helpers({
     //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
     n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
     if ( n==1 ) {
-      Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
+      //Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
     } else {
       var chalCP = {
         classId: Session.get('classId'),
@@ -77,7 +77,7 @@ Template.studentPage.helpers({
         chalType:this.type,
         createdOn: new Date()
       };
-      Meteor.call('chalInsertPoints', chalCP);
+      //Meteor.call('chalInsertPoints', chalCP);
     }
     return "( " + cXP + " de " + t + " ): " + g;
   },

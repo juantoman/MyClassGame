@@ -146,7 +146,7 @@ Template.studentsMainPage.events({
     Session.set('className', '');
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    $("#main").css("background-image", "");
+    $("#fondo").css("background-image", "");
     //Router.go('/');
   },
   'click .student_button': function(event) {

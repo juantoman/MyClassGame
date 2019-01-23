@@ -31,7 +31,7 @@ Template.myBreadcrumb.events({
     Session.set('className', '');
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    $("#main").css("background-image", "");
+    $("#fondo").css("background-image", "");
     //Router.go('/');
   },
   'click .clase': function(event) {
