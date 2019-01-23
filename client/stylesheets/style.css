@@ -578,3 +578,7 @@ input[type=submit] {
 .missionGrade {
   float:right;
 }
+
+.disableDiv {
+  pointer-events: none;
+}

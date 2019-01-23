@@ -29,6 +29,11 @@ Template.studentPage.helpers({
      return "disabled";
     };
   },
+  disableDiv: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disableDiv";
+    };
+  },
   missions: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Misión"});
@@ -55,7 +60,26 @@ Template.studentPage.helpers({
       cXP+=parseInt(c.chalXP);
     });
     g=parseInt(100*cXP/t);
-    return g;
+    studentId=Session.get('studentId');
+    chalId=this._id;
+    chalCP=g;
+    //alert("cambio" + studentId + " " + chalId + " " + chalCP);
+    //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
+    n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
+    if ( n==1 ) {
+      Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
+    } else {
+      var chalCP = {
+        classId: Session.get('classId'),
+        studentId: studentId,
+        chalId: chalId,
+        chalCP: chalCP,
+        chalType:this.type,
+        createdOn: new Date()
+      };
+      Meteor.call('chalInsertPoints', chalCP);
+    }
+    return "( " + cXP + " de " + t + " ): " + g;
   },
   activeInput: function(n) {
     per=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).per;
