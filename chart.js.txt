@@ -1,0 +1,2 @@
+meteor npm i
+meteor npm i chart.js --save

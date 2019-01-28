@@ -655,5 +655,9 @@ Template.studentPage.events({
     } else {
       Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
     }
+  },
+  'click #graphBtn': function(event) {
+    event.preventDefault();
+    $("#myChart").toggleClass("visible");
   }
 });

@@ -139,17 +139,28 @@ a:hover, a:link {
   width:65%;
 }
 .foto{
-  border:2px #268BD2 solid;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   margin-top:20px;
   width:80%;
   height:80%;
 }
-.foto:hover, .fotog:hover{
+.foto:hover, .fotog:hover, .fotoUserType:hover{
   cursor: pointer;
   opacity: 0.7;
 }
+
+.fotoUserType{
+  margin-top:20px;
+  width:80%;
+  height:80%;
+}
+
 .fotog{
-  border:2px #268BD2 solid;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   margin-top:20px;
   width:50%;
   height:50%;
@@ -169,16 +180,30 @@ a:hover, a:link {
 }
 .punts {
   float:right;
-  width:35%;
+  width:30%;
+  margin-right:5px;
 }
+.punts .list-group {
+
+  background-color: transparent; 
+}
+
+.punts .list-group li{
+  border: 1px solid transparent !important;
+  margin: 2px;
+}
+
 .botons{
   clear:both;
 }
 .lista-item{
   background-color: lightgray;
 }
+.list-group-item{
+  font-weight: bold;
+}
 .list-group-item:hover{
-  background-color: white;
+  background-color: lightgreen;
   color: blue;
 }
 .list-inline{
@@ -222,6 +247,9 @@ label {
 .submenu {
   padding: 5px;
   background-color: #268BD2;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .submenu label{
@@ -272,14 +300,18 @@ label {
 .thumbnail {
   width:100%;
   height:97%;
-  background-color: #cfeafc !important;
-  border:2px #268BD2 solid;
-}
-.thumbnail:hover {
   background-color: white !important;
 }
+.thumbnail:hover {
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
 .studentSelected {
-  background-color: #d0f9cf !important;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  /*background-color: #d0f9cf !important;*/
 }
 .fotoStudent{
   float:left;
@@ -365,12 +397,15 @@ td button {
 .jumbointro {
   margin-bottom: 0px;
 }
+
 .oculto {
-  display: none;
+  display: none !important;
 }
+
 .visible {
-  display: block;
+  display: block !important;
 }
+
 #settingsMenu {
   background-color:#fff;
   border-top: 1px solid lightgray;
@@ -602,6 +637,7 @@ input[type=submit] {
 }
 
 #myChart {
+  display:none;
  /*width:50% !important; 
  height:50% !important; */
 }
@@ -678,3 +714,9 @@ input[type=submit] {
   text-shadow: 5px 5px 10px #000000;
 }
 
+@media only screen and (max-device-width: 480px) {
+  .btn {
+    width: 50% !important;
+    font-size: 3vh;
+  }
+}
