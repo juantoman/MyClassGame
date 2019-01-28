@@ -597,3 +597,99 @@ input[type=submit] {
 .disableDiv {
   pointer-events: none;
 }
+
+#myChart {
+ /*width:50% !important; 
+ height:50% !important; */
+}
+
+#adventureHistory{
+  color:white !important;
+  z-index:10;
+  opacity: 1;
+  background-color: transparent !important;
+  box-shadow: 0 0px 0px transparent !important;
+}
+
+#adventureHistory{
+  border: 1px solid transparent !important;
+  /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
+}
+
+.modal-xlg {
+  width: 90%; 
+  height: 90%;
+  opacity: 1 !important;
+  display: flex;
+  justify-content: center;
+  background-image:url("https://vignette.wikia.nocookie.net/koror-blog-org/images/4/48/Parchment.png/revision/latest?cb=20140420003946");
+  background-repeat:no-repeat;
+  background-size:auto 100%;
+  background-position: center; 
+}
+
+#adventureHistory .modal-header {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+}
+
+#adventureHistory .jumbotron {
+  background-color: transparent !important;
+  height: 80vh;
+  width: 100vh;
+}
+
+#adventureHistory .jumbotron h1{
+  font-family: 'Indie Flower';
+  font-size:3vw;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #000000;
+}
+
+#adventureHistory .jumbotron p{
+  font-family: 'Caveat';
+  font-size:2vw;
+  color: white;
+  text-shadow: 0 0 10px #000000;
+}
+#adventureHistory .jumbotron iframe{
+  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+#adventureHistory button{
+  background-color: transparent !important;
+  color: white;
+  font-family: 'Indie Flower';
+  font-size:1vw;
+  font-weight: bold;
+  border: 1px solid transparent !important;
+  margin:2px;
+}
+#adventureHistory span{
+  background-color: transparent !important;
+  text-shadow: 5px 5px 10px #000000;
+}
+
+
+.hero-image {
+  background-image: url("https://vignette.wikia.nocookie.net/koror-blog-org/images/4/48/Parchment.png/revision/latest?cb=20140420003946");
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+

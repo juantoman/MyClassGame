@@ -166,5 +166,9 @@ Template.challenges.events({
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
+  },
+  'click #adventureBtn': function(event) {
+    event.preventDefault();
+    Modal.show('adventureTemplate');
   }
 });
