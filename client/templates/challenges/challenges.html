@@ -1,5 +1,5 @@
 <template name="challenges">
-  <div class="container" id="adventurePage">
+  <div class="container-fluid" id="adventurePage">
     <div class="list-group">
       {{#with class}}
         <div class="panel panel-info">
@@ -85,14 +85,14 @@
                           {{/if}}
                           <div class="input-group col-xs-12">
                             <div class="panel panel-info" id="{{_id}}">
-                              <div class="panel-heading">Retos</div>
+                              <div class="panel-heading">Tareas</div>
                               <div class="panel-body panelChal">
                                 {{#each chalMissions _id}}
                                   <div class="input-group">
                                     <div class="input-group-addon">
-                                      <span class="input-group-text">Reto {{order}}</span>
+                                      <span class="input-group-text">Tarea {{order}}</span>
                                     </div>
-                                    <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                    <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Tarea" aria-label="Tarea" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
                                     <div class="input-group-addon">
                                       <span class="input-group-text">XP</span>
                                     </div>
@@ -112,9 +112,9 @@
                                 <div class="panel-footer">
                                   <div class="input-group">
                                     <div class="input-group-addon">
-                                      <span class="input-group-text">Nuevo</span>
+                                      <span class="input-group-text">Nueva</span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Reto" id="chalMissionDesc{{_id}}">
+                                    <input type="text" class="form-control" placeholder="Tarea" id="chalMissionDesc{{_id}}">
                                     <div class="input-group-addon">
                                       <span class="input-group-text"></span>
                                     </div>
@@ -155,14 +155,14 @@
                     <div class="input-group-addon">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
                     </div>
-                    <input type="text" class="form-control" name="chalName" placeholder="Nombre del reto" aria-label="Nombre del reto" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="chalName" placeholder="Nombre de la misiónexit" aria-label="Nombre del reto" aria-describedby="basic-addon1">
                   </div>
                   
                   <div class="input-group mb-3">
                     <div class="input-group-addon">
                       <span class="input-group-text" id="basic-addon2">Descripción</span>
                     </div> 
-                    <input type="text" class="form-control" name="chalDesc" placeholder="Descripción del reto" aria-label="Descripción del reto" aria-describedby="basic-addon2">
+                    <input type="text" class="form-control" name="chalDesc" placeholder="Descripción de la misión" aria-label="Descripción del reto" aria-describedby="basic-addon2">
                   </div>
                   
                   <div class="input-group mb-3">
