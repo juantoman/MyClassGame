@@ -722,7 +722,7 @@ input[type=submit] {
     background-color: lightgray !important
   }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 992px) {
   .btn {
     font-size: 3vh;
   }
@@ -730,15 +730,33 @@ input[type=submit] {
     width: 50%;
   }
   .foto, .fotog {
-    width: 70%;
+    height: auto;
+    width:50vw;
+  }
+  .fotoStudent {
+    height: auto;
+    width:35vw;
   }
   .thumbnail h2 {
    font-size: 3vh;
   }
-  .submenu, .menu-superior {
-    display: none;
+  .menu-superior {
+    font-size: 4vh;
   }
-  .punts li{
-    font-size: 3vh;
+  .punts li, .puntsStudent li{
+    font-size: 2vw;
+    width: 20vw;
+  }
+  .modal-content {
+    position:relative;
+    justify-content: center;
+    width: 90vw !important;
+    right: 15vw;
+  }
+  .modal-content button {
+    font-size: 4vh;
+  }
+  .dataStudent {
+    width: 30vw;
   }
 }
