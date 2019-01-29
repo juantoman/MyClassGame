@@ -714,9 +714,25 @@ input[type=submit] {
   text-shadow: 5px 5px 10px #000000;
 }
 
+.navbar-toggle {
+    background-color: lightgray !important
+  }
+
 @media only screen and (max-device-width: 480px) {
   .btn {
-    width: 50% !important;
-    font-size: 3vh;
+    font-size: 2vh;
   }
+  .fotoIcono {
+    width: 70%;
+  }
+  .thumbnail h2 {
+   font-size: 3vh;
+  }
+  .submenu, .menu-superior {
+    display: none;
+  }
+  .punts li{
+    font-size: 1vh;
+  }
+  
 }

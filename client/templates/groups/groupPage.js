@@ -223,7 +223,7 @@ Template.groupPage.events({
     y=f.getFullYear();
     hoy=m+"/"+d+"/"+y;
     n=notebook.find({'groupId': Session.get('groupId'),'createdOn': {$gt: new Date(hoy)}}).count();
-    if ( n == 1 )
+    if ( n == 0 )
     {
       //var trabajos=[];
       var notebookInput = {
