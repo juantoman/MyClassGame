@@ -438,6 +438,12 @@ Template.studentPage.helpers({
     } else {
      return false;
     };
+  },
+  activeTask: function(task) {
+    at=students.findOne({ _id: Session.get('studentId') } ).activeTask;
+    if ( task == at ) {
+     return "activeTask";
+    }
   }
 });
 
@@ -635,6 +641,7 @@ Template.studentPage.events({
   'click .btn-emoticon': function(event) {
     event.preventDefault();
     //alert($(event.target).closest('div').attr("id"));
+    var stars = {0:"rs", 20:"os", 40:"ys", 60:"ws", 80:"bs", 100:"gs"};
     per=$(event.currentTarget).find("input").val();
     cXP=this.chalMissionXP;
     XP=parseInt(per*cXP/100);
@@ -652,12 +659,19 @@ Template.studentPage.events({
         createdOn: new Date()
       };
       Meteor.call('chalInsertXP', chalXP);
+      Meteor.call('addStar', Session.get('studentId'), stars[per]);
     } else {
+      aper=challengesXP.findOne({'studentId': Session.get('studentId'), 'chalId': this._id} ).per;
+      Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
       Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
+      Meteor.call('addStar', Session.get('studentId'), stars[per]);
     }
   },
   'click #graphBtn': function(event) {
     event.preventDefault();
     $("#myChart").toggleClass("visible");
+  },
+  'click .challengeText': function(event) {
+    Meteor.call('activeTask', Session.get('studentId'), this._id,);
   }
 });

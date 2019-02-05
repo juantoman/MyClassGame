@@ -1,3 +1,7 @@
+Template.challenges.onRendered(function() {
+  $('#adventureDesc').summernote();
+});
+
 Template.challenges.helpers({
   challenge: function() {
     return challenges.find({classId: Session.get('classId')});

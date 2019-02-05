@@ -135,13 +135,26 @@ a:hover, a:link {
   margin-top:10px;
 }
 .imatge {
+  position: relative;
   float:left;
   width:65%;
 }
+
+.imatge:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.imatge img {
+  position: absolute;
+  left: 10%;
+  object-fit: contain;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+}
+
 .foto{
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   margin-top:20px;
   width:80%;
   height:80%;
@@ -180,7 +193,7 @@ a:hover, a:link {
 }
 .punts {
   float:right;
-  width:30%;
+  width:33%;
   margin-right:5px;
 }
 .punts .list-group {
@@ -614,11 +627,18 @@ input[type=submit] {
 }
 
 .emoticon {
-  height: 32px;
+  height: 20px;
 }
 
 .btn-emoticon {
   background-color: #30acff;
+}
+
+.btn-emoticon p{
+  font-size: 1em;
+  background-color: white;
+  color:#268BD2;
+  font-weight: bold;
 }
 
 .btn-emoticon.active {
@@ -627,9 +647,14 @@ input[type=submit] {
   font-weight: bold;
 }
 
+.btn-emoticon img{
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+    filter: drop-shadow(3px 3px 5px #222);
+}
+
 .challengeText {
-  color:#268BD2;
   font-weight: bold;
+  margin:2px;
 }
 
 .missionGrade {
@@ -719,10 +744,54 @@ input[type=submit] {
 }
 
 .navbar-toggle {
-    background-color: lightgray !important
-  }
+  background-color: lightgray !important
+}
 
-@media only screen and (max-width: 992px) {
+.activeTask {
+  background-color: lightgreen !important
+}
+
+.punts li, .puntsStudent li{
+  font-family: 'Indie Flower';
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 3vh;
+}
+
+.punts li span{
+  font-family: 'Caveat';
+  color: gold;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 3vh;
+}
+
+.punts li img{
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+}
+
+#sn {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #268BD2 !important;
+}
+
+#myAdventure .panel-warning .jumbotron{
+  border: 1px solid #268BD2 !important;
+}
+
+#myAdventure .panel-warning {
+    background-color: #eaf7ff;
+    color: #268BD2;
+}
+
+.note-btn .note-icon-check li span{
+  background-color:black !important;
+}
+
+.note-btn {
+  background-color:#268BD2 !important;
+}
+@media (max-width: 768px) {
   .btn {
     font-size: 3vh;
   }
@@ -741,20 +810,22 @@ input[type=submit] {
    font-size: 3vh;
   }
   .menu-superior {
-    font-size: 4vh;
+    font-size: 3vh;
   }
   .punts li, .puntsStudent li{
     font-size: 2vw;
     width: 20vw;
+    text-shadow: 0 0 10px #000000 !important;
   }
+  
   .modal-content {
     position:relative;
     justify-content: center;
     width: 90vw !important;
     right: 15vw;
   }
-  .modal-content button {
-    font-size: 4vh;
+  .modal-content button,.modal-content .badge {
+    font-size: 3vh;
   }
   .dataStudent {
     width: 30vw;

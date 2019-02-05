@@ -1,0 +1,42 @@
+<template name="myAdventure">
+  <div class="container-fluid myAdveture">
+    <div class="panel panel-info">
+      <div class="panel-heading ">
+        {{#with class}}
+          <h1>{{adventureName}}</h1>
+        {{/with}}
+      </div>
+      <div class="panel-body">
+        {{#with class}}
+          
+          <div id="sn"></div>
+          <br />
+          {{#if adventureWeb}}
+            <a class="btn btn-info" href="{{adventureWeb}}" target="_blank">Visitar web</a>
+          {{/if}}
+          <br /><br />
+        {{/with}}
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            {{#with mission}}
+              <h2>Misión {{order}}: {{chalName}}</h2>
+            {{/with}}
+          </div>
+          <div class="panel-body">
+            {{#with mission}}
+              <h3>{{chalDesc}}</h3>
+            {{/with}}
+            {{#with task}}
+            <div class="jumbotron">
+              <h2>Tarea {{order}}: {{chalMissionDesc}}</h2>
+              <h3>{{chalMissionXP}} XP en juego</h3>
+            </div>
+            {{/with}}
+            <button type="button" class="btn btn-default" style="float:left;" data-dismiss=""><span class="glyphicon glyphicon-backward"></span></button>
+            <button type="button" class="btn btn-default" style="float:right;" data-dismiss=""><span class="glyphicon glyphicon-forward"></span></button>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

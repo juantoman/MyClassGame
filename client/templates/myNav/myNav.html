@@ -48,8 +48,9 @@
     <!--
       <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
     -->
-    <li role="presentation"><a href="#challenges" aria-controls="challenges" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Aventura</a></li>
+    <li role="presentation"><a href="#myAdventure" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Mi aventura</a></li>
     {{#if teacher}}
+      <li role="presentation"><a href="#challenges" aria-controls="challenges" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Aventura</a></li>
       <li role="presentation"><a href="#random" aria-controls="random" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random</a></li>
       <li role="presentation"><a href="#statistics" aria-controls="statistics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> Historial</a></li>
       <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Configuración</a></li>
@@ -71,6 +72,7 @@
     </div>
     -->
     <div role="tabpanel" class="tab-pane" id="challenges">{{> challenges}}</div>
+    <div role="tabpanel" class="tab-pane" id="myAdventure">{{> myAdventure}}</div>
     <div role="tabpanel" class="tab-pane" id="statistics">{{> statisticsPage}}</div>
     <div role="tabpanel" class="tab-pane" id="settings">{{> settingsPage}}</div>
   </div>

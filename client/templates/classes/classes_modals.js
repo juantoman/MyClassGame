@@ -20,6 +20,7 @@ Template.classesModals.events({
         className: $(event.target).find('[name=class-name]').val(),
         iniHP: 10,
         stored: false,
+        groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
         evaluation: 1,
         createdOn: new Date()
       };

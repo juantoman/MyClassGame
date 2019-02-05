@@ -2,8 +2,8 @@
   {{#if grid}}
     <div class="row">
       {{#each students}}
-        <div class="col-container col-sm-12 col-md-4 col-lg-3">
-          <div class="thumbnail {{myuser email}} {{studentSelected selected}}">
+        <div class="col-container col-xs-12 col-sm-6 col-md-4 col-lg-3">
+          <div class="thumbnail {{myuser email}} {{studentSelected selected}}  row-eq-height">
               {{#if parent}}
                 <h2 class="text-center bg-info"><span id="alias">{{alias}}</span></h2>
               {{else}}
@@ -18,14 +18,42 @@
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
                     <!--<li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">Nivel {{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>-->
-                    <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
-                    <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
-                    <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
-                    <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
+                    <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} <span>XP</span></li>
+                    <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} <img height="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549267499/images/heart.png" /></li>
+                    <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} <img height="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" /></li>
+                    <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} <img height="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></li>
                   </div>
                 </div>
               </div>
               <div class="botons">
+                <div id="studentsPoints">
+                  <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                    <label class="btn btn-info btn-emoticon">
+                      <p>{{rs}}</p>
+                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                    </label>
+                    <label class="btn btn-info btn-emoticon">
+                      <p>{{os}}</p>
+                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                    </label>
+                    <label class="btn btn-info btn-emoticon">
+                      <p>{{ys}}</p>
+                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                    </label>
+                    <label class="btn btn-info btn-emoticon">
+                      <p>{{ws}}</p>
+                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                    </label>
+                    <label class="btn btn-info btn-emoticon">
+                      <p>{{bs}}</p>
+                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                    </label>
+                    <label class="btn btn-info btn-emoticon">
+                     <p>{{gs}}</p>
+                     <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                    </label>
+                  </div>
+                </div>
                 <h2 class="text-center">
 
                   <!-- <button type="button" class="btn btn-info btn-data" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}">
