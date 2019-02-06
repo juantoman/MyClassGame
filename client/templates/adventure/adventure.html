@@ -107,11 +107,43 @@
                                     {{#if isTeacher}}
                                       <div class="input-group-btn">
                                         <button class="btn btn-info chalMissionUpdate" type="button"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionDel" type="button"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+                                        <button class="btn btn-info chalMissionRub" type="button"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
                                         <button class="btn btn-info chalMissionUp" type="button"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></button>
                                         <button class="btn btn-info chalMissionDown" type="button"><span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></button>
+                                        <button class="btn btn-info chalMissionDel" type="button"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                                       </div>
+                                      
                                     {{/if}}
+                                  </div>
+                                  <div class="oculto" id="rubrica{{_id}}">
+                                    <div id="studentsPoints">
+                                      <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                                          <textarea class="form-control rubricaText r1" {{teacher}} rows="3">{{r1}}</textarea>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                                          <textarea class="form-control rubricaText r2" {{teacher}} rows="3">{{r2}}</textarea>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                                          <textarea class="form-control rubricaText r3" {{teacher}} rows="3">{{r3}}</textarea>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                                          <textarea class="form-control rubricaText r4" {{teacher}} rows="3">{{r4}}</textarea>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                                          <textarea class="form-control rubricaText r5" {{teacher}} rows="3">{{r5}}</textarea>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon">
+                                          <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                                          <textarea class="form-control rubricaText r6" {{teacher}} rows="3">{{r6}}</textarea>
+                                        </label>
+                                      </div>
+                                    </div>  
                                   </div>
                                 {{/each}}
                               </div>

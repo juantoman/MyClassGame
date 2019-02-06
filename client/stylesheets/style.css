@@ -791,6 +791,11 @@ input[type=submit] {
 .note-btn {
   background-color:#268BD2 !important;
 }
+
+.rubrica {
+  display:none;
+}
+
 @media (max-width: 768px) {
   .btn {
     font-size: 3vh;

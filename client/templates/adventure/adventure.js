@@ -124,6 +124,12 @@ Template.challenges.events({
       order: n,
       chalMissionDesc: $("#chalMissionDesc"+id).val(),
       chalMissionXP: $("#chalMissionXP"+id).val(),
+      r1: "",
+      r2: "",
+      r3: "",
+      r4: "",
+      r5: "",
+      r6: "",
       createdOn: new Date()
     };
     Meteor.call('chalMissionInsert', chal);
@@ -176,5 +182,33 @@ Template.challenges.events({
   'click #adventureBtn': function(event) {
     event.preventDefault();
     Modal.show('adventureTemplate');
+  },
+  'click .chalMissionRub': function(event) {
+    event.preventDefault();
+    $("#rubrica"+this._id).toggleClass("oculto");
+  },
+  'change .r1': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR1', this._id, event.currentTarget.value);
+  },
+  'change .r2': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR2', this._id, event.currentTarget.value);
+  },
+  'change .r3': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR3', this._id, event.currentTarget.value);
+  },
+  'change .r4': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR4', this._id, event.currentTarget.value);
+  },
+  'change .r5': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR5', this._id, event.currentTarget.value);
+  },
+  'change .r6': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateR6', this._id, event.currentTarget.value);
   }
 });
