@@ -659,13 +659,41 @@ Template.studentPage.events({
         createdOn: new Date()
       };
       Meteor.call('chalInsertXP', chalXP);
-      Meteor.call('addStar', Session.get('studentId'), stars[per]);
+      //Meteor.call('addStar', Session.get('studentId'), stars[per]);
     } else {
-      aper=challengesXP.findOne({'studentId': Session.get('studentId'), 'chalId': this._id} ).per;
-      Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
+      aXP=challengesXP.findOne({'studentId': Session.get('studentId'), 'chalId': this._id} ).chalXP;
+      Meteor.call('studentXP', Session.get('studentId'), -aXP);
+      //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
       Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
-      Meteor.call('addStar', Session.get('studentId'), stars[per]);
+      //Meteor.call('addStar', Session.get('studentId'), stars[per]);
     }
+    Meteor.call('studentXP', Session.get('studentId'), XP);
+    var behaviour = {
+      classId: Session.get('classId'),
+      student: Session.get('studentId'),
+      behavior: "",
+      behaviourType: 'XP',
+      comment: "Tarea: '" + this.chalMissionDesc + "' ( " + XP + " XP )",
+      evaluation: Session.get('evaluation'),
+      createdOn: new Date()
+    };
+    Meteor.call('behaviourLogInsert', behaviour);
+    nrs=challengesXP.find({'studentId': Session.get('studentId'), 'per': '0'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[0], nrs);
+    nos=challengesXP.find({'studentId': Session.get('studentId'), 'per': '20'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[20], nos);
+    nys=challengesXP.find({'studentId': Session.get('studentId'), 'per': '40'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[40], nys);
+    nws=challengesXP.find({'studentId': Session.get('studentId'), 'per': '60'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[60], nws);
+    nbs=challengesXP.find({'studentId': Session.get('studentId'), 'per': '80'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[80], nbs);
+    ngs=challengesXP.find({'studentId': Session.get('studentId'), 'per': '100'} ).count();
+    Meteor.call('updateStar', Session.get('studentId'), stars[100], ngs);
+  },
+  'click #graphBtn': function(event) {
+    event.preventDefault();
+    $("#myChart").toggleClass("visible");
   },
   'click #graphBtn': function(event) {
     event.preventDefault();
@@ -673,5 +701,9 @@ Template.studentPage.events({
   },
   'click .challengeText': function(event) {
     Meteor.call('activeTask', Session.get('studentId'), this._id,);
+  },
+  'click .rubricaBtn': function(event) {
+    event.preventDefault();
+    $("#rubricaStudent"+this._id).toggleClass("oculto");
   }
 });

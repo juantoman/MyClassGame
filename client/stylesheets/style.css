@@ -661,8 +661,12 @@ input[type=submit] {
   float:right;
 }
 
-.disableDiv {
+.disableDiv, .rubricaStudent {
   pointer-events: none;
+}
+
+.rubricaBtn {
+  pointer-events: auto !important;
 }
 
 #myChart {
@@ -790,10 +794,6 @@ input[type=submit] {
 
 .note-btn {
   background-color:#268BD2 !important;
-}
-
-.rubrica {
-  display:none;
 }
 
 @media (max-width: 768px) {
