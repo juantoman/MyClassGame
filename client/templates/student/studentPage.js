@@ -663,6 +663,16 @@ Template.studentPage.events({
     } else {
       aXP=challengesXP.findOne({'studentId': Session.get('studentId'), 'chalId': this._id} ).chalXP;
       Meteor.call('studentXP', Session.get('studentId'), -aXP);
+      var behaviour = {
+        classId: Session.get('classId'),
+        student: Session.get('studentId'),
+        behavior: "",
+        behaviourType: 'XP',
+        comment: "Cambio XP Tarea: '" + this.chalMissionDesc + "' ( " + -aXP + " XP )",
+        evaluation: Session.get('evaluation'),
+        createdOn: new Date()
+      };
+      Meteor.call('behaviourLogInsert', behaviour);
       //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
       Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
       //Meteor.call('addStar', Session.get('studentId'), stars[per]);
