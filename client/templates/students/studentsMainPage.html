@@ -37,6 +37,10 @@
               <button id="all_bg" type="button" class="btn btn-bg btn-sm">BG</button>
               <button id="all_euros" type="button" class="btn btn-euros btn-sm">€</button>
             </div>
+            <label> Menú flotante</label>
+            <div class="btn-group" role="group" aria-label="floatMenu">
+              <input type="checkbox" class="big-checkbox" id="floatMenu" checked>
+            </div>
           {{/if}}
           <div class="btn-group" role="group" aria-label="Estudiantes o equipos">
             <button id="students" type="button" class="btn btn-sog {{btnSelected "students"}} btn-sm">Estudiantes</button>
@@ -58,7 +62,7 @@
               <option value="coins">€</option>
             </select>
           </div>
-          <label>Invertir</label>
+          <label> Invertir</label>
           <div class="btn-group" role="group" aria-label="orderSelect">
             <input type="checkbox" class="big-checkbox" id="invertCheck" {{invertChecked}}>
           </div>

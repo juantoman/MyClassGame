@@ -79,6 +79,7 @@ Template.challenges.events({
   'click #saveAdventure': function(event) {
     event.preventDefault();
     Meteor.call('saveAdventure', Session.get('classId'), $("#adventureName").val(), $("#adventureDesc").val(), $("#adventureWeb").val());
+    $('#sn').html(classes.findOne({ _id: Session.get('classId') } ).adventureDesc);
   },
   'click #embebido': function(event) {
     event.preventDefault();

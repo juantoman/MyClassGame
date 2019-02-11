@@ -20,6 +20,13 @@ Template.myNav.helpers({
   groups: function() {
     return groups.find({classId: Session.get('classId')});
   },
+  menuSuperiorVisible: function() {
+    if (Session.get('userType')=="teacher") {
+     return "";
+    } else {
+     return "oculto";
+    };
+  }
 });
 Template.myNav.events({
   'click .student_button': function(event) {

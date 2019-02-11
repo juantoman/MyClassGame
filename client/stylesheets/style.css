@@ -15,14 +15,16 @@ body {
   background: #eee;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
+  padding-top: 121px;
+  padding-bottom: 40px;
 }
 
 #main {
   margin-top:-10px;
   position: relative;
   background: white;
-  /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
-  border:1px solid #268BD2;
+  /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");
+  border:1px solid #268BD2;*/
   background-attachment: fixed;
 }
 
@@ -43,8 +45,13 @@ body {
 
 .navbar {
   margin-bottom: 10px; 
+  height:110px;
   border-radius: 0px;
+  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
 }
+
   /* line 32, ../sass/style.scss */
   
 .navbar .navbar-inner {
@@ -236,9 +243,20 @@ a:hover, a:link {
       margin: auto;
 }
 .footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
   color:white;
   text-align: center;
   background-color: #073642;
+  -webkit-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0-5px 5px rgba(0, 0, 0, 0.5);
+  padding-top: 7px ;
 }
 .footer p{
   line-height: 6pt;
@@ -576,7 +594,7 @@ input[type=submit] {
 .menu-superior {
   position:fixed;
   color:white !important;
-  z-index:10;
+  z-index:10000 !important;
   left:40%;
   top: 0px;
   opacity: 0.9;
@@ -774,6 +792,7 @@ input[type=submit] {
 }
 
 #sn {
+  color: black;
   background-color: white;
   padding: 10px;
   border: 1px solid #268BD2 !important;

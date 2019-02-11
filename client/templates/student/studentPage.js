@@ -110,7 +110,7 @@ Template.studentPage.helpers({
     //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
     n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
     if ( n==1 ) {
-      //Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
+      Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
     } else {
       var chalCP = {
         classId: Session.get('classId'),
@@ -120,7 +120,7 @@ Template.studentPage.helpers({
         chalType:this.type,
         createdOn: new Date()
       };
-      //Meteor.call('chalInsertPoints', chalCP);
+      Meteor.call('chalInsertPoints', chalCP);
     }
     return "( " + cXP + " de " + t + " ): " + g;
   },
@@ -131,7 +131,7 @@ Template.studentPage.helpers({
     }
   },
   image: function(avatar) {
-    if ( avatar=="" || !avatar ) {
+    if ( avatar=="" || !avatar || Session.get('userType') != "teacher") {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
         return classes.findOne({_id: Session.get('classId')}).studentImg;
       } else {
@@ -433,7 +433,7 @@ Template.studentPage.helpers({
     return notas + " = " + nota;
   },
   parent: function() {
-    if (Session.get('userType')=="parent") {
+    if (Session.get('userType')!="teacher") {
      return true;
     } else {
      return false;

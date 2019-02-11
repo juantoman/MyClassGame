@@ -84,4 +84,8 @@ Template.parametersList.events({
     Session.setPersistent('evaluation', $(event.target).val());
     Meteor.call('changeEvaluation', Session.get('classId'),$(event.target).val());
   },
+  'change #avatarVisible': function(event) {
+    event.preventDefault();
+    Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  }
 });

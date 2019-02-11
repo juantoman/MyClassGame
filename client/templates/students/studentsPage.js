@@ -87,7 +87,9 @@ Template.studentsPage.helpers({
     return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
   },
   image: function(avatar) {
-    if ( avatar=="" || !avatar ) {
+    avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
+    if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
+    //if ( avatar=="" || !avatar || Session.get('userType') != "teacher") {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
         return classes.findOne({_id: Session.get('classId')}).studentImg;
       } else {
@@ -122,7 +124,7 @@ Template.studentsPage.helpers({
     };
   },
   parent: function() {
-    if (Session.get('userType')=="parent") {
+    if (Session.get('userType')!="teacher") {
      return true;
     } else {
      return false;

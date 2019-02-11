@@ -1,6 +1,7 @@
 <template name="parametersList">
   <div class="container">
     {{#with parametersClass}}
+    <br />
     <form>
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Parámetros de mi clase</label>
@@ -30,6 +31,11 @@
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
         </div>
+        <div class="input-group col-xs-11">
+            <input type="checkbox" id="avatarVisible" checked="{{avatarVisible}}">
+            <label class="control-label" for="avatarVisible"> Padres y estudiantes pueden ver los avatares</label>
+          </div>
+        <!--
         <div class="form-group">
           <div class="input-group col-xs-11">
             <span class="input-group-addon">Imagen de fondo de la clase</span>
@@ -38,6 +44,7 @@
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
         </div>
+        -->
         <div class="form-group">
           <div class="input-group col-xs-11">
             <span class="input-group-addon">HP inicial</span>

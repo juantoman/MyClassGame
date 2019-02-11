@@ -105,7 +105,7 @@ Template.groupPage.helpers({
     return inNote;
   },
   parent: function() {
-    if (Session.get('userType')=="parent") {
+    if (Session.get('userType')!="teacher") {
      return true;
     } else {
      return false;

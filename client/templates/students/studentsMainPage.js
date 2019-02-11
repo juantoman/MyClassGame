@@ -180,5 +180,9 @@ Template.studentsMainPage.events({
       c="";
     }
     Session.set('invertOrder', c);
+  },
+  'change #floatMenu': function(event) {
+    event.preventDefault();
+    $("#menu-superior").toggleClass("oculto");
   }
  });

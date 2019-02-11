@@ -8,7 +8,7 @@ Template.myBreadcrumb.helpers({
  },
  studentName: function() {
   if (Session.get('studentSelected')) {
-   return students.findOne({ _id: Session.get('studentId') } ).studentName;
+   return students.findOne({ _id: Session.get('studentId') } ).alias;
   } else {
    return "";
   }
