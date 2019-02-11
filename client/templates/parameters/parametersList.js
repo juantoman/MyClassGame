@@ -13,6 +13,11 @@ Template.parametersList.helpers({
     } else {
       return "";
     }
+  },
+  av: function(visible) {
+    if (visible) {
+      return "checked"
+    }
   }
 });
 

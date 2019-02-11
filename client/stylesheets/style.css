@@ -247,11 +247,9 @@ a:hover, a:link {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: red;
-  color: white;
-  text-align: center;
   color:white;
   text-align: center;
+  z-index: 1000;
   background-color: #073642;
   -webkit-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
