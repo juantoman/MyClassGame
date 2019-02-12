@@ -78,7 +78,7 @@
         <div id="add_hp_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="HPModalLabel">Reducir HP a todos los miembros del equipo</h4>
+            <h4 class="modal-title" id="HPModalLabel">Reducir HP a todos los alumnos seleccionados</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
@@ -102,5 +102,72 @@
       </div>
     </div>
   </div>
+</template>
 
+<!-- All BG Modal -->
+<template name="allBGModal">
+   <div class="modal" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_bg_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="HPModalLabel">Asignar insignia a todos los alumnos seleccionados</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each bgs}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{points}}</span>
+                      {{badgeDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comentarios</label>
+                <input type="text" class="form-control" id="commentBGGroup" name="commentHPGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" id="bgModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- All BG Modal -->
+<template name="allCoinsModal">
+   <div class="modal" id="coins_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_coins_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="CoinsModalLabel">Comprar artículos para todos los alumnos seleccionados</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each coins}}
+                    <button type="button" class="list-group-item" id="{{_id}}">
+                      <span class="badge">{{price}}</span>
+                      {{itemDescription}}
+                    </button>
+                  {{/each}}
+                </ul>
+                <label for="student-name" class="control-label">Comentarios</label>
+                <input type="text" class="form-control" id="commentCoinsGroup" name="commentCoinsGroup">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" id="coinsModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

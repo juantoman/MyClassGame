@@ -108,6 +108,18 @@ Template.studentsMainPage.events({
       Modal.show('allHPModal');
     }
   },
+  'click .btn-bg3': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allBGModal');
+    }
+  },
+  'click .btn-coins3': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allCoinsModal');
+    }
+  },
   'change #className': function(event) {
     event.preventDefault();
     Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);

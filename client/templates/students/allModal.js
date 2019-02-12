@@ -209,3 +209,91 @@ Template.allHPModal.events({
     Modal.hide('groupHPModal');
   },
 });
+
+Template.allBGModal.helpers({
+  bgs: function() {
+    return badges.find({ classId: Session.get('classId') });
+  },
+  hps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: false });
+  },
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  studentInGroup: function(studentId) {
+    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  }
+});
+
+Template.allBGModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      $(event.currentTarget).removeClass("list-group-item-danger");
+    } else {
+      $(event.currentTarget).addClass("list-group-item-danger");
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('groupBGModal');
+  },
+  'click #bgModalSubmit': function(event) {
+    event.preventDefault();
+    $('#bg_modal_group').find(".list-group-item-danger").each( function() {
+      badgeId=this.id;
+      p=parseInt($(this).find(".badge").text());
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        Meteor.call('studentBadge', item["_id"], badgeId);
+        Meteor.call('studentXP', item["_id"], p);
+      });
+    });
+    Modal.hide('groupBGModal');
+  },
+});
+
+Template.allCoinsModal.helpers({
+  coins: function() {
+    return store.find({ classId: Session.get('classId') });
+  },
+  hps: function() {
+    return behaviours.find({classId: Session.get('classId'), positive: false });
+  },
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  studentInGroup: function(studentId) {
+    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  }
+});
+
+Template.allCoinsModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      $(event.currentTarget).removeClass("list-group-item-danger");
+    } else {
+      $(event.currentTarget).addClass("list-group-item-danger");
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('groupCoinsModal');
+  },
+  'click #coinsModalSubmit': function(event) {
+    event.preventDefault();
+    $('#coins_modal_group').find(".list-group-item-danger").each( function() {
+      itemId=this.id;
+      price=parseInt($(this).find(".badge").text());
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        coins = students.findOne({_id: item["_id"]}).coins;
+        if ( coins >= price ) {
+          Meteor.call('buyingItem', item["_id"], itemId, price);
+        } else {
+          alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
+        }
+      });
+    });
+    Modal.hide('groupCoinsModal');
+  },
+});
