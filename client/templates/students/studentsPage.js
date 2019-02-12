@@ -1,5 +1,13 @@
 Template.studentsPage.onRendered(function() {
-   $.getScript("https://apis.google.com/js/api.js");
+  $.getScript("https://apis.google.com/js/api.js");
+  try {
+    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+  }
+  catch(err) {
+    emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+  }
+  currentStudent=students.findOne({'classId': Session.get('classId'),'email': emailUser})._id;
+  Session.set('currentStudent',currentStudent);
 });
 
 // The Browser API key obtained from the Google Developers Console.

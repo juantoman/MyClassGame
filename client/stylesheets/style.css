@@ -371,7 +371,7 @@ label {
   clear:both;
 }
 .myuser{
-  background-color: gold;
+  background-color: gold !important;
 }
 .userType{
   width:50%;

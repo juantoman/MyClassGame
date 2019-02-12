@@ -14,6 +14,13 @@ Template.myNav.helpers({
      return false;
     };
   },
+  aventura: function() {
+    if (Session.get('userType')!="parent") {
+     return true;
+    } else {
+     return false;
+    };
+  },
   students: function() {
     return students.find({ classId: Session.get('classId') }, {sort: {XP: -1,_id: 1}} );
   },

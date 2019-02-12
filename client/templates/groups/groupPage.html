@@ -130,6 +130,16 @@
                               </li>
                               <li class="list-group-item list-group-item-default">
                                 <h4 class="list-group-item-heading">
+                                  Numero de horas diarias
+                                  <select class="form-control" id="hours{{_id}}" name="assessment">
+                                    <option value="1" selected>1 hora</option>
+                                    <option value="2">2 horas</option>
+                                    <option value="3">3 horas</option>
+                                    <option value="4">4 horas</option>
+                                    <option value="5">5 horas</option>
+                                  </select>
+                                </h4>
+                                <h4 class="list-group-item-heading">
                                   <input class="seen" type="checkbox" value="{{_id}}" checked="{{seen}}"  {{inputDisabled}}> {{_ "seen"}}
                                   <input class="validated" type="checkbox" value="{{_id}}" checked="{{validated}}"  {{inputDisabled}}> {{_ "validated"}}
                                 </h4>

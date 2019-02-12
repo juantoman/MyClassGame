@@ -707,7 +707,7 @@ Template.studentPage.events({
   },
   'click #graphBtn': function(event) {
     event.preventDefault();
-    $("#myChart").toggleClass("visible");
+    $("#myChart").toggleClass("oculto");
   },
   'click .challengeText': function(event) {
     Meteor.call('activeTask', Session.get('studentId'), this._id,);

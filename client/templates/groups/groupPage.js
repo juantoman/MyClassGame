@@ -292,6 +292,26 @@ Template.groupPage.events({
     Meteor.call('seenChange', event.currentTarget.value, true);
     Meteor.call('validatedChange', event.currentTarget.value, event.currentTarget.checked);
     Meteor.call('validatedWork', event.currentTarget.value, event.currentTarget.checked);
+    horas=$("#hours"+this._id).val();
+    horaXP=classes.findOne({_id: Session.get('classId')}).hourXP;
+    workId=this._id;
+    if (event.currentTarget.checked) {
+      students.find( { groupId: Session.get('groupId') } ).forEach(function (item){
+        nota=parseInt(notebookWork.findOne({'notebookId': workId, 'studentId': item["_id"]}).work);
+        puntos=parseInt(horas*horaXP*nota/100);
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: "",
+          behaviourType: 'XP',
+          evaluation: Session.get('evaluation'),           
+          comment: "Puntos grupales diarios "+puntos,
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentXP', item["_id"], puntos);
+      });
+    }
   },
   'change #Diary': function(event) {
     event.preventDefault();

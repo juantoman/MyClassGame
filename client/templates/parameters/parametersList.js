@@ -54,6 +54,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('perHPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
+  'change #hourXP': function(event) {
+    event.preventDefault();
+    Meteor.call('hourXPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
+  },
   'click #studentImg': function(event) {
     event.preventDefault();
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
