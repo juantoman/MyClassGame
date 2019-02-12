@@ -310,8 +310,8 @@ Template.groupPage.events({
             comment: "Puntos grupales diarios "+puntos,
             createdOn: new Date()
           };
-          //Meteor.call('behaviourLogInsert', behaviour);
-          //Meteor.call('studentXP', item["_id"], puntos);
+          Meteor.call('behaviourLogInsert', behaviour);
+          Meteor.call('studentXP', item["_id"], puntos);
         }
       });
     }
