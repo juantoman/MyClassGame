@@ -299,6 +299,7 @@ Template.groupPage.events({
       students.find( { groupId: Session.get('groupId') } ).forEach(function (item){
         nota=parseInt(notebookWork.findOne({'notebookId': workId, 'studentId': item["_id"]}).work);
         puntos=parseInt(horas*horaXP*nota/100);
+        alert(horas +"*"+horaXP+"*"+nota+"/100="+puntos);
         var behaviour = {
           classId: Session.get('classId'),
           student: item["_id"],
@@ -308,8 +309,8 @@ Template.groupPage.events({
           comment: "Puntos grupales diarios "+puntos,
           createdOn: new Date()
         };
-        Meteor.call('behaviourLogInsert', behaviour);
-        Meteor.call('studentXP', item["_id"], puntos);
+        //Meteor.call('behaviourLogInsert', behaviour);
+        //Meteor.call('studentXP', item["_id"], puntos);
       });
     }
   },

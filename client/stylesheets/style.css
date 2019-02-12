@@ -15,12 +15,11 @@ body {
   background: #eee;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
-  padding-top: 121px;
-  padding-bottom: 40px;
+  padding-top: 111px;
+  padding-bottom: 50px;
 }
 
 #main {
-  margin-top:-10px;
   position: relative;
   background: white;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");
@@ -341,9 +340,10 @@ label {
   width: 101%;
 }
 .studentSelected {
-  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
+  border:3px #268BD2 solid;
   /*background-color: #d0f9cf !important;*/
 }
 .fotoStudent{
@@ -813,6 +813,22 @@ input[type=submit] {
   background-color:#268BD2 !important;
 }
 
+/*#menu_lateral {
+  position: fixed;
+  width: 17% !important;
+  z-index: 100;
+  opacity: 0.9;
+  display:none;
+  top:170px;
+}
+
+#menuBtn {
+  position: fixed;
+  top:113px;
+  z-index: 100;
+  width:7%;
+}*/
+
 @media (max-width: 768px) {
   .btn {
     font-size: 3vh;
@@ -834,6 +850,7 @@ input[type=submit] {
   .menu-superior {
     font-size: 3vh;
   }
+  
   .punts li, .puntsStudent li{
     font-size: 2vw;
     width: 20vw;
