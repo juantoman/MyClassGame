@@ -211,5 +211,9 @@ Template.challenges.events({
   'change .r6': function(event) {
     event.preventDefault();
     Meteor.call('chalUpdateR6', this._id, event.currentTarget.value);
+  },
+  'change .descTask': function(event) {
+    event.preventDefault();
+    Meteor.call('chalUpdateDescTask', this._id, event.currentTarget.value);
   }
 });

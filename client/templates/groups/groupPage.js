@@ -252,10 +252,10 @@ Template.groupPage.events({
         };
         Meteor.call('notebookWorkInsert',workStudent);*/
         //trabajos.push(workStudent);
+        
         $('#studentsPoints').find(".btn-group").each( function() {
-          i=this.id;
-          v=$("#" + i + " .active").find("input").val();
-          //alert(i+ " " +v)
+          i=this.title;
+          v=parseInt($("#s" + i + " .active").find("input").val());
           var workStudent={
             classId: Session.get('classId'),
             notebookId: Session.get("nid"),
@@ -300,7 +300,6 @@ Template.groupPage.events({
         nota=parseInt(notebookWork.findOne({'notebookId': workId, 'studentId': item["_id"]}).work);
         puntos=parseInt(horas*horaXP*nota/100);
         if (!isNaN(puntos)) {
-          alert(puntos);
           var behaviour = {
             classId: Session.get('classId'),
             student: item["_id"],

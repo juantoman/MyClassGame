@@ -24,7 +24,6 @@
                   <form method="post">
                     <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3"></textarea>
                   </form>
-                  <div id="summernote">Hello Summernote</div>
                 </div>
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Web sobre la aventura</label>
@@ -116,7 +115,12 @@
                                     {{/if}}
                                   </div>
                                   <div class="oculto" id="rubrica{{_id}}">
+                                    <div class="input-group col-xs-12">
+                                      <label>Descripción</label>
+                                      <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} rows="3">{{descTask}}</textarea>
+                                    </div>
                                     <div id="studentsPoints">
+                                      <label>Rúbrica</label>
                                       <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
                                         <label class="btn btn-info btn-emoticon">
                                           <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>

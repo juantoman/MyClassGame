@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 @import url('https://fonts.googleapis.com/css?family=Caveat');
 
+
 .grid-block, .main, .comments li, .comment-form {
   background: #fff;
   border-radius: 3px;
@@ -813,7 +814,8 @@ input[type=submit] {
   background-color:#268BD2 !important;
 }
 
-/*#menu_lateral {
+/*
+#menu_lateral {
   position: fixed;
   width: 17% !important;
   z-index: 100;
