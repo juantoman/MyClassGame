@@ -814,6 +814,10 @@ input[type=submit] {
   background-color:#268BD2 !important;
 }
 
+#ModalImg {
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+}
 /*
 #menu_lateral {
   position: fixed;

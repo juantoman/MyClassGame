@@ -63,10 +63,16 @@
               <div class="panel-group" id="accordionMissions" role="tablist" aria-multiselectable="true">
                 {{#each challenge}}
                   <div class="panel panel-info">
-                    <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionMissions" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
-                      <h4 class="panel-title">
-                        Misión {{IoG}}: {{chalName}}
-                      </h4>
+                    <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionMissions" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}" style="padding:0px;">
+                      <div class="input-group" style="margin:0px;padding:0px;">
+                        <h4 class="panel-title" style="padding:8px;">
+                          Misión {{IoG}}: {{chalName}}
+                        </h4>
+                        <span class="input-group-btn">
+                          <span class="glyphicon glyphicon-circle-arrow-up btn" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-circle-arrow-down btn" aria-hidden="true"></span>
+                        </span>
+                      </div>
                     </div>
                     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
                       <div class="panel-body">
@@ -85,6 +91,7 @@
                           </div>
                           {{#if isTeacher}}
                             <div class="input-group mb-3">
+                              <button class="duplicarMision btn btn-info" name="{{_id}}">Duplicar</button>
                               <button class="notas btn btn-info" name="{{_id}}">Introducir Notas</button>
                               <button class="btn btn-info" name="{{_id}}" id="chalDel">Eliminar</button>
                             </div>
@@ -198,7 +205,7 @@
                     <div class="input-group-addon">
                       <span class="input-group-text" id="basic-addon1">Nombre</span>
                     </div>
-                    <input type="text" class="form-control" name="chalName" placeholder="Nombre de la misiónexit" aria-label="Nombre del reto" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control" name="chalName" placeholder="Nombre de la misión" aria-label="Nombre del reto" aria-describedby="basic-addon1">
                   </div>
                   
                   <div class="input-group mb-3">

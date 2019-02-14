@@ -215,5 +215,16 @@ Template.challenges.events({
   'change .descTask': function(event) {
     event.preventDefault();
     Meteor.call('chalUpdateDescTask', this._id, event.currentTarget.value);
+  },
+  'click .duplicarMision': function(event) {
+    event.preventDefault();
+    Session.set('chalId',event.target.name);
+    cId=Session.get('classId');
+    var c = challenges.findOne({'_id': Session.get('chalId')});
+    mId=c._id;
+    delete c._id;
+    missionName=c.chalName;
+    c.chalName="Copia de " + missionName;
+    Meteor.call('chalDuplicate',c,cId,mId);
   }
 });
