@@ -1,11 +1,15 @@
 Template.randomPage.events({
   'click a': function(event) {
     randomElement=event.target.id;
+    $("#ModalHeader").text("RANDOM");
+    $("#ModalLabel").text("No hay nada");
+    $("#ModalImg").removeAttr("src");
     switch (randomElement) {
       case "evento":
         var e = randomEvents.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
         t = e[r].eventDescription;
+        i="";
         break;
       case "estudiante":
         var e = students.find({classId: Session.get('classId')}).fetch();
@@ -23,15 +27,15 @@ Template.randomPage.events({
         var e = convictions.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
         t = e[r].convictionDescription;
+        i="";
         break;
       case "frase":
         var e = quotes.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
+        i="";
         t = e[r].quoteText;
         break;
     }
-
-
     $("#ModalHeader").text(randomElement);
     $("#ModalLabel").text(t);
     $("#ModalImg").attr("src",i);

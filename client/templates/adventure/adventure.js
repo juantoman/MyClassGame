@@ -74,7 +74,9 @@ Template.challenges.events({
   },
   'click #chalDel': function(event) {
     event.preventDefault();
-    Meteor.call('chalDelete',event.target.name);
+    Session.set('missionId',event.target.name)
+    Modal.show('deleteMission');
+    //Meteor.call('chalDelete',event.target.name);
   },
   'click #saveAdventure': function(event) {
     event.preventDefault();
@@ -226,5 +228,12 @@ Template.challenges.events({
     missionName=c.chalName;
     c.chalName="Copia de " + missionName;
     Meteor.call('chalDuplicate',c,cId,mId);
+  }
+});
+
+Template.deleteMission.events({
+  'submit form': function(event) {
+    Meteor.call('chalDelete',Session.get('missionId'));
+    Modal.hide('deleteMission');
   }
 });

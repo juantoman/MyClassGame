@@ -6,7 +6,11 @@ Template.groupPage.helpers({
     return students.find( { groupId: Session.get('groupId') } );
   },
   studentInGroup: function(studentId) {
-    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) {
+      return "list-group-item-danger"; 
+    } else {
+      return "noGroup"; 
+    }
   },
   group: function() {
     return groups.findOne({ _id: Session.get('groupId') } );
@@ -142,8 +146,10 @@ Template.groupPage.events({
       event.preventDefault();
       if ($(event.currentTarget).hasClass("list-group-item-danger")){
         $(event.currentTarget).removeClass("list-group-item-danger");
+        $(event.currentTarget).addClass("noGroup");
       } else {
         $(event.currentTarget).addClass("list-group-item-danger");
+        $(event.currentTarget).removeClass("noGroup");
       }
     }
   },
@@ -202,7 +208,7 @@ Template.groupPage.events({
   },*/
   'submit form.dataStudent': function(event) {
     event.preventDefault();
-    $('.list-group').find(".list-group-item").each( function() {
+    $('.list-group').find(".noGroup").each( function() {
       i=this.id;
       Meteor.call('studentGroup', 0, i);
     });
@@ -264,10 +270,11 @@ Template.groupPage.events({
             work:v
         };
         Meteor.call('notebookWorkInsert',workStudent);
+        Modal.show('entradaModal');
         //trabajos.push(workStudent);
       });
     } else {
-      alert("Ya has introducido una entrada hoy en tu diario!!!")
+      Modal.show('entradaIntroducidaModal');
     }
   },
   'click .btn-default': function(event) {
