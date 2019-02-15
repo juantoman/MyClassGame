@@ -300,6 +300,7 @@ Template.groupPage.events({
     Meteor.call('validatedChange', event.currentTarget.value, event.currentTarget.checked);
     Meteor.call('validatedWork', event.currentTarget.value, event.currentTarget.checked);
     horas=$("#hours"+this._id).val();
+    Meteor.call('hoursChange', event.currentTarget.value, horas);
     horaXP=classes.findOne({_id: Session.get('classId')}).hourXP;
     workId=this._id;
     if (event.currentTarget.checked) {
