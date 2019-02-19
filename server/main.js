@@ -4,9 +4,9 @@ import { Email } from 'meteor/email'
 
 //Provar gmail-node
 
-Meteor.startup(() => {
+/*Meteor.startup(() => {
   process.env.MAIL_URL = "smtps://myclassgame%40gmail.com:Mcgholita06?@smtp.gmail.com:465";
-});
+});*/
 
 Accounts.emailTemplates.siteName = '@MyClassGame';
 
