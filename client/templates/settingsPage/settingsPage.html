@@ -15,7 +15,8 @@
         <li role="presentation"><a href="#store" aria-controls="store" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span> Tienda</a></li>
         <li role="presentation"><a href="#quotes" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Frases</a></li>       
         <li role="presentation"><a href="#levels" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Niveles</a></li>
-        <li role="presentation"><a href="#timing" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Parámetros</a></li>
+        <li role="presentation"><a href="#parameters" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Parámetros</a></li>
+        <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profesores</a></li>
       </ul>
 
       <!-- Tab panels -->
@@ -48,11 +49,14 @@
           <h2 class="text-center bg-info">Niveles</h2>
           {{> levelsTemplate}}
         </div>
-        <div role="tabpanel" class="tab-pane" id="timing">
+        <div role="tabpanel" class="tab-pane" id="parameters">
           <h2 class="text-center bg-info">Parámetros</h2>
           {{> parametersList}}
         </div>        
-
+         <div role="tabpanel" class="tab-pane" id="teachers">
+          <h2 class="text-center bg-info">Profesores</h2>
+          {{> teachersTemplate}}
+        </div>
       </div>
 
     </div>

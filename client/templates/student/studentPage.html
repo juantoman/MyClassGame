@@ -48,13 +48,15 @@
               <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
               <label for="sAvatar" class="control-label">Avatar</label>
               <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
-              <button id="cloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
+              <button id="avatarCloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
               <!--
                 <button id="cloudinaryList" name="cloudinaryList" {{inputDisabled}}>Ver imagenes</button>
               -->
               <br/>
+              {{#if teacher}}
               <label for="sEmail" class="control-label">email</label>
               <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
+              {{/if}}
             </div>
             {{#if teacher}}
             <div style="float:right;margin-bottom:20px;">

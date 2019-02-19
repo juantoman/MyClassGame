@@ -587,7 +587,7 @@ Template.studentPage.events({
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',event.target.name);
   },
-  'click #cloudinary': function(event) {
+  'click #avatarCloudinary': function(event) {
     event.preventDefault();
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
       //console.log(result);

@@ -63,7 +63,7 @@ Template.parametersList.events({
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
       //console.log(result);
       if (result.event=="success"){
-        $("#studentImg").val(result.info.url);
+        //$("#studentImg").val(result.info.url);
         Meteor.call('studentImgUpdate', Session.get('classId'), result.info.url);
       }
     });
@@ -73,7 +73,7 @@ Template.parametersList.events({
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
       //console.log(result);
       if (result.event=="success"){
-        $("#groupImg").val(result.info.url);
+        //$("#groupImg").val(result.info.url);
         Meteor.call('groupImgUpdate', Session.get('classId'), result.info.url);
       }
     });

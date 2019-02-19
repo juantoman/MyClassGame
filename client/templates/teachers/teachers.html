@@ -1,0 +1,28 @@
+<template name="teachersTemplate">
+  <div class="container">
+    <div class="list-group">
+    {{#each quotes}}
+          <div class="form-group">
+            <div class="input-group col-xs-11">
+              <span class="input-group-addon">Profesor</span>
+              <input type="text" class="form-control inputGroup input-lg" id="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{quoteText}}">
+            </div>
+            <span class="glyphicon glyphicon-cross form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+    {{/each}}
+    </div>
+    <form>
+      <div class="form-group">
+        <label class="control-label" for="inputGroupSuccess1">Nuevo profesor de la clase</label>
+        <div class="input-group col-xs-11">
+          <span class="input-group-addon">Nuevo</span>
+          <input type="text" class="form-control input-lg" name="quoteText" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>          
+        </div>
+
+      </div>
+    </form>
+  </div>
+</template>
