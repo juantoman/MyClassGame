@@ -5,6 +5,9 @@ Template.randomPage.events({
     $("#ModalLabel").text("");
     $("#ModalDesc").text("");
     $("#ModalImg").removeAttr("src");
+    t="";
+    d="";
+    i="";
     switch (randomElement) {
       case "evento":
         var e = randomEvents.find({classId: Session.get('classId')}).fetch();
