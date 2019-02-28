@@ -32,7 +32,7 @@ Template.eventsList.events({
     event.preventDefault();
     if (event.currentTarget.value )
     {
-      Meteor.call('randomEventUpdate', event.target.name, event.currentTarget.value);
+      Meteor.call('randomEventUpdate', event.target.name, event.target.id, event.currentTarget.value);
     } else {
       Meteor.call('randomEventDelete',event.target.name);
     }

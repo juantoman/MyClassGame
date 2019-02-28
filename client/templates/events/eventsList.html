@@ -5,11 +5,11 @@
       <div class="form-group">
         <div class="input-group col-xs-12">
           <label for="chalDesc">Nombre evento {{IoG}}</label>
-          <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+          <input type="text" class="form-control inputGroup" name="{{_id}}" id="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
         </div>
         <div class="input-group col-xs-12">
           <label for="chalDesc">Descripción evento</label>
-          <textarea class="form-control" name="{{_id}}" id="chalDesc" {{teacher}} rows="3">{{eventDescription}}</textarea>
+          <textarea class="form-control inputGroup" name="{{_id}}" id="eventDescription" {{teacher}} rows="3">{{eventDescription}}</textarea>
         </div>
         <div class="input-group mb-3">
           <div class="form-control input-lg eImage"><img height="30px" alt="Imagen evento" src="{{event_src eventImage}}" /></div>
