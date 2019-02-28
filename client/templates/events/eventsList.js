@@ -40,7 +40,7 @@ Template.eventsList.events({
  'click .eImage': function(event) {
     event.preventDefault();
     Session.set('imageType','event');
-    Session.set('idElementImage',event.currentTarget.id);
+    Session.set('idElementImage',event.currentTarget.title);
     Modal.show('images');
   }
 });

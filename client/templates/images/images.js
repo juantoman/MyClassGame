@@ -7,7 +7,12 @@ Template.images.helpers({
     return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
   },
   checkedImage: function(idImage) {
-    idElement=badges.findOne({_id: Session.get('idElementImage')}).badgeImage;
+    if ( Session.get('imageType') == "badge" ) {
+      idElement=badges.findOne({_id: Session.get('idElementImage')}).badgeImage;
+    }
+    if ( Session.get('imageType') == "event" ) {
+      idElement=randomEvents.findOne({_id: Session.get('idElementImage')}).eventImage;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -22,6 +27,9 @@ Template.images.events({
     if (Session.get('idElementImage')){
       if (Session.get('imageType')=="badge") {
         Meteor.call('imageBadgeUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="event") {
+        Meteor.call('imageEventUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());
