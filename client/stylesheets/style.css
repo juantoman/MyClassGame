@@ -498,7 +498,7 @@ li.active a{
   background-color: #d1ebfc;
 }
 
-.panel .input-group-addon, #btn-save {
+.input-group-addon, #btn-save {
   background-color: #268BD2 !important;
   border: 1px solid #268BD2 !important;
 }
