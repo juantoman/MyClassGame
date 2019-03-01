@@ -1,0 +1,49 @@
+<template name="components">
+  <div class="container-fluid" id="adventurePage">
+    <div class="list-group">
+    {{#with clase}}
+      <div class="form-group">
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">1. Soportes del juego</label>
+          <textarea class="form-control" name="{{_id}}" id="c1" rows="3">{{c1}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">2. Avatares</label>
+          <textarea class="form-control" name="{{_id}}" id="c2" rows="3">{{c2}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">3. Puntos/Mercado de puntos</label>
+          <textarea class="form-control" name="{{_id}}" id="c3" rows="3">{{c3}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">4. Tablero</label>
+          <textarea class="form-control" name="{{_id}}" id="c4" rows="3">{{c4}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">5. Disparadores de atencion</label>
+          <textarea class="form-control" name="{{_id}}" id="c5" rows="3">{{c5}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">6. Insignias</label>
+          <textarea class="form-control" name="{{_id}}" id="c6" rows="3">{{c6}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">7. Premios</label>
+          <textarea class="form-control" name="{{_id}}" id="c7" rows="3">{{c7}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">8. Cartas</label>
+          <textarea class="form-control" name="{{_id}}" id="c8" rows="3">{{c8}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">9. Anotaciones</label>
+          <textarea class="form-control" name="{{_id}}" id="c9" rows="3">{{c9}}</textarea>
+        </div>
+        <div class="input-group mb-3">
+          <button class="btn btn-info" name="{{_id}}" id="componentsSave">Guardar</button>
+        </div>
+      </div>
+    {{/with}}
+    </div>
+  </div>
+</template>

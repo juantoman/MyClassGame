@@ -1,0 +1,49 @@
+<template name="mechanics">
+  <div class="container-fluid" id="adventurePage">
+    <div class="list-group">
+    {{#with clase}}
+      <div class="form-group">
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">1. Misiones</label>
+          <textarea class="form-control" name="{{_id}}" id="m1" rows="3">{{m1}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">2. Desafios</label>
+          <textarea class="form-control" name="{{_id}}" id="m2" rows="3">{{m2}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">3. Puntos</label>
+          <textarea class="form-control" name="{{_id}}" id="m3" rows="3">{{m3}}</textarea>
+        </div>
+      <div class="input-group col-xs-12">
+          <label for="chalDesc">4. Niveles</label>
+          <textarea class="form-control" name="{{_id}}" id="m4" rows="3">{{m4}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">5. Bienes virtuales</label>
+          <textarea class="form-control" name="{{_id}}" id="m5" rows="3">{{m5}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">6. Premios/recompensas</label>
+          <textarea class="form-control" name="{{_id}}" id="m6" rows="3">{{m6}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">7. Regalos</label>
+          <textarea class="form-control" name="{{_id}}" id="m7" rows="3">{{m7}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">8. Instrucciones/Normas</label>
+          <textarea class="form-control" name="{{_id}}" id="m8" rows="3">{{m8}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">9. Anotaciones</label>
+          <textarea class="form-control" name="{{_id}}" id="m9" rows="3">{{m9}}</textarea>
+        </div>
+        <div class="input-group mb-3">
+          <button class="btn btn-info" name="{{_id}}" id="mechanicsSave">Guardar</button>
+        </div>
+      </div>
+    {{/with}}
+    </div>
+  </div>
+</template>

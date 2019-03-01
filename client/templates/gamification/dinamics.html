@@ -1,0 +1,49 @@
+<template name="dinamics">
+  <div class="container-fluid" id="adventurePage">
+    <div class="list-group">
+    {{#with clase}}
+      <div class="form-group">
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">1. Recompensas</label>
+          <textarea class="form-control" name="{{_id}}" id="d1" rows="3">{{d1}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">2. Logros/Objetivos</label>
+          <textarea class="form-control" name="{{_id}}" id="d2" rows="3">{{d2}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">3. Status</label>
+          <textarea class="form-control" name="{{_id}}" id="d3" rows="3">{{d3}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">4. Expresión y Auto-expresión</label>
+          <textarea class="form-control" name="{{_id}}" id="d4" rows="3">{{d4}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">5. Competición</label>
+          <textarea class="form-control" name="{{_id}}" id="d5" rows="3">{{d5}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">6. Altruismo</label>
+          <textarea class="form-control" name="{{_id}}" id="d6" rows="3">{{d6}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">7. Estética y ambientación</label>
+          <textarea class="form-control" name="{{_id}}" id="d7" rows="3">{{d7}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">8. Información en cascada</label>
+          <textarea class="form-control" name="{{_id}}" id="d8" rows="3">{{d8}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">9. Anotaciones</label>
+          <textarea class="form-control" name="{{_id}}" id="d9" rows="3">{{d9}}</textarea>
+        </div>
+        <div class="input-group mb-3">
+          <button class="btn btn-info" name="{{_id}}" id="dinamicsSave">Guardar</button>
+        </div>
+      </div>
+    {{/with}}
+    </div>
+  </div>
+</template>

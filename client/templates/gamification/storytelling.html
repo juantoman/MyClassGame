@@ -1,0 +1,61 @@
+<template name="storytelling">
+  <div class="container-fluid" id="adventurePage">
+    <div class="list-group">
+    {{#with clase}}
+      <div class="form-group">
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">1. Universo</label>
+          <textarea class="form-control" name="{{_id}}" id="n1" rows="3">{{n1}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">2. Protagonista</label>
+          <textarea class="form-control" name="{{_id}}" id="n2" rows="3">{{n2}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">3. Antagonista</label>
+          <textarea class="form-control" name="{{_id}}" id="n3" rows="3">{{n3}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">4. Aliados</label>
+          <textarea class="form-control" name="{{_id}}" id="n4" rows="3">{{n4}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">5. Incidente incitador</label>
+          <textarea class="form-control" name="{{_id}}" id="n5" rows="3">{{n5}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">6. Objetivo</label>
+          <textarea class="form-control" name="{{_id}}" id="n6" rows="3">{{n6}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">7. Conflictos</label>
+          <textarea class="form-control" name="{{_id}}" id="n7" rows="3">{{n7}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">8. Soluciones</label>
+          <textarea class="form-control" name="{{_id}}" id="n8" rows="3">{{n8}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">9. Premio</label>
+          <textarea class="form-control" name="{{_id}}" id="n9" rows="3">{{n9}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">10. Climax</label>
+          <textarea class="form-control" name="{{_id}}" id="n10" rows="3">{{n10}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">11. Resolucion/Triunfo</label>
+          <textarea class="form-control" name="{{_id}}" id="n11" rows="3">{{n11}}</textarea>
+        </div>
+        <div class="input-group col-xs-12">
+          <label for="chalDesc">12. Anotaciones</label>
+          <textarea class="form-control" name="{{_id}}" id="n12" rows="3">{{n12}}</textarea>
+        </div>
+        <div class="input-group mb-3">
+          <button class="btn btn-info" name="{{_id}}" id="storySave">Guardar</button>
+        </div>
+      </div>
+    {{/with}}
+    </div>
+  </div>
+</template>
