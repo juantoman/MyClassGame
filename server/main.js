@@ -5,8 +5,7 @@ import { Email } from 'meteor/email'
 //Provar gmail-node
 
 Meteor.startup(() => {
-  process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
-  console.log(Meteor.settings);  
+  process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
 });
 
 Accounts.emailTemplates.siteName = '@MyClassGame';

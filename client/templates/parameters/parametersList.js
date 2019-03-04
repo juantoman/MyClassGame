@@ -96,5 +96,17 @@ Template.parametersList.events({
   'change #avatarVisible': function(event) {
     event.preventDefault();
     Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
+  'click #btn-reset': function(event) {
+    event.preventDefault();
+    Modal.show('resetClass');
+    //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  }
+});
+
+Template.resetClass.events({
+  'submit form': function(event) {
+    Meteor.call('resetClass', Session.get('classId'));
+    Modal.hide('resetClass');
   }
 });
