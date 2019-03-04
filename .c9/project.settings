@@ -1,0 +1,27 @@
+{
+    "build": {
+        "@saveall": true
+    },
+    "language": {
+        "tern_defs": {
+            "json()": {
+                "browser": {
+                    "enabled": true
+                },
+                "ecma5": {
+                    "enabled": true
+                },
+                "jQuery": {
+                    "enabled": true
+                }
+            }
+        }
+    },
+    "run": {
+        "@runner": "Meteor",
+        "configs": {
+            "@inited": "true",
+            "json()": {}
+        }
+    }
+}
