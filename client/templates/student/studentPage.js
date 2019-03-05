@@ -57,12 +57,12 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId')});
   },
-  challenges: function() {
+  challengesI: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Reto"});
   },
-  challenge: function() {
-    return challenges.find({classId: Session.get('classId')});
+  challengesG: function() {
+    return challenges.find({classId: Session.get('classId'),type:"Misión"});
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
@@ -444,6 +444,10 @@ Template.studentPage.helpers({
     if ( task == at ) {
      return "activeTask";
     }
+  },
+  image_url: function(badgeImage) {
+    i=images.findOne({ _id: badgeImage } ).image_url;
+    return i;
   }
 });
 
