@@ -13,6 +13,9 @@ Template.images.helpers({
     if ( Session.get('imageType') == "event" ) {
       idElement=randomEvents.findOne({_id: Session.get('idElementImage')}).eventImage;
     }
+    if ( Session.get('imageType') == "card" ) {
+      idElement=cards.findOne({_id: Session.get('idElementImage')}).cardImage;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -30,6 +33,9 @@ Template.images.events({
       }
       if (Session.get('imageType')=="event") {
         Meteor.call('imageEventUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="card") {
+        Meteor.call('imageCardUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());

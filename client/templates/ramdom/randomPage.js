@@ -17,6 +17,14 @@ Template.randomPage.events({
         imageId=e[r].eventImage;
         i=images.findOne({_id: imageId}).image_url;;
         break;
+      case "carta":
+        var e = cards.find({classId: Session.get('classId')}).fetch();
+        var r = Math.floor(Math.random() * e.length);
+        t = e[r].cardName;
+        d = e[r].cardDescription;
+        imageId=e[r].cardImage;
+        i=images.findOne({_id: imageId}).image_url;;
+        break;
       case "estudiante":
         var e = students.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);

@@ -61,3 +61,6 @@ Meteor.publish('notebookWork', function() {
 Meteor.publish('images', function() {
   return images.find();
 });
+Meteor.publish('cards', function() {
+  return cards.find();
+});

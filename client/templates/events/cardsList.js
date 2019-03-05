@@ -39,7 +39,7 @@ Template.cardsList.events({
   },
  'click .eImage': function(event) {
     event.preventDefault();
-    Session.set('imageType','event');
+    Session.set('imageType','card');
     Session.set('idElementImage',event.currentTarget.title);
     Modal.show('images');
   }
