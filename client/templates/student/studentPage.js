@@ -124,6 +124,24 @@ Template.studentPage.helpers({
     }
     return "( " + cXP + " de " + t + " ): " + g;
   },
+  missionsXPTotalI: function() {
+    XPTotal=0;
+    challenges.find({'classId':Session.get('classId'),'type':"Reto"}).forEach(function(c){
+      chalMissions.find({'missionId':c._id}).forEach(function(cxp){
+        XPTotal+=parseInt(cxp.chalMissionXP);
+      });
+    });
+    return XPTotal;
+  },
+  missionsXPTotalG: function() {
+    XPTotal=0;
+    challenges.find({'classId':Session.get('classId'),'type':"Misión"}).forEach(function(c){
+      chalMissions.find({'missionId':c._id}).forEach(function(cxp){
+        XPTotal+=parseInt(cxp.chalMissionXP);
+      });
+    });
+    return XPTotal;
+  },
   activeInput: function(n) {
     per=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).per;
     if (per==n) {

@@ -1,18 +1,18 @@
 <template name="cardsList">
   <div class="container">
     <div class="list-group">
-    {{#each randomEvents}}
+    {{#each cards}}
       <div class="form-group">
         <div class="input-group col-xs-12">
-          <label for="chalDesc">Nombre evento {{IoG}}</label>
-          <input type="text" class="form-control inputGroup" name="{{_id}}" id="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+          <label for="chalDesc">Nombre Carta</label>
+          <input type="text" class="form-control inputGroup" name="{{_id}}" id="cardName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardName}}">
         </div>
         <div class="input-group col-xs-12">
-          <label for="chalDesc">Descripción evento</label>
-          <textarea class="form-control inputGroup" name="{{_id}}" id="eventDescription" {{teacher}} rows="3">{{eventDescription}}</textarea>
+          <label for="chalDesc">Descripción Carta</label>
+          <textarea class="form-control inputGroup" name="{{_id}}" id="cardDescription" {{teacher}} rows="3">{{cardDescription}}</textarea>
         </div>
         <div class="input-group mb-3">
-          <div class="form-control input-lg eImage" title="{{_id}}"><img height="30px" alt="Imagen evento" src="{{event_src eventImage}}" /></div>
+          <div class="form-control input-lg eImage" title="{{_id}}"><img height="30px" alt="Imagen carta" src="{{card_src cardImage}}" /></div>
         </div>
       </div>
     {{/each}}
@@ -20,24 +20,24 @@
     
     <form>
       <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess1">Nuevo evento</label>
+        <label class="control-label" for="inputGroupSuccess1">Nueva Carta</label>
 
         <div class="input-group  mb-3">
           <div class="input-group-addon">
             <span class="input-group-text" id="basic-addon1">Nombre</span>
           </div>
-          <input type="text" class="form-control" name="eventName" placeholder="Nombre del evento" aria-label="Nombre del evento" aria-describedby="basic-addon1">
+          <input type="text" class="form-control" name="cardName" placeholder="Nombre de la carta" aria-label="Nombre de la carta" aria-describedby="basic-addon1">
         </div>
         
         <div class="input-group mb-3">
           <div class="input-group-addon">
             <span class="input-group-text" id="basic-addon2">Descripción</span>
           </div> 
-          <input type="text" class="form-control" name="eventDescription" placeholder="Descripción del evento" aria-label="Descripción del evento" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" name="cardDescription" placeholder="Descripción de la carta" aria-label="Descripción de la carta" aria-describedby="basic-addon2">
         </div>
         
         <div class="input-group mb-3">
-            <div class="form-control input-lg eImage"><img height="30px" alt="Imagen evento" src="{{event_src}}" /></div>
+            <div class="form-control input-lg eImage"><img height="30px" alt="Imagen carta" src="{{event_src}}" /></div>
         </div>
         
         <div class="input-group mb-3">
@@ -45,5 +45,9 @@
         </div>
       </div>
     </form>
+    <div class="form-group">
+      <label class="control-label" for="inputGroupSuccess1">Webs para crear cartas</label><br />
+      <a class="btn btn-info" href="http://www.hearthcards.net" target="_blank">Hearthcards</a>
+    </div>
   </div>
 </template>
