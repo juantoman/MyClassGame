@@ -1,0 +1,33 @@
+<template name="chat">
+  <!--
+  {{> myBreadcrumb}}
+  {{> myNav}}
+  -->
+  <div class="container-responsive">
+
+    <div id="settingsMenu">
+      <!-- Nav tabs -->
+      {{#if teacher}}
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#chatClass" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Clase</a></li>
+          <li role="presentation"><a href="#chatTeachers" aria-controls="chatTeachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Profesores</a></li>
+        </ul>
+      
+        <!-- Tab panels -->
+        <div class="tab-content container-responsive" style="background-color:#eee;">
+          <div role="tabpanel" class="tab-pane active" id="chatClass">
+            <h2 class="text-center bg-info">Chat Clase</h2>
+            {{> chatClass}}
+          </div>
+          
+          <div role="tabpanel" class="tab-pane" id="chatTeachers">
+            <h2 class="text-center bg-info">Chat Profesores</h2>
+            {{> chatTeachers}}
+          </div>
+        </div>
+      {{else}}
+        {{> chatClass}}
+      {{/if}}
+    </div>
+  </div>
+</template>

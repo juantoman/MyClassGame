@@ -64,3 +64,10 @@ Meteor.publish('images', function() {
 Meteor.publish('cards', function() {
   return cards.find();
 });
+Meteor.publish('chatClass', function() {
+  return chatClass.find();
+});
+Meteor.publish('chatTeachers', function() {
+  return chatTeachers.find();
+});
+
