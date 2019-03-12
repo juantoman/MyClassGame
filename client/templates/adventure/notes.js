@@ -63,6 +63,7 @@ Template.notes.events({
       Meteor.call('chalUpdatePoints', groupId, chalId, chalCP);
     } else {
       var chalCP = {
+        classId: Session.get('classId'),
         studentId: groupId,
         chalId: chalId,
         chalCP: chalCP,
@@ -78,6 +79,7 @@ Template.notes.events({
         Meteor.call('chalUpdatePoints', item._id, chalId, nota);
       } else {
         var chalCP = {
+          classId: Session.get('classId'),
           studentId: item._id,
           chalId: chalId,
           chalCP: nota,
@@ -100,6 +102,7 @@ Template.notes.events({
       Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
     } else {
       var chalCP = {
+        classId: Session.get('classId'),
         studentId: studentId,
         chalId: chalId,
         chalCP: chalCP,
