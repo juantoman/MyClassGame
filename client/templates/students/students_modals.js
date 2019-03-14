@@ -40,6 +40,7 @@ Template.studentsModals.events({
       gs: 0,
       badges: [],
       items: [],
+      cards: [],
       powers: [],
       collection: [],
       selected: 0,
