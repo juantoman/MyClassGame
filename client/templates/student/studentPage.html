@@ -456,6 +456,63 @@
           </div>
         </div>
         <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCards" aria-expanded="false" aria-controls="collapseCards" id="headingCards">
+            <h4 class="panel-title">
+                Cartas
+            </h4>
+          </div>
+          <div id="collapseCards" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCards">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each cards}}
+                  <div class="col-container col-sm-6 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{card.cardName}}</h4>
+                          <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
+                          <button class="btn btn-info">Utilizar</button>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
             <h4 class="panel-title">
                 {{_ "history"}}

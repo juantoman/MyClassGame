@@ -85,6 +85,10 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).badges;
   },
+  cards: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return students.findOne({_id: Session.get('studentId')}).cards;
+  },
   CP: function(cId) {
     return chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     //return challenges.find({classId: Session.get('classId')});
@@ -190,6 +194,9 @@ Template.studentPage.helpers({
   },
   badge: function(){
     return badges.findOne({_id: this.badgeId});
+  },
+  card: function(){
+    return cards.findOne({_id: this.cardId});
   },
   statistics: function() {
     return behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId')});
@@ -463,8 +470,8 @@ Template.studentPage.helpers({
      return "activeTask";
     }
   },
-  image_url: function(badgeImage) {
-    i=images.findOne({ _id: badgeImage } ).image_url;
+  image_url: function(Image) {
+    i=images.findOne({ _id: Image } ).image_url;
     return i;
   }
 });

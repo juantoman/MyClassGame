@@ -229,6 +229,17 @@ Template.studentsPage.events({
       Modal.show('hpModal');
     }
   },
+   'click .btn-cards': function(event) {
+    event.preventDefault();
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('cardsModal');
+    }
+  },
   'click .info-list': function(event) {
     event.preventDefault();
     Session.set('nXP',0);
