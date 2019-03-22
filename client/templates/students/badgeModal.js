@@ -1,6 +1,9 @@
 Template.badgeModal.helpers({
   badgesList: function() {
     return badges.find({ classId: Session.get('classId') });
+  },
+  srcImage: function(imgId) {
+    return images.findOne({_id: imgId }).image_url;
   }
 });
 

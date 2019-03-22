@@ -1,6 +1,6 @@
-/*Template.register.onRendered(function () {
+Template.register.onRendered(function () {
   //alert(Meteor.users.findOne(Meteor.user()).userType);
-  Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
+  /*Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
   Session.set('className',"");
   if (Meteor.users.findOne(Meteor.user()).userType=="teacher")
   {
@@ -12,8 +12,11 @@
   {
     //Session.set('userType', "student");
     Router.go('classesPage');
+  }*/
+  if (Meteor.user().userType != "") {
+    Router.go('classesPage');
   }
-});*/
+});
 
 Template.register.helpers({
   'userType': function() {

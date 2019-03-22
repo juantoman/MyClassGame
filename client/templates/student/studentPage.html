@@ -503,7 +503,8 @@
                           <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
                           <h4 class="text-center text-info">{{card.cardName}}</h4>
                           <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
-                          <button class="btn btn-info">Utilizar</button>
+                          {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
+                          {{#if usabled}}<button class="btn btn-info useCard">Utilizar</button>{{/if}}
                       </div>
                     </div>
                   </div>

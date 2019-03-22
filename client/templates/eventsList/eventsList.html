@@ -3,16 +3,18 @@
     <div class="list-group">
     {{#each randomEvents}}
       <div class="form-group">
-        <div class="input-group col-xs-12">
-          <label for="chalDesc">Nombre evento {{IoG}}</label>
-          <input type="text" class="form-control inputGroup" name="{{_id}}" id="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+        <div class="input-group" style="width:15%;float:left;margin-top:20px;">
+          <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen evento" src="{{event_src eventImage}}" /></div>
         </div>
-        <div class="input-group col-xs-12">
-          <label for="chalDesc">Descripción evento</label>
-          <textarea class="form-control inputGroup" name="{{_id}}" id="eventDescription" {{teacher}} rows="3">{{eventDescription}}</textarea>
-        </div>
-        <div class="input-group mb-3">
-          <div class="form-control input-lg eImage" title="{{_id}}"><img height="30px" alt="Imagen evento" src="{{event_src eventImage}}" /></div>
+        <div class="input-group" style="width:80%;">
+          <div class="input-group col-xs-11">
+            <label for="chalDesc">Nombre evento {{IoG}}</label>
+            <input type="text" class="form-control inputGroup" name="{{_id}}" id="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+          </div>
+          <div class="input-group col-xs-11">
+            <label for="chalDesc">Descripción evento</label>
+            <textarea class="form-control inputGroup" name="{{_id}}" id="eventDescription" {{teacher}} rows="3">{{eventDescription}}</textarea>
+          </div>
         </div>
       </div>
     {{/each}}
@@ -21,25 +23,24 @@
     <form>
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Nuevo evento</label>
-
-        <div class="input-group  mb-3">
-          <div class="input-group-addon">
-            <span class="input-group-text" id="basic-addon1">Nombre</span>
+        <div class="input-group" style="width:15%;float:left;margin-right:20px;">
+          <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen carta" src="{{event_src}}" /></div>
+        </div>
+        <div class="input-group" style="width:80%;">
+          <div class="input-group col-xs-11">
+            <div class="input-group-addon">
+              <span class="input-group-text" id="basic-addon1">Nombre</span>
+            </div>
+            <input type="text" class="form-control" name="eventName" placeholder="Nombre del evento" aria-label="Nombre del evento" aria-describedby="basic-addon1">
           </div>
-          <input type="text" class="form-control" name="eventName" placeholder="Nombre del evento" aria-label="Nombre del evento" aria-describedby="basic-addon1">
+          
+          <div class="input-group col-xs-11">
+            <div class="input-group-addon">
+              <span class="input-group-text" id="basic-addon2">Descripción</span>
+            </div> 
+            <input type="text" class="form-control" name="eventDescription" placeholder="Descripción del evento" aria-label="Descripción del evento" aria-describedby="basic-addon2">
+          </div>
         </div>
-        
-        <div class="input-group mb-3">
-          <div class="input-group-addon">
-            <span class="input-group-text" id="basic-addon2">Descripción</span>
-          </div> 
-          <input type="text" class="form-control" name="eventDescription" placeholder="Descripción del evento" aria-label="Descripción del evento" aria-describedby="basic-addon2">
-        </div>
-        
-        <div class="input-group mb-3">
-            <div class="form-control input-lg eImage"><img height="30px" alt="Imagen evento" src="{{event_src}}" /></div>
-        </div>
-        
         <div class="input-group mb-3">
           <input type="submit" id="btn-save" value="Crear" class="btn btn-info">
         </div>

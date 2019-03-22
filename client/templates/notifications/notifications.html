@@ -1,0 +1,28 @@
+<template name="notifications">
+  <div class="container">
+    <div class="list-group">
+    <h2 class="text-center bg-info">Cartas para validar</h2>
+    {{#each notifications}}
+      <button type="button" class="list-group-item validar">
+        <img src="{{card_src  card.cardImage}}" style="width:8%;float:left;margin-right:50px;"/>
+        <div style="width:86%;">
+          <h3>{{student.studentName}}</h3>
+          <h4>{{card.cardName}}</h4>
+          <h5>{{card.cardDescription}}</h5>
+        </div>
+      </button>
+    {{/each}}
+    <h2 class="text-center bg-info">Cartas validadas</h2>
+    {{#each usedCards}}
+      <button type="button" class="list-group-item">
+        <img src="{{card_src  card.cardImage}}" style="width:8%;float:left;margin-right:50px;"/>
+        <div style="width:86%;">
+          <h3>{{student.studentName}}</h3>
+          <h4>{{card.cardName}}</h4>
+          <h5>{{card.cardDescription}}</h5>
+        </div>
+      </button>
+    {{/each}}
+    </div>
+  </div>
+</template>

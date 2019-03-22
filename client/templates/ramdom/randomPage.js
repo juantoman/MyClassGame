@@ -15,7 +15,9 @@ Template.randomPage.events({
         t = e[r].eventName;
         d = e[r].eventDescription;
         imageId=e[r].eventImage;
-        i=images.findOne({_id: imageId}).image_url;;
+        if (imageId != undefined) {
+          i=images.findOne({_id: imageId}).image_url;
+        }
         break;
       case "carta":
         var e = cards.find({classId: Session.get('classId')}).fetch();
@@ -23,7 +25,9 @@ Template.randomPage.events({
         t = e[r].cardName;
         d = e[r].cardDescription;
         imageId=e[r].cardImage;
-        i=images.findOne({_id: imageId}).image_url;;
+        if (imageId != undefined) {
+          i=images.findOne({_id: imageId}).image_url;
+        }
         break;
       case "estudiante":
         var e = students.find({classId: Session.get('classId')}).fetch();
