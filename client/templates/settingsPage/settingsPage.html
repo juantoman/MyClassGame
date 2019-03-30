@@ -18,6 +18,7 @@
         <li role="presentation"><a href="#levels" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Niveles</a></li>
         <li role="presentation"><a href="#parameters" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Parámetros</a></li>
         <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Profesores</a></li>
+        <li role="presentation"><a href="#admin" aria-controls="admin" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Administrar</a></li>
       </ul>
 
       <!-- Tab panels -->
@@ -58,9 +59,13 @@
           <h2 class="text-center bg-info">Parámetros</h2>
           {{> parametersList}}
         </div>        
-         <div role="tabpanel" class="tab-pane" id="teachers">
+        <div role="tabpanel" class="tab-pane" id="teachers">
           <h2 class="text-center bg-info">Profesores</h2>
           {{> teachersTemplate}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="admin">
+          <h2 class="text-center bg-info">Administrar</h2>
+          {{> admin}}
         </div>
       </div>
 

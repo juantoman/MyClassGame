@@ -1,58 +1,9 @@
-<template name="challenges">
+<template name="missions">
   <div class="container-fluid" id="adventurePage">
     <div class="list-group">
-      {{#with class}}
-        <div class="panel panel-info">
-          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="" href="#adventure" aria-expanded="true" aria-controls="adventure" id="headAdventure">
-            <h4 class="panel-title">
-              Aventura
-            </h4>
-          </div>
-          <div id="adventure" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headAdventure">
-            <div class="panel-body">
-              <div class="form-group">
-                <div class="input-group col-xs-12">
-                  <label for="chalDesc">Nombre aventura</label>
-                  <input type="text" id="adventureName" class="form-control inputGroup" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureName}}">
-                </div>
-                <div class="input-group col-xs-12">
-                  <label for="adventureDesc">Descripción</label>
-                  <textarea class="form-control" id="adventureDesc" {{teacher}} rows="3">{{adventureDesc}}</textarea>
-                </div>
-                <div class="input-group col-xs-12">
-                  <label for="adventureTiny">Detalles</label>
-                  <form method="post">
-                    <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3"></textarea>
-                  </form>
-                </div>
-                <div class="input-group col-xs-12">
-                  <label for="chalDesc">Web sobre la aventura</label>
-                  <input type="text" class="form-control inputGroup" id="adventureWeb" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureWeb}}">
-                </div>
-                
-                <div class="input-group mb-3">
-                  <button id="adventureBtn" value="Mostrar" class="btn btn-info">Ver aventura</button>
-                  {{#if adventureWeb}}
-                    <a class="btn btn-info" href="{{adventureWeb}}" target="_blank">Visitar web</a>
-                    <button id="embebido" value="Mostrar" class="btn btn-info">Mostrar</button>
-                  {{/if}}
-                  {{#if isTeacher}}
-                    <button id="saveAdventure" value="Guardar" class="btn btn-info">Guardar</button>
-                  {{/if}}
-                </div>
-                {{#if adventureWeb}}
-                <div class="input-group col-xs-12" id="iframeWeb">
-                  <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="{{adventureWeb}}" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
-                </div>
-                {{/if}}
-              </div>
-            </div>
-          </div>
-        </div>
-      {{/with}}
       <div class="panel panel-info">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">
-          <h4 class="panel-title">
+          <h4 class="panel-title text-center">
             Misiones
           </h4>
         </div>

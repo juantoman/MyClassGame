@@ -1,10 +1,28 @@
 <template name="classesPage">
   {{> myBreadcrumb}}
+  <div class="container-fluid myContent typeClasses">
+    <h4 id="classesTypes">{{_ "tclasses"}}</h4>
+    <div class="row">
+      {{#each types}}
+        <div class="col-sm-12 col-md-4 col-lg-2">
+          <div class="thumbnail">
+              <h2 class="text-center bg-info">{{className}}</h2>
+              <img src="{{groupImg}}" class="fotoIcono" alt="...">
+              <div class="caption">
+                <h2 class="text-center">
+                  <button type="button" class="btn btn-info btn-type">Crear clase</button>
+                </h2>
+              </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
   {{#if cName}}
   <div class="container-fluid myContent activeClasses">
     <h4 id="changeRol">{{_ "aclasses"}}</h4>
     <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-3">
+      <div class="col-sm-12 col-md-4 col-lg-2">
         <div class="thumbnail">
             <h2 class="text-center bg-info">{{_ "nclass"}}</h2>
             <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="fotoIcono" alt="...">
@@ -19,7 +37,7 @@
         </div>
       </div>
       {{#each classe}}
-        <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="col-sm-12 col-md-4 col-lg-2">
           <div class="thumbnail">
               <h2 class="text-center bg-info">{{className}}</h2>
               <img src="{{groupImg}}" class="fotoIcono" alt="...">
@@ -27,9 +45,11 @@
                 <h2 class="text-center">
                   <button id="{{_id}}" type="button" class="btn btn-info btn-class" name="{{className}}">{{className}}</button>
                   {{#if teacher}}
+                    <!--
                     <button id="{{_id}}" type="button" class="btn btn-success btn-double-class" name="{{className}}">
                       {{_ "copy"}}
                     </button>
+                    -->
                     <button type="button" class="btn btn-danger btn-store-class" name="{{_id}}">
                       {{_ "vstore"}}
                     </button>
@@ -45,10 +65,10 @@
     <h4 id="adminClass">{{_ "sclasses"}}</h4>
     <div class="row">
       {{#each stored}}
-        <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="col-sm-12 col-md-4 col-lg-2">
           <div class="thumbnail">
               <h2 class="text-center bg-info">{{className}}</h2>
-              <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="fotoIcono" alt="...">
+              <img src="{{groupImg}}" class="fotoIcono" alt="...">
               <div class="caption">
                 <h2 class="text-center">
                   <button id="{{_id}}" type="button" class="btn btn-info btn-class" name="{{className}}">{{className}}</button>
@@ -56,9 +76,11 @@
                     <button id="{{_id}}" type="button" class="btn btn-success btn-restore" name="{{_id}}">
                       {{_ "restore"}}
                     </button>
+                    <!--
                     <button type="button" class="btn btn-danger btn-delete-class" name="{{_id}}">
                       {{_ "delete"}}
                     </button>
+                    -->
                   {{/if}}
                 </h2>
               </div>
@@ -67,8 +89,7 @@
       {{/each}}
     </div>
   </div>
-  {{else}}
-    {{> myNav}}
+
   {{/if}}
   {{> classesModals}}
 </template>

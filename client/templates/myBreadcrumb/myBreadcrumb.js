@@ -4,7 +4,7 @@
 });*/
 Template.myBreadcrumb.helpers({
  className: function() {
-  return Session.get('className');
+  return classes.findOne({ _id: Session.get('classId') } ).className;
  },
  studentName: function() {
   if (Session.get('studentSelected')) {
@@ -32,12 +32,12 @@ Template.myBreadcrumb.events({
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
     $("#fondo").css("background-image", "");
-    //Router.go('/');
+    Router.go('classesPage');
   },
   'click .clase': function(event) {
     event.preventDefault();
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    //Router.go('/');
+    Router.go('myNav');
   }
 });

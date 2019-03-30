@@ -1,55 +1,24 @@
-Template.classesPage.rendered = function() {
+Template.admin.rendered = function() {
   Session.set('className', "");
 }
 
-Template.classesPage.helpers({
-  classe: function() {
-    var teacherId = Meteor.user();
-    var userType=Session.get('userType');
-    if ( userType == "teacher") {
-      return classes.find({teacherId: teacherId._id, stored: false }, {sort: {submitted: -1}});
+Template.admin.helpers({
+  claseTipo: function() {
+    if (mcgParameters.find({'typeClasses':Session.get('classId')}).count() == 0) {
+      return "Establecer como 'Clase Tipo'";
     } else {
-      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
-      //c=Meteor.users.find({_id:Meteor.userId()});
-      return classes.find({"_id": { "$in": c }, stored: false });
-      //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
+      return "Eliminar como 'Clase Tipo'";
     }
   },
-  stored: function() {
-    var teacherId = Meteor.user();
-    var userType=Session.get('userType');
-    if ( userType == "teacher") {
-      return classes.find({teacherId: teacherId._id, stored: true }, {sort: {submitted: -1}});
-    } else {
-      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
-      //c=Meteor.users.find({_id:Meteor.userId()});
-      return classes.find({"_id": { "$in": c }, stored: true });
-      //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
-    }
-  },
-  types: function() {
-    var teacherId = Meteor.user();
-    var userType=Session.get('userType');
-    var tipos=mcgParameters.findOne().typeClasses;
-    return classes.find({'_id': { "$in": tipos } });
-  },
-  teacher: function() {
-    if (Session.get('userType')=="teacher") {
-     return true;
-    } else {
-     return false;
-    };
-  },
-  cName: function() {
-    var cName=Session.get('className');
-    if ( cName == "") {
+  admin: function() {
+    if (Meteor.user().services.google.email == "Juan.Torres@iestacio.com") {
       return true;
     } else {
       return false;
     }
   }
 });
-Template.classesPage.events({
+Template.admin.events({
   'click .btn-class': function(event) {
     event.preventDefault();
     Session.set('classId', event.target.id);
@@ -65,9 +34,8 @@ Template.classesPage.events({
     Session.set('invertOrder', "checked");
     Router.go('myNav');
   },
-  'click .btn-double-class': function(event) {
+  'click #btn-duplicar': function(event) {
     event.preventDefault();
-    Session.set('classId', event.target.id);
     cId=Session.get('classId');
     /*Session.set('className', event.target.name);
     Session.setPersistent('navItem', "Students");
@@ -75,32 +43,9 @@ Template.classesPage.events({
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
-    var c = classes.findOne({'_id': event.target.id});
+    var c = classes.findOne({'_id': cId});
     delete c._id;
-    c.className="Copia_" + event.target.name;
-    Meteor.call('classDuplicate',c,cId);
-    /*students.find({'classId': cId}).forEach(function(student){
-      var newStudent = student;
-      delete student._id;
-      student.classId=Session.get('classId');
-      Meteor.call('studentInsert',student);
-    });
-    Router.go('myNav');*/
-  },
-  'click .btn-type': function(event) {
-    event.preventDefault();
-    Session.set('classId', this._id);
-    cId=Session.get('classId');
-    /*Session.set('className', event.target.name);
-    Session.setPersistent('navItem', "Students");
-    Session.setPersistent('sogBtn',"students");
-    Session.setPersistent('golBtn',"grid");
-    Session.set('studentSelected', false);
-    Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
-    var c = classes.findOne({'_id': this._id});
-    delete c._id;
-    c.teacherId=Meteor.userId();
-    c.className="Copia_" + this.className;
+    c.className="Copia_" + c.className;
     Meteor.call('classDuplicate',c,cId);
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
@@ -108,12 +53,27 @@ Template.classesPage.events({
       student.classId=Session.get('classId');
       Meteor.call('studentInsert',student);
     });*/
-    
+    Router.go('classesPage');
   },
-  'click .btn-delete-class': function(event) {
+  'click #btn-eliminar': function(event) {
     event.preventDefault();
-    Session.set('classId', event.target.name);
     Modal.show('deleteClass');
+  },
+  'click #btn-tipo': function(event) {
+    event.preventDefault();
+    if (mcgParameters.find().count()==0) {
+      var params = {
+        typeClasses:[],
+        passMCG: "@MCG2406?"
+      };
+      Meteor.call('paramsInsert',params);
+      Meteor.call('typePush',Session.get('classId'));
+    }
+    if (mcgParameters.find({typeClasses:Session.get('classId')}).count() == 0) {
+      Meteor.call('typePush',Session.get('classId'));
+    } else {
+      Meteor.call('typePull',Session.get('classId'));
+    }
   },
   'click .btn-store-class': function(event) {
     event.preventDefault();

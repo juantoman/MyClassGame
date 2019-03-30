@@ -1,8 +1,8 @@
-Template.challenges.onRendered(function() {
+Template.adventure.onRendered(function() {
   $('#adventureDesc').summernote();
 });
 
-Template.challenges.helpers({
+Template.adventure.helpers({
   challenge: function() {
     return challenges.find({classId: Session.get('classId')});
   },
@@ -31,7 +31,7 @@ Template.challenges.helpers({
   }  
 });
 
-Template.challenges.events({
+Template.adventure.events({
   'submit form': function(event) {
     event.preventDefault();
     //alert($(event.target).find('[name=MoC]').val())

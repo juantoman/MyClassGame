@@ -395,6 +395,13 @@ label {
   border-top:1px lightgray solid;
 }
 
+.typeClasses {
+  background-color: #cff;
+  margin-bottom:20px;
+  margin-top:-20px;
+  border-bottom:1px lightgray solid;
+}
+
 #changeRol {
   margin-bottom: 1em;
 }

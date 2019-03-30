@@ -76,7 +76,7 @@ Template.myNav.events({
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
     $("#fondo").css("background-image", "");
-    //Router.go('/');
+    Router.go('classesPage');
   },
   'mouseenter #btnStudents': function(event) {
     event.preventDefault();

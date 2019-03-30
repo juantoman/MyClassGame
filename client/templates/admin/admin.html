@@ -1,0 +1,19 @@
+<template name="admin">
+  <div class="container">
+    <form>
+      <div style="margin:auto;">
+        <div class="input-group mb-3">
+          <input type="submit" id="btn-duplicar" value="Duplicar clase" class="btn btn-info">
+        </div>
+        {{#if admin}}
+          <div class="input-group mb-3">
+            <input type="submit" id="btn-tipo" value="{{claseTipo}}" class="btn btn-info">
+          </div>
+        {{/if}}
+        <div class="input-group mb-3">
+          <input type="submit" id="btn-eliminar" value="Eliminar clase" class="btn btn-info">
+        </div>
+      </div>
+    </form>
+  </div>
+</template>

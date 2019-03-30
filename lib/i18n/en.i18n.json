@@ -41,6 +41,7 @@
     "nclass": "New Class or Project",
     "aclasses": "Active Classes or Projects",
     "sclasses": "Stored Classes or Projects",
+    "tclasses": "Model Classes",
     "teacher": "Master",
     "student": "Student",
     "parent": "Parent",

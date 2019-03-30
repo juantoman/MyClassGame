@@ -41,6 +41,9 @@ Template.deleteClass.events({
   'submit form': function(event) {
     Meteor.call('classDelete', Session.get('classId'));
     Modal.hide('deleteClass');
+    Session.set('classId', "");
+    Session.set('className', '');
+    Router.go("classesPage");
   }
 });
 

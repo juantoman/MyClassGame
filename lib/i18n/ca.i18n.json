@@ -41,6 +41,7 @@
     "nclass": "Nova Classe o Projecte",
     "aclasses": "Classes i Projectes actius",
     "sclasses": "Classes i Projectes arxivats",
+    "tclasses": "Classes Tipus",
     "teacher": "Mestre/a",
     "student": "Estudiant",
     "parent": "Pare/Mare",

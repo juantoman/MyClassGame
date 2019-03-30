@@ -1,0 +1,32 @@
+<template name="tools">
+  <!--
+  {{> myBreadcrumb}}
+  {{> myNav}}
+  -->
+  <div class="container-responsive">
+
+    <div id="settingsMenu">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#random" aria-controls="random" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random</a></li>
+        <li role="presentation"><a href="#chrono" aria-controls="chrono" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Cronómetro</a></li>
+        <li role="presentation"><a href="#countdown" aria-controls="countdown" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Cuenta atrás</a></li>
+      </ul>
+      <!-- Tab panels -->
+      <div class="tab-content container-responsive" style="background-color:#eee;">
+        <div role="tabpanel" class="tab-pane active" id="random">
+          <h2 class="text-center bg-info">Random</h2>
+          {{> randomPage}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="chrono">
+          <h2 class="text-center bg-info">Cronómetro</h2>
+          <div style="width: 90%; margin:auto;margin-top:10px;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.tickcounter.com/stopwatch" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="countdown">
+          <h2 class="text-center bg-info">Cuenta atrás</h2>
+          <div style="width: 90%; margin:auto;margin-top:10px;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;" class="text-center"><iframe frameborder="0" width="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.tickcounter.com/timer" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
