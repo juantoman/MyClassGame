@@ -4,7 +4,7 @@
 });*/
 Template.myBreadcrumb.helpers({
  className: function() {
-  return classes.findOne({ _id: Session.get('classId') } ).className;
+  return Session.get('className');//classes.findOne({ _id: Session.get('classId') } ).className;
  },
  studentName: function() {
   if (Session.get('studentSelected')) {

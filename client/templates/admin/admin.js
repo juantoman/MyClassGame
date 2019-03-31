@@ -75,14 +75,12 @@ Template.admin.events({
       Meteor.call('typePull',Session.get('classId'));
     }
   },
-  'click .btn-store-class': function(event) {
+  'click #btn-store-class': function(event) {
     event.preventDefault();
-    Session.set('classId', event.target.name);
     Meteor.call('classStore',Session.get('classId'));
   },
-  'click .btn-restore': function(event) {
+  'click #btn-restore': function(event) {
     event.preventDefault();
-    Session.set('classId', event.target.name);
     Meteor.call('classStore',Session.get('classId'));
   },
   'click #changeRol': function(event) {

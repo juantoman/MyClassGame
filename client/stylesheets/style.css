@@ -402,13 +402,24 @@ label {
   border-bottom:1px lightgray solid;
 }
 
+.typeClasses h2, .activeClasses h2, .storedClasses h2 {
+  background-color: #d1ebfc;
+  color:#268BD2;
+  margin:5px;
+  padding:5px;
+  font-size: 2.5vh !important;
+}
+
+.h2newclass {
+  background-color: lime !important;
+}
+
 #changeRol {
   margin-bottom: 1em;
 }
 
 .fotoIcono{
-  margin-top:20px;
-  width:40%;
+  width:80%;
 }
 
 td button {
@@ -824,6 +835,14 @@ input[type=submit] {
 #ModalImg {
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
   filter: drop-shadow(3px 3px 5px #222);
+}
+
+.btn-clase {
+  position: absolute;
+  left: 50%;
+  width: 100px;
+  margin-left: -50px;
+  bottom:5px;
 }
 /*
 #menu_lateral {

@@ -52,8 +52,8 @@ Template.classesPage.helpers({
 Template.classesPage.events({
   'click .btn-class': function(event) {
     event.preventDefault();
-    Session.set('classId', event.target.id);
-    Session.set('className', event.target.name);
+    Session.set('classId', this._id);
+    Session.set('className', this.className);
     Session.setPersistent('navItem', "Students");
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");

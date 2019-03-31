@@ -1,6 +1,6 @@
 Template.studentsMainPage.helpers({
   className: function() {
-    return classes.findOne({ _id: Session.get('classId') } ).className;
+    return Session.get('className');
   },
   btnSelected: function(option) {
     if ( option == "students" && Session.get('sogBtn') == "students" ) {return "btn-warning"; }
