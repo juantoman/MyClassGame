@@ -335,10 +335,9 @@ label {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
 .thumbnail:hover {
-  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-  width: 101%;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
 }
 .studentSelected {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
@@ -407,7 +406,10 @@ label {
   color:#268BD2;
   margin:5px;
   padding:5px;
-  font-size: 2.5vh !important;
+  font-size: 3vh !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .h2newclass {
@@ -419,7 +421,7 @@ label {
 }
 
 .fotoIcono{
-  width:80%;
+  width:60%;
 }
 
 td button {
@@ -853,7 +855,6 @@ input[type=submit] {
   display:none;
   top:170px;
 }
-
 #menuBtn {
   position: fixed;
   top:113px;
@@ -861,7 +862,7 @@ input[type=submit] {
   width:7%;
 }*/
 
-@media (max-width: 768px) {
+/*@media (max-width: 768px) {
   .btn {
     font-size: 3vh;
   }
@@ -901,4 +902,4 @@ input[type=submit] {
   .dataStudent {
     width: 30vw;
   }
-}
+}*/

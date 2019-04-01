@@ -4,10 +4,10 @@
     <h4 id="classesTypes">{{_ "tclasses"}}</h4>
     <div class="row">
       {{#each types}}
-        <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="col-xs-6 col-md-3 col-lg-2">
           <div class="thumbnail btn btn-type">
-            <h2 class=" text-center">{{className}}</h2>
-            <img src="{{groupImg}}" class="fotoIcono" alt="...">
+            <h2 class="text-center">{{className}}</h2>
+            <img src="{{groupImg}}" class="foto" alt="...">
           </div>
         </div>
       {{/each}}
@@ -17,17 +17,17 @@
   <div class="container-fluid myContent activeClasses">
     <h4 id="changeRol">{{_ "aclasses"}}</h4>
     <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-2">
+      <div class="col-xs-6 col-md-3 col-lg-2">
         <div class="thumbnail btn" data-toggle="modal" data-target="#add_class_modal">
-            <h2 class="text-center bg-info h2newclass">{{_ "nclass"}}</h2>
-            <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="fotoIcono" alt="...">
+            <h2 class="text-center h2newclass">{{_ "nclass"}}</h2>
+            <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="foto" alt="...">
         </div>
       </div>
       {{#each classe}}
-        <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="col-xs-6 col-md-3 col-lg-2">
           <div class="thumbnail btn btn-class">
-              <h2 class="text-center bg-info">{{className}}</h2>
-              <img src="{{groupImg}}" class="fotoIcono" alt="...">
+              <h2 class="text-center">{{className}}</h2>
+              <img src="{{groupImg}}" class="foto" alt="...">
           </div>
         </div>
       {{/each}}
@@ -37,10 +37,10 @@
     <h4 id="adminClass">{{_ "sclasses"}}</h4>
     <div class="row">
       {{#each stored}}
-        <div class="col-sm-12 col-md-4 col-lg-2">
+        <div class="col-xs-6 col-md-3 col-lg-2">
           <div class="thumbnail btn btn-class">
-              <h2 class="text-center bg-info">{{className}}</h2>
-              <img src="{{groupImg}}" class="fotoIcono" alt="...">
+              <h2 class="text-center">{{className}}</h2>
+              <img src="{{groupImg}}" class="foto" alt="...">
           </div>
         </div>
       {{/each}}

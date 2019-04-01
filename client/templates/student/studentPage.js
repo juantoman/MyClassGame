@@ -753,5 +753,9 @@ Template.studentPage.events({
   'click .useCard': function(event) {
     event.preventDefault();
     Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+  },
+  'click .btn-delete-student': function(event) {
+    event.preventDefault();
+    Modal.show('deleteStudent');
   }
 });
