@@ -10,12 +10,10 @@
         {{/if}}
       </div>
     </form>
-    <br />
-    <br />
     {{#if selected}}
       {{> studentPage}}    
     {{else}}
-      <div class="input-group mb-3 submenu">
+      <div class="input-group submenu">
         <div class="input-group-prepend">
           {{#if teacher}}
             <!--
@@ -68,7 +66,6 @@
           </div>
         </div>
       </div>
-      <br>
       {{#if studentsSelected}}
         {{> studentsPage}}
       {{else}}

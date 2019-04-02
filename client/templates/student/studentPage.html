@@ -17,7 +17,7 @@
           <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
         {{/if}}
         <div class="container-fluid">
-          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent">
+          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn avatarCloudinary">
           <div class="puntsStudent">
               <div class="list-group" id="{{_id}}">
                 <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
@@ -59,9 +59,37 @@
               {{/if}}
             </div>
             {{#if teacher}}
-            <div style="float:right;margin-bottom:20px;">
-              <button type="button" class="btn btn-danger btn-delete-student">Eliminar</button>
+            <div id="studentsPoints">
+              <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{rs}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" />
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{os}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{ys}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{ws}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{bs}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                 <p>{{gs}}</p>
+                 <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                </label>
+              </div>
+            </div>
+            <div style="float:right;margin:20px;">
               <button type="button" class="btn btn-default">{{_ "close"}}</button>
+              <button type="button" class="btn btn-danger btn-delete-student">Eliminar</button>
               <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
             </div>
             {{/if}}

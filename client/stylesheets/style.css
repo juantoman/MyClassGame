@@ -144,7 +144,7 @@ a:hover, a:link {
 .imatge {
   position: relative;
   float:left;
-  width:65%;
+  width:57%;
 }
 
 .imatge:after {
@@ -172,9 +172,8 @@ a:hover, a:link {
 }
 
 .fotoUserType{
-  margin-top:20px;
-  width:80%;
-  height:80%;
+  margin-top:0px;
+  width:90%;
 }
 
 .fotog{
@@ -190,6 +189,11 @@ a:hover, a:link {
   padding:2px;
   float:left;
 }
+.btn-student button{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .userSelected{
   color:white;
   background-color: #0a0 !important;  
@@ -200,11 +204,11 @@ a:hover, a:link {
 }
 .punts {
   float:right;
-  width:33%;
+  width:39%;
   margin-right:5px;
+  margin-bottom:5px;
 }
 .punts .list-group {
-
   background-color: transparent; 
 }
 
@@ -274,11 +278,13 @@ label {
   color:white;
 }
 .submenu {
-  padding: 5px;
+  padding: 5px 20px 5px 20px;
   background-color: #268BD2;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  margin: 15px auto!important;
 }
 
 .submenu label{
@@ -348,12 +354,12 @@ label {
 }
 .fotoStudent{
   float:left;
-  border:2px #268BD2 solid;
   margin-top:20px;
-  width:30%;
-  height:30%;
+  width:20%;
   margin-left:10px;
   margin-bottom: 20px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
 }
 .puntsStudent {
   float:left;
@@ -401,17 +407,20 @@ label {
   border-bottom:1px lightgray solid;
 }
 
-.typeClasses h2, .activeClasses h2, .storedClasses h2 {
+.typeClasses h2, .activeClasses h2, .storedClasses h2, .register h2 {
   background-color: #d1ebfc;
   color:#268BD2;
   margin:5px;
   padding:5px;
-  font-size: 3vh !important;
+  font-size: 2.2vh !important;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.myContent h4, .breadcrumb li{
+  font-size: 2vh !important;
+}
 .h2newclass {
   background-color: lime !important;
 }
@@ -421,7 +430,8 @@ label {
 }
 
 .fotoIcono{
-  width:60%;
+  width:70%;
+  padding-top:10px;
 }
 
 td button {
@@ -795,19 +805,23 @@ input[type=submit] {
 .punts li, .puntsStudent li{
   font-family: 'Indie Flower';
   text-shadow: 2px 2px 4px #000000;
-  font-size: 3vh;
+  font-size: 2vh;
+  white-space: nowrap;
+  height:5vh !important;
+  padding-top: 1vh !important;
 }
 
 .punts li span{
   font-family: 'Caveat';
   color: gold;
   text-shadow: 2px 2px 4px #000000;
-  font-size: 3vh;
+  font-size: 2vh;
 }
 
 .punts li img{
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
   filter: drop-shadow(3px 3px 5px #222);
+  width:2vh;
 }
 
 #sn {
@@ -862,44 +876,17 @@ input[type=submit] {
   width:7%;
 }*/
 
-/*@media (max-width: 768px) {
-  .btn {
-    font-size: 3vh;
+h1,h2,h3,h4,h5,h6{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .navbar-header {
+    margin:2vh;
   }
-  .fotoIcono {
-    width: 50%;
+  .submenu {
+    display:none;
   }
-  .foto, .fotog {
-    height: auto;
-    width:50vw;
-  }
-  .fotoStudent {
-    height: auto;
-    width:35vw;
-  }
-  .thumbnail h2 {
-   font-size: 3vh;
-  }
-  .menu-superior {
-    font-size: 3vh;
-  }
-  
-  .punts li, .puntsStudent li{
-    font-size: 2vw;
-    width: 20vw;
-    text-shadow: 0 0 10px #000000 !important;
-  }
-  
-  .modal-content {
-    position:relative;
-    justify-content: center;
-    width: 90vw !important;
-    right: 15vw;
-  }
-  .modal-content button,.modal-content .badge {
-    font-size: 3vh;
-  }
-  .dataStudent {
-    width: 30vw;
-  }
-}*/
+}

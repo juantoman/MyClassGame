@@ -1,37 +1,25 @@
 <template name="register">
   <div class="container myContent register">
-    <h2 class="text-center">{{_ "usertype"}}</h2>
-       <div class="row">
-        <div class="col-container col-sm-12 col-md-4">
-          <div class="thumbnail text-center">
-            <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542962764/proves/YODA.png" class="fotoUserType btn-teacher"></p>
-            <h2 class="text-center">
-              <button type="button" class="btn btn-warning btn-teacher info-grid">
-                {{_ "teacher"}}
-              </button>
-            </h2>
-          </div>
-        </div>
-        <div class="col-container col-sm-12 col-md-4">
-          <div class="thumbnail text-center">
-              <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png" class="fotoUserType btn-student"></p>
-              <h2>
-                <button type="button" class="btn btn-warning btn-student info-grid">
-                  {{_ "student"}}
-                </button>
-              </h2>
-          </div>
-        </div>
-        <div class="col-container col-sm-12 col-md-4">
-          <div class="thumbnail text-center">
-            <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542966099/proves/vader.png" class="fotoUserType btn-parent"></p>
-            <h2 class="text-center">
-              <button type="button" class="btn btn-warning btn-parent info-grid">
-                {{_ "parent"}}
-              </button>
-            </h2>
-          </div>
+    <h4 class="text-center">{{_ "usertype"}}</h4>
+     <div class="row text-center">
+      <div class="col-container col-xs-12 col-sm-4">
+        <div class="thumbnail text-center btn btn-teacher">
+          <h2 class="text-center">{{_ "teacher"}}</h2>
+          <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542962764/proves/YODA.png" class="fotoUserType"></p>
         </div>
       </div>
+      <div class="col-container col-xs-12 col-sm-4">
+        <div class="thumbnail text-center btn btn-student">
+          <h2 class="text-center">{{_ "student"}}</h2>
+          <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png" class="fotoUserType"></p>
+        </div>
+      </div>
+      <div class="col-container col-xs-12 col-sm-4">
+        <div class="thumbnail text-center btn btn-parent">
+          <h2 class="text-center">{{_ "parent"}}</h2>
+          <p><img src="https://res.cloudinary.com/myclassgame/image/upload/v1542966099/proves/vader.png" class="fotoUserType"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>

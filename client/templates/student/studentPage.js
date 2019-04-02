@@ -616,14 +616,16 @@ Template.studentPage.events({
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',event.target.name);
   },
-  'click #avatarCloudinary': function(event) {
+  'click .avatarCloudinary': function(event) {
     event.preventDefault();
-    cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
-      //console.log(result);
-      if (result.event=="success"){
-        $("#sAvatar").val(result.info.url);
-      }
-    });
+    if (Session.get('userType')=="teacher") {
+      cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
+        //console.log(result);
+        if (result.event=="success"){
+          $("#sAvatar").val(result.info.url);
+        }
+      });
+    }
   },
   'click #cloudinaryList': function(event) {
     event.preventDefault();
