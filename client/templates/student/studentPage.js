@@ -155,12 +155,20 @@ Template.studentPage.helpers({
   image: function(avatar) {
     if ( avatar=="" || !avatar || Session.get('userType') != "teacher") {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
-        return classes.findOne({_id: Session.get('classId')}).studentImg;
+        if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
+          return classes.findOne({_id: Session.get('classId')}).studentImg;
+        } else {
+          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+        }
       } else {
         return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
       }
     } else  {
-      return avatar;
+      if (avatar.substring(0, 4)=="http") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
     }
   },
   inputDisabled: function() {
@@ -578,6 +586,17 @@ Template.studentPage.events({
       Modal.show('badgeModal');
     }
   },
+  'click .btn-cards': function(event) {
+    event.preventDefault();
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('cardsModal');
+    }
+  },
   'click .btn-store': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){
@@ -759,5 +778,11 @@ Template.studentPage.events({
   'click .btn-delete-student': function(event) {
     event.preventDefault();
     Modal.show('deleteStudent');
+  },
+ 'click .eImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','avatar');
+    Session.set('idElementImage',this._id);
+    Modal.show('images');
   }
 });

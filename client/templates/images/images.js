@@ -16,6 +16,23 @@ Template.images.helpers({
     if ( Session.get('imageType') == "card" ) {
       idElement=cards.findOne({_id: Session.get('idElementImage')}).cardImage;
     }
+    if ( Session.get('imageType') == "item" ) {
+      idElement=store.findOne({_id: Session.get('idElementImage')}).itemImage;
+    }
+    if ( Session.get('imageType') == "avatar" ) {
+      if (students.find({_id: Session.get('idElementImage')}).count()!=0) {
+        idElement=students.findOne({_id: Session.get('idElementImage')}).avatar;
+      } else {
+        idElement=classes.findOne({_id: Session.get('idElementImage')}).studentImg;
+      }
+    }
+    if ( Session.get('imageType') == "group" ) {
+      if (groups.find({_id: Session.get('idElementImage')}).count()!=0) {
+        idElement=groups.findOne({_id: Session.get('idElementImage')}).groupImg;
+      } else {
+        idElement=classes.findOne({_id: Session.get('idElementImage')}).groupImg;
+      }
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -36,6 +53,17 @@ Template.images.events({
       }
       if (Session.get('imageType')=="card") {
         Meteor.call('imageCardUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="item") {
+        Meteor.call('imageItemUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="avatar") {
+        Meteor.call('avatarUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+        Meteor.call('studentImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="group") {
+        Meteor.call('groupImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+        Meteor.call('groupImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());

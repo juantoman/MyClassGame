@@ -15,6 +15,21 @@
             </select>
           </div>
         </div>
+        <div class="form-group form-inline">
+          <div class="input-group col-xs-2">
+            <span class="input-group-addon">Imagen de estudiante</span>
+          </div>
+          <div class="input-group col-xs-1">
+            <button class="form-control input-lg studentImage" id="{{_id}}"><img src="{{sImage}}" height="30px" /></button>
+          </div>
+          <div class="input-group col-xs-2">
+            <span class="input-group-addon">Imagen de equipo</span>
+          </div>
+          <div class="input-group col-xs-1">
+            <button class="form-control input-lg groupImage" id="{{_id}}"><img src="{{gImage}}" height="30px" /></button>
+          </div>
+        </div>
+        <!--
         <div class="form-group">
           <div class="input-group col-xs-11">
             <span class="input-group-addon">Imagen de estudiante</span>
@@ -31,6 +46,7 @@
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
         </div>
+        -->
         <div class="input-group col-xs-11">
             <input type="checkbox" id="avatarVisible" {{av avatarVisible}}>
             <label class="control-label" for="xpCheck"> Padres y estudiantes pueden ver los avatares</label>

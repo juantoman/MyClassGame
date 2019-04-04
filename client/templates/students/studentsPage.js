@@ -97,14 +97,21 @@ Template.studentsPage.helpers({
   image: function(avatar) {
     avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
     if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
-    //if ( avatar=="" || !avatar || Session.get('userType') != "teacher") {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
-        return classes.findOne({_id: Session.get('classId')}).studentImg;
+        if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
+          return classes.findOne({_id: Session.get('classId')}).studentImg;
+        } else {
+          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+        }
       } else {
         return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
       }
     } else  {
-      return avatar;
+      if (avatar.substring(0, 4)=="http") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
     }
   },
   grid: function() {
@@ -217,6 +224,7 @@ Template.studentsPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
     }
+    event.stopPropagation();
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
@@ -228,6 +236,7 @@ Template.studentsPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
     }
+    event.stopPropagation();
   },
    'click .btn-cards': function(event) {
     event.preventDefault();
@@ -239,6 +248,7 @@ Template.studentsPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('cardsModal');
     }
+    event.stopPropagation();
   },
   'click .info-list': function(event) {
     event.preventDefault();
@@ -260,6 +270,7 @@ Template.studentsPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('badgeModal');
     }
+    event.stopPropagation();
   },
   'click .btn-store': function(event) {
     event.preventDefault();
@@ -271,6 +282,7 @@ Template.studentsPage.events({
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');
     }
+    event.stopPropagation();
   },
   'click .foto,.info-grid': function(event) {
     event.preventDefault();
@@ -283,11 +295,13 @@ Template.studentsPage.events({
       Session.setPersistent('studentId', event.target.name);
       Session.set('studentSelected', true);
     }
+    event.stopPropagation();
   },
   'click #drive': function(event) {
     loadPicker();
   },
-  'click .btn-select,#selectedStudent': function(event) {
-    Meteor.call('studentSelection', event.target.name);
+  'click .btn-select,#selectedStudent,.thumbnailStudent': function(event) {
+    event.preventDefault();
+    Meteor.call('studentSelection', this._id);
   }
 });

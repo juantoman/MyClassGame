@@ -18,6 +18,22 @@ Template.parametersList.helpers({
     if (visible) {
       return "checked"
     }
+  },
+  gImage: function() {
+    avatar=this.groupImg;
+    if (avatar.substring(0, 4)=="http") {
+      return avatar;
+    } else {
+      return images.findOne({_id: avatar}).image_url;
+    }
+  },
+  sImage: function() {
+    avatar=this.studentImg;
+    if (avatar.substring(0, 4)=="http") {
+      return avatar;
+    } else {
+      return images.findOne({_id: avatar}).image_url;
+    }
   }
 });
 
@@ -101,6 +117,18 @@ Template.parametersList.events({
     event.preventDefault();
     Modal.show('resetClass');
     //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
+  'click .studentImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','avatar');
+    Session.set('idElementImage',this._id);
+    Modal.show('images');
+  },
+  'click .groupImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','group');
+    Session.set('idElementImage',this._id);
+    Modal.show('images');
   }
 });
 

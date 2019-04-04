@@ -17,13 +17,14 @@
           <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
         {{/if}}
         <div class="container-fluid">
-          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn avatarCloudinary">
+          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn eImage">
           <div class="puntsStudent">
               <div class="list-group" id="{{_id}}">
                 <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
                 <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
                 <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
                 <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
+                <li class="list-group-item list-group-item-info btn-cards" data-toggle="modal">{{cards.length}} Cartas</li>
                 <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
               </div>
           </div>
@@ -47,19 +48,18 @@
               <label for="sAlias" class="control-label">Alias</label>
               <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
               <label for="sAvatar" class="control-label">Avatar</label>
-              <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
-              <button id="avatarCloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
               <!--
+                <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
+                <button id="avatarCloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
                 <button id="cloudinaryList" name="cloudinaryList" {{inputDisabled}}>Ver imagenes</button>
               -->
-              <br/>
               {{#if teacher}}
               <label for="sEmail" class="control-label">email</label>
               <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
               {{/if}}
             </div>
             {{#if teacher}}
-            <div id="studentsPoints">
+            <div class="studentStars">
               <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
                 <label class="btn btn-info btn-emoticon">
                   <p>{{rs}}</p>

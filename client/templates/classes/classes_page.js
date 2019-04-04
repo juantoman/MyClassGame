@@ -47,6 +47,18 @@ Template.classesPage.helpers({
     } else {
       return false;
     }
+  },
+  classImage: function() {
+    avatar=this.groupImg;
+    if (avatar) {
+      if (avatar.substring(0, 4)=="http") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
+    } else {
+      return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+    }
   }
 });
 Template.classesPage.events({

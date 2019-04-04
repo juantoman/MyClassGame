@@ -37,12 +37,21 @@ Template.groupPage.helpers({
      return false;
     };
   },
-  gImage: function(image) {
-    if (image) {
-     return image;
+  gImage: function() {
+    avatar=this.groupImg;
+    if (avatar) {
+      if (avatar.substring(0, 4)=="http" || avatar.substring(0, 4)=="data") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
     } else {
-      if (classes.findOne({_id: Session.get('classId')}).groupImg) {
-        return classes.findOne({_id: Session.get('classId')}).groupImg;
+      if ( classes.findOne({_id: Session.get('classId')}).groupImg ) {
+        if (classes.findOne({_id: Session.get('classId')}).groupImg.substring(0, 4)=="http") {
+          return classes.findOne({_id: Session.get('classId')}).groupImg;
+        } else {
+          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).groupImg}).image_url;
+        }
       } else {
         return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
       }
@@ -336,5 +345,11 @@ Template.groupPage.events({
     //alert($(event.target).closest('div').attr("id"));
     //alert(this._id);
     //console.log($(event.currentTarget).find("input").val())
+  },
+  'click .eImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','group');
+    Session.set('idElementImage',this._id);
+    Modal.show('images');
   }
 });

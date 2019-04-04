@@ -3,7 +3,7 @@
     <div class="row">
       {{#each students}}
         <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
-          <div class="thumbnail {{myuser email}} {{studentSelected selected}}  row-eq-height">
+          <div class="thumbnail {{myuser email}} {{studentSelected selected}}  row-eq-height thumbnailStudent">
               {{#if parent}}
                 <h2 class="text-center bg-info"><span id="alias">{{alias}}</span></h2>
               {{else}}
@@ -11,55 +11,38 @@
                 <h2 class="text-center bg-info descStudent"><span id="alias">{{alias}}</span></h2>
                 <h4 class="text-center bg-warning descStudent">Nivel {{levelAutomatic (_id)}}: {{levelDesc (_id)}}</h4>
               {{/if}}
+
               <div class="caixa">
                 <div class="imatge">
                   <p><img src="{{image avatar}}" data-toggle="modal" data-target="{{modalTeacher}}" name="{{_id}}" title="Propiedades estudiante" class="img foto"></p>
                 </div>
+                
                 <div class="punts">
                   <div class="list-group" id="{{_id}}">
+                    <!--
                     <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} <span>XP</span></li>
                     <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} <img src="https://res.cloudinary.com/myclassgame/image/upload/v1549267499/images/heart.png" /></li>
+                    -->
                     <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} <img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" /></li>
                     <li class="list-group-item list-group-item-danger btn-cards" data-toggle="modal">{{cards.length}} <img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" /></li>
                     <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} <img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></li>
                   </div>
                 </div>
+                
                 {{#if teacher}}
-                <input type="checkbox" class="big-checkbox" id="selectedStudent" {{checkSelected selected}} name="{{_id}}">
+                  <div id="{{_id}}" class="caixa_botons">
+                    <h1 class="btn btn-success btn-xp" data-toggle="modal" name="{{_id}}">
+                      {{XP}} <span>XP</span>
+                    </h1>
+                    <h1 class="btn btn-danger btn-hp" data-toggle="modal" name="{{_id}}">
+                      {{HP}} <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549267499/images/heart.png" />
+                    </h1>
+                  </div>
                 {{/if}}
+                
               </div>
               <!--
-              <div class="botons">
-                
-                <div id="studentsPoints">
-                  <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
-                    <label class="btn btn-info btn-emoticon">
-                      <p>{{rs}}</p>
-                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" />
-                    </label>
-                    <label class="btn btn-info btn-emoticon">
-                      <p>{{os}}</p>
-                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
-                    </label>
-                    <label class="btn btn-info btn-emoticon">
-                      <p>{{ys}}</p>
-                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
-                    </label>
-                    <label class="btn btn-info btn-emoticon">
-                      <p>{{ws}}</p>
-                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
-                    </label>
-                    <label class="btn btn-info btn-emoticon">
-                      <p>{{bs}}</p>
-                      <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
-                    </label>
-                    <label class="btn btn-info btn-emoticon">
-                     <p>{{gs}}</p>
-                     <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
-                    </label>
-                  </div>
-                </div>
-                
+              
                 <h2 class="text-center">
 
                   <button type="button" class="btn btn-info btn-data" data-toggle="modal" data-target="#mod_student_modal" name="{{_id}}">
@@ -88,7 +71,7 @@
           <div class="thumbnail btn" data-toggle="modal" data-target="#add_student_modal">
               <h5 class="text-center bg-info descStudent">Nuevo</h5>
               <h2 class="text-center bg-info descStudent"><span id="alias">Estudiante</span></h2>
-              <img src="{{image}}" class="fotoIcono img foto" alt="...">
+              <img src="{{image}}" class="fotoIcono img" alt="...">
           </div>
         </div>
       {{/if}}

@@ -1,6 +1,17 @@
 Template.store.helpers({
   store: function() {
     return store.find({classId: Session.get('classId')});
+  },
+  item_src: function(imageId) {
+    if (imageId) {
+      return images.findOne({_id: imageId}).image_url;
+    } else {
+      if (Session.get('selectedImage')) {
+        return images.findOne({_id: Session.get('selectedImage')}).image_url;
+      } else {
+        return "http://res.cloudinary.com/myclassgame/image/upload/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
+      }
+    }
   }
 });
 
@@ -9,6 +20,7 @@ Template.store.events({
     event.preventDefault();
     var item = {
       classId: Session.get('classId'),
+      itemName: $(event.target).find('[name=itemName]').val(),
       itemDescription: $(event.target).find('[name=itemDescription]').val(),
       price: $(event.target).find('[name=itemPrice]').val(),
       createdOn: new Date()
@@ -17,16 +29,24 @@ Template.store.events({
   },
   'change .inputGroup': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
-    {
-      if (event.target.id=="inputDesc")
-      {
+    switch(event.target.id) {
+      case "itemName":
+        Meteor.call('itemUpdateName', event.target.name, event.currentTarget.value);
+        break;
+      case "itemDescription":
         Meteor.call('itemUpdateDesc', event.target.name, event.currentTarget.value);
-      } else {
+        break;
+      case "itemPrice":
         Meteor.call('itemUpdatePrice', event.target.name, event.currentTarget.value);
-      }
-    } else {
+    } 
+    if (!event.currentTarget.value ) {
       Meteor.call('itemDelete',event.target.name);
     }
+  },
+ 'click .eImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','item');
+    Session.set('idElementImage',event.currentTarget.title);
+    Modal.show('images');
   }
 });
