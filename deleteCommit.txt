@@ -1,0 +1,4 @@
+https://stackoverflow.com/questions/448919/how-can-i-remove-a-commit-on-github
+
+git reset --hard 71c27777543ccfcb0376dcdd8f6777df055ef479
+git push --force

@@ -42,7 +42,7 @@ Template.images.helpers({
 });
 
 Template.images.events({
-  'click #notesSubmit': function(event) {
+  'click .selectImage': function(event) {
     event.preventDefault();
     if (Session.get('idElementImage')){
       if (Session.get('imageType')=="badge") {
@@ -74,17 +74,17 @@ Template.images.events({
     event.preventDefault();
     Modal.hide('images');
   },
-  'click #cloudinary': function(event) {
+  'click .cloudinary': function(event) {
     event.preventDefault();
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
       if (result.event=="success"){
-        var image = {
+        var imgObject = {
           classId:Session.get('classId'),
           type: Session.get('imageType'),
           image_url: result.info.url,
           createdOn: new Date()
         };
-        Meteor.call('imageInsert',image);
+        Meteor.call('imageInsert',imgObject);
       }
     });
   },
