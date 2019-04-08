@@ -15,6 +15,14 @@
             <label for="chalDesc">Descripción Carta</label>
             <textarea class="form-control inputGroup" name="{{_id}}" id="cardDescription" {{teacher}} rows="3">{{cardDescription}}</textarea>
           </div>
+          <div class="input-group col-xs-11">
+            <label for="chalDesc">Nivel</label>
+            <input type="text" class="form-control inputGroup" name="{{_id}}" id="cardLevel" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardLevel}}">
+          </div>
+          <div class="input-group col-xs-11">
+            <label for="chalDesc">Precio para utilizarla</label>
+            <input type="text" class="form-control inputGroup" name="{{_id}}" id="cardPrice" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardPrice}}">
+          </div>
         </div>
       </div>
     {{/each}}
@@ -40,11 +48,20 @@
             </div> 
             <input type="text" class="form-control" name="cardDescription" placeholder="Descripción de la carta" aria-label="Descripción de la carta" aria-describedby="basic-addon2">
           </div>
-        </div>
-        
-        <div class="input-group mb-3">
+          <div class="input-group col-xs-11">
+          <div class="input-group-addon">
+              <span class="input-group-text" id="basic-addon2">Nivel</span>
+            </div> 
+            <input type="text" class="form-control" name="cardLevel" placeholder="Nivel" aria-label="Nivel" aria-describedby="basic-addon2">
+          </div><div class="input-group col-xs-11">
+            <div class="input-group-addon">
+              <span class="input-group-text" id="basic-addon2">Precio para utilizarla</span>
+            </div> 
+            <input type="text" class="form-control" name="cardPrice" placeholder="Precio para utilizarla" aria-label="Precio para utilizarla" aria-describedby="basic-addon2">
+          </div>
           <input type="submit" id="btn-save" value="Crear" class="btn btn-info">
           <a class="btn btn-info" href="http://www.hearthcards.net" target="_blank">Hearthcards</a>
+          <a class="btn btn-info" href="http://www.clashroyalecardmaker.com/" target="_blank">Clash Royale</a>
         </div>
       </div>
     </form>

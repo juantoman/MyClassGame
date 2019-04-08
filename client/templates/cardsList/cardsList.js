@@ -23,6 +23,8 @@ Template.cardsList.events({
       classId: Session.get('classId'),
       cardName: $(event.target).find('[name=cardName]').val(),
       cardDescription: $(event.target).find('[name=cardDescription]').val(),
+      cardLevel: $(event.target).find('[name=cardLevel]').val(),
+      cardPrice: $(event.target).find('[name=cardPrice]').val(),
       cardImage: Session.get('selectedImage'),
       createdOn: new Date()
     };

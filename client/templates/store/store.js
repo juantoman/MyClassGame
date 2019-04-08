@@ -22,6 +22,7 @@ Template.store.events({
       classId: Session.get('classId'),
       itemName: $(event.target).find('[name=itemName]').val(),
       itemDescription: $(event.target).find('[name=itemDescription]').val(),
+      itemLevel: $(event.target).find('[name=itemLevel]').val(),
       price: $(event.target).find('[name=itemPrice]').val(),
       createdOn: new Date()
     };

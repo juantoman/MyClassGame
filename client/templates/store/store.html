@@ -19,6 +19,10 @@
               <label>Precio artículo</label>
               <input  type="text" class="form-control inputGroup" name="{{_id}}" id="itemPrice" {{teacher}} value="{{price}}">
             </div>
+            <div class="input-group col-xs-11">
+              <label>Nivel</label>
+              <input  type="text" class="form-control inputGroup" name="{{_id}}" id="itemLevel" {{teacher}} value="{{itemLevel}}">
+            </div>
           </div>
         </div>
       {{/each}}
@@ -41,6 +45,10 @@
           <div class="input-group col-xs-11">
             <label>Precio artículo</label>
             <input  type="text" class="form-control inputGroup" name="itemPrice" id="itemPrice" {{teacher}} value="{{price}}">
+          </div>
+          <div class="input-group col-xs-11">
+            <label>Nivel</label>
+            <input  type="text" class="form-control inputGroup" name="itemLevel" id="itemLevel" {{teacher}} value="{{itemLevel}}">
           </div>
           <input type="submit" id="btn-save" value="{{_ "save"}}" class="btn btn-success">
         </div>

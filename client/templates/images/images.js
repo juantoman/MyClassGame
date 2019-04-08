@@ -87,5 +87,9 @@ Template.images.events({
         Meteor.call('imageInsert',image);
       }
     });
+  },
+  'click .deleteImage': function(event) {
+    event.preventDefault();
+    Meteor.call('imageDelete',this._id);
   }
 });
