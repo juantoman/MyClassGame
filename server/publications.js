@@ -198,7 +198,7 @@ Meteor.publish('notebookWork', function(userType) {
   }
 });
 Meteor.publish('images', function(userType) {
-  v=[];
+  /*v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
       classes.find({"teacherId": Meteor.userId()},{fields: {'_id':1}}).forEach(function(c){v.push(c._id);});
@@ -206,7 +206,8 @@ Meteor.publish('images', function(userType) {
   } else {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       return images.find({"classId": { "$in": c }});
-  }
+  }*/
+  return images.find();
 });
 Meteor.publish('cards', function(userType) {
   v=[];
