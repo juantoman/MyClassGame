@@ -1,7 +1,10 @@
 Template.storeModal.helpers({
   itemList: function() {
     return store.find({ classId: Session.get('classId') });
-  }
+  },
+  srcImage: function(imgId) {
+    return images.findOne({_id: imgId }).image_url;
+  },
 });
 
 Template.storeModal.events({

@@ -17,8 +17,11 @@
                 <ul class="list-group">
                   {{#each itemList}}
                     <button type="button" class="list-group-item" id="{{_id}}">
-                      <span class="price">{{price}}</span>
-                      {{itemDescription}}
+                      <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                      <div style="width:86%;float:left;">
+                        <h3>{{itemName}}<span class="price">{{price}}</span></h3>
+                        <h4>{{itemDescription}}</h4>
+                      </div>
                     </button>
                   {{/each}}
                 </ul>

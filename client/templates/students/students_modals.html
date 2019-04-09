@@ -9,18 +9,16 @@
         <form id="add_student_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="AddStudentModalLabel">Añadir un estudiante...</h4>
+            <h4 class="modal-title" id="AddStudentModalLabel">Añadir estudiantes</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
-                <label for="student-name" class="control-label">Nombre estudiante</label>
-                <input type="text" class="form-control" id="student-name" name="student-name">
-                <label for="email" class="control-label">Alias</label>
-                <input type="text" class="form-control" id="alias" name="alias">
-                <label for="email" class="control-label">Avatar</label>
-                <input type="text" class="form-control" id="avatar" name="avatar">
-                <label for="email" class="control-label">email</label>
-                <input type="text" class="form-control" id="email" name="email">
+                <label for="student-name" class="control-label">Nombres estudiantes (separados por coma)</label>
+                <input type="text" class="form-control" name="students-names">
+              </div>
+              <div class="form-group">
+                <label for="student-name" class="control-label">Correos estudiantes (separados por coma)</label>
+                <input type="text" class="form-control" name="students-emails">
               </div>
           </div>
           <div class="modal-footer">
@@ -51,8 +49,6 @@
                 <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}">
                 <label for="sAlias" class="control-label">Alias</label>
                 <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}">
-                <label for="sAvatar" class="control-label">Avatar</label>
-                <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}">
                 <label for="sEmail" class="control-label">email</label>
                 <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}">
               </div>

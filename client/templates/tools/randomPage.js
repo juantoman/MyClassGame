@@ -34,12 +34,18 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         t = e[r].studentName;
         i= e[r].avatar;
+        if (i.substring(0, 4)!="http") {
+          i=images.findOne({_id: i}).image_url;
+        }
         break;
       case "equipo":
         var e = groups.find({classId: Session.get('classId')}).fetch();
         var r = Math.floor(Math.random() * e.length);
         t = e[r].groupName;
         i= e[r].groupImg;
+        if (i.substring(0, 4)!="http") {
+          i=images.findOne({_id: i}).image_url;
+        }
         break;
       case "penalización":
         var e = convictions.find({classId: Session.get('classId')}).fetch();
