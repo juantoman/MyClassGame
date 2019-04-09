@@ -18,10 +18,11 @@
                   {{#each itemList}}
                     <button type="button" class="list-group-item" id="{{_id}}">
                       <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
-                      <div style="width:86%;float:left;">
-                        <h3>{{itemName}}<span class="price">{{price}}</span></h3>
+                      <div style="width:74%;float:left;">
+                        <h3>{{itemName}}</h3>
                         <h4>{{itemDescription}}</h4>
                       </div>
+                      <span  style="width:12%;float:right;" class="price text-center">{{price}}</span>
                     </button>
                   {{/each}}
                 </ul>

@@ -89,6 +89,10 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).cards;
   },
+  items: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return students.findOne({_id: Session.get('studentId')}).items;
+  },
   CP: function(cId) {
     return chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     //return challenges.find({classId: Session.get('classId')});
@@ -205,6 +209,9 @@ Template.studentPage.helpers({
   },
   card: function(){
     return cards.findOne({_id: this.cardId});
+  },
+  item: function(){
+    return store.findOne({_id: this.itemId});
   },
   statistics: function() {
     return behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId')});
@@ -773,7 +780,12 @@ Template.studentPage.events({
   },
   'click .useCard': function(event) {
     event.preventDefault();
-    Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+    if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
+      Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+      Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
+    } else {
+      alert("No coins");
+    }
   },
   'click .btn-delete-student': function(event) {
     event.preventDefault();

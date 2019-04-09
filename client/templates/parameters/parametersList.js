@@ -14,7 +14,7 @@ Template.parametersList.helpers({
       return "";
     }
   },
-  av: function(visible) {
+  ch: function(visible) {
     if (visible) {
       return "checked"
     }
@@ -112,6 +112,10 @@ Template.parametersList.events({
   'change #avatarVisible': function(event) {
     event.preventDefault();
     Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
+  'change #CoinXP': function(event) {
+    event.preventDefault();
+    Meteor.call('CoinXPChange', Session.get('classId'), event.currentTarget.checked);
   },
   'click #btn-reset': function(event) {
     event.preventDefault();

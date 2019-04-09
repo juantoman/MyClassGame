@@ -920,6 +920,10 @@ h1,h2,h3,h4,h5,h6{
   margin-top:-10px;
 }
 
+h4.panel-title {
+  font-size: 3vh !important;
+}
+
 @media (max-width: 768px) {
   .navbar-header {
     margin:2vh;

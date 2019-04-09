@@ -9,7 +9,7 @@ Template.cardsList.helpers({
       if (Session.get('selectedImage')) {
         return images.findOne({_id: Session.get('selectedImage')}).image_url;
       } else {
-        return "http://res.cloudinary.com/myclassgame/image/upload/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/v1554809984/images/22190738841_41626354b7_b.jpg";
       }
     }
   }

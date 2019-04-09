@@ -100,6 +100,7 @@
     <div class="container-fluid section table-responsive">
       <h2 class="text-center bg-info"><span id="alias">Información estudiante</span></h2>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <!--Diario y Portfolio del estudiante-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" id="headingDaP"  data-toggle="collapse" data-parent="#accordion" href="#collapseDaP" aria-expanded="false" aria-controls="collapseDaP">
             <h4 class="panel-title">
@@ -133,6 +134,7 @@
             </div>
           </div>
         </div>
+        <!--Misiones Grupales-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">
             <h4 class="panel-title">
@@ -269,6 +271,7 @@
             </div>
           </div>
         </div>
+        <!--Misiones Individuales-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#missionsI" aria-expanded="true" aria-controls="missions" id="headMissionsI">
             <h4 class="panel-title">
@@ -401,33 +404,7 @@
             </div>
           </div>
         </div>
-        <!--
-        <div class="panel panel-info">
-          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMaC" aria-expanded="false" aria-controls="collapseMaC" id="headingMaC">
-            <h4 class="panel-title">
-                Misiones (Notas)
-            </h4>
-          </div>
-          <div id="collapseMaC" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingMaC">
-            <div class="panel-body">
-              {{#each mac}}
-                <div class="form-group {{moc type}}">
-                  <div class="form-inline">
-                    <div class="input-group col-xs-9">
-                      <span class="input-group-addon">{{type}}</span>
-                      <input type="text" class="form-control inputGroup input-lg" readonly name="chalName" aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-                    </div>
-                    <div class="input-group col-xs-2">
-                      <span class="input-group-addon">Puntuación</span>
-                      <input type="text" class="form-control inputGroup input-lg cp" name="{{type}}" id="{{_id}}" {{inputDisabled}} aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
-                    </div>
-                  </div>
-                </div>
-              {{/each}}
-            </div>
-          </div>
-        </div>
-        -->
+        <!--Insignias-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBadges" aria-expanded="false" aria-controls="collapseBadges" id="headingBadges">
             <h4 class="panel-title">
@@ -470,7 +447,7 @@
               -->
               <div class="row">
                 {{#each badges}}
-                  <div class="col-container col-sm-6 col-md-3 col-lg-2">
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="thumbnail">
                       <div class="input-group">
                           <img src="{{image_url badge.badgeImage}}" class="img-thumbnail"/>
@@ -484,6 +461,7 @@
             </div>
           </div>
         </div>
+        <!--Cartas-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCards" aria-expanded="false" aria-controls="collapseCards" id="headingCards">
             <h4 class="panel-title">
@@ -526,14 +504,14 @@
               -->
               <div class="row">
                 {{#each cards}}
-                  <div class="col-container col-sm-6 col-md-3 col-lg-2">
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
                     <div class="thumbnail">
                       <div class="input-group text-center">
                           <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
-                          <h4 class="text-center text-info">{{card.cardName}}</h4>
+                          <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
                           <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
                           {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
-                          {{#if usabled}}<button class="btn btn-info useCard">Utilizar</button>{{/if}}
+                          {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
                       </div>
                     </div>
                   </div>
@@ -542,6 +520,65 @@
             </div>
           </div>
         </div>
+        <!--Artículos-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseItems" aria-expanded="false" aria-controls="collapseItems" id="headingItems">
+            <h4 class="panel-title">
+                Artículos
+            </h4>
+          </div>
+          <div id="collapseItems" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingItems">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each items}}
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url item.itemImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{item.itemName}}</h4>
+                          <h5 class="text-center text-warning">{{item.itemDescription}}</h5>
+                          <span class="badge">{{item.price}}</span>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Historial-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
             <h4 class="panel-title">
@@ -609,6 +646,7 @@
             </div>
           </div>
         </div>
+        <!--Diario-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDiary" aria-expanded="false" aria-controls="collapseDiary" id="headingDiary">
             <h4 class="panel-title">
@@ -656,6 +694,7 @@
             </div>
           </div>
         </div>
+        <!--Notas-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGrades" aria-expanded="false" aria-controls="collapseGrades" id="headingGrades">
             <h4 class="panel-title">

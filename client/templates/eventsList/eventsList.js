@@ -9,7 +9,7 @@ Template.eventsList.helpers({
       if (Session.get('selectedImage')) {
         return images.findOne({_id: Session.get('selectedImage')}).image_url;
       } else {
-        return "http://res.cloudinary.com/myclassgame/image/upload/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/v1554810211/images/event-2930674_960_720.png";
       }
     }
   }

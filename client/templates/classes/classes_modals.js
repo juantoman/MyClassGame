@@ -22,6 +22,7 @@ Template.classesModals.events({
         stored: false,
         groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
         evaluation: 1,
+        CoinXP: true,
         createdOn: new Date()
       };
       Meteor.call('classInsert', classe);
