@@ -7,26 +7,83 @@
         <div id="group_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="GroupModalLabel">Tienda</h4>
+            <h4 class="modal-title" id="GroupModalLabel">Dinero</h4>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
           <div class="modal-body">
-              <div class="form-group">
-                <ul class="list-group">
-                  {{#each itemList}}
-                    <button type="button" class="list-group-item" id="{{_id}}">
-                      <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
-                      <div style="width:74%;float:left;">
-                        <h3>{{itemName}}</h3>
-                        <h4>{{itemDescription}}</h4>
-                      </div>
-                      <span  style="width:12%;float:right;" class="price text-center">{{price}}</span>
-                    </button>
-                  {{/each}}
-                </ul>
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Ganar</a></li>
+              <li role="presentation"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Tienda</a></li>
+            </ul>
+            <!-- Tab panels -->
+            <div class="tab-content container-responsive" style="background-color:#eee;">
+              <div role="tabpanel" class="tab-pane active" id="earn">
+                <h2 class="text-center bg-info">Ganar</h2>
+                  <div class="billetes text-center">
+                      <button type="button" class="btn btn-info" name="one">
+                        <span class="badge text-center">1 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="two">
+                        <span class="badge text-center">2 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="three">
+                        <span class="badge text-center">3 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="five">
+                        <span class="badge text-center">5 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                      <button type="button" class="btn btn-info" name="ten">
+                        <span class="badge text-center">10 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="twenty">
+                        <span class="badge text-center">20 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="therty">
+                        <span class="badge text-center">30 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="fifty">
+                        <span class="badge text-center">50 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                      <button type="button" class="btn btn-info" name="ten">
+                        <span class="badge text-center">100 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="twenty">
+                        <span class="badge text-center">200 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="therty">
+                        <span class="badge text-center">300 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="fifty">
+                        <span class="badge text-center">500 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="hundred">
+                        <span class="badge text-center">1000 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                    </div>
               </div>
+              <div role="tabpanel" class="tab-pane" id="spend">
+                <h2 class="text-center bg-info">Tienda</h2>
+                <div class="form-group">
+                  <ul class="list-group">
+                    {{#each itemList}}
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <div style="width:72%;float:left;">
+                          <h3>{{itemName}}</h3>
+                          <h4>{{itemDescription}}</h4>
+                        </div>
+                        <span style="width:12%;float:right;" class="price text-center">{{price}}</span>
+                      </button>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">Cerrar</button>

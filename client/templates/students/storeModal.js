@@ -16,10 +16,18 @@ Template.storeModal.events({
       $(event.currentTarget).addClass("list-group-item-danger");
     }
   },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+  },
   'click #storeModalSubmit': function(event) {
     event.preventDefault();
     studentId=Session.get('studentId');
     coins = students.findOne({_id: studentId}).coins;
+    $('.storeModal').find(".activeTask").each( function() {
+      coins=parseInt($(this).find(".badge").text());
+      Meteor.call('incCoins', Session.get('studentId'), coins);
+    });
     $('.storeModal').find(".list-group-item-danger").each( function() {
       itemId=this.id;
       price=parseInt($(this).find(".price").text());

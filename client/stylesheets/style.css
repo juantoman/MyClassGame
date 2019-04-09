@@ -921,7 +921,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h4.panel-title {
-  font-size: 3vh !important;
+  font-size: 2.5vh !important;
 }
 
 @media (max-width: 768px) {
