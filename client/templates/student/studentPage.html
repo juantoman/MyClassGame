@@ -520,6 +520,63 @@
             </div>
           </div>
         </div>
+        <!--Cromos-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseChromes" aria-expanded="false" aria-controls="collapseChromes" id="headingChromes">
+            <h4 class="panel-title">
+                Cromos
+            </h4>
+          </div>
+          <div id="collapseChromes" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingChromes">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each chromes}}
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url chrome.chromeImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{chrome.chromeName}} <span class="text-center badge">{{chrome.chromePrice}}</span></h4>
+                          <h5 class="text-center text-warning">{{chrome.chromeDescription}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
         <!--Artículos-->
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseItems" aria-expanded="false" aria-controls="collapseItems" id="headingItems">

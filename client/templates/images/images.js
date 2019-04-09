@@ -16,6 +16,9 @@ Template.images.helpers({
     if ( Session.get('imageType') == "card" ) {
       idElement=cards.findOne({_id: Session.get('idElementImage')}).cardImage;
     }
+    if ( Session.get('imageType') == "chrome" ) {
+      idElement=chromes.findOne({_id: Session.get('idElementImage')}).chromeImage;
+    }
     if ( Session.get('imageType') == "item" ) {
       idElement=store.findOne({_id: Session.get('idElementImage')}).itemImage;
     }
@@ -53,6 +56,9 @@ Template.images.events({
       }
       if (Session.get('imageType')=="card") {
         Meteor.call('imageCardUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="chrome") {
+        Meteor.call('imageChromeUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
       if (Session.get('imageType')=="item") {
         Meteor.call('imageItemUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());

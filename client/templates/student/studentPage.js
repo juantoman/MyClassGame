@@ -89,6 +89,10 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).cards;
   },
+  chromes: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return students.findOne({_id: Session.get('studentId')}).chromes;
+  },
   items: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).items;
@@ -209,6 +213,9 @@ Template.studentPage.helpers({
   },
   card: function(){
     return cards.findOne({_id: this.cardId});
+  },
+  chrome: function(){
+    return chromes.findOne({_id: this.chromeId});
   },
   item: function(){
     return store.findOne({_id: this.itemId});
