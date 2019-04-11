@@ -34,7 +34,11 @@ Template.storeModal.events({
       if ( coins >= price ) {
         Meteor.call('buyingItem', Session.get('studentId'), itemId, price);
       } else {
-        alert("No coins");
+        swal({
+          title: "¡No tienes bastantes monedas!",
+          text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+          icon: "warning",
+        });
       }
     });
     Modal.hide('storeModal');

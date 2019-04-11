@@ -791,7 +791,11 @@ Template.studentPage.events({
       Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
       Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
     } else {
-      alert("No coins");
+      swal({
+        title: "¡No tienes bastantes monedas!",
+        text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+        icon: "warning",
+      });
     }
   },
   'click .btn-delete-student': function(event) {

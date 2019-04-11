@@ -8,8 +8,10 @@
     "@babel/runtime": "^7.0.0-beta.52",
     "babel-runtime": "^6.26.0",
     "bcrypt": "^1.0.3",
+    "chart.js": "^2.8.0",
     "google-auth-library": "^0.10.0",
     "googleapis": "^18.0.0",
-    "meteor-node-stubs": "^0.2.6"
+    "meteor-node-stubs": "^0.2.6",
+    "sweetalert": "^2.1.2"
   }
 }
