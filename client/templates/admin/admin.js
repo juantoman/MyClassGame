@@ -45,6 +45,7 @@ Template.admin.events({
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
     var c = classes.findOne({'_id': cId});
     delete c._id;
+    c.teacherId=Meteor.userId();
     c.className="Copia_" + c.className;
     Meteor.call('classDuplicate',c,cId);
     /*students.find({'classId': cId}).forEach(function(student){
@@ -53,7 +54,7 @@ Template.admin.events({
       student.classId=Session.get('classId');
       Meteor.call('studentInsert',student);
     });*/
-    Router.go('classesPage');
+    //Router.go('classesPage');
   },
   'click #btn-eliminar': function(event) {
     event.preventDefault();

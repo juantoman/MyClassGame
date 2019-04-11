@@ -51,6 +51,7 @@ Template.deleteClass.events({
 Template.adminClass.events({
   'submit form': function(event) {
     //alert($(event.target).find('[name=class-name]').val());
+    event.preventDefault();
     regla="^" + $(event.target).find('[name=class-name]').val();
     n=classes.find({"_id" : {'$regex' : regla }}).count();
     if (n==1){
@@ -64,6 +65,7 @@ Template.adminClass.events({
       Session.set('studentSelected', false);
       Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     }
+    Router.go("myNav",{_id:Session.get('classId')});
     Modal.hide('adminClass');
   }
 });

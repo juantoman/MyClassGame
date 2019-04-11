@@ -75,7 +75,7 @@ Template.classesPage.events({
     $("#fondo").css("background-image", "url("+backImg+")");
     Session.set('orderStudents', "XP");
     Session.set('invertOrder', "checked");
-    Router.go('myNav');
+    Router.go('myNav',{_id:Session.get('classId')});
   },
   'click .btn-double-class': function(event) {
     event.preventDefault();

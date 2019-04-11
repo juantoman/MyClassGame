@@ -1,16 +1,24 @@
 Meteor.publish('allUsers', function() {
   return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1, "emails": 1}});
 });
-Meteor.publish('classes', function(userType) {
+Meteor.publish('classes', function() {
+  return classes.find();
+  /*if (classId){
+    return classes.find({"_id":classId});
+  }
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
       return classes.find( { $or: [ { "teacherId": Meteor.userId() } , { "_id": { "$in": tipos } } ] } );
     } else {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       return classes.find({"_id": { "$in": c }});
-    }
+    }*/
 });
-Meteor.publish('students', function(userType) {
+Meteor.publish('students', function(userType,classId) {
+  if (classId){
+    return students.find({"classId":classId});
+  }
+  console.log(classId);
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -21,7 +29,10 @@ Meteor.publish('students', function(userType) {
       return students.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('groups', function(userType) {
+Meteor.publish('groups', function(userType,classId) {
+  if (classId){
+    return groups.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -32,7 +43,10 @@ Meteor.publish('groups', function(userType) {
       return groups.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('randomEvents', function(userType) {
+Meteor.publish('randomEvents', function(userType,classId) {
+  if (classId){
+    return randomEvents.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -43,7 +57,10 @@ Meteor.publish('randomEvents', function(userType) {
       return randomEvents.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('behaviours', function(userType) {
+Meteor.publish('behaviours', function(userType,classId) {
+  if (classId){
+    return behaviours.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -54,7 +71,10 @@ Meteor.publish('behaviours', function(userType) {
       return behaviours.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('behavioursLog', function(userType) {
+Meteor.publish('behavioursLog', function(userType,classId) {
+  if (classId){
+    return behavioursLog.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -65,7 +85,10 @@ Meteor.publish('behavioursLog', function(userType) {
       return behavioursLog.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('badges', function(userType) {
+Meteor.publish('badges', function(userType,classId) {
+  if (classId){
+    return badges.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -76,7 +99,10 @@ Meteor.publish('badges', function(userType) {
       return badges.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('store', function(userType) {
+Meteor.publish('store', function(userType,classId) {
+  if (classId){
+    return store.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -87,7 +113,10 @@ Meteor.publish('store', function(userType) {
       return store.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('convictions', function(userType) {
+Meteor.publish('convictions', function(userType,classId) {
+  if (classId){
+    return convictions.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -98,7 +127,10 @@ Meteor.publish('convictions', function(userType) {
       return convictions.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('quotes', function(userType) {
+Meteor.publish('quotes', function(userType,classId) {
+  if (classId){
+    return quotes.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -109,7 +141,10 @@ Meteor.publish('quotes', function(userType) {
       return quotes.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('levels', function(userType) {
+Meteor.publish('levels', function(userType,classId) {
+  if (classId){
+    return levels.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -120,7 +155,10 @@ Meteor.publish('levels', function(userType) {
       return levels.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('challenges', function(userType) {
+Meteor.publish('challenges', function(userType,classId) {
+  if (classId){
+    return challenges.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -131,7 +169,10 @@ Meteor.publish('challenges', function(userType) {
       return challenges.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('chalMissions', function(userType) {
+Meteor.publish('chalMissions', function(userType,classId) {
+  if (classId){
+    return chalMissions.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -142,7 +183,10 @@ Meteor.publish('chalMissions', function(userType) {
       return chalMissions.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('chalPoints', function(userType) {
+Meteor.publish('chalPoints', function(userType,classId) {
+  if (classId){
+    return chalPoints.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -153,7 +197,10 @@ Meteor.publish('chalPoints', function(userType) {
       return chalPoints.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('challengesXP', function(userType) {
+Meteor.publish('challengesXP', function(userType,classId) {
+  if (classId){
+    return challengesXP.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -164,7 +211,10 @@ Meteor.publish('challengesXP', function(userType) {
       return challengesXP.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('diary', function(userType) {
+Meteor.publish('diary', function(userType,classId) {
+  if (classId){
+    return diary.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -175,7 +225,10 @@ Meteor.publish('diary', function(userType) {
       return diary.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('notebook', function(userType) {
+Meteor.publish('notebook', function(userType,classId) {
+  if (classId){
+    return notebook.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -186,7 +239,10 @@ Meteor.publish('notebook', function(userType) {
       return notebook.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('notebookWork', function(userType) {
+Meteor.publish('notebookWork', function(userType,classId) {
+  if (classId){
+    return notebookWork.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -197,7 +253,7 @@ Meteor.publish('notebookWork', function(userType) {
       return notebookWork.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('images', function(userType) {
+Meteor.publish('images', function() {
   /*v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -209,7 +265,10 @@ Meteor.publish('images', function(userType) {
   }*/
   return images.find();
 });
-Meteor.publish('cards', function(userType) {
+Meteor.publish('cards', function(userType,classId) {
+  if (classId){
+    return cards.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -220,7 +279,10 @@ Meteor.publish('cards', function(userType) {
       return cards.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('chromes', function(userType) {
+Meteor.publish('chromes', function(userType,classId) {
+  if (classId){
+    return chromes.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -231,7 +293,10 @@ Meteor.publish('chromes', function(userType) {
       return chromes.find({"classId": { "$in": c }});
   }
 });
-Meteor.publish('chatClass', function(userType) {
+Meteor.publish('chatClass', function(userType,classId) {
+  if (classId){
+    return chatClass.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -245,7 +310,10 @@ Meteor.publish('chatClass', function(userType) {
 Meteor.publish('chatTeachers', function() {
   return chatTeachers.find();
 });
-Meteor.publish('notifications', function(userType) {
+Meteor.publish('notifications', function(userType,classId) {
+  if (classId){
+    return notifications.find({"classId":classId});
+  }
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
