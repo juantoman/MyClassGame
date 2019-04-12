@@ -1,0 +1,5 @@
+db.mcgParameters.insert({"_id":1,"typeClasses" : [], "passMCG" : "" });
+
+meteor npm install --save sweetalert
+
+meteor npm install --save chart.js  

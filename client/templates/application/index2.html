@@ -1,5 +1,36 @@
-<template name="carrusel">
- <!-- Carousel
+<template name="index2">
+    <div class="navbar-wrapper">
+      <div class="">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand mylogo" href="#">
+                <img width="60vh" src="/images/@mcgnb.png" style="float:left;margin-left:1vw;">
+                <a class="navbar-brand" href="/"><span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span><p class="text-center">{{_ "welearnplaying"}}</p></a>
+              </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="faq"><a href="https://myclassgame.helpsite.com/" target="_blank"><img width="54px" src="https://res.cloudinary.com/myclassgame/image/upload/v1540990041/images/2000px-Trademark_License_FAQ.svg.png" /></a></li>
+                <li class="i18n">{{> i18n_dropdown}}</li>
+                <li class="login">{{> loginButtons}}</li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
     ================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -128,5 +159,15 @@
 
       <!-- /END THE FEATURETTES -->
 
+
+      <!-- FOOTER -->
+      <footer>
+        <div>
+          <p>{{_ "projectby"}}<a href="https://juantoman.wixsite.com/juantoman" target="_blank">Juan Torres</a> <a href="https://www.facebook.com/juantoman/" target="_blank"><img width="20px" src="https://vignette.wikia.nocookie.net/hieloyfuego/images/5/5b/%C3%8Dcono_Facebook.png/revision/latest?cb=20130921232320" /></a>
+          <a href="https://twitter.com/juantoman" target="_blank"><img width="20px" src="https://microplanmadrid.files.wordpress.com/2014/06/icono-twitter.png?w=256" /></a> <a href="mailto:myclassgame@gmail.com" target="_blank">myclassgame@gmail.com</a></p>    
+        </div>
+      </footer>
+
     </div><!-- /.container -->
+
 </template>

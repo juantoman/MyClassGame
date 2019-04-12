@@ -43,20 +43,7 @@ body {
   background-attachment: fixed;
 }
 
-.navbar {
-  margin-bottom: 10px; 
-  height:110px;
-  border-radius: 0px;
-  -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
-}
-
   /* line 32, ../sass/style.scss */
-  
-.navbar .navbar-inner {
-    border-radius: 0px 0px 3px 3px;
-}
 
 #spinner {
   height: 300px; }
@@ -245,10 +232,7 @@ a:hover, a:link {
 .form-control-lg{
   font-size: 200%;
 }
-.carousel-inner > .item > img {
-      width: 50%;
-      margin: auto;
-}
+
 .footer{
   position: fixed;
   left: 0;
@@ -297,12 +281,7 @@ label {
 .btn-group {
   margin:2px;
 }
-.carousel-inner img{
-  opacity: 0.4;
-}
-.carousel-caption{
-  color:#073642;
-}
+
 .container-responsive {
   background-color: lightgray;
 }
@@ -383,10 +362,6 @@ label {
 }
 .userType{
   width:50%;
-}
-.navbar-brand{
-  font-weight: bold;
-  font-family: Verdana, Geneva, sans-serif;
 }
 
 .register {
@@ -602,10 +577,6 @@ input[type=submit] {
   color: white;
 }
 
-.navbar-default, .footer{
-  background-color: #268BD2 !important;
-}
-
 #studentPage, #groupPage {
   background-color: #eaf7ff;
   padding-top: 1px;
@@ -617,14 +588,6 @@ input[type=submit] {
 .section {
   border-top: 1px solid #268BD2 !important;
   border-bottom: 1px solid #268BD2 !important;
-}
-
-.navbar-brand span{
-  text-shadow:0 0 1px #ffffff, 0 0 2px #000000;
-}
-
-.navbar-brand p{
-  text-shadow: 0 0 10px #000000, 0 0 15px #ffffff;
 }
 
 .myContent {
@@ -812,10 +775,6 @@ input[type=submit] {
   text-shadow: 5px 5px 10px #000000;
 }
 
-.navbar-toggle {
-  background-color: lightgray !important
-}
-
 .activeTask {
   background-color: lightgreen !important
 }
@@ -936,5 +895,5 @@ h4.panel-title {
   }
   #menu_movil {
     display:block;
-}
+  }
 }
