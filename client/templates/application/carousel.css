@@ -122,7 +122,7 @@ body {
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  width: 40% !important;
+  width: 54vh !important;
   margin: auto !important;
 }
 
