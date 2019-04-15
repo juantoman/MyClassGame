@@ -1,3 +1,8 @@
+Template.storeModal.rendered = function() {
+  Session.set('wonCoins', 0);
+  Session.set('spentCoins', 0);
+}
+
 Template.storeModal.helpers({
   itemList: function() {
     return store.find({ classId: Session.get('classId') });
@@ -5,20 +10,37 @@ Template.storeModal.helpers({
   srcImage: function(imgId) {
     return images.findOne({_id: imgId }).image_url;
   },
+  coins: function() {
+    return students.findOne({_id: Session.get('studentId') }).coins;
+  },
+  wonCoins: function() {
+    return Session.get('wonCoins');
+  },
+  spentCoins: function() {
+    return Session.get('spentCoins');
+  }
 });
 
 Template.storeModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
+    $(event.currentTarget).toggleClass("list-group-item-danger");
+    coins=parseInt($(event.currentTarget).find(".price").text());
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
-      $(event.currentTarget).removeClass("list-group-item-danger");
+      Session.set('spentCoins', Session.get('spentCoins') + coins);
     } else {
-      $(event.currentTarget).addClass("list-group-item-danger");
+      Session.set('spentCoins', Session.get('spentCoins') - coins);
     }
   },
   'click .btn-info': function(event) {
     event.preventDefault();
     $(event.currentTarget).toggleClass("activeTask");
+    coins=parseInt($(event.currentTarget).find(".badge").text());
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      Session.set('wonCoins', Session.get('wonCoins') + coins);
+    } else {
+      Session.set('wonCoins', Session.get('wonCoins') - coins);
+    }
   },
   'click #storeModalSubmit': function(event) {
     event.preventDefault();
