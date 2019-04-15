@@ -108,7 +108,7 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 50vh;
+  height: 40vh;
   margin-bottom: 70px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -118,11 +118,11 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 50vh;
+  height: 40vh;
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  width: 50% !important;
+  width: 40% !important;
   margin: auto !important;
 }
 
@@ -137,14 +137,14 @@ body {
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
-.marketing .col-lg-4 {
+.marketing .col-lg-3 {
   margin-bottom: 20px;
   text-align: center;
 }
 .marketing h2 {
   font-weight: normal;
 }
-.marketing .col-lg-4 p {
+.marketing .col-lg-3 p {
   margin-right: 10px;
   margin-left: 10px;
 }
@@ -162,6 +162,7 @@ body {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
+  margin-top:0px !important;
 }
 
 
@@ -176,14 +177,12 @@ body {
 
  
 footer {
-  height:100px;
+  height:50px !important;
   margin:0px;
   padding:0px;
-  padding-top: 20px;
-  height:20px !important;
 }
  
-@media (min-width: 768px) {
+@media (min-width: 740px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
     margin-top: 0px;
