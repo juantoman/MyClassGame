@@ -162,12 +162,3 @@ Template.studentsModals.events({
     $('#group_modal').modal('hide');
   }
 });
-
-Template.deleteStudent.events({
-  'submit form': function(event) {
-    Meteor.call('studentDelete', Session.get('studentId'));
-    Modal.hide('deleteStudent');
-    Session.set('studentSelected', false);
-    Session.set('groupSelected', false);
-  }
-});

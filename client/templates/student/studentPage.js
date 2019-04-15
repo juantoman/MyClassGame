@@ -802,10 +802,30 @@ Template.studentPage.events({
     event.preventDefault();
     Modal.show('deleteStudent');
   },
+  'click .btn-reset-student': function(event) {
+    event.preventDefault();
+    Modal.show('resetStudent');
+  },
  'click .eImage': function(event) {
     event.preventDefault();
     Session.set('imageType','avatar');
     Session.set('idElementImage',this._id);
     Modal.show('images');
+  }
+});
+
+Template.deleteStudent.events({
+  'submit form': function(event) {
+    Meteor.call('studentDelete', Session.get('studentId'));
+    Modal.hide('deleteStudent');
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+  }
+});
+
+Template.resetStudent.events({
+  'submit form': function(event) {
+    Meteor.call('studentReset', Session.get('studentId'));
+    Modal.hide('resetStudent');
   }
 });
