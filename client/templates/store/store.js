@@ -48,6 +48,6 @@ Template.store.events({
     event.preventDefault();
     Session.set('imageType','item');
     Session.set('idElementImage',event.currentTarget.title);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

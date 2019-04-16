@@ -350,6 +350,6 @@ Template.groupPage.events({
     event.preventDefault();
     Session.set('imageType','group');
     Session.set('idElementImage',this._id);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

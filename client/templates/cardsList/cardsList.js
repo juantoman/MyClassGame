@@ -43,6 +43,6 @@ Template.cardsList.events({
     event.preventDefault();
     Session.set('imageType','card');
     Session.set('idElementImage',event.currentTarget.title);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

@@ -17,8 +17,8 @@
           <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
         {{/if}}
         <div class="container-fluid">
-          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn eImage">
-          <div class="puntsStudent">
+          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn eImage col-xs-3 col-lg-3">
+          <div class="puntsStudent col-xs-2 col-lg-2">
               <div class="list-group" id="{{_id}}">
                 <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
                 <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
@@ -29,7 +29,7 @@
               </div>
           </div>
           <form class="dataStudent">
-            <div class="form-group">
+            <div class="form-group col-xs-7 col-lg-7">
               <label for="sName" class="control-label">ID {{_ "student"}}</label>
               <input type="text" class="form-control" id="sName" name="idName" value="{{_id}}" readonly="readonly">
               <label for="sName" class="control-label">{{_ "student_name"}}</label>
@@ -59,7 +59,7 @@
               {{/if}}
             </div>
             {{#if teacher}}
-            <div class="studentStars">
+            <div class="studentStars col-xs-12 col-lg-9">
               <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
                 <label class="btn btn-info btn-emoticon">
                   <p>{{rs}}</p>

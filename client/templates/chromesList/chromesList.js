@@ -42,6 +42,6 @@ Template.chromesList.events({
     event.preventDefault();
     Session.set('imageType','chrome');
     Session.set('idElementImage',event.currentTarget.title);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

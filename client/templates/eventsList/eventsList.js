@@ -41,6 +41,6 @@ Template.eventsList.events({
     event.preventDefault();
     Session.set('imageType','event');
     Session.set('idElementImage',event.currentTarget.title);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

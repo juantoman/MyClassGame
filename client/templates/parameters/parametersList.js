@@ -74,6 +74,7 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('hourXPUpdate', Session.get('classId'), parseInt(event.currentTarget.value));
   },
+  /*
   'click #studentImg': function(event) {
     event.preventDefault();
     cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
@@ -104,6 +105,7 @@ Template.parametersList.events({
       }
     });
   },
+  */
   'change select#evaluacion': function(event) {
     event.preventDefault();
     Session.setPersistent('evaluation', $(event.target).val());
@@ -126,13 +128,13 @@ Template.parametersList.events({
     event.preventDefault();
     Session.set('imageType','avatar');
     Session.set('idElementImage',this._id);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   },
   'click .groupImage': function(event) {
     event.preventDefault();
     Session.set('imageType','group');
     Session.set('idElementImage',this._id);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });
 

@@ -1,8 +1,8 @@
-Template.images.onRendered(function() {
+Template.imagesTemplate.onRendered(function() {
    $.getScript("https://media-library.cloudinary.com/global/all.js");
 });
 
-Template.images.helpers({
+Template.imagesTemplate.helpers({
   images: function() {
     return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
   },
@@ -44,7 +44,7 @@ Template.images.helpers({
   }
 });
 
-Template.images.events({
+Template.imagesTemplate.events({
   'click .selectImage': function(event) {
     event.preventDefault();
     if (Session.get('idElementImage')){
@@ -74,11 +74,11 @@ Template.images.events({
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());
     }
-    Modal.hide('images');
+    Modal.hide('imagesTemplate');
   },
   'click .btn-default': function(event) {
     event.preventDefault();
-    Modal.hide('images');
+    Modal.hide('imagesTemplate');
   },
   'click .cloudinary': function(event) {
     event.preventDefault();

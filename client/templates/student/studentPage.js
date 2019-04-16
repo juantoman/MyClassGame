@@ -649,6 +649,7 @@ Template.studentPage.events({
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',event.target.name);
   },
+  /*
   'click .avatarCloudinary': function(event) {
     event.preventDefault();
     if (Session.get('userType')=="teacher") {
@@ -659,7 +660,7 @@ Template.studentPage.events({
         }
       });
     }
-  },
+  },*/
   'click #cloudinaryList': function(event) {
     event.preventDefault();
     //cloudinary.image("sample", {"crop":"fill","gravity":"faces","width":300,"height":200,"format":"jpg"});
@@ -810,7 +811,7 @@ Template.studentPage.events({
     event.preventDefault();
     Session.set('imageType','avatar');
     Session.set('idElementImage',this._id);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });
 

@@ -52,6 +52,6 @@ Template.badgesList.events({
     event.preventDefault();
     Session.set('imageType','badge');
     Session.set('idElementImage',event.currentTarget.id);
-    Modal.show('images');
+    Modal.show('imagesTemplate');
   }
 });

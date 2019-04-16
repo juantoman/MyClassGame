@@ -217,8 +217,9 @@ a:hover, a:link {
 .lista-item{
   background-color: lightgray;
 }
-.list-group-item{
+.puntsStudent .list-group-item{
   font-weight: bold;
+  font-size:4vh !important;
 }
 .list-group-item:hover{
   background-color: lightgreen;
@@ -339,27 +340,22 @@ label {
   /*background-color: #d0f9cf !important;*/
 }
 .fotoStudent{
-  float:left;
-  margin-top:20px;
-  height:40vh;
-  margin-left:10px;
-  margin-bottom: 20px;
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
   filter: drop-shadow(3px 3px 5px #222);
 }
 .puntsStudent {
-  float:left;
-  width:15%;
-  margin-top:20px;
-  margin-left:2%;
+
+
+
+  
 }
 .dataStudent{
-  float:right;
-  width:50%;
-  height:100%;
+
+
+
 }
 .section{
-  clear:both;
+
 }
 .myuser{
   background-color: gold !important;
@@ -918,5 +914,9 @@ h4.panel-title {
   }
   #menu_movil {
     display:block;
+  }
+  .puntsStudent .list-group-item{
+    font-weight: bold;
+    font-size:1.5vh !important;
   }
 }
