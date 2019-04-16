@@ -138,33 +138,164 @@
   </div>
 </template>
 
-<!-- All BG Modal -->
-<template name="allCoinsModal">
-   <div class="modal" id="coins_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+<!-- All Cards Modal -->
+<template name="allCardsModal">
+   <div class="modal" id="all_cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div id="add_coins_form">
+        <div id="add_card_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="CoinsModalLabel">Comprar artículos para todos los alumnos seleccionados</h4>
+            <h4 class="modal-title" id="cardsModalLabel">Cartas y cromos</h4>
           </div>
           <div class="modal-body">
-              <div class="form-group">
-                <ul class="list-group">
-                  {{#each coins}}
-                    <button type="button" class="list-group-item" id="{{_id}}">
-                      <span class="badge">{{price}}</span>
-                      {{itemDescription}}
-                    </button>
-                  {{/each}}
-                </ul>
-                <label for="student-name" class="control-label">Comentarios</label>
-                <input type="text" class="form-control" id="commentCoinsGroup" name="commentCoinsGroup">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Cartas</a></li>
+              <li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Cromos</a></li>
+            </ul>
+            <!-- Tab panels -->
+            <div class="tab-content container-responsive" style="background-color:#eee;">
+              <div role="tabpanel" class="tab-pane active cardsModal" id="cartas">
+                <h2 class="text-center bg-info">Cartas</h2>
+                <div class="form-group">
+                  <ul class="list-group">
+                    {{#each cards}}
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <img src="{{srcImage cardImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <div style="width:74%;float:left;">
+                          <h3>{{cardName}}</h3>
+                          <h4>{{cardDescription}}</h4>
+                        </div>
+                        <span style="width:10%;float:right;" class="badge text-center">{{cardPrice}}</span>
+                      </button>
+                    {{/each}}
+                  </ul>
+                </div>
               </div>
+              <div role="tabpanel" class="tab-pane chromesModal" id="cromos">
+                <h2 class="text-center bg-info">Cromos</h2>
+                <div class="form-group">
+                  <ul class="list-group">
+                    {{#each chromes}}
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <img src="{{srcImage chromeImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <div style="width:72%;float:left;">
+                          <h3>{{chromeName}}</h3>
+                          <h4>{{chromeDescription}}</h4>
+                        </div>
+                        <span style="width:12%;float:right;" class="price text-center badge">{{chromePrice}}</span>
+                      </button>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <input type="submit" id="coinsModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+            <input type="submit" id="cardModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- All Coins Modal -->
+<template name="allCoinsModal">
+   <div class="modal" id="all_coins_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="allCoinsModalLabel">Dinero</h4>
+          </div>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-body">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Ganar</a></li>
+              <li role="presentation"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Tienda</a></li>
+            </ul>
+            <!-- Tab panels -->
+            <div class="tab-content container-responsive" style="background-color:#eee;">
+              <div role="tabpanel" class="tab-pane active" id="earn">
+                <h2 class="text-center bg-info">Ganar</h2>
+                  <div class="billetes text-center">
+                      <button type="button" class="btn btn-info" name="one">
+                        <span class="badge text-center">1 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="two">
+                        <span class="badge text-center">2 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="three">
+                        <span class="badge text-center">3 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="five">
+                        <span class="badge text-center">5 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                      <button type="button" class="btn btn-info" name="ten">
+                        <span class="badge text-center">10 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="twenty">
+                        <span class="badge text-center">20 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="therty">
+                        <span class="badge text-center">30 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="fifty">
+                        <span class="badge text-center">50 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                      <button type="button" class="btn btn-info" name="ten">
+                        <span class="badge text-center">100 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="twenty">
+                        <span class="badge text-center">200 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="therty">
+                        <span class="badge text-center">300 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="fifty">
+                        <span class="badge text-center">500 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <button type="button" class="btn btn-info" name="hundred">
+                        <span class="badge text-center">1000 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                      </button>
+                      <br/><br/>
+                    </div>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="spend">
+                <h2 class="text-center bg-info">Tienda</h2>
+                <div class="form-group">
+                  <ul class="list-group">
+                    {{#each itemList}}
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <div style="width:72%;float:left;">
+                          <h3>{{itemName}}</h3>
+                          <h4>{{itemDescription}}</h4>
+                        </div>
+                        <span style="width:12%;float:right;" class="price text-center badge">{{price}}</span>
+                      </button>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="text-center ">
+              <h2>
+                <span class="label label-success">{{wonCoins}} <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+                <span class="label label-warning">{{spentCoins}} <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
+              </h2>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Cerrar</button>
+            <input type="submit" id="allCoinsModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
       </div>

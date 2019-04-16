@@ -114,6 +114,12 @@ Template.studentsMainPage.events({
       Modal.show('allBGModal');
     }
   },
+  'click .btn-cards3': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allCardsModal');
+    }
+  },
   'click .btn-coins3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {

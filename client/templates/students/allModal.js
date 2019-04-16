@@ -252,37 +252,35 @@ Template.allBGModal.events({
   },
 });
 
-Template.allCoinsModal.helpers({
-  coins: function() {
-    return store.find({ classId: Session.get('classId') });
+/* allCardsModal */
+
+Template.allCardsModal.helpers({
+  cards: function() {
+    return cards.find({ classId: Session.get('classId') });
   },
-  hps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: false });
+  chromes: function() {
+    return chromes.find({classId: Session.get('classId')});
+  },
+  srcImage: function(imgId) {
+    return images.findOne({_id: imgId }).image_url;
   },
   students: function() {
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
-  },
-  studentInGroup: function(studentId) {
-    if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
   }
 });
 
-Template.allCoinsModal.events({
+Template.allCardsModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
-    if ($(event.currentTarget).hasClass("list-group-item-danger")){
-      $(event.currentTarget).removeClass("list-group-item-danger");
-    } else {
-      $(event.currentTarget).addClass("list-group-item-danger");
-    }
+    $(event.currentTarget).toggleClass("list-group-item-danger");
   },
   'click .btn-default': function(event) {
     event.preventDefault();
-    Modal.hide('groupCoinsModal');
+    Modal.hide('allCardsModal');
   },
-  'click #coinsModalSubmit': function(event) {
+  'click #cardModalSubmit': function(event) {
     event.preventDefault();
-    $('#coins_modal_group').find(".list-group-item-danger").each( function() {
+    $('.all_cards_modal').find(".list-group-item-danger").each( function() {
       itemId=this.id;
       price=parseInt($(this).find(".badge").text());
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
@@ -294,6 +292,103 @@ Template.allCoinsModal.events({
         }
       });
     });
-    Modal.hide('groupCoinsModal');
+    $('.cardsModal').find(".list-group-item").each( function() {
+      cardId=this.id;
+      if ($(this).hasClass("list-group-item-danger")) {
+        students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+          Meteor.call('studentCard', item["_id"], cardId);
+        });
+      }
+    });
+    $('.chromesModal').find(".list-group-item").each( function() {
+      chromeId=this.id;
+      if ($(this).hasClass("list-group-item-danger")) {
+        students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+          Meteor.call('studentChrome', item["_id"], chromeId);
+        });
+      }
+    });
+    Modal.hide('all_cards_modal');
   },
+});
+
+/* allCoinsModal */
+
+Template.allCoinsModal.rendered = function() {
+  Session.set('wonCoins', 0);
+  Session.set('spentCoins', 0);
+}
+
+Template.allCoinsModal.helpers({
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  itemList: function() {
+    return store.find({ classId: Session.get('classId') });
+  },
+  srcImage: function(imgId) {
+    return images.findOne({_id: imgId }).image_url;
+  },
+  coins: function() {
+    return students.findOne({_id: Session.get('studentId') }).coins;
+  },
+  wonCoins: function() {
+    return Session.get('wonCoins');
+  },
+  spentCoins: function() {
+    return Session.get('spentCoins');
+  }
+});
+
+Template.allCoinsModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("list-group-item-danger");
+    coins=parseInt($(event.currentTarget).find(".price").text());
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      Session.set('spentCoins', Session.get('spentCoins') + coins);
+    } else {
+      Session.set('spentCoins', Session.get('spentCoins') - coins);
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('allCoinsModal');
+  },
+  'click #allCoinsModalSubmit': function(event) {
+    event.preventDefault();
+    $('#all_coins_modal').find(".activeTask").each( function() {
+      coins=parseInt($(this).find(".badge").text());
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        Meteor.call('incCoins', item["_id"], coins);
+      });
+    });
+    $('#all_coins_modal').find(".list-group-item-danger").each( function() {
+      itemId=this.id;
+      price=parseInt($(this).find(".badge").text());
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        coins = students.findOne({_id: item["_id"]}).coins;
+        if ( coins >= price ) {
+          Meteor.call('buyingItem', item["_id"], itemId, price);
+        } else {
+          swal({
+            title: "¡"+ students.findOne({_id: item["_id"]}).studentName + " no tiene bastantes monedas!",
+            text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+            icon: "warning",
+          });
+        }
+      });
+    });
+    Modal.hide('allCoinsModal');
+  },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+    coins=parseInt($(event.currentTarget).find(".badge").text());
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      Session.set('wonCoins', Session.get('wonCoins') + coins);
+    } else {
+      Session.set('wonCoins', Session.get('wonCoins') - coins);
+    }
+  }
 });
