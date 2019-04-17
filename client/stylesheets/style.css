@@ -96,12 +96,12 @@ body {
   position: relative;
   background-color: #ddd;
   border: 1px solid lightgray;
-  top: -20px;
 }
 .breadcrumb{
   background-color: white;
   border: 1px solid lightgray;
   border-radius: 0px;
+  margin-bottom:0;
 }
 
 .breadcrumb a, .nav a {
@@ -122,7 +122,15 @@ a:hover, a:link {
 }
 
 .mytab{
-  margin-top:-20px !important;
+  margin-top:0px !important;
+}
+
+.mytab h2{
+  margin-top:0px !important;
+}
+
+.tab-content{
+  margin-top:20px;
 }
 
 .tab-content .tab-content{
@@ -454,16 +462,14 @@ td button {
 }
 
 .settingsMenu {
+  position:relative;
   background-color:#fff;
   border-top: 1px solid lightgray;
-  margin-top:0px;
+  top:-20px;
 }
 
 .settingsMenu .nav-pills{
   background-color:#fff;;
-}
-#settingsMenu h2{
-  margin:-1px;
 }
 
 #settingsMenu .nav{
@@ -909,7 +915,6 @@ h1,h2,h3,h4,h5,h6{
 
 .className {
   margin-top:-10px;
-  margin-bottom:10px !important;
 }
 
 h4.panel-title {
