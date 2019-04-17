@@ -186,7 +186,7 @@ a:hover, a:link {
 }
 
 .btn {
-  font-size:2vmax !important;
+  font-size:1vmax !important;
 }
 .btn-student button{
   white-space: nowrap;
@@ -902,6 +902,7 @@ h1,h2,h3,h4,h5,h6{
 
 .className {
   margin-top:-10px;
+  margin-bottom:10px !important;
 }
 
 h4.panel-title {
@@ -909,10 +910,5 @@ h4.panel-title {
 }
 
 @media (min-width: 740px) {
-  .navbar-header {
-    
-  }
-  .submenu, .Menu {
-    display:none;
-  }
+
 }
