@@ -16,7 +16,7 @@ body {
   background: #eee;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
-  padding-top: 111px;
+  padding-top: 97px;
   padding-bottom: 0px;
 }
 
@@ -184,6 +184,10 @@ a:hover, a:link {
   padding:2px;
   float:left;
 }
+
+.btn {
+  font-size:2vmax !important;
+}
 .btn-student button{
   white-space: nowrap;
   overflow: hidden;
@@ -219,7 +223,7 @@ a:hover, a:link {
 }
 .puntsStudent .list-group-item{
   font-weight: bold;
-  font-size:4vh !important;
+  font-size:3vmax !important;
 }
 .list-group-item:hover{
   background-color: lightgreen;
@@ -344,14 +348,9 @@ label {
   filter: drop-shadow(3px 3px 5px #222);
 }
 .puntsStudent {
-
-
-
-  
+  margin-top: 10px;
 }
 .dataStudent{
-
-
 
 }
 .section{
@@ -902,9 +901,9 @@ h4.panel-title {
   font-size: 2.5vh !important;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 740px) {
   .navbar-header {
-    margin:2vh;
+    
   }
   .submenu, .Menu {
     display:none;
@@ -914,9 +913,5 @@ h4.panel-title {
   }
   #menu_movil {
     display:block;
-  }
-  .puntsStudent .list-group-item{
-    font-weight: bold;
-    font-size:1.5vh !important;
   }
 }

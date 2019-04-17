@@ -37,7 +37,7 @@ body {
 
 .navbar {
   margin-bottom: 10px; 
-  height:110px;
+  height:95px;
   border-radius: 0px;
   -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -45,7 +45,7 @@ body {
 }
 
 .navbar .navbar-inner {
-    border-radius: 0px 0px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 
 .navbar-brand{
@@ -60,16 +60,16 @@ body {
 .mylogo img{
   -webkit-filter: drop-shadow(5px 5px 5px #555 );
   filter: drop-shadow(3px 3px 5px #555);
-  margin-right:0.5vw;
+
 }
 
 .navbar-brand span{
-  font-size: 1.1em;
+  font-size:0.9em !important;;
   text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
 }
 
 .navbar-brand p{
-  font-size: 0.5em;
+  font-size:0.5em !important;;
   text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
 }
 
@@ -210,6 +210,10 @@ footer {
 
   .featurette-heading {
     font-size: 50px;
+  }
+  
+  .marketing p {
+    font-size: 1.5vmax !important;
   }
   
 }
