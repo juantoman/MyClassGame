@@ -909,6 +909,8 @@ h4.panel-title {
   font-size: 1.5vmax !important;
 }
 
-@media (min-width: 740px) {
-
+@media (max-width: 740px) {
+ .spanMenu {
+   display:none !important;
+ }
 }
