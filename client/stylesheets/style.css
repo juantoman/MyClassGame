@@ -120,6 +120,11 @@ a:hover, a:link {
 .myInput{
   width:90%;
 }
+
+.mytab{
+  margin-top:-20px !important;
+}
+
 .tab-content .tab-content{
   border:1px solid lightgray;
 }
@@ -131,7 +136,7 @@ a:hover, a:link {
 .imatge {
   position: relative;
   float:left;
-  width:80%;
+  width:90%;
   margin:0;
   bottom:0;
 }
@@ -146,8 +151,8 @@ a:hover, a:link {
   position: absolute;
   left: 10%;
   object-fit: contain;
-  -webkit-filter: drop-shadow(5px 5px 5px #222 );
-  filter: drop-shadow(3px 3px 5px #222);
+  /*-webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);*/
   margin-top:1vh;
 }
 
@@ -205,7 +210,7 @@ a:hover, a:link {
 .punts {
   position:absolute;
   width:15%;
-  top:0.5vh;
+  top:1vh;
   right:2vh;
 }
 .punts .list-group {
@@ -448,13 +453,13 @@ td button {
   display: block !important;
 }
 
-#settingsMenu {
+.settingsMenu {
   background-color:#fff;
   border-top: 1px solid lightgray;
   margin-top:0px;
 }
 
-#settingsMenu .nav-pills{
+.settingsMenu .nav-pills{
   background-color:#fff;;
 }
 #settingsMenu h2{

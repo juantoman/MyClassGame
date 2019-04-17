@@ -5,16 +5,16 @@
   -->
   <div class="container-responsive">
 
-    <div id="settingsMenu">
+    <div class="settingsMenu">
       <!-- Nav tabs -->
       {{#if teacher}}
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-pills" role="tablist">
           <li role="presentation" class="active"><a href="#chatClass" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Clase</a></li>
           <li role="presentation"><a href="#chatTeachers" aria-controls="chatTeachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Profesores</a></li>
         </ul>
       
         <!-- Tab panels -->
-        <div class="tab-content container-responsive" style="background-color:#eee;">
+        <div class="tab-content container-responsive mytab" style="background-color:#eee;">
           <div role="tabpanel" class="tab-pane active" id="chatClass">
             <h2 class="text-center bg-info">Chat Clase</h2>
             {{> chatClass}}
