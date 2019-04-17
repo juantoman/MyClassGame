@@ -449,9 +449,12 @@ td button {
 #settingsMenu {
   background-color:#fff;
   border-top: 1px solid lightgray;
-  margin-top:-20px;
+  margin-top:0px;
 }
 
+#settingsMenu .nav-pills{
+  background-color:#fff;;
+}
 #settingsMenu h2{
   margin:-1px;
 }
@@ -464,6 +467,10 @@ td button {
   color: #268BD2 !important;
   border-radius: 3px;
   border: 1px solid #268BD2 !important;
+}
+
+.nav a {
+  border: 1px solid transparent !important;
 }
 
 .nav a:hover {
@@ -898,7 +905,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h4.panel-title {
-  font-size: 2.5vh !important;
+  font-size: 1.5vmax !important;
 }
 
 @media (min-width: 740px) {
@@ -907,11 +914,5 @@ h4.panel-title {
   }
   .submenu, .Menu {
     display:none;
-  }
-  #menu_lateral{
-    display:none;
-  }
-  #menu_movil {
-    display:block;
   }
 }
