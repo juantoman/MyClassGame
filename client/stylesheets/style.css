@@ -124,6 +124,7 @@ a:hover, a:link {
   border:1px solid lightgray;
 }
 .caixa{
+  position:relative;
   vertical-align: middle;
   text-align: center;
 }
@@ -202,9 +203,10 @@ a:hover, a:link {
   background-color: gray;  
 }
 .punts {
-  position:relative;
+  position:absolute;
   width:15%;
-  top:1vh;
+  top:0.5vh;
+  right:2vh;
 }
 .punts .list-group {
   background-color: transparent; 
