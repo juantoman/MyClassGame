@@ -89,6 +89,15 @@ Template.studentPage.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).cards;
   },
+  cardTypeDesc: function(t) {
+    type="";
+    classes.findOne({'_id': Session.get('classId')}).cardTypes.forEach(function(tipo){
+      if (t==tipo._id) {
+        type=tipo.cardTypeDesc;
+      }
+    });
+    return type;
+  },
   chromes: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).chromes;

@@ -504,19 +504,22 @@
               </table>
               -->
               <div class="row">
-                {{#each cards}}
-                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
-                    <div class="thumbnail">
-                      <div class="input-group text-center">
-                          <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
-                          <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
-                          <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
-                          {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
-                          {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
+                
+                  {{#each cards}}
+                    <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                      <div class="thumbnail">
+                        <div class="input-group text-center">
+                            <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
+                            <h4 class=" label label-warning text-center text-info">{{cardTypeDesc card.cardType}}</h4>
+                            <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
+                            <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
+                            {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
+                            {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                {{/each}}
+                  {{/each}}
+                
               </div>
             </div>
           </div>

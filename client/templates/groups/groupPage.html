@@ -4,8 +4,8 @@
       {{#with group}}
         <h2 class="text-center bg-info">{{_ "team"}}: <span id="alias">{{groupName}}</span></h2>
         <div class="container-fluid">
-          <img src="{{gImage}}" name="{{_id}}" alt="..." class="img fotoStudent eImage">
-          <div class="puntsStudent">
+          <img src="{{gImage}}" name="{{_id}}" alt="..." class="img fotoStudent eImage col-xs-6 col-md-3 col-lg-3">
+          <div class="puntsStudent col-xs-6 col-md-3 col-lg-3">
               <div class="list-group" id="{{_id}}">
                 <li class="list-group-item list-group-item-success btn-xp2">{{gXP this._id}} XP</li>
                 <li class="list-group-item list-group-item-danger btn-hp2">{{HP}} HP</li>
@@ -13,7 +13,7 @@
                 <li class="list-group-item list-group-item-warning btn-store" data-target="#store_modal">€</li>
               </div>
           </div>
-          <form class="dataStudent">
+          <form class="dataStudent col-xs-12 col-md-6 col-lg-6">
                 <div class="form-group">
                   <label for="gName" class="control-label">{{_ "team_name"}}</label>
                   <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}" {{inputDisabled}}>

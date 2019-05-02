@@ -1,6 +1,29 @@
 <template name="cardsList">
   <div class="container">
     <div class="list-group">
+      <div class="form-group">
+        <div class="input-group" style="padding:0px 10px;">
+          <label for="chalDesc">Tipos de cartas</label>
+          <div class="row">
+            <div class="input-group col-xs-4 input-group-sm">
+              <input type="text" class="form-control" id="addCardTypeInput" placeholder="Nuevo tipo de carta" >
+              <div class="input-group-btn"> 
+                <button class="btn btn-info addCardType btn-sm" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+              </div>
+            </div>
+            </div>
+          <div class="row">
+            {{#each cardTypes}}
+              <div class="input-group col-xs-4 input-group-sm">
+                <input type="text" class="form-control" placeholder="" value="{{cardTypeDesc}}">
+                <div class="input-group-btn">
+                  <button class="btn btn-warning delCardType" title="{{_id}}" type="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
     {{#each cards}}
       <div class="form-group">
         <div class="input-group" style="width:15%;float:left;margin-top:20px;">
@@ -14,6 +37,15 @@
           <div class="input-group col-xs-11">
             <label for="chalDesc">Descripción Carta</label>
             <textarea class="form-control inputGroup" name="{{_id}}" id="cardDescription" {{teacher}} rows="3">{{cardDescription}}</textarea>
+          </div>
+          <div class="input-group col-xs-11">
+            <label for="cardType">Tipo de carta</label>
+            <select class="form-control cardType" name="{{_id}}" id="cardType">
+              <option value="" selected></option>
+              {{#each cardTypes}}
+                <option value="{{_id}}" {{selType ../cardType _id}}>{{cardTypeDesc}}</option>
+              {{/each}}
+            </select> 
           </div>
           <div class="input-group col-xs-11">
             <label for="chalDesc">Nivel</label>
@@ -48,12 +80,25 @@
             </div> 
             <input type="text" class="form-control" name="cardDescription" placeholder="Descripción de la carta" aria-label="Descripción de la carta" aria-describedby="basic-addon2">
           </div>
+          
           <div class="input-group col-xs-11">
-          <div class="input-group-addon">
+            <div class="input-group-addon">
+              <span class="input-group-text" id="basic-addon2">Tipo de carta</span>
+            </div>
+            <select class="form-control" name="cardType">
+              {{#each cardTypes}}
+                <option value="{{_id}}">{{cardTypeDesc}}</option>
+              {{/each}}
+            </select> 
+          </div>
+          
+          <div class="input-group col-xs-11">
+            <div class="input-group-addon">
               <span class="input-group-text" id="basic-addon2">Nivel</span>
             </div> 
             <input type="text" class="form-control" name="cardLevel" placeholder="Nivel" aria-label="Nivel" aria-describedby="basic-addon2" value=1>
-          </div><div class="input-group col-xs-11">
+          </div>
+          <div class="input-group col-xs-11">
             <div class="input-group-addon">
               <span class="input-group-text" id="basic-addon2">Precio para utilizarla</span>
             </div> 

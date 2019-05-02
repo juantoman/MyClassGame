@@ -331,9 +331,11 @@ label {
   font-weight: bold;
   letter-spacing: 2px;
 }
+
 .input-group {
   margin: 4px;
 }
+
 .row{
   display: flex;
   flex-wrap: wrap;

@@ -11,15 +11,57 @@
           {{#if mision}}
             {{#each groups}}
               <div class="input-group col-xs-12">
-                  <span class="input-group-addon">{{groupName}}</span>
-                  <input type="text" class="form-control inputGroup nota_g input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+                  <h4>{{groupName}}</h4>
+                  <div id="studentsPoints">
+                    <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                      </label>
+                    </div>
+                  </div>
               </div>
             {{/each}}
           {{else}}
             {{#each students}}
               <div class="input-group col-xs-12">
-                  <span class="input-group-addon">{{studentName}}</span>
-                  <input type="text" class="form-control inputGroup nota_s input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{CP _id}}">
+                  <h4>{{studentName}}</h4>
+                  <div id="studentsPoints">
+                    <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                      </label>
+                    </div>
+                  </div>
               </div>
             {{/each}}
           {{/if}}
