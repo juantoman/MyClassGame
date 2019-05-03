@@ -3,6 +3,7 @@ import swal from 'sweetalert';
 Template.myNav.onRendered(function () {
   Session.set('className',classes.findOne({ _id: Session.get('classId') } ).className);
 });
+
 Template.myNav.helpers({
   /*n(m) {
     var navSelected = Session.get('navItem');

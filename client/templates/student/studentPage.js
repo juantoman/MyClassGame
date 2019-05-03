@@ -90,13 +90,15 @@ Template.studentPage.helpers({
     return students.findOne({_id: Session.get('studentId')}).cards;
   },
   cardTypeDesc: function(t) {
+    /*var ty = _.where(classes.findOne({'_id': Session.get('classId')}).cardTypes, {'_id': t})[0].cardTypeDesc;
+    console.log(ty);
     type="";
     classes.findOne({'_id': Session.get('classId')}).cardTypes.forEach(function(tipo){
       if (t==tipo._id) {
         type=tipo.cardTypeDesc;
       }
-    });
-    return type;
+    });*/
+    return _.findWhere(classes.findOne({'_id': Session.get('classId')}).cardTypes, {'_id': t}).cardTypeDesc;
   },
   chromes: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
