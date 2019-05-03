@@ -47,19 +47,32 @@ function handleAuthResult(authResult) {
 function createPicker() {
   if (pickerApiLoaded && oauthToken) {
     var view = new google.picker.DocsView().setIncludeFolders(true).setOwnedByMe(true);
+    //var upload = new google.picker.DocsUploadView().setIncludeFolders(true);
     //view.setMimeTypes("image/png,image/jpeg,image/jpg");
-    var picker = new google.picker.PickerBuilder()
+    var uploadView = new google.picker.DocsUploadView();
+
+    var picker = new google.picker.PickerBuilder().
+        addView(view).
+        addView(uploadView).
+        setLocale('es').
+        setAppId(appId).
+        setOAuthToken(oauthToken).
+        setCallback(pickerCallback).
+        build();
+    picker.setVisible(true);
+    
+    /*var picker = new google.picker.PickerBuilder()
         .enableFeature(google.picker.Feature.NAV_HIDDEN)
         .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
         .setAppId(appId)
         .setLocale('es')
         .setOAuthToken(oauthToken)
         .addView(view)
-        .addView(new google.picker.DocsUploadView())
+        .addView(upload)
         .setDeveloperKey(developerKey)
         .setCallback(pickerCallback)
         .build();
-     picker.setVisible(true);
+     picker.setVisible(true);*/
   }
 }
 
@@ -69,7 +82,13 @@ function pickerCallback(data) {
     var fileId = data.docs[0].id;
     //alert('The user selected: ' + fileId);
     //window.open('https://drive.google.com/open?id='+fileId,'_blank');
-    Meteor.call('chalUpdateDrive', Session.get("taskId"), 'https://drive.google.com/open?id='+fileId);
+    Meteor.call('chalUpdateDrive', Session.get("taskId"), fileId);
+    /*newPermission = new Permission();
+    newPermission.setType("anyone");
+    newPermission.setRole("reader");
+    newPermission.setValue("");
+    newPermission.setWithLink(true);
+    service.permissions().insert(fileId, newPermission).execute();*/
   }
 }
 
