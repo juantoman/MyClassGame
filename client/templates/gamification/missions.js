@@ -1,4 +1,3 @@
-//import "../application/drive.js";
 // The Browser API key obtained from the Google Developers Console.
 // Replace with your own Browser API key, or your own key.
 var developerKey = "AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI";
@@ -10,7 +9,7 @@ var clientId = "422269930750-src3psqemmt1p6m8alujf9nvmook5c0d.apps.googleusercon
 var appId = "yB6YafY8yJqC2fr1vPVg6HTw";
 
 // Scope to use to access user's Drive items.
-var scope = ['https://www.googleapis.com/auth/drive'];
+var scope = ['https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.file'];
 
 var pickerApiLoaded = false;
 var oauthToken;
@@ -60,6 +59,7 @@ function createPicker() {
         setCallback(pickerCallback).
         build();
     picker.setVisible(true);
+    //createFolder();
     
     /*var picker = new google.picker.PickerBuilder()
         .enableFeature(google.picker.Feature.NAV_HIDDEN)
@@ -76,6 +76,25 @@ function createPicker() {
   }
 }
 
+function createFolder(){
+  var fileMetadata = {
+    'name': 'Invoices',
+    'mimeType': 'application/vnd.google-apps.folder'
+  };
+  window.gapi.client.drive.files.create({
+    resource: fileMetadata,
+    fields: 'id'
+  }, function (err, file) {
+    if (err) {
+      // Handle error
+      console.error(err);
+    } else {
+      console.log('Folder Id: ', file.id);
+    }
+});
+
+}
+
 // A simple callback implementation.
 function pickerCallback(data) {
   if (data.action == google.picker.Action.PICKED) {
@@ -83,6 +102,7 @@ function pickerCallback(data) {
     //alert('The user selected: ' + fileId);
     //window.open('https://drive.google.com/open?id='+fileId,'_blank');
     Meteor.call('chalUpdateDrive', Session.get("taskId"), fileId);
+    //createFolder();
     /*newPermission = new Permission();
     newPermission.setType("anyone");
     newPermission.setRole("reader");
@@ -91,6 +111,10 @@ function pickerCallback(data) {
     service.permissions().insert(fileId, newPermission).execute();*/
   }
 }
+
+Template.missions.onRendered(function() {
+  $.getScript("https://apis.google.com/js/api.js");
+});
 
 Template.missions.helpers({
   challenge: function() {
@@ -322,6 +346,7 @@ Template.missions.events({
   'click .drive': function(event) {
     Session.set("taskId",this._id);
     loadPicker();
+    //createFolder();
   },
 });
 

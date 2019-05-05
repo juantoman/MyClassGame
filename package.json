@@ -10,7 +10,7 @@
     "bcrypt": "^1.0.3",
     "chart.js": "^2.8.0",
     "google-auth-library": "^0.10.0",
-    "googleapis": "^18.0.0",
+    "googleapis": "^39.2.0",
     "meteor-node-stubs": "^0.2.6",
     "sweetalert": "^2.1.2"
   }

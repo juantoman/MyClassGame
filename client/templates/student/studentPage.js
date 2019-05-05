@@ -96,6 +96,7 @@ Template.studentPage.helpers({
         type=tipo.cardTypeDesc;
       }
     });
+    return type;
     //return _.findWhere(classes.findOne({'_id': Session.get('classId')}).cardTypes, {'_id': t}).cardTypeDesc;
   },
   chromes: function() {
