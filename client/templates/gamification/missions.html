@@ -1,5 +1,6 @@
 <template name="missions">
   <div class="container-fluid" id="adventurePage">
+    <h4><g:sharetoclassroom size=32 url="http://google.com"></g:sharetoclassroom> <span style="vertical-align:10px;">Google Classroom</span></h4>
     <div class="list-group">
       <div class="panel panel-info">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">
@@ -109,7 +110,6 @@
                                       <div class="input-group col-xs-12">
                                         <button class="btn btn-info drive" {{teacher}}>Seleccionar fichero Drive</button>
                                         <a class="btn btn-info" href="https://drive.google.com/open?id={{drive}}" target="_blank" {{teacher}}>Ver fichero</a>
-                                        {{> createFolder}}
                                       </div>
                                     </div>  
                                   </div>

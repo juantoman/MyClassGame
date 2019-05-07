@@ -1,19 +1,22 @@
-Template.createFolder.onRendered(function() {
   $.getScript("https://apis.google.com/js/api.js");
+  $.getScript("https://apis.google.com/js/platform.js");
   // Client ID and API key from the Developer Console
-  var folderId="";
+  
       var CLIENT_ID = '422269930750-src3psqemmt1p6m8alujf9nvmook5c0d.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI';
 
       // Cargamos el servicio Rest API de Google 
-      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+      //var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+      var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest","https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
  
       // El servicio de Autenticación con una cuenta de Google 
-      var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+      //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+      var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails";
       
       // Seleccionamos los botones de Iniciar Sesión y Cerrar Sesión 
       var authorizeButton = document.getElementById('autorizar_btn');
-      authorizeButton.onclick = handleClientLoad;
+      
+      
  
       
       function handleClientLoad() {
@@ -32,13 +35,13 @@ Template.createFolder.onRendered(function() {
           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
  
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-          authorizeButton.onclick = handleAuthClick;
+          //authorizeButton.onclick = handleAuthClick;
         });
       }
  
       function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
-          listFiles();
+          listCourses();
         }
       }
  
@@ -49,15 +52,16 @@ Template.createFolder.onRendered(function() {
  
  
       function appendPre(message) {
-        var pre = document.getElementById('root');
+        var pre = document.getElementById('content');
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
       
       // Acá listamos los archivos de nuestra cuenta de Google Drive, especificamos que datos de los archivos queremos mostrar 
-      function listFiles() {
+      
+      function listFolder() {
         //Llistar carpeta
-        /*gapi.client.drive.files.list({
+        gapi.client.drive.files.list({
           'pageSize': 10,
           'fields': "nextPageToken, files(id, name)"
         }).then(function(response) {
@@ -71,7 +75,10 @@ Template.createFolder.onRendered(function() {
           } else {
             appendPre('No files found.');
           }
-        });*/
+        });
+      }
+      
+      function createFolderFunction() {
         //Crear carpeta
         var body= {"name": "tururi", 
            "mimeType": "application/vnd.google-apps.folder"}
@@ -88,6 +95,7 @@ Template.createFolder.onRendered(function() {
             }
         })
       }
+      
       function changePermissions(folderId) {
         //Canviar permissos
         var body = {
@@ -106,6 +114,7 @@ Template.createFolder.onRendered(function() {
             }
         })
         
+        
         /*gapi.client.drive.permissions.insert({
         'fileId': files,
         'resource': body
@@ -113,6 +122,46 @@ Template.createFolder.onRendered(function() {
         callback(null, response);
         });*/
       }
+      
+      function listCourses() {
+          gapi.client.classroom.courses.list({
+            pageSize: 10,
+          }).then(function(response) {
+            var courses = response.result.courses;
+            appendPre('Courses:');
+            if (courses.length > 0) {
+              for (i = 0; i < courses.length; i++) {
+                var course = courses[i];
+                appendPre(course.name+":"+course.id)
+                listStudents(course.id);
+              }
+            } else {
+              appendPre('No courses found.');
+            }
+          });
+        }
+        
+        function listStudents(c) {
+          gapi.client.classroom.courses.students.list({
+            courseId: c
+          }).then(function(response) {
+            console.log(response.result);
+            var students = response.result.students;
+            appendPre('students:');
+            if (students.length > 0) {
+              for (i = 0; i < students.length; i++) {
+                var student = students[i];
+                appendPre(c+":"+student.userId+":"+student.profile.name.fullName)
+              }
+            } else {
+              appendPre('No students found.');
+            }
+          });
+        }
+Template.createFolder.onRendered(function() {
+  
+        
+        //handleClientLoad();
 });
 
 Template.createFolder.events({

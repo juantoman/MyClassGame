@@ -1,5 +1,4 @@
 import swal from 'sweetalert';
-
 Template.myNav.onRendered(function () {
   Session.set('className',classes.findOne({ _id: Session.get('classId') } ).className);
 });
