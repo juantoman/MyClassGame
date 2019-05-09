@@ -1,51 +1,47 @@
-import swal from 'sweetalert';
-
-// Client ID and API key from the Developer Console
-  
-var CLIENT_ID = '422269930750-src3psqemmt1p6m8alujf9nvmook5c0d.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI';
-
-// Cargamos el servicio Rest API de Google 
-//var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest","https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-
-// El servicio de Autenticación con una cuenta de Google 
-//var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
-var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails";
-
-// Seleccionamos los botones de Iniciar Sesión y Cerrar Sesión 
-
-function handleClientLoad() {
+handleClientLoad=function() {
   gapi.load('client:auth2', initClient);
 }
 
-function initClient() {
+initClient=function() {
+  var CLIENT_ID = mcgParameters.findOne().clientId;
+  var API_KEY = mcgParameters.findOne().apiKey;
+  
+  // Cargamos el servicio Rest API de Google 
+  //var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest","https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+  
+  // El servicio de Autenticación con una cuenta de Google 
+  //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+  var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students";
+
   gapi.client.init({
     apiKey: API_KEY,
     clientId: CLIENT_ID,
     discoveryDocs: DISCOVERY_DOCS,
     scope: SCOPES
   }).then(function () {
-    
+
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    
   });
 }
 
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    ListaCursos();
+updateSigninStatus=function(isSignedIn) {
+  if (!isSignedIn) {
+    gapi.auth2.getAuthInstance().signIn();
   }
+  ListaCursos();
 }
 
-function appendPre(message) {
+appendPre=function(message) {
   $("#GoogleClassroom").html($("#GoogleClassroom").html() + message + '\n');
 }
 
 // Acá listamos los archivos de nuestra cuenta de Google Drive, especificamos que datos de los archivos queremos mostrar 
 
-function listFolder() {
+listFolder=function() {
   //Llistar carpeta
   gapi.client.drive.files.list({
     'pageSize': 10,
@@ -64,7 +60,7 @@ function listFolder() {
   });
 }
 
-function createFolderFunction() {
+createFolderFunction=function() {
   //Crear carpeta
   var body= {"name": "tururi", 
      "mimeType": "application/vnd.google-apps.folder"}
@@ -82,7 +78,7 @@ function createFolderFunction() {
   })
 }
 
-function changePermissions(folderId) {
+changePermissions=function(folderId) {
   //Canviar permissos
   var body = {
   'withLink': true,
@@ -100,16 +96,17 @@ function changePermissions(folderId) {
       }
   })
   
-  
-  /*gapi.client.drive.permissions.insert({
+  /*
+  gapi.client.drive.permissions.insert({
   'fileId': files,
   'resource': body
   }).execute(function(response) {
   callback(null, response);
   });*/
+  
 }
 
-function listCourses() {
+listCourses=function() {
   gapi.client.classroom.courses.list({
     pageSize: 10,
   }).then(function(response) {
@@ -127,7 +124,7 @@ function listCourses() {
   });
 }
   
-function listStudents(c) {
+listStudents=function(c) {
   gapi.client.classroom.courses.students.list({
     courseId: c
   }).then(function(response) {
@@ -144,12 +141,13 @@ function listStudents(c) {
   });
 }
 
-function ListaCursos() {
+ListaCursos=function() {
   gapi.client.classroom.courses.list({
     pageSize: 10,
   }).then(function(response) {
     Session.set('lc',response.result.courses);
     var courses = response.result.courses;
+    console.log(courses);
     if (courses.length > 0) {
       for (i = 0; i < courses.length; i++) {
         var course = courses[i];
@@ -161,7 +159,7 @@ function ListaCursos() {
   });
 }
 
-function ListaEstudiantes(c) {
+ListaEstudiantes=function(c) {
   gapi.client.classroom.courses.students.list({
     courseId: c
   }).then(function(response) {
@@ -169,28 +167,46 @@ function ListaEstudiantes(c) {
   });
 }
 
-Template.GCTemplate.onRendered(function () {
-  Session.set("gcId","");
-  $.getScript("https://apis.google.com/js/api.js");
-  $.getScript("https://apis.google.com/js/platform.js");
-  handleClientLoad();
-});
+listaTareas=function() {
+  cId=classes.findOne({'_id':Session.get("classId")}).gcId;
+  gapi.client.classroom.courses.courseWork.list({
+    courseId: cId
+  }).then(function(response) {
+    console.log(response.result);
+    Session.set('lt',response.result.courseWork);
+  });
+}
 
-Template.GCTemplate.helpers({
-  gc: function() {
-    //return $.grep(Session.get('lc'), function(e){ return e.id == '31168491805'; });
-    //ListaEstudiantes(this.id);
-    return Session.get('lc');
-  },
-  gcs: function(c) {
-    ListaEstudiantes(c);
-    return Session.get('sc'+c);
+creaTarea=function() {
+  cW = {
+    'title': 'Filomeno',
+    'description': 'Read the article about ant colonies and complete the quiz.',
+    'materials': [
+       {'link': { 'url': 'http://example.com/ant-colonies' }},
+       {'link': { 'url': 'http://example.com/ant-quiz' }}
+  ],
+    'workType': 'ASSIGNMENT',
+    'state': 'PUBLISHED',
   }
-});
+  courseId=classes.findOne({'_id':Session.get('classId')}).gcId;
+  gapi.client.request({
+    'path': 'https://classroom.googleapis.com/v1/courses/'+courseId+'/courseWork',
+    'method': 'POST',
+    'body': cW
+  }).then(function(jsonResp,rawResp) {
+      console.log(jsonResp)
+      if (jsonResp.status==200) {
+        callback(jsonResp.result)
+      }
+  })
+  /*
+  gapi.client.classroom.courses.courseWork.create({
+      'courseId': '36588540955',
+      'body':cW
+    }).then(function(response) {
+    console.log(response);
+  });*/
+}
 
-Template.GCTemplate.events({
-  'click a': function(event) {
-    event.preventDefault();
-    Session.set("gcId",event.target.title);
-  }
-});
+$.getScript("https://apis.google.com/js/api.js");
+$.getScript("https://apis.google.com/js/platform.js");

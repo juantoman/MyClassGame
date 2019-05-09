@@ -1,4 +1,4 @@
-  $.getScript("https://apis.google.com/js/api.js");
+/*  $.getScript("https://apis.google.com/js/api.js");
   $.getScript("https://apis.google.com/js/platform.js");
   // Client ID and API key from the Developer Console
   
@@ -115,12 +115,12 @@
         })
         
         
-        /*gapi.client.drive.permissions.insert({
+        gapi.client.drive.permissions.insert({
         'fileId': files,
         'resource': body
         }).execute(function(response) {
         callback(null, response);
-        });*/
+        });
       }
       
       function listCourses() {
@@ -169,3 +169,4 @@ Template.createFolder.events({
     event.preventDefault();;
   }
 });
+*/

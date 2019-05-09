@@ -1,11 +1,11 @@
-<template name="GCTemplate">
+<template name="gcCourses">
   <br />
   <label for="class-name" class="control-label">Importar clase y estudiantes desde Google Classroom</label>
   <div class="container-fluid">
     <div class="row">
         <div class="list-group col-xs-12">
           {{#each gc}}
-            <a href="#" class="list-group-item text-center" title="{{id}}">{{name}}</a>
+            <a href="#" class="list-group-item text-center" title="{{id}}">{{name}} ( {{id}} )</a>
           {{/each}}
         </div> 
     </div>

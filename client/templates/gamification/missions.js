@@ -112,8 +112,18 @@ function pickerCallback(data) {
   }
 }
 
+/*function renderWidget() {
+  gapi.sharetoclassroom.render("widget-div",
+      {"url": "http://www.google.com", "size": "30", "theme": "classic", "locale": "es-ES"} );
+}*/
+
 Template.missions.onRendered(function() {
+  /*window.___gcfg = {
+    parsetags: 'explicit',
+  };*/
   $.getScript("https://apis.google.com/js/api.js");
+  $.getScript("https://apis.google.com/js/platform.js");
+  //renderWidget();
 });
 
 Template.missions.helpers({

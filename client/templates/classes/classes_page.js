@@ -1,5 +1,6 @@
 Template.classesPage.rendered = function() {
   Session.set('className', "");
+  handleClientLoad();
 }
 
 Template.classesPage.helpers({
