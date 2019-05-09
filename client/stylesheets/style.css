@@ -396,7 +396,7 @@ label {
 .typeClasses {
   background-color: #cff;
   margin-bottom:20px;
-  margin-top:-20px;
+  margin-top:0px;
   border-bottom:1px lightgray solid;
 }
 

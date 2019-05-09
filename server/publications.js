@@ -1,6 +1,11 @@
 Meteor.publish('allUsers', function() {
   return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1, "emails": 1}});
 });
+
+Meteor.publish('mcgParameters', function() {
+  return mcgParameters.find();
+});
+
 Meteor.publish('classes', function() {
   return classes.find();
   /*if (classId){
@@ -323,7 +328,4 @@ Meteor.publish('notifications', function(userType,classId) {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       return notifications.find({"classId": { "$in": c }});
   }
-});
-Meteor.publish('mcgParameters', function() {
-  return mcgParameters.find();
 });

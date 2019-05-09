@@ -1,12 +1,13 @@
 // The Browser API key obtained from the Google Developers Console.
 // Replace with your own Browser API key, or your own key.
-var developerKey = "AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI";
+var developerKey;
+
 
 // The Client ID obtained from the Google Developers Console. Replace with your own Client ID.
-var clientId = "422269930750-src3psqemmt1p6m8alujf9nvmook5c0d.apps.googleusercontent.com"
+var clientId;
 
 // Replace with your own App ID. (Its the first number in your Client ID)
-var appId = "yB6YafY8yJqC2fr1vPVg6HTw";
+var appId;
 
 // Scope to use to access user's Drive items.
 var scope = ['https://www.googleapis.com/auth/drive','https://www.googleapis.com/auth/drive.file'];
@@ -16,6 +17,9 @@ var oauthToken;
 
 // Use the Google API Loader script to load the google.picker script.
 function loadPicker() {
+  developerKey = mcgParameters.findOne().apiKey;
+  clientId = mcgParameters.findOne().clientId;
+  appId = mcgParameters.findOne().appId;
   gapi.load('auth', {'callback': onAuthApiLoad});
   gapi.load('picker', {'callback': onPickerApiLoad});
 }
