@@ -12,7 +12,7 @@ initClient=function() {
   
   // El servicio de Autenticación con una cuenta de Google 
   //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
-  var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students";
+  var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.topics.readonly";
 
   gapi.client.init({
     apiKey: API_KEY,
@@ -206,6 +206,16 @@ creaTarea=function() {
     }).then(function(response) {
     console.log(response);
   });*/
+}
+
+listaTemas=function() {
+  cId=classes.findOne({'_id':Session.get("classId")}).gcId;
+  gapi.client.classroom.courses.topics.list({
+    courseId: cId
+  }).then(function(response) {
+    Session.set('lt',response.result.topic);
+    return response.result.topic;
+  });
 }
 
 $.getScript("https://apis.google.com/js/api.js");

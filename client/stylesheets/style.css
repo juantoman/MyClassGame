@@ -134,7 +134,7 @@ a:hover, a:link {
 }
 
 .tab-content .tab-content{
-  border:1px solid lightgray;
+  /*border:1px solid lightgray;*/
 }
 .caixa{
   position:relative;
@@ -168,6 +168,15 @@ a:hover, a:link {
   margin-top:20px;
   width:80%;
   height:80%;
+}
+
+.foto_ico{
+  position:absolute;
+  height:65px;
+  bottom:5px;
+  margin:0px 0px 0px 30px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
 }
 
 .fotoClass {
@@ -295,7 +304,8 @@ label {
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  margin: 15px auto!important;
+  margin: 5px auto !important;
+  margin-top: -15px !important;
 }
 
 .submenu label{
@@ -913,10 +923,6 @@ h1,h2,h3,h4,h5,h6{
 
 #menu_movil {
   display:none;
-}
-
-.className {
-  margin-top:-10px;
 }
 
 h4.panel-title {

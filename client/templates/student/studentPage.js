@@ -821,7 +821,9 @@ Template.studentPage.events({
     event.preventDefault();
     Session.set('imageType','avatar');
     Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
+    if (Session.get('userType')=="teacher") {
+      Modal.show('imagesTemplate');
+    }
   }
 });
 

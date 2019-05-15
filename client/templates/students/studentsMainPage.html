@@ -1,5 +1,6 @@
 <template name="studentsMainPage">
   <div  class="container-fluid  myContent">
+    <!--
     <form class="form-inline text-center">
       <div class="form-group className">
         {{#if teacher}}
@@ -10,6 +11,7 @@
         {{/if}}
       </div>
     </form>
+    -->
     {{#if selected}}
       {{> studentPage}}    
     {{else}}
@@ -26,6 +28,15 @@
               </select>
             </div>
             -->
+            <label>Clase</label>
+            <div class="btn-group className" role="group">
+              {{#if teacher}}
+                  <input class="text-center font-weight-bold" id="className" type="text" value="{{className}}">
+                  <button id="hashClase">Id Clase</button>
+                {{else}}
+                  <input class="text-center font-weight-bold" readonly id="className" type="text" value="{{className}}">
+                {{/if}}
+            </div>
             <label>Selección</label>
             <div class="btn-group" role="group" aria-label="Basic example">
               <button id="all" type="button" class="btn btn-all btn-sm">Todos</button>

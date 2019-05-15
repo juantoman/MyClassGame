@@ -2,7 +2,7 @@ import swal from 'sweetalert';
 
 Template.GCTasks.onRendered(function () {
   Session.set("gcId","");
-  listaTareas();
+  listaTemas();
 });
 
 Template.GCTasks.helpers({

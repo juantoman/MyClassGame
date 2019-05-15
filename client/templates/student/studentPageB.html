@@ -1,0 +1,890 @@
+<template name="studentPageB">
+  
+  <!--
+    <div class="students_buttons">
+      <button type="button" class="btn btn-danger all_button">Todos</button>
+      {{#each students}}
+        <button type="button" class="btn btn-info student_button" id="{{_id}}">{{studentName}}</button>
+      {{/each}}
+    </div>
+  -->
+  <div id="studentPage">
+    <div class="list-group">
+      {{#with student}}
+        {{#if parent}}
+          <h2 class="text-center bg-info"><span id="alias">{{alias}}</span></h2>
+        {{else}}
+          <h2 class="text-center bg-info"><span id="alias">{{alias}}</span> ({{studentName}})</h2>
+        {{/if}}
+        <div class="container-fluid">
+          <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn eImage col-xs-6 col-md-3 col-lg-3">
+          <div class="puntsStudent col-xs-6 col-md-3 col-lg-3">
+              <div class="list-group" id="{{_id}}">
+                <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
+                <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
+                <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
+                <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
+                <li class="list-group-item list-group-item-info btn-cards" data-toggle="modal">{{cards.length}} Cartas</li>
+                <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
+              </div>
+          </div>
+          <form class="dataStudent">
+            <div class="form-group col-xs-12 col-md-6 col-lg-6">
+              <label for="sName" class="control-label">ID {{_ "student"}}</label>
+              <input type="text" class="form-control" id="sName" name="idName" value="{{_id}}" readonly="readonly">
+              <label for="sName" class="control-label">{{_ "student_name"}}</label>
+              {{#if parent}}
+                <input type="text" class="form-control" id="sName" name="sName" value="{{alias}}" {{inputDisabled}}>
+              {{else}}
+                <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
+              {{/if}}
+              <label for="sLevel" class="control-label">{{_ "level"}}</label>
+              <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+              <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
+                {{#each selectLevels}}
+                  <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
+                {{/each}}
+              </select>
+              <label for="sAlias" class="control-label">Alias</label>
+              <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
+              <label for="sAvatar" class="control-label">Avatar</label>
+              <!--
+                <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
+                <button id="avatarCloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
+                <button id="cloudinaryList" name="cloudinaryList" {{inputDisabled}}>Ver imagenes</button>
+              -->
+              {{#if teacher}}
+              <label for="sEmail" class="control-label">email</label>
+              <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
+              {{/if}}
+            </div>
+            {{#if teacher}}
+            <div class="studentStars col-xs-12 col-lg-6">
+              <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{rs}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" />
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{os}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{ys}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{ws}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                  <p>{{bs}}</p>
+                  <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                </label>
+                <label class="btn btn-info btn-emoticon">
+                 <p>{{gs}}</p>
+                 <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                </label>
+              </div>
+            </div>
+            <div style="float:right;margin:20px;">
+              <button type="button" class="btn btn-default">{{_ "close"}}</button>
+              <button type="button" class="btn btn-danger btn-delete-student">Eliminar</button>
+              <button type="button" class="btn btn-warning btn-reset-student">Reiniciar</button>
+              <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
+            </div>
+            {{/if}}
+          </form>
+        </div>
+      {{/with}}
+    </div>
+    <div class="container-fluid section table-responsive">
+      <h2 class="text-center bg-info"><span id="alias">Información estudiante</span></h2>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <!--Diario y Portfolio del estudiante-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" id="headingDaP"  data-toggle="collapse" data-parent="#accordion" href="#collapseDaP" aria-expanded="false" aria-controls="collapseDaP">
+            <h4 class="panel-title">
+                Diario y Portfolio del estudiante
+            </h4>
+          </div>
+          <div id="collapseDaP" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDaP">
+            <div class="panel-body">
+              {{#with student}}
+                <div class="form-group has-success">
+                  <div class="form-inline">
+                    <div class="input-group col-xs-10">
+                      <span class="input-group-addon">{{_ "diary"}}</span>
+                      <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myuserEnabled}} value="{{diary}}">
+                    </div>
+                    <div class="input-group col-xs-1">
+                      <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
+                    </div>
+                  </div>
+                  <div class="form-inline">
+                    <div class="input-group col-xs-10">
+                      <span class="input-group-addon">Portfolio</span>
+                      <input type="text" class="form-control inputGroup input-lg" id="Portfolio" {{myuserEnabled}} value="{{portfolio}}">
+                    </div>
+                    <div class="input-group col-xs-1">
+                      <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>
+                    </div>
+                  </div>
+                </div>
+              {{/with}}
+            </div>
+          </div>
+        </div>
+        <!--Misiones Grupales-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">
+            <h4 class="panel-title">
+              Misiones Grupales
+            </h4>
+          </div>
+          <div id="missions" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headMissions">
+            <div class="panel-body">
+              <div class="form-group has-info">
+                <div class="panel-group" id="accordionMissions" role="tablist" aria-multiselectable="true">
+                  {{#each challengesG}}
+                    <div class="panel panel-info">
+                      <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionMissions" href="#collapseStudent{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
+                        <h4 class="panel-title">
+                          Misión: {{chalName}}
+                        </h4>
+                      </div>
+                      <div id="collapseStudent{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
+                        <div class="panel-body">
+                          <div class="form-group">
+                            <div class="input-group col-xs-12">
+                              <label for="chalDesc">Descripción</label>
+                              <textarea class="form-control" name="{{_id}}" id="chalDesc" readonly rows="3">{{chalDesc}}</textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                              <input type="checkbox" id="nbDepCheck" name={{_id}} disabled checked={{notebookDependence}}>
+                              <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
+                            </div>
+                            <div class="input-group col-xs-12">
+                              <div class="panel panel-info {{disableDiv}}" id="{{_id}}">
+                                <div class="panel-heading">Tareas</div>
+                                <div class="panel-body panelChal">
+                                  {{#each chalMissions _id}}
+                                    <!--<div class="input-group">
+                                      <div class="input-group-addon">
+                                        <span class="input-group-text">Reto {{order}}</span>
+                                      </div>
+                                      <input id="cmd{{_id}}" type="text" class="form-control" readonly name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                      <div class="input-group-addon">
+                                        <span class="input-group-text">XP</span>
+                                      </div>
+                                      <input id="cmxp{{_id}}" type="text" class="form-control" readonly name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                                    </div>-->
+                                    <div class="input-group">
+                                       <h4 class="btn btn-info challengeText {{activeTask _id}}">
+                                          Tarea {{order}}: {{chalMissionDesc}}
+                                        </h4>
+                                      <div id="studentsPoints">
+                                      <div class="btn-group btn-group-toggle btn-group-justified" id="{{_id}}" data-toggle="buttons">
+                                        <label class="btn btn-warning btn-lg rubricaBtn">
+                                          Máx {{chalMissionXP}} XP
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 0}}">
+                                          <input type="radio" name="options" id="option1" value="0" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" title="{{r1}}" />
+                                          <div class="alert alert-success oculto" role="alert">{{r1}}</div>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 20}}">
+                                          <input type="radio" name="options" id="option1" value="20" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png" title="{{r2}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 40}}">
+                                          <input type="radio" name="options" id="option2" value="40" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png" title="{{r3}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 60}}">
+                                          <input type="radio" name="options" id="option3" value="60" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png" title="{{r4}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 80}}">
+                                          <input type="radio" name="options" id="option4" value="80" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png" title="{{r5}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 100}}">
+                                          <input type="radio" name="options" id="option5" value="100" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png" title="{{r6}}" />
+                                        </label>
+                                        <label class="btn btn-warning btn-lg">
+                                          Total {{studentChalXP}} XP
+                                        </label>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    <div class="oculto rubricaStudent" id="rubricaStudent{{_id}}">
+                                      <div class="input-group col-xs-12">
+                                        <label>Descripción</label>
+                                        <textarea class="form-control descTask" rows="3">{{descTask}}</textarea>
+                                      </div>
+                                      <label>Rúbrica</label>
+                                      <div id="studentsPoints">
+                                        <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                                            <textarea class="form-control rubricaText r1" rows="3">{{r1}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                                            <textarea class="form-control rubricaText r2" rows="3">{{r2}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                                            <textarea class="form-control rubricaText r3" rows="3">{{r3}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                                            <textarea class="form-control rubricaText r4" rows="3">{{r4}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                                            <textarea class="form-control rubricaText r5" rows="3">{{r5}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                                            <textarea class="form-control rubricaText r6" rows="3">{{r6}}</textarea>
+                                          </label>
+                                        </div>
+                                      </div> 
+                                      <div class="input-group col-xs-12">
+                                        <a class="btn btn-info fileBtn" href="https://drive.google.com/open?id={{drive}}" target="_blank" >Ver fichero</a>
+                                      </div>
+                                    </div>
+                                  {{/each}}
+                                </div>
+                              </div>
+                            </div>
+                            <h1 class="btn btn-warning btn-lg missionGrade">
+                              Nota Misión {{missionGrade}}
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}}
+                  <h1 class="btn btn-warning btn-lg">
+                   Total XP Misiones Grupales {{missionsXPTotalG}} XP
+                  </h1>
+                  <h1 class="btn btn-warning btn-lg missionGrade" id="graphBtn">
+                    Gráfica
+                  </h1>
+                  <canvas id="myChart" class="oculto" width="400" height="400"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Misiones Individuales-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#missionsI" aria-expanded="true" aria-controls="missions" id="headMissionsI">
+            <h4 class="panel-title">
+              Misiones Individuales
+            </h4>
+          </div>
+          <div id="missionsI" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headMissionsI">
+            <div class="panel-body">
+              <div class="form-group has-info">
+                <div class="panel-group" id="accordionMissionsI" role="tablist" aria-multiselectable="true">
+                  {{#each challengesI}}
+                    <div class="panel panel-info">
+                      <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionMissions" href="#collapseStudent{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
+                        <h4 class="panel-title">
+                          Misión: {{chalName}}
+                        </h4>
+                      </div>
+                      <div id="collapseStudent{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
+                        <div class="panel-body">
+                          <div class="form-group">
+                            <div class="input-group col-xs-12">
+                              <label for="chalDesc">Descripción</label>
+                              <textarea class="form-control" name="{{_id}}" id="chalDesc" readonly rows="3">{{chalDesc}}</textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                              <input type="checkbox" id="nbDepCheck" name={{_id}} disabled checked={{notebookDependence}}>
+                              <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
+                            </div>
+                            <div class="input-group col-xs-12">
+                              <div class="panel panel-info {{disableDiv}}" id="{{_id}}">
+                                <div class="panel-heading">Tareas</div>
+                                <div class="panel-body panelChal">
+                                  {{#each chalMissions _id}}
+                                    <!--<div class="input-group">
+                                      <div class="input-group-addon">
+                                        <span class="input-group-text">Reto {{order}}</span>
+                                      </div>
+                                      <input id="cmd{{_id}}" type="text" class="form-control" readonly name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                                      <div class="input-group-addon">
+                                        <span class="input-group-text">XP</span>
+                                      </div>
+                                      <input id="cmxp{{_id}}" type="text" class="form-control" readonly name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                                    </div>-->
+                                    <div class="input-group">
+                                       <h4 class="btn btn-info challengeText {{activeTask _id}}">
+                                          Tarea {{order}}: {{chalMissionDesc}}
+                                        </h4>
+                                      <div id="studentsPoints">
+                                      <div class="btn-group btn-group-toggle btn-group-justified" id="{{_id}}" data-toggle="buttons">
+                                        <label class="btn btn-warning btn-lg rubricaBtn">
+                                          Máx {{chalMissionXP}} XP
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 0}}">
+                                          <input type="radio" name="options" id="option1" value="0" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" title="{{r1}}" />
+                                          <div class="alert alert-success oculto" role="alert">{{r1}}</div>
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 20}}">
+                                          <input type="radio" name="options" id="option1" value="20" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png" title="{{r2}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 40}}">
+                                          <input type="radio" name="options" id="option2" value="40" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png" title="{{r3}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 60}}">
+                                          <input type="radio" name="options" id="option3" value="60" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png" title="{{r4}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 80}}">
+                                          <input type="radio" name="options" id="option4" value="80" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png" title="{{r5}}" />
+                                        </label>
+                                        <label class="btn btn-info btn-emoticon {{activeInput 100}}">
+                                          <input type="radio" name="options" id="option5" value="100" autocomplete="off"><img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png" title="{{r6}}" />
+                                        </label>
+                                        <label class="btn btn-warning btn-lg">
+                                          Total {{studentChalXP}} XP
+                                        </label>
+                                      </div>
+                                    </div>
+                                    </div>
+                                    <div class="oculto rubricaStudent" id="rubricaStudent{{_id}}">
+                                      <div class="input-group col-xs-12">
+                                        <label>Descripción</label>
+                                        <textarea class="form-control descTask" rows="3">{{descTask}}</textarea>
+                                      </div>
+                                      <label>Rúbrica</label>
+                                      <div id="studentsPoints">
+                                        <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
+                                            <textarea class="form-control rubricaText r1" rows="3">{{r1}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                                            <textarea class="form-control rubricaText r2" rows="3">{{r2}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                                            <textarea class="form-control rubricaText r3" rows="3">{{r3}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                                            <textarea class="form-control rubricaText r4" rows="3">{{r4}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                                            <textarea class="form-control rubricaText r5" rows="3">{{r5}}</textarea>
+                                          </label>
+                                          <label class="btn btn-info btn-emoticon">
+                                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                                            <textarea class="form-control rubricaText r6" rows="3">{{r6}}</textarea>
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  {{/each}}
+                                </div>
+                              </div>
+                            </div>
+                            <h1 class="btn btn-warning btn-lg missionGrade">
+                              Nota Misión {{missionGrade}}
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}}
+                  <h1 class="btn btn-warning btn-lg">
+                   Total XP Misiones Individuales {{missionsXPTotalI}} XP
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Insignias-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBadges" aria-expanded="false" aria-controls="collapseBadges" id="headingBadges">
+            <h4 class="panel-title">
+                Insignias
+            </h4>
+          </div>
+          <div id="collapseBadges" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingBadges">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each badges}}
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group">
+                          <img src="{{image_url badge.badgeImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{badge.badgeDescription}}</h4>
+                          <h5 class="text-center text-warning">{{badge.points}} XP</h5>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Cartas-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseCards" aria-expanded="false" aria-controls="collapseCards" id="headingCards">
+            <h4 class="panel-title">
+                Cartas
+            </h4>
+          </div>
+          <div id="collapseCards" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCards">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                
+                  {{#each cards}}
+                    <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                      <div class="thumbnail">
+                        <div class="input-group text-center">
+                            <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
+                            <h4 class=" label label-warning text-center text-info">{{cardTypeDesc card.cardType}}</h4>
+                            <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
+                            <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
+                            {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
+                            {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
+                        </div>
+                      </div>
+                    </div>
+                  {{/each}}
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Cromos-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseChromes" aria-expanded="false" aria-controls="collapseChromes" id="headingChromes">
+            <h4 class="panel-title">
+                Cromos
+            </h4>
+          </div>
+          <div id="collapseChromes" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingChromes">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each chromes}}
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url chrome.chromeImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{chrome.chromeName}} <span class="text-center badge">{{chrome.chromePrice}}</span></h4>
+                          <h5 class="text-center text-warning">{{chrome.chromeDescription}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Artículos-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseItems" aria-expanded="false" aria-controls="collapseItems" id="headingItems">
+            <h4 class="panel-title">
+                Artículos
+            </h4>
+          </div>
+          <div id="collapseItems" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingItems">
+            <div class="panel-body">
+              <!--
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      Descripción
+                    </th>
+                    <th>
+                      XP
+                    </th>
+                    <th>
+                      Fecha
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each badges}}
+                  <tr>
+                    <td>
+                      {{badge.badgeDescription}}
+                    </td>
+                    <td>
+                      {{badge.points}}
+                    </td>
+                    <td>
+                      {{createdOn}}
+                    </td>
+                  </tr>
+                {{/each}}
+                </tbody>
+              </table>
+              -->
+              <div class="row">
+                {{#each items}}
+                  <div class="col-container col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url item.itemImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{item.itemName}}</h4>
+                          <h5 class="text-center text-warning">{{item.itemDescription}}</h5>
+                          <span class="badge">{{item.price}}</span>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Historial-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseHistory" aria-expanded="false" aria-controls="collapseHistory" id="headingHistory">
+            <h4 class="panel-title">
+                {{_ "history"}}
+            </h4>
+          </div>
+          <div id="collapseHistory" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingHistory">
+            <div class="panel-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th id="evaluation_th">
+                      {{_ "evaluation"}}
+                    </th>
+                    <th id="behaviour_th">
+                      {{_ "behavior"}}
+                    </th>
+                    <th>
+                      {{_ "comments"}}
+                    </th>
+                    <th>
+                      {{_ "points"}}
+                    </th>
+                     <th id="behaviour_type_th">
+                      {{_ "type"}}
+                    </th>
+                    <th id="date_th">
+                      {{_ "date"}}
+                    </th>
+                    <th id="borrar_th">
+                      {{_ "delete"}}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each statistics}}
+                      <tr>
+                        <td>
+                          {{evaluation}}
+                        </td>
+                        <td>
+                          {{behaviour.behaviourDescription}}
+                        </td>
+                        <td>
+                          {{comment}}
+                        </td>
+                        <td>
+                          {{behaviour.points}}
+                        </td>
+                        <td>
+                          {{behaviourType}}
+                        </td>
+                        <td>
+                          {{createdOnFormatted createdOn}}
+                        </td>
+                        {{#if teacher}}
+                          <td class="text-center">
+                            <button name="{{_id}}" class="borrar">{{_ "delete"}}</button>
+                          </td>
+                        {{/if}}
+                      </tr>
+                {{/each}}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!--Diario-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseDiary" aria-expanded="false" aria-controls="collapseDiary" id="headingDiary">
+            <h4 class="panel-title">
+                {{_ "knowledge_diary"}}
+            </h4>
+          </div>
+          <div id="collapseDiary" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDiary">
+            <div class="panel-body">
+              <div class="panel-group" id="accordionDiary" role="tablist" aria-multiselectable="true">
+                  {{#each mydiary}}
+                  <div class="panel panel-info">
+                    <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionDiary" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}">
+                      <h4 class="panel-title">
+                          {{_ "mission"}} "{{mision.chalName}}" ( {{createdOn}} )
+                    </h4>
+                    </div>
+                    <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
+                      <div class="panel-body">
+                        <div class="panel panel-default">
+                          <ul class="list-group">
+                              <li class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">{{_ "what"}}</h4>
+                                <p class="list-group-item-text">{{what}}</p>
+                              </li>
+                              <li class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">{{_ "how"}}</h4>
+                                <p class="list-group-item-text">{{how}}</p>
+                              </li>
+                              <li class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">{{_ "understood"}}</h4>
+                                <p class="list-group-item-text">{{understood}}</p>
+                              </li>
+                              <li class="list-group-item list-group-item-default">
+                                <h4 class="list-group-item-heading">{{_ "notunderstood"}}</h4>
+                                <p class="list-group-item-text">{{notunderstood}}</p>
+                              </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Notas-->
+        <div class="panel panel-info">
+          <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGrades" aria-expanded="false" aria-controls="collapseGrades" id="headingGrades">
+            <h4 class="panel-title">
+                Notas
+            </h4>
+          </div>
+          <div id="collapseGrades" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingGrades">
+            <div class="panel-body">
+              <table class="table table-bordered">
+                {{#with student}}
+                <tbody>
+                  <tr>
+                    <td>
+                      XP
+                    </td>
+                    <td>
+                      {{XP}}
+                    </td>
+                    <td>
+                      {{notaXP XP}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Badges
+                    </td>
+                    <td>
+                      {{badges.length}}
+                    </td>
+                    <td>
+                      {{notaBadges badges.length}}
+                    </td>
+                  </tr>
+                  {{#each missions}}
+                    <tr>
+                      <td>
+                        {{_ "mission"}}: {{chalName}}
+                      </td>
+                      <td>
+                        {{CP _id}}
+                      </td>
+                      <td class="nota_mision">
+                        {{notaMision _id}}
+                      </td>
+                    </tr>
+                  {{/each}}
+                  <tr>
+                    <td>
+                      {{_ "mission"}}s:
+                    </td>
+                    <td>
+                      Media
+                    </td>
+                    <td>
+                      {{notaMediaMisiones}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Retos:
+                    </td>
+                    <td>
+                      Media
+                    </td>
+                    <td>
+                      {{notaRetos}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Puntos HP
+                    </td>
+                    <td>
+                      Puntos perdidos por HP
+                    </td>
+                    <td>
+                      {{notaHP}}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Nota Final
+                    </td>
+                    <td>
+                      Media ponderada XP, Misiones y Retos
+                    </td>
+                    <td>
+                      {{notaFinal}}
+                    </td>
+                  </tr>
+                </tbody>
+                {{/with}}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{#if myuser}}
+      <div class="container-fluid">
+        <form class="diario">
+          <div class="form-group">
+            <h2 class="text-center bg-info">{{_ "daily_entry"}}</h2>
+            <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+            <label for="que" class="control-label">{{_ "current_mission"}}</label>
+            <select class="form-control" id="mission" name="mission">
+              {{#each selectMissions}}
+                <option value="{{_id}}" {{missionSelected _id}}>{{chalName}}</option>
+              {{/each}}
+            </select>
+            <label for="que" class="control-label">{{_ "what"}}</label>
+            <input type="text" class="form-control" id="que" name="que" value="">
+            <label for="como" class="control-label">{{_ "how"}}</label>
+            <input type="text" class="form-control" id="como" name="como" value="">
+            <label for="entendido" class="control-label">{{_ "understood"}}</label>
+            <input type="text" class="form-control" id="entendido" name="entendido"  value="">
+            <label for="noentendido" class="control-label">{{_ "notunderstood"}}</label>
+            <input type="text" class="form-control" id="noentendido" name="noentendido"  value="">
+          </div>
+          <div class="form-group">
+            <button type="button" class="btn btn-default">{{_ "close"}}</button>
+            <input type="submit" class="btn btn-primary" value="{{_ "save"}} {{_ "daily_entry"}}">
+          </div>
+        </form>
+      </div>
+    {{/if}}
+  </div>
+</template>
