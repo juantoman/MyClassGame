@@ -23,61 +23,65 @@ Template.studentsModals.events({
     var iniHP = parseInt(classes.findOne({_id: Session.get('classId')}).iniHP);
     var nombres =  $(event.target).find('[name=students-names]').val().split(",");
     nombres.forEach(function (studentName) {
-      var student = {
-        classId: Session.get('classId'),
-        studentName: studentName,
-        alias: studentName,
-        groupId: 0,
-        XP: 0,
-        HP: iniHP,
-        level: 0,
-        coins: 0,
-        rs: 0,
-        os: 0,
-        ys: 0,
-        ws: 0,
-        bs: 0,
-        gs: 0,
-        badges: [],
-        items: [],
-        cards: [],
-        powers: [],
-        collection: [],
-        selected: 0,
-        conected: 0,
-        createdOn: new Date()
-      };
-      Meteor.call('studentInsert', student);
+      if(studentName!=""){
+        var student = {
+          classId: Session.get('classId'),
+          studentName: studentName,
+          alias: studentName,
+          groupId: 0,
+          XP: 0,
+          HP: iniHP,
+          level: 0,
+          coins: 0,
+          rs: 0,
+          os: 0,
+          ys: 0,
+          ws: 0,
+          bs: 0,
+          gs: 0,
+          badges: [],
+          items: [],
+          cards: [],
+          powers: [],
+          collection: [],
+          selected: 0,
+          conected: 0,
+          createdOn: new Date()
+        };
+        Meteor.call('studentInsert', student);
+      }
     });
     var emails =  $(event.target).find('[name=students-emails]').val().split(",");
     emails.forEach(function (studentEmail) {
-      studentName=studentEmail.split("@")[0];
-      var student = {
-        classId: Session.get('classId'),
-        studentName: studentName,
-        alias: studentName,
-        email: studentEmail,
-        groupId: 0,
-        XP: 0,
-        HP: iniHP,
-        level: 0,
-        coins: 0,
-        rs: 0,
-        os: 0,
-        ys: 0,
-        ws: 0,
-        bs: 0,
-        gs: 0,
-        badges: [],
-        items: [],
-        cards: [],
-        powers: [],
-        collection: [],
-        selected: 0,
-        conected: 0,
-        createdOn: new Date()
-      };
-      Meteor.call('studentInsert', student);
+      if(studentEmail!=""){
+        studentName=studentEmail.split("@")[0];
+        var student = {
+          classId: Session.get('classId'),
+          studentName: studentName,
+          alias: studentName,
+          email: studentEmail,
+          groupId: 0,
+          XP: 0,
+          HP: iniHP,
+          level: 0,
+          coins: 0,
+          rs: 0,
+          os: 0,
+          ys: 0,
+          ws: 0,
+          bs: 0,
+          gs: 0,
+          badges: [],
+          items: [],
+          cards: [],
+          powers: [],
+          collection: [],
+          selected: 0,
+          conected: 0,
+          createdOn: new Date()
+        };
+        Meteor.call('studentInsert', student);
+      }
     });
     $('#add_student_modal').modal('hide');
   },

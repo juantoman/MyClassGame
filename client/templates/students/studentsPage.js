@@ -211,7 +211,7 @@ Template.studentsPage.events({
     }
     event.stopPropagation();
   },
-  'click .foto,.info-grid': function(event) {
+  'click .foto,.info-grid,.card__image': function(event) {
     event.preventDefault();
     Session.set('nXP',0);
     Session.set('nBg',0);
@@ -219,7 +219,7 @@ Template.studentsPage.events({
     Session.set('nR',0);
     Session.set('nHP',0);
     if (event.target.name!=""){
-      Session.setPersistent('studentId', event.target.name);
+      Session.setPersistent('studentId', this._id);
       Session.set('studentSelected', true);
     }
     event.stopPropagation();

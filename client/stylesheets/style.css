@@ -364,11 +364,7 @@ label {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
 }
 .studentSelected {
-  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
-  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
-  box-shadow: 0px 0px 20px rgba(0, 0, 255, 1);
-  border:3px #268BD2 solid;
-  /*background-color: #d0f9cf !important;*/
+  background: linear-gradient(230deg, rgba(202,234,246,1) 0%, rgba(160,234,241,1) 46%, rgba(111,184,235,1) 100%);
 }
 .fotoStudent{
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
@@ -384,7 +380,7 @@ label {
 
 }
 .myuser{
-  background-color: gold !important;
+  background: linear-gradient(90deg, rgba(255,222,0,1) 34%, rgba(232,255,153,1) 83%);
 }
 .userType{
   width:50%;

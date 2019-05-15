@@ -3,19 +3,28 @@ figure {
   font-family: "Open Sans", Helvetica, sans-serif;
   text-align: center;
   margin: 20px;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+figure:hover {
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
+  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
 }
 
 figure img {
-  max-height: 80%;
-  max-width: 100%;
+  max-height: 100px;
+  max-width:80%;
   margin: auto;
   display: inline-block;
 }
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-weight: 400;
 }
-
 
 .card {
   display: inline-block;
@@ -25,8 +34,6 @@ h1, h2, h3, h4, h5 {
   margin: 10px;
   background: #ddd;
   text-align: left;
-  box-shadow: 0px 5px 20px -10px #111111;
-  position: relative;  
 }
 .card__caption {
     background-color: rgba(255,255,255, 0.65);
@@ -36,18 +43,19 @@ h1, h2, h3, h4, h5 {
   }
 
 .card__image-container {
-    background-color: rgba(0,0,0, 0.7) !important;
+    background-color: rgba(0,0,0, 0.3) !important;
     text-align: center;
     padding: 1em 1em 0;
     border-radius: 3px 3px 0 0;
-    height: 45%;
+    height: 120px;
+    position: relative;
   }
   
 .card__type {
-    position: absolute;
+     position: absolute;
     top: 0;
     right: 1em;
-    transform: translateY(-100%);
+    transform: translateY(-125%);
     color: #ffffff;
     text-transform: uppercase;
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
@@ -56,6 +64,13 @@ h1, h2, h3, h4, h5 {
     line-height: 1;
     border-radius: 2px;
     background: #bbbbbb;
+  }
+
+.cardLogo {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width:25px;
   }
 
 .card__label {
@@ -82,22 +97,44 @@ h1, h2, h3, h4, h5 {
 .card__stats th {
       font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
       text-align: right;
-      font-weight: bold;
-      font-size: large;
-    }
-    
-    
-.card__stats th, .card__stats td {
       width: 50%;
       padding: 0.25em 0.5em 0;
+      font-size: 1.5em;
     }
-  
+    
+    
+.card__stats td {
+      font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+      text-align: left;
+      width: 50%;
+      padding: 0.25em 0.5em 0;
+      font-size: 1.5em;
+    }
+    
+.cardLine {
+    height:1px;
+    margin:10px 0px;
+    background-color: rgba(255,255,255, 0.65);
+}    
+    
+.cardIcons {
+    margin:auto;
+}
+
+.cardIcons li{
+    margin: 20px;
+    display: inline;
+}
+
+.cardIcons img{
+    width:20px;
+}
 .card__abilities {
     display: flex;
     justify-content: space-between;
   }
+  
 .card__ability {
-    margin-top: 1em;
     flex: 1 0;
   }
   
@@ -126,7 +163,7 @@ h1, h2, h3, h4, h5 {
       background-color: #000;
     }
 
-.card--fire {
+.card__fire {
     background: linear-gradient(0deg, rgba(199,24,0,1) 10%, rgba(252,194,69,1) 100%);
 }
 .card--fire .card__type {
