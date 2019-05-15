@@ -21,6 +21,13 @@ figure img {
   display: inline-block;
 }
 
+.card__image:hover {
+  opacity: 0.7;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+  cursor: pointer;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-weight: 400;
@@ -101,7 +108,10 @@ h1, h2, h3, h4, h5 {
       padding: 0.25em 0.5em 0;
       font-size: 1.5em;
     }
-    
+.card__stats span:hover {
+      color: yellow;
+      cursor: pointer;
+    } 
     
 .card__stats td {
       font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
@@ -129,6 +139,13 @@ h1, h2, h3, h4, h5 {
 .cardIcons img{
     width:20px;
 }
+
+.cardIcons img:hover{
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+  cursor: pointer;
+}
+
 .card__abilities {
     display: flex;
     justify-content: space-between;
