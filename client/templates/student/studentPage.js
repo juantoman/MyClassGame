@@ -171,7 +171,8 @@ Template.studentPage.helpers({
     }
   },
   image: function(avatar) {
-    if ( avatar=="" || !avatar || Session.get('userType') != "teacher") {
+    avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
+    if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
         if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
           return classes.findOne({_id: Session.get('classId')}).studentImg;

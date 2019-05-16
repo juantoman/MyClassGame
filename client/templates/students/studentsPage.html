@@ -5,12 +5,16 @@
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent" {{myuser email}} {{studentSelected selected}}>
           <figure class="card card__water {{myuser email}} {{studentSelected selected}}">
             <div class="card__image-container" name="{{_id}}">
-              <img class="cardLogo" src="https://mcg1819-juantoman.c9users.io/images/@mcgnb.png">
+              <img class="cardLogo" src="/images/@mcgnb.png">
               <img src="{{image avatar}}" alt="Eevee" class="card__image" name="{{_id}}">   
             </div>
             
             <figcaption class="card__caption">
-              <h1 class="card__name">{{studentName}}</h1>
+              {{#if parent}}
+                 <h1 class="card__name">{{alias}}</h1>
+              {{else}}
+                <h1 class="card__name">{{alias}} ({{studentName}})</h1>
+              {{/if}}
               <h3 class="card__type">
                 Nivel {{level}}
               </h3>
@@ -66,7 +70,7 @@
             <figcaption class="card__caption">
               <h1 class="card__name">Nuevo</h1>
               <h1 class="card__name">Estudiante</h1>
-              <h1 class="card__name"><img src="https://mcg1819-juantoman.c9users.io/images/@mcgnb.png"></h1>
+              <h1 class="card__name"><img src="/images/@mcgnb.png"></h1>
             </figcaption>
           </figure>
         </div>
