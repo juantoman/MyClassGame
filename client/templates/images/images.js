@@ -1,5 +1,17 @@
 Template.imagesTemplate.onRendered(function() {
    $.getScript("https://media-library.cloudinary.com/global/all.js");
+   widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
+    if (!error && result && result.event === "success") { 
+      console.log('Done! Here is the image info: ', result.info); 
+      var imgObject = {
+         classId:Session.get('classId'),
+         type: Session.get('imageType'),
+         image_url: result.info.url,
+         createdOn: new Date()
+      };
+      Meteor.call('imageInsert',imgObject);
+    }
+  });
 });
 
 Template.imagesTemplate.helpers({
@@ -82,17 +94,7 @@ Template.imagesTemplate.events({
   },
   'click .cloudinary': function(event) {
     event.preventDefault();
-    cloudinary.openUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
-      if (result.event=="success"){
-        var imgObject = {
-          classId:Session.get('classId'),
-          type: Session.get('imageType'),
-          image_url: result.info.url,
-          createdOn: new Date()
-        };
-        Meteor.call('imageInsert',imgObject);
-      }
-    });
+    widget.open();
   },
   'click .deleteImage': function(event) {
     event.preventDefault();

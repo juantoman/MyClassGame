@@ -1,18 +1,20 @@
 <template name="classesPage">
   {{> myBreadcrumb}}
-  <div class="container-fluid myContent typeClasses">
-    <h4 id="classesTypes">{{_ "tclasses"}}</h4>
-    <div class="row">
-      {{#each types}}
-        <div class="col-xs-6 col-md-3 col-lg-2">
-          <div class="thumbnail btn btn-type">
-            <h2 class="text-center">{{className}}</h2>
-            <img src="{{classImage}}" class="fotoClass" alt="...">
+  {{#if teacher}}
+    <div class="container-fluid myContent typeClasses">
+      <h4 id="classesTypes">{{_ "tclasses"}}</h4>
+      <div class="row">
+        {{#each types}}
+          <div class="col-xs-6 col-md-3 col-lg-2">
+            <div class="thumbnail btn btn-type">
+              <h2 class="text-center">{{className}}</h2>
+              <img src="{{classImage}}" class="fotoClass" alt="...">
+            </div>
           </div>
-        </div>
-      {{/each}}
+        {{/each}}
+      </div>
     </div>
-  </div>
+  {{/if}}
   {{#if cName}}
   <div class="container-fluid myContent activeClasses">
     <h4 id="changeRol">{{_ "aclasses"}}</h4>
