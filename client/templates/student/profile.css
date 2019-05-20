@@ -1,5 +1,5 @@
 #leftPanel{
-    background-color:#0079ac;
+    background-color:#D1EBFC;
     color:#fff;
     text-align: center;
     padding: 3% 0;
@@ -7,7 +7,7 @@
 
 #rightPanel{
     min-height:415px;
-    background-color:#f1f1f1;
+    background-color:#EAF7FF;
 }
 
 .cardProfile{

@@ -36,6 +36,16 @@ Template.userProfile.helpers({
      return false;
     };
   },
+  grupo: function() {
+    if (this.groupId) {
+      return groups.findOne({_id: this.groupId});
+    } else {
+      var group = {
+        groupName:"Sin asignar"
+      };
+      return group;
+    }
+  }
 })
 
 Template.studentPage.events({

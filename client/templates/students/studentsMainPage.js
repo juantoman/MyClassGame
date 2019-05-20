@@ -90,6 +90,12 @@ Template.studentsMainPage.events({
       });
     };*/
   },
+  'click .btn-none': function(event) {
+    event.preventDefault();
+    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      Meteor.call('studentSelection', item["_id"]);
+    });
+  },
   'click .invert': function(event) {
     event.preventDefault();
     students.find( { classId: Session.get('classId')  } ).forEach(function (item){

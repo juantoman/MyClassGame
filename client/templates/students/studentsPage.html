@@ -2,11 +2,14 @@
   {{#if grid}}
     <div class="row">
       {{#each students}}
-        <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent" {{myuser email}} {{studentSelected selected}}>
-          <figure class="card card__water {{myuser email}} {{studentSelected selected}}">
+        <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent" {{myuser email}}>
+          <figure class="card card__water {{myuser email}}">
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
-              <img src="{{image avatar}}" alt="Eevee" class="card__image" name="{{_id}}">   
+              <img src="{{image avatar}}" alt="Eevee" class="card__image" name="{{_id}}"> 
+              {{#if selected}}
+                <h1 class="cardSelected">&#10004;</h1>
+              {{/if}}
             </div>
             
             <figcaption class="card__caption">
@@ -15,26 +18,32 @@
               {{else}}
                 <h1 class="card__name">{{alias}} ({{studentName}})</h1>
               {{/if}}
+              <h3 class="studentTeam">
+                {{grupo.groupName}}
+              </h3>
               <h3 class="card__type">
                 Nivel {{level}}
               </h3>
           
               <table class="card__stats">
-                <tbody><tr>
-                  <th><span class="btn-xp">XP</span></th>
-                  <td><span class="btn-xp">{{XP}}</span></td>
-                </tr>
-                <tr>
-                  <th><span class="btn-hp">HP</span></th>
-                  <td><span class="btn-hp">{{HP}}</span></td>
-                </tr>
+                <tbody>
+
+                  <tr>
+                    <th><span class="btn-xp">XP</span></th>
+                    <td><span class="btn-xp">{{XP}}</span></td>
+                  </tr>
+                  <tr>
+                    <th><span class="btn-hp">HP</span></th>
+                    <td><span class="btn-hp">{{HP}}</span></td>
+                  </tr>
+                  
+                  <tr>
+                    <th><span class="btn-store">Monedas</span></th>
+                    <td><span class="btn-store">{{coins}}</span></td>
+                  </tr>
                 
-                <tr>
-                  <th><span class="btn-store">Monedas</span></th>
-                  <td><span class="btn-store">{{coins}}</span></td>
-                </tr>
-                
-              </tbody></table>
+                </tbody>
+              </table>
               <div class="cardLine">
               </div>
               <ul class="cardIcons" title="{{_id}}">

@@ -59,9 +59,9 @@ h1, h2, h3, h4, h5 {
   }
   
 .card__type {
-     position: absolute;
+    position: absolute;
     top: 0;
-    right: 1em;
+    right: 0.5em;
     transform: translateY(-125%);
     color: #ffffff;
     text-transform: uppercase;
@@ -72,6 +72,26 @@ h1, h2, h3, h4, h5 {
     border-radius: 2px;
     background: #bbbbbb;
   }
+  
+.studentTeam {
+    position: absolute;
+    top: 0;
+    left: 0.5m;
+    transform: translateY(-125%);
+    color: #0079ac;
+    text-transform: uppercase;
+    font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+    letter-spacing: 0.1em;
+    padding: 0.25em;
+    line-height: 1;
+    border-radius: 2px;
+    background: #bbbbbb;
+}
+
+.studentTeam:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #888888;
+} 
 
 .cardLogo {
     position: absolute;
@@ -80,6 +100,13 @@ h1, h2, h3, h4, h5 {
     width:25px;
   }
 
+.cardSelected {
+    position: absolute;
+    top: -24px;
+    right: 2px;
+    color:white;
+}
+  
 .card__label {
     font-size: 10px;
     text-transform: uppercase;
@@ -170,6 +197,10 @@ h1, h2, h3, h4, h5 {
 }
 .card__water .card__type {
       background-color: #1CB5E0;
+}
+
+.card__water .studentTeam {
+      background-color:#EAF7FF;
 }
 
 .card--electric {

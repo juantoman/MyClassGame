@@ -230,5 +230,15 @@ Template.studentsPage.events({
   'click .btn-select,#selectedStudent,.thumbnailStudent': function(event) {
     event.preventDefault();
     Meteor.call('studentSelection', this._id);
-  }
+  },
+  'click .studentTeam': function(event) {
+    event.preventDefault();
+    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      Meteor.call('studentSelection', item["_id"]);
+    });
+    students.find( { $and: [ {groupId: this.groupId },{ classId: Session.get('classId')  } ] } ).forEach(function (item){
+      Meteor.call('studentSelection', item["_id"]);
+    });
+    event.stopPropagation();
+  },
 });

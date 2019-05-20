@@ -18,6 +18,9 @@
                             {{else}}
                               <h1 class="card__name">{{alias}}</h1>
                             {{/if}}
+                            <h3 class="studentTeam">
+                              {{grupo.groupName}}
+                            </h3>
                             <h3 class="card__type">
                               Nivel {{level}}
                             </h3>
@@ -138,9 +141,11 @@
                 		<hr class="colorgraph">
                 		<div class="row">
                   			<div class="col-xs-6 col-md-3"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
-                        <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">Eliminar</button></div>
-                        <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">Reiniciar</button></div>
-                        <div class="col-xs-6 col-md-3"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                  			{{#if teacher}}
+                          <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">Eliminar</button></div>
+                          <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">Reiniciar</button></div>
+                          <div class="col-xs-6 col-md-3"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                        {{/if}}
                   		</div>
                 	</form> 
                 </div>
