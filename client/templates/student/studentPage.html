@@ -6,7 +6,7 @@
         <button type="button" class="btn btn-info student_button" id="{{_id}}">{{studentName}}</button>
       {{/each}}
     </div>
-  -->
+  
       <div id="student_info">
         {{#with student}}
           {{#if parent}}
@@ -22,9 +22,14 @@
           {{/if}}
         {{/with}}
       </div>
+    -->
+      <div class="container-fluid">
+          {{#with student}}
+            {{> userProfile}}
+          {{/with}}
+      </div>
       <div id="menu_lateral">
         <ul class="nav nav-pills" role="tablist">
-            <li role="presentation" class="active"><a href="#Datos" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="spanMenu">Datos</span></a></li>
             <li role="presentation"><a href="#Portfolio" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span> <span class="spanMenu">Portfolio</span></a></li>
             <li role="presentation"><a href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <span class="spanMenu">M. Grupales</span></a></li>
             <li role="presentation"><a href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> <span class="spanMenu">M. Individuales</span></a></li>
@@ -38,90 +43,6 @@
           </ul>
       </div>
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="Datos">
-          <div class="container-fluid">
-            {{#with student}}
-            <img src="{{image avatar}}" name="{{_id}}" alt="..." class="img fotoStudent btn eImage col-xs-6 col-md-3 col-lg-3">
-            <div class="puntsStudent col-xs-6 col-md-3 col-lg-3">
-                <div class="list-group" id="{{_id}}">
-                  <li class="list-group-item list-group-item-warning btn-level" data-toggle="modal">N{{levelAutomatic (_id)}} {{levelDesc (_id)}}</li>
-                  <li class="list-group-item list-group-item-success btn-xp" data-toggle="modal">{{XP}} XP</li>
-                  <li class="list-group-item list-group-item-danger btn-hp"  data-toggle="modal">{{HP}} HP</li>
-                  <li class="list-group-item list-group-item-info btn-badge" data-toggle="modal">{{badges.length}} BG</li>
-                  <li class="list-group-item list-group-item-info btn-cards" data-toggle="modal">{{cards.length}} Cartas</li>
-                  <li class="list-group-item list-group-item-warning btn-store" data-toggle="modal" data-target="#store_modal">{{coins}} €</li>
-                </div>
-            </div>
-            <form class="dataStudent">
-              <div class="form-group col-xs-12 col-md-6 col-lg-6">
-                <label for="sName" class="control-label">ID {{_ "student"}}</label>
-                <input type="text" class="form-control" id="sName" name="idName" value="{{_id}}" readonly="readonly">
-                <label for="sName" class="control-label">{{_ "student_name"}}</label>
-                {{#if parent}}
-                  <input type="text" class="form-control" id="sName" name="sName" value="{{alias}}" {{inputDisabled}}>
-                {{else}}
-                  <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}" {{inputDisabled}}>
-                {{/if}}
-                <label for="sLevel" class="control-label">{{_ "level"}}</label>
-                <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-                <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
-                  {{#each selectLevels}}
-                    <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
-                  {{/each}}
-                </select>
-                <label for="sAlias" class="control-label">Alias</label>
-                <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}" {{inputDisabled}}>
-                <label for="sAvatar" class="control-label">Avatar</label>
-                <!--
-                  <input type="text" class="form-control" id="sAvatar" name="sAvatar"  value="{{avatar}}" {{inputDisabled}}>
-                  <button id="avatarCloudinary" name="cloudinary" {{inputDisabled}}>Subir imagen</button>
-                  <button id="cloudinaryList" name="cloudinaryList" {{inputDisabled}}>Ver imagenes</button>
-                -->
-                {{#if teacher}}
-                <label for="sEmail" class="control-label">email</label>
-                <input type="text" class="form-control" id="sEmail" name="sEmail" value="{{email}}" {{inputDisabled}}>
-                {{/if}}
-              </div>
-              {{#if teacher}}
-              <div class="studentStars col-xs-12 col-lg-6">
-                <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
-                  <label class="btn btn-info btn-emoticon">
-                    <p>{{rs}}</p>
-                    <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" />
-                  </label>
-                  <label class="btn btn-info btn-emoticon">
-                    <p>{{os}}</p>
-                    <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
-                  </label>
-                  <label class="btn btn-info btn-emoticon">
-                    <p>{{ys}}</p>
-                    <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
-                  </label>
-                  <label class="btn btn-info btn-emoticon">
-                    <p>{{ws}}</p>
-                    <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
-                  </label>
-                  <label class="btn btn-info btn-emoticon">
-                    <p>{{bs}}</p>
-                    <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
-                  </label>
-                  <label class="btn btn-info btn-emoticon">
-                   <p>{{gs}}</p>
-                   <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
-                  </label>
-                </div>
-              </div>
-              <div style="float:right;margin:20px;">
-                <button type="button" class="btn btn-default">{{_ "close"}}</button>
-                <button type="button" class="btn btn-danger btn-delete-student">Eliminar</button>
-                <button type="button" class="btn btn-warning btn-reset-student">Reiniciar</button>
-                <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
-              </div>
-              {{/if}}
-            </form>
-            {{/with}}
-          </div>
-        </div>
         <div role="tabpanel" class="tab-pane" id="Portfolio">
           {{#with student}}
             <div class="form-group has-success">

@@ -585,6 +585,7 @@ Template.studentPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.set('studentId',this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
     }
@@ -596,6 +597,7 @@ Template.studentPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.set('studentId',this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
     }
@@ -607,6 +609,7 @@ Template.studentPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.set('studentId',this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('badgeModal');
     }
@@ -618,6 +621,7 @@ Template.studentPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.set('studentId',this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('cardsModal');
     }
@@ -629,6 +633,7 @@ Template.studentPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.set('studentId',this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');
     }

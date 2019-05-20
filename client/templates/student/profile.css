@@ -1,0 +1,22 @@
+#leftPanel{
+    background-color:#0079ac;
+    color:#fff;
+    text-align: center;
+    padding: 3% 0;
+}
+
+#rightPanel{
+    min-height:415px;
+    background-color:#f1f1f1;
+}
+
+.cardProfile{
+    padding: 6% 0;
+}
+/* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 1px;
+  border-top: 0;
+  background: #0079ac;
+  border-radius: 5px;
+}

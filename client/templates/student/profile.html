@@ -1,0 +1,151 @@
+<template name="userProfile">
+    <div class="container-fluid">
+        <br>
+        <br>
+        <div class="row" id="main">
+            <div class="col-sm-12 col-md-4 well" id="leftPanel">
+                <div class="row">
+                    <div class="col-xs-12 cardProfile">
+                    	<figure class="card card__water">
+                          <div class="card__image-container" name="{{_id}}">
+                            <img class="cardLogo" src="/images/@mcgnb.png">
+                            <img src="{{image avatar}}" alt="Eevee" class="card__image eImage" name="{{_id}}">   
+                          </div>
+                          
+                          <figcaption class="card__caption">
+                            {{#if teacher}}
+                              <h1 class="card__name">{{alias}} ({{studentName}})</h1>
+                            {{else}}
+                              <h1 class="card__name">{{alias}}</h1>
+                            {{/if}}
+                            <h3 class="card__type">
+                              Nivel {{level}}
+                            </h3>
+                        
+                            <table class="card__stats">
+                              <tbody><tr>
+                                <th><span class="btn-xp">XP</span></th>
+                                <td><span class="btn-xp">{{XP}}</span></td>
+                              </tr>
+                              <tr>
+                                <th><span class="btn-hp">HP</span></th>
+                                <td><span class="btn-hp">{{HP}}</span></td>
+                              </tr>
+                              
+                              <tr>
+                                <th><span class="btn-store">Monedas</span></th>
+                                <td><span class="btn-store">{{coins}}</span></td>
+                              </tr>
+                              
+                            </tbody></table>
+                            <div class="cardLine">
+                            </div>
+                            <ul class="cardIcons" title="{{_id}}">
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
+                            </ul>
+                            <!--
+                            <div class="cardLine">
+                            </div>
+                            <div class="card__abilities">
+                              <h4 class="card__ability">
+                                <span class="card__label">Nivel</span>
+                                {{level}}
+                              </h4>
+                              <h4 class="card__ability">
+                                <span class="card__label">Equipo</span>
+                                Anticipation
+                              </h4>
+                            </div>
+                            -->
+                          </figcaption>
+                        </figure>
+            		</div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-8 well" id="rightPanel">
+              <div class="row">
+                <div class="col-md-12">
+                	<form role="form" class="dataStudent">
+                	  {{#if teacher}}
+                		  <h2>{{studentName}} <small>{{_id}}</small></h2>
+                		{{else}}
+                		  <h2>{{alias}} <small>{{_id}}</small></h2>
+                		{{/if}}
+                  	<hr class="colorgraph">
+                  	<div class="row">
+                  	  {{#if teacher}}
+                    		<div class="col-xs-12 col-sm-6 col-md-6">
+                    			<div class="form-group">
+                    		    <label for="sName" class="control-label">{{_ "student_name"}}</label>
+                            <input type="text" name="sName" id="sName" class="form-control input-lg" placeholder="Nombre" tabindex="1" value="{{studentName}}">
+                  				</div>
+                  			</div>
+                			{{/if}}
+                	  	<div class="col-xs-12 col-sm-6 col-md-6">
+                				<div class="form-group">
+                			    <label for="sName" class="control-label">Alias</label>
+                					<input type="text" name="sAlias" id="sAlias" class="form-control input-lg" placeholder="Alias" tabindex="2" value="{{alias}}">
+                				</div>
+                			</div>
+                		</div>
+                		<div class="form-group">
+                		  <label for="sEmail" class="control-label">E-mail</label>
+                			<input type="email" name="sEmail" id="sEmail" class="form-control input-lg" placeholder="Email" tabindex="3" value="{{email}}">
+                		</div>
+                		<div class="form-group">
+                			<label for="sLevel" class="control-label">{{_ "level"}}</label>
+                      <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+                      <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
+                        {{#each selectLevels}}
+                          <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
+                        {{/each}}
+                      </select>
+                		</div>
+                		{{#if teacher}}
+                		<div class="row">
+                      <div class="studentStars col-xs-12">
+                        <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                          <label class="btn btn-info btn-emoticon">
+                            {{rs}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png" />
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            {{os}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277039/images/star_orange.png"/>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            {{ys}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_yellow.png"/>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            {{ws}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_white.png"/>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            {{bs}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277083/images/star_blue.png"/>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            {{gs}}
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277035/images/star_green.png"/>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    {{/if}}
+                		<hr class="colorgraph">
+                		<div class="row">
+                  			<div class="col-xs-6 col-md-3"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
+                        <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">Eliminar</button></div>
+                        <div class="col-xs-6 col-md-3"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">Reiniciar</button></div>
+                        <div class="col-xs-6 col-md-3"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                  		</div>
+                	</form> 
+                </div>
+              </div>
+            </div>
+        </div>       
+    </div>  
+</template>
