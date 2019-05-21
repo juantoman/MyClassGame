@@ -15,10 +15,15 @@ figure:hover {
 }
 
 figure img {
-  max-height: 100px;
+  max-height: 180px;
   max-width:80%;
   margin: auto;
   display: inline-block;
+}
+
+
+.card__image {
+    padding: 8% 0;
 }
 
 .card__image:hover {
@@ -38,13 +43,13 @@ h1, h2, h3, h4, h5 {
   width: 300px;
   padding: 1em;
   border-radius: 15px;  
-  margin: 10px;
+  margin: 5px;
   background: #ddd;
   text-align: left;
 }
 .card__caption {
     background-color: rgba(255,255,255, 0.65);
-    padding: 1em;
+    padding: 0.5em;
     position: relative;
     border-radius: 0 0 3px 3px;
   }
@@ -52,9 +57,9 @@ h1, h2, h3, h4, h5 {
 .card__image-container {
     background-color: rgba(0,0,0, 0.3) !important;
     text-align: center;
-    padding: 1em 1em 0;
+    padding: 4% 0;
     border-radius: 3px 3px 0 0;
-    height: 120px;
+    height: 200px;
     position: relative;
   }
   
@@ -62,7 +67,7 @@ h1, h2, h3, h4, h5 {
     position: absolute;
     top: 0;
     right: 0.5em;
-    transform: translateY(-125%);
+    transform: translateY(-120%);
     color: #ffffff;
     text-transform: uppercase;
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
@@ -76,8 +81,8 @@ h1, h2, h3, h4, h5 {
 .studentTeam {
     position: absolute;
     top: 0;
-    left: 0.5m;
-    transform: translateY(-125%);
+    left: 0.5em;
+    transform: translateY(-120%);
     color: #0079ac;
     text-transform: uppercase;
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
@@ -86,6 +91,17 @@ h1, h2, h3, h4, h5 {
     line-height: 1;
     border-radius: 2px;
     background: #bbbbbb;
+}
+
+.medal{
+    position: absolute;
+    top: -1px;
+    right:-14px;
+    transform: translateY(0%);
+    padding: 0;
+    width:80px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222 );
+    filter: drop-shadow(3px 3px 5px #222);
 }
 
 .studentTeam:hover {
@@ -125,7 +141,6 @@ h1, h2, h3, h4, h5 {
   }
   
 .card__stats {
-    margin: 1em 0;
     width: 100%;
 }
 .card__stats th {
@@ -138,6 +153,7 @@ h1, h2, h3, h4, h5 {
 .card__stats span:hover {
       color: yellow;
       cursor: pointer;
+      text-shadow: 1px 1px 1px #888888;
     } 
     
 .card__stats td {

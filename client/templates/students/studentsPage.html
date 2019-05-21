@@ -21,6 +21,7 @@
               <h3 class="studentTeam">
                 {{grupo.groupName}}
               </h3>
+              <img class="medal {{medal @index}}" src="/images/{{medal @index}}">
               <h3 class="card__type">
                 Nivel {{level}}
               </h3>
@@ -71,7 +72,7 @@
       {{/each}}
       {{#if teacher}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent">
-          <figure class="card card__fire" data-toggle="modal" data-target="#add_student_modal">
+          <figure class="card card__water" data-toggle="modal" data-target="#add_student_modal">
             <div class="card__image-container" name="{{_id}}">
               <img src="{{image}}" alt="Eevee" class="card__image" name="{{_id}}">   
             </div>
@@ -79,15 +80,11 @@
             <figcaption class="card__caption">
               <h1 class="card__name">Nuevo</h1>
               <h1 class="card__name">Estudiante</h1>
-              <h1 class="card__name"><img src="/images/@mcgnb.png"></h1>
+              <h1 class="card__name"><img src="/images/@mcgnb.png" width="90px"></h1>
             </figcaption>
           </figure>
         </div>
       {{/if}}
-      
-      {{#each students}}
-      
-      {{/each}}
     </div>
   {{else}}
     <div class="container-responsive table-responsive">

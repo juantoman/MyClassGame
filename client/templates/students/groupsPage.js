@@ -43,30 +43,30 @@ Template.groupsPage.helpers({
 Template.groupsPage.events({
   'click .btn-delete-group': function(event) {
     event.preventDefault();
-    Session.set('groupId', event.target.name);
+    Session.set('groupId',  this._id);
     Modal.show('deleteGroup');
   },
   'click .btn-xp': function(event) {
     if (Session.get('userType')=="teacher") {
       event.preventDefault();
-      Session.setPersistent('groupId', event.target.name);
+      Session.setPersistent('groupId',  this._id);
       Modal.show('groupXPModal');
     }
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
-    Session.setPersistent('groupId', event.target.name);
+    Session.setPersistent('groupId', this._id);
     Modal.show('groupHPModal');
   },
   'click .btnGroup': function(event) {
     event.preventDefault();
-    Session.setPersistent('groupId', event.target.name);
+    Session.setPersistent('groupId',  this._id);
     Modal.show('groupModal');
   },
-  'click .fotog': function(event) {
+  'click .fotog, click .groupPhoto': function(event) {
     event.preventDefault();
     //alert(Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
-    Session.setPersistent('groupId', event.target.name);
+    Session.setPersistent('groupId',  this._id);
     Session.set('groupSelected', true);
   }
 });

@@ -41,6 +41,24 @@ Template.studentsPage.helpers({
       }
     }
   },
+  medal: function(i) {
+    if (i<3) {
+      switch (i) {
+        case 0:
+          return "medal-gold.png";
+          break;
+        case 1:
+          return "medal-silver.png";
+          break;
+        case 2:
+          return "medal-bronze.png";
+          break;
+      }
+     return "";
+    } else {
+     return "oculto";
+    };
+  },
   grid: function() {
     if ( Session.get('golBtn') == "grid" ) {
       return true;
