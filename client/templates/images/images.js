@@ -1,3 +1,6 @@
+var last_image="";
+var new_image="";
+
 Template.imagesTemplate.onRendered(function() {
    $.getScript("https://media-library.cloudinary.com/global/all.js");
    widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
@@ -9,7 +12,11 @@ Template.imagesTemplate.onRendered(function() {
          image_url: result.info.url,
          createdOn: new Date()
       };
-      Meteor.call('imageInsert',imgObject);
+      new_image=result.info.url;
+      if (last_image!=new_image){
+        Meteor.call('imageInsert',imgObject);
+        last_image=new_image;
+      }
     }
   });
 });

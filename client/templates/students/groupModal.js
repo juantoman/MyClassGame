@@ -222,5 +222,6 @@ Template.deleteGroup.events({
     });
     Meteor.call('groupDelete', Session.get('groupId'));
     Modal.hide('deleteGroup');
+    Session.set('groupSelected', false);
   }
 });
