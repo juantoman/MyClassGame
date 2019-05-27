@@ -42,22 +42,27 @@ Template.studentsPage.helpers({
     }
   },
   medal: function() {
-    f=students.findOne({'classId': Session.get('classId')},{sort:{'XP':-1}}).XP;
-    s=students.findOne({'classId': Session.get('classId'),'XP':{$ne: f}}, {sort:{'XP':-1}}).XP;
-    t=students.findOne({'classId': Session.get('classId'),'XP':{$nin: [ f, s ]}}, {sort:{'XP':-1}}).XP;
-    switch (this.XP) {
-      case f:
-        return "medal-gold.png";
-        break;
-      case s:
-        return "medal-silver.png";
-        break;
-      case t:
-        return "medal-bronze.png";
-        break;
-      default:
-        return "oculto";
-        break;
+    try {
+      f=students.findOne({'classId': Session.get('classId')},{sort:{'XP':-1}}).XP;
+      s=students.findOne({'classId': Session.get('classId'),'XP':{$ne: f}}, {sort:{'XP':-1}}).XP;
+      t=students.findOne({'classId': Session.get('classId'),'XP':{$nin: [ f, s ]}}, {sort:{'XP':-1}}).XP;
+      switch (this.XP) {
+        case f:
+          return "medal-gold.png";
+          break;
+        case s:
+          return "medal-silver.png";
+          break;
+        case t:
+          return "medal-bronze.png";
+          break;
+        default:
+          return "oculto";
+          break;
+      }
+    }
+    catch(err) {
+      return "oculto";
     }
   },
   grid: function() {

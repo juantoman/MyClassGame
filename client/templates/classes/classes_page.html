@@ -5,12 +5,23 @@
       <h4 id="classesTypes">{{_ "tclasses"}}</h4>
       <div class="row">
         {{#each types}}
+          <figure class="card card--ice btn-type">
+            <div class="card__image-container" name="{{_id}}">
+              <img class="cardLogo" src="/images/@mcgnb.png">
+              <img src="{{classImage}}" alt="Eevee" class="card__image" name="{{_id}}">
+            </div>
+            <figcaption class="card__caption">
+              <h1 class="card__name">{{className}}</h1>
+            </figcaption>
+          </figure>
+          <!--
           <div class="col-xs-6 col-md-3 col-lg-2">
             <div class="thumbnail btn btn-type">
               <h2 class="text-center">{{className}}</h2>
               <img src="{{classImage}}" class="fotoClass" alt="...">
             </div>
           </div>
+          -->
         {{/each}}
       </div>
     </div>
@@ -19,19 +30,40 @@
   <div class="container-fluid myContent activeClasses">
     <h4 id="changeRol">{{_ "aclasses"}}</h4>
     <div class="row">
+      <figure class="card card--ice" data-toggle="modal" data-target="#add_class_modal">
+        <div class="card__image-container" >
+          <img src="/images/@mcgnb.png" alt="Eevee" class="card__image">
+        </div>
+        <figcaption class="card__caption">
+          <h1 class="card__name">{{_ "nclass"}}</h1>
+        </figcaption>
+      </figure>
+      <!--
       <div class="col-xs-6 col-md-3 col-lg-2">
         <div class="thumbnail btn" data-toggle="modal" data-target="#add_class_modal">
             <h2 class="text-center h2newclass">{{_ "nclass"}}</h2>
             <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="fotoClass" alt="...">
         </div>
       </div>
+      -->
       {{#each classe}}
+        <figure class="card card--ice btn-class">
+          <div class="card__image-container" >
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{classImage}}" alt="Eevee" class="card__image">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{className}}</h1>
+          </figcaption>
+        </figure>
+        <!--
         <div class="col-xs-6 col-md-3 col-lg-2">
           <div class="thumbnail btn btn-class">
               <h2 class="text-center">{{className}}</h2>
               <img src="{{classImage}}" class="fotoClass" alt="...">
           </div>
         </div>
+        -->
       {{/each}}
     </div>
   </div>
@@ -39,12 +71,23 @@
     <h4 id="adminClass">{{_ "sclasses"}}</h4>
     <div class="row">
       {{#each stored}}
+        <figure class="card card--ice btn-class">
+          <div class="card__image-container" name="{{_id}}">
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{classImage}}" alt="Eevee" class="card__image" name="{{_id}}">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{className}}</h1>
+          </figcaption>
+        </figure>
+        <!--
         <div class="col-xs-6 col-md-3 col-lg-2">
           <div class="thumbnail btn btn-class">
               <h2 class="text-center">{{className}}</h2>
               <img src="{{classImage}}" class="fotoClass" alt="...">
           </div>
         </div>
+        -->
       {{/each}}
     </div>
   </div>
