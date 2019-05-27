@@ -41,23 +41,24 @@ Template.studentsPage.helpers({
       }
     }
   },
-  medal: function(i) {
-    if (i<3) {
-      switch (i) {
-        case 0:
-          return "medal-gold.png";
-          break;
-        case 1:
-          return "medal-silver.png";
-          break;
-        case 2:
-          return "medal-bronze.png";
-          break;
-      }
-     return "";
-    } else {
-     return "oculto";
-    };
+  medal: function() {
+    f=students.findOne({'classId': Session.get('classId')},{sort:{'XP':-1}}).XP;
+    s=students.findOne({'classId': Session.get('classId'),'XP':{$ne: f}}, {sort:{'XP':-1}}).XP;
+    t=students.findOne({'classId': Session.get('classId'),'XP':{$nin: [ f, s ]}}, {sort:{'XP':-1}}).XP;
+    switch (this.XP) {
+      case f:
+        return "medal-gold.png";
+        break;
+      case s:
+        return "medal-silver.png";
+        break;
+      case t:
+        return "medal-bronze.png";
+        break;
+      default:
+        return "oculto";
+        break;
+    }
   },
   grid: function() {
     if ( Session.get('golBtn') == "grid" ) {
