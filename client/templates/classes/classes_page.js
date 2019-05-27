@@ -1,7 +1,13 @@
-Template.classesPage.rendered = function() {
+Template.classesPage.onRendered(function() {
   Session.set('className', "");
   handleClientLoad();
-}
+  try {
+    Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address);
+  }
+  catch(err) {
+    Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
+  } 
+});
 
 Template.classesPage.helpers({
   classe: function() {

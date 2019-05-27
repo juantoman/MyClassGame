@@ -85,19 +85,21 @@ Template.groupPage.helpers({
   },
   studentInNotebook: function() {
     inNote=false;
-    students.find( { groupId: Session.get('groupId') } ).forEach( function(u) {
-        i=u._id;
-        try {
-          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
-        }
-        catch(err) {
-          emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-        }
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    }
+    catch(err) {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
+    students.find( { 'classId': Session.get('classId'),'groupId': Session.get('groupId') } ).forEach( function(u) {
         emailStudent=u.email;
-        if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+        if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
           inNote=true;
         }
     });
+    if ( Session.get('userType')=="teacher" ) {
+      inNote=true;
+    }
     return inNote;
   },
   myGroupEnabled: function() {

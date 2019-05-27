@@ -38,6 +38,18 @@ Template.groupsPage.helpers({
   },
   selected: function() {
     return Session.get('groupSelected');
+  },
+  myuser: function() {
+    //alert("hola");
+    my="card--ice";
+    students.find( { 'groupId': this._id } ).forEach( function(u) {
+        emailStudent="";
+        if(u.email){emailStudent=u.email};
+        if ( emailStudent.toUpperCase() == Session.get("emailUser").toUpperCase() ) {
+          my="myuser";
+        }
+    });
+    return my;
   }
 });
 Template.groupsPage.events({
