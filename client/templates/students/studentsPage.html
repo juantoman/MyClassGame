@@ -7,9 +7,7 @@
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
               <img src="{{image avatar}}" alt="Eevee" class="card__image" name="{{_id}}"> 
-              {{#if selected}}
-                <h1 class="cardSelected">&#10004;</h1>
-              {{/if}}
+              <h1 class="cardSelected {{#unless selected}}oculto{{/unless}}">&#10004;</h1>    
             </div>
             
             <figcaption class="card__caption">
