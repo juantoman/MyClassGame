@@ -310,6 +310,17 @@ Template.missions.events({
     //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
+  'click .chalMissionGrades': function(event) {
+    event.preventDefault();
+    //alert(this._id);
+    //alert(challenges.findOne({_id: this.missionId}).IoG);
+    Session.set('taskId',this._id)
+    Modal.show('notes');
+    //o=this.order;
+    //alert($(event.target).find('[name=MoC]').val())
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
+  },
   'click #adventureBtn': function(event) {
     event.preventDefault();
     Modal.show('adventureTemplate');

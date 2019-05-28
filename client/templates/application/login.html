@@ -1,0 +1,30 @@
+<template name="login">
+    <form class="login-form">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <p class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1"><img width="30vmax" src="/images/@mcgnb.png"> Iniciar sesión/Registrar en <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
+                    <button class="btn btn-warning btn-lg float-right" id="google">Iniciar sesión con Google</button>
+                </p>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p style="color: #268BD2;">Bienvenido a @MyClassGame</p>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email"  class="form-control" id="email" placeholder="Email address">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="password">
+                    </div>
+                </div>
+                <div class="panel-footer text-center">
+                    <button type="submit" class="btn btn-warning btn-md">Iniciar sesión</button>
+                    <button class="btn btn-warning btn-md" id="register">Registrar</button>
+                    <button class="btn btn-warning btn-md" id="reset">Restablecer contraseña</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</template>

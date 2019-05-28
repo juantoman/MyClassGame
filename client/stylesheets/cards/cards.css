@@ -133,7 +133,7 @@ h1, h2, h3, h4, h5 {
 }
   
 .card__label {
-    font-size: 10px;
+    font-size: 1vmax;
     text-transform: uppercase;
     font-weight: 400;
     display: block;
@@ -144,7 +144,7 @@ h1, h2, h3, h4, h5 {
 .card__name {
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     text-align: center;
-    font-size: 1.5em;    
+    font-size: 1vmax;    
     font-weight: 700;
     letter-spacing: 0.02em;
     margin-top:10px;
@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5 {
       text-align: right;
       width: 50%;
       padding: 0.25em 0.5em 0;
-      font-size: 1.5em;
+      font-size: 1vmax;
     }
 .card__stats span:hover {
       color: yellow;
@@ -171,7 +171,7 @@ h1, h2, h3, h4, h5 {
       text-align: left;
       width: 50%;
       padding: 0.25em 0.5em 0;
-      font-size: 1.5em;
+      font-size: 1vmax;
     }
     
 .cardLine {

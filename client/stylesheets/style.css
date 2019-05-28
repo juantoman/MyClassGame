@@ -208,7 +208,7 @@ a:hover, a:link {
   float:left;
 }
 
-.btn {
+.btn, label {
   font-size:1vmax !important;
 }
 .btn-student button{
@@ -658,6 +658,10 @@ input[type=submit] {
   border-right: 2px solid black !important;
   border-left: 2px solid black !important;
   border-radius: 0px 0px 10px 10px;
+}
+
+.nav li{
+  font-size:1vmax !important;
 }
 
 #adventurePage input{

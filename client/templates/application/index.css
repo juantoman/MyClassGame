@@ -218,6 +218,29 @@ footer {
   
 }
 
+.login-form {
+  margin-top: -50px;
+}
+
+.login-form .panel-title {
+  position:relative;
+}
+
+.login-form .panel-title button{
+  position:absolute;
+  top:-7px;
+  right:0px;
+}
+
+.login-form button {
+  margin: 5px;
+}
+
+
+#google {
+  
+}
+
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
