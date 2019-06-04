@@ -4,8 +4,7 @@
 });*/
 
 Accounts.onLogout(function(user) {
-  Session.set('classId', "");
-  Session.set('className', "");
+  Session.keys = {};
   //gapi.auth2.getAuthInstance().signOut();
   Router.go('/');
 });
