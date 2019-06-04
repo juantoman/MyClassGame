@@ -48,7 +48,7 @@ Template.myBreadcrumb.events({
     Session.set('groupSelected', false);
     Session.set('userType', "");
     $("#fondo").css("background-image", "");
-    Router.go('/');
+    Router.go('classesPage');
     Meteor.logout();
   }
 });
