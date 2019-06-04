@@ -2,6 +2,11 @@
   //alert(Meteor.users.findOne(Meteor.user()).userType);
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
 });*/
+
+Accounts.onLogout(function(user) {
+  Router.go('/');
+});
+
 Template.myBreadcrumb.helpers({
  className: function() {
   return Session.get('className');//classes.findOne({ _id: Session.get('classId') } ).className;
@@ -39,5 +44,9 @@ Template.myBreadcrumb.events({
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
     Router.go('myNav');
+  },
+  'click .closeSession': function(event) {
+    event.preventDefault();
+    Meteor.logout();
   }
 });

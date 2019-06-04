@@ -97,14 +97,16 @@ body {
   background-color: #ddd;
   border: 1px solid lightgray;
 }
-.breadcrumb{
+
+.breadcrumb2{
   background-color: white;
-  border: 1px solid lightgray;
   border-radius: 0px;
-  margin-bottom:0;
+  padding:2px;
+  color:white;
+  margin-bottom:-5px;
 }
 
-.breadcrumb a, .nav a {
+.nav a {
   color: #268BD2 !important;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -927,6 +929,16 @@ h1,h2,h3,h4,h5,h6{
 
 h4.panel-title {
   font-size: 1.5vmax !important;
+}
+
+.closeSession {
+  position:absolute;
+  top: 1px;
+  right:5px;
+}
+
+.navbar-wrapper{
+  height: 100px;
 }
 
 @media (max-width: 740px) {
