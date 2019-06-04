@@ -46,7 +46,7 @@ Template.myBreadcrumb.events({
     Session.set('className', '');
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    Session.set('userType', "");
+    //Session.set('userType', "");
     $("#fondo").css("background-image", "");
     Router.go('classesPage');
     Meteor.logout();

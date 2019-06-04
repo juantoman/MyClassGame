@@ -6,7 +6,8 @@ Template.classesPage.onRendered(function() {
   }
   catch(err) {
     Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
-  } 
+  }
+  Session.set('userType',Meteor.users.findOne(Meteor.user()).userType); 
 });
 
 Template.classesPage.helpers({
