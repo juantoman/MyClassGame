@@ -3,6 +3,13 @@
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
 });*/
 
+Accounts.onLogout(function(user) {
+  Session.set('classId', "");
+  Session.set('className', "");
+  //gapi.auth2.getAuthInstance().signOut();
+  Router.go('/');
+});
+
 Template.myBreadcrumb.helpers({
  className: function() {
   return Session.get('className');//classes.findOne({ _id: Session.get('classId') } ).className;
@@ -43,8 +50,6 @@ Template.myBreadcrumb.events({
   },
   'click .closeSession': function(event) {
     event.preventDefault();
-    Router.go('/');
     Meteor.logout();
-    //window.location.replace('https://accounts.google.com/Logout');
   }
 });

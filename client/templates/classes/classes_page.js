@@ -1,6 +1,6 @@
 Template.classesPage.onRendered(function() {
   Session.set('className', "");
-  handleClientLoad();
+  //handleClientLoad();
   try {
     Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address);
   }
