@@ -5,8 +5,8 @@
 
 Accounts.onLogout(function(user) {
   Session.keys = {};
-  //gapi.auth2.getAuthInstance().signOut();
   Router.go('/');
+  //gapi.auth2.getAuthInstance().signOut();
 });
 
 Template.myBreadcrumb.helpers({
