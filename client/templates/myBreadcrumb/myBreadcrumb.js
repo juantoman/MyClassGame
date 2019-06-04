@@ -3,6 +3,11 @@
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
 });*/
 
+Accounts.onLogout(function(user) {
+    Router.go('/');
+  //gapi.auth2.getAuthInstance().signOut();
+});
+
 Template.myBreadcrumb.helpers({
  className: function() {
   return Session.get('className');//classes.findOne({ _id: Session.get('classId') } ).className;
