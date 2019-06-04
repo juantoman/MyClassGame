@@ -3,11 +3,6 @@
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
 });*/
 
-Accounts.onLogout(function(user) {
-    Router.go('/');
-  //gapi.auth2.getAuthInstance().signOut();
-});
-
 Template.myBreadcrumb.helpers({
  className: function() {
   return Session.get('className');//classes.findOne({ _id: Session.get('classId') } ).className;
@@ -51,8 +46,9 @@ Template.myBreadcrumb.events({
     Session.set('className', '');
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
+    Session.set('userType', "");
     $("#fondo").css("background-image", "");
-    Router.go('classesPage');
+    Router.go('/');
     Meteor.logout();
   }
 });
