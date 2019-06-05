@@ -6,12 +6,16 @@ figure {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.1s;
+  
 }
 
 figure:hover {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
+  transform: scale(1.02); /*scale(-1, 1);*/
+
 }
 
 figure img {

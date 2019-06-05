@@ -6,15 +6,19 @@ Meteor.publish('mcgParameters', function() {
   return mcgParameters.find();
 });
 
-Meteor.publish('allClasses', function() {
-  return classes.find({}, {fields: {"_id": 1,"teacherId": 1 }});
-});
-
 Meteor.publish('classes', function() {
   t=[];
+  if( typeof Meteor.user().classesTeacher == "undefined") {
+    classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
+      t.push(c._id);
+    });
+    Meteor.call('classesTeacher',t);
+  }
+  /*t=[];
   classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
     t.push(c._id);
-  });
+  });*/
+  console.log(t);
   tipos=mcgParameters.findOne().typeClasses;
   teacherClasses=Meteor.users.findOne({_id:Meteor.userId()}).classesTeacher;
   studentClasses=Meteor.users.findOne({_id:Meteor.userId()}).classes;

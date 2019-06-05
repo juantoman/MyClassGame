@@ -2,14 +2,14 @@ Template.classesPage.onRendered(function() {
   Session.set('className', "");
   Session.set('userType', "teacher");
   Meteor.call('userTypeInsert', "teacher");
-  //handleClientLoad();
-  t=[];
+  handleClientLoad();
+  /*t=[];
   if( typeof Meteor.user().classesTeacher == "undefined") {
     classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
       t.push(c._id);
     });
     Meteor.call('classesTeacher',t);
-  }
+  }*/
   try {
     Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address);
   }
@@ -201,5 +201,11 @@ Template.classesPage.events({
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
+  },
+  'click #pruebas': function(event) {
+    event.preventDefault();
+    if (Meteor.user().services.google.email == "Juan.Torres@iestacio.com") {
+      $('#allClasses').toggleClass("oculto");
+    }
   }
 });

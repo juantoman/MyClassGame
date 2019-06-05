@@ -1,11 +1,11 @@
 /*Template.register.onRendered(function () {
   //alert(Meteor.users.findOne(Meteor.user()).userType);
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
-});*/
+});
 
 Accounts.onLogout(function(user) {
   Router.go('/');
-});
+});*/
 
 Template.myBreadcrumb.helpers({
  className: function() {
