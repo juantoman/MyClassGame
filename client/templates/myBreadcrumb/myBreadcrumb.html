@@ -1,10 +1,12 @@
 <template name="myBreadcrumb">
-  <div class="btn-group breadcrumb2" role="group" aria-label="Basic example">
-    <button type="button" class="clases btn btn-warning btn-md">Clases {{#if userType}}({{userType}}){{/if}}</button>
-    {{#if className}}<button type="button" class="clase btn btn-info btn-md">{{className}}</button>{{/if}}
-    {{#if studentName}}<button type="button" class="estudiante btn btn-danger btn-md">{{studentName}}</button>{{/if}}
+  <div class="topMenu">
+    <div class="btn-group leftBtns" role="group" aria-label="Basic example">
+      <button type="button" class="clases btn btn-warning btn-md">Clases {{#if userType}}({{userType}}){{/if}}</button>
+      {{#if className}}<button type="button" class="clase btn btn-info btn-md">{{className}}</button>{{/if}}
+      {{#if studentName}}<button type="button" class="estudiante btn btn-danger btn-md">{{studentName}}</button>{{/if}}
+    </div>
+    <ol class="rightBtns">
+      <li class="btn btn-warning closeSession btn-md">Cerrar sesión</li>
+    </ol>
   </div>
-  <ol class="breadcrumb2">
-    <li class="btn btn-warning closeSession btn-md">Cerrar sesión</li>
-  </ol>
 </template> 
