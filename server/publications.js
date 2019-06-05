@@ -1,13 +1,27 @@
 Meteor.publish('allUsers', function() {
-  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1, "emails": 1}});
+  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1, "emails": 1,"classesTeacher": 1,"classesParent": 1}});
 });
 
 Meteor.publish('mcgParameters', function() {
   return mcgParameters.find();
 });
 
+Meteor.publish('allClasses', function() {
+  return classes.find({}, {fields: {"_id": 1,"teacherId": 1 }});
+});
+
 Meteor.publish('classes', function() {
-  return classes.find();
+  t=[];
+  classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
+    t.push(c._id);
+  });
+  tipos=mcgParameters.findOne().typeClasses;
+  teacherClasses=Meteor.users.findOne({_id:Meteor.userId()}).classesTeacher;
+  studentClasses=Meteor.users.findOne({_id:Meteor.userId()}).classes;
+  parentClasses=Meteor.users.findOne({_id:Meteor.userId()}).classesParent;
+  c=t.concat(tipos,teacherClasses,studentClasses,parentClasses);
+  c=_.uniq(c);
+  return classes.find({"_id": { "$in": c }});
   /*if (classId){
     return classes.find({"_id":classId});
   }

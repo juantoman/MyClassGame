@@ -1,6 +1,15 @@
 Template.teachersTemplate.helpers({
   teachers: function() {
-    //return quotes.find({classId: Session.get('classId')});
+    return classes.findOne({'_id': Session.get('classId')}).teachersWaiting;
+  },
+  email: function() {
+    try {
+    emailUser=Meteor.users.findOne({_id: this.teacherId}).emails[0].address;
+    }
+    catch(err) {
+      emailUser=Meteor.users.findOne({_id: this.teacherId}).services.google.email;
+    }
+    return emailUser;
   }
 });
 
@@ -23,5 +32,11 @@ Template.teachersTemplate.events({
     } else {
       //Meteor.call('quoteDelete',event.target.id);
     }
+  },
+  'click .acceptTeacher': function(event) {
+    event.preventDefault();
+    Meteor.call('teacherAccepted',Session.get("classId"),this.teacherId);
+    Meteor.call('delTeacherWaiting',Session.get("classId"),this.teacherId);
   }
 });
+

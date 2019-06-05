@@ -1,6 +1,15 @@
 Template.classesPage.onRendered(function() {
   Session.set('className', "");
+  Session.set('userType', "teacher");
+  Meteor.call('userTypeInsert', "teacher");
   //handleClientLoad();
+  t=[];
+  if( typeof Meteor.user().classesTeacher == "undefined") {
+    classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
+      t.push(c._id);
+    });
+    Meteor.call('classesTeacher',t);
+  }
   try {
     Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address);
   }
@@ -11,6 +20,18 @@ Template.classesPage.onRendered(function() {
 });
 
 Template.classesPage.helpers({
+  classesStudent: function() {
+    c=Meteor.users.findOne({_id:Meteor.userId()}).classes;
+    return classes.find({"_id": { "$in": c }});
+  },
+  classesTeacher: function() {
+    c=Meteor.users.findOne({'_id':Meteor.userId()}).classesTeacher;
+    return classes.find({"_id": { "$in": c }});
+  },
+  classesParent: function() {
+    c=Meteor.users.findOne({_id:Meteor.userId()}).classesParent;
+    return classes.find({"_id": { "$in": c }});
+  },
   classe: function() {
     var teacherId = Meteor.user();
     var userType=Session.get('userType');
@@ -23,7 +44,7 @@ Template.classesPage.helpers({
       //return classes.find({_id: teacherId._id}, {sort: {submitted: -1}});
     }
   },
-  stored: function() {
+  stored2: function() {
     var teacherId = Meteor.user();
     var userType=Session.get('userType');
     if ( userType == "teacher") {
@@ -83,6 +104,18 @@ Template.classesPage.events({
     $("#fondo").css("background-image", "url("+backImg+")");
     Session.set('orderStudents', "XP");
     Session.set('invertOrder', "checked");
+    if ( $(event.currentTarget).hasClass("classAsTeacher") ) {
+      Meteor.call('userTypeInsert', "teacher");
+      Session.set('userType','teacher');
+    }
+    if ( $(event.currentTarget).hasClass("classAsStudent") ) {
+      Meteor.call('userTypeInsert', "student");
+      Session.set('userType','student');
+    }
+    if ( $(event.currentTarget).hasClass("classAsParent") ) {
+      Meteor.call('userTypeInsert', "parent");
+      Session.set('userType','parent');
+    }
     Router.go('myNav',{_id:Session.get('classId')});
   },
   'click .btn-double-class': function(event) {
@@ -122,6 +155,8 @@ Template.classesPage.events({
     c.teacherId=Meteor.userId();
     c.className="Copia_" + this.className;
     Meteor.call('classDuplicate',c,cId);
+    Meteor.subscribe("classes");
+    $('#add_class_modal').modal('hide');
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
       delete student._id;

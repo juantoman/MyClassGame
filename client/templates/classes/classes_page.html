@@ -65,7 +65,7 @@
         </div>
         -->
       {{/each}}
-      {{#each stored}}
+      {{#each stored2}}
         <figure class="card card__water btn-class">
           <div class="card__image-container" name="{{_id}}">
             <img class="cardLogo" src="/images/@mcgnb.png">
@@ -77,6 +77,81 @@
           </figcaption>
         </figure>
       {{/each}}
+    </div>
+  </div>
+  <div class="container-fluid myContent typeClasses">
+    <h4>Pruebas</h4>
+    <div class="row">
+      <figure class="card card--electric" data-toggle="modal" data-target="#add_class_modal">
+        <div class="card__image-container" >
+          <img src="/images/@mcgnb.png" alt="Eevee" class="card__image">
+        </div>
+        <figcaption class="card__caption">
+          <h1 class="card__name">{{_ "nclass"}}</h1>
+        </figcaption>
+      </figure>
+      <!--
+      <div class="col-xs-6 col-md-3 col-lg-2">
+        <div class="thumbnail btn" data-toggle="modal" data-target="#add_class_modal">
+            <h2 class="text-center h2newclass">{{_ "nclass"}}</h2>
+            <img src="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png" class="fotoClass" alt="...">
+        </div>
+      </div>
+      -->
+      {{#each classesTeacher}}
+        <figure class="card card--ice btn-class classAsTeacher">
+          <div class="card__image-container" >
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{classImage}}" alt="Eevee" class="card__image">
+            {{#if stored}}
+              <img class="cardStored" src="/images/stored.png">
+            {{/if}}
+            <img class="cardUserType" src="/images/teacher2.png">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{className}}</h1>
+          </figcaption>
+        </figure>
+        <!--
+        <div class="col-xs-6 col-md-3 col-lg-2">
+          <div class="thumbnail btn btn-class">
+              <h2 class="text-center">{{className}}</h2>
+              <img src="{{classImage}}" class="fotoClass" alt="...">
+          </div>
+        </div>
+        -->
+      {{/each}}
+      {{#each classesStudent}}
+        <figure class="card card--ice btn-class classAsStudent">
+          <div class="card__image-container" >
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{classImage}}" alt="Eevee" class="card__image">
+            {{#if stored}}
+              <img class="cardStored" src="/images/stored.png">
+            {{/if}}
+            <img class="cardUserType" src="/images/student2.png">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{className}}</h1>
+          </figcaption>
+        </figure>
+      {{/each}}
+      {{#each classesParent}}
+        <figure class="card card--ice btn-class classAsParent">
+          <div class="card__image-container" >
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{classImage}}" alt="Eevee" class="card__image">
+            {{#if stored}}
+              <img class="cardStored" src="/images/stored.png">
+            {{/if}}
+            <img class="cardUserType" src="/images/parent.png">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{className}}</h1>
+          </figcaption>
+        </figure>
+      {{/each}}
+      
     </div>
   </div>
   <!--

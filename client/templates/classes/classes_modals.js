@@ -6,32 +6,58 @@ Template.classesModals.helpers({
     } else {
       return "Código de la clase"
     }
+  },
+  types: function() {
+    var teacherId = Meteor.user();
+    var userType=Session.get('userType');
+    var tipos=mcgParameters.findOne().typeClasses;
+    return classes.find({'_id': { "$in": tipos } });
+  },
+  classImage: function() {
+    avatar=this.groupImg;
+    if (avatar) {
+      if (avatar.substring(0, 4)=="http") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
+    } else {
+      return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+    }
   }
 });
 
 Template.classesModals.events({
   'submit form': function(event) {
-    var userType=Session.get('userType');
+    userType=$(".active").get(1).id;
+    Session.set('userType',userType);
     if ( userType == "teacher") {
       event.preventDefault();
       if (Session.get("gcId")=="") {
-        cn=$(event.target).find('[name=class-name]').val();
+        cn=$(event.target).find('[name=class-name-teacher]').val();
       } else {
         cn=$.grep(Session.get('lc'), function(e){ return e.id == Session.get("gcId"); })[0].name;
       }
-      var user = Meteor.user();
-      var classe = {
-        teacherId: user._id,
-        className: cn,
-        gcId: Session.get("gcId"),
-        iniHP: 10,
-        stored: false,
-        groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
-        evaluation: 1,
-        CoinXP: true,
-        createdOn: new Date()
-      };
-      Meteor.call('classInsert', classe);
+      if (cn!=""){
+        var user = Meteor.user();
+        var classe = {
+          teacherId: user._id,
+          className: cn,
+          gcId: Session.get("gcId"),
+          iniHP: 10,
+          stored: false,
+          groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
+          evaluation: 1,
+          CoinXP: true,
+          createdOn: new Date()
+        };
+        cId=Meteor.call('classInsert', classe);
+        Meteor.call('teacherInClass',Session.get("classId"));
+      }
+      var otherClassId= $("#class-name-other-teacher").val();
+      if (otherClassId !=""){
+        Meteor.call('otherTeacherInsert', otherClassId);
+      }
       if (Session.get("gcId")!="") {
           Session.get('sc'+Session.get("gcId")).forEach(function (gcStudent) {
           var student = {
@@ -63,15 +89,19 @@ Template.classesModals.events({
           Meteor.call('studentInsert', student);
         });  
       }
-      $('#add_class_modal').modal('hide');
-      return false;
     } else {
       event.preventDefault();
-      var classId= $(event.target).find('[name=class-name]').val();
-      Meteor.call('studentClassInsert', classId);
-      $('#add_class_modal').modal('hide');
-      return false;
+      if ( userType == "student") {
+        var classId= $("#class-name-student").val();
+        Meteor.call('studentClassInsert', classId);
+      } else {
+        var classId= $(event.target).find('[name=class-name-parent]').val();
+        Meteor.call('parentClassInsert', classId);
+      }
     }
+    Meteor.subscribe("classes");
+    $('#add_class_modal').modal('hide');
+    return false;
   }
 });
 
