@@ -1,11 +1,11 @@
 /*Template.register.onRendered(function () {
   //alert(Meteor.users.findOne(Meteor.user()).userType);
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
-});
+});*/
 
 Accounts.onLogout(function(user) {
   Router.go('/');
-});*/
+});
 
 Template.myBreadcrumb.helpers({
  className: function() {
@@ -47,12 +47,6 @@ Template.myBreadcrumb.events({
   },
   'click .closeSession': function(event) {
     event.preventDefault();
-    Session.set('className', '');
-    Session.set('studentSelected', false);
-    Session.set('groupSelected', false);
-    //Session.set('userType', "");
-    $("#fondo").css("background-image", "");
-    Router.go('classesPage');
     Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.logout();
