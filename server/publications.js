@@ -6,29 +6,28 @@ Meteor.publish('mcgParameters', function() {
   return mcgParameters.find();
 });
 
-Meteor.publish('classes', function() {
-  t=[];
+Meteor.publish('classes', function(classId) {
+  /*t=[];
   if( typeof Meteor.user().classesTeacher == "undefined") {
     classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
       t.push(c._id);
     });
     Meteor.call('classesTeacher',t);
   }
-  /*t=[];
-  classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
-    t.push(c._id);
-  });*/
-  console.log(t);
   tipos=mcgParameters.findOne().typeClasses;
   teacherClasses=Meteor.users.findOne({_id:Meteor.userId()}).classesTeacher;
   studentClasses=Meteor.users.findOne({_id:Meteor.userId()}).classes;
   parentClasses=Meteor.users.findOne({_id:Meteor.userId()}).classesParent;
   c=t.concat(tipos,teacherClasses,studentClasses,parentClasses);
   c=_.uniq(c);
-  return classes.find({"_id": { "$in": c }});
-  /*if (classId){
+  return classes.find({"_id": { "$in": c }});*/
+  ;
+  if (classId){
     return classes.find({"_id":classId});
+  } else {
+    return classes.find()
   }
+  /*
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
       return classes.find( { $or: [ { "teacherId": Meteor.userId() } , { "_id": { "$in": tipos } } ] } );
