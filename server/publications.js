@@ -7,27 +7,28 @@ Meteor.publish('mcgParameters', function() {
 });
 
 Meteor.publish('classes', function(classId) {
-  t=[];
+  /*t=[];
   if(  Meteor.user() ) {
-    if (! Meteor.user().classesTeacher){
+    //if (! Meteor.user().classesTeacher){
       classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
         t.push(c._id);
       });
       Meteor.call('classesTeacher',t);
-    }
-    /*
+    //}*/
+    
     if (classId){
       return classes.find({"_id":classId});
     } else {
-      return classes.find({},{'_id':1,'teacherId':1})
-    }*/
-  
+      return classes.find({},{fields:{'_id':1,'teacherId':1,'className':1,'studentImg':1,'groupImg':1}})
+    }
+  /*
     tipos=mcgParameters.findOne().typeClasses;
-    teacherClasses=Meteor.user().classesTeacher;
+    //teacherClasses=Meteor.user().classesTeacher;
     studentClasses=Meteor.user().classes;
     parentClasses=Meteor.user().classesParent;
     c=t.concat(tipos,studentClasses,parentClasses);
     c=_.uniq(c);
+    //console.log(c);
     return classes.find({"_id": { "$in": c }});
   }
   /*if (classId){
