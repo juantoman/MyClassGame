@@ -13,7 +13,7 @@
 }
 
 body {
-  background: #eee;
+  background: white;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
   padding-top: 97px;
@@ -290,10 +290,12 @@ a:hover, a:link {
   -webkit-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0-5px 5px rgba(0, 0, 0, 0.5);
-  padding-top: 7px ;
+  padding-top: 2vmin ;
+  height:6vmin;
 }
 .footer p{
-  line-height: 6pt;
+  line-height: 2vmin;
+  font-size: 2vmin !important;
 }
 
 .footer a{

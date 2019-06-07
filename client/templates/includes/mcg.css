@@ -1,0 +1,33 @@
+.wrapper {
+    margin:auto;
+    padding:37vmin;
+    width: 20vmin;
+    height: 20vmin;
+}
+
+.loader {
+    margin-top:-20vmin;
+    margin-left:-20vmin;
+  border: 2vh solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2vmin solid #3498db;
+  width: 40vmin;
+  height: 40vmin;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.wrapper {
+  background: url('/images/@mcg.png') center no-repeat;
+  background-size:20vmin;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {  
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
