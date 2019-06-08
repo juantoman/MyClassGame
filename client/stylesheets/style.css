@@ -946,6 +946,14 @@ h4.panel-title {
   height: 100px;
 }
 
+.modal-dialog{
+  width:80vw;
+}
+
+#collapseGC{
+  padding-left:1vw;
+}
+
 @media (max-width: 740px) {
  .spanMenu {
    display:none !important;

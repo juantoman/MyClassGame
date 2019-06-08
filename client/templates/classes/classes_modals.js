@@ -2,7 +2,7 @@ Template.classesModals.helpers({
   mensaje: function(){
     var userType=Session.get('userType');
     if ( userType == "teacher") {
-      return "Nueva clase o proyecto";
+      return "Nueva clase/proyecto";
     } else {
       return "Código de la clase"
     }
@@ -47,6 +47,7 @@ Template.classesModals.events({
           iniHP: 10,
           stored: false,
           groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
+          studentImg:"https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png",
           evaluation: 1,
           CoinXP: true,
           createdOn: new Date()

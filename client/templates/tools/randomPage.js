@@ -11,8 +11,18 @@ Template.randomPage.events({
     id="";
     switch (randomElement) {
       case "evento":
-        var e = randomEvents.find({classId: Session.get('classId')}).fetch();
+        if ( randomEvents.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomEvents',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = randomEvents.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = randomEvents.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomEvent',e[r]._id);
+        }
         t = e[r].eventName;
         d = e[r].eventDescription;
         imageId=e[r].eventImage;
@@ -21,8 +31,18 @@ Template.randomPage.events({
         }
         break;
       case "carta":
-        var e = cards.find({classId: Session.get('classId')}).fetch();
+        if ( cards.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomCards',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = cards.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = cards.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomCard',e[r]._id);
+        }
         t = e[r].cardName;
         d = e[r].cardDescription;
         imageId=e[r].cardImage;
@@ -31,8 +51,18 @@ Template.randomPage.events({
         }
         break;
       case "estudiante":
-        var e = students.find({classId: Session.get('classId')}).fetch();
+        if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomStudents',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = students.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = students.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomStudent',e[r]._id);
+        }
         t = e[r].studentName;
         i= e[r].avatar;
         id=e[r]._id;
@@ -42,6 +72,7 @@ Template.randomPage.events({
         if (i.substring(0, 4)!="http") {
           i=images.findOne({_id: i}).image_url;
         }
+        
         break;
       case "equipo":
         var e = groups.find({classId: Session.get('classId')}).fetch();
@@ -67,6 +98,9 @@ Template.randomPage.events({
         var r = Math.floor(Math.random() * e.length);
         i="";
         t = e[r].quoteText;
+        break;
+      case "todosR":
+        $(event.target).toggleClass("btn-warning");
         break;
     }
     $("#ModalHeader").text(randomElement);

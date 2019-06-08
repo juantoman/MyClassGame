@@ -6,10 +6,10 @@
 }
 
 .loader {
-    margin-top:-20vmin;
-    margin-left:-20vmin;
-  border: 2vh solid #f3f3f3;
-  border-radius: 50%;
+  margin-top:-20vmin;
+  margin-left:-20vmin;
+  border: 2vmin solid #f3f3f3;
+  border-radius: 20vmin;
   border-top: 2vmin solid #3498db;
   width: 40vmin;
   height: 40vmin;
@@ -20,6 +20,7 @@
 .wrapper {
   background: url('/images/@mcg.png') center no-repeat;
   background-size:20vmin;
+  opacity: 0.75;
 }
 
 @-webkit-keyframes spin {
