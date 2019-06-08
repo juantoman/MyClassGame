@@ -68,15 +68,27 @@ Template.randomPage.events({
         id=e[r]._id;
         if (!i) {
           i=classes.findOne({_id:Session.get('classId')}).studentImg;
+          if (!i) {
+            i="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png"
+          }
         }
         if (i.substring(0, 4)!="http") {
           i=images.findOne({_id: i}).image_url;
         }
-        
         break;
       case "equipo":
-        var e = groups.find({classId: Session.get('classId')}).fetch();
+        if ( groups.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomGroups',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = groups.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = groups.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomGroup',e[r]._id);
+        }
         t = e[r].groupName;
         i= e[r].groupImg;
         id=e[r]._id;
@@ -88,14 +100,34 @@ Template.randomPage.events({
         }
         break;
       case "penalización":
-        var e = convictions.find({classId: Session.get('classId')}).fetch();
+        if ( convictions.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomConvictions',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = convictions.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = convictions.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomConviction',e[r]._id);
+        }
         t = e[r].convictionDescription;
         i="";
         break;
       case "frase":
-        var e = quotes.find({classId: Session.get('classId')}).fetch();
+        if ( quotes.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomQuotes',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = quotes.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = quotes.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
         var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomQuote',e[r]._id);
+        }
         i="";
         t = e[r].quoteText;
         break;
