@@ -193,6 +193,7 @@ Template.classesPage.events({
     event.preventDefault();
     if (Meteor.user().services.google.email == "Juan.Torres@iestacio.com") {
       Modal.show('adminClass');
+      event.stopPropagation();
     }
     /*Session.set('classId', event.target.id);
     Session.set('className', event.target.name);
