@@ -100,12 +100,25 @@ Template.studentsModals.events({
   'submit form#add_group_form': function(event) {
     event.preventDefault();
     var user = Meteor.user();
-    var group = {
-      classId: Session.get('classId'),
-      groupName: $(event.target).find('[name=group-name]').val(),
-      createdOn: new Date()
-    };
-    Meteor.call('groupInsert', group);
+    var nombres =  $(event.target).find('[name=group-name]').val().split(",");
+    nombres.forEach(function (groupName) {
+      if(groupName!=""){
+        var group = {
+          classId: Session.get('classId'),
+          groupName: groupName,
+          createdOn: new Date()
+        };
+        Meteor.call('groupInsert', group)
+        g=Session.get("ngId");
+        n= $(event.target).find('[name=studentsNumber]').val();
+        s= students.find({'classId': Session.get('classId'),'groupId':0}).fetch();
+        for (i=0;i<n;i++){
+          r= Math.floor(Math.random() * s.length);
+          Meteor.call('studentGroup',g,s[r]._id);
+          s.splice(r, 1);
+        }
+      }
+    });
     $('#add_group_modal').modal('hide');
   },
   'click .list-group-item': function(event) {
