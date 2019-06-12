@@ -375,12 +375,12 @@ label {
 
 .checked {
   background-color: white !important;
-  border: 2px solid #268BD2;
+  border: 5px solid #268BD2;
 }
 
 .checked2 {
   background-color: white !important;
-  border: 2px solid red;
+  border: 5px solid red !important;
 }
 
 .thumbnail:hover {

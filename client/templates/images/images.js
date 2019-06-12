@@ -110,5 +110,7 @@ Template.imagesTemplate.events({
   'click .thumbnail': function(event) {
     event.preventDefault();
     $(event.currentTarget).find("input").prop("checked", true);
+    $(".thumbnail").removeClass("checked2");
+    $(event.currentTarget).addClass("checked2");
   }
 });
