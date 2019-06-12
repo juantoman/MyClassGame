@@ -132,7 +132,7 @@ Template.missions.onRendered(function() {
 
 Template.missions.helpers({
   challenge: function() {
-    return challenges.find({classId: Session.get('classId')});
+    return challenges.find({classId: Session.get('classId')}, {sort: {order: 1}});
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
@@ -373,6 +373,16 @@ Template.missions.events({
     loadPicker();
     //createFolder();
   },
+  'click .btn-mup': function(event) {
+    event.preventDefault();
+    Meteor.call('missionOrder', this._id, this.classId, this._order, 'up');
+    event.stopPropagation();
+  },
+  'click .btn-mdown': function(event) {
+    event.preventDefault();
+    Meteor.call('missionOrder', this._id, this.classId, this._order, 'down');
+    event.stopPropagation();
+  }
 });
 
 Template.deleteMission.events({
