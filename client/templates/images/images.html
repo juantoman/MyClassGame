@@ -9,13 +9,15 @@
           <div class="modal-body">
             <div class="row">
               {{#each images}}
-                <div class="col-container col-sm-12 col-md-4 col-lg-3">
-                  <div class="thumbnail">
+                <div class="col-container col-sm-2">
+                  <div class="thumbnail {{checkedImage _id}}">
                     <div class="input-group">
                         <img src="{{image_url}}" id="{{_id}}" class="img-thumbnail"/>
                     </div>
-                    <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} />
-                    <button type="button" class="btn btn-warning deleteImage">Eliminar</button>
+                    <div class="input-group">
+                      <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} />
+                      <button type="button" class="btn btn-warning deleteImage">Eliminar</button>
+                    </div>
                   </div>
                 </div>
               {{/each}}

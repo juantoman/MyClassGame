@@ -106,5 +106,9 @@ Template.imagesTemplate.events({
   'click .deleteImage': function(event) {
     event.preventDefault();
     Meteor.call('imageDelete',this._id);
+  },
+  'click .thumbnail': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).find("input").prop("checked", true);
   }
 });

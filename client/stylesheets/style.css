@@ -372,11 +372,33 @@ label {
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
+
+.checked {
+  background-color: white !important;
+  border: 2px solid #268BD2;
+}
+
+.checked2 {
+  background-color: white !important;
+  border: 2px solid red;
+}
+
 .thumbnail:hover {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
 }
+
+.thumbnail .input-group {
+  margin:auto;
+}
+
+.img-thumbnail{
+  height:20vh;
+  background-color: transparent;
+  border: 1px solid transparent;
+}  
+
 .studentSelected {
   background: linear-gradient(230deg, rgba(202,234,246,1) 0%, rgba(160,234,241,1) 46%, rgba(111,184,235,1) 100%);
 }
