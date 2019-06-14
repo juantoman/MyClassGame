@@ -45,6 +45,20 @@ Template.userProfile.helpers({
       };
       return group;
     }
+  },
+  levelAutomatic: function(id) {
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: id}).XP;
+      n=parseInt(XP/levelXP);
+    } else {
+      n=students.findOne({_id: id}).level;
+    }
+    return n;
+  },
+  xpChangeLevel: function(id) {
+    return classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
   }
 })
 

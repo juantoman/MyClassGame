@@ -20,7 +20,7 @@
                               {{grupo.groupName}}
                             </h3>
                             <h3 class="card__type">
-                              Nivel {{level}}
+                              Nivel {{levelAutomatic _id}}
                             </h3>
                         
                             <table class="card__stats">
@@ -95,15 +95,17 @@
                 		  <label for="sEmail" class="control-label">E-mail</label>
                 			<input type="email" name="sEmail" id="sEmail" class="form-control input-lg" placeholder="Email" tabindex="3" value="{{email}}">
                 		</div>
-                		<div class="form-group">
-                			<label for="sLevel" class="control-label">{{_ "level"}}</label>
-                      <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-                      <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
-                        {{#each selectLevels}}
-                          <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
-                        {{/each}}
-                      </select>
-                		</div>
+                		{{#unless xpChangeLevel}}
+                  		<div class="form-group">
+                  			<label for="sLevel" class="control-label">{{_ "level"}}</label>
+                        <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+                        <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
+                          {{#each selectLevels}}
+                            <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
+                          {{/each}}
+                        </select>
+                  		</div>
+                		{{/unless}}
                 		{{#if teacher}}
                 		<div class="row">
                       <div class="studentStars col-xs-12">
