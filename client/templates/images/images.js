@@ -107,10 +107,10 @@ Template.imagesTemplate.events({
     event.preventDefault();
     Meteor.call('imageDelete',this._id);
   },
-  'click .thumbnail': function(event) {
+  'click .thumbnail,.card_image': function(event) {
     event.preventDefault();
     $(event.currentTarget).find("input").prop("checked", true);
-    $(".thumbnail").removeClass("checked2");
+    $(".thumbnail,.card_image").removeClass("checked2");
     $(event.currentTarget).addClass("checked2");
   }
 });

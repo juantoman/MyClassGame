@@ -8,6 +8,7 @@
           </div>
           <div class="modal-body">
             <div class="row">
+              <!--
               {{#each images}}
                 <div class="col-container col-sm-2">
                   <div class="thumbnail {{checkedImage _id}}">
@@ -20,6 +21,18 @@
                     </div>
                   </div>
                 </div>
+              {{/each}}
+              -->
+              {{#each images}}
+                <figure class="card_image card--white {{checkedImage _id}}">
+                  <div class="card__image-container_image" >
+                    <img src="{{image_url}}">
+                  </div>
+                  <figcaption class="card__caption text-center">
+                    <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
+                    <button type="button" class="btn btn-warning deleteImage">Eliminar</button>
+                  </figcaption>
+                </figure>
               {{/each}}
             </div>
             <button class="cloudinary" name="cloudinary" {{inputDisabled}}>Subir imágenes</button>

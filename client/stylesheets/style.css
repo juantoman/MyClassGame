@@ -375,12 +375,15 @@ label {
 
 .checked {
   background-color: white !important;
-  border: 5px solid #268BD2;
+  -webkit-filter: drop-shadow(3px 3px 5px red );
+  filter: drop-shadow(3px 3px 5px red);
+  
 }
 
 .checked2 {
   background-color: white !important;
-  border: 5px solid red !important;
+  -webkit-filter: drop-shadow(3px 3px 5px #268BD2 );
+  filter: drop-shadow(3px 3px 5px  #268BD2);
 }
 
 .thumbnail:hover {
@@ -414,12 +417,7 @@ label {
 .puntsStudent {
   margin-top: 10px;
 }
-.dataStudent{
 
-}
-.section{
-
-}
 .myuser{
   background: linear-gradient(90deg, rgba(255,222,0,1) 34%, rgba(232,255,153,1) 83%);
 }

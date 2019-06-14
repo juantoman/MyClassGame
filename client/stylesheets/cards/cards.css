@@ -37,6 +37,12 @@ figure img {
   cursor: pointer;
 }
 
+.card__image2:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  filter: drop-shadow(3px 3px 5px #222);
+  cursor: pointer;
+}
+
 h1, h2, h3, h4, h5 {
   margin: 0;
   font-weight: 400;
@@ -45,6 +51,16 @@ h1, h2, h3, h4, h5 {
 .card {
   display: inline-block;
   width: 300px;
+  padding: 1em;
+  border-radius: 15px;  
+  margin: 5px;
+  background: #ddd;
+  text-align: left;
+}
+
+.card_image {
+  display: inline-block;
+  width: 200px;
   padding: 1em;
   border-radius: 15px;  
   margin: 5px;
@@ -85,6 +101,15 @@ h1, h2, h3, h4, h5 {
     padding: 4% 0;
     border-radius: 3px 3px 0 0;
     height: 75px;
+    position: relative;
+  }
+  
+.card__image-container_image {
+    background-color: white !important;
+    text-align: center;
+    padding: 4% 0;
+    border-radius: 3px 3px 0 0;
+    height: 200px;
     position: relative;
   }
   
@@ -312,6 +337,13 @@ h1, h2, h3, h4, h5 {
 
 .card__blue {
     background: linear-gradient(90deg, rgba( 36, 113, 163,1) 34%, rgba( 174, 214, 241 ,1) 83%);
+} 
+.card__blue .card__type {
+    background: #ff8a95;
+}
+
+.card--white {
+    background: white;
 } 
 .card__blue .card__type {
     background: #ff8a95;
