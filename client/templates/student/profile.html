@@ -91,10 +91,12 @@
                 				</div>
                 			</div>
                 		</div>
-                		<div class="form-group">
-                		  <label for="sEmail" class="control-label">E-mail</label>
-                			<input type="email" name="sEmail" id="sEmail" class="form-control input-lg" placeholder="Email" tabindex="3" value="{{email}}">
-                		</div>
+                		{{#if teacher}}
+                  		<div class="form-group">
+                  		  <label for="sEmail" class="control-label">E-mail</label>
+                  			<input type="email" name="sEmail" id="sEmail" class="form-control input-lg" placeholder="Email" tabindex="3" value="{{email}}">
+                  		</div>
+                  	{{/if}}
                 		{{#unless xpChangeLevel}}
                   		<div class="form-group">
                   			<label for="sLevel" class="control-label">{{_ "level"}}</label>

@@ -617,7 +617,7 @@ input[type=submit] {
 }
 
 .form-group span{
-  background-color: #268BD2 !important;
+  /*background-color: #268BD2 !important;*/
   color: white;
 }
 

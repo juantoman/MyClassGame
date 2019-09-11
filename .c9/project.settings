@@ -1,6 +1,12 @@
 {
+    "ace": {
+        "@guessTabSize": true
+    },
     "build": {
         "@saveall": true
+    },
+    "instance": {
+        "@automaticShutdown": "30"
     },
     "language": {
         "tern_defs": {
@@ -23,5 +29,8 @@
             "@inited": "true",
             "json()": {}
         }
+    },
+    "welcome": {
+        "@first": true
     }
 }

@@ -1,0 +1,29 @@
+Warning: The --production flag should only be used to simulate production
+bundling for testing purposes. Use meteor build to create a bundle for
+production deployment. See: https://guide.meteor.com/deployment.html
+[[[[[ ~/environment ]]]]]
+
+=> Started proxy.
+=> A patch (Meteor 1.6.1.4) for your current release is available!
+   Update this project now with 'meteor update --patch'.
+=> Started MongoDB.
+Node#moveTo was deprecated. Use Container#append.
+[34mW20190703-06:01:23.198(0)? (STDERR) [39m[35m[39m
+[34mW20190703-06:01:23.303(0)? (STDERR) [39m[35m/home/ubuntu/.meteor/packages/meteor-tool/.1.6.1_1.7d7na1.ekg07++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/server-lib/node_modules/fibers/future.js:313[39m
+[34mW20190703-06:01:23.304(0)? (STDERR) [39m[35m						throw(ex);[39m
+[34mW20190703-06:01:23.304(0)? (STDERR) [39m[35m						^[39m
+[34mW20190703-06:01:23.304(0)? (STDERR) [39m[35mMongoError: failed to connect to server [127.0.0.1:3001] on first connect [MongoError: connect ECONNREFUSED 127.0.0.1:3001][39m
+[34mW20190703-06:01:23.305(0)? (STDERR) [39m[35m    at Pool.<anonymous> (/home/ubuntu/.meteor/packages/npm-mongo/.2.2.33.1ua460f.mc8c++os+web.browser+web.cordova/npm/node_modules/mongodb-core/lib/topologies/server.js:336:35)[39m
+[34mW20190703-06:01:23.305(0)? (STDERR) [39m[35m    at emitOne (events.js:116:13)[39m
+[34mW20190703-06:01:23.305(0)? (STDERR) [39m[35m    at Pool.emit (events.js:211:7)[39m
+[34mW20190703-06:01:23.305(0)? (STDERR) [39m[35m    at Connection.<anonymous> (/home/ubuntu/.meteor/packages/npm-mongo/.2.2.33.1ua460f.mc8c++os+web.browser+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:280:12)[39m
+[34mW20190703-06:01:23.305(0)? (STDERR) [39m[35m    at Object.onceWrapper (events.js:317:30)[39m
+[34mW20190703-06:01:23.306(0)? (STDERR) [39m[35m    at emitTwo (events.js:126:13)[39m
+[34mW20190703-06:01:23.306(0)? (STDERR) [39m[35m    at Connection.emit (events.js:214:7)[39m
+[34mW20190703-06:01:23.306(0)? (STDERR) [39m[35m    at Socket.<anonymous> (/home/ubuntu/.meteor/packages/npm-mongo/.2.2.33.1ua460f.mc8c++os+web.browser+web.cordova/npm/node_modules/mongodb-core/lib/connection/connection.js:187:49)[39m
+[34mW20190703-06:01:23.306(0)? (STDERR) [39m[35m    at Object.onceWrapper (events.js:315:30)[39m
+[34mW20190703-06:01:23.307(0)? (STDERR) [39m[35m    at emitOne (events.js:116:13)[39m
+[34mW20190703-06:01:23.307(0)? (STDERR) [39m[35m    at Socket.emit (events.js:211:7)[39m
+[34mW20190703-06:01:23.307(0)? (STDERR) [39m[35m    at emitErrorNT (internal/streams/destroy.js:64:8)[39m
+[34mW20190703-06:01:23.307(0)? (STDERR) [39m[35m    at _combinedTickCallback (internal/process/next_tick.js:138:11)[39m
+[34mW20190703-06:01:23.307(0)? (STDERR) [39m[35m    at process._tickCallback (internal/process/next_tick.js:180:9)[39m

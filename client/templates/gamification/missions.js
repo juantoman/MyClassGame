@@ -272,14 +272,14 @@ Template.missions.events({
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
-    Meteor.call('chalMissionDelete', this._id, missionId, this.order);
+    Meteor.call('chalMissionDelete', this._id, this.missionId, this.order);
   },
   'click .chalMissionUp': function(event) {
     event.preventDefault
     missionId=$(event.currentTarget).closest('.panel').attr("id");
     o=chalMissions.findOne({_id: this._id}).order;
     //Meteor.call('chalMissionOrder', this._id, 0);
-    a=chalMissions.findOne({missionId: missionId, order: o-1})._id;
+    a=chalMissions.findOne({missionId: this.missionId, order: o-1})._id;
     Meteor.call('chalMissionOrder', a, o);
     Meteor.call('chalMissionOrder', this._id, o-1);
     //o=this.order;
@@ -292,7 +292,7 @@ Template.missions.events({
     missionId=$(event.currentTarget).closest('.panel').attr("id");
     o=chalMissions.findOne({_id: this._id}).order;
     //Meteor.call('chalMissionOrder', this._id, 0);
-    s=chalMissions.findOne({missionId: missionId, order: o+1})._id;
+    s=chalMissions.findOne({missionId: this.missionId, order: o+1})._id;
     Meteor.call('chalMissionOrder', s, o);
     Meteor.call('chalMissionOrder', this._id, o+1);
     //o=this.order;
@@ -382,6 +382,10 @@ Template.missions.events({
     event.preventDefault();
     Meteor.call('missionOrder', this._id, this.classId, this._order, 'down');
     event.stopPropagation();
+  },
+  'change .missionColor': function(event) {
+    event.preventDefault();
+    Meteor.call('missionColorChange', this._id, event.currentTarget.value);
   }
 });
 

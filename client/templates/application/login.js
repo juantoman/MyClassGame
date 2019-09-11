@@ -7,17 +7,18 @@ Template.login.events({
             if(error) {
                 //do something if error occurred or 
             }else{
-               FlowRouter.go('/');
+               Router.go('/');
             }
         });
      },
      'click #google': function(e) {
         e.preventDefault();
-        Meteor.loginWithGoogle(function(error){
+        Meteor.loginWithGoogle(redirect_uri="http://192.168.1.1/_oauth/google ",function(error){
             if(error) {
+                //Router.go('/classesPage');
                 //do something if error occurred or 
             }else{
-               FlowRouter.go('/');
+               Router.go('/');
             }
         });
      },
