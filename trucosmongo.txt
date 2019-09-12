@@ -1,0 +1,4 @@
+1.- Buscar camp que continga 
+db.students.find({'classId':{'$regex' :'^zcLgJy'}}).count();
+2.- Canviar un camp en molts registres
+db.students.update({'classId':'2hp5LiGnbzg9W7FAK'},{$set:{'gs':0}}, {multi: true});

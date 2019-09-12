@@ -50,6 +50,26 @@ Template.randomPage.events({
           i=images.findOne({_id: imageId}).image_url;
         }
         break;
+      case "cromo":
+        if ( chromes.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
+          Meteor.call('allRandomChromes',Session.get('classId'));
+        }
+        if ($("#todosR").hasClass("btn-warning")) {
+          var e = chromes.find({classId: Session.get('classId')}).fetch();
+        } else {
+          var e = chromes.find({classId: Session.get('classId'),'random':true}).fetch();
+        }
+        var r = Math.floor(Math.random() * e.length);
+        if (!$("#todosR").hasClass("btn-warning")) {
+          Meteor.call('noRandomChrome',e[r]._id);
+        }
+        t = e[r].chromeName;
+        d = e[r].chromeDescription;
+        imageId=e[r].chromeImage;
+        if (imageId != undefined) {
+          i=images.findOne({_id: imageId}).image_url;
+        }
+        break;
       case "estudiante":
         if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 0 ) {
           Meteor.call('allRandomStudents',Session.get('classId'));
