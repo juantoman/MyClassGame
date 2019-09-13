@@ -131,6 +131,7 @@ Template.classesPage.events({
     var c = classes.findOne({'_id': event.target.id});
     delete c._id;
     c.className="Copia_" + event.target.name;
+    c.iniHP=10;
     Meteor.call('classDuplicate',c,cId);
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
@@ -154,6 +155,7 @@ Template.classesPage.events({
     delete c._id;
     c.teacherId=Meteor.userId();
     c.className="Copia_" + this.className;
+    c.iniHP=10;
     Meteor.call('classDuplicate',c,cId);
     Meteor.subscribe("classes");
     $('#add_class_modal').modal('hide');

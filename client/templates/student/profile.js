@@ -62,7 +62,7 @@ Template.userProfile.helpers({
   }
 })
 
-Template.studentPage.events({
+Template.userProfile.events({
   'submit form.dataStudent': function(event) {
     event.preventDefault();
     var user = Meteor.user();

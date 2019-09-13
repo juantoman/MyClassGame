@@ -47,6 +47,7 @@ Template.admin.events({
     delete c._id;
     c.teacherId=Meteor.userId();
     c.className="Copia_" + c.className;
+    c.iniHP=10;
     Meteor.call('classDuplicate',c,cId);
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
