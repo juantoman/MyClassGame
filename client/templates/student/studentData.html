@@ -425,20 +425,23 @@
                 {{/each}}
               </div></div>
         <div role="tabpanel" class="tab-pane" id="Artículos">
+          <!--
           <div class="row">
-              {{#each items}}
-                <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
-                  <div class="thumbnail">
-                    <div class="input-group text-center">
-                        <img src="{{image_url item.itemImage}}" class="img-thumbnail"/>
-                        <h4 class="text-center text-info">{{item.itemName}}</h4>
-                        <h5 class="text-center text-warning">{{item.itemDescription}}</h5>
-                        <span class="badge">{{item.price}}</span>
-                    </div>
+            {{#each items}}
+              <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
+                <div class="thumbnail">
+                  <div class="input-group text-center">
+                      <img src="{{image_url item.itemImage}}" class="img-thumbnail"/>
+                      <h4 class="text-center text-info">{{item.itemName}}</h4>
+                      <h5 class="text-center text-warning">{{item.itemDescription}}</h5>
+                      <span class="badge">{{item.price}}</span>
                   </div>
                 </div>
-              {{/each}}
-            </div>
+              </div>
+            {{/each}}
+          </div>
+          -->
+          {{> inventory}}
         </div>
         <div role="tabpanel" class="tab-pane" id="Historial">
           <table class="table table-bordered">

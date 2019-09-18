@@ -1,0 +1,135 @@
+<template name="inventory">
+  <div class="ui-main">
+    <header class="header">
+      <div class="left hearts">
+        <span class="heart-container">
+          &hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;&hearts;
+        </span>
+      </div>
+      <div class="center">
+        <div class="stack">
+          <span class="letter">
+            L
+          </span>
+          <span>Adventure Log</span>
+        </div>
+        <div class="panel-title">Inventory</div>
+        <div class="stack">
+          <span class="letter">
+            R
+          </span>
+          <span>System</span>
+        </div>
+      </div>
+      <div class="right">
+        <span class="rupee-icon">$</span>
+        <span>4,164</span>
+      </div>
+    </header>
+  
+    <section class="item-grid">
+      <div class="list-selectors">
+        <ul class="item-list">
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Datos</span>
+              <span class="list-icon"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Bows</span>
+              <span class="list-icon"><img src="https://i.imgur.com/GGsIbXx.png" alt=""></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Shields</span>
+              <span class="list-icon"><img src="https://i.imgur.com/OhSY7zr.png" alt=""></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Food</span>
+              <span class="list-icon"><img src="https://i.imgur.com/6MGV2RE.png" alt=""></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+      <ul class="list-items">
+        {{#each items}}
+          <li class="list-item">
+            <span class="power-icon">{{item.itemName}}</span>
+            <span class="item-image"><img src="{{image_url item.itemImage}}" alt=""></span>
+            <span class="item-strength">{{item.price}} €</span>
+          </li>
+        {{/each}}
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+      </ul>
+    </section>
+  
+    <section class="character-info">
+      <span class="stamina-gauge">stamina</span>
+      <span class="temperature-gauge">temp</span>
+      <div class="character-image">
+        <img class="character-image" src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png">
+      </div>
+      <div class="selected-item-info">
+        <div class="section-wrapper">
+          <span class="item-title">Feathered Edge</span>
+            <span class="item-icon"><img src="https://i.imgur.com/BPrxKoE.png" alt=""></span>
+            <span class="item-strength">22</span>
+            <span class="item-power">attack up + 1</span>
+          <span class="item-description">
+            Rito craftsmen forged this lightweight,
+            double-edged sword so Rito warriors could
+            soar into battle unhindered by its weight.
+          </span>
+        </div>
+  
+      </div>
+    </section>
+  
+    <footer class="footer2">
+      <span class="icon-wrapper">
+        <span class="footer-item">Sort <i class="footer-icon">A</i></span>
+        <span class="footer-item">Back <i class="footer-icon">B</i></span>
+        <span class="footer-item">Select <i class="footer-icon">X</i></span>
+        <span class="footer-item">Rotate <i class="footer-icon">R</i></span>
+      </span>
+    </footer>
+  </div>
+
+  
+
+</template>

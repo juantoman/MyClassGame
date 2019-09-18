@@ -2,7 +2,7 @@ Template.classesPage.onRendered(function() {
   Session.set('className', "");
   Session.set('userType', "teacher");
   Meteor.call('userTypeInsert', "teacher");
-  handleClientLoad();
+  //handleClientLoad();
   /*t=[];
   if( typeof Meteor.user().classesTeacher == "undefined") {
     classes.find({'teacherId': Meteor.userId()}).forEach( function(c){
