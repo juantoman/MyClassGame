@@ -1,0 +1,124 @@
+<template name="studentProfile">
+  <div class="studentProfile">
+    <div id="menuProfile">
+      <ul class="nav nav-pills nav-profile" role="tablist">
+        <li role="presentation" class="active"><a class="aProfile" href="#Datos" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><br /> <span class="spanMenu">Datos</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Portfolio" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><br /> <span class="spanMenu">Portfolio</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><br /> <span class="spanMenu">M. Grupales</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span><br /> <span class="spanMenu">M. Ind.</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Insignias" aria-controls="gamification" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span><br /> <span class="spanMenu">Insignias</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Cartas" aria-controls="tools" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><br /> <span class="spanMenu">Cartas</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Cromos" aria-controls="statistics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><br /> <span class="spanMenu">Cromos</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Artículos" aria-controls="notifications" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span><br /> <span class="spanMenu">Artículos</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Historial" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><br /> <span class="spanMenu">Historial</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Diario" aria-controls="notifications" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br /> <span class="spanMenu">Diario</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Notas" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span><br /> <span class="spanMenu">Notas</span></a></li>
+      </ul>
+    </div>
+  
+    <section class="item-grid">
+      <div class="list-selectors">
+        <ul class="item-list">
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Datos</span>
+              <span class="list-icon"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Bows</span>
+              <span class="list-icon"><img src="https://i.imgur.com/GGsIbXx.png" alt=""></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Shields</span>
+              <span class="list-icon"><img src="https://i.imgur.com/OhSY7zr.png" alt=""></span>
+            </button>
+          </li>
+          <li class="grid-item">
+            <button type="button">
+              <span class="item-title">Food</span>
+              <span class="list-icon"><img src="https://i.imgur.com/6MGV2RE.png" alt=""></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+      <ul class="list-items">
+        {{#each items}}
+          <li class="list-item">
+            <span class="power-icon">{{item.itemName}}</span>
+            <span class="item-image"><img src="{{image_url item.itemImage}}" alt=""></span>
+            <span class="item-strength">{{item.price}} €</span>
+          </li>
+        {{/each}}
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+        <li class="list-item">
+          <span class="power-icon">icon</span>
+          <span class="item-image">sword</span>
+          <span class="item-strength">22</span>
+        </li>
+      </ul>
+    </section>
+  
+    <section class="character-info">
+      <span class="stamina-gauge">stamina</span>
+      <span class="temperature-gauge">temp</span>
+      <div class="character-image">
+        <img class="character-image" src="https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png">
+      </div>
+      <div class="selected-item-info">
+        <div class="section-wrapper">
+          <span class="item-title">Feathered Edge</span>
+            <span class="item-icon"><img src="https://i.imgur.com/BPrxKoE.png" alt=""></span>
+            <span class="item-strength">22</span>
+            <span class="item-power">attack up + 1</span>
+          <span class="item-description">
+            Rito craftsmen forged this lightweight,
+            double-edged sword so Rito warriors could
+            soar into battle unhindered by its weight.
+          </span>
+        </div>
+  
+      </div>
+    </section>
+  
+    <footer class="footer2">
+      <span class="icon-wrapper">
+        <span class="footer-item">Sort <i class="footer-icon">A</i></span>
+        <span class="footer-item">Back <i class="footer-icon">B</i></span>
+        <span class="footer-item">Select <i class="footer-icon">X</i></span>
+        <span class="footer-item">Rotate <i class="footer-icon">R</i></span>
+      </span>
+    </footer>
+  </div>
+
+  
+
+</template>

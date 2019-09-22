@@ -1,7 +1,4 @@
 {
-    "ace": {
-        "@guessTabSize": true
-    },
     "build": {
         "@saveall": true
     },

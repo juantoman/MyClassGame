@@ -1,0 +1,383 @@
+:root {
+  --color-white: #FEFFEA;
+  --color-blue: #4298F0;
+}
+
+.studentProfile * {
+  position: relative;
+  color: white;
+  box-sizing: border-box
+}
+
+.nav-profile{
+  background-color: rgba(0,0,0,.5) !important;
+}
+
+.nav-profile li{
+  text-align: center;
+}
+
+.nav-profile .aProfile:hover,
+.nav-profile .aProfile:focus {
+  outline: 2px solid grey;
+  outline-offset: -5px;
+  background-color: rgba(0,0,0,.6) !important;
+  border:1px solid rgba(0,0,0,.6) !important;
+}
+
+.studentProfile img {
+  display: block;
+  width: 100%;
+}
+
+.studentProfile button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  border: none;
+  width: 100px;
+  height: 75px;
+  padding: .5rem .5rem 1rem;
+  height: 100%;
+  background: none;
+  cursor: pointer;
+}
+
+.studentProfile button:hover,
+.studentProfile button:focus {
+  outline: 2px solid grey;
+  outline-offset: -5px;
+  background-color: rgba(0,0,0,.7);
+}
+
+.studentProfile button:hover .item-title,
+.studentProfile button:focus .item-title {
+  font-weight: bold;
+}
+
+.studentProfile button:hover .list-icon,
+.studentProfile button:focus .list-icon {
+  transform: scale(1.1);
+}
+
+/* Page UI Grid Settings */
+.studentProfile {
+  min-height: 100%;
+  background-image: url('https://wallpaperbro.com/img/85563.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin:-20px -30px 10px -30px;
+}
+
+@media (min-width: 1040px) {
+  .studentProfile {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas:
+      "header header"
+      "main1 main2"
+      "footer footer";
+  }
+}
+
+/* Header */
+.studentProfile .header {
+  display: flex;
+  justify-content: space-between;
+  grid-area: header;
+  padding: 0 1.75rem;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.studentProfile .header .left {
+  align-self: center;
+}
+
+.studentProfile .header .center {
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+}
+
+.studentProfile .header .right {
+  align-self: center;
+}
+
+.studentProfile .hearts {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: red;
+}
+
+.studentProfile .heart-container {
+  display: block;
+  max-width: 200px;
+}
+
+.studentProfile .stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.studentProfile .panel-title {
+  padding: 0 3rem 0 1.5rem;
+}
+
+.studentProfile .letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 15%;
+  text-align: center;
+  background-color: var(--color-white);
+}
+
+.studentProfile .letter .wrapper {
+  color: #000;
+  z-index: 1;
+}
+
+.studentProfile .letter .wrapper-r::before {
+  position: absolute;
+  right: -18px;
+  bottom: -8px;
+  content: '';
+  width: 12px;
+  height: 38px;
+  border-radius: 15%;
+  background-color: var(--color-white);
+  z-index: -1;
+  transform: rotate(-12deg);
+}
+
+.studentProfile .letter .wrapper-l::before {
+  position: absolute;
+  left: -18px;
+  bottom: -8px;
+  content: '';
+  width: 12px;
+  height: 38px;
+  border-radius: 15%;
+  background-color: var(--color-white);
+  z-index: -1;
+  transform: rotate(12deg);
+}
+
+/* Main */
+.studentProfile .item-grid {
+  grid-area: main1;
+  padding: 2rem;
+  background-color: rgba(90, 90, 90, .1);
+}
+
+.studentProfile .item-grid .item-list {
+  display: flex;
+  flex-direction: row;
+  max-width: 65%;
+  border-bottom: .2rem solid var(--color-white);
+  padding: 0 0 0 0;
+  margin-left: 5rem;
+}
+
+.studentProfile .grid-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.studentProfile .grid-item .item-title {
+  margin-bottom: 1rem;
+}
+
+.studentProfile .character-info {
+  grid-area: main2;
+  padding: 3rem;
+  background-color: rgba(90, 90, 90, .1);
+}
+
+.studentProfile .list-icon {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+
+.studentProfile .list-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-gap: 20px;
+  list-style: none;
+}
+
+.studentProfile .list-item {
+  width: 150px;
+  height: 150px;
+  outline: 2px solid grey;
+  outline-offset: -5px;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.studentProfile .list-item:hover img,
+.studentProfile .list-item:focus img {
+  transform: scale(1.05);
+}
+
+.studentProfile .list-item .power-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width:2rem;
+}
+
+.studentProfile .list-item .item-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.studentProfile .item-strength {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  outline: 1px solid grey;
+  outline-offset: -6px;
+  background-color: green;
+}
+
+.studentProfile .stamina-gauge {
+  grid-row-start: 2;
+}
+
+.studentProfile .temperature-gauge {
+  grid-row-start: 3;
+}
+
+.studentProfile .character-info {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.studentProfile .character-image {
+  left: 15%;
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: span 8;
+  max-width: 600px;
+  text-align: right;
+  margin-right: 0;
+  filter: brightness(.9);
+}
+
+.studentProfile .selected-item-info {
+  display: flex;
+  align-items: stretch;
+  margin: .5rem 0;
+  border: .2rem solid rgba(0,0,0,.8);
+  border-radius: 10px;
+
+  grid-column-start: 2;
+  grid-row-start: 6;
+  grid-row-end: span 7;
+  background-color: rgba(0,0,0,.8);
+}
+
+.studentProfile .selected-item-info::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 99%;
+  height: 98%;
+  border: .1rem solid grey;
+  border-radius: 8px;
+}
+
+.studentProfile .selected-item-info .section-wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 1fr;
+  grid-template-rows: 75px 75px 1fr;
+  grid-template-areas:
+    "title title ."
+    "icon  stat  power"
+    "description description description";
+  padding: 1rem;
+  margin: 0.25rem 0 .25rem 4px;
+}
+
+.studentProfile .selected-item-info .item-title {
+  grid-area: title;
+  align-self: center;
+  font-size: 1.4rem;
+  border-bottom: .1rem solid var(--color-white);
+  padding-bottom: .5rem;
+}
+
+.studentProfile .selected-item-info .item-icon {
+  grid-area: icon;
+}
+
+.studentProfile .selected-item-info .item-strength {
+  grid-area: stat;
+}
+
+.studentProfile .selected-item-info .item-power {
+  grid-area: power;
+}
+
+.studentProfile .selected-item-info .item-description {
+  grid-area: description;
+}
+.studentProfile .section-wrapper {
+  border-left: 5px solid var(--color-blue);
+}
+
+.studentProfile .item-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.studentProfile .item-icon img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Footer */
+.studentProfile .footer2 {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: footer;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.studentProfile .footer2 .icon-wrapper {
+  margin-right: 4rem;
+  align-self: center;
+}
+
+.studentProfile .footer-item {
+  margin-right: 1rem;
+}
+
+.studentProfile .footer-icon {
+  display: inline-block;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding-top: .125rem;
+  padding-left: .3rem;
+  font-weight: bold;
+  color: #000;
+  background-color: var(--color-white);
+}

@@ -15,3 +15,10 @@ git push -u origin master
 2a Màquina:
 -----------
 git pull origin master
+
+Forzar git:
+-----------
+git fetch --all
+git reset --hard origin/master
+
+
