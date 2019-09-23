@@ -3,10 +3,30 @@
   --color-blue: #4298F0;
 }
 
+/* Page UI Grid Settings */
+.studentProfile {
+  min-height: 100%;
+  background-image: url('https://wallpaperbro.com/img/85563.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin:-20px -30px -5px -30px;
+  overflow: auto;
+}
+
+@media (min-width: 1040px) {
+  .studentProfile {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-areas:
+      "header header"
+      "main1 main2"
+      "footer footer";
+  }
+}
+
+
 .studentProfile * {
-  position: relative;
-  color: white;
-  box-sizing: border-box
+  color: var(--color-white);
 }
 
 .nav-profile{
@@ -23,11 +43,6 @@
   outline-offset: -5px;
   background-color: rgba(0,0,0,.6) !important;
   border:1px solid rgba(0,0,0,.6) !important;
-}
-
-.studentProfile img {
-  display: block;
-  width: 100%;
 }
 
 .studentProfile button {
@@ -62,24 +77,15 @@
   transform: scale(1.1);
 }
 
-/* Page UI Grid Settings */
-.studentProfile {
-  min-height: 100%;
-  background-image: url('https://wallpaperbro.com/img/85563.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  margin:-20px -30px 10px -30px;
+.studentProfile .tab-content {
+  margin:1vw;
+  float:right;
+  width:76vw;
 }
 
-@media (min-width: 1040px) {
-  .studentProfile {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 100px 1fr 100px;
-    grid-template-areas:
-      "header header"
-      "main1 main2"
-      "footer footer";
-  }
+.studentProfile .studentCard {
+  float:left;
+  width:20vw;
 }
 
 /* Header */
@@ -211,17 +217,19 @@
 
 .studentProfile .list-items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, 120px);
+  grid-gap: 10px;
   list-style: none;
 }
 
 .studentProfile .list-item {
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   outline: 2px solid grey;
   outline-offset: -5px;
   background-color: rgba(0, 0, 0, .7);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .studentProfile .list-item:hover img,
@@ -241,6 +249,10 @@
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+.studentProfile .list-item .item-image img{
+  display: block;
+  width: 100%;
 }
 
 .studentProfile .item-strength {
