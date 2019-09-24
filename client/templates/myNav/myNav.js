@@ -49,8 +49,10 @@ Template.myNav.events({
     Session.set('groupSelected', false);
     $(".tab-pane").removeClass("active");
     $("#studentsMain").addClass("active");
+    $("#Datos").addClass("active");
     $(".nav-pills li").removeClass("active");
     $("#sM").addClass("active");
+    $("#studentData").addClass("active");
     $("#collapseStudents").removeClass("in");
     $("#collapseStudents").removeClass("in");
   },

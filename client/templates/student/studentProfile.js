@@ -506,6 +506,16 @@ Template.studentProfile.helpers({
   image_url: function(Image) {
     i=images.findOne({ _id: Image } ).image_url;
     return i;
+  },
+  grupo: function() {
+    if (this.groupId) {
+      return groups.findOne({_id: this.groupId});
+    } else {
+      var group = {
+        groupName:"Sin asignar"
+      };
+      return group;
+    }
   }
 });
 
