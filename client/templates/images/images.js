@@ -55,6 +55,9 @@ Template.imagesTemplate.helpers({
         idElement=classes.findOne({_id: Session.get('idElementImage')}).groupImg;
       }
     }
+    if ( Session.get('imageType') == "backImg" ) {
+      idElement=classes.findOne({_id: Session.get('idElementImage')}).groupImg;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -89,6 +92,11 @@ Template.imagesTemplate.events({
       if (Session.get('imageType')=="group") {
         Meteor.call('groupImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
         Meteor.call('groupImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="backImg") {
+        Meteor.call('backImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+        $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+        $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());

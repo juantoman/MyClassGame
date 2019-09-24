@@ -34,6 +34,14 @@ Template.parametersList.helpers({
     } else {
       return images.findOne({_id: avatar}).image_url;
     }
+  },
+  bImage: function() {
+    avatar=this.backImg;
+    if (avatar.substring(0, 4)=="http") {
+      return avatar;
+    } else {
+      return images.findOne({_id: avatar}).image_url;
+    }
   }
 });
 
@@ -133,6 +141,12 @@ Template.parametersList.events({
   'click .groupImage': function(event) {
     event.preventDefault();
     Session.set('imageType','group');
+    Session.set('idElementImage',this._id);
+    Modal.show('imagesTemplate');
+  },
+  'click .backImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','backImg');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
   }

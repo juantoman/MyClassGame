@@ -43,7 +43,9 @@ function grafica() {
 Template.studentProfile.onRendered(function() {
    $.getScript("https://widget.cloudinary.com/v2.0/global/all.js");
    $.getScript("https://media-library.cloudinary.com/global/all.js");
+   $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
    grafica();
+   
 });
 
 Template.studentProfile.helpers({
@@ -189,6 +191,9 @@ Template.studentProfile.helpers({
         return images.findOne({_id: avatar}).image_url;
       }
     }
+  },
+  backImage: function(avatar) {
+    return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).backImg}).image_url;
   },
   inputDisabled: function() {
     if (Session.get('userType')=="teacher") {
