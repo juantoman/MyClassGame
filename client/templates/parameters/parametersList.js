@@ -149,6 +149,12 @@ Template.parametersList.events({
     Session.set('imageType','backImg');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
+  },
+  'click #delBackImage': function(event) {
+    event.preventDefault();
+    Meteor.call('backImgUpdate',Session.get('idElementImage'),'');
+    $("#mainTab").css('background-image','');
+    $(".studentProfile").css('background-image','');
   }
 });
 
