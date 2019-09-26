@@ -155,6 +155,7 @@ Template.parametersList.events({
     Meteor.call('backImgUpdate',Session.get('idElementImage'),'');
     $("#mainTab").css('background-image','');
     $(".studentProfile").css('background-image','');
+    $(".opacityDiv").toggleClass('opacityProfile');
   }
 });
 

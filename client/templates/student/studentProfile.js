@@ -43,7 +43,10 @@ function grafica() {
 Template.studentProfile.onRendered(function() {
    $.getScript("https://widget.cloudinary.com/v2.0/global/all.js");
    $.getScript("https://media-library.cloudinary.com/global/all.js");
-   $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+   if ( classes.findOne({_id: Session.get("classId")}).backImg != "" ) {
+    $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+    $(".opacityDiv").addClass('opacityProfile');
+   }
    grafica();
    
 });

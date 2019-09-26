@@ -146,7 +146,7 @@ a:hover, a:link {
 }
 
 #mainTab {
-  min-height: 90vh;
+  min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }

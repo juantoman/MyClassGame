@@ -2,6 +2,10 @@ import swal from 'sweetalert';
 Template.myNav.onRendered(function () {
   Session.set('className',classes.findOne({ _id: Session.get('classId') } ).className);
   $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+  if ( classes.findOne({_id: Session.get("classId")}).backImg != "" ) {
+    $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+    $(".opacityDiv").addClass('opacityProfile');
+   }
 });
 
 Template.myNav.helpers({

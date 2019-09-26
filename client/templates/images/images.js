@@ -97,6 +97,7 @@ Template.imagesTemplate.events({
         Meteor.call('backImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
         $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
         $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
+        $(".opacityDiv").toggleClass('opacityProfile');
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());

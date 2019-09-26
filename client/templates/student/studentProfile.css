@@ -5,11 +5,11 @@
 
 /* Page UI Grid Settings */
 .studentProfile {
-  min-height: 82vh;
+  min-height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
   margin:-20px -30px -5px -30px;
-  overflow: auto;
+  overflow: hidden;
 }
 
 #Datos h2 {
@@ -35,8 +35,12 @@
 
 
 .nav-profile{
-  background-color: rgba(0,0,0,.5) !important;
-  
+  background-color: rgba(0,0,0,.7) !important;
+}
+
+.opacityProfile {
+  background-color: rgba(0,0,0,0.4) !important;
+  overflow:hidden;
 }
 
 .nav-profile li{
@@ -64,15 +68,15 @@
 }
 
 .studentProfile .tab-content {
-  margin:1vh 1vw 1vh 0;
-  float:right;
-  width:76vw;
+  width:72vw;
+  margin:auto ;
 }
 
-.studentProfile .studentCard {
-  float:left;
+.studentProfile .studentCard .card{
   width:20vw;
-  margin:2vh 0 0 1vw;
+  margin:0vh 0 0 1vw;
+  max-width:300px;
+  margin:3vw;
 }
 
 /* Header */
