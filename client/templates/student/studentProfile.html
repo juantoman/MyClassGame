@@ -180,6 +180,8 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="Portfolio">
               {{#with student}}
+                <h2>Portfolio</h2>
+          		  <hr class="colorgraph">
                 <div class="form-group has-success">
                   <div class="form-inline">
                     <div class="input-group col-xs-10">
@@ -203,6 +205,8 @@
               {{/with}}
             </div>
             <div role="tabpanel" class="tab-pane" id="Grupales">
+              <h2>Misiones grupales</h2>
+          		<hr class="colorgraph">
               <div class="form-group has-info">
                     <div class="panel-group" id="accordionMissions" role="tablist" aria-multiselectable="true">
                       {{#each challengesG}}
@@ -332,7 +336,10 @@
                     </div>
                   </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="Individuales"><div class="form-group has-info">
+            <div role="tabpanel" class="tab-pane" id="Individuales">
+              <h2>Misiones individuales</h2>
+          		<hr class="colorgraph">
+              <div class="form-group has-info">
                     <div class="panel-group" id="accordionMissionsI" role="tablist" aria-multiselectable="true">
                       {{#each challengesI}}
                         <div class="panel panel-info">
@@ -453,7 +460,10 @@
                       </h1>
                     </div>
                   </div></div>
-            <div role="tabpanel" class="tab-pane" id="Insignias"><div class="row">
+            <div role="tabpanel" class="tab-pane" id="Insignias">
+              <h2>Insignias</h2>
+          		<hr class="colorgraph">
+              <div class="row">
                     {{#each badges}}
                       <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
                         <div class="thumbnail">
@@ -466,8 +476,10 @@
                       </div>
                     {{/each}}
                   </div></div>
-            <div role="tabpanel" class="tab-pane" id="Cartas"><div class="row">
-                    
+            <div role="tabpanel" class="tab-pane" id="Cartas">
+              <h2>Cartas</h2>
+          		<hr class="colorgraph">
+              <div class="row">
                       {{#each cards}}
                         <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
                           <div class="thumbnail">
@@ -485,6 +497,8 @@
                     
                   </div></div>
             <div role="tabpanel" class="tab-pane" id="Cromos">
+              <h2>Cromos</h2>
+          		<hr class="colorgraph">
               <div class="row">
                     {{#each chromes}}
                       <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
@@ -515,12 +529,8 @@
                 {{/each}}
               </div>
               -->
-              {{#if teacher}}
-          		  <h2>{{studentName}} <small>{{_id}}</small></h2>
-          		{{else}}
-          		  <h2>{{alias}} <small>{{_id}}</small></h2>
-          		{{/if}}
-            	<hr class="colorgraph">
+              <h2>Artículos</h2>
+          		<hr class="colorgraph">
               <ul class="list-items">
                 {{#each items}}
                   <li class="list-item">
@@ -532,6 +542,8 @@
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="Historial">
+              <h2>Historial</h2>
+          		<hr class="colorgraph">
               <table class="table table-bordered">
                 <thead>
                   <tr>
@@ -590,6 +602,8 @@
               </table>
             </div>
             <div role="tabpanel" class="tab-pane" id="Diario">
+              <h2>Diario</h2>
+          		<hr class="colorgraph">
               <div class="panel-group" id="accordionDiary" role="tablist" aria-multiselectable="true">
                 {{#each mydiary}}
                   <div class="panel panel-info">
@@ -653,6 +667,8 @@
             {{/if}}
             </div>
             <div role="tabpanel" class="tab-pane" id="Notas">
+              <h2>Notas</h2>
+          		<hr class="colorgraph">
               <table class="table table-bordered">
                 {{#with student}}
                 <tbody>
