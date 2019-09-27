@@ -4,22 +4,33 @@
 }
 
 /* Page UI Grid Settings */
-.studentProfile {
-  min-height: 80vh;
+.studentHeader {
   background-size: cover;
   background-repeat: no-repeat;
-  margin:-20px -30px -5px -30px;
+  margin:-20px -30px 20px -30px;
   overflow: hidden;
 }
 
-#Datos h2 {
-  text-transform: none;
-  color:rgba(0,0,0,.7) !important;
-  font-weight: bold;
+.studentBody .row {
+  justify-content: center;
 }
 
-.studentProfile .form-group {
+.studentBody .form-group {
   background-color:rgba(0,0,0,.2) !important;
+}
+
+.studentInfo h2{
+  margin:1vh;
+  color:rgba(0,0,0,.7) !important;
+  font-size: 5vh;
+  font-weight: bold;
+  letter-spacing: .3em
+}
+
+.studentInfo h4{
+  margin:1vh;
+  color:rgba(0,0,0,.4) !important;
+  font-size: 1vh;
 }
 
 @media (min-width: 1040px) {
@@ -41,6 +52,7 @@
 .opacityProfile {
   background-color: rgba(0,0,0,0.4) !important;
   overflow:hidden;
+  min-height: 100vh;
 }
 
 .nav-profile li{
@@ -67,153 +79,14 @@
   border:1px solid rgba(0,0,0,.6) !important;
 }
 
-.studentProfile .tab-content {
-  width:72vw;
-  margin:auto ;
-}
-
-.studentProfile .studentCard .card{
-  width:20vw;
-  margin:0vh 0 0 1vw;
-  max-width:300px;
-  margin:3vw;
-}
-
-/* Header */
-.studentProfile .header {
-  display: flex;
-  justify-content: space-between;
-  grid-area: header;
-  padding: 0 1.75rem;
-  background-color: rgba(0, 0, 0, .5);
-}
-
-.studentProfile .header .left {
-  align-self: center;
-}
-
-.studentProfile .header .center {
-  display: flex;
-  align-self: center;
-  justify-content: space-between;
-}
-
-.studentProfile .header .right {
-  align-self: center;
-}
-
-.studentProfile .hearts {
-  font-size: 18px;
-  letter-spacing: 2px;
-  color: red;
-}
-
-.studentProfile .heart-container {
-  display: block;
-  max-width: 200px;
-}
-
-.studentProfile .stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 1rem;
-}
-
-.studentProfile .panel-title {
-  padding: 0 3rem 0 1.5rem;
-}
-
-.studentProfile .letter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 15%;
-  text-align: center;
-  background-color: var(--color-white);
-}
-
-.studentProfile .letter .wrapper {
-  color: #000;
-  z-index: 1;
-}
-
-.studentProfile .letter .wrapper-r::before {
-  position: absolute;
-  right: -18px;
-  bottom: -8px;
-  content: '';
-  width: 12px;
-  height: 38px;
-  border-radius: 15%;
-  background-color: var(--color-white);
-  z-index: -1;
-  transform: rotate(-12deg);
-}
-
-.studentProfile .letter .wrapper-l::before {
-  position: absolute;
-  left: -18px;
-  bottom: -8px;
-  content: '';
-  width: 12px;
-  height: 38px;
-  border-radius: 15%;
-  background-color: var(--color-white);
-  z-index: -1;
-  transform: rotate(12deg);
-}
-
-/* Main */
-.studentProfile .item-grid {
-  grid-area: main1;
-  padding: 2rem;
-  background-color: rgba(90, 90, 90, .1);
-}
-
-.studentProfile .item-grid .item-list {
-  display: flex;
-  flex-direction: row;
-  max-width: 65%;
-  border-bottom: .2rem solid var(--color-white);
-  padding: 0 0 0 0;
-  margin-left: 5rem;
-}
-
-.studentProfile .grid-item {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.studentProfile .grid-item .item-title {
-  margin-bottom: 1rem;
-}
-
-.studentProfile .character-info {
-  grid-area: main2;
-  padding: 3rem;
-  background-color: rgba(90, 90, 90, .1);
-}
-
-.studentProfile .list-icon {
-  display: block;
-  width: 30px;
-  height: 30px;
-}
-
-
-.studentProfile .list-items {
+.studentBody .list-items {
   display: grid;
   grid-template-columns: repeat(auto-fill, 120px);
   grid-gap: 10px;
   list-style: none;
 }
 
-.studentProfile .list-item {
+.studentBody .list-item {
   width: 120px;
   height: 120px;
   outline: 2px solid grey;
@@ -223,12 +96,12 @@
   box-sizing: border-box;
 }
 
-.studentProfile .list-item:hover img,
-.studentProfile .list-item:focus img {
+.studentBody .list-item:hover img,
+.studentBody .list-item:focus img {
   transform: scale(1.05);
 }
 
-.studentProfile .list-item .power-icon {
+.studentBody .list-item .power-icon {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -236,18 +109,18 @@
   color: white;
 }
 
-.studentProfile .list-item .item-image {
+.studentBody .list-item .item-image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.studentProfile .list-item .item-image img{
+.studentBody .list-item .item-image img{
   display: block;
   width: 100%;
 }
 
-.studentProfile .item-strength {
+.studentBody .item-strength {
   position: absolute;
   right: -2px;
   bottom: -2px;
