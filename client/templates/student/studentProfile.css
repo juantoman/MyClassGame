@@ -109,6 +109,14 @@
   color: white;
 }
 
+.studentBody .list-item .stock-icon {
+  position: absolute;
+  top: 1rem;
+  right: 0;
+  width:2rem;
+  color: yellow;
+}
+
 .studentBody .list-item .item-image {
   position: absolute;
   top: 50%;
