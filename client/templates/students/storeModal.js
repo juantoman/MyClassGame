@@ -24,9 +24,9 @@ Template.storeModal.helpers({
 Template.storeModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
-    $(event.currentTarget).toggleClass("list-group-item-danger");
+    $(event.currentTarget).toggleClass("list-item-selected");
     coins=parseInt($(event.currentTarget).find(".price").text());
-    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+    if ($(event.currentTarget).hasClass("list-item-selected")){
       Session.set('spentCoins', Session.get('spentCoins') + coins);
     } else {
       Session.set('spentCoins', Session.get('spentCoins') - coins);
@@ -50,7 +50,7 @@ Template.storeModal.events({
       Meteor.call('incCoins', Session.get('studentId'), coins);
     });
     coins = students.findOne({_id: studentId}).coins;
-    $('.storeModal').find(".list-group-item-danger").each( function() {
+    $('.storeModal').find(".list-item-selected").each( function() {
       itemId=this.id;
       price=parseInt($(this).find(".price").text());
       if ( coins >= price ) {

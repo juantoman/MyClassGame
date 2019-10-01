@@ -96,11 +96,6 @@
   box-sizing: border-box;
 }
 
-.studentBody .list-item:hover img,
-.studentBody .list-item:focus img {
-  transform: scale(1.05);
-}
-
 .studentBody .list-item .power-icon {
   position: absolute;
   top: 1rem;
