@@ -58,7 +58,7 @@ Template.storeModal.events({
       } else {
         swal({
           title: "¡No tienes bastantes monedas!",
-          text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+          text: "¡Esfuérzate para conseguirlas y así poder comprar artículos en la tienda!",
           icon: "warning",
         });
       }
