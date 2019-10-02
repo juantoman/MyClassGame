@@ -11,7 +11,7 @@
   overflow: hidden;
 }
 
-.studentBody .row {
+.studentInventory .row {
   justify-content: center;
 }
 
@@ -31,6 +31,7 @@
   margin:1vh;
   color:rgba(0,0,0,.4) !important;
   font-size: 1vh;
+  text-transform: none;
 }
 
 @media (min-width: 1040px) {
@@ -79,16 +80,16 @@
   border:1px solid rgba(0,0,0,.6) !important;
 }
 
-.studentBody .list-items {
+.studentInventory .list-items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 120px);
+  grid-template-columns: repeat(auto-fill, 150px);
   grid-gap: 10px;
   list-style: none;
 }
 
-.studentBody .list-item {
-  width: 120px;
-  height: 120px;
+.studentInventory .list-item {
+  width: 150px;
+  height: 150px;
   outline: 2px solid grey;
   outline-offset: -5px;
   background-color: rgba(0, 0, 0, .7);
@@ -96,34 +97,38 @@
   box-sizing: border-box;
 }
 
-.studentBody .list-item .power-icon {
+.studentInventory .list-item .power-icon {
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width:2rem;
+  left: -5px;
+  top: -15px;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  background-color: #4298F0;
   color: white;
 }
 
-.studentBody .list-item .stock-icon {
+.studentInventory .list-item .stock-icon {
   position: absolute;
-  top: 1rem;
-  right: 0;
-  width:2rem;
-  color: yellow;
+  right: -2px;
+  top: -2px;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  background-color: gold;
+  color: blue;
 }
 
-.studentBody .list-item .item-image {
+.studentInventory .list-item .item-image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.studentBody .list-item .item-image img{
+.studentInventory .list-item .item-image img{
   display: block;
   width: 100%;
 }
 
-.studentBody .item-strength {
+.studentInventory .item-strength {
   position: absolute;
   right: -2px;
   bottom: -2px;
@@ -133,6 +138,24 @@
   outline-offset: -6px;
   background-color: green;
   color: white;
+}
+
+.studentInventory .card-btns {
+  position: absolute;
+  left: -2px;
+  bottom: -2px;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  background-color: red;
+  color: white;
+}
+
+.studentInventory .waitingCard{
+  background-color: orange;
+}
+
+.studentInventory .useCard{
+  background-color: lightgreen;
 }
 
 .studentProfile .stamina-gauge {

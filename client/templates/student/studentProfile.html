@@ -16,7 +16,7 @@
       </ul>
     </div>
   </div>
-  <div class="container-fluid studentBody">
+  <div class="container-fluid studentInventory">
       <div class="row">
         <div class="col-xs-12 col-md-4 well" id="leftPanel">
           <div class="row">
@@ -461,57 +461,104 @@
                     </div>
                   </div></div>
             <div role="tabpanel" class="tab-pane" id="Insignias">
+              <!--
               <h2>Insignias</h2>
           		<hr class="colorgraph">
               <div class="row">
-                    {{#each badges}}
-                      <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
-                        <div class="thumbnail">
-                          <div class="input-group">
-                              <img src="{{image_url badge.badgeImage}}" class="img-thumbnail"/>
-                              <h4 class="text-center text-info">{{badge.badgeDescription}}</h4>
-                              <h5 class="text-center text-warning">{{badge.points}} XP</h5>
-                          </div>
-                        </div>
+                {{#each badges}}
+                  <div class="col-container col-xs-3 col-sm-3 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group">
+                          <img src="{{image_url badge.badgeImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{badge.badgeDescription}}</h4>
+                          <h5 class="text-center text-warning">{{badge.points}} XP</h5>
                       </div>
-                    {{/each}}
-                  </div></div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+              -->
+              <h2>Insignias</h2>
+          		<hr class="colorgraph">
+              <ul class="list-items">
+                {{#each badges}}
+                  <li class="list-item">
+                    <span class="power-icon">{{badge.badgeDescription}}</span>
+                    <span class="item-image"><img src="{{image_url badge.badgeImage}}" alt=""></span>
+                    <span class="item-strength">{{badge.points}} XP</span>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
             <div role="tabpanel" class="tab-pane" id="Cartas">
-              <h2>Cartas</h2>
+              <!--
+              <h2>Cartas/Poderes/Privilegios</h2>
           		<hr class="colorgraph">
               <div class="row">
-                      {{#each cards}}
-                        <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
-                          <div class="thumbnail">
-                            <div class="input-group text-center">
-                                <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
-                                <h4 class=" label label-warning text-center text-info">{{cardTypeDesc card.cardType}}</h4>
-                                <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
-                                <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
-                                {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
-                                {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
-                            </div>
-                          </div>
-                        </div>
-                      {{/each}}
-                    
-                  </div></div>
-            <div role="tabpanel" class="tab-pane" id="Cromos">
-              <h2>Cromos</h2>
-          		<hr class="colorgraph">
-              <div class="row">
-                    {{#each chromes}}
-                      <div class="col-container col-xs-4 col-sm-3 col-md-2 col-lg-1">
-                        <div class="thumbnail">
-                          <div class="input-group text-center">
-                              <img src="{{image_url chrome.chromeImage}}" class="img-thumbnail"/>
-                              <h4 class="text-center text-info">{{chrome.chromeName}} <span class="text-center badge">{{chrome.chromePrice}}</span></h4>
-                              <h5 class="text-center text-warning">{{chrome.chromeDescription}}</h5>
-                          </div>
-                        </div>
+                {{#each cards}}
+                  <div class="col-container col-xs-3 col-sm-3 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url card.cardImage}}" class="img-thumbnail"/>
+                          <h4 class=" label label-warning text-center text-info">{{cardTypeDesc card.cardType}}</h4>
+                          <h4 class="text-center text-info">{{card.cardName}} <span class="text-center badge">{{card.cardPrice}}</span></h4>
+                          <h5 class="text-center text-warning">{{card.cardDescription}}</h5>
+                          {{#unless usabled}}<button class="btn btn-info waitingCard">{{#if waiting}}Esperando{{else}}Solicitar{{/if}}</button>{{/unless}}
+                          {{#if usabled}}<button class="btn btn-info useCard" title="{{card.cardPrice}}">Utilizar</button>{{/if}}
                       </div>
-                    {{/each}}
-                  </div></div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+              -->
+              <h2>Cartas/Poderes/Privilegios</h2>
+          		<hr class="colorgraph">
+              <ul class="list-items">
+                {{#each cards}}
+                  <li class="list-item">
+                    <span class="power-icon">{{card.cardName}}</span>
+                    <span class="stock-icon">{{cardTypeDesc card.cardType}}</span>
+                    <span class="item-image"><img src="{{image_url card.cardImage}}" alt=""></span>
+                    <span class="item-strength">{{card.cardPrice}} €</span>
+                    <span class="card-btns {{#if usabled}}useCard{{/if}} {{#if waiting}}waitingCard{{else}}demandCard{{/if}}" title="{{card.cardPrice}}">
+                      {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
+                      {{#if usabled}}<span>U</span>{{/if}}
+                    </span>
+                  </li>
+                {{/each}}
+              </ul>
+              
+            </div>
+            <div role="tabpanel" class="tab-pane" id="Cromos">
+              <!--
+              <h2>Cromos/Colección</h2>
+          		<hr class="colorgraph">
+              <div class="row">
+                {{#each chromes}}
+                  <div class="col-container col-xs-3 col-sm-3 col-md-3 col-lg-2">
+                    <div class="thumbnail">
+                      <div class="input-group text-center">
+                          <img src="{{image_url chrome.chromeImage}}" class="img-thumbnail"/>
+                          <h4 class="text-center text-info">{{chrome.chromeName}} <span class="text-center badge">{{chrome.chromePrice}}</span></h4>
+                          <h5 class="text-center text-warning">{{chrome.chromeDescription}}</h5>
+                      </div>
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+              -->
+              <h2>Cromos/Colección</h2>
+          		<hr class="colorgraph">
+              <ul class="list-items">
+                {{#each chromes}}
+                  <li class="list-item">
+                    <span class="power-icon">{{chrome.chromeName}}</span>
+                    <span class="item-image"><img src="{{image_url chrome.chromeImage}}" alt=""></span>
+                    <span class="item-strength">{{chrome.chromePrice}} €</span>
+                  </li>
+                {{/each}}
+              </ul>
+            </div>
             <div role="tabpanel" class="tab-pane" id="Artículos">
               <!--
               <div class="row">

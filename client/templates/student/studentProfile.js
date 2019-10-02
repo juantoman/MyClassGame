@@ -815,7 +815,7 @@ Template.studentProfile.events({
     event.preventDefault();
     $("#rubricaStudent"+this._id).toggleClass("oculto");
   },
-  'click .waitingCard': function(event) {
+  'click .demandCard': function(event) {
     event.preventDefault();
     Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
     Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId);
