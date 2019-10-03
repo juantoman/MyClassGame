@@ -158,6 +158,10 @@
   background-color: lightgreen;
 }
 
+.studentInventory .difuminar{
+  opacity:0.5;
+}
+
 .studentProfile .stamina-gauge {
   grid-row-start: 2;
 }

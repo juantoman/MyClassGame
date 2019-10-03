@@ -1,28 +1,50 @@
 <template name="notifications">
-  <div class="container">
-    <div class="list-group">
-    <h2 class="text-center bg-info">Cartas</h2>
-    {{#each notiCards}}
-      <button type="button" class="list-group-item validarCard {{#if used}}elementUsed{{/if}}">
-        <img src="{{element_src  card.cardImage}}" style="width:8%;float:left;margin-right:50px;"/>
-        <div style="width:86%;">
-          <h3>{{student.studentName}}</h3>
-          <h4>{{card.cardName}}</h4>
-          <h5>{{card.cardDescription}}</h5>
-        </div>
-      </button>
-    {{/each}}
-    <h2 class="text-center bg-info">Artículos</h2>
-    {{#each notiItem}}
-      <button type="button" class="list-group-item validarItem {{#if used}}elementUsed{{/if}}">
-        <img src="{{element_src item.itemImage}}" style="width:8%;float:left;margin-right:50px;"/>
-        <div style="width:86%;">
-          <h3>{{student.studentName}}</h3>
-          <h4>{{item.itemName}}</h4>
-          <h5>{{item.itemDescription}}</h5>
-        </div>
-      </button>
-    {{/each}}
+  <div class="container-fluid">
+    <div class="studentInventory">
+      <h2 class="text-center bg-info">Cartas</h2>
+      <!--
+      {{#each notiCards}}
+        <button type="button" class="list-group-item validarCard {{#if used}}elementUsed{{/if}}">
+          <img src="{{element_src  card.cardImage}}" style="width:8%;float:left;margin-right:50px;"/>
+          <div style="width:86%;">
+            <h3>{{student.studentName}}</h3>
+            <h4>{{card.cardName}}</h4>
+            <h5>{{card.cardDescription}}</h5>
+          </div>
+        </button>
+      {{/each}}
+      -->
+      <ul class="list-items">
+        {{#each notiCards}}
+          <li class="list-item validarCard {{#if used}}elementUsed{{/if}}">
+            <span class="power-icon">{{card.cardName}}</span>
+            <span class="item-image"><img src="{{element_src  card.cardImage}}" alt=""></span>
+            <span class="item-strength">{{student.studentName}}</span>
+          </li>
+        {{/each}}
+      </ul>
+      <h2 class="text-center bg-info">Artículos</h2>
+      <!--
+      {{#each notiItem}}
+        <button type="button" class="list-group-item validarItem {{#if used}}elementUsed{{/if}}">
+          <img src="{{element_src item.itemImage}}" style="width:8%;float:left;margin-right:50px;"/>
+          <div style="width:86%;">
+            <h3>{{student.studentName}}</h3>
+            <h4>{{item.itemName}}</h4>
+            <h5>{{item.itemDescription}}</h5>
+          </div>
+        </button>
+      {{/each}}
+      -->
+      <ul class="list-items">
+        {{#each notiItem}}
+          <li class="list-item validarItem {{#if used}}elementUsed{{/if}}">
+            <span class="power-icon">{{item.itemName}}</span>
+            <span class="item-image"><img src="{{element_src item.itemImage}}" alt=""></span>
+            <span class="item-strength">{{student.studentName}}</span>
+          </li>
+        {{/each}}
+      </ul>
     </div>
   </div>
 </template>

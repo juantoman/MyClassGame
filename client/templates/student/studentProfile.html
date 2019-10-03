@@ -112,7 +112,7 @@
                 	  	<div class="col-xs-12 col-sm-6">
                 				<div class="form-group">
                 			    <label for="sName" class="control-label">Alias</label>
-                					<input type="text" name="sAlias" id="sAlias" class="form-control input-lg" placeholder="Alias" tabindex="2" value="{{alias}}">
+                					<input type="text" name="sAlias" id="sAlias" class="form-control input-lg" placeholder="Alias" tabindex="2" value="{{alias}}" {{inputDisabled}}>
                 				</div>
                 			</div>
                 		</div>
@@ -520,10 +520,12 @@
                     <span class="stock-icon">{{cardTypeDesc card.cardType}}</span>
                     <span class="item-image"><img src="{{image_url card.cardImage}}" alt=""></span>
                     <span class="item-strength">{{card.cardPrice}} €</span>
-                    <span class="card-btns {{#if usabled}}useCard{{/if}} {{#if waiting}}waitingCard{{else}}demandCard{{/if}}" title="{{card.cardPrice}}">
-                      {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
-                      {{#if usabled}}<span>U</span>{{/if}}
-                    </span>
+                    {{#if myuser}}
+                      <span class="card-btns {{#if usabled}}useCard{{/if}} {{#if waiting}}waitingCard{{else}}demandCard{{/if}}" title="{{card.cardPrice}}">
+                        {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
+                        {{#if usabled}}<span>U</span>{{/if}}
+                      </span>
+                    {{/if}}
                   </li>
                 {{/each}}
               </ul>
@@ -580,15 +582,19 @@
           		<hr class="colorgraph">
               <ul class="list-items">
                 {{#each items}}
-                  <li class="list-item">
+                  <li class="list-item {{#unless stock}}difuminar{{/unless}}">
                     <span class="power-icon">{{item.itemName}}</span>
                     <span class="stock-icon">{{stock}}</span>
                     <span class="item-image"><img src="{{image_url item.itemImage}}" alt=""></span>
                     <span class="item-strength">{{item.price}} €</span>
-                    <span class="card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
-                      {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
-                      {{#if usabled}}<span>U</span>{{/if}}
-                    </span>
+                    {{#if myuser}}
+                      {{#if stock}}
+                        <span class="card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
+                          {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
+                          {{#if usabled}}<span>U</span>{{/if}}
+                        </span>
+                      {{/if}}
+                    {{/if}}
                   </li>
                 {{/each}}
               </ul>
