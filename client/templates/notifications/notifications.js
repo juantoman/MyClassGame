@@ -1,17 +1,20 @@
 Template.notifications.helpers({
-  notifications: function() {
-    return notifications.find({classId: Session.get('classId'),'used':false});
+  notiCards: function() {
+    return notifications.find({classId: Session.get('classId'),'elementType':'card'});
   },
-  usedCards: function() {
-    return notifications.find({classId: Session.get('classId'),'used':true});
+  notiItem: function() {
+    return notifications.find({classId: Session.get('classId'),'elementType':'item'});
   },
   student: function(){
     return students.findOne({_id: this.studentId});
   },
   card: function(){
-    return cards.findOne({_id: this.cardId});
+    return cards.findOne({_id: this.elementId});
   },
-  card_src: function(imageId) {
+  item: function(){
+    return store.findOne({_id: this.elementId});
+  },
+  element_src: function(imageId) {
     if (imageId) {
       return images.findOne({_id: imageId}).image_url;
     } else {
@@ -25,9 +28,14 @@ Template.notifications.helpers({
 });
 
 Template.notifications.events({
- 'click .validar': function(event) {
+ 'click .validarCard': function(event) {
     event.preventDefault();
-    Meteor.call('studentUseCard', this.studentId, this.cardId);
+    Meteor.call('studentUseCard', this.studentId, this.elementId);
     Meteor.call('usedCard', this._id);
+  },
+  'click .validarItem': function(event) {
+    event.preventDefault();
+    Meteor.call('studentUseItem', this.studentId, this.elementId);
+    Meteor.call('usedItem', this._id);
   }
 });

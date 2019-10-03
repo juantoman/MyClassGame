@@ -150,7 +150,7 @@
   color: white;
 }
 
-.studentInventory .waitingCard{
+.studentInventory .waitingCard, .studentInventory .waitingItem {
   background-color: orange;
 }
 

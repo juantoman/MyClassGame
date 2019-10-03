@@ -818,7 +818,7 @@ Template.studentProfile.events({
   'click .demandCard': function(event) {
     event.preventDefault();
     Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
-    Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId);
+    Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
   },
   'click .useCard': function(event) {
     event.preventDefault();
@@ -832,6 +832,15 @@ Template.studentProfile.events({
         icon: "warning",
       });
     }
+  },
+  'click .demandItem': function(event) {
+    event.preventDefault();
+    Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
+    Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
+  },
+  'click .useItem': function(event) {
+    event.preventDefault();
+    Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
   },
   'click .btn-delete-student': function(event) {
     event.preventDefault();

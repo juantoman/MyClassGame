@@ -585,6 +585,10 @@
                     <span class="stock-icon">{{stock}}</span>
                     <span class="item-image"><img src="{{image_url item.itemImage}}" alt=""></span>
                     <span class="item-strength">{{item.price}} €</span>
+                    <span class="card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
+                      {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
+                      {{#if usabled}}<span>U</span>{{/if}}
+                    </span>
                   </li>
                 {{/each}}
               </ul>
