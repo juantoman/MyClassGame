@@ -216,7 +216,7 @@ Template.studentProfile.helpers({
     if (Session.get('userType')=="teacher") {
      return "";
     } else {
-     return "disabled";
+     return "readonly";
     };
   },
   /*roMission: function(type) {
@@ -726,11 +726,11 @@ Template.studentProfile.events({
          }
       )
   },
-  'change #Diary': function(event) {
+  'change .Diary': function(event) {
     event.preventDefault();
     Meteor.call('studentDiary',Session.get('studentId'),$(event.target).val());
   },
-  'change #Portfolio': function(event) {
+  'change .Portfolio': function(event) {
     event.preventDefault();
     Meteor.call('studentPortfolio',Session.get('studentId'),$(event.target).val());
   },

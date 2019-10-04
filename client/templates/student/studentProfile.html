@@ -186,7 +186,7 @@
                   <div class="form-inline">
                     <div class="input-group col-xs-10">
                       <span class="input-group-addon">{{_ "diary"}}</span>
-                      <input type="text" class="form-control inputGroup input-lg" id="Diary" {{myuserEnabled}} value="{{diary}}">
+                      <input type="text" class="form-control inputGroup input-lg Diary" {{myuserEnabled}} value="{{diary}}">
                     </div>
                     <div class="input-group col-xs-1">
                       <a href="{{diary}}" class="btn btn-success" id="seeDiary" target="_blank">Ver Diario</a>
@@ -195,7 +195,7 @@
                   <div class="form-inline">
                     <div class="input-group col-xs-10">
                       <span class="input-group-addon">Portfolio</span>
-                      <input type="text" class="form-control inputGroup input-lg" id="Portfolio" {{myuserEnabled}} value="{{portfolio}}">
+                      <input type="text" class="form-control inputGroup input-lg Portfolio" {{myuserEnabled}} value="{{portfolio}}">
                     </div>
                     <div class="input-group col-xs-1">
                       <a href="{{portfolio}}" class="btn btn-success" id="seePortfolio" target="_blank">Ver Portfolio</a>
@@ -526,7 +526,7 @@
                     <span class="item-image"><img src="{{image_url card.cardImage}}" alt=""></span>
                     <span class="item-strength">{{card.cardPrice}} €</span>
                     {{#if myuser}}
-                      <span class="card-btns {{#if usabled}}useCard{{/if}} {{#if waiting}}waitingCard{{else}}demandCard{{/if}}" title="{{card.cardPrice}}">
+                      <span class="btn card-btns {{#if usabled}}useCard{{/if}} {{#if waiting}}waitingCard{{else}}demandCard{{/if}}" title="{{card.cardPrice}}">
                         {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
                         {{#if usabled}}<span>U</span>{{/if}}
                       </span>
@@ -604,7 +604,7 @@
                     <span class="item-strength">{{item.price}} €</span>
                     {{#if myuser}}
                       {{#if stock}}
-                        <span class="card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
+                        <span class="btn card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
                           {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
                           {{#if usabled}}<span>U</span>{{/if}}
                         </span>
