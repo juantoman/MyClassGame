@@ -18,6 +18,13 @@ Template.storeModal.helpers({
   },
   spentCoins: function() {
     return Session.get('spentCoins');
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

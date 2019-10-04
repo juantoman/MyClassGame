@@ -14,12 +14,15 @@
           </button>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Ganar</a></li>
-              <li role="presentation"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Tienda</a></li>
+              <li role="presentation" class="active"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Tienda</a></li>
+              {{#if teacher}}
+                <li role="presentation"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Ganar</a></li>
+              {{/if}}
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive" style="background-color:#eee;">
-              <div role="tabpanel" class="tab-pane active" id="earn">
+              {{#if teacher}}
+                <div role="tabpanel" class="tab-pane" id="earn">
                 <h2 class="text-center bg-info">Ganar</h2>
                   <div class="billetes text-center">
                       <button type="button" class="btn btn-info" name="one">
@@ -66,7 +69,8 @@
                       <br/><br/>
                     </div>
               </div>
-              <div role="tabpanel" class="tab-pane" id="spend">
+              {{/if}}
+              <div role="tabpanel" class="tab-pane active" id="spend">
                 <h2 class="text-center bg-info">Tienda</h2>
                 <div class="form-group studentInventory">
                   <ul class="list-items list-group">

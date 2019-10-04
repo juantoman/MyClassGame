@@ -39,6 +39,20 @@ function grafica() {
     }
   });
 }
+function ami(){
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    }
+    catch(err) {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
+    emailStudent=$('#sEmail').val();
+    if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+      return true;
+    } else {
+      return false;
+    }
+}
 
 Template.studentProfile.onRendered(function() {
    $.getScript("https://widget.cloudinary.com/v2.0/global/all.js");
@@ -652,8 +666,8 @@ Template.studentProfile.events({
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     Session.set('studentId',this._id);
-    if ( Session.get('userType')=="teacher") {
-      Modal.show('storeModal');
+    if ( Session.get('userType')=="teacher" || $(event.currentTarget).hasClass("addBtn") ) {
+        Modal.show('storeModal');
     }
   },
   'change #mission': function(event) {

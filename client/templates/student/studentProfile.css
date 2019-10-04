@@ -95,6 +95,7 @@
   background-color: rgba(0, 0, 0, .7);
   position: relative;
   box-sizing: border-box;
+  font-weight: bold;
 }
 
 .studentInventory .list-item .power-icon {
@@ -154,12 +155,16 @@
   background-color: orange;
 }
 
-.studentInventory .useCard{
+.studentInventory .useCard, .studentInventory .useItem{
   background-color: lightgreen;
 }
 
 .studentInventory .difuminar{
   opacity:0.5;
+}
+
+.studentInventory .addBtn .glyphicon {
+  font-size: 7rem !important;
 }
 
 .studentProfile .stamina-gauge {

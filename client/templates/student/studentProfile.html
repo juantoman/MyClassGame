@@ -488,6 +488,11 @@
                     <span class="item-strength">{{badge.points}} XP</span>
                   </li>
                 {{/each}}
+                {{#if teacher}}
+                  <li class="list-item addBtn btn-badge">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="Cartas">
@@ -528,6 +533,11 @@
                     {{/if}}
                   </li>
                 {{/each}}
+                {{#if teacher}}
+                  <li class="list-item addBtn btn-cards">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
               </ul>
               
             </div>
@@ -559,6 +569,11 @@
                     <span class="item-strength">{{chrome.chromePrice}} €</span>
                   </li>
                 {{/each}}
+                {{#if teacher}}
+                  <li class="list-item addBtn btn-cards">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="Artículos">
@@ -597,6 +612,11 @@
                     {{/if}}
                   </li>
                 {{/each}}
+                {{#if myuser}}
+                  <li class="list-item addBtn btn-store">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane" id="Historial">
