@@ -871,6 +871,24 @@ Template.studentProfile.events({
     if (Session.get('userType')=="teacher") {
       Modal.show('imagesTemplate');
     }
+  },
+  'click .removeBtn': function(event) {
+    event.preventDefault();
+    swal({
+      title: "¿Estás seguro de querer eliminar este cromo?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
+          break;
+      }
+    });
   }
 });
 

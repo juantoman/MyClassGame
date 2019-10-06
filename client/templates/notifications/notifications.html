@@ -18,6 +18,9 @@
         {{#each notiCards}}
           <li class="list-item validarCard {{#if used}}elementUsed{{/if}}">
             <span class="power-icon">{{card.cardName}}</span>
+            {{#if used}}
+              <span class="displayUsed">Aceptado</span>
+            {{/if}}
             <span class="item-image"><img src="{{element_src  card.cardImage}}" alt=""></span>
             <span class="item-strength">{{student.studentName}}</span>
           </li>

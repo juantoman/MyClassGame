@@ -990,7 +990,20 @@ h4.panel-title {
 }
 
 .elementUsed {
-  background-color: lightgreen !important;
+  opacity: 0.5 !important;
+}
+
+.displayUsed{
+  position: absolute;
+  right: 60px;
+  bottom: 60px;
+  border-radius: 6px;
+  padding: .5rem 1rem;
+  outline: 1px solid grey;
+  outline-offset: -6px;
+  background-color: orange;
+  color: white;
+  z-index: 1000000;
 }
 
 @media (max-width: 740px) {

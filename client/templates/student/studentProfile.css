@@ -20,7 +20,7 @@
 }
 
 .studentInfo h2{
-  margin:1vh;
+  margin-top:-4vh;
   color:rgba(0,0,0,.7) !important;
   font-size: 5vh;
   font-weight: bold;
@@ -28,10 +28,16 @@
 }
 
 .studentInfo h4{
-  margin:1vh;
+  margin-top:-1vh;
   color:rgba(0,0,0,.4) !important;
   font-size: 1vh;
   text-transform: none;
+  margin-bottom:1vh;
+}
+
+.studentInventory .card {
+  margin-top:-5vh;
+  transform: scale(1);
 }
 
 @media (min-width: 1040px) {
@@ -96,6 +102,25 @@
   position: relative;
   box-sizing: border-box;
   font-weight: bold;
+  transition: transform 0.1s;
+}
+
+.studentInventory .list-item:not(.addBtn):hover {
+  transform: scale(2);
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 1000;
+}  
+
+.studentInventory .list-item:not(.addBtn):hover .item-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-64%) translateY(-50%);
+}
+
+.studentInventory .list-item:hover .item-image img{
+  display: block;
+  width: 130%;
 }
 
 .studentInventory .list-item .power-icon {
@@ -106,6 +131,7 @@
   padding: .5rem 1rem;
   background-color: #4298F0;
   color: white;
+  z-index:1;
 }
 
 .studentInventory .list-item .stock-icon {
@@ -116,6 +142,11 @@
   padding: .5rem 1rem;
   background-color: gold;
   color: blue;
+  z-index:1;
+}
+
+.studentInventory .list-item .removeBtn {
+  color:white;
 }
 
 .studentInventory .list-item .item-image {
