@@ -831,14 +831,42 @@ Template.studentProfile.events({
   },
   'click .demandCard': function(event) {
     event.preventDefault();
-    Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
-    Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
+    swal({
+      title: "¿Estás seguro de querer solicitar el uso de esta carta?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
+          Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
+          break;
+      }
+    })
   },
   'click .useCard': function(event) {
     event.preventDefault();
     if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
-      Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
-      Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
+      swal({
+        title: "¿Estás seguro de querer utilizar esta carta?",
+        buttons: {
+          NO: "No",
+          SÍ: true,
+        },
+        icon: "warning"
+      })
+      .then((value) => {
+        switch (value) {
+          case "SÍ":
+            Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+            Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
+            break;
+        }
+      })
     } else {
       swal({
         title: "¡No tienes bastantes monedas!",
@@ -849,12 +877,40 @@ Template.studentProfile.events({
   },
   'click .demandItem': function(event) {
     event.preventDefault();
-    Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
-    Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
+    swal({
+      title: "¿Estás seguro de querer solicitar el uso de este artículo?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
+          Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
+          break;
+      }
+    })
   },
   'click .useItem': function(event) {
     event.preventDefault();
-    Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
+    swal({
+      title: "¿Estás seguro de querer utilizar este artículo?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
+          break;
+      }
+    });
   },
   'click .btn-delete-student': function(event) {
     event.preventDefault();

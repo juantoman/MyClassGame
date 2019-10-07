@@ -30,12 +30,40 @@ Template.notifications.helpers({
 Template.notifications.events({
  'click .validarCard': function(event) {
     event.preventDefault();
-    Meteor.call('studentUseCard', this.studentId, this.elementId);
-    Meteor.call('usedCard', this._id);
+    swal({
+        title: "¿Estás seguro de querer validar el uso de esta carta?",
+        buttons: {
+          NO: "No",
+          SÍ: true,
+        },
+        icon: "warning"
+      })
+      .then((value) => {
+        switch (value) {
+          case "SÍ":
+            Meteor.call('studentUseCard', this.studentId, this.elementId);
+            Meteor.call('usedCard', this._id);
+            break;
+        }
+      })
   },
   'click .validarItem': function(event) {
     event.preventDefault();
-    Meteor.call('studentUseItem', this.studentId, this.elementId);
-    Meteor.call('usedItem', this._id);
+    swal({
+        title: "¿Estás seguro de querer validar el uso de este artículo?",
+        buttons: {
+          NO: "No",
+          SÍ: true,
+        },
+        icon: "warning"
+      })
+      .then((value) => {
+        switch (value) {
+          case "SÍ":
+            Meteor.call('studentUseItem', this.studentId, this.elementId);
+            Meteor.call('usedItem', this._id);
+            break;
+        }
+      })
   }
 });
