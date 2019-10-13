@@ -17,6 +17,7 @@ body {
   right: 0;
   left: 0;
   z-index: 20;
+  height:60px;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
