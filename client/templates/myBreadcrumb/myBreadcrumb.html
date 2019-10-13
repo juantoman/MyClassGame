@@ -1,6 +1,14 @@
 <template name="myBreadcrumb">
   <div class="topMenu">
     <div class="btn-group leftBtns" role="group" aria-label="Basic example">
+      <div id="mySidepanel" class="sidepanel">
+        <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>About</a>
+        <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Services</a>
+        <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Clients</a>
+        <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Contact</a>
+      </div>
+
+      <button type="button" class="openbtn btn btn-default btn-md">&#9776;</button>
       <button type="button" class="clases btn btn-warning btn-md">Clases {{#if userType}}({{userType}}){{/if}}</button>
       {{#if className}}<button type="button" class="clase btn btn-info btn-md">{{className}}</button>{{/if}}
       {{#if studentName}}<button type="button" class="estudiante btn btn-danger btn-md">{{studentName}}</button>{{/if}}
@@ -9,4 +17,5 @@
       <li class="btn btn-warning closeSession btn-md">Cerrar sesión</li>
     </ol>
   </div>
+  
 </template> 

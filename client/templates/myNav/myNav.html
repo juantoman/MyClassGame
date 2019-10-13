@@ -3,8 +3,8 @@
   <!-- Nav tabs -->
   <div id="mainTab">
     <div class="opacityDiv">
-      {{> myBreadcrumb}}
-      <div class="menu-superior {{menuSuperiorVisible}}" id="menu-superior">
+      
+      <div class="menu-superior {{menuSuperiorVisible}} oculto" id="menu-superior">
         <div class="list-group">
         
             <a class="btn btn-warning" id="btnStudents" data-toggle="collapse" href="#collapseStudents" role="button" aria-expanded="false">Estudiantes y grupos</a>
@@ -85,17 +85,6 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="studentsMain">{{> studentsMainPage}}</div>
         <div role="tabpanel" class="tab-pane" id="tools">{{> tools}}</div>
-        <!--  Proyectos
-        <div role="tabpanel" class="tab-pane" id="projects">{{> projects}}</div>
-        <div role="tabpanel" class="tab-pane" id="projects">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Proyectos</h1>
-              <p class="lead">En construcción</p>
-            </div>
-          </div>
-        </div>
-        -->
         <div role="tabpanel" class="tab-pane" id="gamification">{{> gamification}}</div>
         <div role="tabpanel" class="tab-pane" id="chat">{{> chat}}</div>
         <div role="tabpanel" class="tab-pane" id="myAdventure">{{> myAdventure}}</div>

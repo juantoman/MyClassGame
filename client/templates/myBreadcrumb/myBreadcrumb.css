@@ -1,0 +1,48 @@
+ /* The sidepanel menu */
+.sidepanel {
+  height: auto; /* Specify a height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 140px;
+  left: 0;
+  background-color:#268BD2; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+  opacity:0.9;
+}
+
+/* The sidepanel links */
+.sidepanel a {
+  padding: 8px 8px 8px 10px;
+  text-decoration: none;
+  font-size: 1em;
+  color: #ccc;
+  display: block;
+  transition: 0.2s;
+  border:1px solid #268BD2;
+
+}
+.sidepanel a span{
+  padding-right: 5px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+  color: white;
+  border:1px solid white;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+} 

@@ -16,7 +16,7 @@ body {
   background: white;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
-  padding-top: 97px;
+  padding-top: 66px;
   padding-bottom: 0px;
 }
 
@@ -100,8 +100,9 @@ body {
 
 .topMenu {
   position:relative;
-  background-color: white;
+  background-color: rgb(34, 122, 181,.7);
   border-bottom:1px solid lightgray;
+  top:-20px;
 }
 
 .topMenu .leftBtns{
@@ -327,15 +328,10 @@ a:hover, a:link {
     -ms-transition: all 1s ease;
     transition: all 1s ease;
 }
-.footer #button:hover{
+
+.footer #button img{
 	width:35px;
 	height:35px;
-	border: #3A3A3A 12px solid;
-	-webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    transition: all 1s ease;
 	position:relative;
 }
 
@@ -398,6 +394,54 @@ a:hover, a:link {
 .footer h3 a{
   text-decoration: none;
   color:#02FF02;
+}
+
+#myheader {
+  position:relative;
+  width:100%;
+  height:90px;
+  top:-20px;
+  
+}
+
+#mylogo {
+  /*transform: translate(0, 40px);*/
+  transition: transform 0.3s;
+  transform: scale(.6);
+  margin:auto;
+  margin-top:-15px;
+  margin-left:-90px;
+  z-index:100;
+}
+
+#mylogo:hover {
+
+}
+
+#mylogo span{
+  position:relative;
+  font-size: 4em;
+  font-weight: bold;
+  top:-5px;
+  text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
+}
+
+#mylogo img{
+  position:relative;
+  top:-10px;
+  width:90px;
+  -webkit-filter: drop-shadow(5px 5px 5px #555 );
+  filter: drop-shadow(3px 3px 5px #555);
+}
+
+.welearnplaying{
+  color:white;
+  font-size: 2em;
+  top:-50px;
+  padding-left:80px;
+  margin:auto;
+  position:relative;
+  text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
 }
 
 label {
@@ -550,6 +594,7 @@ label {
 .myContent h4, .breadcrumb2 li{
   font-size: 2vh !important;
 }
+
 .h2newclass {
   background-color: rgba(252,194,69,1) !important;
 }
@@ -1036,7 +1081,7 @@ li[title]:hover:after {
   z-index: 100;
   opacity: 0.9;
   display:none;
-  top:170px;
+  top:200px;
 }
 #menuBtn {
   position: fixed;
@@ -1057,10 +1102,6 @@ h1,h2,h3,h4,h5,h6{
 
 h4.panel-title {
   font-size: 1.5vmax !important;
-}
-
-.navbar-wrapper{
-  height: 100px;
 }
 
 .modal-dialog{

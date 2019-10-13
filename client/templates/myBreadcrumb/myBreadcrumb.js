@@ -1,3 +1,4 @@
+
 /*Template.register.onRendered(function () {
   //alert(Meteor.users.findOne(Meteor.user()).userType);
   Session.set('userType', Meteor.users.findOne(Meteor.user()).userType);
@@ -56,5 +57,13 @@ Template.myBreadcrumb.events({
     Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.logout();
+  },
+  'mouseenter .openbtn': function(event) {
+    event.preventDefault();
+    document.getElementById("mySidepanel").style.width = "100px";
+  },
+  'mouseleave .sidepanel': function(event) {
+    event.preventDefault();
+    document.getElementById("mySidepanel").style.width = "0px";
   }
 });
