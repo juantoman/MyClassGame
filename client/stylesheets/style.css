@@ -1122,15 +1122,17 @@ h4.panel-title {
 
 .displayUsed{
   position: absolute;
-  right: 60px;
-  bottom: 60px;
+  left: 8px;
+  bottom: 50px;
   border-radius: 6px;
   padding: .5rem 1rem;
   outline: 1px solid grey;
   outline-offset: -6px;
-  background-color: orange;
+  background-color: lightgreen;
   color: white;
-  z-index: 1000000;
+  z-index: 100;
+  font-size: 2em;
+  opacity: 1 !important;
 }
 
 @media (max-width: 740px) {
