@@ -8,6 +8,10 @@ Meteor.startup(() => {
   process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
 });
 
+Accounts.config({
+    loginExpirationInDays: 0.02
+})
+
 Accounts.emailTemplates.siteName = '@MyClassGame';
 
 Accounts.emailTemplates.from = '@MyClassGame Admin <myclassgame@gmail.com>';
