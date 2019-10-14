@@ -13,7 +13,7 @@ Template.login.events({
      },
      'click #google': function(e) {
         e.preventDefault();
-        Meteor.loginWithGoogle(redirect_uri="http://192.168.1.1/_oauth/google ",function(error){
+        Meteor.loginWithGoogle(redirect_uri="http://myclassgame.iestacio.com/_oauth/google",function(error){
             if(error) {
                 //Router.go('/classesPage');
                 //do something if error occurred or 
