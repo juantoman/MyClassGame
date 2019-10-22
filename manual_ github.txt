@@ -19,6 +19,5 @@ git pull origin master
 Forzar git:
 -----------
 git fetch --all
-git reset --hard origin/master
-
+git reset --hard e1622e136c38bd30a46d43ce9b6f75b0199d0fb2
 

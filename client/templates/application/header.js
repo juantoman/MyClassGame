@@ -58,7 +58,7 @@ Template.header.events({
     Session.set('groupSelected', false);
     //Session.set('userType', "");
     //$("#fondo").css("background-image", "");
-    Router.go('classesPage');
+    Router.go('/');
     Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.logout();

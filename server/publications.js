@@ -49,7 +49,6 @@ Meteor.publish('students', function(userType,classId) {
   if (classId){
     return students.find({"classId":classId});
   }
-  console.log(classId);
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {

@@ -3,3 +3,5 @@ db.mcgParameters.insert({"_id":1,"typeClasses" : [], "passMCG" : "" });
 meteor npm install --save sweetalert
 
 meteor npm install --save chart.js  
+
+meteor npm install @babel/runtime@7.0.0-beta.55
