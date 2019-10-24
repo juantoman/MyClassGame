@@ -2,6 +2,7 @@ Template.classesPage.onRendered(function() {
   Session.set('className', "");
   Session.set('userType', "teacher");
   Meteor.call('userTypeInsert', "teacher");
+  //alert(Meteor.userId());
   //handleClientLoad();
   /*t=[];
   if( typeof Meteor.user().classesTeacher == "undefined") {
@@ -16,7 +17,7 @@ Template.classesPage.onRendered(function() {
   catch(err) {
     Session.set("emailUser",Meteor.users.findOne({_id: Meteor.userId()}).services.google.email);
   }
-  //Session.set('userType',Meteor.users.findOne(Meteor.user()).userType); 
+  //Session.set('userType',Meteor.users.findOne(Meteor.user()).userType);
 });
 
 Template.classesPage.helpers({
@@ -93,8 +94,8 @@ Template.classesPage.helpers({
 Template.classesPage.events({
   'click .btn-class': function(event) {
     event.preventDefault();
-    Session.set('classId', this._id);
-    Session.set('className', this.className);
+    Session.setPersistent('classId', this._id);
+    Session.setPersistent('className', this.className);
     Session.setPersistent('navItem', "Students");
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");
@@ -165,7 +166,7 @@ Template.classesPage.events({
       student.classId=Session.get('classId');
       Meteor.call('studentInsert',student);
     });*/
-    
+
   },
   'click .btn-delete-class': function(event) {
     event.preventDefault();
