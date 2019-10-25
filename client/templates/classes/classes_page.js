@@ -107,15 +107,15 @@ Template.classesPage.events({
     Session.set('invertOrder', "checked");
     if ( $(event.currentTarget).hasClass("classAsTeacher") ) {
       Meteor.call('userTypeInsert', "teacher");
-      Session.set('userType','teacher');
+      Session.setPersistent('userType','teacher');
     }
     if ( $(event.currentTarget).hasClass("classAsStudent") ) {
       Meteor.call('userTypeInsert', "student");
-      Session.set('userType','student');
+      Session.setPersistent('userType','student');
     }
     if ( $(event.currentTarget).hasClass("classAsParent") ) {
       Meteor.call('userTypeInsert', "parent");
-      Session.set('userType','parent');
+      Session.setPersistent('userType','parent');
     }
     Router.go('myNav',{_id:Session.get('classId')});
   },
