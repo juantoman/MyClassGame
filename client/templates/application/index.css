@@ -79,14 +79,23 @@ body {
 
 .navbar-nav li a{
   color:white !important;
+  font-size: .7em !important;
+  padding:5px !important;
+  margin:10px 1px !important;
+}
+
+.navbar-nav .dropdown-menu{
+  padding:0px !important;
+  margin:-10px 0px!important;
+  background-color: #275D84 !important;
+}
+.navbar-nav .dropdown-menu li a{
+  margin:0px !important;
 }
 
 .navbar-nav li{
   padding:0px !important;
   margin:0px !important;
-}
-
-.navbar-nav li{
   margin-top: 20px;
 }
 
@@ -173,8 +182,8 @@ body {
     margin-top: 40px;
     border: 1px solid white !important;
     background-color: #6fbfDf !important;
- } 
- 
+ }
+
 @media (min-width: 740px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
@@ -204,11 +213,11 @@ body {
   .featurette-heading {
     font-size: 50px;
   }
-  
+
   .marketing p {
     font-size: 1.5vmax !important;
   }
-  
+
 }
 
 .login-form {
@@ -231,7 +240,7 @@ body {
 
 
 #google {
-  
+
 }
 
 @media (min-width: 992px) {
