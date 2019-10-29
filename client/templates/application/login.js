@@ -5,7 +5,7 @@ Template.login.events({
         var password = e.target.password.value;
         Meteor.loginWithPassword(email, password,function(error){
             if(error) {
-                //do something if error occurred or 
+                //do something if error occurred or
             }else{
                Router.go('/');
             }
@@ -16,9 +16,10 @@ Template.login.events({
         Meteor.loginWithGoogle(redirect_uri="http://myclassgame.iestacio.com/_oauth/google",function(error){
             if(error) {
                 //Router.go('/classesPage');
-                //do something if error occurred or 
+                //do something if error occurred or
             }else{
-               Router.go('/');
+              Meteor.call('mcgLog', 'login: ' + Meteor.userId());
+              Router.go('/');
             }
         });
      },

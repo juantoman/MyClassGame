@@ -6,6 +6,7 @@ import { Email } from 'meteor/email'
 
 Meteor.startup(() => {
   process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
+  fs = Npm.require('fs');
 });
 /*
 Accounts.config({
@@ -39,3 +40,18 @@ Accounts.emailTemplates.verifyEmail = {
       return `Hey ${user}! Verify your e-mail by following this link: ${url}`;
    }
 };
+
+Meteor.methods({
+  mcgLog: function(texto) {
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    fs.appendFile(process.env["PWD"] + '/myclassgame.log', dateTime + ' : ' + texto + '\n',
+        function (err) {
+            if (err) throw err;
+              console.log('Done!');
+        }
+    );
+  }
+});
