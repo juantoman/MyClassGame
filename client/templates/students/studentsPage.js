@@ -246,6 +246,7 @@ Template.studentsPage.events({
       Session.setPersistent('studentId', this._id);
       Session.set('studentSelected', true);
     }
+    Meteor.call('mcgLog', 'selectStudent -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId') + ' , studentId : ' + Session.get('studentId'));
     event.stopPropagation();
   },
   'click #drive': function(event) {

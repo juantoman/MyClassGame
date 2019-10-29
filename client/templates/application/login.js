@@ -7,7 +7,8 @@ Template.login.events({
             if(error) {
                 //do something if error occurred or
             }else{
-               Router.go('/');
+              Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
+              Router.go('/');
             }
         });
      },
@@ -18,7 +19,7 @@ Template.login.events({
                 //Router.go('/classesPage');
                 //do something if error occurred or
             }else{
-              Meteor.call('mcgLog', 'login: ' + Meteor.userId());
+              Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
               Router.go('/');
             }
         });
