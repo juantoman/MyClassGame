@@ -61,6 +61,7 @@ Template.header.events({
     //Router.go('/');
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
+    Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
     Meteor.logout();
     window.location.href = "/";
   },

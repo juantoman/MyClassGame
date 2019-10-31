@@ -28,14 +28,14 @@
           		  <h2>{{alias}} <br> <small>{{_id}}</small></h2>
           		{{/if}}
           	</div>
-          
+
               <div class="col-xs-12 cardProfile">
               	<figure class="card card__water">
                     <div class="card__image-container" name="{{_id}}">
                       <img class="cardLogo" src="/images/@mcgnb.png">
-                      <img src="{{image avatar}}" alt="Eevee" class="card__image eImage" name="{{_id}}">   
+                      <img src="{{image avatar}}" alt="Eevee" class="card__image eImage" name="{{_id}}">
                     </div>
-                    
+
                     <figcaption class="card__caption">
                       {{#if teacher}}
                         <h1 class="card__name">{{alias}} ({{studentName}})</h1>
@@ -48,7 +48,7 @@
                       <h3 class="card__type">
                         Nivel {{levelAutomatic _id}}
                       </h3>
-                  
+
                       <table class="card__stats">
                         <tbody><tr>
                           <th><span class="btn-xp">XP</span></th>
@@ -58,12 +58,12 @@
                           <th><span class="btn-hp">HP</span></th>
                           <td><span class="btn-hp">{{HP}}</span></td>
                         </tr>
-                        
+
                         <tr>
                           <th><span class="btn-store">Monedas</span></th>
                           <td><span class="btn-store">{{coins}}</span></td>
                         </tr>
-                        
+
                       </tbody></table>
                       <div class="cardLine">
                       </div>
@@ -98,7 +98,7 @@
           		<hr class="colorgraph">
               <div class="row">
                 <div class="col-xs-12">
-                  
+
                 	<form role="form" class="dataStudent">
                   	<div class="row">
                   	  {{#if teacher}}
@@ -174,7 +174,7 @@
                           <div class="col-xs-6 col-sm-3"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
                         {{/if}}
                   		</div>
-                	</form> 
+                	</form>
                 </div>
               </div>
             </div>
@@ -309,7 +309,7 @@
                                                 <textarea class="form-control rubricaText r6" rows="3">{{r6}}</textarea>
                                               </label>
                                             </div>
-                                          </div> 
+                                          </div>
                                           <div class="input-group col-xs-12">
                                             <a class="btn btn-info fileBtn" href="https://drive.google.com/open?id={{drive}}" target="_blank" >Ver fichero</a>
                                           </div>
@@ -539,7 +539,7 @@
                   </li>
                 {{/if}}
               </ul>
-              
+
             </div>
             <div role="tabpanel" class="tab-pane" id="Cromos">
               <!--
@@ -838,6 +838,6 @@
             </div>
           </div>
         </div>
-      </div> 
-  </div>  
+      </div>
+  </div>
 </template>
