@@ -62,7 +62,7 @@ Template.studentProfile.onRendered(function() {
     $(".opacityDiv").addClass('opacityProfile');
    }
    grafica();
-   
+
 });
 
 Template.studentProfile.helpers({
@@ -71,6 +71,10 @@ Template.studentProfile.helpers({
   },
   students: function() {
     return students.find({ classId: Session.get('classId') } );
+  },
+  studentId: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return this._id.substring(0,6);
   },
   mac: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
@@ -225,7 +229,7 @@ Template.studentProfile.helpers({
     } else {
      return "readonly";
     };
-  }*/  
+  }*/
   teacher: function() {
     if (Session.get('userType')=="teacher") {
      return true;
@@ -389,7 +393,7 @@ Template.studentProfile.helpers({
         return notas + " = " + nota;
       } else {
         return "Misión sin calificar";
-      }      
+      }
     }
   },
   notaMediaMisiones: function(){
@@ -405,7 +409,7 @@ Template.studentProfile.helpers({
         if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
           nota=parseInt(chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP);
           if (isNaN(nota)) {
-            nota=0; 
+            nota=0;
           } else {
             if (notas=="") {
               notas=nota;
@@ -423,7 +427,7 @@ Template.studentProfile.helpers({
           //console.log(chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count());
           if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
             n=parseInt(chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP);
-            nm=0;            
+            nm=0;
             //nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).count();
             //màxim registrats per tots els grups
             notebookWork.find({'mission':cId}).forEach(function(sw){
@@ -438,8 +442,8 @@ Template.studentProfile.helpers({
             nm=notebookWork.find({'mission':cId,'studentId':Session.get('studentId')}).count();
             notebookWork.find({'mission':cId,'studentId':Session.get('studentId'),validated:true}).forEach(function(sw){ w+=parseInt(sw.work); });
             nota=(n*w/nm)/100;
-            if (isNaN(nota)) { 
-              nota=0; 
+            if (isNaN(nota)) {
+              nota=0;
             } else {
               if (notas=="") {
                 notas=nota;
@@ -451,7 +455,7 @@ Template.studentProfile.helpers({
               //console.log(cm);
             }
           }
-          
+
           //console.log(nmm);
         /*}
         catch(err){
@@ -720,7 +724,7 @@ Template.studentProfile.events({
       max_files: 8,
       }, {
            /*insertHandler: function (data) {
-             data.assets.forEach(asset => { console.log("Inserted asset:", 
+             data.assets.forEach(asset => { console.log("Inserted asset:",
                JSON.stringify(asset, null, 2)) })
            }*/
          }

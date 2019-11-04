@@ -23,9 +23,9 @@
             <div class="studentInfo">
               {{#if teacher}}
           		  <h2>{{studentName}}</h2>
-          		  <h4>{{_id}}</h4>
+          		  <!--<h4>{{_id}}</h4>-->
           		{{else}}
-          		  <h2>{{alias}} <br> <small>{{_id}}</small></h2>
+          		  <h2>{{alias}} <!--<br> <small>{{_id}}</small>--></h2>
           		{{/if}}
           	</div>
 
@@ -94,7 +94,7 @@
         <div class="col-xs-12 col-md-8 well" id="rightPanel">
           <div class="col tab-content">
             <div role="tabpanel" class="tab-pane active" id="Datos">
-              <h2>Datos</h2>
+              <h2>Datos <span class="label label-info"> {{studentId}}</span></h2>
           		<hr class="colorgraph">
               <div class="row">
                 <div class="col-xs-12">

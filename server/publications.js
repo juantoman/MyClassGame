@@ -45,16 +45,22 @@ Meteor.publish('classes', function(classId) {
       return classes.find({"_id": { "$in": c }});
     }*/
 });
-Meteor.publish('students', function(userType,classId) {
+Meteor.publish('students', function(type,classId) {
   if (classId){
     return students.find({"classId":classId});
   } else {
     return students.find();
   }
   /*
+  if (classId){
+    return students.find({"classId":classId});
+  } else {
+    return students.find();
+  }
+
   v=[];
   tipos=mcgParameters.findOne().typeClasses;
-  if ( userType == "teacher") {
+  if ( type == "teacher") {
       classes.find({"teacherId": Meteor.userId()},{fields: {'_id':1}}).forEach(function(c){v.push(c._id);});
       return students.find( { $or: [ { "classId": { "$in": v } } , { "classId": { "$in": tipos } } ] } );
   } else {
@@ -62,7 +68,7 @@ Meteor.publish('students', function(userType,classId) {
       return students.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('groups', function(userType,classId) {
+Meteor.publish('groups', function(type,classId) {
   if (classId){
     return groups.find({"classId":classId});
   } else {
@@ -79,7 +85,7 @@ Meteor.publish('groups', function(userType,classId) {
       return groups.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('randomEvents', function(userType,classId) {
+Meteor.publish('randomEvents', function(type,classId) {
   if (classId){
     return randomEvents.find({"classId":classId});
   } else {
@@ -96,7 +102,7 @@ Meteor.publish('randomEvents', function(userType,classId) {
       return randomEvents.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('behaviours', function(userType,classId) {
+Meteor.publish('behaviours', function(type,classId) {
   if (classId){
     return behaviours.find({"classId":classId});
   } else {
@@ -113,7 +119,7 @@ Meteor.publish('behaviours', function(userType,classId) {
       return behaviours.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('behavioursLog', function(userType,classId) {
+Meteor.publish('behavioursLog', function(type,classId) {
   if (classId){
     return behavioursLog.find({"classId":classId});
   } else {
@@ -130,7 +136,7 @@ Meteor.publish('behavioursLog', function(userType,classId) {
       return behavioursLog.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('badges', function(userType,classId) {
+Meteor.publish('badges', function(type,classId) {
   if (classId){
     return badges.find({"classId":classId});
   } else {
@@ -147,7 +153,7 @@ Meteor.publish('badges', function(userType,classId) {
       return badges.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('store', function(userType,classId) {
+Meteor.publish('store', function(type,classId) {
   if (classId){
     return store.find({"classId":classId});
   } else {
@@ -164,7 +170,7 @@ Meteor.publish('store', function(userType,classId) {
       return store.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('convictions', function(userType,classId) {
+Meteor.publish('convictions', function(type,classId) {
   if (classId){
     return convictions.find({"classId":classId});
   } else {
@@ -181,7 +187,7 @@ Meteor.publish('convictions', function(userType,classId) {
       return convictions.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('quotes', function(userType,classId) {
+Meteor.publish('quotes', function(type,classId) {
   if (classId){
     return quotes.find({"classId":classId});
   } else {
@@ -198,7 +204,7 @@ Meteor.publish('quotes', function(userType,classId) {
       return quotes.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('levels', function(userType,classId) {
+Meteor.publish('levels', function(type,classId) {
   if (classId){
     return levels.find({"classId":classId});
   } else {
@@ -215,7 +221,7 @@ Meteor.publish('levels', function(userType,classId) {
       return levels.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('challenges', function(userType,classId) {
+Meteor.publish('challenges', function(type,classId) {
   if (classId){
     return challenges.find({"classId":classId});
   } else {
@@ -232,7 +238,7 @@ Meteor.publish('challenges', function(userType,classId) {
       return challenges.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('chalMissions', function(userType,classId) {
+Meteor.publish('chalMissions', function(type,classId) {
   if (classId){
     return chalMissions.find({"classId":classId});
   } else {
@@ -249,7 +255,7 @@ Meteor.publish('chalMissions', function(userType,classId) {
       return chalMissions.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('chalPoints', function(userType,classId) {
+Meteor.publish('chalPoints', function(type,classId) {
   if (classId){
     return chalPoints.find({"classId":classId});
   } else {
@@ -266,7 +272,7 @@ Meteor.publish('chalPoints', function(userType,classId) {
       return chalPoints.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('challengesXP', function(userType,classId) {
+Meteor.publish('challengesXP', function(type,classId) {
   if (classId){
     return challengesXP.find({"classId":classId});
   } else {
@@ -283,7 +289,7 @@ Meteor.publish('challengesXP', function(userType,classId) {
       return challengesXP.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('diary', function(userType,classId) {
+Meteor.publish('diary', function(type,classId) {
   if (classId){
     return diary.find({"classId":classId});
   } else {
@@ -300,7 +306,7 @@ Meteor.publish('diary', function(userType,classId) {
       return diary.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('notebook', function(userType,classId) {
+Meteor.publish('notebook', function(type,classId) {
   if (classId){
     return notebook.find({"classId":classId});
   } else {
@@ -317,7 +323,7 @@ Meteor.publish('notebook', function(userType,classId) {
       return notebook.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('notebookWork', function(userType,classId) {
+Meteor.publish('notebookWork', function(type,classId) {
   if (classId){
     return notebookWork.find({"classId":classId});
   } else {
@@ -346,7 +352,7 @@ Meteor.publish('images', function() {
   }*/
   return images.find();
 });
-Meteor.publish('cards', function(userType,classId) {
+Meteor.publish('cards', function(type,classId) {
   if (classId){
     return cards.find({"classId":classId});
   } else {
@@ -363,7 +369,7 @@ Meteor.publish('cards', function(userType,classId) {
       return cards.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('chromes', function(userType,classId) {
+Meteor.publish('chromes', function(type,classId) {
   if (classId){
     return chromes.find({"classId":classId});
   } else {
@@ -380,7 +386,7 @@ Meteor.publish('chromes', function(userType,classId) {
       return chromes.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('chatClass', function(userType,classId) {
+Meteor.publish('chatClass', function(type,classId) {
   if (classId){
     return chatClass.find({"classId":classId});
   } else {
@@ -400,7 +406,7 @@ Meteor.publish('chatClass', function(userType,classId) {
 Meteor.publish('chatTeachers', function() {
   return chatTeachers.find();
 });
-Meteor.publish('notifications', function(userType,classId) {
+Meteor.publish('notifications', function(type,classId) {
   if (classId){
     return notifications.find({"classId":classId});
   } else {

@@ -1,9 +1,12 @@
 Template.login.events({
     'submit .login-form': function(e) {
         e.preventDefault();
-        var email = e.target.email.value;
+        var user = e.target.email.value;
         var password = e.target.password.value;
-        Meteor.loginWithPassword(email, password,function(error){
+        if ( user.indexOf("@") === -1 ) {
+          user+="@myclassgame.tk";
+        }
+        Meteor.loginWithPassword(user, password,function(error){
             if(error) {
                 //do something if error occurred or
             }else{
@@ -44,14 +47,22 @@ Template.login.events({
         e.preventDefault();
         var email = $("#email").val();
         var password = $("#password").val();
+        if ( email.indexOf("@") === -1 ) {
+          email+="@myclassgame.tk";
+        }
         Accounts.createUser({email: email,password: password}, function (e, r) {
             if (e) {
                 console.log(e.reason);
+                swal({
+                    title: "¡Error de registro!",
+                    text: e.reason,
+                    icon: "warning",
+                });
             } else {
                 // success
                 swal({
                     title: "¡Usuario registrado correctamente!",
-                    text: "Se ha registrado el uruario "+ email,
+                    text: "Se ha registrado el usuario "+ email,
                     icon: "info",
                 });
             }

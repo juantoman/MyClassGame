@@ -68,3 +68,37 @@
 2019-10-31 12:27:25 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
 2019-10-31 12:33:32 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
 2019-10-31 12:38:48 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
+2019-11-4 9:2:10 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 10:3:24 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 10:4:12 : selectClass -> userId: X4gJosMyyirAoAepj , classId : AQQG52qzeduNe7utm
+2019-11-4 10:4:17 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : AQQG52qzeduNe7utm , studentId : 6D4Ev9Ga98EmgGCYN
+2019-11-4 10:4:30 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 10:7:52 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
+2019-11-4 10:10:15 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 10:11:28 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 10:11:31 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 10:11:42 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
+2019-11-4 10:21:15 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
+2019-11-4 11:27:57 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 11:34:7 : closeSession -> userId: PMp7BDb7kkH93jksq
+2019-11-4 11:54:11 : closeSession -> userId: 42tgqsbjnhRsptHGJ
+2019-11-4 11:58:9 : closeSession -> userId: ExJhKRvsoo2y5CY7a
+2019-11-4 12:0:25 : closeSession -> userId: pjrv5cACkP7dwyhSB
+2019-11-4 12:0:50 : loginEmail -> pjrv5cACkP7dwyhSB
+2019-11-4 12:1:0 : closeSession -> userId: pjrv5cACkP7dwyhSB
+2019-11-4 12:5:56 : closeSession -> userId: keJLLQBFepJLEWgL5
+2019-11-4 12:57:56 : closeSession -> userId: uAuvW8MRAm5nyLdNZ
+2019-11-4 12:58:30 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:0:3 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:0:45 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:1:4 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:2:17 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:2:36 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:3:56 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:20:24 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:32:3 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:35:18 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:37:8 : closeSession -> userId: JMTLessALiyKettcb
+2019-11-4 13:37:33 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 13:45:15 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 13:45:35 : loginEmail -> JMTLessALiyKettcb

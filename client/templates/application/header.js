@@ -30,6 +30,16 @@ Template.header.helpers({
   },
   groups: function() {
     return groups.find({classId: Session.get('classId')});
+  },
+  userN: function() {
+    console.log(Meteor.user().profile.name);
+    if (Meteor.user().profile.name) {
+      return Meteor.user().profile.name;
+    } else {
+      email=Meteor.user().emails[0].address;
+      n=email.indexOf("@")
+      return email.substring(0,n);
+    }
   }
 });
 
