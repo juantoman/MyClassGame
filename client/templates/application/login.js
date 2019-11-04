@@ -15,6 +15,28 @@ Template.login.events({
             }
         });
      },
+     'submit .login-form2': function(e) {
+         e.preventDefault();
+         var user = e.target.email2.value;
+         var password = e.target.password2.value;
+         user+="@myclassgame.tk";
+         Meteor.loginWithPassword(user, password,function(error){
+             if(error) {
+                 //do something if error occurred or
+             }else{
+               Meteor.call('mcgLog', 'loginStudentParent -> ' + Meteor.userId());
+               //Router.go('/');
+               regla="^" + password;
+               n=classes.find({"_id" : {'$regex' : regla }}).count();
+               cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
+               if (n==1){
+                 var Id = Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
+               }
+               Session.set('classId', cId);
+               Router.go("myNav",{_id:Session.get('classId')});
+             }
+         });
+      },
      'click #google': function(e) {
         e.preventDefault();
         Meteor.loginWithGoogle(redirect_uri="http://myclassgame.iestacio.com/_oauth/google",function(error){

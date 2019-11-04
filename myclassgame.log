@@ -102,3 +102,33 @@
 2019-11-4 13:37:33 : loginEmail -> JMTLessALiyKettcb
 2019-11-4 13:45:15 : closeSession -> userId: X4gJosMyyirAoAepj
 2019-11-4 13:45:35 : loginEmail -> JMTLessALiyKettcb
+2019-11-4 16:10:53 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:11:9 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:11:23 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:13:21 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:13:37 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:14:14 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:15:16 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:15:51 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 16:15:54 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:16:16 : closeSession -> userId: 3gc6TQHFWNi8rwRH6
+2019-11-4 16:16:26 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 16:16:31 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 16:16:48 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:17:25 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 16:17:28 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:17:43 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:18:33 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:18:43 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 16:18:45 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 16:18:58 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:19:21 : loginEmail -> 3gc6TQHFWNi8rwRH6
+2019-11-4 16:19:28 : closeSession -> userId: 3gc6TQHFWNi8rwRH6
+2019-11-4 16:19:38 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-4 16:19:42 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-4 16:19:56 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-4 16:28:50 : loginStudentParent -> 3gc6TQHFWNi8rwRH6
+2019-11-4 16:28:54 : closeSession -> userId: 3gc6TQHFWNi8rwRH6
+2019-11-4 16:39:39 : loginStudentParent -> 3gc6TQHFWNi8rwRH6
+2019-11-4 16:40:39 : closeSession -> userId: 3gc6TQHFWNi8rwRH6
+2019-11-4 16:40:57 : loginStudentParent -> 3gc6TQHFWNi8rwRH6

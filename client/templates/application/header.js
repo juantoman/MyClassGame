@@ -32,14 +32,14 @@ Template.header.helpers({
     return groups.find({classId: Session.get('classId')});
   },
   userN: function() {
-    console.log(Meteor.user().profile.name);
-    if (Meteor.user().profile.name) {
-      return Meteor.user().profile.name;
-    } else {
-      email=Meteor.user().emails[0].address;
-      n=email.indexOf("@")
-      return email.substring(0,n);
+    try {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
     }
+    catch(err) {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
+    n=emailUser.indexOf("@")
+    return emailUser.substring(0,n);
   }
 });
 
@@ -72,8 +72,9 @@ Template.header.events({
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
+    Router.go('/');
     Meteor.logout();
-    window.location.href = "/";
+    //window.location.href = "/";
   },
   'click .student_button': function(event) {
     event.preventDefault();
