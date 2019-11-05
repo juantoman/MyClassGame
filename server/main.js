@@ -53,5 +53,27 @@ Meteor.methods({
               console.log('Done!');
         }
     );
+  },
+  createStudentUser: function(studentId) {
+    var u=Accounts.createUser({email: studentId.substring(0,6)+'@myclassgame.tk',password: studentId.substring(0,6)});
+    console.log(u);
+    alert(studentId);
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:uId} });
+    swal({
+        title: "¡Usuario creado correctamente!",
+        icon: "info",
+    });
+  },
+  deleteStudentUser: function(userId,studentId) {
+    Meteor.users.remove({'_id':userId});
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false} });
+    /*
+    Meteor.users.remove({'_id':uId});
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false} });
+    */
+    swal({
+        title: "¡Usuario borrado correctamente!",
+        icon: "info",
+    });
   }
 });

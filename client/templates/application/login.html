@@ -1,15 +1,28 @@
 <template name="login">
-    <form class="login-form">
+    <form class="login-form text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <p class="panel-title">
-                    <a data-toggle="collapse" href="#collapse1"><img width="30vmax" src="/images/@mcgnb.png"> Iniciar sesión/Registrar como profesor/a en <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
+                <p class="panel-title ">
+                    <a data-toggle="collapse" href="#collapse1"><img width="30vmax" src="/images/@mcgnb.png"> Iniciar sesión/Registrar en <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
+                    <!--
                     <button class="btn btn-warning btn-lg float-right" id="google">Iniciar sesión con Google</button>
+                    -->
                 </p>
             </div>
             <div id="collapse1" class="panel-collapse collapse">
                 <div class="panel-body">
-                    <p style="color: #268BD2;">Bienvenido a @MyClassGame</p>
+                    <p style="color: #268BD2;">Bienvenid@s a @MyClassGame</p>
+                    <div class="btn-group text-center" data-toggle="buttons">
+                      <label class="btn btn-info loginBtn active" id="teacherLogin">
+                        <input type="radio" name="options" id="teacherLogin" autocomplete="off" checked>Profesor
+                      </label>
+                      <label class="btn btn-info loginBtn">
+                        <input type="radio" name="options" id="studentLogin" autocomplete="off">Estudiante
+                      </label>
+                      <label class="btn btn-info loginBtn">
+                        <input type="radio" name="options" id="parentLogin" autocomplete="off">Padre/Madre
+                      </label>
+                    </div>
                     <div class="form-group">
                         <label>Usuario o Email</label>
                         <input type="text"  class="form-control" id="email" placeholder="Usuario o email">
@@ -20,34 +33,12 @@
                     </div>
                 </div>
                 <div class="panel-footer text-center">
-                    <button type="submit" class="btn btn-warning btn-md">Iniciar sesión</button>
+                  <button type="submit" class="btn btn-warning btn-md">Iniciar sesión</button>
+                  <span id="loginBtnTeacher">
                     <button class="btn btn-warning btn-md" id="register">Registrar</button>
                     <button class="btn btn-warning btn-md" id="reset">Restablecer contraseña</button>
-                </div>
-            </div>
-        </div>
-    </form>
-    <form class="login-form2">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <p class="panel-title">
-                    <a data-toggle="collapse" href="#collapse2"><img width="30vmax" src="/images/@mcgnb.png"> Iniciar sesión como estudiante o padre/madre en <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
-                </p>
-            </div>
-            <div id="collapse2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <p style="color: #268BD2;">Bienvenido a @MyClassGame</p>
-                    <div class="form-group">
-                        <label>Usuario</label>
-                        <input type="text"  class="form-control" id="email2" placeholder="Usuario">
-                    </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" id="password2" placeholder="Contraseña">
-                    </div>
-                </div>
-                <div class="panel-footer text-center">
-                    <button type="submit" class="btn btn-warning btn-md">Iniciar sesión</button>
+                    <button class="btn btn-warning btn-md" id="google">Iniciar sesión con Google</button>
+                  </span>
                 </div>
             </div>
         </div>

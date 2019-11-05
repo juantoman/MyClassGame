@@ -924,6 +924,15 @@ Template.studentProfile.events({
     event.preventDefault();
     Modal.show('resetStudent');
   },
+  'click .btn-create-student': function(event) {
+    event.preventDefault();
+    if ( ! this.userCreated || this.userCreated == null) {
+      Meteor.call('createStudentUser', Session.get('studentId'));
+    } else {
+      Meteor.call('deleteStudentUser', this.userId, Session.get('studentId'));
+    }
+
+  },
  'click .eImage': function(event) {
     event.preventDefault();
     Session.set('imageType','avatar');

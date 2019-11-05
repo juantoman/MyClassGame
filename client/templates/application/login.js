@@ -7,35 +7,50 @@ Template.login.events({
           user+="@myclassgame.tk";
         }
         Meteor.loginWithPassword(user, password,function(error){
-            if(error) {
-                //do something if error occurred or
-            }else{
+          if(error) {
+              //do something if error occurred or
+          }else{
+            regla="^" + password;
+            n=students.find({"_id" : {'$regex' : regla }}).count();
+            if (n==1){
+              cId=students.findOne({"_id" : {'$regex' : regla }}).classId;
+              Session.setPersistent('classId', cId);
+              Session.setPersistent('className', classes.findOne({"_id" :cId}));
+              Session.setPersistent('navItem', "Students");
+              Session.setPersistent('sogBtn',"students");
+              Session.setPersistent('golBtn',"grid");
+              Session.set('studentSelected', false);
+              Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+              backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
+              $("#fondo").css("background-image", "url("+backImg+")");
+              Session.set('orderStudents', "XP");
+              Session.set('invertOrder', "checked");
               Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-              Router.go('/');
+              if ( Session.get("loginType") == "studentLogin" ) {
+                Meteor.call('userTypeInsert', "student");
+                Session.setPersistent('userType','student');
+                Router.go('myNav',{_id:Session.get('classId')});
+              } else if ( Session.get("loginType") == "parentLogin" ) {
+                Meteor.call('userTypeInsert', "parent");
+                Session.setPersistent('userType','parent');
+                Router.go('myNav',{_id:Session.get('classId')});
+              } else {
+                Meteor.call('userTypeInsert', "teacher");
+                Session.setPersistent('userType','teacher');
+                Router.go('/');
+              }
             }
+          }
         });
      },
-     'submit .login-form2': function(e) {
+     'click .loginBtn': function(e) {
          e.preventDefault();
-         var user = e.target.email2.value;
-         var password = e.target.password2.value;
-         user+="@myclassgame.tk";
-         Meteor.loginWithPassword(user, password,function(error){
-             if(error) {
-                 //do something if error occurred or
-             }else{
-               Meteor.call('mcgLog', 'loginStudentParent -> ' + Meteor.userId());
-               //Router.go('/');
-               regla="^" + password;
-               n=classes.find({"_id" : {'$regex' : regla }}).count();
-               cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
-               if (n==1){
-                 var Id = Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
-               }
-               Session.set('classId', cId);
-               Router.go("myNav",{_id:Session.get('classId')});
-             }
-         });
+         Session.set("loginType",$(e.currentTarget).find("input").prop("id"));
+         if ( Session.get("loginType")!= "teacherLogin") {
+           $("#loginBtnTeacher").addClass("oculto");
+         } else {
+           $("#loginBtnTeacher").removeClass("oculto");
+         }
       },
      'click #google': function(e) {
         e.preventDefault();
