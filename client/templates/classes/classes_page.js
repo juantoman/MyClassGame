@@ -1,7 +1,7 @@
 Template.classesPage.onRendered(function() {
   Session.set('className', "");
-  Session.set('userType', "teacher");
-  Meteor.call('userTypeInsert', "teacher");
+  //Session.set('userType', "teacher");
+  //Meteor.call('userTypeInsert', "teacher");
   //alert(Meteor.userId());
   //handleClientLoad();
   /*t=[];

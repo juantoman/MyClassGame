@@ -106,5 +106,17 @@ Template.admin.events({
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);*/
+  },
+  'click #btn-acceso-estudiantes': function(event) {
+    event.preventDefault();
+    students.find({'classId':Session.get('classId')}).forEach(function(s){
+      Meteor.call('createStudentUser', s._id, Session.get('classId'));
+    });
+  },
+  'click #btn-eliminar-acceso-estudiantes': function(event) {
+    event.preventDefault();
+    students.find({'classId':Session.get('classId')}).forEach(function(s){
+      Meteor.call('deleteStudentUser', s.userId, s._id);
+    });
   }
 });

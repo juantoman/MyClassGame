@@ -40,6 +40,13 @@ Template.header.helpers({
     }
     n=emailUser.indexOf("@")
     return emailUser.substring(0,n);
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

@@ -8,37 +8,33 @@ Template.login.events({
         }
         Meteor.loginWithPassword(user, password,function(error){
           if(error) {
-              //do something if error occurred or
+            swal({
+                title: "¡Error de login!",
+                text: error.reason,
+                icon: "warning",
+            });
           }else{
-            regla="^" + password;
-            n=students.find({"_id" : {'$regex' : regla }}).count();
-            if (n==1){
-              cId=students.findOne({"_id" : {'$regex' : regla }}).classId;
-              Session.setPersistent('classId', cId);
-              Session.setPersistent('className', classes.findOne({"_id" :cId}));
-              Session.setPersistent('navItem', "Students");
-              Session.setPersistent('sogBtn',"students");
-              Session.setPersistent('golBtn',"grid");
-              Session.set('studentSelected', false);
-              Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-              backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
-              $("#fondo").css("background-image", "url("+backImg+")");
-              Session.set('orderStudents', "XP");
-              Session.set('invertOrder', "checked");
-              Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-              if ( Session.get("loginType") == "studentLogin" ) {
-                Meteor.call('userTypeInsert', "student");
-                Session.setPersistent('userType','student');
-                Router.go('myNav',{_id:Session.get('classId')});
-              } else if ( Session.get("loginType") == "parentLogin" ) {
-                Meteor.call('userTypeInsert', "parent");
-                Session.setPersistent('userType','parent');
-                Router.go('myNav',{_id:Session.get('classId')});
-              } else {
-                Meteor.call('userTypeInsert', "teacher");
-                Session.setPersistent('userType','teacher');
-                Router.go('/');
-              }
+            Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
+            Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
+            Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
+            Session.setPersistent('navItem', "Students");
+            Session.setPersistent('sogBtn',"students");
+            Session.setPersistent('golBtn',"grid");
+            Session.set('studentSelected', false);
+            Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+            backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
+            $("#fondo").css("background-image", "url("+backImg+")");
+            Session.set('orderStudents', "XP");
+            Session.set('invertOrder', "checked");
+            if ( Session.get("loginType") == "studentLogin" ) {
+              Session.setPersistent('userType','student');
+              Router.go('myNav',{_id:Session.get('classId')});
+            } else if ( Session.get("loginType") == "parentLogin" ) {
+              Session.setPersistent('userType','parent');
+              Router.go('myNav',{_id:Session.get('classId')});
+            } else {
+              Session.setPersistent('userType','teacher');
+              Router.go('/');
             }
           }
         });
@@ -56,8 +52,11 @@ Template.login.events({
         e.preventDefault();
         Meteor.loginWithGoogle(redirect_uri="http://myclassgame.iestacio.com/_oauth/google",function(error){
             if(error) {
-                //Router.go('/classesPage');
-                //do something if error occurred or
+              swal({
+                  title: "¡Error de login!",
+                  text: error.reason,
+                  icon: "warning",
+              });
             }else{
               Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
               Router.go('/');
@@ -69,9 +68,12 @@ Template.login.events({
         var email = $("#email").val();
         Accounts.forgotPassword({email: email}, function (e, r) {
             if (e) {
-                console.log(e.reason);
+              swal({
+                  title: "¡Error!",
+                  text: e.reason,
+                  icon: "warning",
+              });
             } else {
-                // success
                 swal({
                     title: "¡Correo de recuperación enviado!",
                     text: "Correo enviado a: "+ email,
@@ -89,7 +91,6 @@ Template.login.events({
         }
         Accounts.createUser({email: email,password: password}, function (e, r) {
             if (e) {
-                console.log(e.reason);
                 swal({
                     title: "¡Error de registro!",
                     text: e.reason,

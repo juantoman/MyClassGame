@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
-import { Email } from 'meteor/email'
+import { Email } from 'meteor/email';
 
 //Provar gmail-node
 
@@ -54,26 +54,14 @@ Meteor.methods({
         }
     );
   },
-  createStudentUser: function(studentId) {
+  createStudentUser: function(studentId,classId) {
     var u=Accounts.createUser({email: studentId.substring(0,6)+'@myclassgame.tk',password: studentId.substring(0,6)});
-    console.log(u);
-    alert(studentId);
-    var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:uId} });
-    swal({
-        title: "¡Usuario creado correctamente!",
-        icon: "info",
-    });
+    Meteor.users.update({ _id: u }, { $set: {userType: 'student'} });
+    Meteor.call('studentUserClassInsert', classId, u);
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:u} });
   },
   deleteStudentUser: function(userId,studentId) {
     Meteor.users.remove({'_id':userId});
-    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false} });
-    /*
-    Meteor.users.remove({'_id':uId});
-    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false} });
-    */
-    swal({
-        title: "¡Usuario borrado correctamente!",
-        icon: "info",
-    });
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false, userId:""} });
   }
 });

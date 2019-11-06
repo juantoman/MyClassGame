@@ -1,7 +1,7 @@
 <template name="classesPage">
   <!--
   {{> myBreadcrumb}}
-  
+
   {{#if teacher}}
     <div class="container-fluid myContent typeClasses">
       <h4 id="adminClass">{{_ "tclasses"}}</h4>
@@ -61,14 +61,16 @@
   <div class="container-fluid myContent activeClasses">
     <!--<h4 id="pruebas">Pruebas</h4>-->
     <div class="row" id="allClasses">
-      <figure class="card card--electric" data-toggle="modal" data-target="#add_class_modal">
-        <div class="card__image-container" >
-          <img src="/images/@mcgnb.png" alt="Eevee" class="card__image">
-        </div>
-        <figcaption class="card__caption">
-          <h1 class="card__name" id="adminClass">{{_ "nclass"}}</h1>
-        </figcaption>
-      </figure>
+      {{#if teacher}}
+        <figure class="card card--electric" data-toggle="modal" data-target="#add_class_modal">
+          <div class="card__image-container" >
+            <img src="/images/@mcgnb.png" alt="Eevee" class="card__image">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name" id="adminClass">{{_ "nclass"}}</h1>
+          </figcaption>
+        </figure>
+      {{/if}}
       <!--
       <div class="col-xs-6 col-md-3 col-lg-2">
         <div class="thumbnail btn" data-toggle="modal" data-target="#add_class_modal">
@@ -78,7 +80,7 @@
       </div>
       -->
       {{#each classesTeacher}}
-        <figure class="card card--ice btn-class classAsTeacher">
+        <figure class="card card__ice btn-class classAsTeacher">
           <div class="card__image-container" >
             <img class="cardLogo" src="/images/@mcgnb.png">
             <img src="{{classImage}}" alt="Eevee" class="card__image">
@@ -101,7 +103,7 @@
         -->
       {{/each}}
       {{#each classesStudent}}
-        <figure class="card card--ice btn-class classAsStudent">
+        <figure class="card card__ice btn-class classAsStudent">
           <div class="card__image-container" >
             <img class="cardLogo" src="/images/@mcgnb.png">
             <img src="{{classImage}}" alt="Eevee" class="card__image">
@@ -116,7 +118,7 @@
         </figure>
       {{/each}}
       {{#each classesParent}}
-        <figure class="card card--ice btn-class classAsParent">
+        <figure class="card card__ice btn-class classAsParent">
           <div class="card__image-container" >
             <img class="cardLogo" src="/images/@mcgnb.png">
             <img src="{{classImage}}" alt="Eevee" class="card__image">
@@ -130,17 +132,16 @@
           </figcaption>
         </figure>
       {{/each}}
-      
     </div>
   </div>
   <!--
   <div class="container-fluid myContent storedClasses">
     <h4 id="adminClass">{{_ "sclasses"}}</h4>
     <div class="row">
-      
+
     </div>
   </div>
-  
+
   {{/if}}-->
   {{> classesModals}}
 </template>

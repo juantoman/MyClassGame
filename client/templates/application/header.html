@@ -47,7 +47,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="clases"><a href="#">Mis Clases</a></li>
+            {{#if teacher}}<li class="clases"><a href="#">Mis Clases</a></li>{{/if}}
             {{#if className}}<li class="clase"><a href="#">{{className}}</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudiantes<span class="caret"></span></a>

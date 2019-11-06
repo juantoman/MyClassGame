@@ -41,7 +41,7 @@ Template.groupsPage.helpers({
   },
   myuser: function() {
     //alert("hola");
-    my="card--ice";
+    my="card__ice";
     students.find( { 'groupId': this._id } ).forEach( function(u) {
         emailStudent="";
         if(u.email){emailStudent=u.email};
