@@ -63,5 +63,15 @@ Meteor.methods({
   deleteStudentUser: function(userId,studentId) {
     Meteor.users.remove({'_id':userId});
     var Id =  students.update({ _id: studentId }, { $set: {userCreated: false, userId:""} });
+  },
+  createParentUser: function(studentId,classId) {
+    var u=Accounts.createUser({email: studentId.substring(0,6)+'@myclassgame.tk',password: studentId.substring(0,6)});
+    Meteor.users.update({ _id: u }, { $set: {userType: 'student'} });
+    Meteor.call('studentUserClassInsert', classId, u);
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:u} });
+  },
+  deleteParentUser: function(userId,studentId) {
+    Meteor.users.remove({'_id':userId});
+    var Id =  students.update({ _id: studentId }, { $set: {userCreated: false, userId:""} });
   }
 });

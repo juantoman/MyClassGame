@@ -7,6 +7,9 @@ Template.studentsPage.onRendered(function() {
     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
   }
   currentStudent=students.findOne({'classId': Session.get('classId'),'email': emailUser})._id;
+  if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+    currentStudent=Meteor.userId();
+  }
   Session.set('currentStudent',currentStudent);
 });
 
@@ -110,6 +113,9 @@ Template.studentsPage.helpers({
     }
     catch(err) {
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    }
+    if (emailUser.substring(0,6)==this._id.substring(0,6)) {
+      return "myuser";
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
       return "myuser";

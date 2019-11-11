@@ -7,9 +7,9 @@ Template.groupPage.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) {
-      return "list-group-item-danger"; 
+      return "list-group-item-danger";
     } else {
-      return "noGroup"; 
+      return "noGroup";
     }
   },
   group: function() {
@@ -100,6 +100,9 @@ Template.groupPage.helpers({
     if ( Session.get('userType')=="teacher" ) {
       inNote=true;
     }
+    if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+      inNote=true;
+    }
     return inNote;
   },
   myGroupEnabled: function() {
@@ -114,6 +117,9 @@ Template.groupPage.helpers({
         }
         emailStudent=u.email;
         if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+          inNote="";
+        }
+        if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
           inNote="";
         }
     });
@@ -269,7 +275,7 @@ Template.groupPage.events({
         };
         Meteor.call('notebookWorkInsert',workStudent);*/
         //trabajos.push(workStudent);
-        
+
         $('#studentsPoints').find(".btn-group").each( function() {
           i=this.title;
           v=parseInt($("#s" + i + " .active").find("input").val());
@@ -324,7 +330,7 @@ Template.groupPage.events({
             student: item["_id"],
             behavior: "",
             behaviourType: 'XP',
-            evaluation: Session.get('evaluation'),           
+            evaluation: Session.get('evaluation'),
             comment: "Puntos grupales diarios "+puntos,
             createdOn: new Date()
           };

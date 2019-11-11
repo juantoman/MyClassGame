@@ -6,10 +6,10 @@
           <figure class="card card__water {{myuser email}}">
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
-              <img src="{{image avatar}}" alt="Eevee" class="card__image" name="{{_id}}"> 
-              <h1 class="cardSelected {{#unless selected}}oculto{{/unless}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h1>    
+              <img src="{{image avatar}}" class="card__image" name="{{_id}}"> 
+              <h1 class="cardSelected {{#unless selected}}oculto{{/unless}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h1>
             </div>
-            
+
             <figcaption class="card__caption">
               {{#if parent}}
                  <h1 class="card__name">{{alias}}</h1>
@@ -23,7 +23,7 @@
               <h3 class="card__type">
                 Nivel {{levelAutomatic _id}}
               </h3>
-          
+
               <table class="card__stats">
                 <tbody>
 
@@ -35,12 +35,12 @@
                     <th><span class="btn-hp">HP</span></th>
                     <td><span class="btn-hp">{{HP}}</span></td>
                   </tr>
-                  
+
                   <tr>
                     <th><span class="btn-store">Monedas</span></th>
                     <td><span class="btn-store">{{coins}}</span></td>
                   </tr>
-                
+
                 </tbody>
               </table>
               <div class="cardLine">
@@ -72,9 +72,9 @@
         <div style="margin:auto;" class="thumbnailStudent">
           <figure class="card card__water" data-toggle="modal" data-target="#add_student_modal">
             <div class="card__image-container">
-              <img src="{{image}}" alt="Eevee">   
+              <img src="{{image}}" alt="Eevee">
             </div>
-            
+
             <figcaption class="card__caption">
               <h1 class="card__name">Nuevo</h1>
               <h1 class="card__name">Estudiante</h1>

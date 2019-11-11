@@ -38,7 +38,7 @@ Template.header.helpers({
     catch(err) {
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
-    n=emailUser.indexOf("@")
+    n=emailUser.indexOf("@");
     return emailUser.substring(0,n);
   },
   teacher: function() {

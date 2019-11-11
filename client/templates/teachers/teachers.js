@@ -4,7 +4,7 @@ Template.teachersTemplate.helpers({
   },
   email: function() {
     try {
-    emailUser=Meteor.users.findOne({_id: this.teacherId}).emails[0].address;
+      emailUser=Meteor.users.findOne({_id: this.teacherId}).emails[0].address;
     }
     catch(err) {
       emailUser=Meteor.users.findOne({_id: this.teacherId}).services.google.email;
@@ -39,4 +39,3 @@ Template.teachersTemplate.events({
     Meteor.call('delTeacherWaiting',Session.get("classId"),this.teacherId);
   }
 });
-
