@@ -6,9 +6,12 @@ Template.studentsPage.onRendered(function() {
   catch(err) {
     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
   }
-  currentStudent=students.findOne({'classId': Session.get('classId'),'email': emailUser})._id;
-  if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
-    currentStudent=Meteor.userId();
+  try {
+    currentStudent=students.findOne({'classId': Session.get('classId'),'email': emailUser})._id;
+  }
+  catch(err) {
+    regla='^'+emailUser.substring(0,6);
+    currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
   }
   Session.set('currentStudent',currentStudent);
 });
@@ -22,7 +25,14 @@ Template.studentsPage.helpers({
       sortOrder[Session.get('orderStudents')]=1;
     }
     sortOrder["_id"]=-1;
-    return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
+    if (classes.findOne({'_id': Session.get('classId')}).onlyMyStudent && Meteor.user().userType!="teacher") {
+      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address.substring(0,6);
+      regla='^'+emailUser;
+      currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
+      return students.find({'_id': currentStudent});
+    } else {
+      return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
+    }
   },
   image: function(avatar) {
     avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;

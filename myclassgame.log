@@ -326,3 +326,61 @@
 2019-11-11 10:23:14 : loginEmail -> HS4GqwyFCA5cemKbw
 2019-11-11 10:23:37 : selectStudent -> userId: HS4GqwyFCA5cemKbw , classId : zNT4WYJgF5QiQjQcv , studentId : wNZCRhZ4xcXKTfoZp
 2019-11-11 10:30:39 : selectClass -> userId: HS4GqwyFCA5cemKbw , classId : zNT4WYJgF5QiQjQcv
+2019-11-12 17:25:47 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-12 17:26:28 : selectClass -> userId: X4gJosMyyirAoAepj , classId : gF2R2MeWvkMAP9sPH
+2019-11-12 17:26:35 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : gF2R2MeWvkMAP9sPH , studentId : 7Pvyg5KHn5aJv64s9
+2019-11-12 17:26:49 : selectClass -> userId: X4gJosMyyirAoAepj , classId : wFCvCQoAL5znqiGmB
+2019-11-12 17:26:52 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : wFCvCQoAL5znqiGmB , studentId : mrahkyjiau5cop88B
+2019-11-12 17:27:0 : selectClass -> userId: X4gJosMyyirAoAepj , classId : unsFNabtuwbLsBeJ7
+2019-11-12 17:27:4 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : unsFNabtuwbLsBeJ7 , studentId : Woudd9mbjvP5CNLYw
+2019-11-12 17:27:12 : selectClass -> userId: X4gJosMyyirAoAepj , classId : y63mMtWQkTXckKMXF
+2019-11-12 17:27:16 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : y63mMtWQkTXckKMXF , studentId : uv9X6CTa2jrok3Kdx
+2019-11-12 17:27:34 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 17:27:39 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 17:28:49 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 17:29:15 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 17:29:20 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 17:29:42 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 17:29:55 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-12 17:30:10 : loginEmail -> xmgQzdBye2atHwyAq
+2019-11-12 17:30:16 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 17:31:37 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 17:37:9 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 17:48:14 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 17:48:22 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 17:49:25 : closeSession -> userId: xmgQzdBye2atHwyAq
+2019-11-12 18:12:47 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-12 18:13:29 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:13:35 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 18:13:44 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-12 18:14:0 : loginEmail -> xmgQzdBye2atHwyAq
+2019-11-12 18:14:5 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 18:14:50 : closeSession -> userId: xmgQzdBye2atHwyAq
+2019-11-12 18:15:7 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-12 18:15:25 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:22:15 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:22:28 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:22:41 : selectClass -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7
+2019-11-12 18:22:57 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:26:45 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 18:26:52 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 18:27:37 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:27:55 : selectClass -> userId: X4gJosMyyirAoAepj , classId : y63mMtWQkTXckKMXF
+2019-11-12 18:28:13 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-11-12 18:28:21 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : wNZCRhZ4xcXKTfoZp
+2019-11-12 18:29:28 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-11-12 18:30:3 : selectClass -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr
+2019-11-12 18:30:51 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : 39i2F6r9YL7LPHMbr , studentId : ytJ4xYBxN6uJ2Hfjh
+2019-11-12 18:34:53 : selectClass -> userId: X4gJosMyyirAoAepj , classId : wFCvCQoAL5znqiGmB
+2019-11-12 18:38:50 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 18:40:32 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-12 19:3:19 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:6:40 : selectClass -> userId: X4gJosMyyirAoAepj , classId : PijzNmCQasNZkEpWn
+2019-11-12 19:13:57 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 19:16:33 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:16:40 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-12 19:16:58 : loginEmail -> xmgQzdBye2atHwyAq
+2019-11-12 19:17:3 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:19:13 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:22:13 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:48:27 : closeSession -> userId: xmgQzdBye2atHwyAq

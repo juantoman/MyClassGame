@@ -123,6 +123,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
+  'change #onlyMyStudent': function(event) {
+    event.preventDefault();
+    Meteor.call('onlyMyStudentChange', Session.get('classId'), event.currentTarget.checked);
+  },
   'change #CoinXP': function(event) {
     event.preventDefault();
     Meteor.call('CoinXPChange', Session.get('classId'), event.currentTarget.checked);

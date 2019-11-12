@@ -96,11 +96,11 @@ Template.groupPage.helpers({
         if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
           inNote=true;
         }
+        if (u._id.substring(0,6)==emailUser.substring(0,6)) {
+          inNote=true;
+        }
     });
     if ( Session.get('userType')=="teacher" ) {
-      inNote=true;
-    }
-    if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
       inNote=true;
     }
     return inNote;
@@ -119,7 +119,7 @@ Template.groupPage.helpers({
         if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
           inNote="";
         }
-        if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+        if (u._id.substring(0,6)==emailUser.substring(0,6)) {
           inNote="";
         }
     });

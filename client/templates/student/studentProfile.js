@@ -47,7 +47,7 @@ function ami(){
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
     emailStudent=$('#sEmail').val();
-    if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
       return true;
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
@@ -328,7 +328,7 @@ Template.studentProfile.helpers({
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
     emailStudent=$('#sEmail').val();
-    if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
       return true;
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
@@ -345,7 +345,7 @@ Template.studentProfile.helpers({
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
     emailStudent=$('#sEmail').val();
-    if (emailUser.substring(0,6)==Meteor.userId().substring(0,6)) {
+    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
       return "";
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {

@@ -1,6 +1,23 @@
 Template.groupsPage.helpers({
   groups: function() {
-    return groups.find({classId: Session.get('classId')}, {sort: {createdOn: -1}});
+    if (classes.findOne({'_id': Session.get('classId')}).onlyMyStudent && Meteor.user().userType!="teacher") {
+      try {
+        emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+      }
+      catch(err) {
+        emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+      }
+      try {
+        currentGroup=students.findOne({'classId': Session.get('classId'),'email': emailUser}).groupId;
+      }
+      catch(err) {
+        regla='^'+emailUser.substring(0,6);
+        currentGroup=students.findOne({'_id':{'$regex' :regla}}).groupId;
+      }
+      return groups.find({_id: currentGroup});
+    } else {
+      return groups.find({classId: Session.get('classId')}, {sort: {createdOn: -1}});
+    }
   },
   teacher: function() {
     if (Session.get('userType')=="teacher") {
