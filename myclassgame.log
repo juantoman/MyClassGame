@@ -384,3 +384,10 @@
 2019-11-12 19:19:13 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
 2019-11-12 19:22:13 : selectStudent -> userId: xmgQzdBye2atHwyAq , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
 2019-11-12 19:48:27 : closeSession -> userId: xmgQzdBye2atHwyAq
+2019-11-12 19:50:39 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-12 19:50:44 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-12 19:52:29 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : fBpMD97NXNWBos5jZ
+2019-11-12 19:58:59 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-13 9:0:58 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-13 9:1:3 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-13 9:1:7 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x

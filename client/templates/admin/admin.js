@@ -118,5 +118,9 @@ Template.admin.events({
     students.find({'classId':Session.get('classId')}).forEach(function(s){
       Meteor.call('deleteStudentUser', s.userId, s._id);
     });
+  },
+  'click #btn-imprimir-estudiantes': function(event) {
+    event.preventDefault();
+    Modal.show('studentsPrint');
   }
 });

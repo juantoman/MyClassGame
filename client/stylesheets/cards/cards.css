@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5 {
 .card__ice .card__type {
       background: #6fb8eb;
     }
-  
+
 .card--fairy {
     background: linear-gradient(45deg, rgba(255,230,240,1) 0%, rgba(255,197,224,1) 34%, rgba(255,166,185,1) 71%, rgba(255,138,149,1) 100%);
 }
@@ -347,4 +347,24 @@ h1, h2, h3, h4, h5 {
 }
 .card__blue .card__type {
     background: #ff8a95;
+}
+
+@media print {
+  @page {
+    size: A4;
+    orientation: portrait;
+  }
+  * {
+    display:inline;
+  }
+  script, style {
+      display:none;
+  }
+  .card {
+    margin:0;
+    height:23vh;
+    width:32vw;
+    page-break-inside: avoid;
+    margin-bottom:1.4vh;
+  }
 }

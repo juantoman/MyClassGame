@@ -1,0 +1,46 @@
+<template name="studentsPrint">
+  <div class="modal" id="studentsPrintModal" tabindex="-1" role="dialog" aria-labelledby="studentsPrintModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GroupModalLabel">Tarjetas de los estudiantes</h4>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              {{#each students}}
+                <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent">
+                  <figure class="card card__water">
+                    <div class="card__image-container" name="{{_id}}">
+                      <img class="cardLogo" src="/images/@mcgnb.png">
+                      <img src="{{image avatar}}" class="card__image" name="{{_id}}">
+                    </div>
+                    <figcaption class="card__caption">
+                      <table class="card__stats">
+                        <tbody>
+                          <tr>
+                            <th><span class="btn-xp">Alias:</span></th>
+                            <td><span class="btn-xp">{{alias}}</span></td>
+                          </tr>
+                          <tr>
+                            <th><span class="btn-hp">Code:</span></th>
+                            <td><span class="btn-hp">{{code}}</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </figcaption>
+                  </figure>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">Cerrar</button>
+            <input type="submit" id="btn-print" value="Imprimir tarjetas" class="btn btn-info">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
