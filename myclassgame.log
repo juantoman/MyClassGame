@@ -411,3 +411,9 @@
 2019-11-14 11:37:27 : closeSession -> userId: edCQS87gyZYjw3M6f
 2019-11-14 11:49:20 : loginGoogle -> X4gJosMyyirAoAepj
 2019-11-14 11:49:24 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-14 12:5:46 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-14 12:6:19 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-14 12:44:23 : loginEmail -> nxJTpfw4T6Hc89gnj
+2019-11-14 12:44:29 : closeSession -> userId: nxJTpfw4T6Hc89gnj
+2019-11-14 12:44:42 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-14 12:44:45 : closeSession -> userId: X4gJosMyyirAoAepj

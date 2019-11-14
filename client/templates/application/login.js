@@ -72,7 +72,7 @@ Template.login.events({
      },
      'click #reset': function(e) {
         e.preventDefault();
-        var email = $("#email").val();
+        var email = $("#emailTeacher").val();
         Accounts.forgotPassword({email: email}, function (e, r) {
             if (e) {
               swal({
@@ -91,8 +91,8 @@ Template.login.events({
      },
      'click #register': function(e) {
         e.preventDefault();
-        var email = $("#email").val();
-        var password = $("#password").val();
+        var email = $("#emailTeacher").val();
+        var password = $("#passwordTeacher").val();
         if ( email.indexOf("@") === -1 ) {
           email+="@myclassgame.tk";
         }
