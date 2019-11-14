@@ -936,7 +936,7 @@ Template.studentProfile.events({
   'click .btn-create-student': function(event) {
     event.preventDefault();
     if ( ! this.userCreated || this.userCreated == null) {
-      Meteor.call('createStudentUser', Session.get('studentId'), Session.get('classId'));
+      Meteor.call('createStudentUser', Session.get('studentId'), this.alias, Session.get('classId'));
     } else {
       Meteor.call('deleteStudentUser', this.userId, Session.get('studentId'));
     }

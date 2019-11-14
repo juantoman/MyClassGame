@@ -1,6 +1,6 @@
 <template name="login">
     <form class="login-form text-center">
-        <div class="panel panel-info">
+        <div class="panel panel-info"  style="margin:auto;width:50vw;">
             <div class="panel-heading">
                 <p class="panel-title ">
                     <a data-toggle="collapse" href="#collapse1"><img width="30vmax" src="/images/@mcgnb.png"> Iniciar sesión/Registrar en <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
@@ -19,22 +19,36 @@
                       <label class="btn btn-info loginBtn">
                         <input type="radio" name="options" id="studentLogin" autocomplete="off">Estudiante
                       </label>
+                      <!--
                       <label class="btn btn-info loginBtn">
                         <input type="radio" name="options" id="parentLogin" autocomplete="off">Padre/Madre
                       </label>
+                      -->
                     </div>
-                    <div class="form-group">
+                    <div class="loginTeacher">
+                      <div class="form-group">
                         <label>Usuario o Email</label>
-                        <input type="text"  class="form-control" id="email" placeholder="Usuario o email">
+                        <input type="text"  class="form-control" id="emailTeacher" placeholder="Usuario o email">
+                      </div>
+                      <div class="form-group">
+                          <label>Contraseña</label>
+                          <input type="password" class="form-control" id="passwordTeacher" placeholder="Contraseña">
+                      </div>
                     </div>
-                    <div class="form-group">
-                        <label>Contraseña</label>
-                        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+                    <div class="loginNoTeacher oculto">
+                      <div class="form-group">
+                        <label>Alias</label>
+                        <input type="text"  class="form-control" id="aliasStudent" placeholder="Alias">
+                      </div>
+                      <div class="form-group">
+                          <label>Code</label>
+                          <input type="password" class="form-control" id="codeStudent" placeholder="Code">
+                      </div>
                     </div>
                 </div>
                 <div class="panel-footer text-center">
                   <button type="submit" class="btn btn-warning btn-md">Iniciar sesión</button>
-                  <span id="loginBtnTeacher">
+                  <span class="loginTeacher">
                     <button class="btn btn-warning btn-md" id="register">Registrar</button>
                     <button class="btn btn-warning btn-md" id="reset">Restablecer contraseña</button>
                     <button class="btn btn-warning btn-md" id="google">Iniciar sesión con Google</button>

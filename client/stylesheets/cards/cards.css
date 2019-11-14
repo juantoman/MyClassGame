@@ -367,4 +367,10 @@ h1, h2, h3, h4, h5 {
     page-break-inside: avoid;
     margin-bottom:1.4vh;
   }
+  .card__image {
+    width: 50%;
+  }
+  .card__image-container {
+    height: 75%;
+  }
 }

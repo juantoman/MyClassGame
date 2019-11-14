@@ -1,5 +1,5 @@
 Meteor.publish('allUsers', function() {
-  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "classes": 1, "emails": 1,"classesTeacher": 1,"classesParent": 1}});
+  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "studentId": 1, "classes": 1, "emails": 1,"classesTeacher": 1,"classesParent": 1}});
 });
 
 Meteor.publish('mcgParameters', function() {

@@ -1,8 +1,13 @@
 Template.login.events({
     'submit .login-form': function(e) {
         e.preventDefault();
-        var user = e.target.email.value;
-        var password = e.target.password.value;
+        if ( Session.get("loginType") == "teacherLogin") {
+          var user = e.target.emailTeacher.value;
+          var password = e.target.passwordTeacher.value;
+        } else {
+          var user = e.target.codeStudent.value;
+          var password = e.target.aliasStudent.value;
+        }
         if ( user.indexOf("@") === -1 ) {
           user+="@myclassgame.tk";
         }
@@ -43,9 +48,11 @@ Template.login.events({
          e.preventDefault();
          Session.set("loginType",$(e.currentTarget).find("input").prop("id"));
          if ( Session.get("loginType")!= "teacherLogin") {
-           $("#loginBtnTeacher").addClass("oculto");
+           $(".loginTeacher").addClass("oculto");
+           $(".loginNoTeacher").removeClass("oculto");
          } else {
-           $("#loginBtnTeacher").removeClass("oculto");
+           $(".loginTeacher").removeClass("oculto");
+           $(".loginNoTeacher").addClass("oculto");
          }
       },
      'click #google': function(e) {
