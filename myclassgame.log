@@ -417,3 +417,7 @@
 2019-11-14 12:44:29 : closeSession -> userId: nxJTpfw4T6Hc89gnj
 2019-11-14 12:44:42 : loginGoogle -> X4gJosMyyirAoAepj
 2019-11-14 12:44:45 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-11-14 12:56:3 : loginGoogle -> X4gJosMyyirAoAepj
+2019-11-14 12:56:7 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x
+2019-11-14 12:56:18 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x , studentId : 5c6ADKb24HufY6oNF
+2019-11-14 13:16:16 : selectClass -> userId: X4gJosMyyirAoAepj , classId : XWTLbvG2bcrtdG65x

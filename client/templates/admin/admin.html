@@ -1,5 +1,6 @@
 <template name="admin">
   <div class="container">
+    <!--
     <form>
       <div style="margin:auto;">
         <div class="input-group mb-3">
@@ -39,5 +40,48 @@
         </div>
       </div>
     </form>
+    -->
+    <div class="container studentInventory">
+      <ul class="list-items">
+        <li class="list-item addBtn" id="btn-acceso-estudiantes">
+          <span class="item-image btn"><span class="glyphicon glyphicon-education" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Acceso estudiantes</p>
+        </li>
+        <li class="list-item addBtn" id="btn-acceso-padres">
+          <span class="item-image btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Acceso padres</p>
+        </li>
+        <li class="list-item addBtn" id="btn-imprimir-estudiantes">
+          <span class="item-image btn"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Imprimir estudiantes</p>
+        </li>
+        <li class="list-item addBtn" id="btn-imprimir-padres">
+          <span class="item-image btn"><span class="glyphicon glyphicon-print" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Imprimir padres</p>
+        </li>
+        {{#if admin}}
+        <li class="list-item addBtn" id="btn-tipo">
+          <span class="item-image btn"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Clase Tipo</p>
+        </li>
+        {{/if}}
+        <li class="list-item addBtn" id="btn-store-class">
+          <span class="item-image btn"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">{{_ "vstore"}}</p>
+        </li>
+        <li class="list-item addBtn" id="btn-restore">
+          <span class="item-image btn"><span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">{{_ "restore"}}</p>
+        </li>
+        <li class="list-item addBtn" id="btn-duplicar">
+          <span class="item-image btn"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Duplicar clase</p>
+        </li>
+        <li class="list-item addBtn" id="btn-eliminar">
+          <span class="item-image btn"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></span>
+          <p class="text-center" style="padding:5px;">Eliminar clase</p>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
