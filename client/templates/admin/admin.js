@@ -112,6 +112,7 @@ Template.admin.events({
     students.find({'classId':Session.get('classId')}).forEach(function(s){
       Meteor.call('createStudentUser', s._id, s.alias, Session.get('classId'));
     });
+    Modal.show('studentsPrint');
   },
   'click #btn-eliminar-acceso-estudiantes': function(event) {
     event.preventDefault();

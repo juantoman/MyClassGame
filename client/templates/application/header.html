@@ -48,26 +48,28 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             {{#if teacher}}<li class="clases"><a href="#">Mis Clases</a></li>{{/if}}
-            {{#if className}}<li class="clase"><a href="#">{{className}}</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudiantes<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  {{#each students}}
-                    <li><a href="#" class="student_button">{{studentName}}</a></li>
-                  {{/each}}
-                </ul>
-              </li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipos<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  {{#each groups}}
-                    <li><a href="#" class="group_button">{{groupName}}</a></li>
-                  {{/each}}
-                </ul>
-              </li>
+            {{#if className}}
+              <li class="clase"><a href="#">{{className}}</a></li>
+              {{#unless onlyMyStudent}}
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Estudiantes<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {{#each students}}
+                      <li><a href="#" class="student_button">{{studentName}}</a></li>
+                    {{/each}}
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Equipos<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    {{#each groups}}
+                      <li><a href="#" class="group_button">{{groupName}}</a></li>
+                    {{/each}}
+                  </ul>
+                </li>
+              {{/unless}}
             {{/if}}
           </ul>
-
           <ul class="nav navbar-nav navbar-right">
             <li><a href="https://myclassgame.helpsite.com/" target="_blank">FAQ</a></li>
             <li class="dropdown">

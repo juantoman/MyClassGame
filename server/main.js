@@ -55,10 +55,12 @@ Meteor.methods({
     );
   },
   createStudentUser: function(studentId,password,classId) {
-    var u=Accounts.createUser({email: studentId.substring(0,6)+'@myclassgame.tk',password: password});
-    Meteor.users.update({ _id: u }, { $set: {userType: 'student', studentId: studentId} });
-    Meteor.call('studentUserClassInsert', classId, u);
-    var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:u} });
+    if ( ! students.findOne({ _id: studentId }).userCreated ) {
+      var u=Accounts.createUser({email: studentId.substring(0,6)+'@myclassgame.tk',password: password});
+      Meteor.users.update({ _id: u }, { $set: {userType: 'student', studentId: studentId} });
+      Meteor.call('studentUserClassInsert', classId, u);
+      var Id =  students.update({ _id: studentId }, { $set: {userCreated: true, userId:u} });
+    }
   },
   deleteStudentUser: function(userId,studentId) {
     Meteor.users.remove({'_id':userId});

@@ -47,6 +47,13 @@ Template.header.helpers({
     } else {
      return false;
     };
+  },
+  onlyMyStudent: function() {
+    if (Session.get('userType')=="teacher") {
+      return false;
+    } else {
+      return classes.findOne({'_id': Session.get('classId')}).onlyMyStudent;
+    }
   }
 });
 
