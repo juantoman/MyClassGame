@@ -15,12 +15,13 @@ Template.randomPage.onRendered(function() {
     carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
       rotateFn + '(' + angle + 'deg)';
   }
-
+  /*
   var prevButton = document.querySelector('.previous-button');
   prevButton.addEventListener( 'click', function() {
     selectedIndex--;
     rotateCarousel();
   });
+  */
 
   var nextButton = document.querySelector('.next-button');
   nextButton.addEventListener( 'click', function() {
@@ -29,11 +30,11 @@ Template.randomPage.onRendered(function() {
       rotateCarousel();
     }
   });
-
+  /*
   var cellsRange = document.querySelector('.cells-range');
   cellsRange.addEventListener( 'change', changeCarousel );
   cellsRange.addEventListener( 'input', changeCarousel );
-
+  */
 
 
   function changeCarousel() {
@@ -58,7 +59,7 @@ Template.randomPage.onRendered(function() {
 
     rotateCarousel();
   }
-
+  /*
   var orientationRadios = document.querySelectorAll('input[name="orientation"]');
   ( function() {
     for ( var i=0; i < orientationRadios.length; i++ ) {
@@ -66,10 +67,10 @@ Template.randomPage.onRendered(function() {
       radio.addEventListener( 'change', onOrientationChange );
     }
   })();
-
+  */
   function onOrientationChange() {
-    var checkedRadio = document.querySelector('input[name="orientation"]:checked');
-    isHorizontal = checkedRadio.value == 'horizontal';
+    //var checkedRadio = document.querySelector('input[name="orientation"]:checked');
+    //isHorizontal = checkedRadio.value == 'horizontal';
     rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
     changeCarousel();
   }
@@ -107,6 +108,9 @@ Template.randomPage.helpers({
 Template.randomPage.events({
   'click a': function(event) {
     randomElement=event.target.id;
+    Session.set("randomElement",randomElement);
+    Modal.show("randomModal");
+    /*
     $("#ModalHeader").text("RANDOM");
     $("#ModalLabel").text("");
     $("#ModalDesc").text("");
@@ -268,6 +272,7 @@ Template.randomPage.events({
     $("#ModalImg").attr("title",id);
     event.preventDefault();
     Session.setPersistent('navItem',event.target.parentNode.id);
+    */
   },
   'click #ModalImg': function(event) {
     event.preventDefault();
@@ -299,4 +304,37 @@ Template.randomPage.events({
     }
     $('#randomModal').modal('hide');
   }
+});
+
+Template.randomModal.helpers({
+ elements: function() {
+  switch (Session.get("randomElement")) {
+    case "evento":
+      return randomEvents.find({ classId: Session.get('classId') } );
+      break;
+    case "estudiante":
+      return students.find({ classId: Session.get('classId') } );
+      break;
+  }
+ },
+ image: function(avatar) {
+   avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
+   if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
+     if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
+       if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
+         return classes.findOne({_id: Session.get('classId')}).studentImg;
+       } else {
+         return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+       }
+     } else {
+       return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+     }
+   } else  {
+     if (avatar.substring(0, 4)=="http") {
+       return avatar;
+     } else {
+       return images.findOne({_id: avatar}).image_url;
+     }
+   }
+  },
 });

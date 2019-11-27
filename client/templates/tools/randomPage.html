@@ -7,22 +7,25 @@
     <div class="scene">
       <div class="random_carousel">
         {{#each students}}
-          <div class="carousel__cell"><img width="50%" src="{{image avatar}}" class="card__image" name="{{_id}}">{{studentName}}</div>
+          <div class="carousel__cell"><img height="70%" src="{{image avatar}}" name="{{_id}}">{{studentName}}</div>
         {{/each}}
       </div>
     </div>
 
     <div class="carousel-options">
+      <!--
       <p>
         <label>
           Cells
           <input class="cells-range" type="range" min="3" max="15" value="9" />
         </label>
       </p>
+      -->
       <p>
-        <button class="previous-button">Previous</button>
-        <button class="next-button">Next</button>
+        <!--<button class="previous-button">Previous</button>-->
+        <button class="next-button">Random</button>
       </p>
+      <!--
       <p>
         Orientation:
         <label>
@@ -34,6 +37,7 @@
           vertical
         </label>
       </p>
+      -->
     </div>
     <!--
     <img width="20%" src="https://res.cloudinary.com/myclassgame/image/upload/v1550055936/images/rolling-dice-gif-3.gif" />
@@ -41,19 +45,18 @@
     <br />
     <br />
     <p>
-      <a id="evento" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Evento</a>
-      <a id="carta" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Carta</a>
-      <a id="cromo" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Cromo</a>
-      <a id="estudiante" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Estudiante</a>
-      <a id="equipo" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Equipo</a>
-      <a id="penalización" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Penalización</a>
-      <a id="frase" class="btn btn-info btn-lg"  data-toggle="modal" data-target="#randomModal" role="button">Frase</a>
+      <a id="evento" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Evento</a>
+      <a id="carta" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Carta</a>
+      <a id="cromo" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Cromo</a>
+      <a id="estudiante" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Estudiante</a>
+      <a id="equipo" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Equipo</a>
+      <a id="penalización" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Penalización</a>
+      <a id="frase" class="btn btn-info btn-lg"  data-toggle="modal" role="button">Frase</a>
       <a id="todosR" class="btn btn-info btn-lg" role="button">Todos</a>
     </p>
   </div>
 
-
-  <div class="modal fade" id="randomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="randomModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -72,5 +75,39 @@
     </div>
   </div>
 
+</template>
 
+<template name="randomModal">
+  <div class="modal fade" id="randomModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="ModalHeader">Random</h4>
+        </div>
+        <div class="jumbotron">
+          <div class="scene">
+            <div class="random_carousel">
+              {{#each elements}}
+                <div class="carousel__cell"><img height="70%" src="{{image avatar}}" name="{{_id}}">{{_id}}</div>
+              {{/each}}
+            </div>
+          </div>
+
+          <div class="carousel-options">
+
+            <p>
+              <!--<button class="previous-button">Previous</button>-->
+              <button class="next-button">Random</button>
+            </p>
+
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" id="cerrar">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
