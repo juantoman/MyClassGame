@@ -9,7 +9,7 @@
   width: 210px;
   height: 140px;
   margin: 80px auto;
-  perspective: 500px;
+  perspective: 400px;
 }
 
 .random_carousel {
@@ -18,7 +18,7 @@
   position: absolute;
   transform: translateZ(-288px);
   transform-style: preserve-3d;
-  transition: transform .5s;
+  transition: transform 1s;
 }
 
 .carousel__cell {
