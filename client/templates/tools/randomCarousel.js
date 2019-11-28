@@ -46,7 +46,7 @@ Template.randomCarousel.helpers({
 });
 
 Template.randomCarousel.events({
-  'click .scene': function(event) {
+  'click .randomButton': function(event) {
     $('.random_carousel').show();
     var carousel = document.querySelector('.random_carousel');
     var cells = carousel.querySelectorAll('.carousel__cell');
@@ -85,7 +85,7 @@ Template.randomCarousel.events({
         }
       }
 
-      //rotateCarousel();
+      rotateCarousel();
     }
     /*
     var orientationRadios = document.querySelectorAll('input[name="orientation"]');
@@ -104,11 +104,10 @@ Template.randomCarousel.events({
     }
 
     // set initials
-    onOrientationChange();
     var r = Math.floor(Math.random() * cells.length)+cells.length;
     for (var p=0;p<r;p++){
       selectedIndex++;
-      rotateCarousel();
+      onOrientationChange();
     }
   }
 });
