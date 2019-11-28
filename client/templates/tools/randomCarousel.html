@@ -14,7 +14,14 @@
         {{#if equals "evento"}}
           {{#each events}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image avatar}}" name="{{_id}}">{{eventName}}
+              <img height="70%" src="{{image eventImage}}" name="{{_id}}">{{eventName}}
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if equals "carta"}}
+          {{#each cards}}
+            <div class="carousel__cell">
+              <img height="70%" src="{{image cardImage}}" name="{{_id}}">{{cardName}}
             </div>
           {{/each}}
         {{/if}}

@@ -11,7 +11,18 @@ Template.randomCarousel.helpers({
    }
  },
  events: function() {
-   return randomEvents.find({ classId: Session.get('classId') } );
+   if ($("#todosR").hasClass("btn-warning")) {
+     return randomEvents.find({classId: Session.get('classId')});
+   } else {
+     return randomEvents.find({classId: Session.get('classId'),'random':true});
+   }
+ },
+ cards: function() {
+   if ($("#todosR").hasClass("btn-warning")) {
+     return cards.find({classId: Session.get('classId')});
+   } else {
+     return cards.find({classId: Session.get('classId'),'random':true});
+   }
  },
  element: function() {
    return Session.get("randomElement");
