@@ -1,27 +1,67 @@
 <template name="randomCarousel">
-    <h3>
+    <h2>
       {{element}}
-    </h3>
+    </h2>
     <div class="scene">
       <div class="random_carousel">
         {{#if equals "estudiante"}}
           {{#each students}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image avatar}}" name="{{_id}}">{{studentName}}
+              <img height="70%" src="{{image avatar}}">
+              <p>{{studentName}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
         {{/if}}
         {{#if equals "evento"}}
           {{#each events}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image eventImage}}" name="{{_id}}">{{eventName}}
+              <img height="70%" src="{{image eventImage}}" name="{{_id}}">
+              <p>{{eventName}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
         {{/if}}
         {{#if equals "carta"}}
           {{#each cards}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image cardImage}}" name="{{_id}}">{{cardName}}
+              <img height="70%" src="{{image cardImage}}" name="{{_id}}">
+              <p>{{cardName}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if equals "cromo"}}
+          {{#each chromes}}
+            <div class="carousel__cell">
+              <img height="70%" src="{{image chromeImage}}" name="{{_id}}">
+              <p>{{chromeName}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if equals "equipo"}}
+          {{#each groups}}
+            <div class="carousel__cell">
+              <img height="70%" src="{{image groupImg}}" name="{{_id}}">
+              <p>{{groupName}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if equals "penalización"}}
+          {{#each convictions}}
+            <div class="carousel__cell">
+              <p>{{convictionDescription}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div>
+          {{/each}}
+        {{/if}}
+        {{#if equals "frase"}}
+          {{#each quotes}}
+            <div class="carousel__cell">
+              <p>{{quoteText}}</p>
+              <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
         {{/if}}

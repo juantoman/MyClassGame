@@ -4,12 +4,11 @@
   font-family: sans-serif;
   text-align: center;
   border: 2px solid #CCC;
-  margin: 40px 0;
   position: relative;
-  width: 210px;
-  height: 140px;
-  margin: 80px auto;
-  perspective: 400px;
+  width: 410px;
+  height: 240px;
+  margin: 10px auto;
+  perspective: 300px;
 }
 
 .random_carousel {
@@ -23,8 +22,8 @@
 
 .carousel__cell {
   position: absolute;
-  width: 190px;
-  height: 120px;
+  width: 390px;
+  height: 220px;
   left: 10px;
   top: 10px;
   border: 2px solid black;
@@ -36,15 +35,15 @@
   transition: transform 1s, opacity 1s;
 }
 
-.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+4) { background: hsla(120, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+5) { background: hsla(160, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+6) { background: hsla(200, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 50%, 0.8); }
-.carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 50%, 0.8); }
+.carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+4) { background: hsla(120, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+5) { background: hsla(160, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+6) { background: hsla(200, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+7) { background: hsla(240, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+8) { background: hsla(280, 100%, 50%, 0.9); }
+.carousel__cell:nth-child(9n+0) { background: hsla(320, 100%, 50%, 0.9); }
 
 .carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(288px); }
 .carousel__cell:nth-child(2) { transform: rotateY( 40deg) translateZ(288px); }
@@ -63,4 +62,16 @@
   position: relative;
   z-index: 2;
   background: hsla(0, 0%, 100%, 0.8);
+}
+
+.carousel__cell span.removeCarousel {
+  position: absolute;
+  color: white;
+  top:5px;
+  right:5px;
+}
+
+.carousel__cell img {
+  padding-top:5px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222 );
 }

@@ -1,13 +1,9 @@
 Template.randomPage.events({
-  'click a': function(event) {
+  'click .rBtn': function(event) {
     randomElement=event.target.id;
     Session.set("randomElement",randomElement);
     $('.random_carousel').hide();
-    switch (randomElement) {
-      case "todosR":
-        $(event.target).toggleClass("btn-warning");
-        break;
-    }
+    $('.randomButton').click();
     //Modal.show("randomModal");
     /*
     $("#ModalHeader").text("RANDOM");
@@ -172,6 +168,16 @@ Template.randomPage.events({
     event.preventDefault();
     Session.setPersistent('navItem',event.target.parentNode.id);
     */
+  },
+  'click #todosR': function(event) {
+    $('.random_carousel').hide();
+    $(event.target).toggleClass("btn-warning");
+    if(Session.get("randomAll")) {
+      Session.set("randomAll",false);
+    } else {
+      Session.set("randomAll",true);
+    }
+    $('.randomButton').click();
   },
   'click #ModalImg': function(event) {
     event.preventDefault();

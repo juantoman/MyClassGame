@@ -1,27 +1,57 @@
 Template.randomCarousel.onRendered(function() {
-
+  Session.set("randomElement","estudiante");
+  $('.random_carousel').hide();
+  Session.set("randomAll",false);
 });
 
 Template.randomCarousel.helpers({
  students: function() {
-   if ($("#todosR").hasClass("btn-warning")) {
+   if (Session.get("randomAll")) {
      return students.find({classId: Session.get('classId')});
    } else {
      return students.find({classId: Session.get('classId'),'random':true});
    }
  },
  events: function() {
-   if ($("#todosR").hasClass("btn-warning")) {
+   if (Session.get("randomAll")) {
      return randomEvents.find({classId: Session.get('classId')});
    } else {
      return randomEvents.find({classId: Session.get('classId'),'random':true});
    }
  },
  cards: function() {
-   if ($("#todosR").hasClass("btn-warning")) {
+   if (Session.get("randomAll")) {
      return cards.find({classId: Session.get('classId')});
    } else {
      return cards.find({classId: Session.get('classId'),'random':true});
+   }
+ },
+ chromes: function() {
+   if (Session.get("randomAll")) {
+     return chromes.find({classId: Session.get('classId')});
+   } else {
+     return chromes.find({classId: Session.get('classId'),'random':true});
+   }
+ },
+ groups: function() {
+   if (Session.get("randomAll")) {
+     return groups.find({classId: Session.get('classId')});
+   } else {
+     return groups.find({classId: Session.get('classId'),'random':true});
+   }
+ },
+ convictions: function() {
+   if (Session.get("randomAll")) {
+     return convictions.find({classId: Session.get('classId')});
+   } else {
+     return convictions.find({classId: Session.get('classId'),'random':true});
+   }
+ },
+ quotes: function() {
+   if (Session.get("randomAll")) {
+     return quotes.find({classId: Session.get('classId')});
+   } else {
+     return quotes.find({classId: Session.get('classId'),'random':true});
    }
  },
  element: function() {
@@ -63,8 +93,8 @@ Template.randomCarousel.events({
     var cells = carousel.querySelectorAll('.carousel__cell');
     var cellCount; // cellCount set from cells-range input value
     var selectedIndex = 0;
-    var cellWidth = 210;
-    var cellHeight = 140;
+    var cellWidth = 410;
+    var cellHeight = 240;
     var isHorizontal = true;
     var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
     var radius, theta;
@@ -119,6 +149,82 @@ Template.randomCarousel.events({
     for (var p=0;p<r;p++){
       selectedIndex++;
       onOrientationChange();
+    }
+  },
+  'click .removeCarousel': function(event) {
+    switch (Session.get("randomElement")) {
+      case "estudiante":
+        Meteor.call('noRandomStudent',this._id);
+        if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomStudents',Session.get('classId'));
+        }
+        break;
+      case "evento":
+        Meteor.call('noRandomEvent',this._id);
+        if ( randomEvents.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomEvents',Session.get('classId'));
+        }
+        break;
+      case "carta":
+        Meteor.call('noRandomCard',this._id);
+        if ( cards.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomCards',Session.get('classId'));
+        }
+        break;
+      case "carta":
+        Meteor.call('noRandomCard',this._id);
+        if ( cards.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomCards',Session.get('classId'));
+        }
+        break;
+      case "cromo":
+        Meteor.call('noRandomChrome',this._id);
+        if ( chromes.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomChromes',Session.get('classId'));
+        }
+        break;
+      case "equipo":
+        Meteor.call('noRandomGroup',this._id);
+        if ( groups.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomGroups',Session.get('classId'));
+        }
+        break;
+      case "penalización":
+        Meteor.call('noRandomConviction',this._id);
+        if ( convictions.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomConvictions',Session.get('classId'));
+        }
+        break;
+      case "frase":
+        Meteor.call('noRandomQuote',this._id);
+        if ( quotes.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+          Meteor.call('allRandomQuotes',Session.get('classId'));
+        }
+        break;
+    }
+    $('.randomButton').click();
+  },
+  'click img': function(event) {
+    event.preventDefault();
+    if (Session.get("randomElement")=="estudiante") {
+      Session.setPersistent('studentId', this._id);
+      Session.set('studentSelected', true);
+      Session.setPersistent('sogBtn', "students");
+      Session.set('groupSelected', false);
+      $("#studentsMain").addClass("active");
+      $(".nav-pills li").removeClass("active");
+      $("#sM").addClass("active");
+      $("#collapseStudents").removeClass("in");
+    }
+    if (Session.get("randomElement")=="equipo") {
+      Session.setPersistent('groupId', this._id);
+      Session.set('groupSelected', true);
+      Session.setPersistent('sogBtn', "groups");
+      Session.set('studentSelected', false);
+      $(".nav-pills li").removeClass("active");
+      $("#studentsMain").addClass("active");
+      $("#sM").addClass("active");
+      $("#collapseStudents").removeClass("in");
     }
   }
 });
