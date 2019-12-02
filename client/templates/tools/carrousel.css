@@ -21,6 +21,7 @@
 }
 
 .carousel__cell {
+  display: table;
   position: absolute;
   width: 390px;
   height: 220px;
@@ -72,6 +73,20 @@
 }
 
 .carousel__cell img {
-  padding-top:5px;
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
+  display: table-cell;
+  vertical-align: middle;
+  margin:5px auto;
+
+}
+
+.carousel__cell p {
+  mix-blend-mode: difference;
+  font-weight: bold !important;
+}
+.carousel__cell p.onlyTextRandom {
+  display: table-cell;
+  vertical-align: middle;
+  mix-blend-mode: difference;
+  font-weight: bold;
 }

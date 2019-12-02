@@ -492,3 +492,6 @@
 2019-11-28 23:56:38 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
 2019-11-29 9:16:53 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
 2019-11-29 13:56:22 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vJAKKpaCGc3nQ7DJY
+2019-12-2 9:20:24 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-2 9:21:41 : selectClass -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7
+2019-12-2 10:32:18 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv

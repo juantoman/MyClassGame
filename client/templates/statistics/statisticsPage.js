@@ -1,4 +1,5 @@
 var sort = new ReactiveVar({});
+sort.set({ createdOn: -1 });
 
 Template.statisticsPage.helpers({
   statistics: function() {
@@ -30,7 +31,7 @@ Template.statisticsPage.events({
   },
   'click #date_th': function(event) {
     event.preventDefault();
-    sort.set({ createdOn: -1 });
+    sort.set({ createdOn: 1 });
   },
   'click #behaviour_th': function(event) {
     event.preventDefault();
@@ -59,4 +60,3 @@ Template.statisticsPage.events({
     Meteor.call('behaviourLogDelete',event.target.name);
   }
 });
-

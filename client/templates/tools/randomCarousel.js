@@ -146,8 +146,10 @@ Template.randomCarousel.events({
 
     // set initials
     var r = Math.floor(Math.random() * cells.length)+cells.length;
+    var audio = new Audio('/sound/ruleta.mp3');
     for (var p=0;p<r;p++){
       selectedIndex++;
+      audio.play();
       onOrientationChange();
     }
   },
