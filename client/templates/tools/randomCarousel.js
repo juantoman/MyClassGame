@@ -213,8 +213,9 @@ Template.randomCarousel.events({
       Session.set('studentSelected', true);
       Session.setPersistent('sogBtn', "students");
       Session.set('groupSelected', false);
-      $("#studentsMain").addClass("active");
       $(".nav-pills li").removeClass("active");
+      $("#tools").removeClass("active");
+      $("#studentsMain").addClass("active");
       $("#sM").addClass("active");
       $("#collapseStudents").removeClass("in");
     }
@@ -223,6 +224,7 @@ Template.randomCarousel.events({
       Session.set('groupSelected', true);
       Session.setPersistent('sogBtn', "groups");
       Session.set('studentSelected', false);
+      $("#tools").removeClass("active");
       $(".nav-pills li").removeClass("active");
       $("#studentsMain").addClass("active");
       $("#sM").addClass("active");

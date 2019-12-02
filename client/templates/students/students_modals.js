@@ -26,8 +26,8 @@ Template.studentsModals.events({
       if(studentName!=""){
         var student = {
           classId: Session.get('classId'),
-          studentName: studentName,
-          alias: studentName,
+          studentName: studentName.trim(),
+          alias: studentName.trim(),
           groupId: 0,
           XP: 0,
           HP: iniHP,
@@ -57,9 +57,9 @@ Template.studentsModals.events({
         studentName=studentEmail.split("@")[0];
         var student = {
           classId: Session.get('classId'),
-          studentName: studentName,
-          alias: studentName,
-          email: studentEmail,
+          studentName: studentName.trim(),
+          alias: studentName.trim(),
+          email: studentEmail.trim(),
           groupId: 0,
           XP: 0,
           HP: iniHP,
