@@ -500,3 +500,11 @@
 2019-12-2 12:2:10 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : CNvekEGaPmyBzdxQQ
 2019-12-2 12:2:25 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : NYSvzcD8KzysPXnGs
 2019-12-2 12:2:38 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : 9dv34Ws4bbdtmQRAm
+2019-12-2 12:12:32 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-2 12:24:15 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : p5Qgr8ugdAwk4io9N
+2019-12-2 12:24:30 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-2 12:25:6 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-2 12:25:18 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-2 12:25:23 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : p5Qgr8ugdAwk4io9N
+2019-12-2 12:25:40 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-2 12:25:59 : loginEmail -> zS9YFuyKAPFvx5twC

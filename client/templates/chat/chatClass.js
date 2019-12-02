@@ -3,16 +3,25 @@ Template.chatClass.helpers({
     return chatClass.find({classId: Session.get('classId')});
   },
   avatar: function(id) {
-    try {
-      emailUser=Meteor.users.findOne({_id: id}).emails[0].address;
+    a=students.findOne({'userId': id}).avatar;
+    if (a.substring(0, 4)=="http") {
+      return a;
+    } else {
+      return images.findOne({'_id': a}).image_url;
     }
-    catch(err) {
-      emailUser=Meteor.users.findOne({_id: id}).services.google.email;
-    }
-    return students.findOne({email: emailUser}).avatar;
+  },
+  alias: function() {
+    return students.findOne({'userId': this.userId}).alias;
   },
   even: function (value) {
     return (value % 2) === 1;
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

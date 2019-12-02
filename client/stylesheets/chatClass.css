@@ -46,4 +46,8 @@
 .time-left {
   float: left;
   color: #999;
-} 
+}
+
+.aliasChat {
+  font-weight: bold;
+}
