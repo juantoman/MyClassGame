@@ -11,10 +11,22 @@ Template.chatClass.helpers({
     }
   },
   alias: function() {
-    return students.findOne({'userId': this.userId}).alias;
+    if (Meteor.users.findOne({'_id':this.userId}).userType=="teacher") {
+      a="Profe";
+    } else {
+      a=students.findOne({'userId': this.userId}).alias;
+    }
+    return a;
   },
   even: function (value) {
     return (value % 2) === 1;
+  },
+  teacherAvatar: function() {
+    if (Meteor.users.findOne({'_id':this.userId}).userType=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   },
   teacher: function() {
     if (Session.get('userType')=="teacher") {
@@ -37,5 +49,22 @@ Template.chatClass.events({
     };
     Meteor.call('messageInsert', message);
     $(event.target).find('[name=message]').val("");
+  },
+  'click .chatRemove': function(event) {
+    swal({
+      title: "¿Estás seguro de querer borrar este mensaje?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('messageRemove', this._id);
+          break;
+      }
+    })
   }
 });

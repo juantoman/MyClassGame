@@ -2,10 +2,9 @@
   <div class="container">
     {{#each messages}}
     <div class="chatContainer {{#if even @index}}darker{{/if}}">
-      {{#if teacher}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{/if}}
-      {{#unless teacher}}<img src="{{avatar userId}}" alt="Avatar" />{{/unless}}
-      <span class="glyphicon glyphicon-remove time-right" aria-hidden="true"></span>
-      <p class="aliasChat">{{alias}}:</p>
+      {{#unless teacherAvatar}}<img src="{{avatar userId}}" />{{/unless}}
+      {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
+      <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{/if}} {{alias}}:</p>
       <p>{{message}}</p>
       <span class="time-left">{{createdOn}}</span>
     </div>
