@@ -136,6 +136,44 @@ Template.parametersList.events({
     Modal.show('resetClass');
     //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
+  'click #btn-reset': function(event) {
+    event.preventDefault();
+    swal({
+      title: "¿Estás seguro de querer resetear todas las puntuaciones de la clase?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('resetClass', Session.get('classId'));
+          break;
+      }
+    })
+    Modal.show('resetClass');
+    //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
+  'click #btn-resetXPHP': function(event) {
+    event.preventDefault();
+    swal({
+      title: "¿Estás seguro de querer resetar los XP y HP de los alumnos?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('resetXPHP', Session.get('classId'));
+          break;
+      }
+    })
+  },
   'click .studentImage': function(event) {
     event.preventDefault();
     Session.set('imageType','avatar');
@@ -160,12 +198,5 @@ Template.parametersList.events({
     $("#mainTab").css('background-image','');
     $(".studentProfile").css('background-image','');
     $(".opacityDiv").toggleClass('opacityProfile');
-  }
-});
-
-Template.resetClass.events({
-  'submit form': function(event) {
-    Meteor.call('resetClass', Session.get('classId'));
-    Modal.hide('resetClass');
   }
 });

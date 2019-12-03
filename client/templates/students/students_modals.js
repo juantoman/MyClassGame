@@ -43,6 +43,7 @@ Template.studentsModals.events({
           items: [],
           cards: [],
           powers: [],
+          chromes: [],
           collection: [],
           selected: 0,
           conected: 0,
