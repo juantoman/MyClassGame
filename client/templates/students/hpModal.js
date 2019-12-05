@@ -3,7 +3,7 @@ Template.hpModal.helpers({
     return behaviours.find({classId: Session.get('classId'), positive: true });
   },
   hps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: false });
+    return behaviours.find({classId: Session.get('classId'), positive: false },{sort:{'behaviourDescription':1}});
   },
   students: function() {
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });

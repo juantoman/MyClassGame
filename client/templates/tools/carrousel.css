@@ -76,13 +76,13 @@
   -webkit-filter: drop-shadow(5px 5px 5px #222 );
   display: table-cell;
   vertical-align: middle;
-  margin:5px auto;
-
+  margin: auto;
 }
 
 .carousel__cell p {
   mix-blend-mode: difference;
   font-weight: bold !important;
+  margin:0 !important;
 }
 .carousel__cell p.onlyTextRandom {
   display: table-cell;

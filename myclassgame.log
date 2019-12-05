@@ -543,3 +543,5 @@
 2019-12-3 18:5:17 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7 , studentId : ztD8BR8Y3wxiA5CEs
 2019-12-3 18:10:43 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7 , studentId : ztD8BR8Y3wxiA5CEs
 2019-12-3 18:11:30 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7 , studentId : ztD8BR8Y3wxiA5CEs
+2019-12-5 9:12:43 : selectClass -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7
+2019-12-5 10:6:14 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv

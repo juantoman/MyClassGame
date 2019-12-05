@@ -3,7 +3,7 @@ Template.randomPage.events({
     randomElement=event.target.id;
     Session.set("randomElement",randomElement);
     $('.random_carousel').hide();
-    $('.randomButton').click();
+    //$('.randomButton').click();
     //Modal.show("randomModal");
     /*
     $("#ModalHeader").text("RANDOM");
@@ -177,7 +177,7 @@ Template.randomPage.events({
     } else {
       Session.set("randomAll",true);
     }
-    $('.randomButton').click();
+    //$('.randomButton').click();
   },
   'click #ModalImg': function(event) {
     event.preventDefault();

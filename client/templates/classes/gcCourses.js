@@ -1,4 +1,4 @@
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 
 Template.gcCourses.onRendered(function () {
   Session.set("gcId","");

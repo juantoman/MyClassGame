@@ -7,7 +7,8 @@
         {{#if equals "estudiante"}}
           {{#each students}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image avatar}}">
+              <p>{{alias}}</p>
+              <img height="65%" src="{{image avatar}}">
               <p>{{studentName}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
@@ -16,8 +17,9 @@
         {{#if equals "evento"}}
           {{#each events}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image eventImage}}" name="{{_id}}">
               <p>{{eventName}}</p>
+              <img height="65%" src="{{image eventImage}}" name="{{_id}}">
+              <!--<p>{{eventDescription}}</p>-->
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
@@ -25,8 +27,9 @@
         {{#if equals "carta"}}
           {{#each cards}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image cardImage}}" name="{{_id}}">
               <p>{{cardName}}</p>
+              <img height="65%" src="{{image eventImage}}" name="{{_id}}">
+              <p>{{cardDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
@@ -34,8 +37,9 @@
         {{#if equals "cromo"}}
           {{#each chromes}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image chromeImage}}" name="{{_id}}">
               <p>{{chromeName}}</p>
+              <img height="65%" src="{{image eventImage}}" name="{{_id}}">
+              <p>{{chromeDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
@@ -43,8 +47,8 @@
         {{#if equals "equipo"}}
           {{#each groups}}
             <div class="carousel__cell">
-              <img height="70%" src="{{image groupImg}}" name="{{_id}}">
               <p>{{groupName}}</p>
+              <img height="70%" src="{{image groupImg}}" name="{{_id}}">
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}

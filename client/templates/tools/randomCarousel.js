@@ -152,6 +152,12 @@ Template.randomCarousel.events({
       audio.play();
       onOrientationChange();
     }
+    if (Session.get("randomElement")=="evento") {
+      var delayInMilliseconds = 700; //1 second
+      setTimeout(function() {
+        cells[selectedIndex-cells.length].getElementsByTagName('img')[0].click();
+      }, delayInMilliseconds);
+    }
   },
   'click .removeCarousel': function(event) {
     switch (Session.get("randomElement")) {
@@ -229,6 +235,16 @@ Template.randomCarousel.events({
       $("#studentsMain").addClass("active");
       $("#sM").addClass("active");
       $("#collapseStudents").removeClass("in");
+    }
+    if (Session.get("randomElement")=="evento") {
+      swal({
+        title: this.eventName,
+        text: this.eventDescription,
+        imageUrl: event.target.src,
+        imageWidth: 500,
+        imageAlt: this.eventName,
+        width: '80%'
+      })
     }
   }
 });

@@ -1,4 +1,4 @@
-import swal from 'sweetalert';
+//import swal from 'sweetalert';
 
 Template.GCTasks.onRendered(function () {
   Session.set("gcId","");

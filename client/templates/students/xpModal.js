@@ -1,9 +1,9 @@
 Template.xpModal.helpers({
   xps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: true });
+    return behaviours.find({classId: Session.get('classId'), positive: true },{sort:{'behaviourDescription':1}});
   },
   hps: function() {
-    return behaviours.find({classId: Session.get('classId'), positive: false });
+    return behaviours.find({classId: Session.get('classId'), positive: false },{sort:{'behaviourDescription':1}});
   },
   students: function() {
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
@@ -28,7 +28,7 @@ Template.xpModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'XP',
-        evaluation: Session.get('evaluation'), 
+        evaluation: Session.get('evaluation'),
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
