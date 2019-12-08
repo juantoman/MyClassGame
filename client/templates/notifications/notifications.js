@@ -31,39 +31,43 @@ Template.notifications.events({
  'click .validarCard': function(event) {
     event.preventDefault();
     swal({
-        title: "¿Estás seguro de querer validar el uso de esta carta?",
-        buttons: {
-          NO: "No",
-          SÍ: true,
-        },
-        icon: "warning"
-      })
-      .then((value) => {
-        switch (value) {
-          case "SÍ":
-            Meteor.call('studentUseCard', this.studentId, this.elementId);
-            Meteor.call('usedCard', this._id);
-            break;
-        }
-      })
+      title: 'Usar carta',
+      text: '¿Estás seguro de querer validar el uso de esta carta?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentUseCard', this.studentId, this.elementId);
+        Meteor.call('usedCard', this._id);
+        swal({
+          title: '¡Ya se puede usar esta carta!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   },
   'click .validarItem': function(event) {
     event.preventDefault();
     swal({
-        title: "¿Estás seguro de querer validar el uso de este artículo?",
-        buttons: {
-          NO: "No",
-          SÍ: true,
-        },
-        icon: "warning"
-      })
-      .then((value) => {
-        switch (value) {
-          case "SÍ":
-            Meteor.call('studentUseItem', this.studentId, this.elementId);
-            Meteor.call('usedItem', this._id);
-            break;
-        }
-      })
+      title: 'Usar artículo',
+      text: '¿Estás seguro de querer validar el uso de este artículo?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentUseItem', this.studentId, this.elementId);
+        Meteor.call('usedItem', this._id);
+        swal({
+          title: '¡Ya se puede usar este artículo!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   }
 });

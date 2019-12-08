@@ -139,6 +139,24 @@ Template.parametersList.events({
   'click #btn-reset': function(event) {
     event.preventDefault();
     swal({
+      title: 'Resetear puntuaciones',
+      text: '¿Estás seguro de querer resetear todas las puntuaciones de la clase?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('resetClass', Session.get('classId'));
+        swal({
+          title: '¡Puntuaciones reseteadas!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
+    swal({
       title: "¿Estás seguro de querer resetear todas las puntuaciones de la clase?",
       buttons: {
         NO: "No",
@@ -152,12 +170,30 @@ Template.parametersList.events({
           Meteor.call('resetClass', Session.get('classId'));
           break;
       }
-    })
+    })*/
     Modal.show('resetClass');
     //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
   'click #btn-resetXPHP': function(event) {
     event.preventDefault();
+    swal({
+      title: 'Resetear XP y HP',
+      text: '¿Estás seguro de querer resetar los XP y HP de los alumnos?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('resetXPHP', Session.get('classId'));
+        swal({
+          title: '¡XP y HP reseteadas!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
     swal({
       title: "¿Estás seguro de querer resetar los XP y HP de los alumnos?",
       buttons: {
@@ -172,7 +208,7 @@ Template.parametersList.events({
           Meteor.call('resetXPHP', Session.get('classId'));
           break;
       }
-    })
+    })*/
   },
   'click .studentImage': function(event) {
     event.preventDefault();

@@ -52,18 +52,20 @@ Template.chatClass.events({
   },
   'click .chatRemove': function(event) {
     swal({
-      title: "¿Estás seguro de querer borrar este mensaje?",
-      buttons: {
-        NO: "No",
-        SÍ: true,
-      },
-      icon: "warning"
-    })
-    .then((value) => {
-      switch (value) {
-        case "SÍ":
-          Meteor.call('messageRemove', this._id);
-          break;
+      title: 'Borrar mensaje',
+      text: '¿Estás seguro de querer borrar este mensaje?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('messageRemove', this._id);
+        swal({
+          title: '¡Mensaje borrado!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
       }
     })
   }

@@ -845,6 +845,25 @@ Template.studentProfile.events({
   'click .demandCard': function(event) {
     event.preventDefault();
     swal({
+      title: 'Utilizar carta',
+      text: '¿Estás seguro de querer solicitar el uso de esta carta?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
+        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
+        swal({
+          title: '¡Has solicitado usar esta carta!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
+    swal({
       title: "¿Estás seguro de querer solicitar el uso de esta carta?",
       buttons: {
         NO: "No",
@@ -859,11 +878,30 @@ Template.studentProfile.events({
           Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
           break;
       }
-    })
+    })*/
   },
   'click .useCard': function(event) {
     event.preventDefault();
     if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
+      swal({
+        title: 'Utilizar carta',
+        text: '¿Estás seguro de querer utilizar esta carta?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+          Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
+          swal({
+            title: '¡Has usado esta carta!',
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+      /*
       swal({
         title: "¿Estás seguro de querer utilizar esta carta?",
         buttons: {
@@ -879,7 +917,7 @@ Template.studentProfile.events({
             Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
             break;
         }
-      })
+      })*/
     } else {
       swal({
         title: "¡No tienes bastantes monedas!",
@@ -890,6 +928,25 @@ Template.studentProfile.events({
   },
   'click .demandItem': function(event) {
     event.preventDefault();
+    swal({
+      title: 'Utilizar artículo',
+      text: '¿Estás seguro de querer solicitar el uso de este artículo?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
+        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
+        swal({
+          title: '¡Has solicitado usar este artículo!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
     swal({
       title: "¿Estás seguro de querer solicitar el uso de este artículo?",
       buttons: {
@@ -905,10 +962,28 @@ Template.studentProfile.events({
           Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
           break;
       }
-    })
+    })*/
   },
   'click .useItem': function(event) {
     event.preventDefault();
+    swal({
+      title: 'Utilizar artículo',
+      text: '¿Estás seguro de querer utilizar este artículo?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
+        swal({
+          title: '¡Has usado este artículo!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
     swal({
       title: "¿Estás seguro de querer utilizar este artículo?",
       buttons: {
@@ -923,7 +998,7 @@ Template.studentProfile.events({
           Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
           break;
       }
-    });
+    });*/
   },
   'click .btn-delete-student': function(event) {
     event.preventDefault();
@@ -953,6 +1028,24 @@ Template.studentProfile.events({
   'click .removeBtn': function(event) {
     event.preventDefault();
     swal({
+      title: 'Eliminar cromo',
+      text: '¿Estás seguro de querer eliminar este cromo?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
+        swal({
+          title: '¡Cromo eliminado!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
+    swal({
       title: "¿Estás seguro de querer eliminar este cromo?",
       buttons: {
         NO: "No",
@@ -966,7 +1059,7 @@ Template.studentProfile.events({
           Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
           break;
       }
-    });
+    });*/
   }
 });
 
