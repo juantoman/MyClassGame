@@ -219,11 +219,11 @@ Template.randomCarousel.events({
       Session.set('studentSelected', true);
       Session.setPersistent('sogBtn', "students");
       Session.set('groupSelected', false);
+      $("#collapseStudents").removeClass("in");
       $(".nav-pills li").removeClass("active");
       $("#tools").removeClass("active");
       $("#studentsMain").addClass("active");
       $("#sM").addClass("active");
-      $("#collapseStudents").removeClass("in");
     }
     if (Session.get("randomElement")=="equipo") {
       Session.setPersistent('groupId', this._id);

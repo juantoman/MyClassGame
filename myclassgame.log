@@ -546,3 +546,7 @@
 2019-12-5 9:12:43 : selectClass -> userId: X4gJosMyyirAoAepj , classId : uoZfKCYwWdcMhdbS7
 2019-12-5 10:6:14 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
 2019-12-8 8:39:30 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-9 9:9:5 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-9 9:9:9 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-9 9:9:58 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-9 9:10:0 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
