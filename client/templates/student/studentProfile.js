@@ -551,6 +551,19 @@ Template.studentProfile.helpers({
       };
       return group;
     }
+  },
+  messages: function() {
+    return chatStudentTeacher.find({$and: [ { classId: Session.get('classId') } , { $or: [ {userId: Session.get('studentId')},{userIdWith:Session.get('studentId')} ] } ] });
+  },
+  even: function (value) {
+    return (value % 2) === 1;
+  },
+  teacherAvatar: function() {
+    if (Meteor.users.findOne({'_id':this.userId}).userType=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 
@@ -1060,6 +1073,45 @@ Template.studentProfile.events({
           break;
       }
     });*/
+  },
+  'submit form#chatST': function(event) {
+    event.preventDefault();
+    //console.log($(event.target).find('[name=eventDescription]').val())
+    if (Meteor.user().userType == "teacher") {
+      userId = Meteor.userId();
+      userIdWith = Session.get('studentId');
+    } else {
+      userId = Session.get('studentId');
+      userIdWith=classes.findOne({'_id':Session.get('classId')}).teacherId;
+    }
+    var message = {
+      classId: Session.get('classId'),
+      userId: userId,
+      userIdWith: userIdWith,
+      message: $(event.target).find('[name=message]').val(),
+      createdOn: new Date()
+    };
+    Meteor.call('messageSTInsert', message);
+    $(event.target).find('[name=message]').val("");
+  },
+  'click .chatRemove': function(event) {
+    swal({
+      title: 'Borrar mensaje',
+      text: '¿Estás seguro de querer borrar este mensaje?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('messageSTRemove', this._id);
+        swal({
+          title: '¡Mensaje borrado!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   }
 });
 

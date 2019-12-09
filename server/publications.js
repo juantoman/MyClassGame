@@ -403,6 +403,24 @@ Meteor.publish('chatClass', function(type,classId) {
       return chatClass.find({"classId": { "$in": c }});
   }*/
 });
+Meteor.publish('chatStudentTeacher', function(type,classId) {
+  if (classId){
+    return chatStudentTeacher.find({"classId":classId});
+  } else {
+    return chatStudentTeacher.find();
+  }
+  /*
+  v=[];
+  tipos=mcgParameters.findOne().typeClasses;
+  if ( userType == "teacher") {
+      classes.find({"teacherId": Meteor.userId()},{fields: {'_id':1}}).forEach(function(c){v.push(c._id);});
+      return chatClass.find( { $or: [ { "classId": { "$in": v } } , { "classId": { "$in": tipos } } ] } );
+  } else {
+      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+      return chatClass.find({"classId": { "$in": c }});
+  }*/
+});
+
 Meteor.publish('chatTeachers', function() {
   return chatTeachers.find();
 });
