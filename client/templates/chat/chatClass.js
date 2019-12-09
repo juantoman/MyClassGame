@@ -1,3 +1,7 @@
+Template.chatClass.onRendered(function() {
+
+})
+
 Template.chatClass.helpers({
   messages: function() {
     return chatClass.find({classId: Session.get('classId')});
@@ -68,5 +72,19 @@ Template.chatClass.events({
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
       }
     })
+  },
+  'click .control-label': function(event) {
+    var elmnt = document.getElementsByClassName("lastMessageRead")[0];
+    //elmnt.scrollIntoView(false);
+    var observer = new IntersectionObserver(function(entries) {
+    	if(entries[0].isIntersecting === true)
+    		console.log('Element is fully visible in screen');
+    }, { threshold: [1] });
+
+    observer.observe(elmnt);
+  },
+  'click .chatContainer': function(event) {
+    $(".chatContainer").removeClass("lastMessageRead");
+    $(event.target).addClass("lastMessageRead");
   }
 });
