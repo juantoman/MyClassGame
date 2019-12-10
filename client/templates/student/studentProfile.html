@@ -840,34 +840,7 @@
               </table>
             </div>
             <div role="tabpanel" class="tab-pane" id="myChat">
-              <h2>Chat Profesor</h2>
-          		<hr class="colorgraph">
-              <div class="row">
-
-                  <div class="container">
-                    {{#each messages}}
-                    <div class="chatContainer {{#if even @index}}darker{{/if}}">
-                      {{#unless teacherAvatar}}<img src="{{image ../avatar}}" />{{/unless}}
-                      {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
-                      <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Profe{{/if}} {{#unless teacherAvatar}}{{../alias}}{{/unless}}:</p>
-                      <p>{{message}}</p>
-                      <span class="time-left">{{createdOn}}</span>
-                    </div>
-                    {{/each}}
-                    <form id="chatST">
-                      <div class="form-group">
-                        <label class="control-label" for="inputGroupSuccess1">Nuevo mensaje</label>
-                        <div class="input-group  col-xs-12">
-                          <span class="input-group-addon">Nuevo</span>
-                          <input type="text" class="form-control input-lg" name="message" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
-                          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-                          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                
-              </div>
+              {{> chatWithTeacher}}
             </div>
           </div>
         </div>

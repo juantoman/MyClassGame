@@ -1,7 +1,7 @@
 <template name="chatClass">
   <div class="container">
     {{#each messages}}
-    <div class="chatContainer {{#if even @index}}darker{{/if}}">
+    <div class="chatContainer {{#if even @index}}darker{{/if}} {{#if messageRead}}messageRead{{/if}}">
       {{#unless teacherAvatar}}<img src="{{avatar userId}}" />{{/unless}}
       {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
       <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{/if}} {{alias}}:</p>

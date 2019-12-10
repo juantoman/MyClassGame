@@ -38,6 +38,14 @@ Template.chatClass.helpers({
     } else {
      return false;
     };
+  },
+  messageRead: function() {
+    if (Session.get('userType')=="teacher") {
+      r=this.teacherRead;
+    } else {
+      r=this.studentRead;
+    }
+    return r;
   }
 });
 
@@ -80,7 +88,6 @@ Template.chatClass.events({
     	if(entries[0].isIntersecting === true)
     		console.log('Element is fully visible in screen');
     }, { threshold: [1] });
-
     observer.observe(elmnt);
   },
   'click .chatContainer': function(event) {

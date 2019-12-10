@@ -30,7 +30,7 @@ body {
 
 #fondo {
   position: absolute;
-  z-index: -1 !important;   
+  z-index: -1 !important;
   width: 100%;
   height: 100%;
   /*background-image: url('http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg');*/
@@ -237,11 +237,11 @@ a:hover, a:link {
 }
 .userSelected{
   color:white;
-  background-color: #0a0 !important;  
+  background-color: #0a0 !important;
 }
 .userNotSelected{
   color:white;
-  background-color: gray;  
+  background-color: gray;
 }
 .punts {
   position:absolute;
@@ -250,7 +250,7 @@ a:hover, a:link {
   right:2vh;
 }
 .punts .list-group {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .punts .list-group li{
@@ -400,7 +400,7 @@ a:hover, a:link {
   position:relative;
   height:60px;
   top:-20px;
-  
+
 }
 
 #mylogo {
@@ -476,7 +476,7 @@ label {
 .linea:hover{
   background-color: lightgreen;
   color: blue;
-  
+
 }
 .form-control {
   background-color: white;
@@ -513,7 +513,7 @@ label {
   background-color: white !important;
   -webkit-filter: drop-shadow(3px 3px 5px red );
   filter: drop-shadow(3px 3px 5px red);
-  
+
 }
 
 .checked2 {
@@ -541,7 +541,7 @@ label {
   height:15vh;
   background-color: transparent;
   border: 1px solid transparent;
-}  
+}
 
 .studentSelected {
   background: linear-gradient(230deg, rgba(202,234,246,1) 0%, rgba(160,234,241,1) 46%, rgba(111,184,235,1) 100%);
@@ -713,7 +713,7 @@ li.active a{
 }
 
 .panel .input-group-text {
-  color:white !important;  
+  color:white !important;
 }
 
 #studentPage .panel table, #studentPage .panel .panel li, #groupPage .panel .panel li {
@@ -803,7 +803,7 @@ input[type=submit] {
   left:40%;
   top: 0px;
   opacity: 0.9;
-  
+
 }
 
 .menu-superior button {
@@ -905,7 +905,7 @@ input[type=submit] {
 
 #myChart {
   display:none;
- /*width:50% !important; 
+ /*width:50% !important;
  height:50% !important; */
 }
 
@@ -923,7 +923,7 @@ input[type=submit] {
 }
 
 .modal-xlg {
-  width: 90%; 
+  width: 90%;
   height: 90%;
   opacity: 1 !important;
   display: flex;
@@ -931,7 +931,7 @@ input[type=submit] {
   background-image:url("https://vignette.wikia.nocookie.net/koror-blog-org/images/4/48/Parchment.png/revision/latest?cb=20140420003946");
   background-repeat:no-repeat;
   background-size:auto 100%;
-  background-position: center; 
+  background-position: center;
 }
 
 #adventureHistory .modal-header {
@@ -1133,6 +1133,10 @@ h4.panel-title {
   z-index: 100;
   font-size: 2em;
   opacity: 1 !important;
+}
+
+.messageRead{
+  background-color: lightgreen;
 }
 
 @media (max-width: 740px) {
