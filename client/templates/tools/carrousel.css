@@ -17,7 +17,7 @@
   position: absolute;
   transform: translateZ(-288px);
   transform-style: preserve-3d;
-  transition: transform 1s;
+  transition: transform 3s;
 }
 
 .carousel__cell {

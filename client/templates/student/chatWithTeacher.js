@@ -10,12 +10,13 @@ Template.chatWithTeacher.onRendered(function() {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       console.log('Element ' + entry.target.id + ' is fully visible in screen');
+      Meteor.call('messageRead', entry.target.id);
       //entry.target.src = entry.target.dataset.src;
       observer.unobserve(entry.target);
     }
   });
   const observer = new IntersectionObserver(callback, { threshold: [1] });
-  document.querySelectorAll('.chatContainer').forEach(m => observer.observe(m));
+  document.querySelectorAll('.messageRead').forEach(m => observer.observe(m));
 })
 
 Template.chatWithTeacher.helpers({
@@ -73,19 +74,11 @@ Template.chatWithTeacher.events({
       userId = Session.get('studentId');
       userIdWith=classes.findOne({'_id':Session.get('classId')}).teacherId;
     }
-    t=false;
-    s=false;
-    if (Session.get('userType')=="teacher") {
-      t=true;
-    } else {
-      s=true;
-    }
     var message = {
       classId: Session.get('classId'),
       userId: userId,
       userIdWith: userIdWith,
-      teacherRead:t,
-      studentRead:s,
+      read:false,
       message: $(event.target).find('[name=message]').val(),
       createdOn: new Date()
     };

@@ -1,3 +1,5 @@
+var selectedIndex = 0;
+
 Template.randomCarousel.onRendered(function() {
   Session.set("randomElement","estudiante");
   $('.random_carousel').hide();
@@ -92,16 +94,18 @@ Template.randomCarousel.events({
     var carousel = document.querySelector('.random_carousel');
     var cells = carousel.querySelectorAll('.carousel__cell');
     var cellCount; // cellCount set from cells-range input value
-    var selectedIndex = 0;
+
     var cellWidth = 410;
     var cellHeight = 240;
     var isHorizontal = true;
     var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
     var radius, theta;
+    var elementNumber;
     // console.log( cellWidth, cellHeight );
 
     function rotateCarousel() {
       var angle = theta * selectedIndex * -1;
+      elementNumber=Math.abs(angle/360-parseInt(angle/360))*cells.length;
       carousel.style.transform = 'translateZ(' + -radius + 'px) ' +
         rotateFn + '(' + angle + 'deg)';
     }
@@ -145,17 +149,15 @@ Template.randomCarousel.events({
     }
 
     // set initials
-    var r = Math.floor(Math.random() * cells.length)+cells.length;
+    var r = Math.floor(Math.random() * cells.length+3*cells.length);
     var audio = new Audio('/sound/ruleta.mp3');
-    for (var p=0;p<r;p++){
-      selectedIndex++;
-      audio.play();
-      onOrientationChange();
-    }
+    audio.play();
+    selectedIndex+=r;
+    onOrientationChange();
     if (Session.get("randomElement")=="evento") {
-      var delayInMilliseconds = 700; //1 second
+      var delayInMilliseconds = 3000;
       setTimeout(function() {
-        cells[selectedIndex-cells.length].getElementsByTagName('img')[0].click();
+        cells[elementNumber].getElementsByTagName('img')[0].click();
       }, delayInMilliseconds);
     }
   },
