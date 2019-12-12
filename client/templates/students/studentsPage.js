@@ -29,6 +29,8 @@ Template.studentsPage.helpers({
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address.substring(0,6);
       regla='^'+emailUser;
       currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
+      Session.setPersistent('studentId', currentStudent);
+      Session.set('studentSelected', true);
       return students.find({'_id': currentStudent});
     } else {
       return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
