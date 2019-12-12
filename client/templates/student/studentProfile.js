@@ -1060,12 +1060,14 @@ Template.studentProfile.events({
       }
     });*/
   },
-  'shown.bs.tab #pepe': function(e) {
+  'shown.bs.tab #STChat': function(e) {
     event.preventDefault();
     var elmnt = document.getElementsByClassName("messageNotRead")[0];
     elmnt.scrollIntoView(false);
+    /*
      e.target // newly activated tab
      e.relatedTarget // previous active tab
+    */
    }
 });
 
