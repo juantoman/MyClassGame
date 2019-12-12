@@ -30,7 +30,7 @@ Template.studentsPage.helpers({
       regla='^'+emailUser;
       currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
       Session.setPersistent('studentId', currentStudent);
-      Session.set('studentSelected', true);
+      Session.setPersistent('studentSelected', true);
       return students.find({'_id': currentStudent});
     } else {
       return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
