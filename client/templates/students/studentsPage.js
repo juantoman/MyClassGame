@@ -125,12 +125,12 @@ Template.studentsPage.helpers({
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     }
     if (emailUser.substring(0,6)==this._id.substring(0,6)) {
-      return "myuser";
+      return true;
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
-      return "myuser";
+      return true;
     } else {
-      return "";
+      return false;
     }
   },
   thumbSelected: function(id) {
