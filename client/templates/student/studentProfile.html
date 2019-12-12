@@ -13,7 +13,7 @@
         <li role="presentation"><a class="aProfile" href="#Historial" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><br /> <span class="spanMenu">Historial</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Diario" aria-controls="notifications" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br /> <span class="spanMenu">Diario</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Notas" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span><br /> <span class="spanMenu">Notas</span></a></li>
-        {{#if myuser}}<li role="presentation"><a class="aProfile" href="#myChat" aria-controls="myChat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br /> <span class="spanMenu">Chat</span></a></li>{{/if}}
+        {{#if myuser}}<li role="presentation"><a id="pepe" class="aProfile" href="#myChat" aria-controls="myChat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br /> <span class="spanMenu">Chat</span></a></li>{{/if}}
       </ul>
     </div>
   </div>
@@ -93,7 +93,7 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-8 well" id="rightPanel">
-          <div class="col tab-content">
+          <div id="studentTab" class="col tab-content">
             <div role="tabpanel" class="tab-pane active" id="Datos">
               <h2>Datos <span class="label label-info" style="text-transform: none;"> {{studentId}}</span></h2>
           		<hr class="colorgraph">

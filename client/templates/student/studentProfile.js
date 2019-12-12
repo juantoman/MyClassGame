@@ -1059,7 +1059,14 @@ Template.studentProfile.events({
           break;
       }
     });*/
-  }
+  },
+  'shown.bs.tab #pepe': function(e) {
+    event.preventDefault();
+    var elmnt = document.getElementsByClassName("messageNotRead")[0];
+    elmnt.scrollIntoView(false);
+     e.target // newly activated tab
+     e.relatedTarget // previous active tab
+   }
 });
 
 Template.deleteStudent.events({

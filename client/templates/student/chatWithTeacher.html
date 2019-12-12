@@ -1,10 +1,10 @@
 <template name="chatWithTeacher">
-  <h2>Chat Profesor</h2>
+  <h2 id="STChat">Chat Profesor</h2>
   <hr class="colorgraph">
   <div class="row">
       <div class="container">
         {{#each messages}}
-        <div id="{{_id}}" class="chatContainer {{#if even @index}}darker{{/if}} {{#if messageRead}}messageRead{{/if}} {{#unless read}}messageRead{{/unless}}">
+        <div id="{{_id}}" class="chatContainer {{#if even @index}}darker{{/if}} {{#if messageNotRead}}messageNotRead{{/if}}">
           {{#unless teacherAvatar}}<img src="{{image ../avatar}}" />{{/unless}}
           {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
           <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Profe{{/if}} {{#unless teacherAvatar}}{{../alias}}{{/unless}}:</p>

@@ -9,14 +9,13 @@ Template.chatWithTeacher.onRendered(function() {
   const callback = (entries, observer) =>
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log('Element ' + entry.target.id + ' is fully visible in screen');
       Meteor.call('messageRead', entry.target.id);
       //entry.target.src = entry.target.dataset.src;
       observer.unobserve(entry.target);
     }
   });
   const observer = new IntersectionObserver(callback, { threshold: [1] });
-  document.querySelectorAll('.messageRead').forEach(m => observer.observe(m));
+  document.querySelectorAll('.messageNotRead').forEach(m => observer.observe(m));
 })
 
 Template.chatWithTeacher.helpers({
@@ -53,13 +52,14 @@ Template.chatWithTeacher.helpers({
      return false;
     };
   },
-  messageRead: function() {
+  messageNotRead: function() {
+    notRead=false;
     if (Session.get('userType')=="teacher") {
-      r=this.teacherRead;
+      if (! this.read && this.userId == Session.get('studentId') ) { notRead=true; }
     } else {
-      r=this.studentRead;
+      if (! this.read && this.userIdWith == Session.get('studentId') ) { notRead=true; }
     }
-    return r;
+    return notRead;
   }
 });
 
@@ -103,5 +103,10 @@ Template.chatWithTeacher.events({
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
       }
     })
+  },
+ 'click #STChat': function(event) {
+    event.preventDefault();
+    var elmnt = document.getElementsByClassName("messageNotRead")[0];
+    elmnt.scrollIntoView(false);
   }
 })
