@@ -14,7 +14,8 @@ Template.chatWithTeacher.onRendered(function() {
       observer.unobserve(entry.target);
     }
   });
-  const observer = new IntersectionObserver(callback, { threshold: [1] });
+  const observer = new IntersectionObserver(callback, { root: document.querySelector('#messageContainer'), threshold: [1] });
+
   document.querySelectorAll('.messageNotRead').forEach(m => observer.observe(m));
 })
 
@@ -60,6 +61,9 @@ Template.chatWithTeacher.helpers({
       if (! this.read && this.userIdWith == Session.get('studentId') ) { notRead=true; }
     }
     return notRead;
+  },
+  onlytime: function() {
+    return moment(this.createdOn).format('hh:mm');
   }
 });
 

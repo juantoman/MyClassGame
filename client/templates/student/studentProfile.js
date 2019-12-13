@@ -1063,10 +1063,12 @@ Template.studentProfile.events({
   'shown.bs.tab #STChat': function(e) {
     event.preventDefault();
     var elmnt = document.getElementsByClassName("messageNotRead")[0];
-    if (!elmnt) {
-      elmnt = document.getElementById("chatST");
+    if (elmnt) {
+      elmnt.scrollIntoView(false);
+    } else {
+      elmnt = document.getElementById("messageContainer");
+      elmnt.scrollTop = elmnt.scrollHeight;
     }
-    elmnt.scrollIntoView(false);
     /*
      e.target // newly activated tab
      e.relatedTarget // previous active tab
