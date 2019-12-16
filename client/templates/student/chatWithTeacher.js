@@ -64,6 +64,28 @@ Template.chatWithTeacher.helpers({
   },
   onlytime: function() {
     return moment(this.createdOn).format('hh:mm');
+  },
+  sentMessage: function() {
+    if (Meteor.user().userType == "teacher") {
+      if ( this.userId == Meteor.userId() ) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (  this.userId == Session.get('studentId') ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  teacher: function() {
+    if (Meteor.user().userType == "teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 
@@ -88,6 +110,8 @@ Template.chatWithTeacher.events({
     };
     Meteor.call('messageSTInsert', message);
     $(event.target).find('[name=message]').val("");
+    elmnt = document.getElementById("messageContainer");
+    elmnt.scrollTop = elmnt.scrollHeight;
   },
   'click .chatRemove': function(event) {
     swal({

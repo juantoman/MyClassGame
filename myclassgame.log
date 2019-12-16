@@ -925,3 +925,107 @@
 2019-12-13 14:5:20 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
 2019-12-13 14:11:30 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
 2019-12-13 14:21:57 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:5:30 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 9:5:35 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:7:44 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:9:37 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:9:43 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:32:36 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:35:32 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:37:0 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:37:21 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 9:37:37 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 9:37:43 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:39:31 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:40:8 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 9:40:46 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 9:41:9 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 9:41:21 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:41:28 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:43:35 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:44:8 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 9:44:24 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 9:44:28 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:45:4 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 9:45:17 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 9:45:19 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 9:45:27 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:48:37 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:50:37 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:54:16 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 9:54:31 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 9:54:37 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:55:13 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 9:55:26 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 9:55:28 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 9:55:35 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:56:51 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 9:59:54 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 10:0:13 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 10:0:18 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:0:49 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:1:47 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 10:2:1 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 10:2:3 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 10:2:7 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:6:53 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:11:3 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:16:0 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 10:16:17 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 10:17:2 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:17:31 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 10:17:47 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 10:17:48 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 10:24:49 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:26:41 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 10:31:59 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 11:38:45 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 11:38:49 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 11:38:57 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 11:42:33 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 11:43:39 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 11:49:56 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 11:57:11 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 11:58:6 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 11:58:23 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 11:58:27 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:4:54 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:25:3 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:25:34 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 12:25:59 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 12:26:3 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 12:26:7 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:33:14 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:35:27 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:36:11 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:37:18 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:39:8 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:42:29 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:44:7 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:45:0 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:47:2 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:48:4 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:53:1 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:55:8 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:57:48 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 12:58:22 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 12:58:48 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 12:58:52 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:19:15 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 13:19:33 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 13:19:35 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 13:19:39 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:27:4 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:27:21 : closeSession -> userId: X4gJosMyyirAoAepj
+2019-12-16 13:27:37 : loginEmail -> JX9jPjku5LdiFDoX2
+2019-12-16 13:27:43 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:28:53 : selectStudent -> userId: JX9jPjku5LdiFDoX2 , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:30:39 : closeSession -> userId: JX9jPjku5LdiFDoX2
+2019-12-16 13:30:54 : loginGoogle -> X4gJosMyyirAoAepj
+2019-12-16 13:30:57 : selectClass -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv
+2019-12-16 13:31:2 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:31:11 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:31:20 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:31:29 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:31:37 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj
+2019-12-16 13:31:44 : selectStudent -> userId: X4gJosMyyirAoAepj , classId : zNT4WYJgF5QiQjQcv , studentId : vTMrn5RT4dnoNTqcj

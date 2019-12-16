@@ -177,7 +177,7 @@ Template.studentsPage.helpers({
   },
   messagesNotRead: function() {
     if (Meteor.user().userType=="teacher") {
-      n=chatStudentTeacher.find({$and: [ { read: false } , { userId:this._id}, { userIdWith:Meteor.userId()} ] }).count();
+      n=chatStudentTeacher.find( { 'read': false , 'userId': this._id , 'userIdWith': Meteor.userId() } ).count();
     } else {
       n=chatStudentTeacher.find({$and: [ { read: false } , { userIdWith:this._id} ] }).count();
     }
