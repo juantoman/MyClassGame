@@ -1,26 +1,47 @@
 Template.chatClass.onRendered(function() {
+  /*
+  var elmnt = document.querySelector('#mG9saZR5ZHrwmZLyEm');
+  var observer = new IntersectionObserver(function(entries) {
+    if(entries[0].isIntersecting === true)
+      console.log('Element is fully visible in screen');
+  }, { threshold: [1] });
+  observer.observe(elmnt);*/
+  const callback = (entries, observer) =>
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      Meteor.call('messageRead', entry.target.id);
+      //entry.target.src = entry.target.dataset.src;
+      observer.unobserve(entry.target);
+    }
+  });
+  const observer = new IntersectionObserver(callback, { root: document.querySelector('#messageContainer'), threshold: [1] });
 
+  document.querySelectorAll('.messageNotRead').forEach(m => observer.observe(m));
 })
 
 Template.chatClass.helpers({
+  image: function(avatar) {
+    avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
+    if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
+      if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
+        if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
+          return classes.findOne({_id: Session.get('classId')}).studentImg;
+        } else {
+          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+        }
+      } else {
+        return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+      }
+    } else  {
+      if (avatar.substring(0, 4)=="http") {
+        return avatar;
+      } else {
+        return images.findOne({_id: avatar}).image_url;
+      }
+    }
+  },
   messages: function() {
     return chatClass.find({classId: Session.get('classId')});
-  },
-  avatar: function(id) {
-    a=students.findOne({'userId': id}).avatar;
-    if (a.substring(0, 4)=="http") {
-      return a;
-    } else {
-      return images.findOne({'_id': a}).image_url;
-    }
-  },
-  alias: function() {
-    if (Meteor.users.findOne({'_id':this.userId}).userType=="teacher") {
-      a="Profe";
-    } else {
-      a=students.findOne({'userId': this.userId}).alias;
-    }
-    return a;
   },
   even: function (value) {
     return (value % 2) === 1;
@@ -32,35 +53,65 @@ Template.chatClass.helpers({
      return false;
     };
   },
-  teacher: function() {
+  messageNotRead: function() {
+    notRead=false;
     if (Session.get('userType')=="teacher") {
+      if (! this.read && this.userId == Session.get('studentId') ) { notRead=true; }
+    } else {
+      if (! this.read && this.userIdWith == Session.get('studentId') ) { notRead=true; }
+    }
+    return notRead;
+  },
+  onlytime: function() {
+    return moment(this.createdOn).format('hh:mm');
+  },
+  sentMessage: function() {
+    if (Meteor.user().userType == "teacher") {
+      if ( this.userId == Meteor.userId() ) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (  this.userId == Session.get('studentId') ) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  teacher: function() {
+    if (Meteor.user().userType == "teacher") {
      return true;
     } else {
      return false;
     };
-  },
-  messageRead: function() {
-    if (Session.get('userType')=="teacher") {
-      r=this.teacherRead;
-    } else {
-      r=this.studentRead;
-    }
-    return r;
   }
 });
 
 Template.chatClass.events({
-  'submit form': function(event) {
+  'submit form#chatST': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
+    if (Meteor.user().userType == "teacher") {
+      userId = Meteor.userId();
+      userIdWith = Session.get('studentId');
+    } else {
+      userId = Session.get('studentId');
+      userIdWith=classes.findOne({'_id':Session.get('classId')}).teacherId;
+    }
     var message = {
       classId: Session.get('classId'),
-      userId: Meteor.userId(),
+      userId: userId,
+      userIdWith: userIdWith,
+      read:false,
       message: $(event.target).find('[name=message]').val(),
       createdOn: new Date()
     };
-    Meteor.call('messageInsert', message);
+    Meteor.call('messageSTInsert', message);
     $(event.target).find('[name=message]').val("");
+    elmnt = document.getElementById("messageContainer");
+    elmnt.scrollTop = elmnt.scrollHeight;
   },
   'click .chatRemove': function(event) {
     swal({
@@ -72,7 +123,7 @@ Template.chatClass.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        Meteor.call('messageRemove', this._id);
+        Meteor.call('messageSTRemove', this._id);
         swal({
           title: '¡Mensaje borrado!',
           type: 'success'
@@ -81,17 +132,9 @@ Template.chatClass.events({
       }
     })
   },
-  'click .control-label': function(event) {
-    var elmnt = document.getElementsByClassName("lastMessageRead")[0];
-    //elmnt.scrollIntoView(false);
-    var observer = new IntersectionObserver(function(entries) {
-    	if(entries[0].isIntersecting === true)
-    		console.log('Element is fully visible in screen');
-    }, { threshold: [1] });
-    observer.observe(elmnt);
-  },
-  'click .chatContainer': function(event) {
-    $(".chatContainer").removeClass("lastMessageRead");
-    $(event.target).addClass("lastMessageRead");
+ 'click #STChat': function(event) {
+    event.preventDefault();
+    var elmnt = document.getElementsByClassName("messageNotRead")[0];
+    elmnt.scrollIntoView(false);
   }
-});
+})

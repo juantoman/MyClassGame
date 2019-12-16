@@ -1,24 +1,108 @@
 <template name="chatClass">
-  <div class="container">
-    {{#each messages}}
-    <div class="chatContainer {{#if even @index}}darker{{/if}} {{#if messageRead}}messageRead{{/if}}">
-      {{#unless teacherAvatar}}<img src="{{avatar userId}}" />{{/unless}}
-      {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
-      <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{/if}} {{alias}}:</p>
-      <p>{{message}}</p>
-      <span class="time-left">{{createdOn}}</span>
-    </div>
-    {{/each}}
-    <form>
-      <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess1">Nuevo mensaje</label>
-        <div class="input-group  col-xs-12">
-          <span class="input-group-addon">Nuevo</span>
-          <input type="text" class="form-control input-lg" name="message" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
-          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+  <div class="page">
+    <div class="marvel-device nexus5">
+      <div class="top-bar"></div>
+      <div class="sleep"></div>
+      <div class="volume"></div>
+      <div class="camera"></div>
+      <div class="screen">
+        <div class="screen-container">
+
+          <div class="chat">
+            <div class="chat-container">
+              <div class="user-bar">
+                <div class="back">
+                  <i class="zmdi zmdi-arrow-left"></i>
+                </div>
+                <div class="avatar">
+                  <img src="{{image avatar}}" alt="Avatar">
+                </div>
+                <div class="name">
+                  <span>{{alias}}</span>
+                  <span class="status">online</span>
+                </div>
+                <div class="actions more">
+                  <i class="zmdi zmdi-more-vert"></i>
+                </div>
+                <div class="actions attachment">
+                  <i class="zmdi zmdi-phone"></i>
+                </div>
+
+              </div>
+              <div class="conversation">
+                <div id="messageContainer" class="conversation-container">
+                  {{#each messages}}
+                    <div id="{{_id}}" class="user-bar message {{#if sentMessage}}sent{{else}}received{{/if}} {{#if messageNotRead}}messageNotRead{{/if}}">
+                      <div class="avatar">
+                        {{#if teacherAvatar}}
+                          <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                        {{else}}
+                          <img src="{{image ../avatar}}" alt="Avatar">
+                        {{/if}}
+                      </div>
+                      {{message}}
+                      <span class="metadata">
+                          <span class="time">{{onlytime}}</span><span class="tick"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/></svg></span>
+                      </span>
+                    </div>
+                  {{/each}}
+                </div>
+                <form class="conversation-compose" id="chatST">
+                  <div class="emoji">
+                    {{#if teacher}}
+                      <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    {{else}}
+                      <img src="{{image avatar}}" alt="" width="25">
+                    {{/if}}
+                  </div>
+                  <input class="input-msg" name="message" placeholder="Escribe tu mensaje..." autocomplete="off" autofocus>
+                  <div class="photo">
+                    <img src="https://i.ibb.co/zNL2yg0/ib-attach.png" alt="" width="25" height="25">
+                    <img src="https://i.ibb.co/vHXYtHF/ib-camera.png" alt="" width="25" height="25">
+                  </div>
+                  <button class="send">
+                      <div class="circle">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      </div>
+                    </button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
+  <!--
+  <h2 id="STChat">Chat Profesor</h2>
+  <hr class="colorgraph">
+  <div class="row">
+      <div class="container">
+        <div id="messageContainer">
+          {{#each messages}}
+          <div id="{{_id}}" class="chatContainer {{#if even @index}}darker{{/if}} {{#if messageNotRead}}messageNotRead{{/if}}">
+            {{#unless teacherAvatar}}<img src="{{image ../avatar}}" />{{/unless}}
+            {{#if teacher}}<span class="glyphicon glyphicon-remove time-right chatRemove" aria-hidden="true"></span>{{/if}}
+            <p class="aliasChat">{{#if teacherAvatar}}<span class="glyphicon glyphicon-education" aria-hidden="true"></span> Profe{{/if}} {{#unless teacherAvatar}}{{../alias}}{{/unless}}:</p>
+            <p>{{message}}</p>
+            <span class="time-left">{{onlytime}}</span>
+          </div>
+          {{/each}}
+        </div>
+        <form id="chatST">
+          <div class="form-group">
+            <label class="control-label" for="inputGroupSuccess1">Nuevo mensaje</label>
+            <div class="input-group  col-xs-12">
+              <span class="input-group-addon">Nuevo</span>
+              <input type="text" class="form-control input-lg" name="message" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+              <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+              <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+  </div>
+  -->
+
 </template>
