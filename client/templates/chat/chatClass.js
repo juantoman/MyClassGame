@@ -21,6 +21,7 @@ Template.chatClass.onRendered(function() {
 
 Template.chatClass.helpers({
   image: function(avatar) {
+    avatar=students.findOne({'userId': avatar}).avatar;
     avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
     if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
@@ -38,6 +39,14 @@ Template.chatClass.helpers({
       } else {
         return images.findOne({_id: avatar}).image_url;
       }
+    }
+  },
+  avatar: function(id) {
+    a=students.findOne({'userId': id}).avatar;
+    if (a.substring(0, 4)=="http") {
+      return a;
+    } else {
+      return images.findOne({'_id': a}).image_url;
     }
   },
   messages: function() {
@@ -97,6 +106,7 @@ Template.chatClass.events({
     elmnt.scrollTop = elmnt.scrollHeight;
   },
   'click .chatRemove': function(event) {
+    event.preventDefault();
     swal({
       title: 'Borrar mensaje',
       text: '¿Estás seguro de querer borrar este mensaje?',
@@ -106,7 +116,7 @@ Template.chatClass.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        Meteor.call('messageSTRemove', this._id);
+        Meteor.call('messageRemove', this._id);
         swal({
           title: '¡Mensaje borrado!',
           type: 'success'

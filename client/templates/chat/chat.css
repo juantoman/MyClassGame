@@ -228,7 +228,7 @@ body {
   margin: 8px 0;
   max-width: 85%;
   word-wrap: break-word;
-  z-index: -1;
+  z-index: 1;
 }
 
 .message:after {
