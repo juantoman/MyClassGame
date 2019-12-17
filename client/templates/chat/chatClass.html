@@ -15,11 +15,10 @@
                   <i class="zmdi zmdi-arrow-left"></i>
                 </div>
                 <div class="avatar">
-                  <img src="{{image avatar}}" alt="Avatar">
+                  <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
                 </div>
                 <div class="name">
-                  <span>{{alias}}</span>
-                  <span class="status">online</span>
+                  <span>Chat Clase</span>
                 </div>
                 <div class="actions more">
                   <i class="zmdi zmdi-more-vert"></i>
@@ -30,7 +29,7 @@
 
               </div>
               <div class="conversation">
-                <div id="messageContainer" class="conversation-container">
+                <div id="chatClassContainer" class="conversation-container">
                   {{#each messages}}
                     <div id="{{_id}}" class="user-bar message {{#if sentMessage}}sent{{else}}received{{/if}} {{#if messageNotRead}}messageNotRead{{/if}}">
                       <div class="avatar">
@@ -47,7 +46,7 @@
                     </div>
                   {{/each}}
                 </div>
-                <form class="conversation-compose" id="chatST">
+                <form class="conversation-compose" id="chatClass">
                   <div class="emoji">
                     {{#if teacher}}
                       <span class="glyphicon glyphicon-education" aria-hidden="true"></span>

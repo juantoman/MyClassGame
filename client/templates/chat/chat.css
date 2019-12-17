@@ -21,10 +21,14 @@ body {
   background-size:cover;
 }*/
 
-#messageContainer{
+#messageContainer, #chatClassContainer{
   overflow-y: scroll;
   overflow-x: hidden;
   max-height: 50vh;
+}
+
+#chatClassContainer{
+  max-height: 65vh;
 }
 
 .page {

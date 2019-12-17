@@ -66,18 +66,10 @@ Template.chatClass.helpers({
     return moment(this.createdOn).format('hh:mm');
   },
   sentMessage: function() {
-    if (Meteor.user().userType == "teacher") {
-      if ( this.userId == Meteor.userId() ) {
-        return true;
-      } else {
-        return false;
-      }
+    if ( this.userId == Meteor.userId() ) {
+      return true;
     } else {
-      if (  this.userId == Session.get('studentId') ) {
-        return true;
-      } else {
-        return false;
-      }
+      return false;
     }
   },
   teacher: function() {
@@ -90,27 +82,18 @@ Template.chatClass.helpers({
 });
 
 Template.chatClass.events({
-  'submit form#chatST': function(event) {
+  'submit form#chatClass': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
-    if (Meteor.user().userType == "teacher") {
-      userId = Meteor.userId();
-      userIdWith = Session.get('studentId');
-    } else {
-      userId = Session.get('studentId');
-      userIdWith=classes.findOne({'_id':Session.get('classId')}).teacherId;
-    }
     var message = {
       classId: Session.get('classId'),
-      userId: userId,
-      userIdWith: userIdWith,
-      read:false,
+      userId: Meteor.userId(),
       message: $(event.target).find('[name=message]').val(),
       createdOn: new Date()
     };
-    Meteor.call('messageSTInsert', message);
+    Meteor.call('messageInsert', message);
     $(event.target).find('[name=message]').val("");
-    elmnt = document.getElementById("messageContainer");
+    elmnt = document.getElementById("chatClassContainer");
     elmnt.scrollTop = elmnt.scrollHeight;
   },
   'click .chatRemove': function(event) {
