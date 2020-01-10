@@ -1,0 +1,11 @@
+#Build apk
+meteor build ../MCG --server=http://myclassgame.iestacio.com
+#Now you can sign your app by
+keytool -genkey -alias mcg -keyalg RSA -keysize 2048 -validity 10000
+cd MCG/android/project/build/outputs/apk/release
+jarsigner -digestalg SHA1 mcg.apk mcg
+#Introduir dades en Google Development https://console.developers.google.com/apis/credentials
+#Crear OAuth Android o IOS
+#Traure el SHA1
+keytool -exportcert -alias mcg -list -v
+#Buscar per a Android en MCG/android/project/build/intermediates/manifests/full/release/AndroidManifest.xml la variable "package"

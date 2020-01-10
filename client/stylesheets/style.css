@@ -438,8 +438,9 @@ a:hover, a:link {
   color:white;
   font-size: 2em;
   top:-50px;
-  padding-left:80px;
+  padding-left:10px;
   margin:auto;
+  margin-top:10px;
   position:relative;
   text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
 }
@@ -1142,5 +1143,14 @@ h4.panel-title {
 @media (max-width: 740px) {
  .spanMenu {
    display:none !important;
+ }
+ #mylogo {
+   margin-left:-70px;
+ }
+ #mylogo span{
+   font-size: 2em !important;
+   font-weight: bold;
+   top:-10px;
+   text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
  }
 }

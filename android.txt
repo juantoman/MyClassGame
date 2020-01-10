@@ -1,0 +1,9 @@
+#Instal·lar sdk Android
+meteor install-sdk android
+#Crear projecte Meteor per a Android
+meteor add-platform android
+meteor add cordova:cordova-plugin-splashscreen@4.1.0
+meteor add cordova:cordova-plugin-statusbar@2.3.0
+meteor add hedcet:cordova-google-plus-native-sign-in
+#Executar la aplicació per a Android
+meteor run android

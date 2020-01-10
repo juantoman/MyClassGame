@@ -1,0 +1,6 @@
+#Deploy app
+meteor build MCG --server http://myclassgame.iestacio.com
+#En en directori MCG/android/project/build/outputs/apk estan els apk
+#Configurar servidor para iniciar
+MONGO_URL=mongodb://127.0.0.1:27017/meteor
+meteor --mobile-server 5.189.163.221:3301 --port 3301

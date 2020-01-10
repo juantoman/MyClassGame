@@ -1,3 +1,7 @@
+Template.login.onRendered(function () {
+  Session.set("loginType","teacherLogin");
+});
+
 Template.login.events({
     'submit .login-form': function(e) {
         e.preventDefault();
@@ -61,7 +65,7 @@ Template.login.events({
             if(error) {
               swal({
                   title: "¡Error de login!",
-                  text: error.reason,
+                  text: error,
                   icon: "warning",
               });
             }else{
