@@ -4,6 +4,8 @@ meteor install-sdk android
 meteor add-platform android
 meteor add cordova:cordova-plugin-splashscreen@4.1.0
 meteor add cordova:cordova-plugin-statusbar@2.3.0
+meteor add cordova:cordova-plugin-whitelist@1.3.4
 meteor add hedcet:cordova-google-plus-native-sign-in
 #Executar la aplicació per a Android
+#Modificar línia target=android-29 en MyClassGameApp/.meteor/local/cordova-build/platforms/android/project.properties 
 meteor run android

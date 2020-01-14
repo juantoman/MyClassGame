@@ -3,13 +3,13 @@
 
 
 .grid-block, .main, .comments li, .comment-form {
-  background: #fff;
-  border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 10px;
+  /*background: #fff;
+  border-radius: 0px;
+  padding: 0px;
+  margin-bottom: 0px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);*/
 }
 
 body {
@@ -26,6 +26,7 @@ body {
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");
   border:1px solid #268BD2;*/
   background-attachment: fixed;
+
 }
 
 #fondo {
@@ -147,7 +148,7 @@ a:hover, a:link {
 }
 
 #mainTab {
-  min-height: 100vh;
+
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -467,9 +468,6 @@ label {
   margin:2px;
 }
 
-.container-responsive {
-  background-color: lightgray;
-}
 .table-responsive {
   background-color: white;
 }
@@ -1106,7 +1104,8 @@ h4.panel-title {
 }
 
 .modal-dialog{
-  width:80vw;
+  width:80%;
+  margin: 10vh auto;
 }
 
 #collapseGC{
@@ -1140,6 +1139,23 @@ h4.panel-title {
   background-color: lightgreen;
 }
 
+.login-form .panel-info {
+  width:40vw;
+  margin:auto;
+}
+
+.marketing .row{
+  margin-top:10px !important;
+}
+
+.featurette {
+  margin-bottom: 30px;
+}
+
+.tab-content {
+  border:0px solid black !important;
+}
+
 @media (max-width: 740px) {
  .spanMenu {
    display:none !important;
@@ -1152,5 +1168,48 @@ h4.panel-title {
    font-weight: bold;
    top:-10px;
    text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
+ }
+ .nav li{
+   font-size:2vmax !important;
+ }
+ #myCarousel {
+   display:none;
+ }
+ .login-form {
+   margin-top:20px;
+ }
+ .login-form .panel-info {
+   width:80vw;
+   margin:auto;
+ }
+ .login-form label, .login-form .btn{
+   font-size: 2vh !important;
+ }
+ .featurette img {
+   display:none;
+ }
+ .conversation {
+   height:145%;
+   margin-bottom:50px;
+ }
+ .chat-container {
+   margin-top:50px !important;
+ }
+ .conversationClass {
+   height:72vh;
+   margin-bottom:-50px !important;
+ }
+ .conversation-container {
+   height:calc(110%+50px);
+ }
+ .conversation-compose {
+   margin-top: -20px !important;
+ }
+ #rightPanel {
+   background-color: white !important;
+   border: 0px solid transparent;
+   border-radius: 4px;
+   -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.05);
+   margin-top:-30px;
  }
 }

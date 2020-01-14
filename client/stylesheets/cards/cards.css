@@ -207,7 +207,7 @@ h1, h2, h3, h4, h5 {
 .card__name {
     font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     text-align: center;
-    font-size: 1vmax;
+    font-size: 3vh;
     font-weight: 700;
     letter-spacing: 0.02em;
     margin-top:10px;
@@ -220,8 +220,8 @@ h1, h2, h3, h4, h5 {
       font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
       text-align: right;
       width: 50%;
-      padding: 0.25em 0.5em 0;
-      font-size: 1vmax;
+      padding: 0;
+      font-size: 2.5vh;
     }
 .card__stats span:hover {
       color: yellow;
@@ -233,8 +233,10 @@ h1, h2, h3, h4, h5 {
       font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
       text-align: left;
       width: 50%;
-      padding: 0.25em 0.5em 0;
-      font-size: 1vmax;
+      padding: 0em 0.5em 0;
+      font-size: 2.5vh;
+      color: gray;
+      font-weight: bold;
     }
 
 .cardLine {

@@ -92,7 +92,7 @@ Template.studentsPage.helpers({
       return groups.findOne({_id: this.groupId});
     } else {
       var group = {
-        groupName:"Sin asignar"
+        groupName:"NA"
       };
       return group;
     }

@@ -1,14 +1,14 @@
 <template name="layout">
-  <div class="">
+  <div class="main">
     {{> header}}
-    <div id="main">
+    <div id="">
       <div id="fondo">
       </div>
       {{#if currentUser}}
         {{> yield}}
       {{else}}
         {{> carrusel}}
-      {{/if}}  
+      {{/if}}
     </div>
     {{> footer}}
   </div>

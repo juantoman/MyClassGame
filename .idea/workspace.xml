@@ -2,15 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a22234-fc92-4261-aff8-18cbc679cfdc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android.txt" beforeDir="false" afterPath="$PROJECT_DIR$/android.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backup_mongo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/backup_mongo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/stylesheets/cards/cards.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/stylesheets/cards/cards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/stylesheets/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/application/carrusel.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/application/carrusel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/application/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/application/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/application/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/application/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/classes/classes_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/classes/classes_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/students/studentsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/students/studentsPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/iniciar.txt" beforeDir="false" afterPath="$PROJECT_DIR$/iniciar.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myclassgame.log" beforeDir="false" afterPath="$PROJECT_DIR$/myclassgame.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,9 +49,37 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MyClassGameApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyClassGameApp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyClassGameApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyClassGameApp" type="462c0819:PsiDirectoryNode" />
+              <item name=".meteor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyClassGameApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyClassGameApp" type="462c0819:PsiDirectoryNode" />
+              <item name=".meteor" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyClassGameApp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyClassGameApp" type="462c0819:PsiDirectoryNode" />
+              <item name=".meteor" type="462c0819:PsiDirectoryNode" />
+              <item name="local" type="462c0819:PsiDirectoryNode" />
+              <item name="cordova-build" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -85,10 +126,15 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.3072747" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.31270358" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />
     </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/.meteor/local/cordova-build/config.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
   </component>
 </project>

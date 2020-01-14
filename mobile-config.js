@@ -35,15 +35,17 @@ App.launchScreens({
 App.setPreference('BackgroundColor', '0xff0000ff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'default');
+//App.setPreference('android-targetSdkVersion', '29');
 
 // Set PhoneGap/Cordova rules.
 // Regla para ver imágenes de cloudinary
 App.accessRule('*://*.cloudinary.com/*');
 App.accessRule('*://*.googleapis.com/*');
 App.accessRule('*://*.googleusercontent.com/*');
+App.accessRule('*://*.googleusercontent.com/*');
+App.accessRule('*');
 
 // Parámetros Google
 App.configurePlugin('cordova-plugin-googleplus', {
-    REVERSED_CLIENT_ID: 'com.googleusercontent.apps.422269930750-src3psqemmt1p6m8alujf9nvmook5c0d'
+    REVERSED_CLIENT_ID: 'com.googleusercontent.apps.422269930750-qnhfh8ed8tato750cl9amks7mt7luihq'
 });
-
