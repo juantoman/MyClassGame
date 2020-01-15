@@ -20,9 +20,9 @@
 }
 
 .studentInfo h2{
-  margin-top:-4vh;
+  margin-top:-2vh;
   color:rgba(0,0,0,.7) !important;
-  font-size: 5vh;
+  font-size: 4vh;
   font-weight: bold;
   letter-spacing: .3em
 }
@@ -36,7 +36,6 @@
 }
 
 .studentInventory .card {
-  margin-top:-5vh;
   transform: scale(1);
 }
 
@@ -109,7 +108,7 @@
   transform: scale(2);
   background-color: rgba(0, 0, 0, 1);
   z-index: 1000;
-}  
+}
 
 .studentInventory .list-item:not(.addBtn):hover .item-image {
   position: absolute;
@@ -149,11 +148,11 @@
   color:white;
   background-color: rgba(255, 0, 0, .8);
   vertical-align: middle;
-}  
+}
 
 .studentInventory .list-item .removeBtn span {
 
-}  
+}
 
 .studentInventory .list-item .item-image {
   position: absolute;

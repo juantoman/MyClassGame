@@ -17,19 +17,82 @@
       </ul>
     </div>
   </div>
+  <div class="panel panel-info mobilePanel">
+      <div class="panel-heading">
+          <h2 class="panel-title text-center">
+            <img src="{{image avatar}}" width="30px">
+            <a data-toggle="collapse" href="#collapseCard">{{alias}} ({{studentName}})</a>
+          </h2>
+      </div>
+      <div id="collapseCard" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="col-xs-12 col-md-4 well">
+              <div class="row">
+
+                  <div class="col-xs-12 cardProfile">
+                    <figure class="card card__water">
+                        <div class="card__image-container" name="{{_id}}">
+                          <img class="cardLogo" src="/images/@mcgnb.png">
+                          <img src="{{image avatar}}" class="card__image eImage" name="{{_id}}">
+                        </div>
+
+                        <figcaption class="card__caption">
+                          {{#if teacher}}
+                            <h1 class="card__name">{{alias}} ({{studentName}})</h1>
+                          {{else}}
+                            <h1 class="card__name">{{alias}}</h1>
+                          {{/if}}
+                          <h3 class="studentTeam">
+                            {{grupo.groupName}}
+                          </h3>
+                          <h3 class="card__type">
+                            Nivel {{levelAutomatic _id}}
+                          </h3>
+
+                          <table class="card__stats">
+                            <tbody><tr>
+                              <th><span class="btn-xp">XP</span></th>
+                              <td><span class="btn-xp">{{XP}}</span></td>
+                            </tr>
+                            <tr>
+                              <th><span class="btn-hp">HP</span></th>
+                              <td><span class="btn-hp">{{HP}}</span></td>
+                            </tr>
+
+                            <tr>
+                              <th><span class="btn-store">Monedas</span></th>
+                              <td><span class="btn-store">{{coins}}</span></td>
+                            </tr>
+
+                          </tbody></table>
+                          <div class="cardLine">
+                          </div>
+                          <ul class="cardIcons" title="{{_id}}">
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
+                          </ul>
+                        </figcaption>
+                      </figure>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
   <div class="container-fluid studentInventory">
       <div class="row">
         <div class="col-xs-12 col-md-4 well" id="leftPanel">
           <div class="row">
+            <!--
             <div class="studentInfo">
               {{#if teacher}}
           		  <h2>{{studentName}}</h2>
-          		  <!--<h4>{{_id}}</h4>-->
-          		{{else}}
-          		  <h2>{{alias}} <!--<br> <small>{{_id}}</small>--></h2>
+          	  {{else}}
+          		  <h2>{{alias}}</h2>
           		{{/if}}
           	</div>
-
+            -->
               <div class="col-xs-12 cardProfile">
               	<figure class="card card__water">
                     <div class="card__image-container" name="{{_id}}">
@@ -170,7 +233,7 @@
                 		<div class="row">
                   			<div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
                   			{{#if teacher}}
-                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-create-student btn-block btn-lg">{{#if userCreated}}Borrar{{/if}}{{#unless userCreated}}Crear{{/unless}} cuenta</button></div>
+                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-create-student btn-block btn-lg">{{#if userCreated}}Borrar{{else}}Crear{{/if}} cuenta</button></div>
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">Eliminar</button></div>
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">Reiniciar</button></div>
                           <div class="col-xs-6 col-sm-2"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
