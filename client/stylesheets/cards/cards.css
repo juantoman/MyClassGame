@@ -102,7 +102,11 @@ h1, h2, h3, h4, h5 {
     border-radius: 3px 3px 0 0;
     height: 75px;
     position: relative;
-  }
+}
+
+.card__image_type{
+    height: 75px;
+}
 
 .card__image-container_image {
     background-color: white !important;

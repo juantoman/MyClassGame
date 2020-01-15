@@ -161,6 +161,35 @@ Template.randomCarousel.events({
       }, delayInMilliseconds);
     }
   },
+  'click .allInRandomButton': function(event) {
+    $('.random_carousel').hide();
+    switch (Session.get("randomElement")) {
+      case "estudiante":
+        Meteor.call('allRandomStudents',Session.get('classId'));
+        break;
+      case "evento":
+        Meteor.call('allRandomEvents',Session.get('classId'));
+        break;
+      case "carta":
+        Meteor.call('allRandomCards',Session.get('classId'));
+        break;
+      case "carta":
+        Meteor.call('allRandomCards',Session.get('classId'));
+        break;
+      case "cromo":
+        Meteor.call('allRandomChromes',Session.get('classId'));
+        break;
+      case "equipo":
+        Meteor.call('allRandomGroups',Session.get('classId'));
+        break;
+      case "penalización":
+        Meteor.call('allRandomConvictions',Session.get('classId'));
+        break;
+      case "frase":
+        Meteor.call('allRandomQuotes',Session.get('classId'));
+        break;
+    }
+  },
   'click .removeCarousel': function(event) {
     switch (Session.get("randomElement")) {
       case "estudiante":
