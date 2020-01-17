@@ -54,6 +54,13 @@ Template.header.helpers({
     } else {
       return classes.findOne({'_id': Session.get('classId')}).onlyMyStudent;
     }
+  },
+  version: function(v) {
+    if (mcgParameters.findOne({"_id":1}).androidVersion == v) {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 

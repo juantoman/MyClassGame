@@ -38,9 +38,9 @@
             <div id="myheader" class="text-center">
               <div id="mylogo">
                 <img src="/images/@mcgnb.png">
-                <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span><span id="mcgMobileVersion"> 1.1</span><p class="welearnplaying">{{_ "welearnplaying"}}</p>
+                <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span><p class="welearnplaying">{{_ "welearnplaying"}}</p>
               </div>
-
+              {{#unless version "1.1"}} <a class="btn btn-warning" href="#" onclick="window.open('https://drive.google.com/drive/folders/1EsG8rrhcWK5NYvC_g7lxsveCO245rX3M?usp=sharing')" id="mcgMobileVersion">Update</a>{{/unless}}
             </div>
           </a>
         </div>
