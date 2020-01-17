@@ -11,8 +11,8 @@
   overflow: hidden;
 }
 
-.studentInventory .row {
-  justify-content: center;
+.mobilePanel .well {
+  text-align: center;
 }
 
 .studentBody .form-group {
@@ -105,7 +105,7 @@
 }
 
 .studentInventory .list-item:not(.addBtn):hover {
-  transform: scale(2);
+  transform: scale(1.02);
   background-color: rgba(0, 0, 0, 1);
   z-index: 1000;
 }
@@ -144,7 +144,7 @@
   z-index:1;
 }
 
-.studentInventory .list-item .removeBtn {
+.studentInventory .list-item .removeBtn, .studentInventory .list-item .removeBadgeBtn, .studentInventory .list-item .removeCardBtn {
   color:white;
   background-color: rgba(255, 0, 0, .8);
   vertical-align: middle;

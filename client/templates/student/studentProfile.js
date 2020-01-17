@@ -546,7 +546,7 @@ Template.studentProfile.helpers({
       return groups.findOne({_id: this.groupId});
     } else {
       var group = {
-        groupName:"Sin asignar"
+        groupName:"NA"
       };
       return group;
     }
@@ -1038,6 +1038,78 @@ Template.studentProfile.events({
         Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
         swal({
           title: '¡Cromo eliminado!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
+    swal({
+      title: "¿Estás seguro de querer eliminar este cromo?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
+          break;
+      }
+    });*/
+  },
+  'click .removeCardBtn': function(event) {
+    event.preventDefault();
+    swal({
+      title: 'Eliminar carta',
+      text: '¿Estás seguro de querer eliminar este carta?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+        swal({
+          title: 'Carta eliminada!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    /*
+    swal({
+      title: "¿Estás seguro de querer eliminar este cromo?",
+      buttons: {
+        NO: "No",
+        SÍ: true,
+      },
+      icon: "warning"
+    })
+    .then((value) => {
+      switch (value) {
+        case "SÍ":
+          Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
+          break;
+      }
+    });*/
+  },
+  'click .removeBadgeBtn': function(event) {
+    event.preventDefault();
+    swal({
+      title: 'Eliminar insignia',
+      text: '¿Estás seguro de querer eliminar este insignia?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentBadgePull', Session.get('studentId'), this.badgeId);
+        swal({
+          title: 'Insignia eliminada!',
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
