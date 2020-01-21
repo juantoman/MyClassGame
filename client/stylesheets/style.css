@@ -1171,6 +1171,11 @@ h4.panel-title {
 }
 
 @media (max-width: 740px) {
+
+ #myheader {
+
+ }
+
  .spanMenu {
    display:none !important;
  }
@@ -1178,7 +1183,7 @@ h4.panel-title {
    margin-left:-90px;
  }
  #mylogo span{
-   font-size: 2.5em !important;
+   font-size: 2em !important;
    font-weight: bold;
    top:-10px;
    text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
@@ -1193,7 +1198,7 @@ h4.panel-title {
  }
 
  .nav li{
-   font-size:2vmax !important;
+   font-size:1.5vmax !important;
  }
  #myCarousel {
    display:none;
@@ -1240,8 +1245,17 @@ h4.panel-title {
  .mobilePanel .well{
    background-color: transparent;
    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.05);
+   margin:0;
+   padding:0;
  }
 
+ .mobilePanel h4{
+   margin:0;
+ }
+
+ .cardProfile {
+   padding:0;
+ }
  .mobilePanel .well cardProfile{
    margin:auto !important;
  }
@@ -1253,7 +1267,7 @@ h4.panel-title {
    padding:0;
  }
  p.welearnplaying{
-   font-size: 1.2em;
+   font-size: 1.1em;
  }
  .btn-block {
    margin: 5px;

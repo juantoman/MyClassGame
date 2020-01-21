@@ -1,12 +1,13 @@
 <template name="myNav">
   <!--{{> myBreadcrumb}}-->
   <!-- Nav tabs -->
+  {{> leftNav}}
   <div id="mainTab">
     <div class="opacityDiv">
-      
+
       <div class="menu-superior {{menuSuperiorVisible}} oculto" id="menu-superior">
         <div class="list-group">
-        
+
             <a class="btn btn-warning" id="btnStudents" data-toggle="collapse" href="#collapseStudents" role="button" aria-expanded="false">Estudiantes y grupos</a>
             <!--<a class="btn btn-warning" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false">Menú</a>-->
               <div id="collapseStudents" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">

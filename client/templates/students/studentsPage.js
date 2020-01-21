@@ -198,6 +198,7 @@ Template.studentsPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
     }
