@@ -1076,6 +1076,22 @@ li[title]:hover:after {
 /*
 #menu_lateral {
   position: fixed;
+  z-index: 100;
+  opacity: 0.9;
+  top:64px;
+  width:10px;
+  -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#menu_lateral:hover {
+  width:100px;
+}
+
+
   width: 17% !important;
   z-index: 100;
   opacity: 0.9;

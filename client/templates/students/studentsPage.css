@@ -9,8 +9,8 @@
 }
 
 .user-card:hover {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.40), 0 3px 6px rgba(0,0,0,0.60);
-  transform: scale(1.01);
+  box-shadow: 0 9px 18px rgba(0,0,0,0.5), 0 9px 18px rgba(0,0,0,0.5);
+
 }
 
 .user-card .btn-group *{
@@ -27,9 +27,25 @@
   width: 80%;
 }
 
-.btn-group .btn-info{
+.user-card .btn-group .btn-info{
   margin:auto;
   width: 80%;
+}
+
+.btn-group.newStudentBtn {
+  width: 100% !important;
+  margin:0;
+  font-size: 2vh !important;
+}
+
+.btn-group.newStudentBtn span{
+  vertical-align: middle;
+  font-size: 3vh !important;
+}
+
+.btn-group.newStudentBtn .btn{
+  width: 100% !important;
+  margin:10px;
 }
 
 .avatar {
@@ -43,6 +59,7 @@
   height: auto;
   margin:auto;
 }
+/*
 h3 {
   font-size: 22px;
   font-weight: lighter;
@@ -60,7 +77,7 @@ p {
   font-family: montserrat;
   text-transform: uppercase;
   color: #afafaf;
-}
+}*/
 .float-up {
   animation-name: float-up;
   -webkit-animation-name: float-up;

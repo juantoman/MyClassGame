@@ -1,6 +1,18 @@
 <template name="studentsPage">
   {{#if grid}}
+
+  {{#if teacher}}
+
+      <div class="btn-group newStudentBtn" role="group">
+        <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#add_student_modal">
+          <img src="{{image}}" class="avatar" /><span> Nuevos estudiantes</span>
+        </button>
+      </div>
+
+  {{/if}}
+
     <div class="row">
+
       {{#each students}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent">
           <figure class="card card__water {{#if myuser email}}myuser{{/if}}">
@@ -69,6 +81,7 @@
           </figure>
         </div>
       {{/each}}
+      <!--
       {{#if teacher}}
         <div style="margin:auto;" class="thumbnailStudent">
           <figure class="card card__water" data-toggle="modal" data-target="#add_student_modal">
@@ -84,8 +97,10 @@
           </figure>
         </div>
       {{/if}}
+      -->
     </div>
   {{else}}
+    <!--
     <div class="container-responsive">
       <table class="table">
       <thead>
@@ -118,8 +133,8 @@
       {{#if teacher}}
         <tr class="linea">
           <td><button type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#add_student_modal"><img src="{{image}}" alt="..." class="foto-hor"><span> Nuevo</span></button></td>
-          <!--<td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
-          <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>-->
+          <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#add_student_modal">Nuevo</button></td>
+          <td><button id="drive" type="button" class="btn btn-primary">Drive</button></td>
           <td></td><td></td><td></td><td></td><td></td><td></td>
           {{#if teacher}}
               <td></td>
@@ -127,16 +142,25 @@
         </tr>
       {{/if}}
     </tbody>
-  </table>
+      </table>
     </div>
+    -->
     <div class="container-responsive">
+      {{#if teacher}}
+
+          <div class="btn-group newStudentBtn" role="group">
+            <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#add_student_modal">
+              <img src="{{image}}" class="avatar" /><span> Nuevos estudiantes</span>
+            </button>
+          </div>
+
+      {{/if}}
       {{#each students}}
 
       <div class="user-card flex-container float-up delay-1">
 
-
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">
+            <button type="button" class="btn btn-info info-list">
                 <img class="avatar" src="{{image avatar}}" />
                 <span> {{alias}}</span>
             </button>
@@ -150,14 +174,14 @@
           </div>
 
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-danger">
+            <button type="button" class="btn btn-danger btn-hp">
               <h6 class="text-center">HP</h6>
               <h4 class="text-center">{{HP}}</h4>
             </button>
           </div>
 
           <div class="btn-group" role="group">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary btn-store">
               <h6 class="text-center">Monedas</h6>
               <h4 class="text-center">{{coins}}</h4>
             </button>
@@ -165,25 +189,15 @@
 
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default">
-              <h6 class="text-center">Grupo</h6>
+              <h6 class="text-center">Equipo</h6>
               <h4 class="text-center">{{grupo.groupName}}</h4>
             </button>
           </div>
           <h4 style="{{#if selected}}color:gray;{{else}}color:white;{{/if}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h4>
         </div>
-        <!--
-        <div class="studentListButtons">
-          <ul class="social-nav model-2">
-            <li><a class="twitter">5000000 XP</a></li>
-            <li><a class="facebook">{{HP}} HP</a></li>
-            <li><a class="google-plus"><i class="fa fa-google-plus"></i></a></li>
-            <li><a class="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a class="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-          </ul>
-        </div>
-        -->
 
       {{/each}}
+
     </div>
   {{/if}}
 </template>

@@ -211,6 +211,7 @@ Template.studentsPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');
     }
@@ -223,6 +224,7 @@ Template.studentsPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('cardsModal');
     }
@@ -236,7 +238,9 @@ Template.studentsPage.events({
     Session.set('nR',0);
     Session.set('nHP',0);
     Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    Session.setPersistent('studentId', this._id);
     Session.set('studentSelected', true);
+    event.stopPropagation();
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
@@ -245,6 +249,7 @@ Template.studentsPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('badgeModal');
     }
@@ -257,6 +262,7 @@ Template.studentsPage.events({
     } else {
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
+    Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');
     }
@@ -280,7 +286,7 @@ Template.studentsPage.events({
   'click #drive': function(event) {
     loadPicker();
   },
-  'click .btn-select,#selectedStudent,.thumbnailStudent': function(event) {
+  'click .btn-select,#selectedStudent,.thumbnailStudent,.user-card': function(event) {
     event.preventDefault();
     Meteor.call('studentSelection', this._id);
   },
@@ -293,5 +299,5 @@ Template.studentsPage.events({
       Meteor.call('studentSelection', item["_id"]);
     });
     event.stopPropagation();
-  },
+  }
 });
