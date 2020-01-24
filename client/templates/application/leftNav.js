@@ -7,6 +7,19 @@ Template.leftNav.helpers({
  },
  groups: function() {
    return groups.find({classId: Session.get('classId')});
+ },
+ classes: function() {
+   return classes.find({"teacherId": Meteor.userId()});
+ },
+ userN: function() {
+   try {
+     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+   }
+   catch(err) {
+     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+   }
+   n=emailUser.indexOf("@");
+   return emailUser.substring(0,n);
  }
 })
 
@@ -23,10 +36,10 @@ Template.leftNav.events({
       $(event.target).parent().addClass("active");
     }
   },
-  'click #close-sidebar': function(event) {
+  'click #close-sidebar, mouseleave #sidebar': function(event) {
     $(".page-wrapper").removeClass("toggled");
   },
-  'click #show-sidebar': function(event) {
+  'mouseover #show-sidebar, mouseover #show-sidebar-line, click #show-sidebar, click #show-sidebar-line': function(event) {
     $(".page-wrapper").addClass("toggled");
   },
   'click .clases': function(event) {
@@ -67,5 +80,20 @@ Template.leftNav.events({
     $("#studentsMain").addClass("active");
     $("#sM").addClass("active");
     $("#collapseStudents").removeClass("in");
+  },
+  'click .closeSession': function(event) {
+    event.preventDefault();
+    //Session.set('className', '');
+    //Session.set('studentSelected', false);
+    //Session.set('groupSelected', false);
+    //Session.set('userType', "");
+    //$("#fondo").css("background-image", "");
+    //Router.go('/');
+    //Session.keys = {}
+    //gapi.auth2.getAuthInstance().signOut();
+    Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
+    Router.go('/');
+    Meteor.logout();
+    //window.location.href = "/";
   }
 })

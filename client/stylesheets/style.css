@@ -400,19 +400,15 @@ a:hover, a:link {
 #myheader {
   position:relative;
   height:60px;
-  top:-20px;
-
 }
 
 #mylogo {
   /*transform: translate(0, 40px);*/
   transition: transform 0.3s;
-  transform: scale(.6);
-
-  margin-left:-90px;
   z-index:100;
   padding:0;
   height:50px;
+  width:auto;
 }
 
 #mylogo:hover {
@@ -421,16 +417,14 @@ a:hover, a:link {
 
 #mylogo span{
   position:relative;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold;
-  top:-5px;
   text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
 }
 
 #mylogo img{
   position:relative;
-  top:-10px;
-  width:90px;
+  width:50px;
   -webkit-filter: drop-shadow(5px 5px 5px #555 );
   filter: drop-shadow(3px 3px 5px #555);
 }
@@ -438,10 +432,9 @@ a:hover, a:link {
 .welearnplaying{
   color:white;
   font-size: 2em;
-  top:-50px;
+  top:-20px;
   padding-left:90px;
   margin:auto;
-  margin-top:10px;
   position:relative;
   text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
 }
@@ -1188,20 +1181,15 @@ h4.panel-title {
 
 @media (max-width: 740px) {
 
- #myheader {
-
- }
 
  .spanMenu {
    display:none !important;
  }
- #mylogo {
-   margin-left:-90px;
- }
- #mylogo span{
+
+
+ #myheader span{
    font-size: 2em !important;
    font-weight: bold;
-   top:-10px;
    text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
  }
 
@@ -1282,11 +1270,16 @@ h4.panel-title {
    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0.05);
    padding:0;
  }
- p.welearnplaying{
-   font-size: 1.1em;
- }
  .btn-block {
    margin: 5px;
  }
+ #show-sidebar-line {
+    display:none;
+ }
+}
 
+@media (max-width: 510px) {
+  #mylogo span, .welearnplaying {
+    display:none;
+  }
 }

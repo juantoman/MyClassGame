@@ -52,11 +52,11 @@ body {
 .sidebar-wrapper .sidebar-menu ul li a,
 #show-sidebar,
 #close-sidebar {
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 /*----------------page-wrapper----------------*/
@@ -94,12 +94,18 @@ body {
 #show-sidebar {
   position: fixed;
   left: 0;
-  top: 124px;
   border-radius: 0 4px 4px 0px;
-  width: 40px;
-  transition-delay: 0.3s;
-  background-color: #333;
+  top:0;
+  transition-delay: 0.1s;
+  background-color: #268BD2;
+  color:lightblue;
+  font-size: 2.5em !important;
 }
+
+#show-sidebar:hover {
+  color:white;
+}
+
 .page-wrapper.toggled #show-sidebar {
   left: -40px;
 }
@@ -199,6 +205,10 @@ body {
   font-size: 8px;
   margin-right: 4px;
   color: #5cb85c;
+}
+
+.user-status svg{
+  color: lime !important;
 }
 
 /*-----------------------sidebar-search------------------------*/
@@ -408,12 +418,12 @@ body {
 /*-----------------------------chiller-theme-------------------------------------------------*/
 
 .chiller-theme .sidebar-wrapper {
-    background: #31353D;
+    background: #0d2c42;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-header,
 .chiller-theme .sidebar-wrapper .sidebar-search,
-.chiller-theme .sidebar-wrapper .sidebar-menu {
+.chiller-theme .sidebar-wrapper .header-menu {
     border-top: 1px solid #3a3f48;
 }
 
@@ -461,7 +471,7 @@ body {
 .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
 .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
 .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-    background: #3a3f48;
+    background: #123954;
 }
 
 .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
@@ -469,7 +479,7 @@ body {
 }
 
 .chiller-theme .sidebar-footer {
-    background: #3a3f48;
+    background: #124061;
     box-shadow: 0px -1px 5px #282c33;
     border-top: 1px solid #464a52;
 }
@@ -487,4 +497,28 @@ body {
 .sidebar-dropdown.active a {
   background-color: inherit !important;
   border: 0px solid transparent  !important;
+}
+
+#closeSessionBtn {
+  position: relative;
+  top:-10px;
+  right:-70px;
+}
+
+#show-sidebar-line {
+  position:fixed;
+  left:0;
+  margin:0;
+  padding:0;
+  top:0;
+  width: 5px;
+  background-color: #0d2c42;
+  height:100vh;
+  border-radius: 0;
+}
+
+.logoNavbar {
+  position:absolute;
+  top:50%;
+  right:-15px;
 }

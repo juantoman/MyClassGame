@@ -1,12 +1,17 @@
 <template name="leftNav">
-  <div class="page-wrapper chiller-theme toggled">
+  <div class="page-wrapper chiller-theme">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
       <i class="fas fa-bars"></i>
     </a>
+    <a id="show-sidebar-line" class="btn btn-sm btn-dark" href="#">
+      <img src="/images/@mcgnb.png" width="20px" class="logoNavbar">
+    </a>
     <nav id="sidebar" class="sidebar-wrapper">
+      <img src="/images/@mcgnb.png" width="20px" class="logoNavbar">
       <div class="sidebar-content">
         <div class="sidebar-brand">
-          <a href="#">@MyClassGame</a>
+          <img src="/images/@mcgnb.png" width="30px">
+          <a href="#"><span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
           <div id="close-sidebar">
             <i class="fas fa-times"></i>
           </div>
@@ -17,21 +22,25 @@
               alt="User picture">
           </div>
           <div class="user-info">
-            <span class="user-name">Jhon
-              <strong>Smith</strong>
+            <span class="user-name">{{userN}}
             </span>
-            <span class="user-role">Administrator</span>
+            <span class="user-role">Profesor</span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
             </span>
           </div>
+          <div id="closeSessionBtn">
+            <a href="#" class="closeSession">
+              <i class="fa fa-power-off"></i>
+            </a>
+          </div>
         </div>
-        <!-- sidebar-header  -->
+        <!-- sidebar-header
         <div class="sidebar-search">
           <div>
             <div class="input-group">
-              <input type="text" class="form-control search-menu" placeholder="Search...">
+              <input type="text" class="form-control search-menu" placeholder="Buscar...">
               <div class="input-group-append">
                 <span class="input-group-text">
                   <i class="fa fa-search" aria-hidden="true"></i>
@@ -40,20 +49,27 @@
             </div>
           </div>
         </div>
-        <!-- sidebar-search  -->
+         sidebar-search  -->
         <div class="sidebar-menu">
           <ul>
             <li class="header-menu">
               <span>General</span>
             </li>
-            <li class="sidebar-dropdown">
+            <li>
               <a href="#">
                 <i class="fa fa-tachometer-alt"></i>
                 <span class="clases">Mis Clases</span>
+                <!--
                 <span class="badge badge-pill badge-warning">New</span>
+                -->
               </a>
+              <!--
               <div class="sidebar-submenu">
                 <ul>
+                  {{#each classes}}
+                    <li><a href="#" class="class_button">{{className}}</a></li>
+                  {{/each}}
+
                   <li>
                     <a href="#">Dashboard 1
                       <span class="badge badge-pill badge-success">Pro</span>
@@ -65,15 +81,20 @@
                   <li>
                     <a href="#">Dashboard 3</a>
                   </li>
+
                 </ul>
               </div>
+              -->
             </li>
-            <li class="sidebar-dropdown">
+            <li>
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
                 <span class="clase">{{className}}</span>
+                <!--
                 <span class="badge badge-pill badge-danger">3</span>
+                -->
               </a>
+              <!--
               <div class="sidebar-submenu">
                 <ul>
                   <li>
@@ -89,6 +110,7 @@
                   </li>
                 </ul>
               </div>
+              -->
             </li>
             <li class="sidebar-dropdown">
               <a href="#">
@@ -116,32 +138,63 @@
                 </ul>
               </div>
             </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="fa fa-globe"></i>
-                <span>Maps</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  <li>
-                    <a href="#">Google maps</a>
-                  </li>
-                  <li>
-                    <a href="#">Open street map</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
             <li class="header-menu">
-              <span>Extra</span>
+              <span>Menú Principal</span>
             </li>
             <li>
+              <a href="#studentsMain" role="tab" data-toggle="tab">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <span> Estudiantes</span>
+              </a>
+              <a href="#myAdventure" role="tab" data-toggle="tab">
+                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                <span>Aventura</span>
+              </a>
+              <a href="#chat" role="tab" data-toggle="tab">
+                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                <span>Chat</span>
+              </a>
+              <a href="#gamification" role="tab" data-toggle="tab">
+                <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+                <span>Gamificación</span>
+              </a>
               <a href="#">
+                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                <span>Batallas</span>
+              </a>
+              <a href="#">
+                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                <span>Herramientas</span>
+              </a>
+              <a href="#">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                <span>Historial</span>
+              </a>
+              <a href="#">
+                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <span>Notificaciones</span>
+              </a>
+              <a href="#">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                <span>Configuración</span>
+              </a>
+            </li>
+            <li class="header-menu">
+              <span>Ayudas</span>
+            </li>
+            <li>
+              <a href="https://myclassgame.helpsite.com/" target="_blank">
                 <i class="fa fa-book"></i>
-                <span>Documentation</span>
+                <span>FAQ</span>
                 <span class="badge badge-pill badge-primary">Beta</span>
               </a>
             </li>
+            <li class="header-menu">
+              <a href="mailto:myclassgame@gmail.com" target="_blank">
+                <span>myclassgame@gmail.com</span>
+              </a>
+            </li>
+            <!--
             <li>
               <a href="#">
                 <i class="fa fa-calendar"></i>
@@ -154,12 +207,14 @@
                 <span>Examples</span>
               </a>
             </li>
+            -->
           </ul>
         </div>
         <!-- sidebar-menu  -->
       </div>
       <!-- sidebar-content  -->
       <div class="sidebar-footer">
+        <!--
         <a href="#">
           <i class="fa fa-bell"></i>
           <span class="badge badge-pill badge-warning notification">3</span>
@@ -172,7 +227,8 @@
           <i class="fa fa-cog"></i>
           <span class="badge-sonar"></span>
         </a>
-        <a href="#">
+        -->
+        <a href="#" class="closeSession">
           <i class="fa fa-power-off"></i>
         </a>
       </div>

@@ -18,6 +18,7 @@ body {
   left: 0;
   z-index: 20;
   height:60px;
+  margin: 0 auto;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -36,7 +37,6 @@ body {
 /*Mi CSS*/
 
 .navbar {
-
   height:65px;
   border-radius: 0px;
   -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
@@ -48,7 +48,7 @@ body {
   border-radius: 0px 0px 0px 0px;
 }
 
-.navbar-brand{
+.logo-brand{
   font-weight: bold;
   font-family: Verdana, Geneva, sans-serif;
 }
@@ -63,13 +63,17 @@ body {
 
 }
 
-.navbar-brand span{
-  font-size:1.5em !important;
+.navbar-header {
+  width:100%;
+}
+
+.logo-brand span{
+  font-size:2em !important;
   text-shadow:0 0 2px #eeeeee, 0 0 2px #000000;
 }
 
-.navbar-brand p{
-  font-size:0.7em;
+.logo-brand p{
+  font-size:1em;
   text-shadow: 0 0 10px #000000, 0 0 20px #ffffff;
 }
 
