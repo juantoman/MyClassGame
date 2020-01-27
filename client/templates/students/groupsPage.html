@@ -2,13 +2,13 @@
   {{#if selected}}
       {{> groupPage}}
   {{else}}
-    <div class="row">
+    <div class="row float-up">
       {{#each groups}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent">
           <figure class="card {{myuser}}">
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
-              <img src="{{gImage}}" class="card__image groupPhoto" name="{{_id}}"> 
+              <img src="{{gImage}}" class="card__image groupPhoto" name="{{_id}}">
               {{#if selected}}
                 <h1 class="cardSelected">&#10004;</h1>
               {{/if}}

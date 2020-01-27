@@ -20,6 +20,31 @@ Template.leftNav.helpers({
    }
    n=emailUser.indexOf("@");
    return emailUser.substring(0,n);
+ },
+ userType: function() {
+  if (Session.get('userType')=="teacher") {
+   return "PROFESOR";
+  }
+  if (Session.get('userType')=="student") {
+    return "ESTUDIANTE";
+  }
+  if (Session.get('userType')=="parent") {
+    return "PADRE/MADRE";
+  }
+ },
+ onlyMyStudent: function() {
+   if (Session.get('userType')=="teacher") {
+     return false;
+   } else {
+     return classes.findOne({'_id': Session.get('classId')}).onlyMyStudent;
+   }
+ },
+ teacher: function() {
+   if (Session.get('userType')=="teacher") {
+    return true;
+   } else {
+    return false;
+   };
  }
 })
 
@@ -36,7 +61,7 @@ Template.leftNav.events({
       $(event.target).parent().addClass("active");
     }
   },
-  'click #close-sidebar, mouseleave #sidebar': function(event) {
+  'click #close-sidebar, mouseleave #sidebar, click #sidebar': function(event) {
     $(".page-wrapper").removeClass("toggled");
   },
   'mouseover #show-sidebar, mouseover #show-sidebar-line, click #show-sidebar, click #show-sidebar-line': function(event) {

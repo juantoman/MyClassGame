@@ -449,8 +449,8 @@ label {
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  margin: 5px auto !important;
-  margin-top: -15px !important;
+  margin: 0px auto !important;
+
 }
 
 .submenu label{
@@ -640,7 +640,7 @@ td button {
   position:relative;
   background-color:#fff;
   border-top: 1px solid lightgray;
-  top:-20px;
+  
 }
 
 .settingsMenu .nav-pills{
@@ -1137,9 +1137,8 @@ h4.panel-title {
   padding: .5rem 1rem;
   outline: 1px solid grey;
   outline-offset: -6px;
-  background-color: lightgreen;
+  background-color: lime;
   color: white;
-  z-index: 100;
   font-size: 2em;
   opacity: 1 !important;
 }
@@ -1177,6 +1176,13 @@ h4.panel-title {
 
 #mcgMobileVersion {
   display:none;
+}
+
+.nameSection {
+  mix-blend-mode: screen;
+  margin: 0;
+  text-align: center;
+  margin:-15px 0 5px 0;
 }
 
 @media (max-width: 740px) {

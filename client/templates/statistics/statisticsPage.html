@@ -3,9 +3,10 @@
   {{> myBreadcrumb}}
   {{> myNav}}
   -->
-  <div class="container table-responsive">
-    <h2 class="text-center bg-info">Historial</h2>
-    <!-- 
+  <h3 class="nameSection">Historial</h3>
+  <div class="container-fluid float-up">
+    <div class="settingsMenu">
+    <!--
     {{#each statistics}}
       <h3>{{student}}</h3>
       <p>{{behavior}}</p>
@@ -41,7 +42,7 @@
           {{#if teacher}}
             <th id="date_th">
               Borrar
-            </th> 
+            </th>
           {{/if}}
         </tr>
       </thead>
@@ -78,5 +79,6 @@
       {{/each}}
       </tbody>
     </table>
+    </div>
   </div>
 </template>

@@ -24,7 +24,7 @@
           <div class="user-info">
             <span class="user-name">{{userN}}
             </span>
-            <span class="user-role">Profesor</span>
+            <span class="user-role">{{userType}}</span>
             <span class="user-status">
               <i class="fa fa-circle"></i>
               <span>Online</span>
@@ -86,6 +86,7 @@
               </div>
               -->
             </li>
+            {{#if className}}
             <li>
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
@@ -112,73 +113,98 @@
               </div>
               -->
             </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="far fa-gem"></i>
-                <span>Estudiantes</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  {{#each students}}
-                    <li><a href="#" class="student_button">{{studentName}}</a></li>
-                  {{/each}}
-                </ul>
-              </div>
-            </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="fa fa-chart-line"></i>
-                <span>Equipos</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  {{#each groups}}
-                    <li><a href="#" class="group_button">{{groupName}}</a></li>
-                  {{/each}}
-                </ul>
-              </div>
-            </li>
+            {{#unless onlyMyStudent}}
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="far fa-gem"></i>
+                  <span>Estudiantes</span>
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    {{#each students}}
+                      <li><a href="#" class="student_button">{{studentName}}</a></li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </li>
+              <li class="sidebar-dropdown">
+                <a href="#">
+                  <i class="fa fa-chart-line"></i>
+                  <span>Equipos</span>
+                </a>
+                <div class="sidebar-submenu">
+                  <ul>
+                    {{#each groups}}
+                      <li><a href="#" class="group_button">{{groupName}}</a></li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </li>
+            {{/unless}}
             <li class="header-menu">
               <span>Menú Principal</span>
             </li>
             <li>
-              <a href="#studentsMain" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <span> Estudiantes</span>
-              </a>
-              <a href="#myAdventure" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                <span>Aventura</span>
-              </a>
-              <a href="#chat" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                <span>Chat</span>
-              </a>
-              <a href="#gamification" role="tab" data-toggle="tab">
-                <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
-                <span>Gamificación</span>
-              </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
-                <span>Batallas</span>
-              </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                <span>Herramientas</span>
-              </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-                <span>Historial</span>
-              </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                <span>Notificaciones</span>
-              </a>
-              <a href="#">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                <span>Configuración</span>
-              </a>
+              <ul>
+                <li class="active">
+                  <a href="#studentsMain" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span> Estudiantes</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#myAdventure" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    <span>Aventura</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#chat" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    <span>Chat</span>
+                  </a>
+                </li>
+                {{#if teacher}}
+                  <li>
+                    <a href="#gamification" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+                      <span>Gamificación</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                      <span>Batallas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#tools" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                      <span>Herramientas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#statistics" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                      <span>Historial</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#notifications" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                      <span>Notificaciones</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#settings" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                      <span>Configuración</span>
+                    </a>
+                  </li>
+                {{/if}}
+              </ul>
             </li>
+            {{/if}}
             <li class="header-menu">
               <span>Ayudas</span>
             </li>
@@ -194,6 +220,20 @@
                 <span>myclassgame@gmail.com</span>
               </a>
             </li>
+            <div class="sidebar-social">
+                <a href="#" onclick="window.open('https://es-es.facebook.com/myclassgame/', '_system'); return false;" role="button">
+                  <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://twitter.com/myclassgame', '_system'); return false;" role="button">
+                  <i class="fab fa-twitter-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://www.youtube.com/watch?v=EeU82hHQcGQ', '_system'); return false;" role="button">
+                  <i class="fab fa-youtube-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://t.me/myclassgame', '_system'); return false;" role="button">
+                  <i class="fab fa-telegram"></i>
+                </a>
+            </div>
             <!--
             <li>
               <a href="#">

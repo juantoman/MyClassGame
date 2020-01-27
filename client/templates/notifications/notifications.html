@@ -1,47 +1,42 @@
 <template name="notifications">
-  <div class="container-fluid studentInventory">
-    <div class="row">
-      <div class="col-xs-11 col-md-11 well" id="rightPanel">
-        <div role="tabpanel" class="tab-pane" id="Artículos">
-          <h2>Artículos</h2>
-      		<hr class="colorgraph">
-          <ul class="list-items">
-            {{#each notiItem}}
-              <li class="list-item validarItem">
-                <div class="{{#if used}}elementUsed{{/if}}">
-                  <span class="power-icon">{{item.itemName}}</span>
-                  <span class="item-image"><img src="{{element_src item.itemImage}}" alt=""></span>
-                  <span class="item-strength">{{student.studentName}}</span>
-                </div>
-                {{#if used}}
-                  <span class="displayUsed">Aceptada</span>
-                {{/if}}
-              </li>
-            {{/each}}
-          </ul>
-        </div>
+  <h3 class="nameSection">Notificaciones</h3>
+  <div class="container-fluid studentInventory float-up">
+    <div id="notifications">
+      <div role="tabpanel" class="tab-pane well" id="Artículos">
+        <h4>Artículos</h4>
+    		<hr class="colorgraph">
+        <ul class="list-items">
+          {{#each notiItem}}
+            <li class="list-item validarItem">
+              <div class="{{#if used}}elementUsed{{/if}}">
+                <span class="power-icon">{{item.itemName}}</span>
+                <span class="item-image"><img src="{{element_src item.itemImage}}" alt=""></span>
+                <span class="item-strength">{{student.studentName}}</span>
+              </div>
+              {{#if used}}
+                <span class="displayUsed">Aceptada</span>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-11 col-md-11 well" id="rightPanel">
-        <div role="tabpanel" class="tab-pane" id="Cartas">
-          <h2>Cartas</h2>
-      		<hr class="colorgraph">
-          <ul class="list-items">
-            {{#each notiCards}}
-              <li class="list-item validarCard">
-                <div class="{{#if used}}elementUsed{{/if}}">
-                  <span class="power-icon">{{card.cardName}}</span>
-                  <span class="item-image"><img src="{{element_src  card.cardImage}}" alt=""></span>
-                  <span class="item-strength">{{student.studentName}}</span>
-                </div>
-                {{#if used}}
-                  <span class="displayUsed">Aceptada</span>
-                {{/if}}
-              </li>
-            {{/each}}
-          </ul>
-        </div>
+      <div role="tabpanel" class="tab-pane well" id="Cartas">
+        <h4>Cartas</h4>
+    		<hr class="colorgraph">
+        <ul class="list-items">
+          {{#each notiCards}}
+            <li class="list-item validarCard">
+              <div class="{{#if used}}elementUsed{{/if}}">
+                <span class="power-icon">{{card.cardName}}</span>
+                <span class="item-image"><img src="{{element_src  card.cardImage}}" alt=""></span>
+                <span class="item-strength">{{student.studentName}}</span>
+              </div>
+              {{#if used}}
+                <span class="displayUsed">Aceptada</span>
+              {{/if}}
+            </li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>

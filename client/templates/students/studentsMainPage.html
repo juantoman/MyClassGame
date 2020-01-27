@@ -1,5 +1,6 @@
 <template name="studentsMainPage">
-  <div  class="container-fluid  myContent">
+  <h3 class="nameSection">Estudiantes</h3>
+  <div  class="container-fluid myContent float-up">
     <!--
     <form class="form-inline text-center">
       <div class="form-group className">
@@ -13,7 +14,7 @@
     </form>
     -->
     {{#if selected}}
-      {{> studentPage}}    
+      {{> studentPage}}
     {{else}}
       <div class="input-group submenu">
         <div class="input-group-prepend">

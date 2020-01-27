@@ -4,10 +4,10 @@
 }
 
 /* Page UI Grid Settings */
-.studentHeader {
+.profile {
   background-size: cover;
   background-repeat: no-repeat;
-  margin:-20px -30px 20px -30px;
+
   overflow: hidden;
 }
 
@@ -53,6 +53,8 @@
 
 .nav-profile{
   background-color: rgba(0,0,0,.7) !important;
+  border: 1px solid gray !important;
+  margin-bottom: 10px !important;
 }
 
 .opacityProfile {

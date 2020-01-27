@@ -1,15 +1,15 @@
 <template name="myNav">
   <!--{{> myBreadcrumb}}-->
   <!-- Nav tabs -->
-  
+
   <div id="mainTab">
     <div class="opacityDiv">
 
+      <!--
+
       <div class="menu-superior {{menuSuperiorVisible}} oculto" id="menu-superior">
         <div class="list-group">
-
             <a class="btn btn-warning" id="btnStudents" data-toggle="collapse" href="#collapseStudents" role="button" aria-expanded="false">Estudiantes y grupos</a>
-            <!--<a class="btn btn-warning" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false">Menú</a>-->
               <div id="collapseStudents" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <div class="panel-body">
                   <div class="list-group">
@@ -29,13 +29,11 @@
                 </div>
               </div>
         </div>
+
         <div class="list-group menu-derecho">
               <div id="collapseMenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                 <ul class="nav nav-pills nav-stacked" role="tablist">
                   <li role="presentation" class="active"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Estudiantes</a></li>
-                  <!--
-                    <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
-                  -->
                   <li role="presentation"><a href="#challenges" aria-controls="challenges" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> Aventura</a></li>
                   {{#if teacher}}
                     <li role="presentation"><a href="#random" aria-controls="random" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> Random</a></li>
@@ -46,7 +44,7 @@
               </div>
         </div>
       </div>
-      <li type="button" class="btn btn-warning oculto" id="menuBtn">Menú</li>
+
       <div id="menu_lateral">
         <ul class="nav nav-pills" role="tablist">
           {{#if aventura}}
@@ -63,13 +61,11 @@
           {{/if}}
         </ul>
       </div>
+
       <div id="menu_movil">
         <ul class="nav nav-pills" role="tablist">
           {{#if aventura}}
             <li role="presentation" class="active" id="sM"><a href="#studentsMain" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="spanMenu">Estudiantes</span></a></li>
-            <!--
-              <li role="presentation"><a href="#projects" aria-controls="projects" role="tab" data-toggle="tab">Proyectos</a></li>
-            -->
             <li role="presentation"><a href="#myAdventure" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span> <span class="spanMenu">Mi aventura</span></a></li>
             <li role="presentation"><a href="#chat" aria-controls="chat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span class="spanMenu">Chat</span></a></li>
           {{/if}}
@@ -82,6 +78,7 @@
           {{/if}}
         </ul>
       </div>
+      -->
       <!-- Tab panels -->
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="studentsMain">{{> studentsMainPage}}</div>

@@ -99,7 +99,7 @@ Template.myNav.events({
     event.preventDefault();
     $("#collapseStudents").removeClass("in");
     //Router.go('/');
-  },
+  }/*,
   'click #menu_lateral li': function(event) {
     event.preventDefault();
     $("#menu_lateral").toggleClass("visible");
@@ -110,7 +110,7 @@ Template.myNav.events({
     $("#menu_lateral").toggleClass("visible");
     //Router.go('/');
   }
-  /*,
+  ,
   'click a.btn-warning': function(event) {
     event.preventDefault();
     b=$(event.target).attr("href").substr(1);
