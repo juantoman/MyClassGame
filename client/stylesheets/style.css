@@ -26,7 +26,7 @@ body {
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");
   border:1px solid #268BD2;*/
   background-attachment: fixed;
-
+  margin-top: 10px;
 }
 
 #fondo {
@@ -640,7 +640,7 @@ td button {
   position:relative;
   background-color:#fff;
   border-top: 1px solid lightgray;
-  
+
 }
 
 .settingsMenu .nav-pills{
@@ -679,6 +679,13 @@ li.nav-item a:hover {
 }
 
 li.active a{
+  color: white !important;
+  background-color: #268BD2 !important;
+  border: 1px solid #268BD2 !important;
+  border-radius: 0px;
+}
+
+a.activeOptionMenu{
   color: white !important;
   background-color: #268BD2 !important;
   border: 1px solid #268BD2 !important;

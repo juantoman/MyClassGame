@@ -57,7 +57,7 @@
             </li>
             <li>
               <a href="#">
-                <i class="fa fa-tachometer-alt"></i>
+                <i class="fas fa-layer-group"></i>
                 <span class="clases">Mis Clases</span>
                 <!--
                 <span class="badge badge-pill badge-warning">New</span>
@@ -89,7 +89,7 @@
             {{#if className}}
             <li>
               <a href="#">
-                <i class="fa fa-shopping-cart"></i>
+                <i class="fas fa-chalkboard-teacher"></i>
                 <span class="clase">{{className}}</span>
                 <!--
                 <span class="badge badge-pill badge-danger">3</span>
@@ -113,40 +113,12 @@
               </div>
               -->
             </li>
-            {{#unless onlyMyStudent}}
-              <li class="sidebar-dropdown">
-                <a href="#">
-                  <i class="far fa-gem"></i>
-                  <span>Estudiantes</span>
-                </a>
-                <div class="sidebar-submenu">
-                  <ul>
-                    {{#each students}}
-                      <li><a href="#" class="student_button">{{studentName}}</a></li>
-                    {{/each}}
-                  </ul>
-                </div>
-              </li>
-              <li class="sidebar-dropdown">
-                <a href="#">
-                  <i class="fa fa-chart-line"></i>
-                  <span>Equipos</span>
-                </a>
-                <div class="sidebar-submenu">
-                  <ul>
-                    {{#each groups}}
-                      <li><a href="#" class="group_button">{{groupName}}</a></li>
-                    {{/each}}
-                  </ul>
-                </div>
-              </li>
-            {{/unless}}
             <li class="header-menu">
               <span>Menú Principal</span>
             </li>
             <li>
               <ul>
-                <li class="active">
+                <li class="active" id="studentsMenu">
                   <a href="#studentsMain" role="tab" data-toggle="tab">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <span> Estudiantes</span>
@@ -172,7 +144,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" role="tab" data-toggle="tab">
+                    <a href="#battle" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
                       <span>Batallas</span>
                     </a>
@@ -202,6 +174,24 @@
                     </a>
                   </li>
                 {{/if}}
+                {{#unless onlyMyStudent}}
+                  <li class="header-menu">
+                    <span>Estudiantes</span>
+                  </li>
+                  {{#each students}}
+                    <li>
+                      <a href="#" class="student_button" role="tab" data-toggle="tab"><img src="{{image avatar}}" class="avatar" /> {{studentName}}</a>
+                    </li>
+                  {{/each}}
+                  <li class="header-menu">
+                    <span>Equipos</span>
+                  </li>
+                  {{#each groups}}
+                    <li>
+                      <a href="#" class="group_button"><img src="{{gImage}}" class="avatar" /> {{groupName}}</a>
+                    </li>
+                  {{/each}}
+                {{/unless}}
               </ul>
             </li>
             {{/if}}

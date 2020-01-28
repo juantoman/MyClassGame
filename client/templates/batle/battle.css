@@ -1,0 +1,13 @@
+.battle .well{
+  margin: auto;
+}
+
+.vsText{
+  background-color:transparent !important;
+}
+
+.vsText h1{
+  color: red !important;
+  font-size: 10vh;
+  font-weight: bold;
+}
