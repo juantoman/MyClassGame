@@ -11,3 +11,12 @@
   font-size: 10vh;
   font-weight: bold;
 }
+
+.battleLife .fa-heart, .battleLife .fa-heart-broken{
+  font-size: 5vh;
+  color: red;
+}
+
+.battleLife .fa-heart-broken {
+  color:rgb(0,0,0,0.3);
+}
