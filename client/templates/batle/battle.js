@@ -28,8 +28,8 @@ Template.battle.events({
     event.preventDefault();
     //$(event.currentTarget).toggleClass('oculto');
     $(event.currentTarget).find('[data-fa-i2svg]').attr('data-icon','heart-broken');
-    h1=$('.bat1 [data-icon=heart]').length;
-    h2=$('.bat2 [data-icon=heart]').length;
+    h1=$('.bat1').find('[data-icon=heart]').length;
+    h2=$('.bat2').find('[data-icon=heart]').length;
     if ( h2 == 0 ) {
       swal({
         title: 'H1 GANA!!!',
@@ -60,5 +60,10 @@ Template.battle.events({
         type: 'success'
       });
     }
+  },
+  'click .battle .card,.battle .card-turned': function(event) {
+    $(event.currentTarget).toggleClass('card card-turned');
+    $(event.currentTarget).find('.card-inside').toggleClass('card-back card-front');
+    $(event.currentTarget).find('.backlogocard').toggleClass('oculto');
   }
 });

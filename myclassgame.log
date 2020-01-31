@@ -1418,3 +1418,6 @@
 2020-1-28 17:10:55 : closeSession -> userId: ZWkLjrMdSjhERuF85
 2020-1-29 10:48:43 : loginGoogle -> ZWkLjrMdSjhERuF85
 2020-1-29 10:48:45 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
+2020-1-31 9:18:59 : loginGoogle -> ZWkLjrMdSjhERuF85
+2020-1-31 9:19:1 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
+2020-1-31 14:23:9 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : i5fJx9Xw9hyh5FMMe

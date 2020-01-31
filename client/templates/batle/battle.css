@@ -20,3 +20,45 @@
 .battleLife .fa-heart-broken {
   color:rgb(0,0,0,0.3);
 }
+
+.btn-group-battle {
+  margin:0 0 10px 0 !important;
+  font-size: 2vh !important;
+}
+
+.btn-group-battle  .btn{
+  font-size: 2vh !important;
+}
+
+.battle .card{
+  transition: transform 0.1s;
+  transform: rotateY(180deg);
+
+}
+
+.battle .card-turned {
+}
+
+.battle .backlogocard {
+  position:absolute;
+  top:25%;
+  left:25%;
+  width: 50%;
+  transform: rotateY(180deg);
+  opacity: 0.5;
+}
+
+.card-inside {
+  backface-visibility: hidden;
+}
+
+.card-back{
+  visibility: hidden;
+  transition: transform 0.1s;
+  transform: rotateY(180deg);
+}
+.card-front{
+  visibility:visible;
+  transition: transform 0.1s;
+  backface-visibility: hidden;
+}
