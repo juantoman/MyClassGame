@@ -62,3 +62,15 @@
   transition: transform 0.1s;
   backface-visibility: hidden;
 }
+
+.battleBtn {
+  margin:-5px 0 0 0;
+  width: 25px;
+}
+
+.battlePanel{
+    position:relative;
+    background-color:rgb(209, 235, 252,0.6) !important;
+    color:#fff;
+    text-align: center;
+}

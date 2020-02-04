@@ -1421,3 +1421,7 @@
 2020-1-31 9:18:59 : loginGoogle -> ZWkLjrMdSjhERuF85
 2020-1-31 9:19:1 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
 2020-1-31 14:23:9 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : i5fJx9Xw9hyh5FMMe
+2020-2-4 9:6:12 : loginGoogle -> ZWkLjrMdSjhERuF85
+2020-2-4 9:6:14 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
+2020-2-4 12:39:18 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : xyzmHK65JTdYWAJ4x
+2020-2-4 12:51:23 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : xyzmHK65JTdYWAJ4x

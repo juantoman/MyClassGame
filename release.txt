@@ -1,3 +1,5 @@
+#Variables per treballar
+source ./android.sh
 #Build apk
 meteor build ../MCG --server=http://myclassgame.iestacio.com
 #Now you can sign your app by
