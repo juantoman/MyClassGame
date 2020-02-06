@@ -10,7 +10,7 @@
       <div class="btn-group btn btn-info" role="group" aria-label="..."><i class="fas fa-chalkboard-teacher"></i> vs <img class="battleBtn" src="/images/@mcgnb.png"></div>
     </div>
     <div class="row">
-        <div class="col-xs-5 col-md-5 well bat1 battlePanel">
+        <div class="col-xs-3 col-md-3  bat1 battlePanel">
 
               <div class="col-xs-12 cardProfile">
                 {{#with student1Battle}}
@@ -81,7 +81,10 @@
                   </a>
               </div>
         </div>
-        <div class="col-xs-5 col-md-5 well bat2 battlePanel">
+        <div class="col-xs-6 col-md-6 quizBattle battlePanel">
+          {{> quizBattle}}
+        </div>
+        <div class="col-xs-3 col-md-3  bat2 battlePanel">
             <div class="col-xs-12 cardProfile">
               {{#with student2Battle}}
               <figure class="card card__water" id="card2Battle">

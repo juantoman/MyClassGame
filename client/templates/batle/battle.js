@@ -81,6 +81,11 @@ Template.battle.events({
     var r = Math.floor(Math.random() * e.length);
     Session.set('studentId1Battle',e[r]._id);
     $('#card1Battle').click();
+    if ( $('#card2Battle').hasClass('card-turned') ) {
+      $('#card2Battle').toggleClass('card card-turned');
+      $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
+      $('#card2Battle').find('.backlogocard').toggleClass('oculto');
+    }
   },
   'click #svssBattle': function(event) {
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {

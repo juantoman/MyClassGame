@@ -1,3 +1,7 @@
+.battle {
+  width:95vw;
+}
+
 .battle .well{
   margin: auto;
 }
@@ -68,9 +72,25 @@
   width: 25px;
 }
 
+.fighterBtn {
+  margin:25% 0;
+  width: 25px;
+}
+
 .battlePanel{
     position:relative;
     background-color:rgb(209, 235, 252,0.6) !important;
     color:#fff;
     text-align: center;
+    padding:1em;
+    border-radius: 10px;
+}
+
+.battlePanel .card,.battlePanel .card-turned{
+    width:100%;
+    max-width: 300px;
+}
+
+.quizBattle {
+  background-color:rgb(100, 200, 255,0.6) !important;
 }

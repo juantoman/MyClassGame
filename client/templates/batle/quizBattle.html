@@ -1,0 +1,188 @@
+<template name="quizBattle">
+  <h1>Cuestionario</h1>
+
+    <div class="quiz">
+      <div class="fight">
+        <div class="photo photoFighter">
+          {{#with student1Battle}}
+            <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+        <div class="content">
+          <div class="text align-middle">
+              <h1>{{#with student1Battle}}{{studentName}}{{/with}} vs {{#with student2Battle}}{{studentName}}{{/with}}</h1>
+          </div>
+        </div>
+        <div class="photo2 photoFighter">
+          {{#with student2Battle}}
+          <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+      </div>
+
+      <div class="quiz-title">Pop quiz!</div>
+
+      <div class="quiz-question">When did Neil Armstrong walk on the moon?</div>
+      <!--
+      <label class="quiz-answer">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"></div>
+        <p>1968</p>
+        <span class="feedback">Try again!</span>
+      </label>
+
+      <label class="quiz-answer correct">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"></div>
+        <p>1969</p>
+        <span class="feedback">That's right!</span>
+      </label>
+
+      <label class="quiz-answer">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"></div>
+        <p>1970</p>
+        <span class="feedback">Sorry!</span>
+      </label>
+
+      <label class="quiz-answer">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"></div>
+        <p>1971</p>
+        <span class="feedback">Not quite!</span>
+      </label>
+
+      <label class="quiz-answer correct">
+        <input type="radio" name="question1">
+        <div class="highlight"></div>
+        <div class="circle battle1"></div>
+        <p>1971</p>
+        <input type="radio" name="question2">
+        <div class="circle battle2 float-right"></div>
+      </label>
+
+      <label class="quiz-answer">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"><img class="fighterBtn" src="/images/@mcgnb.png"></div>
+        <p>1968</p>
+        <span class="feedback">Try again!</span>
+      </label>
+      <label class="quiz-answer">
+        <input type="radio" name="question1" id="answer1">
+        <div class="highlight"></div>
+        <div class="circle"><img class="fighterBtn" src="/images/@mcgnb.png"></div>
+        <p>1968</p>
+        <span class="feedback">Try again!</span>
+      </label>
+
+
+      <div class="qAnswer">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer1" name="answer1" aria-label="...">
+            <div class="circle"><img class="fighterBtn" src="/images/@mcgnb.png"></div>
+          </span>
+          <p>1971</p>
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer2" name="answer2" aria-label="...">
+            <div class="circle"><img class="fighterBtn" src="/images/@mcgnb.png"></div>
+          </span>
+        </div>
+      </div>
+      <div class="qAnswer">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer1" name="answer1" aria-label="...">
+          </span>
+          <p>1972</p>
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer2" name="answer2" aria-label="...">
+          </span>
+        </div>
+      </div>
+      <div class="qAnswer">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer1" name="answer1" aria-label="...">
+          </span>
+          <p>1973</p>
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer2" name="answer2" aria-label="...">
+          </span>
+        </div>
+      </div>
+      <div class="qAnswer">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer1" name="answer1" aria-label="...">
+          </span>
+          <p>1971</p>
+          <span class="input-group-addon">
+            <input type="radio" class="btn answer2" name="answer2" aria-label="...">
+          </span>
+        </div>
+      </div>
+      -->
+      <div class="question">
+        <div class="photo">
+          {{#with student1Battle}}
+            <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+        <div class="content">
+          <div class="text">
+              <h3>Kelly Chen</h3>
+          </div>
+        </div>
+        <div class="photo2">
+          {{#with student2Battle}}
+          <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+      </div>
+      <div class="question">
+        <div class="photo">
+          {{#with student1Battle}}
+            <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+        <div class="content">
+          <div class="text">
+              <h3>Kelly Chen</h3>
+              <h6>Front-end Web Designer</h6>
+          </div>
+        </div>
+        <div class="photo2">
+          {{#with student2Battle}}
+          <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+      </div>
+      <div class="question">
+        <div class="photo">
+          {{#with student1Battle}}
+            <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+        <div class="content">
+          <div class="text">
+              <h3>Kelly Chen</h3>
+              <h6>Front-end Web Designer</h6>
+          </div>
+        </div>
+        <div class="photo2">
+          {{#with student2Battle}}
+          <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+      </div>
+
+    </div>
+
+
+</template>
