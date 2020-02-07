@@ -1,5 +1,6 @@
 .battle {
   width:95vw;
+  text-align: center;
 }
 
 .battle .well{
@@ -26,12 +27,14 @@
 }
 
 .btn-group-battle {
-  margin:0 0 10px 0 !important;
+  margin:10px auto !important;
   font-size: 2vh !important;
+
 }
 
 .btn-group-battle  .btn{
-  font-size: 2vh !important;
+  font-size: 3vh !important;
+  padding:10px 20px;
 }
 
 .battle .card{
@@ -68,8 +71,8 @@
 }
 
 .battleBtn {
-  margin:-5px 0 0 0;
-  width: 25px;
+  margin:0 0 0 0;
+  height: 3vh;
 }
 
 .fighterBtn {

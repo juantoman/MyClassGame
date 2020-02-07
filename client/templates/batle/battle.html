@@ -2,12 +2,22 @@
   <h3 class="nameSection">Batalla</h3>
 
   <div class="container-fluid battle float-up">
-    <div class="btn-group btn-group-battle btn-group-justified" role="toolbar" aria-label="...">
-      <div class="btn-group btn btn-info" id="svsmBattle" role="group" aria-label="..."><i class="fas fa-user"></i> vs <img class="battleBtn" src="/images/@mcgnb.png"></div>
-      <div class="btn-group btn btn-info" role="group" aria-label="..."><i class="fas fa-users"></i> vs <img class="battleBtn" src="/images/@mcgnb.png"></div>
-      <div class="btn-group btn btn-info" id="svssBattle" role="group" aria-label="..."><i class="fas fa-user"></i> vs <i class="fas fa-user"></i></div>
-      <div class="btn-group btn btn-info" role="group" aria-label="..."><i class="fas fa-users"></i> vs <i class="fas fa-users"></i></div>
-      <div class="btn-group btn btn-info" role="group" aria-label="..."><i class="fas fa-chalkboard-teacher"></i> vs <img class="battleBtn" src="/images/@mcgnb.png"></div>
+    <div class="btn-group btn-group-battle" data-toggle="buttons">
+      <label class="btn btn-info" id="svsmBattle">
+        <input type="radio" name="options"><i class="fas fa-user"></i> vs <img class="battleBtn" src="/images/@mcgnb.png">
+      </label>
+      <label class="btn btn-info" id="evsmBattle">
+        <input type="radio" name="options"><i class="fas fa-users"></i> vs <img class="battleBtn" src="/images/@mcgnb.png">
+      </label>
+      <label class="btn btn-info" id="svssBattle">
+        <input type="radio" name="options"><i class="fas fa-user"></i> vs <i class="fas fa-user"></i>
+      </label>
+      <label class="btn btn-info" id="evseBattle">
+        <input type="radio" name="options"><i class="fas fa-users"></i> vs <i class="fas fa-users"></i>
+      </label>
+      <label class="btn btn-info" id="cvsmBattle">
+        <input type="radio" name="options"><i class="fas fa-chalkboard-teacher"></i> vs <img class="battleBtn" src="/images/@mcgnb.png">
+      </label>
     </div>
     <div class="row">
         <div class="col-xs-3 col-md-3  bat1 battlePanel">

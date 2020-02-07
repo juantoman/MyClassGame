@@ -26,131 +26,10 @@
 	 background: linear-gradient(#fafafc, white);
 	 box-shadow: 0px 2px 2px 1px rgba(0, 10, 20, 0.07);
 }
-/*
- .quiz-answer p {
-	 z-index: 1000;
-}
- .circle {
-	 position: relative;
-	 height: 4em;
-	 width: 4em;
-	 margin-left: -2em;
-	 flex: 0 0 auto;
-	 border-radius: 100%;
-	 border: 0.3em solid #667;
-	 background-color: #889;
-}
- .quiz-answer p {
-	 display: block;
-	 width:75%;
-   margin:1em;
-	 z-index: 10;
 
-}
- .feedback {
-	 position: absolute;
-	 top: 0px;
-	 right: 0px;
-	 background-color: #d07;
-	 color: white;
-	 height: 100%;
-	 max-width: 88.6%;
-	 padding: 1em 1em 1em 2em;
-	 z-index: 100;
-	 opacity: 1;
-	 visibility: hidden;
-	 clip-path: polygon(1.25em 0, 100% 0, 100% 100%, 1.25em 100%, 0 50%);
-   align-items: center;
-	 justify-content: flex-start;
-}
- .correct .feedback {
-	 background-color: #0ca;
-}
-
-input {
-	 display: none;
-}
-
- .highlight {
-	 position: absolute;
-	 top: 0;
-	 right: 0;
-	 bottom: 0;
-	 left: 0;
-}
- input:hover ~ .highlight {
-	 background-color: #f8f8fa;
-}
- input:checked ~ .highlight {
-	 background-color: #ffdf44;
-}
- input:checked ~ .circle {
-	 background-color: #fafafc;
-	 border-color: #d07;
-}
- .correct input:checked ~ .circle {
-	 border-color: #0ca;
-}
- input:checked ~ .feedback {
-	 visibility: visible;
-	 animation: feedbackfade 3s ease 3s;
-	 animation-fill-mode: forwards;
-}
- @keyframes feedbackfade {
-	 from {
-		 opacity: 1;
-	}
-	 to {
-		 opacity: 0;
-	}
-}
-*/
-.qAnswer {
-  background: linear-gradient(#fafafc, white);
-  border-radius: 10px;
-  padding:0 10px;
-}
-/*
-.qAnswer .input-group {
-  margin:0 !important;
-  border-radius: 4px;
-}
-
-.qAnswer .input-group-addon {
-  background: linear-gradient(#fafafc, white);
-  border: 0px solid transparent !important;
-}
-*/
-.qAnswer p {
-  display: block;
-  margin:0.6em;
-  color: #268BD2;
-  font-weight: bold;
-}
-
-.btn:focus {
-  background-color: red !important;
-}
-/*
-@import 'https://fonts.googleapis.com/css?family=Raleway';
-* {
-    outline: none;
-    user-select: none;
-}
-
-body, html {
-    margin: 0;
-    background: #ddd;
-    color: #7a7b7c;
-}
-
-body {
-    font-family: 'Raleway', 'Microsoft JhengHei', Arial, sans-serif;
-}
-*/
 .question, .fight {
     width: 80%;
-    height: 100px;
+    height: 90px;
     border-radius: 5px;
     background-color: #fafafa;
     box-shadow: 0 0 2rem #babbbc;
@@ -160,8 +39,8 @@ body {
 
 .question .photo, .fight .photo {
     position:absolute;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #fafafa;
@@ -176,8 +55,8 @@ body {
 
 .question .photo2, .fight .photo2 {
     position:absolute;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #fafafa;
