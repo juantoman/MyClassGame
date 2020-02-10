@@ -1,0 +1,67 @@
+<template name="quizBattle">
+  <h1>Cuestionario</h1>
+
+    <div class="quiz">
+      <div class="fight">
+        <div class="photo photoFighter">
+          {{#with student1Battle}}
+            <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+        <div class="content">
+          <div class="text align-middle">
+              <h1>{{#with student1Battle}}{{studentName}}{{/with}} vs {{#with student2Battle}}{{studentName}}{{/with}}</h1>
+          </div>
+        </div>
+        <div class="photo2 photoFighter">
+          {{#with student2Battle}}
+          <img src="{{image avatar}}" />
+          {{/with}}
+        </div>
+      </div>
+
+      <div class="quiz-title">¡Batalla de preguntas!</div>
+      <div class="btn-group btn-group-battle" data-toggle="buttons">
+        <label class="btn btn-info" id="startBattle">
+          Iniciar Batalla
+        </label>
+      </div>
+      {{#with randomQuestion}}
+
+        <div class="quiz-question">
+          <h1>{{question}}</h1>
+        </div>
+        {{#each answers}}
+          <div class="question float-up">
+            <div class="photo">
+              {{#with student1Battle}}
+                <img src="{{image avatar}}" />
+              {{/with}}
+            </div>
+            <div class="content {{#if correct}}cuestionAnswer{{else}}questionAnswer{{/if}}">
+              <div class="text">
+                  <h3>{{answer}}</h3>
+              </div>
+            </div>
+            <div class="photo2">
+              {{#with student2Battle}}
+              <img src="{{image avatar}}" />
+              {{/with}}
+            </div>
+          </div>
+        {{/each}}
+        <div class="btn-group btn-group-battle" data-toggle="buttons">
+          <label class="btn btn-info" id="correctAnswer">
+            Corregir
+          </label>
+          <label class="btn btn-info" id="nextQuestion">
+            Siguiente
+          </label>
+        </div>
+
+      {{/with}}
+
+    </div>
+
+
+</template>

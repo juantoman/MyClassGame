@@ -24,16 +24,36 @@ Template.quizBattle.helpers({
         return images.findOne({_id: avatar}).image_url;
       }
     }
+  },
+  randomQuestion: function() {
+    var q = questions.find({classId: Session.get('classId'),'used':false}).fetch();
+    var r = Math.floor(Math.random() * q.length);
+    rqId = q[r]._id;
+    return questions.findOne({'_id': rqId});
+    //return questions.find({'classId': Session.get('classId')});
   }
 });
 
 Template.quizBattle.events({
   'click .question .photo': function(event) {
-    $('.question .photo').removeClass('answerSelected')
+    $('.question .photo').removeClass('answerSelected');
     $(event.currentTarget).toggleClass('answerSelected');
   },
   'click .question .photo2': function(event) {
-    $('.question .photo2').removeClass('answerSelected')
+    $('.question .photo2').removeClass('answerSelected');
     $(event.currentTarget).toggleClass('answerSelected');
+  },
+  'click #correctAnswer': function(event) {
+    $('.cuestionAnswer').toggleClass('correctAnswer');
+  },
+  'click #nextQuestion': function(event) {
+    Meteor.call('questionUsed', this._id);
+    $('.cuestionAnswer').removeClass('correctAnswer');
+    $('.question .photo').removeClass('answerSelected');
+    $('.question .photo2').removeClass('answerSelected');
+
+  },
+  'click #startBattle': function(event) {
+    Meteor.call('questionResetUsed');
   }
 })

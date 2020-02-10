@@ -121,3 +121,9 @@
 .question .content .text h3, .question .content .text h6 {
     font-weight: bold;
 }
+
+.question .content.correctAnswer {
+  background: lightgreen;
+  box-shadow: 0 0 2rem black;
+  transition: ease 2s;
+}

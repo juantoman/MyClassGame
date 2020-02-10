@@ -441,3 +441,26 @@ Meteor.publish('notifications', function(type,classId) {
       return notifications.find({"classId": { "$in": c }});
   }*/
 });
+Meteor.publish('questions', function(type,classId) {
+  if (classId){
+    return questions.find({"classId":classId});
+  } else {
+    return questions.find();
+  }
+  /*
+  if (classId){
+    return students.find({"classId":classId});
+  } else {
+    return students.find();
+  }
+
+  v=[];
+  tipos=mcgParameters.findOne().typeClasses;
+  if ( type == "teacher") {
+      classes.find({"teacherId": Meteor.userId()},{fields: {'_id':1}}).forEach(function(c){v.push(c._id);});
+      return students.find( { $or: [ { "classId": { "$in": v } } , { "classId": { "$in": tipos } } ] } );
+  } else {
+      c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
+      return students.find({"classId": { "$in": c }});
+  }*/
+});

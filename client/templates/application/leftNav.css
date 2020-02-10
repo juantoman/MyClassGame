@@ -506,8 +506,8 @@ body {
   right:10px;
 }
 
-#closeSessionBtn a{
-  color: lime;
+#closeSessionBtn a,a.closeSession{
+  color: lime !important;
 }
 
 #show-sidebar-line {

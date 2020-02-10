@@ -1,0 +1,64 @@
+<template name="questions">
+  <h3 class="nameSection">Cuestionarios</h3>
+  <div class="container-fluid float-up">
+    {{#each questions}}
+      <form class="questionForm">
+        <div class="form-group">
+          <label class="control-label" for="inputGroupSuccess1">Pregunta {{@index}}</label>
+          <div class="input-group mb-3">
+            <div class="input-group-addon">
+              <span class="input-group-text">Pregunta</span>
+            </div>
+            <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="Pregunta" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
+          </div>
+          <label class="control-label" for="inputGroupSuccess1">Respuestas</label>
+          {{#each answers}}
+            <div class="input-group mb-3">
+              <div class="input-group-addon btn {{#if correct}}answerSelected{{/if}}">
+                <span class="input-group-text">Respuesta {{@index}}</span>
+              </div>
+              <input type="text" class="form-control answer" name="answer" placeholder="respuesta" aria-label="repuesta" aria-describedby="basic-addon1" value="{{answer}}">
+            </div>
+          {{/each}}
+          <div class="input-group mb-3">
+            <input type="button" value="Borrar" class="btn btn-info deleteQuestionBtn">
+            <input type="submit" value="Guardar" class="btn btn-info saveQuestionBtn">
+          </div>
+        </div>
+      </form>
+    {{/each}}
+    <form>
+      <div class="form-group">
+        <label class="control-label" for="inputGroupSuccess1">Crear pregunta</label>
+        <div class="input-group mb-3">
+          <div class="input-group-addon">
+            <span class="input-group-text">Pregunta</span>
+          </div>
+          <input type="text" class="form-control" name="questionDescription" placeholder="Pregunta" aria-label="pregunta" aria-describedby="basic-addon1"  id="quizQuestion">
+        </div>
+        <label class="control-label" for="inputGroupSuccess1">Respuestas</label>
+        <div class="input-group mb-3">
+          <div class="input-group-addon btn">
+            <span class="input-group-text">A</span>
+          </div>
+          <input type="text" class="form-control" name="questionDescription" placeholder="Respuesta A" aria-label="repuestaA" aria-describedby="basic-addon1" id="quizAnswerA">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-addon btn">
+            <span class="input-group-text">B</span>
+          </div>
+          <input type="text" class="form-control" name="questionDescription" placeholder="Respuesta B" aria-label="respuestaB" aria-describedby="basic-addon1" id="quizAnswerB">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-addon btn">
+            <span class="input-group-text">C</span>
+          </div>
+          <input type="text" class="form-control" name="questionDescription" placeholder="Respuesta C" aria-label="respuestaC" aria-describedby="basic-addon1" id="quizAnswerC">
+        </div>
+        <div class="input-group mb-3">
+          <input type="button" id="newQuestionBtn" value="Añadir pregunta" class="btn btn-info">
+        </div>
+      </div>
+    </form>
+  </div>
+</template>
