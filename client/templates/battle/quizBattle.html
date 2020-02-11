@@ -50,9 +50,10 @@
         <div class="quiz-title float-up">{{question}}</div>
         {{#each answers}}
           <div class="question float-up">
-            <div class="photo">
+            <div class="photo photoMCG">
+              <img class="logoBattle" src="/images/@mcgnb.png"/>
               {{#with student1Battle}}
-                <img src="{{image avatar}}" />
+                <img src="{{image avatar}}" class="oculto"/>
               {{/with}}
             </div>
             <div class="content {{#if correct}}cuestionAnswer{{else}}questionAnswer{{/if}}">
@@ -61,8 +62,9 @@
               </div>
             </div>
             <div class="photo2">
+              <img class="logoBattle" src="/images/@mcgnb.png"/>
               {{#with student2Battle}}
-              <img src="{{image avatar}}" />
+              <img src="{{image avatar}}" class="imgAvatar oculto"/>
               {{/with}}
             </div>
           </div>

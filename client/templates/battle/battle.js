@@ -74,20 +74,26 @@ Template.battle.events({
     $(event.currentTarget).find('.backlogocard').toggleClass('oculto');
   },
   'click #svsmBattle': function(event) {
+    $('.photo').find('img').removeClass('logoBattle');
+    $('.photo2').find('img').addClass('logoBattle');
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
     var e = students.find({classId: Session.get('classId'),'random':true}).fetch();
     var r = Math.floor(Math.random() * e.length);
     Session.set('studentId1Battle',e[r]._id);
+    //Session.set('studentId2Battle','');
     $('#card1Battle').click();
     if ( $('#card2Battle').hasClass('card-turned') ) {
       $('#card2Battle').toggleClass('card card-turned');
+      //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
       $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
       $('#card2Battle').find('.backlogocard').toggleClass('oculto');
     }
   },
   'click #svssBattle': function(event) {
+    $('.photo').find('img').removeClass('logoBattle');
+    $('.photo2').find('img').removeClass('logoBattle');
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
@@ -99,5 +105,19 @@ Template.battle.events({
     Session.set('studentId2Battle',e2[r2]._id);
     $('#card1Battle').click();
     $('#card2Battle').click();
+  },
+  'click #resetBattle': function(event) {
+    $('#card1Battle').removeClass('card-turned');
+    $('#card1Battle').addClass('card');
+    $('#card1Battle').find('.card-inside').removeClass('card-front');
+    $('#card1Battle').find('.card-inside').addClass('card-back');
+    $('#card1Battle').find('.backlogocard').removeClass('oculto');
+    $('#card2Battle').removeClass('card-turned');
+    $('#card2Battle').addClass('card');
+    $('#card2Battle').find('.card-inside').removeClass('card-front');
+    $('#card2Battle').find('.card-inside').addClass('card-back');
+    $('#card2Battle').find('.backlogocard').removeClass('oculto');
+    $('.photo').find('.imgAvatar').addClass('oculto');
+    $('.photo2').find('.imgAvatar').addClass('oculto');
   }
 });
