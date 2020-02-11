@@ -1,5 +1,5 @@
 <template name="quizBattle">
-  <h1>Cuestionario</h1>
+  <h1>¡Batalla de preguntas!</h1>
 
     <div class="quiz">
       <div class="fight">
@@ -19,18 +19,35 @@
           {{/with}}
         </div>
       </div>
-
+      <!--
       <div class="quiz-title">¡Batalla de preguntas!</div>
-      <div class="btn-group btn-group-battle" data-toggle="buttons">
-        <label class="btn btn-info" id="startBattle">
-          Iniciar Batalla
-        </label>
-      </div>
-      {{#with randomQuestion}}
 
-        <div class="quiz-question">
-          <h1>{{question}}</h1>
+      <label class="btn btn-info btn-group-battle" id="startBattle">
+        Iniciar Batalla
+      </label>
+      -->
+      <form class="form-inline">
+        <div class="form-group">
+          <label>
+            Cuestionario
+          </label>
+          <select id="quizId">
+            {{#each quizzes}}
+              <option value='{{_id}}'>{{quizName}}</option>
+            {{/each}}
+          </select>
+          <button class="btn btn-info" id="startBattle">
+            Iniciar Batalla
+          </button>
         </div>
+      </form>
+      {{#with nextQuestion}}
+        <!--
+        <div class="quiz-question">
+          {{question}}
+        </div>
+        -->
+        <div class="quiz-title float-up">{{question}}</div>
         {{#each answers}}
           <div class="question float-up">
             <div class="photo">
@@ -50,11 +67,11 @@
             </div>
           </div>
         {{/each}}
-        <div class="btn-group btn-group-battle" data-toggle="buttons">
+        <div class="battleCorrectBtn btn-group btn-group-battle" data-toggle="buttons">
           <label class="btn btn-info" id="correctAnswer">
             Corregir
           </label>
-          <label class="btn btn-info" id="nextQuestion">
+          <label class="btn btn-info oculto" id="nextQuestion">
             Siguiente
           </label>
         </div>

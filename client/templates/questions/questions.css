@@ -1,4 +1,14 @@
-.input-group-addon.answerSelected{
+.form-group .answerSelected{
   background-color: #13c1b4 !important;
   font-weight: bold;
+}
+.quizContainer .btn .input-group-text{
+  color:white;
+  font-size: 14px;;
+}
+.quizCreateContainer {
+  margin-bottom:10px !important;
+}
+.quizContainer .quizRemoveBtn, .quizContainer .quizCreateBtn {
+  background-color: #cb4b16 !important;
 }

@@ -99,7 +99,8 @@ body {
   transition-delay: 0.1s;
   background-color: #268BD2;
   color:lightblue;
-  font-size: 2.5em !important;
+  font-size: 2em !important;
+  padding:10px 0 10px 10px;
 }
 
 #show-sidebar:hover {

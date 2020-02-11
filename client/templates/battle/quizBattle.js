@@ -25,12 +25,12 @@ Template.quizBattle.helpers({
       }
     }
   },
-  randomQuestion: function() {
-    var q = questions.find({classId: Session.get('classId'),'used':false}).fetch();
-    var r = Math.floor(Math.random() * q.length);
-    rqId = q[r]._id;
-    return questions.findOne({'_id': rqId});
+  nextQuestion: function() {
+    return questions.findOne({'_id': Session.get('questionId')});
     //return questions.find({'classId': Session.get('classId')});
+  },
+  quizzes: function() {
+    return quizzes.find({'classId': Session.get('classId')});
   }
 });
 
@@ -45,15 +45,35 @@ Template.quizBattle.events({
   },
   'click #correctAnswer': function(event) {
     $('.cuestionAnswer').toggleClass('correctAnswer');
+    $('.battleCorrectBtn .btn').toggleClass('oculto');
+    $('.questionAnswer').parent().find('.answerSelected').toggleClass('incorrectAnswer');
   },
   'click #nextQuestion': function(event) {
-    Meteor.call('questionUsed', this._id);
+    Meteor.call('questionUsed', Session.get('questionId'));
     $('.cuestionAnswer').removeClass('correctAnswer');
-    $('.question .photo').removeClass('answerSelected');
-    $('.question .photo2').removeClass('answerSelected');
+    $('.question .photo').removeClass('answerSelected incorrectAnswer');
+    $('.question .photo2').removeClass('answerSelected incorrectAnswer');
+    $('.battleCorrectBtn .btn').toggleClass('oculto');
+    var q = questions.find({quizId: Session.get('quizId'),'used':false}).fetch();
+    var r = Math.floor(Math.random() * q.length);
+    if (q.length ==0 ) {
+      Session.set('questionId','');
+    } else {
+      Session.set('questionId',q[r]._id);
+    }
 
   },
   'click #startBattle': function(event) {
+    event.preventDefault();
     Meteor.call('questionResetUsed');
+    var q = questions.find({quizId: Session.get('quizId'),'used':false}).fetch();
+    var r = Math.floor(Math.random() * q.length);
+    Session.set('questionId',q[r]._id);
+    $('.battleCorrectBtn #correctAnswer').removeClass('oculto');
+    $('.battleCorrectBtn #nextQuestion').addClass('oculto');
+  },
+  'change #quizId': function(event) {
+    event.preventDefault();
+    Session.set('quizId',$('#quizId').val());
   }
 })

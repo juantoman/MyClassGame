@@ -127,3 +127,18 @@
   box-shadow: 0 0 2rem black;
   transition: ease 2s;
 }
+
+.question .incorrectAnswer {
+  border: 5px solid red !important;
+  transition: ease 2s;
+}
+
+.questionContainer {
+  transition: ease 2s;
+}
+
+.quiz .form-inline select{
+  color: #268BD2;
+  background-color: white;
+  font-size: auto;
+}
