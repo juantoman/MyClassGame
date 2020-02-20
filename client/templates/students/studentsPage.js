@@ -268,7 +268,7 @@ Template.studentsPage.events({
     }
     event.stopPropagation();
   },
-  'click .foto,.info-grid,.card__image': function(event) {
+  'click .foto,.info-grid,.card__image,.card__name': function(event) {
     event.preventDefault();
     Session.set('nXP',0);
     Session.set('nBg',0);
