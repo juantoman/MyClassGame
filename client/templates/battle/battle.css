@@ -93,12 +93,3 @@
     width:100%;
     max-width: 300px;
 }
-
-.quizBattle {
-  background-color:rgb(100, 200, 255,0.6) !important;
-}
-
-.logoBattle{
-  max-height:35px;
-  margin-top:20px;
-}

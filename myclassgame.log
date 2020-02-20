@@ -1444,3 +1444,8 @@
 2020-2-10 11:22:25 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : X6vu8aDFrGYinoXEd
 2020-2-11 9:22:41 : loginGoogle -> ZWkLjrMdSjhERuF85
 2020-2-11 9:22:42 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
+2020-2-17 11:36:37 : loginGoogle -> ZWkLjrMdSjhERuF85
+2020-2-17 11:36:41 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m
+2020-2-17 11:37:4 : selectStudent -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m , studentId : X6vu8aDFrGYinoXEd
+2020-2-20 9:8:47 : loginGoogle -> ZWkLjrMdSjhERuF85
+2020-2-20 9:8:50 : selectClass -> userId: ZWkLjrMdSjhERuF85 , classId : efDMkw39J8LrQiE4m

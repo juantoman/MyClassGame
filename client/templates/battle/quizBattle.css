@@ -142,3 +142,18 @@
   background-color: white;
   font-size: 2vh;
 }
+
+.quizBattle {
+  background-color:rgb(100, 200, 255,0.6) !important;
+}
+
+.logoBattle{
+  max-height:35px;
+  margin-top:20px;
+}
+
+.vs {
+  color: yellow;
+  font-size: 0.7em;
+  font-weight: bold;
+}

@@ -3,19 +3,21 @@
 
     <div class="quiz">
       <div class="fight">
-        <div class="photo photoFighter">
+        <div class="photo">
+          <img class="logoBattle" src="/images/@mcgnb.png"/>
           {{#with student1Battle}}
-            <img src="{{image avatar}}" />
+            <img class="photoFighter oculto" src="{{image avatar}}" />
           {{/with}}
         </div>
         <div class="content">
           <div class="text align-middle">
-              <h1>{{#with student1Battle}}{{studentName}}{{/with}} vs {{#with student2Battle}}{{studentName}}{{/with}}</h1>
+              <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}} <span class="fighter2 oculto"><span class="vs">vs</span> {{#with student2Battle}}{{studentName}}{{/with}}</span></h1>
           </div>
         </div>
-        <div class="photo2 photoFighter">
+        <div class="photo2">
+          <img class="logoBattle" src="/images/@mcgnb.png"/>
           {{#with student2Battle}}
-          <img src="{{image avatar}}" />
+          <img class="photoFighter oculto" src="{{image avatar}}" />
           {{/with}}
         </div>
       </div>
@@ -53,7 +55,7 @@
             <div class="photo photoMCG">
               <img class="logoBattle" src="/images/@mcgnb.png"/>
               {{#with student1Battle}}
-                <img src="{{image avatar}}" class="oculto"/>
+                <img class="photoFighter oculto" src="{{image avatar}}"/>
               {{/with}}
             </div>
             <div class="content {{#if correct}}cuestionAnswer{{else}}questionAnswer{{/if}}">
@@ -64,7 +66,7 @@
             <div class="photo2">
               <img class="logoBattle" src="/images/@mcgnb.png"/>
               {{#with student2Battle}}
-              <img src="{{image avatar}}" class="imgAvatar oculto"/>
+                <img class="photoFighter oculto" src="{{image avatar}}"/>
               {{/with}}
             </div>
           </div>

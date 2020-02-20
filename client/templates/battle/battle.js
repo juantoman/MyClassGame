@@ -74,8 +74,12 @@ Template.battle.events({
     $(event.currentTarget).find('.backlogocard').toggleClass('oculto');
   },
   'click #svsmBattle': function(event) {
-    $('.photo').find('img').removeClass('logoBattle');
-    $('.photo2').find('img').addClass('logoBattle');
+    /*$('.photo').find('img').removeClass('logoBattle');
+    $('.photo2').find('img').addClass('logoBattle');*/
+    $('.photo').find('.logoBattle').addClass('oculto');
+    $('.photo').find('.photoFighter').removeClass('oculto');
+    $('.photo2').find('.logoBattle').removeClass('oculto');
+    $('.photo2').find('.photoFighter').addClass('oculto');
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
@@ -90,10 +94,10 @@ Template.battle.events({
       $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
       $('#card2Battle').find('.backlogocard').toggleClass('oculto');
     }
+    $('.fighters').removeClass('oculto');
+    $('.fighter2').addClass('oculto');
   },
   'click #svssBattle': function(event) {
-    $('.photo').find('img').removeClass('logoBattle');
-    $('.photo2').find('img').removeClass('logoBattle');
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
@@ -105,6 +109,12 @@ Template.battle.events({
     Session.set('studentId2Battle',e2[r2]._id);
     $('#card1Battle').click();
     $('#card2Battle').click();
+    $('.photo').find('.logoBattle').addClass('oculto');
+    $('.photo').find('.photoFighter').removeClass('oculto');
+    $('.photo2').find('.logoBattle').addClass('oculto');
+    $('.photo2').find('.photoFighter').removeClass('oculto');
+    $('.fighters').removeClass('oculto');
+    $('.fighter2').removeClass('oculto');
   },
   'click #resetBattle': function(event) {
     $('#card1Battle').removeClass('card-turned');
@@ -117,7 +127,13 @@ Template.battle.events({
     $('#card2Battle').find('.card-inside').removeClass('card-front');
     $('#card2Battle').find('.card-inside').addClass('card-back');
     $('#card2Battle').find('.backlogocard').removeClass('oculto');
-    $('.photo').find('.imgAvatar').addClass('oculto');
-    $('.photo2').find('.imgAvatar').addClass('oculto');
+    //$('.photo').find('.imgAvatar').addClass('oculto');
+    //$('.photo2').find('.imgAvatar').addClass('oculto');
+    $('.photo').find('.logoBattle').removeClass('oculto');
+    $('.photo').find('.photoFighter').addClass('oculto');
+    $('.photo2').find('.logoBattle').removeClass('oculto');
+    $('.photo2').find('.photoFighter').addClass('oculto');
+    $('.fighters').addClass('oculto');
+    $('.fighter2').addClass('oculto');
   }
 });
