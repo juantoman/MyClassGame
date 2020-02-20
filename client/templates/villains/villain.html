@@ -1,0 +1,44 @@
+<template name="villainsPage">
+  <div class="row">
+
+    {{#each villains}}
+      <div style="margin:auto;" class="thumbnailStudent float-up">
+        <figure class="card card__fire">
+          <div class="card__image-container">
+            <img class="cardLogo" src="/images/@mcgnb.png">
+            <img src="{{image avatar}}" class="card__image">
+          </div>
+
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{studentName}}</h1>
+
+            <table class="card__stats">
+              <tbody>
+                <tr>
+                  <th><span class="btn-hp">HP</span></th>
+                  <td><span class="btn-hp">{{HP}}</span></td>
+                </tr>
+
+              </tbody>
+            </table>
+
+          </figcaption>
+        </figure>
+      </div>
+    {{/each}}
+
+    <div style="margin:auto;" class="newVillian float-up">
+      <figure class="card card__fire">
+        <div class="card__image-container">
+          <img class="cardLogo" src="/images/@mcgnb.png">
+          <img src="" class="card__image">
+        </div>
+
+        <figcaption class="card__caption">
+          <h1 class="card__name">Nuevo villano</h1>
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</template>
