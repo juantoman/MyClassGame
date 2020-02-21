@@ -99,7 +99,7 @@
 }
 
 .question .answerSelected {
-  border: 5px solid lime;
+  border: 5px solid gold;
   box-shadow: 0 0 1rem black;
   transform: scale(1.1);
 }
@@ -128,8 +128,12 @@
   transition: ease 2s;
 }
 
+.cAnswer {
+  border: 7px solid lime !important;
+}
+
 .question .incorrectAnswer {
-  border: 5px solid red !important;
+  border: 7px solid red !important;
   transition: ease 2s;
 }
 

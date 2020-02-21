@@ -1,3 +1,7 @@
+Template.quizBattle.onRendered(function() {
+  Session.set('quizId',$('#quizId').val());
+});
+
 Template.quizBattle.helpers({
   student1Battle: function() {
     return students.findOne({'_id': Session.get('studentId1Battle')});
@@ -47,12 +51,13 @@ Template.quizBattle.events({
     $('.cuestionAnswer').toggleClass('correctAnswer');
     $('.battleCorrectBtn .btn').toggleClass('oculto');
     $('.questionAnswer').parent().find('.answerSelected').toggleClass('incorrectAnswer');
+    $('.cuestionAnswer').parent().find('.answerSelected').addClass('cAnswer');
   },
   'click #nextQuestion': function(event) {
     Meteor.call('questionUsed', Session.get('questionId'));
     $('.cuestionAnswer').removeClass('correctAnswer');
-    $('.question .photo').removeClass('answerSelected incorrectAnswer');
-    $('.question .photo2').removeClass('answerSelected incorrectAnswer');
+    $('.question .photo').removeClass('answerSelected incorrectAnswer cAnswer');
+    $('.question .photo2').removeClass('answerSelected incorrectAnswer cAnswer');
     $('.battleCorrectBtn .btn').toggleClass('oculto');
     var q = questions.find({quizId: Session.get('quizId'),'used':false}).fetch();
     var r = Math.floor(Math.random() * q.length);
