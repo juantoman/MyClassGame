@@ -1,0 +1,50 @@
+.villainName {
+  width:100%;
+  font-size: 2em;
+  text-align: center;
+  font-weight: bold;
+  color:yellow;
+}
+
+.villainHP{
+  width:50%;
+  font-size: 2em;
+  text-align: right;
+  color:red;
+  font-weight: bold;
+}
+
+.villainHeart{
+  font-size: 1.8em;
+  color:red;
+  font-weight: bold;
+}
+
+.villainCard input{
+  background-color: transparent;
+  border:1px solid transparent !important;
+}
+
+.villainCard input:hover{
+  background-color: transparent;
+  border:1px solid red !important;
+}
+
+.villainCard td{
+  font-size: 2em;
+  text-align: left;
+  color:red;
+  margin:0;
+  padding:0;
+}
+
+.cardDelete {
+  position:absolute;
+  top:0;
+  right:5px;
+  font-size: 2em;
+  color:gold;
+}
+.cardDelete:hover {
+  color:red;
+}

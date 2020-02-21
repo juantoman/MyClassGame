@@ -4,8 +4,8 @@ var new_image="";
 Template.imagesTemplate.onRendered(function() {
    $.getScript("https://media-library.cloudinary.com/global/all.js");
    widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
-    if (!error && result && result.event === "success") { 
-      console.log('Done! Here is the image info: ', result.info); 
+    if (!error && result && result.event === "success") {
+      console.log('Done! Here is the image info: ', result.info);
       var imgObject = {
          classId:Session.get('classId'),
          type: Session.get('imageType'),
@@ -58,6 +58,9 @@ Template.imagesTemplate.helpers({
     if ( Session.get('imageType') == "backImg" ) {
       idElement=classes.findOne({_id: Session.get('idElementImage')}).groupImg;
     }
+    if ( Session.get('imageType') == "villains" ) {
+      idElement=villains.findOne({_id: Session.get('idElementImage')}).villainImage;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -88,6 +91,9 @@ Template.imagesTemplate.events({
       if (Session.get('imageType')=="avatar") {
         Meteor.call('avatarUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
         Meteor.call('studentImgUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="villain") {
+        Meteor.call('villainImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
       if (Session.get('imageType')=="group") {
         Meteor.call('groupImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());

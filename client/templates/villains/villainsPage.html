@@ -3,35 +3,26 @@
 
     {{#each villains}}
       <div style="margin:auto;" class="thumbnailStudent float-up">
-        <figure class="card card__fire">
+        <figure class="card card__fire villainCard">
           <div class="card__image-container">
             <img class="cardLogo" src="/images/@mcgnb.png">
-            <img src="{{image avatar}}" class="card__image">
+            <img src="{{image}}" class="card__image villainImage">
+            <i class="fas fa-times cardDelete"></i>
           </div>
 
           <figcaption class="card__caption">
-            <h1 class="card__name">{{studentName}}</h1>
-
-            <table class="card__stats">
-              <tbody>
-                <tr>
-                  <th><span class="btn-hp">HP</span></th>
-                  <td><span class="btn-hp">{{HP}}</span></td>
-                </tr>
-
-              </tbody>
-            </table>
-
+            <input class="villainName" type="text" value="{{villainName}}" />
+            <input class="villainHP" type="text" value="{{HP}}" /><span class="villainHeart glyphicon glyphicon-heart" aria-hidden="true"></span>
           </figcaption>
         </figure>
       </div>
     {{/each}}
 
-    <div style="margin:auto;" class="newVillian float-up">
+    <div style="margin:auto;" class="newVillain float-up">
       <figure class="card card__fire">
         <div class="card__image-container">
           <img class="cardLogo" src="/images/@mcgnb.png">
-          <img src="" class="card__image">
+          <img src="https://www.freepnglogos.com/uploads/darth-vader-png/darth-vader-pajamas-officially-licensed-merch-the-23.png" class="card__image">
         </div>
 
         <figcaption class="card__caption">
