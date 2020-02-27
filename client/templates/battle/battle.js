@@ -113,12 +113,12 @@ Template.battle.events({
     Session.set('villainId',v[rv]._id);
     //Session.set('studentId2Battle','');
     $('#card1Battle').click();
-    $('.card2Battle').click();
-    /*if ( $('.card2Battle').hasClass('card-turned') ) {
-      $('.card2Battle').toggleClass('card card-turned');
+    $('#card2Battle').click();
+    /*if ( $('#card2Battle').hasClass('card-turned') ) {
+      $('#card2Battle').toggleClass('card card-turned');
       //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
-      $('.card2Battle').find('.card-inside').toggleClass('card-back card-front');
-      $('.card2Battle').find('.backlogocard').toggleClass('oculto');
+      $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
+      $('#card2Battle').find('.backlogocard').toggleClass('oculto');
     }*/
     $('.fighters').removeClass('oculto');
     $('.fighter2').addClass('oculto');
@@ -135,7 +135,7 @@ Template.battle.events({
     Session.set('studentId1Battle',e1[r1]._id);
     Session.set('studentId2Battle',e2[r2]._id);
     $('#card1Battle').click();
-    $('.card2Battle').click();
+    $('#card2Battle').click();
     $('.photo').find('.logoBattle').addClass('oculto');
     $('.photo').find('.photoFighter').removeClass('oculto');
     $('.photo2').find('.logoBattle').addClass('oculto');
@@ -150,10 +150,10 @@ Template.battle.events({
     $('#card1Battle').find('.card-inside').removeClass('card-front');
     $('#card1Battle').find('.card-inside').addClass('card-back');
     $('#card1Battle').find('.backlogocard').removeClass('oculto');
-    $('.card2Battle').removeClass('card-turned');
-    $('.card2Battle').addClass('card');
-    $('.card2Battle').find('.card-inside').removeClass('card-front');
-    $('.card2Battle').find('.card-inside').addClass('card-back');
+    $('#card2Battle').removeClass('card-turned');
+    $('#card2Battle').addClass('card');
+    $('#card2Battle').find('.card-inside').removeClass('card-front');
+    $('#card2Battle').find('.card-inside').addClass('card-back');
     $('#card2Battle').find('.backlogocard').removeClass('oculto');
     //$('.photo').find('.imgAvatar').addClass('oculto');
     //$('.photo2').find('.imgAvatar').addClass('oculto');

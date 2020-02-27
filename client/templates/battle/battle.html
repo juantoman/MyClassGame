@@ -100,85 +100,83 @@
         </div>
         <div class="hidden-xs hidden-sm col-md-3  bat2 battlePanel">
             <div class="col-xs-12 cardProfile">
-              {{#if opponent "student"}}
-                {{#with student2Battle}}
-                  <figure class="card card__water card2Battle">
+
+                  <figure class="card card__water" id="card2Battle">
                     <img class="backlogocard" src="/images/@mcgnb.png">
-                    <div class="card-inside card-back">
-                      <div class="card__image-container">
-                        <img class="cardLogo" src="/images/@mcgnb.png">
-                        <img src="{{image avatar}}" class="card__image eImage" name="usuario1">
-                      </div>
-
-                      <figcaption class="card__caption">
-
-                          <h1 class="card__name">{{studentName}}</h1>
-
-
-                        <h3 class="studentTeam">
-                          Grupo
-                        </h3>
-                        <h3 class="card__type">
-                          Nivel {{level}}
-                        </h3>
-
-                        <table class="card__stats">
-                          <tbody><tr>
-                            <th><span class="btn-xp">XP</span></th>
-                            <td><span class="btn-xp">{{XP}}</span></td>
-                          </tr>
-                          <tr>
-                            <th><span class="btn-hp">HP</span></th>
-                            <td><span class="btn-hp">{{HP}}</span></td>
-                          </tr>
-
-                          <tr>
-                            <th><span class="btn-store">Monedas</span></th>
-                            <td><span class="btn-store">{{coins}}</span></td>
-                          </tr>
-
-                        </tbody></table>
-                        <div class="cardLine">
+                    {{#if opponent "student"}}
+                      {{#with student2Battle}}
+                        <div class="card-inside card-back">
+                        <div class="card__image-container">
+                          <img class="cardLogo" src="/images/@mcgnb.png">
+                          <img src="{{image avatar}}" class="card__image eImage" name="usuario1">
                         </div>
-                        <ul class="cardIcons">
-                          <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
-                          <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
-                          <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
-                        </ul>
-                      </figcaption>
-                      </div>
-                  </figure>
-                {{/with}}
-              {{/if}}
-              {{#if opponent "villain"}}
-                {{#with villainBattle}}
-                  <figure class="card card__water card2Battle">
-                    <img class="backlogocard" src="/images/@mcgnb.png">
-                    <div class="card-inside card-back">
-                      <div class="card__image-container">
-                        <img class="cardLogo" src="/images/@mcgnb.png">
-                        <img src="{{imageVillain}}" class="card__image eImage" name="usuario1">
-                      </div>
 
-                      <figcaption class="card__caption">
+                        <figcaption class="card__caption">
 
-                          <h1 class="card__name">{{villainName}}</h1>
+                            <h1 class="card__name">{{studentName}}</h1>
 
-                        <table class="card__stats">
-                          <tbody>
 
+                          <h3 class="studentTeam">
+                            Grupo
+                          </h3>
+                          <h3 class="card__type">
+                            Nivel {{level}}
+                          </h3>
+
+                          <table class="card__stats">
+                            <tbody><tr>
+                              <th><span class="btn-xp">XP</span></th>
+                              <td><span class="btn-xp">{{XP}}</span></td>
+                            </tr>
                             <tr>
                               <th><span class="btn-hp">HP</span></th>
                               <td><span class="btn-hp">{{HP}}</span></td>
                             </tr>
 
-                          </tbody>
-                        </table>
-                      </figcaption>
-                      </div>
-                    </figure>
-                  {{/with}}
-                {{/if}}
+                            <tr>
+                              <th><span class="btn-store">Monedas</span></th>
+                              <td><span class="btn-store">{{coins}}</span></td>
+                            </tr>
+
+                          </tbody></table>
+                          <div class="cardLine">
+                          </div>
+                          <ul class="cardIcons">
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
+                            <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
+                          </ul>
+                        </figcaption>
+                        </div>
+                      {{/with}}
+                    {{/if}}
+                    {{#if opponent "villain"}}
+                      {{#with villainBattle}}
+                        <div class="card-inside card-back">
+                          <div class="card__image-container">
+                            <img class="cardLogo" src="/images/@mcgnb.png">
+                            <img src="{{imageVillain}}" class="card__image eImage" name="usuario1">
+                          </div>
+
+                          <figcaption class="card__caption">
+
+                              <h1 class="card__name">{{villainName}}</h1>
+
+                            <table class="card__stats">
+                              <tbody>
+
+                                <tr>
+                                  <th><span class="btn-hp">HP</span></th>
+                                  <td><span class="btn-hp">{{HP}}</span></td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+                          </figcaption>
+                        </div>
+                      {{/with}}
+                    {{/if}}
+                  </figure>
 
             </div>
             <div class="battleLife">
