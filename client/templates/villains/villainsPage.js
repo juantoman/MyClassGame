@@ -3,7 +3,11 @@ Template.villainsPage.helpers({
     return villains.find();
   },
   image: function() {
-    return images.findOne({_id: this.villainImage}).image_url;
+    if (this.villainImage.substring(0, 4)=="http") {
+      return this.villainImage;
+    } else {
+      return images.findOne({_id: this.villainImage}).image_url;
+    }
   }
 })
 
