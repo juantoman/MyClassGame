@@ -95,8 +95,8 @@ Template.battle.events({
     $('.photo2').find('img').addClass('logoBattle');*/
     $('.photo').find('.logoBattle').addClass('oculto');
     $('.photo').find('.photoFighter').removeClass('oculto');
-    $('.photo2').find('.logoBattle').removeClass('oculto');
-    $('.photo2').find('.photoFighter').addClass('oculto');
+    $('.photo2').find('.logoBattle').addClass('oculto');
+    $('.photo2').find('.photoFighter').removeClass('oculto');
     //Elegir alumne aleatoriament
     if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));

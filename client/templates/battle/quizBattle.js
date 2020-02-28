@@ -9,6 +9,9 @@ Template.quizBattle.helpers({
   student2Battle: function() {
     return students.findOne({'_id': Session.get('studentId2Battle')});
   },
+  villainBattle: function() {
+    return villains.findOne({'_id': Session.get('villainId')});
+  },
   image: function(avatar) {
     avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
     if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
@@ -35,6 +38,20 @@ Template.quizBattle.helpers({
   },
   quizzes: function() {
     return quizzes.find({'classId': Session.get('classId')});
+  },
+  opponent: function(opponentType) {
+    if (Session.get('opponent') == opponentType) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  imageVillain: function() {
+    if (this.villainImage.substring(0, 4)=="http") {
+      return this.villainImage;
+    } else {
+      return images.findOne({_id: this.villainImage}).image_url;
+    }
   }
 });
 

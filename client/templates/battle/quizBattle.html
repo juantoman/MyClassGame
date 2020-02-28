@@ -11,14 +11,21 @@
         </div>
         <div class="content">
           <div class="text align-middle">
-              <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}} <span class="fighter2 oculto"><span class="vs">vs</span> {{#with student2Battle}}{{studentName}}{{/with}}</span></h1>
+              <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}<span class=" vs "> vs </span>{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}</h1>
           </div>
         </div>
         <div class="photo2">
           <img class="logoBattle" src="/images/@mcgnb.png"/>
-          {{#with student2Battle}}
-          <img class="photoFighter oculto" src="{{image avatar}}" />
-          {{/with}}
+          {{#if opponent "student"}}
+            {{#with student2Battle}}
+            <img class="photoFighter oculto" src="{{image avatar}}" />
+            {{/with}}
+          {{/if}}
+          {{#if opponent "villain"}}
+            {{#with villainBattle}}
+              <img class="photoFighter oculto" src="{{imageVillain}}">
+            {{/with}}
+          {{/if}}
         </div>
       </div>
       <!--
@@ -65,9 +72,16 @@
             </div>
             <div class="photo2">
               <img class="logoBattle" src="/images/@mcgnb.png"/>
-              {{#with student2Battle}}
-                <img class="photoFighter oculto" src="{{image avatar}}"/>
-              {{/with}}
+              {{#if opponent "student"}}
+                {{#with student2Battle}}
+                  <img class="photoFighter oculto" src="{{image avatar}}"/>
+                {{/with}}
+              {{/if}}
+              {{#if opponent "villain"}}
+                {{#with villainBattle}}
+                  <img class="photoFighter oculto" src="{{imageVillain}}"/>
+                {{/with}}
+              {{/if}}
             </div>
           </div>
         {{/each}}
