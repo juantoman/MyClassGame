@@ -16,16 +16,7 @@
         </div>
         <div class="photo2">
           <img class="logoBattle" src="/images/@mcgnb.png"/>
-          {{#if opponent "student"}}
-            {{#with student2Battle}}
-            <img class="photoFighter oculto" src="{{image avatar}}" />
-            {{/with}}
-          {{/if}}
-          {{#if opponent "villain"}}
-            {{#with villainBattle}}
-              <img class="photoFighter oculto" src="{{imageVillain}}">
-            {{/with}}
-          {{/if}}
+          <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}' />
         </div>
       </div>
       <!--
@@ -72,16 +63,7 @@
             </div>
             <div class="photo2">
               <img class="logoBattle" src="/images/@mcgnb.png"/>
-              {{#if opponent "student"}}
-                {{#with student2Battle}}
-                  <img class="photoFighter oculto" src="{{image avatar}}"/>
-                {{/with}}
-              {{/if}}
-              {{#if opponent "villain"}}
-                {{#with villainBattle}}
-                  <img class="photoFighter oculto" src="{{imageVillain}}"/>
-                {{/with}}
-              {{/if}}
+              <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
             </div>
           </div>
         {{/each}}
