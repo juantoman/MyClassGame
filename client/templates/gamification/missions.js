@@ -64,7 +64,7 @@ function createPicker() {
         build();
     picker.setVisible(true);
     //createFolder();
-    
+
     /*var picker = new google.picker.PickerBuilder()
         .enableFeature(google.picker.Feature.NAV_HIDDEN)
         .enableFeature(google.picker.Feature.MULTISELECT_ENABLED)
@@ -118,7 +118,7 @@ function pickerCallback(data) {
 
 /*function renderWidget() {
   gapi.sharetoclassroom.render("widget-div",
-      {"url": "http://www.google.com", "size": "30", "theme": "classic", "locale": "es-ES"} );
+      {"url": "https://www.google.com", "size": "30", "theme": "classic", "locale": "es-ES"} );
 }*/
 
 Template.missions.onRendered(function() {
@@ -156,7 +156,7 @@ Template.missions.helpers({
     } else {
       return false;
     };
-  }  
+  }
 });
 
 Template.missions.events({
@@ -216,11 +216,11 @@ Template.missions.events({
     if ($("#iframeWeb").css("display")=="table"){
       $("#iframeWeb").css("display","none");
       event.currentTarget.value="Ver";
-    } else {  
+    } else {
       $("#iframeWeb").css("display","table");
       event.currentTarget.value="Ocultar";
     }
-    
+
   },
   /*'change #selectMoC': function(event) {
     event.preventDefault();
@@ -248,7 +248,7 @@ Template.missions.events({
     id=event.currentTarget.id;
     n=chalMissions.find({missionId: id}).count()+1;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     var chal = {
       classId: Session.get('classId'),
       missionId: id,
@@ -271,7 +271,7 @@ Template.missions.events({
     //o=chalMissions.findOne({_id: id}).order;
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     Meteor.call('chalMissionDelete', this._id, this.missionId, this.order);
   },
   'click .chalMissionUp': function(event) {
@@ -284,7 +284,7 @@ Template.missions.events({
     Meteor.call('chalMissionOrder', this._id, o-1);
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
   'click .chalMissionDown': function(event) {
@@ -297,7 +297,7 @@ Template.missions.events({
     Meteor.call('chalMissionOrder', this._id, o+1);
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
   'click .chalMissionUpdate': function(event) {
@@ -307,7 +307,7 @@ Template.missions.events({
     Meteor.call('chalMissionUpdateData', this._id, desc, xp);
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
   'click .chalMissionGrades': function(event) {
@@ -318,7 +318,7 @@ Template.missions.events({
     Modal.show('notes');
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
-    //alert($(event.target).find('[id=notebookCheck]').prop('checked')); 
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //Meteor.call('chalMissionDelete', this._id, missionId, this.order);
   },
   'click #adventureBtn': function(event) {

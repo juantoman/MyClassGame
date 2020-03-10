@@ -5,12 +5,12 @@ handleClientLoad=function() {
 initClient=function() {
   var CLIENT_ID = mcgParameters.findOne().clientId;
   var API_KEY = mcgParameters.findOne().apiKey;
-  
-  // Cargamos el servicio Rest API de Google 
+
+  // Cargamos el servicio Rest API de Google
   //var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest","https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-  
-  // El servicio de Autenticación con una cuenta de Google 
+
+  // El servicio de Autenticación con una cuenta de Google
   //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
   var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.topics.readonly";
 
@@ -24,7 +24,7 @@ initClient=function() {
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    
+
   });
 }
 
@@ -39,7 +39,7 @@ appendPre=function(message) {
   $("#GoogleClassroom").html($("#GoogleClassroom").html() + message + '\n');
 }
 
-// Acá listamos los archivos de nuestra cuenta de Google Drive, especificamos que datos de los archivos queremos mostrar 
+// Acá listamos los archivos de nuestra cuenta de Google Drive, especificamos que datos de los archivos queremos mostrar
 
 listFolder=function() {
   //Llistar carpeta
@@ -62,9 +62,9 @@ listFolder=function() {
 
 createFolderFunction=function() {
   //Crear carpeta
-  var body= {"name": "tururi", 
+  var body= {"name": "tururi",
      "mimeType": "application/vnd.google-apps.folder"}
-  
+
   gapi.client.request({
     'path': 'https://www.googleapis.com/drive/v3/files/',
     'method': 'POST',
@@ -95,7 +95,7 @@ changePermissions=function(folderId) {
         callback(jsonResp.result)
       }
   })
-  
+
   /*
   gapi.client.drive.permissions.insert({
   'fileId': files,
@@ -103,7 +103,7 @@ changePermissions=function(folderId) {
   }).execute(function(response) {
   callback(null, response);
   });*/
-  
+
 }
 
 listCourses=function() {
@@ -123,7 +123,7 @@ listCourses=function() {
     }
   });
 }
-  
+
 listStudents=function(c) {
   gapi.client.classroom.courses.students.list({
     courseId: c
@@ -182,8 +182,8 @@ creaTarea=function() {
     'title': 'Filomeno',
     'description': 'Read the article about ant colonies and complete the quiz.',
     'materials': [
-       {'link': { 'url': 'http://example.com/ant-colonies' }},
-       {'link': { 'url': 'http://example.com/ant-quiz' }}
+       {'link': { 'url': 'https://example.com/ant-colonies' }},
+       {'link': { 'url': 'https://example.com/ant-quiz' }}
   ],
     'workType': 'ASSIGNMENT',
     'state': 'PUBLISHED',

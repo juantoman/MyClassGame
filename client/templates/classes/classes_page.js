@@ -90,7 +90,7 @@ Template.classesPage.helpers({
         return images.findOne({_id: avatar}).image_url;
       }
     } else {
-      return "http://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+      return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
     }
   }
 });

@@ -176,7 +176,7 @@ Template.leftNav.events({
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
-    Router.go('/');
+    //Router.go('/');
     Meteor.logout();
     //window.location.href = "/";
   }

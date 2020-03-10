@@ -19,7 +19,7 @@ Meteor.publish('classes', function(classId) {
   if (classId){
     return classes.find({"_id":classId});
   } else {
-    return classes.find({},{fields:{'_id':1,'teacherId':1,'className':1,'studentImg':1,'groupImg':1}})
+    return classes.find({ "teacherId": Meteor.userId() },{fields:{'_id':1,'teacherId':1,'className':1,'studentImg':1,'groupImg':1}})
   }
   /*
     tipos=mcgParameters.findOne().typeClasses;
@@ -340,7 +340,7 @@ Meteor.publish('notebookWork', function(type,classId) {
       return notebookWork.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('images', function() {
+Meteor.publish('images', function(classId) {
   /*v=[];
   tipos=mcgParameters.findOne().typeClasses;
   if ( userType == "teacher") {
@@ -350,7 +350,15 @@ Meteor.publish('images', function() {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       return images.find({"classId": { "$in": c }});
   }*/
-  return images.find();
+  if (classId){
+    return images.find({"classId":classId});
+  } else {
+    v=[];
+    tipos=mcgParameters.findOne().typeClasses;
+    classes.find({"teacherId": Meteor.userId()},{fields: {'_id':1}}).forEach(function(c){v.push(c._id);});
+    return images.find( { $or: [ { "classId": { "$in": v } } , { "classId": { "$in": tipos } } ] } );
+    //return images.find();
+  }
 });
 Meteor.publish('cards', function(type,classId) {
   if (classId){

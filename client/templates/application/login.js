@@ -61,7 +61,7 @@ Template.login.events({
       },
      'click #google': function(e) {
         e.preventDefault();
-        Meteor.loginWithGoogle(redirect_uri="http://myclassgame.iestacio.com/_oauth/google",function(error){
+        Meteor.loginWithGoogle(redirect_uri="https://www.myclassgame.tk/_oauth/google",function(error){
             if(error) {
               swal({
                   title: "¡Error de login!",

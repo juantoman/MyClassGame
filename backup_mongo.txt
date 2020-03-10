@@ -9,7 +9,7 @@ you will get an output something like this:
 MongoDB shell version: 2.2.1
 connecting to: 127.0.0.1:3001/meteor
 
-Meteor db host is at 127.0.0.1 with a port of 3001. 
+Meteor db host is at 127.0.0.1 with a port of 3001.
 
 Exit the mongo shell and use mongodump from your terminal.
 
@@ -17,7 +17,7 @@ mongodump -h 127.0.0.1 --port 3001 -d meteor
 
 Restore your database to mlab:
 
-mongorestore -h ds247270.mlab.com:47270 -d mcg -u mcg dump/meteor 
+mongorestore -h ds247270.mlab.com:47270 -d mcg -u mcg dump/meteor
 
 Recuperar datos de backup:
 --------------------------
@@ -31,6 +31,7 @@ meteor reset
 //Iniciar Meteor
 
 mongorestore -h 127.0.0.1 --port 3001 -d meteor --drop dump/mcg
+mongorestore -d app --drop meteor
 
 
 Comprimir y descomprimir carpeta:
