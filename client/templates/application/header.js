@@ -82,21 +82,6 @@ Template.header.events({
     Session.set('groupSelected', false);
     Router.go('myNav');
   },
-  'click .closeSession': function(event) {
-    event.preventDefault();
-    //Session.set('className', '');
-    //Session.set('studentSelected', false);
-    //Session.set('groupSelected', false);
-    //Session.set('userType', "");
-    //$("#fondo").css("background-image", "");
-    //Router.go('/');
-    //Session.keys = {}
-    //gapi.auth2.getAuthInstance().signOut();
-    Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
-    Router.go('/');
-    Meteor.logout();
-    //window.location.href = "/";
-  },
   'click .student_button': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId',this._id);

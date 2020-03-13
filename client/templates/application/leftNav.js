@@ -178,6 +178,6 @@ Template.leftNav.events({
     Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
     //Router.go('/');
     Meteor.logout();
-    //window.location.href = "/";
+    window.location.href = "/";
   }
 })
