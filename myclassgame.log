@@ -2060,3 +2060,10 @@
 2020-3-13 12:4:3 : closeSession -> userId: Jp6Wu9Pt5SFNLhLKZ
 2020-3-13 12:4:19 : loginEmail -> Jp6Wu9Pt5SFNLhLKZ
 2020-3-13 12:4:40 : closeSession -> userId: Jp6Wu9Pt5SFNLhLKZ
+2020-3-13 12:33:59 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-13 12:34:0 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-13 12:34:3 : selectStudent -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z , studentId : izi7ETffzWpDMDYvu
+2020-3-13 12:35:25 : closeSession -> userId: YeHvGbh7nnGg7KTF9
+2020-3-13 14:20:59 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-13 14:21:1 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-13 14:23:17 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
