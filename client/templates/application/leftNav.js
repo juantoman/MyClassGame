@@ -182,11 +182,23 @@ Template.leftNav.events({
     //Router.go('/');
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
-    Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
-    Meteor.logout(function(){
-      window.location.replace('https://accounts.google.com/Logout');
-      window.location.href = "/";
-    });
+    //Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
+    swal({
+      title: 'Salir de @MyClassGame',
+      text: '¿Estás seguro de querer salir de la aplicación?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        $(".classes").click();
+        Meteor.logout();
+        //window.location.replace('https://accounts.google.com/Logout');
+        window.location.href = "/";
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   },
   'click .user-pic': function(event) {
     event.preventDefault();

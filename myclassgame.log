@@ -2131,3 +2131,8 @@
 2020-3-23 8:34:32 : selectStudent -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z , studentId : mMrNJysB7amHJ9XXo
 2020-3-23 8:48:19 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
 2020-3-23 8:50:48 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 9:40:41 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 9:40:45 : closeSession -> userId: YeHvGbh7nnGg7KTF9
+2020-3-23 9:55:30 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-23 9:55:33 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 11:33:19 : loginEmail -> YeHvGbh7nnGg7KTF9
