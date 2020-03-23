@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a22234-fc92-4261-aff8-18cbc679cfdc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/myclassgame.log" beforeDir="false" afterPath="$PROJECT_DIR$/myclassgame.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/templates/application/carrusel.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/templates/application/carrusel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/mcg_ico.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/mcg_ico.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-config.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobile-config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/release.txt" beforeDir="false" afterPath="$PROJECT_DIR$/release.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +40,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -66,7 +70,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -114,7 +117,7 @@
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.31378937" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="3" side_tool="true" visible="true" weight="0.31487513" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Palette&#9;" order="2" />

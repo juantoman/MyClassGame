@@ -87,6 +87,9 @@ Template.chatClass.helpers({
     } else {
      return false;
     };
+  },
+  userName: function() {
+    return students.findOne({'userId':this.userId}).studentName;
   }
 });
 

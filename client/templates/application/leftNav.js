@@ -85,6 +85,13 @@ Template.leftNav.helpers({
        return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
      }
    }
+ },
+ userImage: function() {
+   if (Meteor.user().userAvatar) {
+    return images.findOne({'_id':Meteor.user().userAvatar}).image_url;
+   } else {
+    return "https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
+   };
  }
 })
 
@@ -176,8 +183,17 @@ Template.leftNav.events({
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
-    //Router.go('/');
-    Meteor.logout();
-    window.location.href = "/";
+    Meteor.logout(function(){
+      window.location.replace('https://accounts.google.com/Logout');
+      window.location.href = "/";
+    });
+  },
+  'click .user-pic': function(event) {
+    event.preventDefault();
+    Session.set('imageType','userAvatar');
+    Session.set('idElementImage',Meteor.userId());
+    if (Session.get('userType')=="teacher") {
+      Modal.show('imagesTemplate');
+    }
   }
 })

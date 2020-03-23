@@ -6,6 +6,10 @@ meteor build ../MCG --server=http://myclassgame.iestacio.com
 keytool -genkey -alias mcg -keyalg RSA -keysize 2048 -validity 10000
 cd MCG/android/project/build/outputs/apk/release
 jarsigner -digestalg SHA1 mcg.apk mcg
+#Per a pujar a Play Store
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 myclassgame.apk mcg
+#Alinia el apk
+/home/juantoman/Android/Sdk/build-tools/29.0.2/zipalign -v -p 4 myclassgame.apk myclassgame-align.apk
 #Introduir dades en Google Development https://console.developers.google.com/apis/credentials
 #Crear OAuth Android o IOS
 #Traure el SHA1

@@ -30,12 +30,13 @@
                   </div>
                   <figcaption class="card__caption text-center">
                     <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
-                    <button type="button" class="btn btn-warning deleteImage">Eliminar</button>
+                    <button class="btn btn-warning deleteImage">Eliminar</button>
                   </figcaption>
                 </figure>
               {{/each}}
             </div>
-            <button class="cloudinary" name="cloudinary" {{inputDisabled}}>Subir imágenes</button>
+            <br />
+            <button class="btn btn-info cloudinary" name="cloudinary" {{inputDisabled}}>Subir imágenes</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">Cerrar</button>

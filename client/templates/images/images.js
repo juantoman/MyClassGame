@@ -6,12 +6,21 @@ Template.imagesTemplate.onRendered(function() {
    widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI'}, function(error, result){
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
-      var imgObject = {
-         classId:Session.get('classId'),
-         type: Session.get('imageType'),
-         image_url: result.info.url,
-         createdOn: new Date()
-      };
+      if (Session.get('imageType')!="userAvatar") {
+        var imgObject = {
+           classId:Session.get('classId'),
+           type: Session.get('imageType'),
+           image_url: result.info.url,
+           createdOn: new Date()
+        };
+      } else {
+        var imgObject = {
+           userId:Meteor.userId(),
+           type: Session.get('imageType'),
+           image_url: result.info.url,
+           createdOn: new Date()
+        };
+      }
       new_image=result.info.url;
       if (last_image!=new_image){
         Meteor.call('imageInsert',imgObject);
@@ -23,7 +32,11 @@ Template.imagesTemplate.onRendered(function() {
 
 Template.imagesTemplate.helpers({
   images: function() {
-    return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
+    if (Session.get('imageType')=="userAvatar") {
+      return images.find( { userId: Meteor.userId(), type: Session.get('imageType') } );
+    } else {
+      return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
+    }
   },
   checkedImage: function(idImage) {
     if ( Session.get('imageType') == "badge" ) {
@@ -105,6 +118,9 @@ Template.imagesTemplate.events({
         $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
         $(".opacityDiv").toggleClass('opacityProfile');
       }
+      if (Session.get('imageType')=="userAvatar") {
+        Meteor.call('userAvatarUpdate',$("input[name='imageId']:checked").val());
+      }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());
     }
@@ -120,7 +136,23 @@ Template.imagesTemplate.events({
   },
   'click .deleteImage': function(event) {
     event.preventDefault();
-    Meteor.call('imageDelete',this._id);
+    swal({
+      title: 'Borrar imagen',
+      text: '¿Estás seguro de querer borrar esta imagen?',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('imageDelete',this._id);
+        swal({
+          title: 'Imagen borrada!',
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   },
   'click .thumbnail,.card_image': function(event) {
     event.preventDefault();

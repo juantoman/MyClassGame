@@ -1,5 +1,5 @@
 Meteor.publish('allUsers', function() {
-  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "studentId": 1, "classes": 1, "emails": 1,"classesTeacher": 1,"classesParent": 1}});
+  return Meteor.users.find({}, {fields: {"services.google": 1, "userType": 1, "studentId": 1, "classes": 1, "emails": 1,"classesTeacher": 1,"classesParent": 1,"userAvatar":1}});
 });
 
 Meteor.publish('mcgParameters', function() {
@@ -360,7 +360,7 @@ Meteor.publish('images', function(classId) {
       return images.find({"classId": { "$in": c }});
   }*/
   if (classId){
-    return images.find({"classId":classId});
+    return images.find( { $or: [ {"classId": classId } , { "userId": Meteor.userId() } ] } );
   } else {
     c=[];
     teacherClasses=[];
@@ -370,7 +370,8 @@ Meteor.publish('images', function(classId) {
     studentClasses=Meteor.user().classes;
     c=c.concat(tipos,teacherClasses,studentClasses);
     c=_.uniq(c);
-    return images.find({"classId": { "$in": c }});
+    return images.find( { $or: [ {"classId": { "$in": c } } , { "userId": Meteor.userId() } ] } );
+
   }
 });
 Meteor.publish('cards', function(type,classId) {

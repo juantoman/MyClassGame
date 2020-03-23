@@ -4,7 +4,8 @@ App.info({
   description: 'We play, we learn',
   author: '@juantoman',
   email: 'myclassgame@gmail.com',
-  website: 'http://myclassgame.tk'
+  website: 'https://www.myclassgame.tk',
+  version: "0.0.2"
 });
 
 // Set up resources such as icons and launch screens.
@@ -35,7 +36,7 @@ App.launchScreens({
 App.setPreference('BackgroundColor', '0xff0000ff');
 App.setPreference('HideKeyboardFormAccessoryBar', true);
 App.setPreference('Orientation', 'default');
-//App.setPreference('android-targetSdkVersion', '29');
+App.setPreference('android-targetSdkVersion', '29');
 
 // Set PhoneGap/Cordova rules.
 // Regla para ver imágenes de cloudinary
