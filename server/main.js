@@ -5,8 +5,12 @@ import { Email } from 'meteor/email';
 //Provar gmail-node
 
 Meteor.startup(() => {
-  process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
-  fs = Npm.require('fs');
+  API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
+  //process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
+  process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
+  //Escribir en fichero local
+  //fs = Npm.require('fs');
+  //db.mcgParameters.update({'_id':1},{$set: {'API_SendGrid':'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'}});
 });
 /*
 Accounts.config({
@@ -43,6 +47,8 @@ Accounts.emailTemplates.verifyEmail = {
 
 Meteor.methods({
   mcgLog: function(texto) {
+    //Log fichero local
+    /*
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -52,7 +58,7 @@ Meteor.methods({
             if (err) throw err;
               console.log('Done!');
         }
-    );
+    );*/
   },
   createStudentUser: function(studentId,password,classId) {
     if ( ! students.findOne({ _id: studentId }).userCreated ) {

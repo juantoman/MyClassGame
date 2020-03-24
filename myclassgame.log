@@ -2136,3 +2136,13 @@
 2020-3-23 9:55:30 : loginEmail -> YeHvGbh7nnGg7KTF9
 2020-3-23 9:55:33 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
 2020-3-23 11:33:19 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-23 12:55:13 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-23 12:55:15 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 12:56:41 : selectStudent -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z , studentId : mMrNJysB7amHJ9XXo
+2020-3-23 12:58:53 : selectStudent -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z , studentId : izi7ETffzWpDMDYvu
+2020-3-23 12:59:7 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 12:59:32 : loginEmail -> YeHvGbh7nnGg7KTF9
+2020-3-23 12:59:35 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 13:47:48 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : 6buPHG8wXyX5aufgG
+2020-3-23 13:48:8 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z
+2020-3-23 14:14:17 : selectClass -> userId: YeHvGbh7nnGg7KTF9 , classId : phTHBLk4GifTngn4z

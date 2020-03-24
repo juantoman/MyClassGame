@@ -5,7 +5,7 @@ App.info({
   author: '@juantoman',
   email: 'myclassgame@gmail.com',
   website: 'https://www.myclassgame.tk',
-  version: "0.0.2"
+  version: "0.0.3"
 });
 
 // Set up resources such as icons and launch screens.

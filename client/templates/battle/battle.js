@@ -98,7 +98,7 @@ Template.battle.events({
     $('.photo2').find('.logoBattle').addClass('oculto');
     $('.photo2').find('.photoFighter').removeClass('oculto');
     //Elegir alumne aleatoriament
-    if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+    if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
     var e = students.find({classId: Session.get('classId'),'random':true}).fetch();
@@ -125,7 +125,7 @@ Template.battle.events({
     Session.set('opponent','villain');
   },
   'click #svssBattle': function(event) {
-    if ( students.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
+    if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
       Meteor.call('allRandomStudents',Session.get('classId'));
     }
     var e1 = students.find({classId: Session.get('classId'),'random':true}).fetch();
