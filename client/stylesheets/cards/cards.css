@@ -191,11 +191,22 @@ h1, h2, h3, h4, h5 {
     width:25px;
 }
 
-.cardSelected {
+.cardSelected, .studentPresent, .studentAbsent{
     position: absolute;
     top: -24px;
     right: 2px;
     color:white;
+}
+
+.studentPresent, .studentAbsent{
+    position: absolute;
+    top: -24px;
+    left: 0px;
+    color:white;
+    width:35%;
+    margin:auto;
+    font-size: 1em !important;
+
 }
 
 .card__label {

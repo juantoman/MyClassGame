@@ -136,3 +136,11 @@ p {
     opacity: 1;
   }
 }
+
+.studentPresent {
+  background-color: lime !important;
+}
+
+.studentAbsent {
+  background-color: red !important;
+}

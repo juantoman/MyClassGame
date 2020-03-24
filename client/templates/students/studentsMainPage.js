@@ -102,6 +102,39 @@ Template.studentsMainPage.events({
         Meteor.call('studentSelection', item["_id"]);
     });
   },
+  'click .btn-presents': function(event) {
+    event.preventDefault();
+    students.find( { classId: Session.get('classId'), selected: 1  } ).forEach(function (item){
+        Meteor.call('studentSelection', item["_id"]);
+    });
+    students.find( { classId: Session.get('classId'), present: 1  } ).forEach(function (item){
+        Meteor.call('studentSelection', item["_id"]);
+    });
+  },
+  'click .btn-deleteStudents': function(event) {
+    event.preventDefault();
+    if (students.find( { classId: Session.get('classId'), selected: 1  } ).count() > 0 ) {
+      swal({
+        title: 'Eliminar estudiantes',
+        text: '¿Estás seguro de querer eliminar todos los estudiantes seleccionados?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          students.find( { classId: Session.get('classId'), selected: 1  } ).forEach(function (item){
+            Meteor.call('studentDelete', item["_id"]);
+          });
+          swal({
+            title: '¡Estudiantes eliminados!',
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
+  },
   'click .btn-xp3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
@@ -208,5 +241,13 @@ Template.studentsMainPage.events({
   'change #floatMenu': function(event) {
     event.preventDefault();
     $("#menu-superior").toggleClass("oculto");
+  },
+  'click #allStudentsAbsents': function(event) {
+    event.preventDefault();
+    Meteor.call('allStudentsAbsents', Session.get('classId'));
+  },
+  'click #allStudentsPresents': function(event) {
+    event.preventDefault();
+    Meteor.call('allStudentsPresents', Session.get('classId'));
   }
  });

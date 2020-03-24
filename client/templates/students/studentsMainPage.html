@@ -42,12 +42,14 @@
             <div class="btn-group" role="group" aria-label="Basic example">
               <button id="all" type="button" class="btn btn-all btn-sm">Todos</button>
               <button id="none" type="button" class="btn btn-none btn-sm">Ninguno</button>
+              <button id="present" type="button" class="btn btn-presents btn-sm">Presentes</button>
               <button id="invert" type="button" class="btn invert btn-sm">Invertir</button>
               <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
               <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
               <button id="all_bg" type="button" class="btn btn-bg3 btn-sm">BG</button>
               <button id="all_cards" type="button" class="btn btn-cards3 btn-sm">Cartas</button>
-              <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">€</button>
+              <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">Comprar</button>
+              <button id="all_delete" type="button" class="btn btn-deleteStudents btn-sm">Eliminar</button>
             </div>
             <!--
             <label> Menú flotante</label>
@@ -63,6 +65,11 @@
           <div class="btn-group" role="group" aria-label="Cuadrícula o lista">
             <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-sm">Cuadrícula</button>
             <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-sm">Lista</button>
+          </div>
+          <label>Marcar todos como </label>
+          <div class="btn-group" role="group" aria-label="Presentes o Ausentes">
+            <button id="allStudentsPresents" type="button" class="btn btn-sm">Presentes</button>
+            <button id="allStudentsAbsents" type="button" class="btn btn-sm">Ausentes</button>
           </div>
           <label>Ordenar por </label>
           <div class="btn-group" role="group" aria-label="orderSelect">

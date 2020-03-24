@@ -299,5 +299,11 @@ Template.studentsPage.events({
       Meteor.call('studentSelection', item["_id"]);
     });
     event.stopPropagation();
+  },
+  'click .studentPresent,.studentAbsent': function(event) {
+    event.preventDefault();
+    //$(event.currentTarget).toggleClass('studentPresent studentAbsent');
+    Meteor.call('studentPresent', this._id);
+    event.stopPropagation();
   }
 });
