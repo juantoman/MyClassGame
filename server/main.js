@@ -10,7 +10,6 @@ Meteor.startup(() => {
   process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
   //Escribir en fichero local
   //fs = Npm.require('fs');
-  //db.mcgParameters.update({'_id':1},{$set: {'API_SendGrid':'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'}});
 });
 /*
 Accounts.config({
