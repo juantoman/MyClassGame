@@ -442,6 +442,7 @@ a:hover, a:link {
 label {
   color:white;
 }
+
 .submenu {
   padding: 5px 20px 5px 20px;
   background-color: #268BD2;
@@ -455,10 +456,29 @@ label {
 
 .submenu label{
   color: white;
+  font-size: 1.3em !important;
 }
 
-.btn-group {
+.submenu label{
+  color: white;
+  font-size: 1.3em !important;
+}
+
+.submenu button {
   margin:2px;
+  font-size: 1.3em !important;
+}
+
+.submenu input, .submenu select{
+  font-size: 1.4em !important;
+  height: 2em;
+  color: #083b65;
+}
+
+.submenu button:hover {
+  background-color: lightgray;
+  color: #083b65;
+  border: 1px solid #083b65;
 }
 
 .table-responsive {

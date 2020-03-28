@@ -32,15 +32,20 @@
             <label>Clase</label>
             <div class="btn-group className" role="group">
               {{#if teacher}}
-                  <input class="text-center font-weight-bold" id="className" type="text" value="{{className}}">
-                  <button id="hashClase">Id Clase</button>
+                  <input class="text-center" id="className" type="text" value="{{className}}">
+
                 {{else}}
-                  <input class="text-center font-weight-bold" readonly id="className" type="text" value="{{className}}">
+                  <input class="text-center" readonly id="className" type="text" value="{{className}}">
                 {{/if}}
+            </div>
+            <div class="btn-group className" role="group">
+              {{#if teacher}}
+                <button id="hashClase" type="button" class="btn btn-sm">Id Clase</button>
+              {{/if}}
             </div>
             <label>Selección</label>
             <div class="btn-group" role="group" aria-label="Basic example">
-              <button id="all" type="button" class="btn btn-all btn-sm">Todos</button>
+              <button id="all" class="btn btn-all btn-sm">Todos</button>
               <button id="none" type="button" class="btn btn-none btn-sm">Ninguno</button>
               <button id="present" type="button" class="btn btn-presents btn-sm">Presentes</button>
               <button id="invert" type="button" class="btn invert btn-sm">Invertir</button>
@@ -66,11 +71,13 @@
             <button id="grid" type="button" class="btn btn-gol {{golSelected "grid"}} btn-sm">Cuadrícula</button>
             <button id="list" type="button" class="btn btn-gol {{golSelected "list"}} btn-sm">Lista</button>
           </div>
-          <label>Marcar todos como </label>
-          <div class="btn-group" role="group" aria-label="Presentes o Ausentes">
-            <button id="allStudentsPresents" type="button" class="btn btn-sm">Presentes</button>
-            <button id="allStudentsAbsents" type="button" class="btn btn-sm">Ausentes</button>
-          </div>
+          {{#if teacher}}
+            <label>Marcar todos como </label>
+            <div class="btn-group" role="group" aria-label="Presentes o Ausentes">
+              <button id="allStudentsPresents" type="button" class="btn btn-sm">Presentes</button>
+              <button id="allStudentsAbsents" type="button" class="btn btn-sm">Ausentes</button>
+            </div>
+          {{/if}}
           <label>Ordenar por </label>
           <div class="btn-group" role="group" aria-label="orderSelect">
             <select class="custom-select form-control" id="orderSelect" name="orderSelect">

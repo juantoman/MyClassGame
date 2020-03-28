@@ -18,7 +18,9 @@
           <figure class="card card__water {{#if myuser email}}myuser{{/if}}">
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
-              <p class="{{#unless present}}studentAbsent{{else}}studentPresent{{/unless}} label">{{#unless present}}AUSENTE{{else}}PRESENTE{{/unless}}</p>
+              {{#if teacher}}
+                <p class="{{#unless present}}studentAbsent{{else}}studentPresent{{/unless}} label">{{#unless present}}AUSENTE{{else}}PRESENTE{{/unless}}</p>
+              {{/if}}
               <img src="{{image avatar}}" class="card__image" name="{{_id}}">
               <h1 class="cardSelected {{#unless selected}}oculto{{/unless}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h1>
             </div>

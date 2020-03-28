@@ -21,15 +21,13 @@
                 </div>
                 <div class="input-group col-xs-12">
                   <label for="adventureTiny">Detalles</label>
-                  <form method="post">
-                    <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3"></textarea>
-                  </form>
+                  <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3">{{adventureTiny}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Web sobre la aventura</label>
                   <input type="text" class="form-control inputGroup" id="adventureWeb" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureWeb}}">
                 </div>
-                
+
                 <div class="input-group mb-3">
                   <button id="adventureBtn" value="Mostrar" class="btn btn-info">Ver aventura</button>
                   {{#if adventureWeb}}

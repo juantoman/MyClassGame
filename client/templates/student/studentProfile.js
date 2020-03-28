@@ -1010,11 +1010,19 @@ Template.studentProfile.events({
   'click .btn-create-student': function(event) {
     event.preventDefault();
     if ( ! this.userCreated || this.userCreated == null) {
-      Meteor.call('createStudentUser', Session.get('studentId'), this.alias, Session.get('classId'));
+      if (this.alias.split(" ").length -1 != 0) {
+        swal({
+          title: 'No se puede crear la cuenta para este estudiante',
+          text: 'El alias ha de ser una única palabra sin espacios',
+          type: 'warning',
+          confirmButtonText: 'Ok'
+        })
+      } else {
+        Meteor.call('createStudentUser', Session.get('studentId'), this.alias, Session.get('classId'));
+      }
     } else {
       Meteor.call('deleteStudentUser', this.userId, Session.get('studentId'));
     }
-
   },
  'click .eImage': function(event) {
     event.preventDefault();
