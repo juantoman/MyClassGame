@@ -444,7 +444,7 @@ label {
 }
 
 .submenu {
-  padding: 5px 20px 5px 20px;
+  padding: 5px 50px 5px 50px;
   background-color: #268BD2;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
@@ -479,6 +479,15 @@ label {
   background-color: lightgray;
   color: #083b65;
   border: 1px solid #083b65;
+}
+
+.submenuBtn {
+  position: absolute;
+  color:white;
+  font-weight: bold;
+  right:20px;
+  font-size: 1.7em !important;
+  cursor: pointer;
 }
 
 .table-responsive {

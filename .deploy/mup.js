@@ -49,6 +49,7 @@ module.exports = {
   },
   proxy: {
     domains: 'myclassgame.tk,www.myclassgame.tk',
+    //domains: 'www.myclassgame.tk',
     ssl: {
       // Enable let's encrypt to create free certificates.
       // The email is used by Let's Encrypt to notify you when the

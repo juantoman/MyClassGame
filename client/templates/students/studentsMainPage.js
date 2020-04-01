@@ -249,5 +249,14 @@ Template.studentsMainPage.events({
   'click #allStudentsPresents': function(event) {
     event.preventDefault();
     Meteor.call('allStudentsPresents', Session.get('classId'));
+  },
+  'click .submenuBtn': function(event) {
+    event.preventDefault();
+    $('.submenuHide').toggleClass('oculto');
+    if ($('.submenuBtn').text()=="-") {
+      $('.submenuBtn').text("+");
+    } else {
+      $('.submenuBtn').text("-");
+    }
   }
  });

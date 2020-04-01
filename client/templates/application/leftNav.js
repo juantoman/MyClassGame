@@ -194,7 +194,7 @@ Template.leftNav.events({
       if (result.value) {
         $(".classes").click();
         Meteor.logout();
-        //window.location.replace('https://accounts.google.com/Logout');
+        window.location.replace('https://accounts.google.com/Logout');
         window.location.href = "/";
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
       }
