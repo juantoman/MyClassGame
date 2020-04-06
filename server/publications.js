@@ -17,7 +17,11 @@ Meteor.publish('classes', function(classId) {
     }
   }  */
   if (classId){
-    return classes.find({"_id":classId});
+    if ( classId == 'all' ) {
+      return classes.find({},{'_id':1});
+    } else {
+      return classes.find({"_id":classId});
+    }
   } else {
     //return classes.find({},{fields:{'_id':1,'teacherId':1,'className':1,'studentImg':1,'groupImg':1}})
     c=[];

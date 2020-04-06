@@ -122,7 +122,7 @@ body {
 /* Carousel base class */
 .carousel {
   height: 40vh;
-  margin-bottom: 70px;
+  margin-bottom: -25px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -241,7 +241,6 @@ body {
 .login-form button {
   margin: 5px;
 }
-
 
 #google {
 

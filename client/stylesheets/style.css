@@ -229,7 +229,7 @@ a:hover, a:link {
 }
 
 .btn, label {
-  font-size:1vmax !important;
+  font-size:1.5em !important;
 }
 .btn-student button{
   white-space: nowrap;
@@ -459,11 +459,6 @@ label {
   font-size: 1.3em !important;
 }
 
-.submenu label{
-  color: white;
-  font-size: 1.3em !important;
-}
-
 .submenu button {
   margin:2px;
   font-size: 1.3em !important;
@@ -501,6 +496,10 @@ label {
 }
 .form-control {
   background-color: white;
+}
+
+.form-group input, .form-group textarea {
+  font-size:1.5em;
 }
 
 #alias{
@@ -787,11 +786,12 @@ input[type=submit] {
 }
 
 .form-group {
+  padding: 10px;
+  /*
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
-  padding: 10px;
-  margin: 10px 0;
+  margin: 10px 0;*/
 }
 
 #adventure .btn {
@@ -1088,6 +1088,10 @@ li[title]:hover:after {
 
 .note-btn {
   background-color:#268BD2 !important;
+}
+
+.note-toolbar {
+  background-color:#185581 !important;
 }
 
 #ModalImg {

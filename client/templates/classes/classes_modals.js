@@ -88,7 +88,7 @@ Template.classesModals.events({
             createdOn: new Date()
           };
           Meteor.call('studentInsert', student);
-        });  
+        });
       }
     } else {
       event.preventDefault();
@@ -121,6 +121,7 @@ Template.adminClass.events({
     //alert($(event.target).find('[name=class-name]').val());
     event.preventDefault();
     regla="^" + $(event.target).find('[name=class-name]').val();
+    Meteor.subscribe('classes','all'),
     n=classes.find({"_id" : {'$regex' : regla }}).count();
     if (n==1){
       cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
