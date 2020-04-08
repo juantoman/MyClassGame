@@ -1,4 +1,9 @@
-Template.signinTemplate.events({
+Template.signinModal.events({
+  'click .btnSignin': function(event) {
+    event.preventDefault();
+    //$("#container").toggleClass("hiddenContainer");
+    Modal.show('signinModal');
+  },
   'click #signUp': function(event) {
     event.preventDefault();
     container = document.getElementById('container');
@@ -47,6 +52,7 @@ Template.signinTemplate.events({
           }
         }
       });
+      Modal.hide('signinModal');
    },
    'submit .login-form-code': function(e) {
       e.preventDefault();
@@ -89,6 +95,7 @@ Template.signinTemplate.events({
           }
         }
       });
+      Modal.hide('signinModal');
    },
 
    'click #google': function(e) {
@@ -105,6 +112,7 @@ Template.signinTemplate.events({
             Router.go('classesPage');
           }
       });
+      Modal.hide('signinModal');
    },
    'click #reset': function(e) {
       e.preventDefault();
@@ -124,6 +132,7 @@ Template.signinTemplate.events({
               });
           }
       });
+      Modal.hide('signinModal');
    },
    'click #register': function(e) {
       e.preventDefault();
@@ -145,5 +154,6 @@ Template.signinTemplate.events({
               });
           }
       });
+      Modal.hide('signinModal');
    }
 });

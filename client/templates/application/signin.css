@@ -1,14 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+.marketing .btnSignin {
+	margin-top: 30px;
+}
+
+.hiddenContainer {
+		opacity:0 !important;
+}
+
 #signinTemplate * {
 	box-sizing: border-box;
 }
 
 #signinTemplate  {
-	margin-top: 5px;
+	margin-top: 30px;
 	font-family: 'Montserrat', sans-serif;
-
+	color: #268bd2 !important;
 }
 
 #signinTemplate h1 {
@@ -35,7 +43,8 @@
 }
 
 #signinTemplate a {
-	color: #333;
+	/*color: #333;*/
+	color: #268bd2 !important;
 	font-size: 14px;
 	text-decoration: none;
 	margin: 15px 0;
@@ -97,6 +106,7 @@
 	width: 768px;
 	max-width: 100%;
 	min-height: 480px;
+	transition: all 2s ease-in-out;
 }
 
 #signinTemplate .form-container {
@@ -226,4 +236,13 @@
 	margin: 0 5px;
 	height: 40px;
 	width: 40px;
+}
+
+@media (max-width: 740px) {
+	#signinTemplate h1 {
+  	font-size: 1.2em;
+  }
+	#signinTemplate button {
+		font-size: 0.6em;
+	}
 }

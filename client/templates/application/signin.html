@@ -1,51 +1,62 @@
 <template name="signinTemplate">
-  <div id="signinTemplate">
-    <div class="container" id="container">
-    	<div class="form-container sign-up-container">
-    		<form action="#" class="login-form-code">
-    			<h1>Estudiante con codigo</h1>
-          <!--
-    			<div class="social-container">
-    				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-    				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-    				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-    			</div>
-          -->
-    			<input type="text" placeholder="Alias" id="aliasStudent" />
-    			<input type="password" placeholder="Code" id="codeStudent" />
-    			<button type="submit">Iniciar sesión</button>
-    		</form>
-    	</div>
-    	<div class="form-container sign-in-container">
-    		<form action="#" class="login-form-email">
-    			<h1>Usuario con correo</h1>
-    			<button id="google">Google</button>
-    			<span>o utiliza tu cuenta de correo</span>
-    			<input type="email" placeholder="Email" id="emailTeacher"/>
-    			<input type="password" placeholder="Contraseña" id="passwordTeacher"/>
-    			<a href="#" id="reset">¿Olvidaste tu contraseña?</a>
-    			<button type="submit">Iniciar sesión</button>
-          <button id="register">Registrar</button>
-    		</form>
-    	</div>
-    	<div class="overlay-container">
-    		<div class="overlay">
-    			<div class="overlay-panel overlay-left">
-            <img width="60vmax" src="/images/@mcgnb.png">
-            <br />
-    				<h1>!Bienvenid@ a <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
-    				<p>Si utilizas una cuenta de correo</p>
-    				<button class="ghost" id="signIn">Usuario con correo</button>
-    			</div>
-    			<div class="overlay-panel overlay-right">
-            <img width="60vmax" src="/images/@mcgnb.png">
-            <br />
-    				<h1>!Bienvenid@ a <span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
-    				<p>Si eres estudiante con código</p>
-    				<button class="ghost" id="signUp">Estudiante con código</button>
-    			</div>
-    		</div>
-    	</div>
-    </div>
+
+    <button class="btn btn-info btnSignin">Iniciar / Registrar</button>
+
+</template>
+
+<template name="signinModal">
+  <div class="modal fade" id="signin_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div id="signinTemplate">
+
+          <div class="container" id="container">
+          	<div class="form-container sign-up-container">
+          		<form action="#" class="login-form-code">
+          			<h1>Estudiante con código</h1>
+                <!--
+          			<div class="social-container">
+          				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          			</div>
+                -->
+          			<input type="text" placeholder="Alias" id="aliasStudent" />
+          			<input type="password" placeholder="Code" id="codeStudent" />
+          			<button type="submit">Iniciar sesión</button>
+          		</form>
+          	</div>
+          	<div class="form-container sign-in-container">
+          		<form action="#" class="login-form-email">
+          			<h1>Usuario con correo</h1>
+          			<button id="google">Google</button>
+          			<span>o utiliza tu cuenta de correo</span>
+          			<input type="email" placeholder="Email" id="emailTeacher"/>
+          			<input type="password" placeholder="Contraseña" id="passwordTeacher"/>
+          			<a href="#" id="reset">¿Olvidaste tu contraseña?</a>
+          			<button type="submit">Iniciar sesión</button>
+                <button id="register">Registrar</button>
+          		</form>
+          	</div>
+          	<div class="overlay-container">
+          		<div class="overlay">
+          			<div class="overlay-panel overlay-left">
+                  <img width="60vmax" src="/images/@mcgnb.png">
+                  <br />
+          				<h1>!Bienvenid@ a <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
+          				<p>Si utilizas una cuenta de correo</p>
+          				<button class="ghost" id="signIn">Usuario con correo</button>
+          			</div>
+          			<div class="overlay-panel overlay-right">
+                  <img width="60vmax" src="/images/@mcgnb.png">
+                  <br />
+          				<h1>!Bienvenid@ a <span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
+          				<p>Si eres estudiante con código</p>
+          				<button class="ghost" id="signUp">Estudiante con código</button>
+          			</div>
+          		</div>
+          	</div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>

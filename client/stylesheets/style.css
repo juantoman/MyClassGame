@@ -262,9 +262,16 @@ a:hover, a:link {
 .botons{
   clear:both;
 }
+
 .lista-item{
   background-color: lightgray;
 }
+
+.list-group-item{
+  font-weight: bold;
+  font-size:1.5em !important;
+}
+
 .puntsStudent .list-group-item{
   font-weight: bold;
   font-size:3vmax !important;
@@ -910,9 +917,12 @@ input[type=submit] {
     filter: drop-shadow(3px 3px 5px #222);
 }
 
-.challengeText {
+.btn.challengeText {
   font-weight: bold;
   margin:2px;
+  white-space:normal !important;
+  word-wrap: break-word;
+  word-break: normal;
 }
 
 .missionGrade {

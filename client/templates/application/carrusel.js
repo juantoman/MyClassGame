@@ -7,5 +7,8 @@ Template.carrusel.helpers({
   }
 });
 Template.carrusel.events({
-  
+  'click .btnSignin': function(event) {
+    event.preventDefault();
+    Modal.show('signinModal');
+  }
 });
