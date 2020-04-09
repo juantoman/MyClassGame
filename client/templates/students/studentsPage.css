@@ -144,3 +144,15 @@ p {
 .studentAbsent {
   background-color: red !important;
 }
+
+.badge {
+  font-size: 1em !important;
+}
+
+.badgeXP {
+  background-color: #268BD2 !important;
+}
+
+.badgeHP {
+  background-color: red !important;
+}

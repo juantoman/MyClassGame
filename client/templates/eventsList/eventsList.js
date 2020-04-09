@@ -16,7 +16,7 @@ Template.eventsList.helpers({
 });
 
 Template.eventsList.events({
-  'submit form': function(event) {
+  'submit form.createEventForm': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
     var randomEvent = {
@@ -28,14 +28,27 @@ Template.eventsList.events({
     };
     Meteor.call('randomEventInsert', randomEvent);
   },
+  'submit form.eventForm': function(event) {
+    event.preventDefault();
+    //console.log($(event.target).find('[name=eventDescription]').val())
+    var randomEvent = {
+      eventName: $(event.target).find('[name=eventName]').val(),
+      eventDescription: $(event.target).find('[name=eventDescription]').val(),
+    };
+    Meteor.call('randomEventUpdate', this._id, randomEvent);
+  },
   'change .inputGroup': function(event) {
     event.preventDefault();
     if (event.currentTarget.value )
     {
-      Meteor.call('randomEventUpdate', event.target.name, event.target.id, event.currentTarget.value);
+      //Meteor.call('randomEventUpdate', event.target.name, event.target.id, event.currentTarget.value);
     } else {
-      Meteor.call('randomEventDelete',event.target.name);
+      //Meteor.call('randomEventDelete',event.target.name);
     }
+  },
+  'click .btnDeleteEvent': function(event) {
+    event.preventDefault();
+    Meteor.call('randomEventDelete',this._id);
   },
  'click .eImage': function(event) {
     event.preventDefault();
