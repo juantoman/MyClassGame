@@ -16,7 +16,7 @@ Template.store.helpers({
 });
 
 Template.store.events({
-  'submit form': function(event) {
+  'submit form.createItemForm': function(event) {
     event.preventDefault();
     var item = {
       classId: Session.get('classId'),
@@ -27,6 +27,16 @@ Template.store.events({
       createdOn: new Date()
     };
     Meteor.call('itemInsert', item);
+  },
+  'submit form.itemForm': function(event) {
+    event.preventDefault();
+    var item = {
+      itemName: $(event.target).find('[name=itemName]').val(),
+      itemDescription: $(event.target).find('[name=itemDescription]').val(),
+      itemLevel: $(event.target).find('[name=itemLevel]').val(),
+      price: $(event.target).find('[name=itemPrice]').val()
+    };
+    Meteor.call('itemUpdate', this._id, item);
   },
   'change .inputGroup': function(event) {
     event.preventDefault();
@@ -39,12 +49,13 @@ Template.store.events({
         break;
       case "itemPrice":
         Meteor.call('itemUpdatePrice', event.target.name, event.currentTarget.value);
-    } 
-    if (!event.currentTarget.value ) {
-      Meteor.call('itemDelete',event.target.name);
     }
   },
- 'click .eImage': function(event) {
+  'click .btnDeleteItem': function(event) {
+    event.preventDefault();
+    Meteor.call('itemDelete',this._id);
+  },
+  'click .eImage': function(event) {
     event.preventDefault();
     Session.set('imageType','item');
     Session.set('idElementImage',event.currentTarget.title);

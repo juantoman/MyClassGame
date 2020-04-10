@@ -1,0 +1,86 @@
+<template name="itemCard">
+
+    <div class="itemCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            Nivel {{itemLevel}}
+          </div>
+          <div class="points center">
+            Precio: {{price}}
+          </div>
+          <div class="center">
+            {{#if itemImage}}
+              <img width="100%" alt="Imagen artículo" src="{{item_src itemImage}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="more-info">
+          <form class="itemForm">
+            <input type="text" class="form-control inputGroup itemName" name="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+            <textarea class="form-control inputGroup itemDesc" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">Precio</span>
+              <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="button" value="Eliminar" class="btn btn-info btnDeleteItem">
+              <input type="submit" value="Guardar" class="btn btn-info btnUpdateItem">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <input type="text" class="form-control inputGroup itemName" name="{{_id}}" id="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+        <textarea class="form-control inputGroup itemDesc" name="{{_id}}" id="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
+        <span class="more">Pasa el ratón para editar</span>
+      </div>
+    </div>
+
+</template>
+
+<template name="itemCardCreate">
+
+    <div class="itemCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            NUEVO
+          </div>
+          <div class="points center">
+            ARTÍCULO
+          </div>
+          <div class="center"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></div>
+        </div>
+        <div class="more-info">
+          <form class="createItemForm">
+            <input type="text" class="form-control inputGroup itemName" placeholder="Nombre" name="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+            <textarea class="form-control inputGroup itemDesc" placeholder="Descripción" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">Precio</span>
+              <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="submit" value="Crear" class="btn btn-info createItemBtn">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <h1>Nuevo artículo</h1>
+        <p>Crea un nuevo artículo para tu clase</p>
+        <span class="more">Pasa el ratón para crear un  nuevo artículo</span>
+      </div>
+    </div>
+
+</template>

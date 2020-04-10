@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
-.eventCard {
+.itemCard {
   background: red;
   font-family: Abel, Arial, Verdana, sans-serif;
   float:left;
   margin:10px auto !important;
-  border: 2px solid #268BD2;
+  border: 2px solid lime;
 }
 
 .center{
@@ -19,16 +19,16 @@
   text-align: center;
 }
 
-.center .glyphicon {
+.itemCard .center .glyphicon {
 	font-size: 5em;
-	color:red;
+	color:white;
 }
 
-.eventCard {
+.itemCard {
   width: 450px;
-  height: 150px;
+  height: 200px;
   background-color: #fff;
-  background: linear-gradient(#268BD2,lightblue);
+  background: linear-gradient(lime,#ADD34C);
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
   border-radius: 6px;
   overflow: hidden;
@@ -36,42 +36,42 @@
   margin: 1.5rem;
 }
 
-.eventCard h1, .eventCard p {
+.itemCard h1, .itemCard p {
   text-align: center;
   color: white !important;
 }
 
-.eventCard .additional {
+.itemCard .additional {
   position: absolute;
   width: 150px;
   height: 100%;
-  background-color: #268BD2;
+  background-color: lime;
   box-shadow: 0px 5px 20px -10px #000851;
   transition: width 0.4s;
   overflow: hidden;
   z-index: 2;
 }
 
-.eventCard.green .additional {
+.itemCard.green .additional {
   background: linear-gradient(#92bCa6, #A2CCB6);
 }
 
 
-.eventCard:hover .additional {
+.itemCard:hover .additional {
   width: 100%;
   border-radius: 0 5px 5px 0;
 }
 
-.eventCard .additional .user-card {
+.itemCard .additional .user-card {
   width: 150px;
   height: 100%;
   position: relative;
   float: left;
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+  background: linear-gradient(120deg, lime 0%, #016800 100%);
   box-shadow: 0px 5px 20px -10px #000851;
 }
 
-.eventCard .additional .user-card::after {
+.itemCard .additional .user-card::after {
   content: "";
   display: block;
   position: absolute;
@@ -81,8 +81,8 @@
   border-left: 2px solid rgba(0,0,0,0.025);
 }
 
-.eventCard .additional .user-card .level,
-.eventCard .additional .user-card .points {
+.itemCard .additional .user-card .level,
+.itemCard .additional .user-card .points {
   top: 15%;
   color: #fff;
   text-transform: uppercase;
@@ -98,15 +98,15 @@
   text-align: center;
 }
 
-.eventCard .additional .user-card .points {
+.itemCard .additional .user-card .points {
   top: 85%;
 }
 
-.eventCard .additional .user-card svg {
+.itemCard .additional .user-card svg {
   top: 50%;
 }
 
-.eventCard .additional .more-info {
+.itemCard .additional .more-info {
   width: 300px;
   float: left;
   position: absolute;
@@ -117,30 +117,30 @@
 	margin:auto;
 }
 
-.eventCard .additional .more-info h1 {
+.itemCard .additional .more-info h1 {
   color: #fff;
   margin-bottom: 0;
 }
 
-.eventCard.green .additional .more-info h1 {
+.itemCard.green .additional .more-info h1 {
   color: #224C36;
 }
 
-.eventCard .additional .coords {
+.itemCard .additional .coords {
   margin: 0 1rem;
   color: #fff;
   font-size: 1rem;
 }
 
-.eventCard.green .additional .coords {
+.itemCard.green .additional .coords {
   color: #325C46;
 }
 
-.eventCard .additional .coords span + span {
+.itemCard .additional .coords span + span {
   float: right;
 }
 
-.eventCard .additional .stats {
+.itemCard .additional .stats {
   font-size: 2rem;
   display: flex;
   position: absolute;
@@ -151,36 +151,36 @@
   color: #fff;
 }
 
-.eventCard.green .additional .stats {
+.itemCard.green .additional .stats {
   color: #325C46;
 }
 
-.eventCard .additional .stats > div {
+.itemCard .additional .stats > div {
   flex: 1;
   text-align: center;
 }
 
-.eventCard .additional .stats i {
+.itemCard .additional .stats i {
   display: block;
 }
 
-.eventCard .additional .stats div.title {
+.itemCard .additional .stats div.title {
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.eventCard .additional .stats div.value {
+.itemCard .additional .stats div.value {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.5rem;
 }
 
-.eventCard .additional .stats div.value.infinity {
+.itemCard .additional .stats div.value.infinity {
   font-size: 2.5rem;
 }
 
-.eventCard .general {
+.itemCard .general {
   width: 300px;
   height: 100%;
   position: absolute;
@@ -192,14 +192,14 @@
   padding-top: 0;
 }
 
-.eventCard .general .more {
+.itemCard .general .more {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
   font-size: 0.9em;
 }
 
-.eventName, .eventDesc {
+.itemName, .itemDesc {
   text-align: center;
 	text-transform: none;
 	font-size: 2em !important;
@@ -208,11 +208,11 @@
 	background-color: lightblue;
 }
 
-.eventDesc {
+.itemDesc {
   font-size: 1em !important;
 }
 
-.general .eventName, .general .eventDesc {
+.general .itemName, .general .itemDesc {
   border-style:none !important;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
@@ -226,4 +226,30 @@
 .more-info .btn {
   font-size: 0.7em !important;
 	margin:auto;
+}
+
+.itemCard .input-group-addon{
+  color: white;
+  font-size: 1em;
+}
+
+.itemCard .input-group{
+  float: left !important;
+}
+
+.itemCard .input-group .input-group-addon{
+  background-color: green !important;
+}
+
+.itemCard input, .itemCard textarea, .itemCard .input-group-addon {
+  border: 1px solid green !important;
+}
+
+.itemCard .groupBtnCard{
+  float: right !important;
+}
+
+.itemCard .groupBtnCard *{
+  background-color: green !important;
+  border: 1px solid green;
 }

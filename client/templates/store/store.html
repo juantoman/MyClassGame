@@ -1,7 +1,8 @@
 <template name="store">
-  <div class="container">
-    <div class="list-group">
+  <div class="container-fluid">
+    <div class="row float-up">
       {{#each store}}
+      <!--
         <div class="form-group">
           <div class="input-group" style="width:15%;float:left;margin-top:20px;">
             <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen artículo" src="{{item_src itemImage}}" /></div>
@@ -25,8 +26,13 @@
             </div>
           </div>
         </div>
+        -->
+        {{> itemCard}}
       {{/each}}
+      {{> itemCardCreate}}
     </div>
+
+    <!--
     <form>
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Nuevo artículo</label>
@@ -54,5 +60,6 @@
         </div>
       </div>
     </form>
+    -->
   </div>
 </template>
