@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+.componentCard {
+  font-family: Abel, Arial, Verdana, sans-serif;
+  float:left;
+  margin:10px auto !important;
+}
+
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.eImage {
+  text-align: center;
+}
+
+.center .glyphicon {
+	font-size: 5em;
+	color:white;
+}
+
+.componentCard {
+  width: 450px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.componentCard h1, .componentCard p {
+  text-align: center;
+  color: white !important;
+}
+
+.componentCard .additional {
+  position: absolute;
+  width: 150px;
+  height: 100%;
+  box-shadow: 0px 5px 20px -10px #000851;
+  transition: width 0.4s;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.componentCard.green .additional {
+  background: linear-gradient(#92bCa6, #A2CCB6);
+}
+
+
+.componentCard:hover .additional {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+}
+
+.componentCard .additional .user-card {
+  width: 150px;
+  height: 100%;
+  position: relative;
+  float: left;
+  box-shadow: 0px 5px 20px -10px #000851;
+}
+
+.componentCard .additional .user-card::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 10%;
+  right: -2px;card
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.componentCard .additional .user-card .level,
+.componentCard .additional .user-card .points {
+  top: 15%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  font-weight: bold;
+  background: rgba(0,0,0,0.4);
+  padding: 0.125rem 0.75rem;
+  border-radius: 100px;
+  width:130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.componentCard .additional .user-card .points {
+  top: 85%;
+}
+
+.componentCard .additional .user-card svg {
+  top: 50%;
+}
+
+.componentCard .additional .more-info {
+  width: 300px;
+  float: left;
+  position: absolute;
+  left: 150px;
+  height: 100%;
+	padding: 1rem;
+	padding-top: 0;
+	margin:auto;
+}
+
+.componentCard .additional .more-info h1 {
+  color: #fff;
+  margin-bottom: 0;
+}
+
+.componentCard.green .additional .more-info h1 {
+  color: #224C36;
+}
+
+.componentCard .additional .coords {
+  margin: 0 1rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.componentCard.green .additional .coords {
+  color: #325C46;
+}
+
+.componentCard .additional .coords span + span {
+  float: right;
+}
+
+.componentCard .additional .stats {
+  font-size: 2rem;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  top: auto;
+  color: #fff;
+}
+
+.componentCard.green .additional .stats {
+  color: #325C46;
+}
+
+.componentCard .additional .stats > div {
+  flex: 1;
+  text-align: center;
+}
+
+.componentCard .additional .stats i {
+  display: block;
+}
+
+.componentCard .additional .stats div.title {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.componentCard .additional .stats div.value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.5rem;
+}
+
+.componentCard .additional .stats div.value.infinity {
+  font-size: 2.5rem;
+}
+
+.componentCard .general {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.componentCard .general .more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 0.9em;
+}
+
+.componentName, .componentDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+}
+
+.componentDesc {
+  font-size: 1em !important;
+}
+
+.general .componentName, .general .componentDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.more-info .btn {
+  font-size: 0.7em !important;
+	margin:auto;
+}
+
+.componentCard .input-group-addon{
+  color: white;
+  font-size: 1em;
+}
+
+.componentCard .input-group{
+  float: left !important;
+}

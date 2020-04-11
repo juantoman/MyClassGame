@@ -1,0 +1,86 @@
+<template name="badgeCard">
+
+    <div class="componentCard badgeCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            Nivel {{level}}
+          </div>
+          <div class="points center">
+            XP: {{points}}
+          </div>
+          <div class="center">
+            {{#if badgeImage}}
+              <img width="100%" alt="Imagen insígnia" src="{{badge_src badgeImage}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="more-info">
+          <form class="badgeForm">
+            <input type="text" class="form-control inputGroup badgeName" name="badgeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+            <textarea class="form-control inputGroup badgeDesc" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">XP</span>
+              <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="button" value="Eliminar" class="btn btn-info btnDeleteBadge">
+              <input type="submit" value="Guardar" class="btn btn-info btnUpdateBadge">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <input type="text" class="form-control inputGroup badgeName" name="{{_id}}" id="badgeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+        <textarea class="form-control inputGroup badgeDesc" name="{{_id}}" id="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
+        <span class="more">Pasa el ratón para editar</span>
+      </div>
+    </div>
+
+</template>
+
+<template name="badgeCardCreate">
+
+    <div class="componentCard badgeCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            NUEVA
+          </div>
+          <div class="points center">
+            INSIGNIA
+          </div>
+          <div class="center"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></div>
+        </div>
+        <div class="more-info">
+          <form class="createBadgeForm">
+            <input type="text" class="form-control inputGroup badgeName" placeholder="Nombre" name="badgeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+            <textarea class="form-control inputGroup badgeDesc" placeholder="Descripción" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">XP</span>
+              <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="submit" value="Crear" class="btn btn-info createBadgeBtn">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <h1>Nueva insignia</h1>
+        <p>Crea una nueva insignia para tu clase</p>
+        <span class="more">Pasa el ratón para crear una nueva insignia</span>
+      </div>
+    </div>
+
+</template>

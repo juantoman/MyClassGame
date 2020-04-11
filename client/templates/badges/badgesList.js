@@ -16,10 +16,11 @@ Template.badgesList.helpers({
 });
 
 Template.badgesList.events({
-  'submit form': function(event) {
+  'submit form.createBadgeForm': function(event) {
     event.preventDefault();
     var badge = {
       classId: Session.get('classId'),
+      badgeName: $(event.target).find('[name=badgeName]').val(),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
       points: $(event.target).find('[name=badgePoints]').val(),
       level: $(event.target).find('[name=badgeLevel]').val(),
@@ -27,6 +28,17 @@ Template.badgesList.events({
       createdOn: new Date()
     };
     Meteor.call('badgeInsert', badge);
+  },
+  'submit form.badgeForm': function(event) {
+    event.preventDefault();
+    var badge = {
+      badgeName: $(event.target).find('[name=badgeName]').val(),
+      badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
+      points: $(event.target).find('[name=badgePoints]').val(),
+      level: $(event.target).find('[name=badgeLevel]').val(),
+      badgeImage: Session.get('selectedImage')
+    };
+    Meteor.call('badgeUpdate', this._id, badge);
   },
   'change .inputGroup': function(event) {
     event.preventDefault();
@@ -48,7 +60,11 @@ Template.badgesList.events({
       Meteor.call('badgeDelete',event.target.name);
     }
   },
- 'click .bImage': function(event) {
+  'click .btnDeleteBadge': function(event) {
+    event.preventDefault();
+    Meteor.call('badgeDelete',this._id);
+  },
+  'click .bImage': function(event) {
     event.preventDefault();
     Session.set('imageType','badge');
     Session.set('idElementImage',event.currentTarget.id);

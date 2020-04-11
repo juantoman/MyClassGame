@@ -1,6 +1,6 @@
 <template name="eventCard">
 
-    <div class="eventCard float-up">
+    <div class="componentCard eventCard float-up">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
@@ -21,8 +21,10 @@
           <form class="eventForm">
             <input type="text" class="form-control inputGroup eventName" name="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
             <textarea class="form-control inputGroup eventDesc" name="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
-            <input type="button" value="Eliminar" class="btn btn-info btnDeleteEvent">
-            <input type="submit" value="Guardar" class="btn btn-info btnUpdateEvent">
+            <div class="groupBtnCard">
+              <input type="button" value="Eliminar" class="btn btn-info btnDeleteEvent">
+              <input type="submit" value="Guardar" class="btn btn-info btnUpdateEvent">
+            </div>
           </form>
         </div>
       </div>
@@ -150,7 +152,7 @@
 
 <template name="eventCardCreate">
 
-    <div class="eventCard float-up">
+    <div class="componentCard eventCard float-up">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
@@ -165,7 +167,9 @@
           <form class="createEventForm">
             <input type="text" placeholder="Nombre" class="form-control inputGroup eventName" id="eventName" name="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
             <textarea class="form-control inputGroup eventDesc" placeholder="Descripción" id="eventDescription" name="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
-            <input type="submit" id="btn-save" value="Crear" class="btn btn-info">
+            <div class="groupBtnCard">
+              <input type="submit" value="Crear" class="btn btn-info">
+            </div>
           </form>
         </div>
       </div>

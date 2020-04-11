@@ -1,0 +1,86 @@
+<template name="cardCard">
+
+    <div class="componentCard cardCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            Nivel {{cardLevel}}
+          </div>
+          <div class="points center">
+            Precio: {{cardPrice}}
+          </div>
+          <div class="center">
+            {{#if cardImage}}
+              <img width="100%" alt="Imagen artículo" src="{{card_src cardImage}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+        </div>
+        <div class="more-info">
+          <form class="cardForm">
+            <input type="text" class="form-control inputGroup cardName" name="cardName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardName}}">
+            <textarea class="form-control inputGroup cardDesc" name="cardDescription" {{teacher}} rows="2">{{cardDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">Precio</span>
+              <input type="text" class="form-control inputGroup cardDescription" name="cardPrice" {{teacher}} value="{{cardPrice}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control cardDescription" name="cardLevel" {{teacher}} value="{{cardLevel}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="button" value="Eliminar" class="btn btn-info btnDeleteCard">
+              <input type="submit" value="Guardar" class="btn btn-info btnUpdateCard">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <input type="text" class="form-control inputGroup cardName" name="{{_id}}" id="cardName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardName}}">
+        <textarea class="form-control inputGroup cardDesc" name="{{_id}}" id="cardDescription" {{teacher}} rows="2">{{cardDescription}}</textarea>
+        <span class="more">Pasa el ratón para editar</span>
+      </div>
+    </div>
+
+</template>
+
+<template name="cardCardCreate">
+
+    <div class="componentCard cardCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            NUEVA
+          </div>
+          <div class="points center">
+            CARTA
+          </div>
+          <div class="center"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span></div>
+        </div>
+        <div class="more-info">
+          <form class="createCardForm">
+            <input type="text" class="form-control inputGroup cardName" placeholder="Nombre" name="cardName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{cardName}}">
+            <textarea class="form-control inputGroup cardDesc" placeholder="Descripción" name="cardDescription" {{teacher}} rows="2">{{cardDescription}}</textarea>
+            <div class="input-group col-xs-6">
+              <span class="input-group-addon">Precio</span>
+              <input type="text" class="form-control inputGroup cardDescription" name="cardPrice" {{teacher}} value="{{cardPrice}}">
+            </div>
+            <div class="input-group col-xs-5">
+              <span class="input-group-addon">Nivel</span>
+              <input type="text" class="form-control cardDescription" name="cardLevel" {{teacher}} value="{{cardLevel}}">
+            </div>
+            <div class="groupBtnCard">
+              <input type="submit" value="Crear" class="btn btn-info createCardBtn">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <h1>Nueva carta</h1>
+        <p>Crea una nueva carta para tu clase</p>
+        <span class="more">Pasa el ratón para crear una nueva carta</span>
+      </div>
+    </div>
+
+</template>

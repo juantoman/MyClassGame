@@ -1,0 +1,57 @@
+.cardCard {
+  border: 2px solid rgba(202,234,246,1);
+}
+
+.cardCard {
+  height: 200px;
+  background: linear-gradient(rgba(111,184,235,1),rgba(202,234,246,1));
+}
+
+.cardCard .additional {
+  background-color: rgba(202,234,246,1);
+}
+
+.cardCard .additional .user-card {
+  background: linear-gradient(120deg, rgba(202,234,246,1) 0%, rgba(111,184,235,1) 100%);
+}
+
+.cardName, .cardDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+}
+
+.cardDesc {
+  font-size: 1em !important;
+}
+
+.general .cardName, .general .cardDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.cardCard .input-group .input-group-addon{
+  background-color: rgba(111,184,235,1) !important;
+}
+
+.cardCard input, .cardCard textarea, .cardCard .input-group-addon {
+  border: 1px solid rgba(111,184,235,1) !important;
+}
+
+.cardCard .groupBtnCard{
+  float: right !important;
+}
+
+.cardCard .groupBtnCard *{
+  background-color: rgba(111,184,235,1) !important;
+  border: 1px solid rgba(111,184,235,1);
+}

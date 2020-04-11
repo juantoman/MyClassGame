@@ -1,29 +1,35 @@
 <template name="badgesList">
-  <div class="container">
-    <div class="list-group">
-    {{#each badgesList}}
-          <div class="form-group form-inline">
-            <div class="input-group col-xs-6">
-              <span class="input-group-addon">Descripción</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{badgeDescription}}">
+  <div class="container-fluid">
+    <div class="row float-up">
+      {{#each badgesList}}
+      {{> badgeCard}}
+        <!--
+            <div class="form-group form-inline">
+              <div class="input-group col-xs-6">
+                <span class="input-group-addon">Descripción</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{badgeDescription}}">
+              </div>
+              <div class="input-group col-xs-2">
+                <span class="input-group-addon">XP</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
+              </div>
+              <div class="input-group col-xs-2">
+                <span class="input-group-addon">Nivel</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputLevel"  aria-describedby="inputGroupSuccess1Status" value="{{level}}">
+              </div>
+              <div class="input-group col-xs-1">
+                <button class="form-control input-lg bImage" id="{{_id}}"><img src="{{badge_src badgeImage}}" height="30px" /></button>
+              </div>
             </div>
-            <div class="input-group col-xs-2">
-              <span class="input-group-addon">XP</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
-            </div>
-            <div class="input-group col-xs-2">
-              <span class="input-group-addon">Nivel</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputLevel"  aria-describedby="inputGroupSuccess1Status" value="{{level}}">
-            </div>
-            <div class="input-group col-xs-1">
-              <button class="form-control input-lg bImage" id="{{_id}}"><img src="{{badge_src badgeImage}}" height="30px" /></button>
-            </div>
-          </div>
-    {{/each}}
+            -->
+
+      {{/each}}
+      {{> badgeCardCreate}}
     </div>
+    <!--
     <form>
       <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess1">Nueva insigniaS</label>
+        <label class="control-label" for="inputGroupSuccess1">Nueva insignia</label>
         <div class="form-inline">
           <div class="input-group col-xs-6">
             <span class="input-group-addon">Descripción</span>
@@ -51,6 +57,7 @@
         <a class="btn btn-info" href="https://www.openbadges.me/designer.html" target="_blank">OpenBadges</a>
       </div>
     </form>
+    -->
 
   </div>
 </template>

@@ -26,7 +26,7 @@ Template.cardsList.helpers({
 });
 
 Template.cardsList.events({
-  'submit form': function(event) {
+  'submit form.createCardForm': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
     var card = {
@@ -41,6 +41,24 @@ Template.cardsList.events({
     };
     Meteor.call('cardInsert', card);
   },
+  'submit form.cardForm': function(event) {
+    event.preventDefault();
+    //console.log($(event.target).find('[name=eventDescription]').val())
+    var card = {
+      cardName: $(event.target).find('[name=cardName]').val(),
+      cardDescription: $(event.target).find('[name=cardDescription]').val(),
+      cardLevel: $(event.target).find('[name=cardLevel]').val(),
+      cardPrice: $(event.target).find('[name=cardPrice]').val(),
+      cardImage: Session.get('selectedImage'),
+      cardType: $(event.target).find('[name=cardType]').val()
+    };
+    Meteor.call('cardUpdate', this._id, card);
+  },
+  'click .btnDeleteCard': function(event) {
+    event.preventDefault();
+    Meteor.call('cardDelete',this._id);
+  },
+  /*
   'change .inputGroup': function(event) {
     event.preventDefault();
     if (event.currentTarget.value )
@@ -50,6 +68,7 @@ Template.cardsList.events({
       Meteor.call('cardDelete',event.target.name);
     }
   },
+  */
   'change .cardType': function(event) {
     event.preventDefault();
     Meteor.call('cardUpdate', event.target.name, event.target.id, event.currentTarget.value);
