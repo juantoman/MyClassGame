@@ -1,0 +1,79 @@
+<template name="quoteCard">
+
+    <div class="componentCard quoteCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            {{quoteName}}
+          </div>
+          <div class="points center">
+            {{quoteText}}
+          </div>
+          <div class="center">
+            <!--
+            {{#if quoteImage}}
+              <img width="100%" alt="Imagen penalización" src="{{quote_src quoteImage}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+            {{/if}}
+            -->
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div class="more-info">
+          <form class="quoteForm">
+            <input type="text" class="form-control inputGroup quoteName" name="quoteName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{quoteName}}">
+            <textarea class="form-control inputGroup quoteDesc" name="quoteDesc" {{teacher}} rows="2">{{quoteText}}</textarea>
+            <div class="groupBtnCard">
+              <input type="button" value="Eliminar" class="btn btn-info btnDeleteQuote">
+              <input type="submit" value="Guardar" class="btn btn-info btnUpdateQuote">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <input type="text" class="form-control inputGroup quoteName" name="{{_id}}" id="quoteName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{quoteName}}">
+        <textarea class="form-control inputGroup quoteDesc" name="{{_id}}" id="quoteDescription" {{teacher}} rows="2">{{quoteText}}</textarea>
+        <!--
+        <h1>{{quoteName}}</h1>
+        <p>{{quoteDescription}}</p>
+        -->
+        <span class="more">Pasa el ratón para editar</span>
+      </div>
+    </div>
+
+</template>
+
+<template name="quoteCardCreate">
+
+    <div class="componentCard quoteCard float-up">
+      <div class="additional">
+        <div class="user-card">
+          <div class="level center">
+            NUEVA
+          </div>
+          <div class="points center">
+            FRASE
+          </div>
+          <div class="center"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span></div>
+        </div>
+        <div class="more-info">
+          <form class="createQuoteForm">
+            <input type="text" placeholder="Nombre" class="form-control inputGroup quoteName" name="quoteName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{quoteName}}">
+            <textarea class="form-control inputGroup quoteDesc" placeholder="Descripción" name="quoteDesc" {{teacher}} rows="2">{{quoteText}}</textarea>
+            <div class="groupBtnCard">
+              <input type="submit" value="Crear" class="btn btn-info">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="general">
+        <h1>Nueva frase</h1>
+
+        <p>Crea una nueva frase para tu clase</p>
+
+        <span class="more">Pasa el ratón para crear una nueva frase</span>
+      </div>
+    </div>
+
+</template>

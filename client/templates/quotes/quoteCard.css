@@ -1,0 +1,57 @@
+.quoteCard {
+  border: 2px solid #3ee8e5;
+}
+
+.quoteCard {
+  height: 150px;
+  background: linear-gradient(#279692,#3ee8e5);
+}
+
+.quoteCard .additional {
+  background-color:  #3ee8e5;
+}
+
+.quoteCard .additional .user-card {
+  background: linear-gradient(120deg, #3ee8e5 0%, #279692 100%);
+}
+
+.quoteName, .quoteDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+}
+
+.quoteDesc {
+  font-size: 1em !important;
+}
+
+.general .quoteName, .general .quoteDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.quoteCard .input-group .input-group-addon{
+  background-color: #279692 !important;
+}
+
+.quoteCard input, .quoteCard textarea, .quoteCard .input-group-addon {
+  border: 1px solid #279692 !important;
+}
+
+.quoteCard .groupBtnCard{
+  float: right !important;
+}
+
+.quoteCard .groupBtnCard *{
+  background-color: #279692 !important;
+  border: 1px solid #279692;
+}

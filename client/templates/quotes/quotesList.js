@@ -5,23 +5,28 @@ Template.quotesList.helpers({
 });
 
 Template.quotesList.events({
-  'submit form': function(event) {
+  'submit form.createQuoteForm': function(event) {
     event.preventDefault();
     //alert($(event.target).find('[name=quoteText]').val());
     var quote = {
       classId: Session.get('classId'),
-      quoteText: $(event.target).find('[name=quoteText]').val(),
+      quoteName: $(event.target).find('[name=quoteName]').val(),
+      quoteText: $(event.target).find('[name=quoteDesc]').val(),
       createdOn: new Date()
     };
     Meteor.call('quoteInsert', quote);
   },
-  'change .inputGroup': function(event) {
+  'submit form.quoteForm': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
-    {
-      Meteor.call('quoteUpdate', event.target.id, event.currentTarget.value);
-    } else {
-      Meteor.call('quoteDelete',event.target.id);
-    }
+    //alert($(event.target).find('[name=quoteText]').val());
+    var quote = {
+      quoteName: $(event.target).find('[name=quoteName]').val(),
+      quoteText: $(event.target).find('[name=quoteDesc]').val(),
+    };
+    Meteor.call('quoteUpdate', this._id, quote);
+  },
+  'click .btnDeleteQuote': function(event) {
+    event.preventDefault();
+    Meteor.call('quoteDelete', this._id);
   }
 });

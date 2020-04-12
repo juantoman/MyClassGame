@@ -16,7 +16,7 @@ Template.chromesList.helpers({
 });
 
 Template.chromesList.events({
-  'submit form': function(event) {
+  'submit form.createChromeForm': function(event) {
     event.preventDefault();
     var chrome = {
       classId: Session.get('classId'),
@@ -29,16 +29,21 @@ Template.chromesList.events({
     };
     Meteor.call('chromeInsert', chrome);
   },
-  'change .inputGroup': function(event) {
+  'submit form.chromeForm': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
-    {
-      Meteor.call('chromeUpdate', event.target.name, event.target.id, event.currentTarget.value);
-    } else {
-      Meteor.call('chromeDelete',event.target.name);
-    }
+    var chrome = {
+      chromeName: $(event.target).find('[name=chromeName]').val(),
+      chromeDescription: $(event.target).find('[name=chromeDescription]').val(),
+      chromeLevel: $(event.target).find('[name=chromeLevel]').val(),
+      chromePrice: $(event.target).find('[name=chromePrice]').val()
+    };
+    Meteor.call('chromeUpdate', this._id, chrome);
   },
- 'click .eImage': function(event) {
+  'click .btnDeleteChrome': function(event) {
+    event.preventDefault();
+    Meteor.call('chromeDelete',this._id);
+  },
+  'click .eImage': function(event) {
     event.preventDefault();
     Session.set('imageType','chrome');
     Session.set('idElementImage',event.currentTarget.title);

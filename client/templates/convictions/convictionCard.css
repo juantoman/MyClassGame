@@ -1,0 +1,57 @@
+.convictionCard {
+  border: 2px solid #ff0000;
+}
+
+.convictionCard {
+  height: 150px;
+  background: linear-gradient(#6d1010,#ff0000);
+}
+
+.convictionCard .additional {
+  background-color:  #ff0000;
+}
+
+.convictionCard .additional .user-card {
+  background: linear-gradient(120deg, #ff0000 0%, #6d1010 100%);
+}
+
+.convictionName, .convictionDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+}
+
+.convictionDesc {
+  font-size: 1em !important;
+}
+
+.general .convictionName, .general .convictionDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.convictionCard .input-group .input-group-addon{
+  background-color: #6d1010 !important;
+}
+
+.convictionCard input, .convictionCard textarea, .convictionCard .input-group-addon {
+  border: 1px solid #6d1010 !important;
+}
+
+.convictionCard .groupBtnCard{
+  float: right !important;
+}
+
+.convictionCard .groupBtnCard *{
+  background-color: #6d1010 !important;
+  border: 1px solid #6d1010;
+}

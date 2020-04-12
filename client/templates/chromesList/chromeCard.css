@@ -1,0 +1,57 @@
+.chromeCard {
+  border: 2px solid rgba(232,255,153,1);
+}
+
+.chromeCard {
+  height: 200px;
+  background: linear-gradient(rgba(255,222,0,1),rgba(232,255,153,1));
+}
+
+.chromeCard .additional {
+  background-color: rgba(232,255,153,1);
+}
+
+.chromeCard .additional .user-card {
+  background: linear-gradient(120deg, rgba(232,255,153,1) 0%, rgba(255,222,0,1) 100%);
+}
+
+.chromeName, .chromeDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+}
+
+.chromeDesc {
+  font-size: 1em !important;
+}
+
+.general .chromeName, .general .chromeDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.chromeCard .input-group .input-group-addon{
+  background-color: rgba(255,222,0,1) !important;
+}
+
+.chromeCard input, .chromeCard textarea, .chromeCard .input-group-addon {
+  border: 1px solid rgba(255,222,0,1) !important;
+}
+
+.chromeCard .groupBtnCard{
+  float: right !important;
+}
+
+.chromeCard .groupBtnCard *{
+  background-color: rgba(255,222,0,1) !important;
+  border: 1px solid rgba(255,222,0,1);
+}

@@ -1,33 +1,37 @@
 <template name="chromesList">
-  <div class="container">
-    <div class="list-group">
-    {{#each chromes}}
-      <div class="form-group">
-        <div class="input-group" style="width:15%;float:left;margin-top:20px;">
-          <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen carta" src="{{chrome_src chromeImage}}" /></div>
+  <div class="container-fluid">
+    <div class="row">
+      {{#each chromes}}
+        <!--
+        <div class="form-group">
+          <div class="input-group" style="width:15%;float:left;margin-top:20px;">
+            <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen carta" src="{{chrome_src chromeImage}}" /></div>
+          </div>
+          <div class="input-group" style="width:80%;">
+            <div class="input-group col-xs-11">
+              <label for="chalDesc">Nombre Cromo</label>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
+            </div>
+            <div class="input-group col-xs-11">
+              <label for="chalDesc">Descripción Cromo</label>
+              <textarea class="form-control inputGroup" name="{{_id}}" {{teacher}} rows="3">{{chromeDescription}}</textarea>
+            </div>
+            <div class="input-group col-xs-11">
+              <label for="chalDesc">Nivel</label>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeLevel}}">
+            </div>
+            <div class="input-group col-xs-11">
+              <label for="chalDesc">Precio</label>
+              <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromePrice}}">
+            </div>
+          </div>
         </div>
-        <div class="input-group" style="width:80%;">
-          <div class="input-group col-xs-11">
-            <label for="chalDesc">Nombre Cromo</label>
-            <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
-          </div>
-          <div class="input-group col-xs-11">
-            <label for="chalDesc">Descripción Cromo</label>
-            <textarea class="form-control inputGroup" name="{{_id}}" {{teacher}} rows="3">{{chromeDescription}}</textarea>
-          </div>
-          <div class="input-group col-xs-11">
-            <label for="chalDesc">Nivel</label>
-            <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeLevel}}">
-          </div>
-          <div class="input-group col-xs-11">
-            <label for="chalDesc">Precio</label>
-            <input type="text" class="form-control inputGroup" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromePrice}}">
-          </div>
-        </div>
-      </div>
-    {{/each}}
+        -->
+        {{> chromeCard}}
+      {{/each}}
+      {{> chromeCardCreate}}
     </div>
-
+    <!--
     <form>
       <div class="form-group">
         <label class="control-label" for="inputGroupSuccess1">Nuevo Cromo</label>
@@ -65,5 +69,6 @@
         </div>
       </div>
     </form>
+    -->
   </div>
 </template>

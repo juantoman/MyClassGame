@@ -1,18 +1,18 @@
 .badgeCard {
-  border: 2px solid rgba(252,194,69,1);
+  border: 2px solid #1CB5E0;
 }
 
 .badgeCard {
   height: 200px;
-  background: linear-gradient(rgba(199,24,0,1),rgba(252,194,69,1));
+  background: linear-gradient(#000851,#1CB5E0);
 }
 
 .badgeCard .additional {
-  background-color: rgba(252,194,69,1);
+  background-color: #1CB5E0;
 }
 
 .badgeCard .additional .user-card {
-  background: linear-gradient(120deg, rgba(252,194,69,1) 0%, rgba(199,24,0,1) 100%);
+  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
 .badgeName, .badgeDesc {
@@ -40,11 +40,11 @@
 }
 
 .badgeCard .input-group .input-group-addon{
-  background-color: rgba(199,24,0,1) !important;
+  background-color: #000851 !important;
 }
 
 .badgeCard input, .badgeCard textarea, .badgeCard .input-group-addon {
-  border: 1px solid rgba(199,24,0,1) !important;
+  border: 1px solid #000851 !important;
 }
 
 .badgeCard .groupBtnCard{
@@ -52,6 +52,6 @@
 }
 
 .badgeCard .groupBtnCard *{
-  background-color: rgba(199,24,0,1) !important;
-  border: 1px solid rgba(199,24,0,1);
+  background-color: #000851 !important;
+  border: 1px solid #000851;
 }

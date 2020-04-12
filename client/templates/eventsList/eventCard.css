@@ -1,18 +1,18 @@
 .eventCard {
-  border: 2px solid #1CB5E0;
+  border: 2px solid rgba(252,194,69,1);
 }
 
 .eventCard {
   height: 150px;
-  background: linear-gradient(#000851,#1CB5E0);
+  background: linear-gradient(rgba(199,24,0,1),rgba(252,194,69,1));
 }
 
 .eventCard .additional {
-  background-color: #1CB5E0;
+  background-color: rgba(252,194,69,1);
 }
 
 .eventCard .additional .user-card {
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+  background: linear-gradient(120deg, rgba(252,194,69,1) 0%, rgba(199,24,0,1) 100%);
 }
 
 .eventName, .eventDesc {
@@ -40,11 +40,11 @@
 }
 
 .eventCard .input-group .input-group-addon{
-  background-color: #000851 !important;
+  background-color: rgba(199,24,0,1) !important;
 }
 
 .eventCard input, .eventCard textarea, .eventCard .input-group-addon {
-  border: 1px solid #000851 !important;
+  border: 1px solid rgba(199,24,0,1) !important;
 }
 
 .eventCard .groupBtnCard{
@@ -52,6 +52,6 @@
 }
 
 .eventCard .groupBtnCard *{
-  background-color: #000851 !important;
-  border: 1px solid #000851;
+  background-color: rgba(199,24,0,1) !important;
+  border: 1px solid rgba(199,24,0,1);
 }
