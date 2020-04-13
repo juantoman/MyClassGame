@@ -1,13 +1,15 @@
 Template.behavioursList.helpers({
   behaviourList: function() {
+    /*
     if (Session.get('behaviourButton') == "btn-positive")
     {
       positiveBehaviour=true;
     } else {
       positiveBehaviour=false;
-    }
-    return behaviours.find({classId: Session.get('classId'), positive: positiveBehaviour });
-  },
+    }*/
+    return behaviours.find({classId: Session.get('classId')});
+  }
+  /*,
   btnSelected: function(positive) {
     if (Session.get('behaviourButton') == "btn-positive")
     {
@@ -16,7 +18,7 @@ Template.behavioursList.helpers({
       } else {
         return "btn-default";
       }
-      
+
     } else {
       if (positive) {
         return "btn-default";
@@ -40,52 +42,50 @@ Template.behavioursList.helpers({
     } else {
       return "btn-danger"
     }
-  }
+  }*/
 });
 
 Template.behavioursList.events({
-  'submit form': function(event) {
+  'submit form.createBehaviourForm': function(event) {
     event.preventDefault();
+    /*
     if (Session.get('behaviourButton') == "btn-positive")
     {
       positiveBehaviour=true;
     } else {
       positiveBehaviour=false;
-    }
+    }*/
     var behaviour = {
       classId: Session.get('classId'),
+      behaviourName: $(event.target).find('[name=behaviourName]').val(),
       behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),
-      positive: positiveBehaviour,
+      positive: $(event.target).find('[name=XPorHP]').is(":checked"),
       behaviourType: $(event.target).find('[name=behaviourType]').val(),
       points: $(event.target).find('[name=behaviourPoints]').val(),
       createdOn: new Date()
     };
     Meteor.call('behaviourInsert', behaviour);
   },
-  'change .inputGroup': function(event) {
+  'submit form.behaviourForm': function(event) {
     event.preventDefault();
-    if (event.currentTarget.value )
+    /*
+    if (Session.get('behaviourButton') == "btn-positive")
     {
-      if (event.target.id=="inputDesc")
-      {
-        Meteor.call('behaviourUpdateDesc', event.target.name, event.currentTarget.value);
-      } else {
-        Meteor.call('behaviourUpdatePoints', event.target.name, event.currentTarget.value);
-      }  
+      positiveBehaviour=true;
     } else {
-      Meteor.call('behaviourDelete',event.target.name);
-    }
-  },
-  'click button': function(event) {
-    //event.preventDefault();
-    Session.setPersistent('behaviourButton', event.currentTarget.id);
-    /*if (Session.get('behaviourButton') == "btn-positive")
-    {
-      $(".form-group").addClass("has-success").removeClass("has-error");
-      $("#btn-save").removeClass("btn-danger").addClass("btn-success");
-    } else {
-      $(".form-group").removeClass("has-success").addClass("has-error");
-      $("#btn-save").removeClass("btn-success").addClass("btn-danger");
+      positiveBehaviour=false;
     }*/
-  }  
+    var behaviour = {
+      behaviourName: $(event.target).find('[name=behaviourName]').val(),
+      behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),
+      positive: $(event.target).find('[name=XPorHP]').is(":checked"),
+      behaviourType: $(event.target).find('[name=behaviourType]').val(),
+      points: $(event.target).find('[name=behaviourPoints]').val()
+    };
+    Meteor.call('behaviourUpdate', this._id, behaviour);
+  },
+  'click .btnDeleteBehaviour': function(event) {
+    event.preventDefault();
+    Meteor.call('behaviourDelete',this._id);
+  }
 });

@@ -1,30 +1,36 @@
 <template name="behavioursList">
   <!-- Prova
   {{> myBreadcrumb}}
-  {{> myNav}} -->
+  {{> myNav}}
   <p class="text-center">
     <button id="btn-positive" type="button" class="btn {{btnSelected true}} btn-lg">Positivos</button>
     <button id="btn-negative" type="button" class="btn {{btnSelected false}} btn-lg">Negativos</button>
   </p>
-  <div class="container">
-    <div class="list-group">
-    {{#each behaviourList}}
-          <div class="form-group {{fGreen}} form-inline">
-            <div class="input-group col-xs-5">
-              <span class="input-group-addon">Descripción</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
+  -->
+  <div class="container-fluid">
+    <div class="row">
+      {{#each behaviourList}}
+        {{> behaviourCard}}
+        <!--
+            <div class="form-group {{fGreen}} form-inline">
+              <div class="input-group col-xs-5">
+                <span class="input-group-addon">Descripción</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{behaviourDescription}}">
+              </div>
+              <div class="input-group col-xs-3">
+                <span class="input-group-addon">Competencia</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
+              </div>
+              <div class="input-group col-xs-3">
+                <span class="input-group-addon">Puntos</span>
+                <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
+              </div>
             </div>
-            <div class="input-group col-xs-3">
-              <span class="input-group-addon">Competencia</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{behaviourType}}">
-            </div>
-            <div class="input-group col-xs-3">
-              <span class="input-group-addon">Puntos</span>
-              <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputPoints"  aria-describedby="inputGroupSuccess1Status" value="{{points}}">
-            </div>
-          </div>
-    {{/each}}
+        -->
+      {{/each}}
+      {{> behaviourCardCreate}}
     </div>
+    <!--
     <form>
       <div class="form-group {{fGreen}}">
         <label class="control-label" for="inputGroupSuccess1">Nuevo comportamiento</label>
@@ -53,6 +59,6 @@
         </div>
       </div>
     </form>
-    
+    -->
   </div>
 </template>

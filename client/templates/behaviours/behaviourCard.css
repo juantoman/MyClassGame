@@ -1,0 +1,122 @@
+.behaviourCard {
+  border: 2px solid #37ff00;
+}
+
+.behaviourCard {
+  height: 238px;
+  background: linear-gradient(green,#37ff00);
+}
+
+.behaviourCard .additional {
+  background-color: #37ff00;
+}
+
+.behaviourCard .additional .user-card {
+  background: linear-gradient(120deg, #37ff00 0%, green 100%);
+}
+
+.behaviourName, .behaviourDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:90%;
+	margin:10px auto;
+}
+
+.behaviourDesc {
+  font-size: 1em !important;
+}
+
+.general .behaviourName, .general .behaviourDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.behaviourCard .input-group .input-group-addon{
+  background-color: green !important;
+}
+
+.behaviourCard input, .behaviourCard textarea, .behaviourCard .input-group-addon {
+  border: 1px solid green !important;
+}
+
+.behaviourCard .switchCard{
+  float: right !important;
+  margin-top: 5px;
+}
+
+.behaviourCard .groupBtnCard{
+  float: right !important;
+}
+
+.behaviourCard .groupBtnCard *{
+  background-color: green !important;
+  border: 1px solid green;
+}
+
+.behaviourCard.hp {
+  border: 2px solid red;
+}
+
+.behaviourCard.hp {
+  height: 238px;
+  background: linear-gradient(#641E16,red);
+}
+
+.behaviourCard.hp .additional {
+  background-color: red;
+}
+
+.behaviourCard.hp .additional .user-card {
+  background: linear-gradient(120deg, red 0%, #641E16 100%);
+}
+
+.behaviourCard.hp .behaviourName, .behaviourCard.hp .behaviourDesc {
+  text-align: center;
+	text-transform: none;
+	font-size: 2em !important;
+	width:100%;
+	margin:10px auto;
+}
+
+.behaviourCard.hp .behaviourDesc {
+  font-size: 1em !important;
+}
+
+.behaviourCard.hp .general .behaviourName, .behaviourCard.hp .general .behaviourDesc {
+  border-style:none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none ;
+	background-color: transparent;
+	color: white;
+	font-weight: bold;
+  resize: none;
+}
+
+.behaviourCard.hp .input-group .input-group-addon{
+  background-color: #641E16 !important;
+}
+
+.behaviourCard.hp input, .behaviourCard.hp textarea, .behaviourCard.hp .input-group-addon {
+  border: 1px solid #641E16 !important;
+}
+
+.behaviourCard.hp .switchCard{
+  float: right !important;
+}
+
+.behaviourCard.hp .groupBtnCard{
+  float: right !important;
+}
+
+.behaviourCard.hp .groupBtnCard *{
+  background-color: #641E16 !important;
+  border: 1px solid #641E16;
+}
