@@ -236,10 +236,3 @@ Template.adventure.events({
     Meteor.call('chalDuplicate',c,cId,mId);
   }
 });
-
-Template.deleteMission.events({
-  'submit form': function(event) {
-    Meteor.call('chalDelete',Session.get('missionId'));
-    Modal.hide('deleteMission');
-  }
-});

@@ -193,7 +193,7 @@ Template.missions.events({
     {
       Meteor.call('chalUpdateName', event.target.name, event.currentTarget.value);
     } else {
-      Meteor.call('chalDelete',event.target.name);
+      //Meteor.call('chalDelete',event.target.name);
     }
   },
   'change #chalDesc': function(event) {
@@ -245,7 +245,7 @@ Template.missions.events({
   },
   'click .chalSave': function(event) {
     event.preventDefault();
-    id=event.currentTarget.id;
+    id=this._id;
     n=chalMissions.find({missionId: id}).count()+1;
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
@@ -375,12 +375,19 @@ Template.missions.events({
   },
   'click .btn-mup': function(event) {
     event.preventDefault();
-    Meteor.call('missionOrder', this._id, this.classId, this._order, 'up');
+    if (this.order!=1){
+      a=challenges.findOne({missionId: this.missionId, order: this.order-1})._id;
+      Meteor.call('missionOrder', a, this.order);
+      Meteor.call('missionOrder', this._id, this.order-1);
+      //Meteor.call('missionOrder', this._id, this.classId, this._order, 'up');
+    }
     event.stopPropagation();
   },
   'click .btn-mdown': function(event) {
     event.preventDefault();
-    Meteor.call('missionOrder', this._id, this.classId, this._order, 'down');
+    a=challenges.findOne({missionId: this.missionId, order: this.order+1})._id;
+    Meteor.call('missionOrder', a, this.order);
+    Meteor.call('missionOrder', this._id, this.order+1);
     event.stopPropagation();
   },
   'change .missionColor': function(event) {
@@ -391,7 +398,7 @@ Template.missions.events({
 
 Template.deleteMission.events({
   'submit form': function(event) {
-    Meteor.call('chalDelete',Session.get('missionId'));
+    Meteor.call('chalDelete',Session.get('missionId'),Session.get('classId'));
     Modal.hide('deleteMission');
   }
 });

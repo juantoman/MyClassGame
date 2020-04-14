@@ -23,9 +23,22 @@
                         <h4 class="panel-title" style="padding:8px;">
                           Misión {{IoG}}: {{chalName}}
                         </h4>
-                        <span class="input-group-btn">
-                          <span class="glyphicon glyphicon-circle-arrow-up btn btn-mup" aria-hidden="true"></span>
-                          <span class="glyphicon glyphicon-circle-arrow-down btn btn-mdown" aria-hidden="true"></span>
+                        <!--
+                        <div class="main-wrapper">
+                          <div class="hexbadge green-dark">
+                            <div class="circle">
+                              <i class='fa fa-wheelchair fa-2x'></i>
+                              <img class="hexagon-avatar-img" src="/images/@mcg.png" />
+                            </div>
+                            <div class="ribbon">
+                              {{chalName}}
+                            </div>
+                          </div>
+                        </div>
+                        -->
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-circle-arrow-up btn-mup btn" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-circle-arrow-down btn-mdown btn" aria-hidden="true"></span>
                         </span>
                       </div>
                     </div>
@@ -57,7 +70,7 @@
                               <div class="panel-heading">Tareas</div>
                               <div class="panel-body panelChal">
                                 {{#each chalMissions _id}}
-                                  <div class="input-group input-group-sm">
+                                  <div class="input-group">
                                     <div class="input-group-addon">
                                       <span class="input-group-text">Tarea {{order}}</span>
                                     </div>
@@ -67,15 +80,14 @@
                                     </div>
                                     <input id="cmxp{{_id}}" type="text" class="form-control" {{teacher}} name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
                                     {{#if isTeacher}}
-                                      <div class="input-group-btn">
-                                        <button class="btn btn-info chalMissionUpdate" type="button"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionRub" type="button"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionGrades" type="button"><span class="glyphicon glyphicon-education" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionUp" type="button"><span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionDown" type="button"><span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span></button>
-                                        <button class="btn btn-info chalMissionDel" type="button"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
-                                      </div>
-
+                                    <div class="input-group-addon">
+                                      <span class="glyphicon glyphicon-ok-circle chalMissionUpdate" aria-hidden="true"></span>
+                                      <span class="glyphicon glyphicon-th-list chalMissionRub" aria-hidden="true"></span>
+                                      <span class="glyphicon glyphicon-education chalMissionGrades" aria-hidden="true"></span>
+                                      <span class="glyphicon glyphicon-circle-arrow-up chalMissionUp" aria-hidden="true"></span>
+                                      <span class="glyphicon glyphicon-circle-arrow-down chalMissionDown" aria-hidden="true"></span>
+                                      <span class="glyphicon glyphicon-remove-circle chalMissionDel" aria-hidden="true"></span>
+                                    </div>
                                     {{/if}}
                                   </div>
                                   <div class="oculto" id="rubrica{{_id}}">
@@ -130,8 +142,8 @@
                                       <span class="input-group-text"></span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="XP" id="chalMissionXP{{_id}}">
-                                    <div class="input-group-btn">
-                                      <button class="btn btn-info chalSave" id="{{_id}}" type="button"><span class="glyphicon glyphicon-ok-circle chalSave" aria-hidden="true"></span></button>
+                                    <div class="input-group-addon">
+                                      <span class="glyphicon glyphicon-ok-circle chalSave" aria-hidden="true"></span>
                                     </div>
                                   </div>
                                 </div>
@@ -173,25 +185,6 @@
                                 {{/each}}
                               </ul>
                             </div>
-                            <div class="main-wrapper oculto">
-                              <div class="hexbadge green-dark">
-                        				<div class="circle">
-                        					<i class='fas fa-user fa-2x'></i>
-                        				</div>
-                        				<div class="ribbon">
-                        					Disabler
-                        				</div>
-                        			</div>
-                        			<div class="hexbadge yellow">
-                        				<div class="circle">
-                        					<i class='fa fa-wheelchair fa-2x'></i>
-                        					<img class="hexagon-avatar-img" src="/images/@mcg.png" />
-                        				</div>
-                        				<div class="ribbon">
-                        					Initiator
-                        				</div>
-                        			</div>
-                      			</div>
                       			<div class="oculto">
                         			<ul class="hexagon-grid-container">
                         				<li class="hexagon hexagon-green">
