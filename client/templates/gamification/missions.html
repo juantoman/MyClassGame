@@ -4,6 +4,11 @@
     <div id="widget-div"></div> -->
     <!--<h4><g:sharetoclassroom size=32 url="https://google.com"></g:sharetoclassroom> <span style="vertical-align:10px;">Google Classroom</span></h4>
     {{> GCTasks}}-->
+    <div class="row">
+      {{#each challenge}}
+        {{> missionCard2Template}}
+      {{/each}}
+    </div>
     <div class="list-group">
       <div class="panel panel-info">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="" href="#missions" aria-expanded="true" aria-controls="missions" id="headMissions">

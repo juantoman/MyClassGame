@@ -1,0 +1,253 @@
+.missionWrapper * {
+	 box-sizing: border-box;
+	 transition: 0.5s ease-in-out;
+}
+
+ .missionWrapper {
+
+	 height: 100%;
+	 overflow: hidden;
+	 font-family: helvetica neue, helvetica, arial, sans-serif;
+}
+
+.missionWrapper h1{
+	 font-size: 25px;
+	 font-weight: 200;
+	 color: white;
+	 line-height: 30px;
+	 margin-bottom: 10px;
+}
+
+.missionWrapper h2 {
+	 font-size: 15px;
+	 color: #6b0500;
+}
+ .missionWrapper {
+	 opacity: 0;
+	 display: table;
+	 height: 100%;
+
+}
+ .missionWrapper.loaded {
+	 opacity: 1;
+	 transition: 2.5s ease-in-out;
+}
+ .missionWrapper {
+	 display: table-cell;
+	 vertical-align: middle;
+   padding: 30px;
+}
+ .missionCard2 {
+	 height: 400px;
+	 width: 300px;
+	 margin: auto;
+	 position: relative;
+	 z-index: 1;
+	 perspective: 600px;
+}
+
+.missionCard2:hover {
+  transform: scale(1.02);
+}
+
+ .missionCard2 .front, .missionCard2 .back {
+	 border-radius: 10px;
+	 height: 100%;
+	 width: 100%;
+	 position: absolute;
+	 left: 0;
+	 top: 0;
+	 transform-style: preserve-3d;
+	 backface-visibility: hidden;
+	 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+   border:1px solid #268BD2;
+}
+
+.missionCard2 .front:hover, .missionCard2 .back:hover {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+ .missionCard2 .front {
+	 transform: rotateY(0deg);
+	 overflow: hidden;
+	 z-index: 1;
+}
+ .missionCard2 .front .arrow {
+	 position: absolute;
+	 height: 50px;
+	 line-height: 50px;
+	 font-size: 30px;
+	 z-index: 10;
+	 bottom: 0;
+	 right: 50px;
+	 color: rgba(255, 255, 255, .5);
+	 animation: arrowWiggle 1s ease-in-out infinite;
+}
+ .missionCard2 .front .top-pic {
+	 height: 50%;
+	 width: 100%;
+	 background-image: url(https://images.mediotiempo.com/pBzNnwe3LJgiB_nOWO_OiqBNLvY=/958x596/uploads/media/2019/08/20/keanu-reeves-volvera-papel-neo.jpg);
+	 background-size: cover;
+}
+ .missionCard2 .front .avatar {
+	 width: 114px;
+	 height: 114px;
+	 top: 50%;
+	 left: 50%;
+	 margin: -77px 0 0 -57px;
+	 border-radius: 100%;
+	 box-shadow: 0 0 0 3px rgba(255, 255, 255, .8), 0 4px 5px rgba(107, 5, 0, .6), 0 0 50px 50px rgba(255, 255, 255, .25);
+	 background-image: url(http://0.gravatar.com/avatar/fa4df8540bab3cb38f7dfa60c6e0522c?size=2000);
+	 background-size: contain;
+	 position: absolute;
+	 z-index: 1;
+}
+ .missionCard2 .front .info-box {
+	 height: 50%;
+	 width: 100%;
+	 position: absolute;
+	 display: table;
+	 left: 0;
+	 bottom: 0;
+	 background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+	 padding: 50px;
+}
+ .missionCard2 .front .social-bar {
+	 height: 50px;
+	 width: 100%;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 line-height: 50px;
+	 font-size: 18px;
+	 text-align: center;
+}
+ .missionCard2 .front .social-bar a {
+	 display: inline-block;
+	 color: #951009;
+	 text-decoration: none;
+	 padding: 5px;
+	 line-height: 18px;
+	 border-radius: 5px;
+}
+ .missionCard2 .front .social-bar a:hover {
+	 color: #450300;
+	 background: rgba(255, 255, 255, .3);
+	 transition: 0.25s ease-in-out;
+}
+ .missionCard2 .back {
+	 transform: rotateY(180deg);
+	 background-color: #268BD2;
+	 background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+	 display: table;
+	 z-index: 2;
+	 font-size: 13px;
+	 line-height: 20px;
+	 padding: 50px;
+}
+ .missionCard2 .back .back-info {
+	 text-align: justify;
+	 text-justify: inter-word;
+}
+
+.missionCard2 .back .back-info p{
+
+  font-size: 0.9em !important;
+}
+ .missionCard2 .back .social-bar {
+	 height: 50px;
+	 width: 100%;
+	 position: absolute;
+	 bottom: 0;
+	 left: 0;
+	 line-height: 50px;
+	 font-size: 18px;
+	 text-align: center;
+}
+ .missionCard2 .back .social-bar a {
+	 display: inline-block;
+	 line-height: 18px;
+	 color: #951009;
+	 text-decoration: none;
+	 padding: 5px;
+	 border-radius: 5px;
+}
+ .missionCard2 .back .social-bar a:hover {
+	 color: #450300;
+	 background: rgba(223, 74, 66, .5);
+	 transition: 0.25s ease-in-out;
+}
+ .missionCard2 .info {
+	 display: table-cell;
+	 height: 100%;
+	 vertical-align: middle;
+	 text-align: center;
+}
+ .missionCard2.flip .front {
+	 transform: rotateY(180deg);
+}
+ .missionCard2.flip .back {
+	 transform: rotateY(360deg);
+}
+
+ .background {
+	 position: fixed;
+	 background-color: black;
+	 top: 0;
+	 left: 0;
+	 height: 100%;
+	 width: 100%;
+   z-index:-10;
+}
+ .background .background-image {
+	 height: calc(100% + 60px);
+	 width: calc(100% + 60px);
+	 position: absolute;
+	 top: -30px;
+	 left: -30px;
+	 -webkit-filter: blur(10px);
+	 background-image: url(https://unsplash.imgix.net/45/ZLSw0SXxThSrkXRIiCdT_DSC_0345.jpg?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=857f07b76abac23a7fb7161cc7b12a46);
+	 background-size: cover;
+}
+ @keyframes arrowWiggle {
+	 0% {
+		 right: 50px;
+	}
+	 50% {
+		 right: 35px;
+	}
+	 100% {
+		 right: 50px;
+	}
+}
+.missionBadge {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  z-index:1;
+}
+
+.missionBadgeBack {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  z-index:1;
+	border-color: black !important;
+	color: black !important;
+}
+.missionData {
+	position: absolute;
+	top:62%;
+	left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+	border:1px solid lightblue;
+	padding: 10px;
+	width:90%;
+}
+.missionData h1{
+	margin:0;
+	padding-bottom:10px;
+	text-align: center;
+}

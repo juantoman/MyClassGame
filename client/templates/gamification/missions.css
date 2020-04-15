@@ -1,9 +1,0 @@
-#missions .input-group-addon span.glyphicon{
-  margin:0 5px;
-  cursor: pointer;
-}
-
-#missions .panel-heading .input-group-addon  {
-  background-color: transparent !important;
-  border-color:transparent !important;
-}

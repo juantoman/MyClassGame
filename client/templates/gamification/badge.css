@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:800);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.snip1254 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  color: white;
+	/*margin: 0px 15px 60px;*/
+  max-width: 295px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+	transform: scale(0.5);
+}
+
+.snip1254:hover {
+	transform: scale(0.6);
+}
+
+.snip1254 h1,
+.snip1254 h5 {
+  margin: 0;
+  text-transform: uppercase;
+}
+.snip1254 h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 2.8em !important;
+  letter-spacing: -2.5px;
+  position: relative;
+	border: 5px solid white;
+	padding:10px;
+	width: 280px;
+	font-weight: bold !important ;
+}
+.snip1254 h1:before,
+.snip1254 h1:after {
+  content: '';
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 5px solid white;
+  left: 50%;
+  top: 50%;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+.snip1254 h1:before {
+  -webkit-transform: rotate(45deg) translate(-63%, -63%);
+  transform: rotate(45deg) translate(-63%, -63%);
+  border-width: 5px 0 0 5px;
+  border-radius: 25% 0 0 0;
+}
+.snip1254 h1:after {
+  -webkit-transform: rotate(45deg) translate(-37%, -37%);
+  transform: rotate(45deg) translate(-37%, -37%);
+  border-width: 0 5px 5px 0;
+  border-radius: 0 0 25% 0;
+}
+.snip1254 h5 {
+  font-size: 4em;
+  font-weight: 800;
+	margin:-20px !important;
+}
+.snip1254 i {
+  font-size: 4.8em;
+  color: white;
+  line-height: 1em;
+}
+
+.snip1254 .badgeLogo {
+	position: absolute;
+	width:50px;
+	top: -38px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}

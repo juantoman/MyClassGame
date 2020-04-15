@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+#missions .input-group-addon span.glyphicon{
+  margin:0 5px;
+  cursor: pointer;
+}
+
+#missions .panel-heading .input-group-addon  {
+  background-color: transparent !important;
+  border-color:transparent !important;
+}
+
+.missionCard--1 .missionCard__img, .missionCard--1 .missionCard__img--hover {
+    background-image: url('https://images.pexels.com/photos/45202/brownie-dessert-cake-sweet-45202.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+}
+
+.missionCard--2 .missionCard__img, .missionCard--2 .missionCard__img--hover {
+    background-image: url('https://images.mediotiempo.com/pBzNnwe3LJgiB_nOWO_OiqBNLvY=/958x596/uploads/media/2019/08/20/keanu-reeves-volvera-papel-neo.jpg');
+}
+
+.missionCard__like {
+    width: 18px;
+}
+
+.missionCard__clock {
+    width: 15px;
+  vertical-align: middle;
+    fill: #AD7D52;
+}
+.missionCard__time {
+    font-size: 12px;
+    color: #AD7D52 !important;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.missionCard__clock-info {
+    float: right;
+}
+
+.missionCard__img {
+  visibility: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 235px;
+  border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+
+}
+
+.missionCard__info-hover {
+    position: absolute;
+    padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+}
+
+.missionCard__img--hover {
+  transition: 0.2s all ease-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  position: absolute;
+    height: 235px;
+  border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+top: 0;
+
+}
+.missionCard {
+  margin: 25px auto;
+  transition: all .4s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #fff;
+    width: 250px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0,0.1);
+  border:2px solid lightblue;
+}
+.missionCard:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
+    transform: scale(1.01, 1.01);
+}
+
+.missionCard__info {
+z-index: 2;
+  background-color: #fff;
+  border-bottom-left-radius: 12px;
+border-bottom-right-radius: 12px;
+   padding: 16px 24px 24px 24px;
+}
+
+.missionCard__badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.missionCard__category {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 500;
+  color: #868686 !important;
+}
+
+.missionCard__title {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto Slab', serif;
+    color:black;
+    text-transform: none;
+}
+
+.missionCard__by {
+    font-size: 12px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color:black !important;
+}
+
+.missionCard__author {
+    font-weight: 600;
+    text-decoration: none;
+    color: #AD7D52;
+}
+
+.missionCard:hover .missionCard__img--hover {
+    height: 100%;
+    opacity: 0.3;
+}
+
+.missionCard:hover .missionCard__info {
+    background-color: transparent;
+    position: relative;
+}
+
+.missionCard:hover .missionCard__info-hover {
+    opacity: 1;
+}
