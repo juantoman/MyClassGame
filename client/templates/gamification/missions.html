@@ -51,7 +51,7 @@
                       <div class="panel-body" style="background-color:lightray;">
                         <div class="form-group">
                           <div class="input-group col-xs-12">
-                            <label for="chalDesc">Nombre misión {{IoG}}</label>
+                            <label for="chalName">Nombre misión {{IoG}}</label>
                             <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                           </div>
                           <div class="input-group col-xs-12">
@@ -919,7 +919,7 @@
               </div>
             </div>
             {{#if isTeacher}}
-              <form>
+              <form class="missionFormCreate">
                 <div class="form-group">
                   <label class="control-label" for="inputGroupSuccess1">Crear misión</label>
 

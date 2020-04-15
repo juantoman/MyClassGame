@@ -160,7 +160,7 @@ Template.missions.helpers({
 });
 
 Template.missions.events({
-  'submit form': function(event) {
+  'submit form.missionFormCreate': function(event) {
     event.preventDefault();
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
