@@ -26,7 +26,7 @@
 	 opacity: 0;
 	 display: table;
 	 height: 100%;
-
+	 margin:auto;
 }
  .missionWrapper.loaded {
 	 opacity: 1;
@@ -71,6 +71,7 @@
 	 transform: rotateY(0deg);
 	 overflow: hidden;
 	 z-index: 1;
+	 background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
  .missionCard2 .front .arrow {
 	 position: absolute;
@@ -86,7 +87,6 @@
  .missionCard2 .front .top-pic {
 	 height: 50%;
 	 width: 100%;
-	 background-image: url(https://images.mediotiempo.com/pBzNnwe3LJgiB_nOWO_OiqBNLvY=/958x596/uploads/media/2019/08/20/keanu-reeves-volvera-papel-neo.jpg);
 	 background-size: cover;
 }
  .missionCard2 .front .avatar {
@@ -97,7 +97,7 @@
 	 margin: -77px 0 0 -57px;
 	 border-radius: 100%;
 	 box-shadow: 0 0 0 3px rgba(255, 255, 255, .8), 0 4px 5px rgba(107, 5, 0, .6), 0 0 50px 50px rgba(255, 255, 255, .25);
-	 background-image: url(http://0.gravatar.com/avatar/fa4df8540bab3cb38f7dfa60c6e0522c?size=2000);
+	 background-image: url(https://images.mediotiempo.com/pBzNnwe3LJgiB_nOWO_OiqBNLvY=/958x596/uploads/media/2019/08/20/keanu-reeves-volvera-papel-neo.jpg);
 	 background-size: contain;
 	 position: absolute;
 	 z-index: 1;
@@ -109,7 +109,6 @@
 	 display: table;
 	 left: 0;
 	 bottom: 0;
-	 background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 	 padding: 50px;
 }
  .missionCard2 .front .social-bar {

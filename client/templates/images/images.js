@@ -74,6 +74,9 @@ Template.imagesTemplate.helpers({
     if ( Session.get('imageType') == "villains" ) {
       idElement=villains.findOne({_id: Session.get('idElementImage')}).villainImage;
     }
+    if ( Session.get('imageType') == "mission" ) {
+      idElement=challenges.findOne({_id: Session.get('idElementImage')}).missionImg;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -107,6 +110,9 @@ Template.imagesTemplate.events({
       }
       if (Session.get('imageType')=="villain") {
         Meteor.call('villainImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="mission") {
+        Meteor.call('missionImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
       if (Session.get('imageType')=="group") {
         Meteor.call('groupImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());

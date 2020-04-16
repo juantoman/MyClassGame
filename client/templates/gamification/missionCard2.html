@@ -4,7 +4,7 @@
       <div class="missionCard2 float-up">
         <div class="front">
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
-          <div class="top-pic"></div>
+          <div class="top-pic" style="{{cardPic}}"></div>
           <!--<div class="avatar"></div>-->
           <div class="missionBadge">{{> badgeTemplate}}</div>
           <div class="info-box">
@@ -45,6 +45,85 @@
                 <div class="groupBtnCard">
                   <input type="button" value="Borrar" class="btn missionDeleteBtn btn-warning">
                   <input type="submit" value="Guardar" class="btn missionSaveBtn">
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="social-bar">
+            <!--
+            <a href="https://www.facebook.com/designcouch" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="https://www.twitter.com/designcouch" target="_blank">
+            <i class="fa fa-twitter"></i>
+            </a>
+            <a href="https://www.dribbble.com/designcouch" target="_blank">
+            <i class="fa fa-dribbble"></i>
+            </a>
+            <a href="https://www.codepen.io/designcouch/public">
+            <i class="fa fa-codepen"></i>
+            </a>
+            -->
+            <a href="javascript:voclass" class="undoBtn">
+              <i class="fa fa-undo"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!--
+      <div class="background">
+        <div class="background-image"></div>
+      </div>
+      -->
+    </div>
+
+</template>
+
+<template name="missionCardCreate">
+
+    <div class="missionWrapper">
+      <div class="missionCard2 float-up">
+        <div class="front">
+          <div class="arrow"><i class="fa fa-arrow-left"></i></div>
+          <!--<div class="avatar"></div>-->
+          <div class="missionBadge">{{> badgeTemplate}}</div>
+          <div class="info-box">
+            <div class="info">
+              <h1>Crear Misión</h1>
+              <h2>Comienza la aventura</h2>
+            </div>
+          </div>
+
+          <div class="social-bar">
+            <!--
+            <a href="https://www.facebook.com/designcouch" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a href="https://www.twitter.com/designcouch" target="_blank">
+            <i class="fa fa-twitter"></i>
+            </a>
+            <a href="https://www.dribbble.com/designcouch" target="_blank">
+            <i class="fa fa-dribbble"></i>
+            </a>
+            <a href="https://www.codepen.io/designcouch/public">
+            <i class="fa fa-codepen"></i>
+            </a>
+            -->
+            <a href="javascript:voclass" class="more-info">
+              <i class="fa fa-user"></i>
+            </a>
+          </div>
+        </div>
+        <div class="back">
+          <div class="back-info">
+            <div class="missionBadgeBack">{{> badgeTemplate}}</div>
+            <div class="missionData">
+              <h1>Misión</h1>
+              <form class="missionCreateForm">
+                <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                <div class="groupBtnCard">
+                  <input type="submit" value="Crear" class="btn missionSaveBtn">
                 </div>
               </form>
             </div>
