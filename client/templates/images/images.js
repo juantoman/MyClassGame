@@ -162,8 +162,8 @@ Template.imagesTemplate.events({
   },
   'click .thumbnail,.card_image': function(event) {
     event.preventDefault();
+    $(".thumbnail,.card_image").removeClass("checked");
     $(event.currentTarget).find("input").prop("checked", true);
-    $(".thumbnail,.card_image").removeClass("checked2");
-    $(event.currentTarget).addClass("checked2");
+    $(event.currentTarget).addClass("checked");
   }
 });

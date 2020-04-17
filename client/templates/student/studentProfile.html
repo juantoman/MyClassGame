@@ -4,15 +4,15 @@
       <ul class="nav nav-pills nav-profile" role="tablist">
         <li id="studentData" role="presentation" class="active"><a class="aProfile" href="#Datos" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span><br /> <span class="spanMenu">Datos</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Portfolio" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><br /> <span class="spanMenu">Portfolio</span></a></li>
-        <li role="presentation"><a class="aProfile" href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><br /> <span class="spanMenu">M. Grupales</span></a></li>
-        <li role="presentation"><a class="aProfile" href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span><br /> <span class="spanMenu">M. Ind.</span></a></li>
+        <!--<li role="presentation"><a class="aProfile" href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span><br /> <span class="spanMenu">M. Grupales</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tower" aria-hidden="true"></span><br /> <span class="spanMenu">M. Ind.</span></a></li>-->
         <li role="presentation"><a class="aProfile" href="#Insignias" aria-controls="gamification" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span><br /> <span class="spanMenu">Insignias</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Cartas" aria-controls="tools" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><br /> <span class="spanMenu">Cartas</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Cromos" aria-controls="statistics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><br /> <span class="spanMenu">Cromos</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Artículos" aria-controls="notifications" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span><br /> <span class="spanMenu">Artículos</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Historial" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><br /> <span class="spanMenu">Historial</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Diario" aria-controls="notifications" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span><br /> <span class="spanMenu">Diario</span></a></li>
-        <li role="presentation"><a class="aProfile" href="#Notas" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span><br /> <span class="spanMenu">Notas</span></a></li>
+        <!--<li role="presentation"><a class="aProfile" href="#Notas" aria-controls="settings" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span><br /> <span class="spanMenu">Notas</span></a></li>-->
         {{#if myuser}}<li role="presentation"><a id="STChat" class="aProfile" href="#myChat" aria-controls="myChat" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><br /> <span class="spanMenu">Chat</span></a></li>{{/if}}
       </ul>
     </div>
@@ -266,6 +266,7 @@
                 </div>
               {{/with}}
             </div>
+            <!--
             <div role="tabpanel" class="tab-pane float-up" id="Grupales">
               <h2>Misiones grupales</h2>
           		<hr class="colorgraph">
@@ -294,16 +295,7 @@
                                     <div class="panel-heading">Tareas</div>
                                     <div class="panel-body panelChal">
                                       {{#each chalMissions _id}}
-                                        <!--<div class="input-group">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text">Reto {{order}}</span>
-                                          </div>
-                                          <input id="cmd{{_id}}" type="text" class="form-control" readonly name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text">XP</span>
-                                          </div>
-                                          <input id="cmxp{{_id}}" type="text" class="form-control" readonly name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
-                                        </div>-->
+
                                         <div class="input-group">
                                            <h4 class="btn btn-info challengeText {{activeTask _id}}">
                                               Tarea {{order}}: {{chalMissionDesc}}
@@ -426,16 +418,7 @@
                                     <div class="panel-heading">Tareas</div>
                                     <div class="panel-body panelChal">
                                       {{#each chalMissions _id}}
-                                        <!--<div class="input-group">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text">Reto {{order}}</span>
-                                          </div>
-                                          <input id="cmd{{_id}}" type="text" class="form-control" readonly name="chalName" placeholder="Reto" aria-label="Reto" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
-                                          <div class="input-group-addon">
-                                            <span class="input-group-text">XP</span>
-                                          </div>
-                                          <input id="cmxp{{_id}}" type="text" class="form-control" readonly name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
-                                        </div>-->
+
                                         <div class="input-group">
                                            <h4 class="btn btn-info challengeText {{activeTask _id}}">
                                               Tarea {{order}}: {{chalMissionDesc}}
@@ -523,6 +506,7 @@
                     </div>
                   </div>
             </div>
+            -->
             <div role="tabpanel" class="tab-pane float-up" id="Insignias">
               <!--
               <h2>Insignias</h2>
@@ -812,6 +796,7 @@
                 </form>
             {{/if}}
             </div>
+            <!--
             <div role="tabpanel" class="tab-pane float-up" id="Notas">
               <h2>Notas</h2>
           		<hr class="colorgraph">
@@ -901,6 +886,7 @@
                 {{/with}}
               </table>
             </div>
+            -->
             <div role="tabpanel" class="tab-pane float-up" id="myChat">
               {{> chatWithTeacher}}
             </div>

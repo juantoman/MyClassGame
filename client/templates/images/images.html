@@ -22,15 +22,24 @@
                   </div>
                 </div>
               {{/each}}
-              -->
+
               {{#each images}}
-                <figure class="card_image card--white {{checkedImage _id}}">
+                <figure class="card_image card__white {{checkedImage _id}}">
                   <div class="card__image-container_image" >
                     <img src="{{image_url}}">
                   </div>
                   <figcaption class="card__caption text-center">
                     <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
                     <button class="btn btn-warning deleteImage">Eliminar</button>
+                  </figcaption>
+                </figure>
+              {{/each}}
+              -->
+              {{#each images}}
+                <figure class="card_image snip1519 {{checkedImage _id}}">
+                  <figcaption class="card__caption text-center"><img src="{{image_url}}" />
+                    <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
+                    <a href="#" class="button deleteImage">Eliminar</a>
                   </figcaption>
                 </figure>
               {{/each}}

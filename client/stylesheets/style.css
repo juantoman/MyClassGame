@@ -535,7 +535,7 @@ label {
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 }
-
+/*
 .checked {
   background-color: white !important;
   -webkit-filter: drop-shadow(3px 3px 5px red );
@@ -548,7 +548,7 @@ label {
   -webkit-filter: drop-shadow(3px 3px 5px #268BD2 );
   filter: drop-shadow(3px 3px 5px  #268BD2);
 }
-
+*/
 .thumbnail:hover {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
