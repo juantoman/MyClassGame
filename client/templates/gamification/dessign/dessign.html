@@ -1,9 +1,9 @@
-<template name="dessign">
+<template name="dessignTemplate">
   <!--
   {{> myBreadcrumb}}
   {{> myNav}}
   -->
-  <h3 class="nameSection">Gamificación</h3>
+  <h3 class="nameSection">Diseño</h3>
   <div class="container-fluid float-up">
 
     <div class="settingsMenu">
@@ -13,39 +13,24 @@
         <li role="presentation"><a href="#dinamics" aria-controls="dinamics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> <span class="spanMenu">Dinámicas</span></a></li>
         <li role="presentation"><a href="#mechanics" aria-controls="mechanics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <span class="spanMenu">Mecánicas</span></a></li>
         <li role="presentation"><a href="#components" aria-controls="components" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> <span class="spanMenu">Componentes</span></a></li>
-        <li role="presentation"><a href="#adventure" aria-controls="adventure" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> <span class="spanMenu">Aventura</span></a></li>
-        <li role="presentation"><a href="#missions" aria-controls="missions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-record" aria-hidden="true"></span> <span class="spanMenu">Misiones</span></a></li>
-        <li role="presentation"><a href="#villains" aria-controls="villains" role="tab" data-toggle="tab"><i class="fas fa-angry"></i> <span class="spanMenu">Villanos</span></a></li>
       </ul>
       <!-- Tab panels -->
       <div class="tab-content container-responsive mytab">
         <div role="tabpanel" class="tab-pane active" id="story">
-          <h2 class="text-center bg-info">Narrativa</h2>
+          <!--<h2 class="text-center bg-info">Narrativa</h2>-->
           {{> storytelling}}
         </div>
         <div role="tabpanel" class="tab-pane" id="dinamics">
-          <h2 class="text-center bg-info">Dinámicas</h2>
+          <!--<h2 class="text-center bg-info">Dinámicas</h2>-->
           {{> dinamics}}
         </div>
         <div role="tabpanel" class="tab-pane" id="mechanics">
-          <h2 class="text-center bg-info">Mecánicas</h2>
+          <!--<h2 class="text-center bg-info">Mecánicas</h2>-->
           {{> mechanics}}
         </div>
         <div role="tabpanel" class="tab-pane" id="components">
-          <h2 class="text-center bg-info">Componentes</h2>
+          <!--<h2 class="text-center bg-info">Componentes</h2>-->
           {{> components}}
-        </div>
-        <div role="tabpanel" class="tab-pane" id="adventure">
-          <br/>
-          {{> adventure}}
-        </div>
-        <div role="tabpanel" class="tab-pane" id="missions">
-          <br/>
-          {{> missions}}
-        </div>
-        <div role="tabpanel" class="tab-pane" id="villains">
-          <br/>
-          {{> villainsPage}}
         </div>
       </div>
     </div>
