@@ -42,8 +42,10 @@ Template.missionCard2Template.events({
     //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //n=challenges.find({classId: Session.get('classId')}).count()+1;
     var chal = {
+      IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
+      notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked')
     };
     Meteor.call('chalUpdate', this._id, chal);
   },
@@ -76,11 +78,11 @@ Template.missionCardCreate.events({
     var chal = {
       classId: Session.get('classId'),
       //type: MoC,
-      //IoG: $(event.target).find('[name=IoG]').val(),
+      IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
       order: n,
-      //notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked'),
+      notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked'),
       createdOn: new Date()
     };
     Meteor.call('chalInsert', chal);

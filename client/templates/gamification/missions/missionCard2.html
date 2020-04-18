@@ -11,6 +11,7 @@
             <div class="info">
               <h1>{{chalName}}</h1>
               <h2>Misión {{IoG}}</h2>
+              <p>{{chalDesc}}</p>
             </div>
           </div>
 
@@ -30,7 +31,7 @@
             </a>
             -->
             <a href="javascript:voclass" class="more-info">
-              <i class="fa fa-user"></i>
+              <i class="fas fa-plus-circle"></i>
             </a>
           </div>
         </div>
@@ -38,13 +39,30 @@
           <div class="back-info">
             <div class="missionBadgeBack">{{> badgeTemplate}}</div>
             <div class="missionData">
-              <h1>Misión {{IoG}}</h1>
+              <h2>Misión {{IoG}}</h2>
               <form class="missionForm">
-                <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-                <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                <div class="input-group col-xs-12">
+                  <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                </div>
+                <div class="input-group col-xs-12">
+                  <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                </div>
+                <div class="input-group col-xs-12">
+                  <div class="input-group-addon">
+                    <span class="input-group-text">Tipo</span>
+                  </div>
+                  <select class="custom-select form-control" name="IoG">
+                    <option value="Grupal">Grupal</option>
+                    <option value="Individual">Individual</option>
+                  </select>
+                </div>
+                <div class="input-group col-xs-12">
+                  <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+                  <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                </div>
                 <div class="groupBtnCard">
-                  <input type="button" value="Borrar" class="btn missionDeleteBtn btn-warning">
-                  <input type="submit" value="Guardar" class="btn missionSaveBtn">
+                  <input type="button" value="Borrar" class="btn missionDeleteBtn btn-xs btn-warning">
+                  <input type="submit" value="Guardar" class="btn missionSaveBtn btn-xs btn-info">
                 </div>
               </form>
             </div>
@@ -110,7 +128,7 @@
             </a>
             -->
             <a href="javascript:voclass" class="more-info">
-              <i class="fa fa-user"></i>
+              <i class="fas fa-plus-circle"></i>
             </a>
           </div>
         </div>
@@ -118,12 +136,30 @@
           <div class="back-info">
             <div class="missionBadgeBack">{{> badgeTemplate}}</div>
             <div class="missionData">
-              <h1>Misión</h1>
+              <h2>Misión</h2>
               <form class="missionCreateForm">
-                <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-                <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                <div class="input-group col-xs-12">
+                  <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                </div>
+                <div class="input-group col-xs-12">
+                  <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                </div>
+                <div class="input-group col-xs-12">
+                  <div class="input-group-addon">
+                    <span class="input-group-text">Tipo</span>
+                  </div>
+                  <select class="custom-select form-control" name="IoG">
+                    <option value="Grupal">Grupal</option>
+                    <option value="Individual">Individual</option>
+                  </select>
+                </div>
+                <div class="input-group col-xs-12">
+                  <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+                  <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                </div>
                 <div class="groupBtnCard">
-                  <input type="submit" value="Crear" class="btn missionSaveBtn">
+                  <input type="button" value="Borrar" class="btn missionDeleteBtn btn-xs btn-warning">
+                  <input type="submit" value="Guardar" class="btn missionSaveBtn btn-xs btn-info">
                 </div>
               </form>
             </div>

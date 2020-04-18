@@ -12,11 +12,6 @@
   font-size: 16px;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-	transform: scale(0.5);
-}
-
-.snip1254:hover {
-	transform: scale(0.6);
 }
 
 .snip1254 h1,

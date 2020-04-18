@@ -16,12 +16,43 @@
 	 color: white;
 	 line-height: 30px;
 	 margin-bottom: 10px;
+
 }
 
 .missionWrapper h2 {
-	 font-size: 15px;
+	 font-size: 12px;
 	 color: #6b0500;
 }
+
+.missionWrapper p {
+	font-size: 15px;
+	color: lightblue;
+	display: block;/* or inline-block */
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow: hidden;
+	max-height: 4em;
+	line-height: 1.5em;
+}
+
+.missionWrapper label {
+	font-size: 12px !important;
+	color: lightblue;
+}
+
+.missionWrapper .btn {
+	font-size: 14px !important;
+	color:white;
+}
+
+.missionWrapper .input-group {
+	 margin:2px 0;
+}
+
+.missionWrapper .input-group-text {
+	 color:white;
+}
+
  .missionWrapper {
 	 opacity: 0;
 	 display: table;
@@ -123,7 +154,7 @@
 }
  .missionCard2 .front .social-bar a {
 	 display: inline-block;
-	 color: #951009;
+	 color: white;
 	 text-decoration: none;
 	 padding: 5px;
 	 line-height: 18px;
@@ -166,7 +197,7 @@
  .missionCard2 .back .social-bar a {
 	 display: inline-block;
 	 line-height: 18px;
-	 color: #951009;
+	 color: white;
 	 text-decoration: none;
 	 padding: 5px;
 	 border-radius: 5px;
@@ -227,18 +258,31 @@
   z-index:1;
 }
 
+.missionBadge .snip1254{
+	transform: scale(0.5);
+}
+
+.missionBadge .snip1254:hover {
+	transform: scale(0.6);
+}
+
 .missionBadgeBack {
   position: absolute;
-  top: 15%;
+  top: 12%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   z-index:1;
 	border-color: black !important;
 	color: black !important;
 }
+
+.missionBadgeBack .snip1254{
+	transform: scale(0.5);
+}
+
 .missionData {
 	position: absolute;
-	top:62%;
+	top:60%;
 	left: 50%;
   -webkit-transform: translate(-50%, -50%);
 	border:1px solid lightblue;
