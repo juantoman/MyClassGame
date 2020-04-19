@@ -52,8 +52,8 @@
                     <span class="input-group-text">Tipo</span>
                   </div>
                   <select class="custom-select form-control" name="IoG">
-                    <option value="Grupal">Grupal</option>
-                    <option value="Individual">Individual</option>
+                    <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
+                    <option value="Individual" selected="{{#if missionType 'Individual'}}selected{{/if}}">Individual</option>
                   </select>
                 </div>
                 <div class="input-group col-xs-12">

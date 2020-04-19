@@ -4,7 +4,6 @@
 }
 
  .missionWrapper {
-
 	 height: 100%;
 	 overflow: hidden;
 	 font-family: helvetica neue, helvetica, arial, sans-serif;
@@ -54,7 +53,6 @@
 }
 
  .missionWrapper {
-	 opacity: 0;
 	 display: table;
 	 height: 100%;
 	 margin:auto;

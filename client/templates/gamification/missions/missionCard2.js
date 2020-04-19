@@ -15,6 +15,13 @@ Template.missionCard2Template.helpers({
       }
     }
     return "background-image: url(" + url + ");"
+  },
+  missionType: function(tipo) {
+    if (tipo==this.IoG) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 
