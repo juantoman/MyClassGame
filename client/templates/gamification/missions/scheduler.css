@@ -1,0 +1,10 @@
+@import (css) url(https://fonts.googleapis.com/css?family=Roboto:400,500,600);
+@import url('http://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css');
+
+#scheduler_here * {
+
+}
+
+div.dhx_cal_prev_button {
+  color: black;
+}

@@ -1,0 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:900);
+.snip1236 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  color: white;
+  overflow: hidden;
+  margin: 0px auto;
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  border-top: 3px solid white;
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+.snip1236 * {
+  -webkit-box-sizing: padding-box;
+  box-sizing: padding-box;
+}
+.snip1236 h1,
+.snip1236 h5 {
+  margin: 0;
+  line-height: 1em;
+}
+.snip1236 h1 {
+  font-family: 'Playfair Display', Arial, sans-serif;
+  font-size: 2.8em;
+  text-transform: uppercase;
+}
+.snip1236 h5 {
+  line-height: 0.4em;
+  font-size: 1.8em;
+  display: table;
+  position: relative;
+  display: inline-block;
+  width: auto;
+  padding: 0 10px;
+}
+.snip1236 h5:before,
+.snip1236 h5:after {
+  position: absolute;
+  height: 3px;
+  content: '';
+  background:white;
+  width: 1000%;
+  top: 50%;
+}
+.snip1236 h5:before {
+  left: -1000%;
+}
+.snip1236 h5:after {
+  right: -1000%;
+}

@@ -80,7 +80,7 @@
                                     <div class="input-group-addon">
                                       <span class="input-group-text">Tarea {{order}}</span>
                                     </div>
-                                    <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Tarea" aria-label="Tarea" aria-describedby="basic-addon1" value="{{order}} {{chalMissionDesc}}">
+                                    <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Tarea" aria-label="Tarea" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
                                     <div class="input-group-addon">
                                       <span class="input-group-text">XP</span>
                                     </div>
@@ -135,6 +135,13 @@
                                       </div>
                                     </div>
                                   </div>
+                                {{/each}}
+
+                                {{> scheduler}}
+
+                                {{> taskCardCreateTemplate}}
+                                {{#each chalMissions _id}}
+                                  {{> taskCardTemplate}}
                                 {{/each}}
                               </div>
                               {{#if isTeacher}}

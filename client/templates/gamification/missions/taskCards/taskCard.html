@@ -1,0 +1,32 @@
+<template name="taskCardTemplate">
+  <div class="taskCard">
+    {{#if taskImg}}<img src=''/>{{/if}}
+    <div class="text">
+      <h1>{{> taskBadgeTemplate}}</h1>
+      <h2 class="animate-text">{{chalMissionXP}} XP</h2>
+      <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+    </div>
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</template>
+
+<template name="taskCardCreateTemplate">
+  <div class="taskCard">
+    {{#if taskImg}}<img src=''/>{{/if}}
+    <div class="text">
+      <h1>{{> taskBadgeTemplate}}</h1>
+      <h1>Nueva tarea</h1>
+      <h2 class="animate-text">{{chalMissionXP}} XP</h2>
+      <p class="animate-text">Bacon ipsum dolor amet pork belly tri-tip turducken, pancetta bresaola pork chicken meatloaf. Flank sirloin strip steak prosciutto kevin turducken. </p>
+    </div>
+    <div class="dots">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,10 @@
+{
+  "map": {
+    "node_modules/dhtmlx-scheduler/codebase/imgs/": "imgs/",
+    "node_modules/dhtmlx-scheduler/codebase/imgs_contrast_black/": "imgs_contrast_black/",
+    "node_modules/dhtmlx-scheduler/codebase/imgs_contrast_white/": "imgs_contrast_white/",
+    "node_modules/dhtmlx-scheduler/codebase/imgs_dhx_terrace/": "imgs_dhx_terrace/",
+    "node_modules/dhtmlx-scheduler/codebase/imgs_flat/": "imgs_flat/",
+    "node_modules/dhtmlx-scheduler/codebase/imgs_glossy/": "imgs_glossy/"
+  }
+}
