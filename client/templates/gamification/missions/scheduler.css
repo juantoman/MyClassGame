@@ -1,6 +1,12 @@
 @import (css) url(https://fonts.googleapis.com/css?family=Roboto:400,500,600);
 @import url('http://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css');
 
+/*
+@import url('https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css');
+@import url('https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css');
+@import url('https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css');
+*/
+
 #scheduler_here * {
 
 }

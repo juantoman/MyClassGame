@@ -1,38 +1,49 @@
 <template name="scheduler">
-  <div><button class="btn btn-info" id="schedulerBtn">Calendario</button></div>
-  <div id="scheduler_here" class="dhx_cal_container panel oculto" style='width:100%; height:500px;'>
-      <div class="dhx_cal_navline">
-      <div class="dhx_cal_prev_button">&nbsp;</div>
-      <div class="dhx_cal_next_button">&nbsp;</div>
-      <div class="dhx_cal_today_button"></div>
-      <div class="dhx_cal_date"></div>
-      <div class="dhx_cal_tab" name="day_tab"></div>
-      <div class="dhx_cal_tab" name="week_tab"></div>
-      <div class="dhx_cal_tab" name="month_tab"></div>
-      <div class="dhx_cal_tab" name="year_tab"></div>
-      <div class="dhx_cal_tab" name="agenda_tab"></div>
-      </div>
-      <div class="dhx_cal_header">
-      </div>
-      <div class="dhx_cal_data">
-      </div>
-  </div>
-  <!--
-  <div id="tuiCalendar" class="oculto">
-    <div id="menu">
-        <span id="menu-navi">
-          <button type="button" class="btn btn-default btn-sm move-today" data-action="move-today">Today</button>
-          <button type="button" class="btn btn-default btn-sm move-day" data-action="move-prev">
-            <i class="calendar-icon ic-arrow-line-left" data-action="move-prev"></i>
-          </button>
-          <button type="button" class="btn btn-default btn-sm move-day" data-action="move-next">
-            <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
-          </button>
-        </span>
-        <span id="renderRange" class="render-range"></span>
-      </div>
+  <div class="modal" id="add_class_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="add_class_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">Calendario</h4>
+          </div>
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <div>
 
-    <div id="calendar"></div>
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+              </div>
+              <div id="scheduler_here" class="dhx_cal_container " style='width:100%; height:500px;'>
+                  <div class="dhx_cal_navline">
+                  <div class="dhx_cal_prev_button">&nbsp;</div>
+                  <div class="dhx_cal_next_button">&nbsp;</div>
+                  <div class="dhx_cal_today_button"></div>
+                  <div class="dhx_cal_date"></div>
+                  <div class="dhx_cal_tab" name="day_tab"></div>
+                  <div class="dhx_cal_tab" name="week_tab"></div>
+                  <div class="dhx_cal_tab" name="month_tab"></div>
+                  <div class="dhx_cal_tab" name="year_tab"></div>
+                  <div class="dhx_cal_tab" name="agenda_tab"></div>
+                  </div>
+                  <div class="dhx_cal_header">
+                  </div>
+                  <div class="dhx_cal_data">
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <input type="submit" class="btn btn-primary" id="schedulerClose" value="Guardar">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
-  -->
 </template>
