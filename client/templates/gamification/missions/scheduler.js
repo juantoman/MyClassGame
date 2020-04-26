@@ -6,6 +6,7 @@ import 'dhtmlx-scheduler/codebase/dhtmlxscheduler.js';
 import 'dhtmlx-scheduler/codebase/sources/locale/locale_es.js';
 import 'dhtmlx-scheduler/codebase/sources/ext/dhtmlxscheduler_agenda_view.js';
 import 'dhtmlx-scheduler/codebase/sources/ext/dhtmlxscheduler_year_view.js';
+import 'dhtmlx-scheduler/codebase/dhtmlxscheduler.css';
 
 
 Template.scheduler.onRendered(function() {

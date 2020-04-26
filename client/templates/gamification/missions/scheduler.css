@@ -1,5 +1,5 @@
 @import (css) url(https://fonts.googleapis.com/css?family=Roboto:400,500,600);
-@import url('http://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css');
+/*@import url('http://cdn.dhtmlx.com/scheduler/edge/dhtmlxscheduler.css');*/
 
 /*
 @import url('https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css');
@@ -18,7 +18,7 @@
 
 #scheduler_here {
   width:100% !important;
-  height:500px !important;
+  height:50vh !important;
 }
 
 /*
