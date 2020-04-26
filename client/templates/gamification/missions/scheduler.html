@@ -1,25 +1,16 @@
 <template name="scheduler">
-  <div class="modal" id="add_class_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="oculto" id="modalScheduler" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form id="add_class_form">
+
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="exampleModalLabel">Calendario</h4>
           </div>
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <div>
 
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-
-              </div>
-              <div id="scheduler_here" class="dhx_cal_container " style='width:100%; height:500px;'>
+              <div id="scheduler_here" class="dhx_cal_container">
                   <div class="dhx_cal_navline">
                   <div class="dhx_cal_prev_button">&nbsp;</div>
                   <div class="dhx_cal_next_button">&nbsp;</div>
@@ -39,10 +30,9 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <input type="submit" class="btn btn-primary" id="schedulerClose" value="Guardar">
+            <button type="button" class="btn btn-default schedulerClose" data-dismiss="modal">Cerrar</button>
           </div>
-        </form>
+
       </div>
     </div>
   </div>

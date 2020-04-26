@@ -50,12 +50,9 @@ Template.scheduler.onRendered(function() {
 
 
 Template.scheduler.events({
-
-  'click #datetimepicker1': function(event) {
-        $('#datetimepicker1').datetimepicker();
-  },
-  'click #schedulerClose': function(event) {
+  'click .schedulerClose': function(event) {
     event.preventDefault();
-    Modal.hide('scheduler');
+    $('#modalScheduler').toggleClass('oculto');
+    //Modal.hide('scheduler');
   }
 })

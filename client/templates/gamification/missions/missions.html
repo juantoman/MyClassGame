@@ -1,5 +1,6 @@
 <template name="missions">
   <h3 class="nameSection">Misiones</h3>
+  {{> scheduler}}
   <div class="container-fluid" id="missionsPage">
     <!-- <a href="#" onClick="renderWidget();">Render the Classroom share button</a>
     <div id="widget-div"></div> -->
@@ -137,8 +138,13 @@
                                     </div>
                                   </div>
                                 {{/each}}
-                                <button class="btn btn-info" id="schedulerBtn">Calendario</button>
-
+                                <div><button class="btn btn-info schedulerBtn">Calendario</button></div>
+                                <div class='input-group date datetimepicker'>
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
                                 {{> taskCardCreateTemplate}}
                                 {{#each chalMissions _id}}
                                   {{> taskCardTemplate}}

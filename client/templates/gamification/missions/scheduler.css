@@ -7,10 +7,38 @@
 @import url('https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css');
 */
 
-#scheduler_here * {
-
+#modalScheduler {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  z-index:20 !important;
+  width:100%;
 }
 
-div.dhx_cal_prev_button {
-  color: black;
+#scheduler_here {
+  width:100% !important;
+  height:500px !important;
+}
+
+/*
+#scheduler_here {
+  position:fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  z-index:10000 !important;
+  width:90%;
+  height:500px;
+  border:2px solid lightblue;
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
+}
+
+*/
+.dhx_cal_light {
+  z-index:21 !important;
+}
+
+.dhtmlx-alert {
+  z-index:22 !important;
 }

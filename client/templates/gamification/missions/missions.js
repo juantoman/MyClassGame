@@ -437,9 +437,14 @@ Template.missions.events({
     event.preventDefault();
     Meteor.call('missionColorChange', this._id, event.currentTarget.value);
   },
-  'click #schedulerBtn': function(event) {
-    Modal.show('scheduler');
-  }
+  'click .schedulerBtn': function(event) {
+    $('#modalScheduler').toggleClass('oculto');
+    scheduler.init("scheduler_here", new Date(), "week");
+    //Modal.show('scheduler');
+  },
+  'click .datetimepicker': function(event) {
+        $(event.currentTarget).datetimepicker();
+  },
 });
 
 Template.deleteMission.events({
