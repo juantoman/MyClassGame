@@ -21,6 +21,12 @@
                   <textarea class="form-control" id="adventureDesc" {{teacher}} rows="3">{{adventureDesc}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
+                  <form method="post">
+                    <label for="mytextarea">TinyMCE</label>
+                    <textarea id="mytextarea">{{adventureDesc}}</textarea>
+                  </form>
+                </div>
+                <div class="input-group col-xs-12">
                   <label for="adventureTiny">Detalles</label>
                   <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3">{{adventureTiny}}</textarea>
                 </div>

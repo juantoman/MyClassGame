@@ -1,5 +1,9 @@
 Template.adventure.onRendered(function() {
   $('#adventureDesc').summernote();
+  
+  tinymce.init({
+    selector: '#mytextarea'
+  });
 });
 
 Template.adventure.helpers({
