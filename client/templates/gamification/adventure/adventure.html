@@ -11,21 +11,34 @@
           </div>
           <div id="adventure" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headAdventure">
             <div class="panel-body">
+              <form id="tinymce" method="post">
               <div class="form-group">
                 <div class="input-group col-xs-12">
                   <label for="chalDesc">Nombre aventura</label>
                   <input type="text" id="adventureName" class="form-control inputGroup" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureName}}">
                 </div>
+
                 <div class="input-group col-xs-12">
                   <label for="adventureDesc">Descripción</label>
-                  <textarea class="form-control" id="adventureDesc" {{teacher}} rows="3">{{adventureDesc}}</textarea>
+                  <div style="width: 100%;" id="divDesc">
+                      <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                        <iframe class="tox-edit-area__iframe" srcdoc='<html><head><link rel="stylesheet" type="text/css" id="u0" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/uxh471978q9jgw7y107j4cuzopr9tsqh5ytfj1ajjhywc89m/tinymce/5.2.1-76/skins/ui/oxide/content.min.css"><link rel="stylesheet" type="text/css" id="u1" crossorigin="anonymous" referrerpolicy="origin" href="//www.tiny.cloud/css/codepen.min.css"></head><body class="mce-content-body">{{adventureDesc}}</body></html>' frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe>
+                      </div>
+                      <button id="descBtn" class="btn btn-info">Editar descripcion</button>
+                  </div>
+                  <div style="width: 100%;" class="oculto" id="divTinyDesc">
+                    <textarea class="form-control" id="adventureDesc" {{teacher}} rows="3">{{adventureDesc}}</textarea>
+                    <button id="saveDescBtn" class="btn btn-warning">Guardar descripcion</button>
+                  </div>
                 </div>
+                <!--
                 <div class="input-group col-xs-12">
-                  <form method="post">
+
                     <label for="mytextarea">TinyMCE</label>
                     <textarea id="mytextarea">{{adventureDesc}}</textarea>
-                  </form>
+
                 </div>
+                -->
                 <div class="input-group col-xs-12">
                   <label for="adventureTiny">Detalles</label>
                   <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3">{{adventureTiny}}</textarea>
@@ -42,7 +55,7 @@
                     <button id="embebido" value="Mostrar" class="btn btn-info">Mostrar</button>
                   {{/if}}
                   {{#if isTeacher}}
-                    <button id="saveAdventure" value="Guardar" class="btn btn-info">Guardar</button>
+                    <button id="saveAdventure" type="submit" value="Guardar" class="btn btn-info">Guardar</button>
                   {{/if}}
                 </div>
                 {{#if adventureWeb}}
@@ -51,6 +64,7 @@
                 </div>
                 {{/if}}
               </div>
+              </form>
             </div>
           </div>
         </div>
