@@ -126,12 +126,13 @@ Template.leftNav.events({
     event.preventDefault();
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    Router.go('myNav');
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
   },
   'click .student_button': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId',this._id);
-    Session.set('studentSelected', true);
+    Router.go('studentPage',{_id:Session.get('classId')});
+    /*Session.set('studentSelected', true);
     Session.setPersistent('sogBtn', "students");
     Session.set('groupSelected', false);
     $(".main-tab-content > .active").removeClass("active");
@@ -142,7 +143,7 @@ Template.leftNav.events({
     $(".sidebar-wrapper .active").removeClass("active");
     //$("#studentsMenu").addClass("active");
     $(event.target).parent().addClass("active");
-    event.stopPropagation();
+    event.stopPropagation();*/
   },
   'click .group_button': function(event) {
     event.preventDefault();
@@ -207,5 +208,45 @@ Template.leftNav.events({
     if (Session.get('userType')=="teacher") {
       Modal.show('imagesTemplate');
     }
+  },
+  'click #statistics': function(event) {
+    event.preventDefault();
+    Router.go('statisticsPage',{_id:Session.get('classId')});
+  },
+  'click #questions': function(event) {
+    event.preventDefault();
+    Router.go('questions',{_id:Session.get('classId')});
+  },
+  'click #studentsMain': function(event) {
+    event.preventDefault();
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
+  },
+  'click #chat': function(event) {
+    event.preventDefault();
+    Router.go('chat',{_id:Session.get('classId')});
+  },
+  'click #myAdventure': function(event) {
+    event.preventDefault();
+    Router.go('myAdventure',{_id:Session.get('classId')});
+  },
+  'click #tools': function(event) {
+    event.preventDefault();
+    Router.go('tools',{_id:Session.get('classId')});
+  },
+  'click #settings': function(event) {
+    event.preventDefault();
+    Router.go('settingsPage',{_id:Session.get('classId')});
+  },
+  'click #notifications': function(event) {
+    event.preventDefault();
+    Router.go('notifications',{_id:Session.get('classId')});
+  },
+  'click #gamification': function(event) {
+    event.preventDefault();
+    Router.go('gamification',{_id:Session.get('classId')});
+  },
+  'click #battle': function(event) {
+    event.preventDefault();
+    Router.go('battle',{_id:Session.get('classId')});
   }
 })

@@ -18,7 +18,7 @@
     {{else}}
       <div class="input-group submenu text-center">
         <div class="input-group-prepend">
-          <p class="submenuBtn">-</p>
+          <p class="submenuBtn">+</p>
 
             <!--
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -33,18 +33,20 @@
             <label>Clase</label>
             <div class="btn-group className" role="group">
               {{#if teacher}}
-                  <input class="text-center" id="className" type="text" value="{{className}}">
-
-                {{else}}
-                  <input class="text-center" readonly id="className" type="text" value="{{className}}">
-                {{/if}}
+                <input class="text-center" id="className" type="text" value="{{className}}">
+              {{else}}
+                <input class="text-center" readonly id="className" type="text" value="{{className}}">
+              {{/if}}
             </div>
             <div class="btn-group className" role="group">
               {{#if teacher}}
                 <button id="hashClase" type="button" class="btn btn-sm">Id Clase</button>
+                <button type="button" class="btn btnNewStudent btn-sm" data-toggle="modal" data-target="#add_student_modal">
+                  Crear estudiantes
+                </button>
               {{/if}}
             </div>
-            <div class="submenuHide">
+            <div class="submenuHide oculto">
               {{#if teacher}}
               <label>Selección</label>
               <div class="btn-group" role="group" aria-label="Basic example">

@@ -80,7 +80,7 @@ Template.header.events({
     event.preventDefault();
     Session.set('studentSelected', false);
     Session.set('groupSelected', false);
-    Router.go('myNav');
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
   },
   'click .student_button': function(event) {
     event.preventDefault();

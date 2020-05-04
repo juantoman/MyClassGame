@@ -46,8 +46,8 @@ Template.classesModals.events({
           gcId: Session.get("gcId"),
           iniHP: 10,
           stored: false,
-          groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
-          studentImg:"https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png",
+          groupImg: "https://avatars.dicebear.com/v2/jdenticon/"+cn+".svg",
+          studentImg:"",
           evaluation: 1,
           CoinXP: true,
           createdOn: new Date()
@@ -134,7 +134,7 @@ Template.adminClass.events({
       Session.set('studentSelected', false);
       Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     }
-    Router.go("myNav",{_id:Session.get('classId')});
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
     Modal.hide('adminClass');
   }
 });

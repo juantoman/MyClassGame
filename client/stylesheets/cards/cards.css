@@ -27,13 +27,15 @@ figure img {
 
 .card__image {
     padding: 8% 0;
+    transition: transform 0.6s;
 }
 
 .card__image:hover {
-  opacity: 0.7;
-  -webkit-filter: drop-shadow(5px 5px 5px #222 );
-  filter: drop-shadow(3px 3px 5px #222);
+  opacity: 1;
+  -webkit-filter: drop-shadow(5px 5px 5px #aaa );
+  filter: drop-shadow(0px 0px 5px #777);
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 .card__image2:hover {
@@ -200,7 +202,7 @@ h1, h2, h3, h4, h5 {
 
 .studentPresent, .studentAbsent{
     position: absolute;
-    top: -24px;
+    top: -10px;
     left: 0px;
     color:white;
     width:35%;

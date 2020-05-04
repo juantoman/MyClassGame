@@ -467,7 +467,7 @@ Meteor.publish('notifications', function(type,classId) {
       return notifications.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('questions', function(type,classId) {
+Meteor.publish('questions', function(classId) {
   if (classId){
     return questions.find({"classId":classId});
   } else {
@@ -490,7 +490,7 @@ Meteor.publish('questions', function(type,classId) {
       return students.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('quizzes', function(type,classId) {
+Meteor.publish('quizzes', function(classId) {
   if (classId){
     return quizzes.find({"classId":classId});
   } else {
@@ -513,7 +513,7 @@ Meteor.publish('quizzes', function(type,classId) {
       return students.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('villains', function(type,classId) {
+Meteor.publish('villains', function(classId) {
   if (classId){
     return villains.find({"classId":classId});
   } else {
