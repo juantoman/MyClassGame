@@ -39,10 +39,10 @@ Template.login.events({
             }
             if ( Session.get("loginType") == "studentLogin" ) {
               Session.setPersistent('userType','student');
-              Router.go('myNav',{_id:Session.get('classId')});
+              Router.go('studentsMainPage',{_id:Session.get('classId')});
             } else if ( Session.get("loginType") == "parentLogin" ) {
               Session.setPersistent('userType','parent');
-              Router.go('myNav',{_id:Session.get('classId')});
+              Router.go('studentsMainPage',{_id:Session.get('classId')});
             } else {
               Session.setPersistent('userType','teacher');
               Router.go('classesPage');

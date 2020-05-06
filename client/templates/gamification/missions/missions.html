@@ -54,21 +54,21 @@
                         <div class="form-group">
                           <div class="input-group col-xs-12">
                             <label for="chalName">Nombre misión {{IoG}}</label>
-                            <input type="text" class="form-control inputGroup" name="{{_id}}" id="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                            <input type="text" class="form-control inputGroup chalName" name="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                           </div>
                           <div class="input-group col-xs-12">
                             <label for="chalDesc">Descripción</label>
-                            <textarea class="form-control" name="{{_id}}" id="chalDesc" {{teacher}} rows="3">{{chalDesc}}</textarea>
+                            <textarea class="form-control chalDesc" name="chalDesc" {{teacher}} rows="3">{{chalDesc}}</textarea>
                           </div>
                           <div class="input-group mb-3">
-                            <input type="checkbox" id="nbDepCheck" name={{_id}} {{disTeacher}} checked={{notebookDependence}}>
+                            <input type="checkbox" class="nbDepCheck" name="nbDepCheck" {{disTeacher}} checked={{notebookDependence}}>
                             <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
                           </div>
                           {{#if isTeacher}}
                             <div class="input-group mb-3">
-                              <button class="duplicarMision btn btn-info" name="{{_id}}">Duplicar</button>
+                              <button class="duplicarMision btn btn-info" name="duplicarMision">Duplicar</button>
                               <!--<button class="notas btn btn-info" name="{{_id}}">Introducir Notas</button>-->
-                              <button class="btn btn-info" name="{{_id}}" id="chalDel">Eliminar</button>
+                              <button class="btn btn-info chalDel" name="chalDel">Eliminar</button>
                               <label for="nbDepCheck"> Color </label> <!--<input class="btn missionColor" type="color" value="{{missionColor}}">-->
                               <input type="color" value="{{missionColor}}" class="colorpicker missionColor">
                             </div>

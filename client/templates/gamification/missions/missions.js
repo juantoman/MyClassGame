@@ -227,25 +227,25 @@ Template.missions.events({
   },
   'click .notas': function(event) {
     event.preventDefault();
-    Session.set('chalId',event.target.name)
+    Session.set('chalId',this._id)
     Modal.show('notes');
   },
-  'change #chalName': function(event) {
+  'change .chalName': function(event) {
     event.preventDefault();
     if (event.currentTarget.value )
     {
-      Meteor.call('chalUpdateName', event.target.name, event.currentTarget.value);
+      Meteor.call('chalUpdateName', this._id, event.currentTarget.value);
     } else {
       //Meteor.call('chalDelete',event.target.name);
     }
   },
-  'change #chalDesc': function(event) {
+  'change .chalDesc': function(event) {
     event.preventDefault();
-    Meteor.call('chalUpdateDesc', event.target.name, event.currentTarget.value);
+    Meteor.call('chalUpdateDesc', this._id, event.currentTarget.value);
   },
-  'click #chalDel': function(event) {
+  'click .chalDel': function(event) {
     event.preventDefault();
-    Session.set('missionId',event.target.name)
+    Session.set('missionId',this._id)
     Modal.show('deleteMission');
     //Meteor.call('chalDelete',event.target.name);
   },
@@ -281,10 +281,10 @@ Template.missions.events({
       $("#selectMoC").val("Reto");
     };
   },*/
-  'change #nbDepCheck': function(event) {
+  'change .nbDepCheck': function(event) {
     event.preventDefault();
     //alert(event.currentTarget.checked);
-    Meteor.call('nbDepChange', event.target.name, event.currentTarget.checked);
+    Meteor.call('nbDepChange', this._id, event.currentTarget.checked);
   },
   'click .chalSave': function(event) {
     event.preventDefault();

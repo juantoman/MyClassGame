@@ -20,6 +20,7 @@
         <li role="presentation"><a href="#levels" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="spanMenu"> Niveles</span></a></li>
         <li role="presentation"><a href="#villains" aria-controls="villains" role="tab" data-toggle="tab"><i class="fas fa-angry"></i> <span class="spanMenu">Villanos</span></a></li>
       </ul>
+      {{> yield "component"}}
       <!-- Tab panels -->
       <div class="tab-content container-responsive mytab">
         <div role="tabpanel" class="tab-pane active" id="events">

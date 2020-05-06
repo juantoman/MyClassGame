@@ -58,6 +58,7 @@ Template.notes.events({
     Meteor.call('groupModify', Session.get('groupId'), gName, gImage);*/
     Modal.hide('notes');
   },
+  /*
   'change .nota_g': function(event) {
     event.preventDefault();
     groupId=event.target.name;
@@ -118,7 +119,7 @@ Template.notes.events({
       };
       Meteor.call('chalInsertPoints', chalCP);
     }
-  },
+  },*/
   'click .btn-default': function(event) {
     event.preventDefault();
     Modal.hide('notes');

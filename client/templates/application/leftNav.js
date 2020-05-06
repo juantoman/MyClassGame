@@ -243,7 +243,7 @@ Template.leftNav.events({
   },
   'click #gamification': function(event) {
     event.preventDefault();
-    Router.go('gamification',{_id:Session.get('classId')});
+    Router.go('componentsTemplate',{_id:Session.get('classId')});
   },
   'click #battle': function(event) {
     event.preventDefault();

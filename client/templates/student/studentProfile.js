@@ -84,10 +84,10 @@ Template.studentProfile.helpers({
   },
   challengesI: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    return challenges.find({classId: Session.get('classId'),type:"Reto"});
+    return challenges.find({classId: Session.get('classId'),IoG:"Individual"});
   },
   challengesG: function() {
-    return challenges.find({classId: Session.get('classId'),type:"Misión"});
+    return challenges.find({classId: Session.get('classId'),IoG:"Grupal"});
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
@@ -102,10 +102,12 @@ Template.studentProfile.helpers({
      return "disableDiv";
     };
   },
+  /*
   missions: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Misión"});
   },
+  */
   badges: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).badges;
@@ -132,10 +134,12 @@ Template.studentProfile.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).items;
   },
+  /*
   CP: function(cId) {
     return chalPoints.findOne({'chalId':cId,'studentId':Session.get('studentId')}).chalCP;
     //return challenges.find({classId: Session.get('classId')});
   },
+  */
   studentChalXP: function() {
     xp=challengesXP.findOne({'chalId':this._id,'studentId':Session.get('studentId')}).chalXP;
     return xp;
@@ -155,6 +159,7 @@ Template.studentProfile.helpers({
     chalCP=g;
     //alert("cambio" + studentId + " " + chalId + " " + chalCP);
     //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
+    /*
     n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
     if ( n==1 ) {
       Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
@@ -168,12 +173,12 @@ Template.studentProfile.helpers({
         createdOn: new Date()
       };
       Meteor.call('chalInsertPoints', chalCP);
-    }
+    }*/
     return "( " + cXP + " de " + t + " ): " + g;
   },
   missionsXPTotalI: function() {
     XPTotal=0;
-    challenges.find({'classId':Session.get('classId'),'type':"Reto"}).forEach(function(c){
+    challenges.find({'classId':Session.get('classId'),'IoG':"Individual"}).forEach(function(c){
       chalMissions.find({'missionId':c._id}).forEach(function(cxp){
         XPTotal+=parseInt(cxp.chalMissionXP);
       });
@@ -182,7 +187,7 @@ Template.studentProfile.helpers({
   },
   missionsXPTotalG: function() {
     XPTotal=0;
-    challenges.find({'classId':Session.get('classId'),'type':"Misión"}).forEach(function(c){
+    challenges.find({'classId':Session.get('classId'),'IoG':"Grupal"}).forEach(function(c){
       chalMissions.find({'missionId':c._id}).forEach(function(cxp){
         XPTotal+=parseInt(cxp.chalMissionXP);
       });
@@ -371,6 +376,7 @@ Template.studentProfile.helpers({
     Session.set('nBg',nota);
     return "( " + nb + " Badges de un máximo de " + max + " Badges ) = " + nota;
   },
+  /*
   notaMision: function(cId){
     if ( ! challenges.findOne({'_id':cId}).notebookDependence ) {
       if (chalPoints.find({'chalId':cId,'studentId':Session.get('studentId')}).count() != 0) {
@@ -405,6 +411,7 @@ Template.studentProfile.helpers({
       }
     }
   },
+
   notaMediaMisiones: function(){
     nmm=0;
     cm=0;
@@ -466,10 +473,7 @@ Template.studentProfile.helpers({
           }
 
           //console.log(nmm);
-        /*}
-        catch(err){
-          console.error(nmm);
-        }*/
+
         //console.log("Dep");
       }
     });
@@ -480,6 +484,7 @@ Template.studentProfile.helpers({
     Session.set('nMM',nota);
     return notas + " = " + nota;
   },
+
   notaRetos: function(xp){
     nota=0;
     notas="";
@@ -504,9 +509,7 @@ Template.studentProfile.helpers({
     behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId'),behaviourType: 'HP'}).forEach(function(b){
       n+=parseInt(behaviours.findOne({_id: b.behavior}).points);
     });
-    /*nota=100*xp/max;
-    Session.set('nXP',nota);
-    return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;*/
+
     perHP=classes.findOne({_id: Session.get('classId')}).perHP;
     nota=perHP*n;
     if (isNaN(nota)) { nota=0; }
@@ -525,6 +528,7 @@ Template.studentProfile.helpers({
     notas="{ " + Session.get('nXP')*perXP/100 + " [ " + perXP + " % XP ] + " + Session.get('nBg')*perBG/100 + " [ " + perBG + " % BG ] + " + Session.get('nMM')*perMissions/100 + " [ " + perMissions + " % Misiones ] + " + Session.get('nR')*perChallenges/100 + " [ " + perChallenges + " % Retos ] } - " + Session.get('nHP') + " [ " + perHP + " * HP ]";
     return notas + " = " + nota;
   },
+  */
   parent: function() {
     if (Session.get('userType')!="teacher") {
      return true;
@@ -555,6 +559,7 @@ Template.studentProfile.helpers({
 });
 
 Template.studentProfile.events({
+  /*
   'change .cp': function(event) {
     event.preventDefault();
     studentId=Session.get('studentId');
@@ -576,7 +581,7 @@ Template.studentProfile.events({
       };
       Meteor.call('chalInsertPoints', chalCP);
     }
-  },
+  },*/
   'submit form.dataStudent': function(event) {
     event.preventDefault();
     var user = Meteor.user();

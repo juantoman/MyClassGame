@@ -81,10 +81,15 @@ Template.missionCardCreate.events({
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
     //n=challenges.find({classId: Session.get('classId')}).count()+1;
+    if ($(event.target).find('[name=IoG]').val() == "Grupal"){
+      MoC="Misión";
+    } else {
+      MoC="Reto";
+    };
     n=challenges.find({classId: Session.get('classId')}).count()+1;
     var chal = {
       classId: Session.get('classId'),
-      //type: MoC,
+      type: MoC,
       IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
