@@ -46,8 +46,8 @@ Template.classesModals.events({
           gcId: Session.get("gcId"),
           iniHP: 10,
           stored: false,
-          groupImg: "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png",
-          studentImg:"https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png",
+          groupImg: "https://avatars.dicebear.com/v2/jdenticon/"+cn+".svg",
+          studentImg:"",
           evaluation: 1,
           CoinXP: true,
           createdOn: new Date()

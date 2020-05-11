@@ -2,8 +2,11 @@
 
     <div class="missionWrapper">
       <div class="missionCard2 float-up">
-        <div class="front">
+        <div class="front {{#unless missionVisible}}missionCardNotVisible{{/unless}}" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
+          <div class="missionVisibleBtn">
+            <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
+          </div>
           <div class="top-pic" style="{{cardPic}}"></div>
           <!--<div class="avatar"></div>-->
           <div class="missionBadge">{{> badgeTemplate}}</div>
@@ -35,7 +38,7 @@
             </a>
           </div>
         </div>
-        <div class="back">
+        <div class="back" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:2px solid {{missionColor}};">
           <div class="back-info">
             <div class="missionBadgeBack">{{> badgeTemplate}}</div>
             <div class="missionData">
@@ -57,12 +60,13 @@
                   </select>
                 </div>
                 <div class="input-group col-xs-12">
-                  <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+                  <input type="checkbox" name="notebookCheck" checked={{notebookDependence}}>
                   <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
                 </div>
                 <div class="groupBtnCard">
                   <input type="button" value="Borrar" class="btn missionDeleteBtn btn-xs btn-warning">
                   <input type="submit" value="Guardar" class="btn missionSaveBtn btn-xs btn-info">
+                  <input type="color" value="{{missionColor}}" class="colorpicker missionColor">
                 </div>
               </form>
             </div>
@@ -154,7 +158,7 @@
                   </select>
                 </div>
                 <div class="input-group col-xs-12">
-                  <input type="checkbox" id="notebookCheck" name="notebookCheck" checked={{notebookDependence}}>
+                  <input type="checkbox" name="notebookCheck" checked={{notebookDependence}}>
                   <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
                 </div>
                 <div class="groupBtnCard">

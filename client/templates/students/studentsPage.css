@@ -138,7 +138,8 @@ p {
 }
 
 .studentPresent {
-  background-color: lime !important;
+  background-color: #1fef1f !important;
+  color: #112233 !important;
 }
 
 .studentAbsent {
@@ -155,4 +156,10 @@ p {
 
 .badgeHP {
   background-color: red !important;
+}
+
+.submenu .btnNewStudent {
+  background-color: #0c5591 ;
+  color:white;
+  border:1px solid lightblue !important;
 }

@@ -69,7 +69,7 @@ Template.randomCarousel.helpers({
          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
        }
      } else {
-       return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+       return "https://avatars.dicebear.com/v2/avataaars/"+this._id+".svg";
      }
    } else  {
      if (avatar.substring(0, 4)=="http") {
@@ -77,6 +77,33 @@ Template.randomCarousel.helpers({
      } else {
        return images.findOne({_id: avatar}).image_url;
      }
+   }
+ },
+ imageg: function(avatar) {
+   avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
+   if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
+     if ( classes.findOne({_id: Session.get('classId')}).groupImg ) {
+       if (classes.findOne({_id: Session.get('classId')}).groupImg.substring(0, 4)=="http") {
+         return classes.findOne({_id: Session.get('classId')}).groupImg;
+       } else {
+         return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).groupImg}).image_url;
+       }
+     } else {
+       return "https://avatars.dicebear.com/v2/jdenticon/"+classes.findOne({_id: Session.get('classId')}).className+".svg";
+     }
+   } else  {
+     if (avatar.substring(0, 4)=="http") {
+       return avatar;
+     } else {
+       return images.findOne({_id: avatar}).image_url;
+     }
+   }
+ },
+ oimage: function(avatar) {
+   if (avatar.substring(0, 4)=="http") {
+     return avatar;
+   } else {
+     return images.findOne({_id: avatar}).image_url;
    }
  },
  equals: function(randomBtn) {

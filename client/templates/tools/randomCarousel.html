@@ -18,27 +18,27 @@
           {{#each events}}
             <div class="carousel__cell">
               <p>{{eventName}}</p>
-              <img src="{{image eventImage}}" name="{{_id}}">
+              <img src="{{oimage eventImage}}" name="{{_id}}">
               <!--<p>{{eventDescription}}</p>-->
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
         {{/if}}
-        {{#if equals "carta"}}
+        {{#if equals "poder"}}
           {{#each cards}}
             <div class="carousel__cell">
               <p>{{cardName}}</p>
-              <img height="65%" src="{{image eventImage}}" name="{{_id}}">
+              <img height="65%" src="{{oimage cardImage}}" name="{{_id}}">
               <p>{{cardDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}
         {{/if}}
-        {{#if equals "cromo"}}
+        {{#if equals "logro"}}
           {{#each chromes}}
             <div class="carousel__cell">
               <p>{{chromeName}}</p>
-              <img height="65%" src="{{image eventImage}}" name="{{_id}}">
+              <img height="65%" src="{{oimage chromeImage}}" name="{{_id}}">
               <p>{{chromeDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
@@ -48,7 +48,7 @@
           {{#each groups}}
             <div class="carousel__cell">
               <p>{{groupName}}</p>
-              <img height="70%" src="{{image groupImg}}" name="{{_id}}">
+              <img height="70%" src="{{imageg groupImg}}" name="{{_id}}">
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
           {{/each}}

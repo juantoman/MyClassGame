@@ -1,12 +1,12 @@
 <template name="adventure">
-  <h3 class="nameSection">Aventura</h3>
+  <h3 class="nameSection">Narrativa</h3>
   <div class="container-fluid" id="adventurePage">
     <div class="list-group">
       {{#with class}}
         <div class="panel panel-info">
           <div class="panel-heading" role="button" data-toggle="collapse" data-parent="" href="#adventure" aria-expanded="true" aria-controls="adventure" id="headAdventure">
             <h4 class="panel-title text-center">
-              Aventura
+              Narrativa
             </h4>
           </div>
           <div id="adventure" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headAdventure">
@@ -14,7 +14,7 @@
               <form id="tinymce" method="post">
               <div class="form-group">
                 <div class="input-group col-xs-12">
-                  <label for="chalDesc">Nombre aventura</label>
+                  <label for="chalDesc">Nombre Narrativa</label>
                   <input type="text" id="adventureName" class="form-control inputGroup" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureName}}">
                 </div>
 
@@ -44,12 +44,12 @@
                   <textarea class="form-control" id="adventureTiny" {{teacher}} rows="3">{{adventureTiny}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
-                  <label for="chalDesc">Web sobre la aventura</label>
+                  <label for="chalDesc">Web sobre la Narrativa</label>
                   <input type="text" class="form-control inputGroup" id="adventureWeb" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{adventureWeb}}">
                 </div>
 
                 <div class="input-group mb-3">
-                  <button id="adventureBtn" value="Mostrar" class="btn btn-info">Ver aventura</button>
+                  <button id="adventureBtn" value="Mostrar" class="btn btn-info">Ver Narrativa</button>
                   {{#if adventureWeb}}
                     <a class="btn btn-info" href="{{adventureWeb}}" target="_blank">Visitar web</a>
                     <button id="embebido" value="Mostrar" class="btn btn-info">Mostrar</button>

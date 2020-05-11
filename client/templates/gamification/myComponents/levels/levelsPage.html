@@ -12,7 +12,7 @@
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
           <div class="input-group col-xs-11">
-            <input type="checkbox" id="xpCheck" checked="{{xpChangeLevel}}">
+            <input type="checkbox" class="xpCheck" checked="{{xpChangeLevel}}">
             <label class="control-label" for="xpCheck"> Cambio de nivel automático en función de los XP</label>
           </div>
         </div>
@@ -27,11 +27,11 @@
               <div class="form-inline">
                 <div class="input-group col-xs-3">
                   <span class="input-group-addon">Nivel</span>
-                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputLevel"  aria-describedby="inputGroupSuccess1Status" value="{{level}}">
-                </div>                
+                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{level}}">
+                </div>
                 <div class="input-group col-xs-8">
                   <span class="input-group-addon">Descripción</span>
-                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" id="inputDesc" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
+                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="input-group col-xs-8">
             <span class="input-group-addon">Descripción</span>
-            <input type="text" class="form-control input-lg" name="levelDescription" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+            <input type="text" class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status">
           </div>
           <input type="submit" id="btn-save" value="{{_ "save"}}" class="btn btn-success">
         </div>

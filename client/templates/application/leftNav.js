@@ -56,7 +56,7 @@ Template.leftNav.helpers({
          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
        }
      } else {
-       return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+       return "https://avatars.dicebear.com/v2/avataaars/"+this._id+".svg";
      }
    } else  {
      if (avatar.substring(0, 4)=="http") {

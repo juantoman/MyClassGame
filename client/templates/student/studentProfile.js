@@ -84,10 +84,10 @@ Template.studentProfile.helpers({
   },
   challengesI: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    return challenges.find({classId: Session.get('classId'),type:"Reto"});
+    return challenges.find({classId: Session.get('classId'),IoG:"Individual"});
   },
   challengesG: function() {
-    return challenges.find({classId: Session.get('classId'),type:"Misión"});
+    return challenges.find({classId: Session.get('classId'),IoG:"Grupal"});
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
@@ -102,10 +102,12 @@ Template.studentProfile.helpers({
      return "disableDiv";
     };
   },
+  /*
   missions: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return challenges.find({classId: Session.get('classId'),type:"Misión"});
   },
+  */
   badges: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).badges;
@@ -153,8 +155,7 @@ Template.studentProfile.helpers({
     studentId=Session.get('studentId');
     chalId=this._id;
     chalCP=g;
-    //alert("cambio" + studentId + " " + chalId + " " + chalCP);
-    //console.log(chalPoints.findOne({ chalId: chalId, studentId: Session.get('studentId')}).chalCP);
+    /*
     n=chalPoints.find({'studentId':Session.get('studentId'),chalId:chalId}).count();
     if ( n==1 ) {
       Meteor.call('chalUpdatePoints', studentId, chalId, chalCP);
@@ -169,11 +170,12 @@ Template.studentProfile.helpers({
       };
       Meteor.call('chalInsertPoints', chalCP);
     }
+    */
     return "( " + cXP + " de " + t + " ): " + g;
   },
   missionsXPTotalI: function() {
     XPTotal=0;
-    challenges.find({'classId':Session.get('classId'),'type':"Reto"}).forEach(function(c){
+    challenges.find({'classId':Session.get('classId'),'IoG':"Individual"}).forEach(function(c){
       chalMissions.find({'missionId':c._id}).forEach(function(cxp){
         XPTotal+=parseInt(cxp.chalMissionXP);
       });
@@ -182,7 +184,7 @@ Template.studentProfile.helpers({
   },
   missionsXPTotalG: function() {
     XPTotal=0;
-    challenges.find({'classId':Session.get('classId'),'type':"Misión"}).forEach(function(c){
+    challenges.find({'classId':Session.get('classId'),'IoG':"Grupal"}).forEach(function(c){
       chalMissions.find({'missionId':c._id}).forEach(function(cxp){
         XPTotal+=parseInt(cxp.chalMissionXP);
       });
@@ -205,7 +207,7 @@ Template.studentProfile.helpers({
           return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
         }
       } else {
-        return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+        return "https://avatars.dicebear.com/v2/avataaars/"+this._id+".svg";
       }
     } else  {
       if (avatar.substring(0, 4)=="http") {
@@ -353,6 +355,7 @@ Template.studentProfile.helpers({
       return "readonly";
     }
   },
+  /*
   notaXP: function(xp){
     max=students.findOne({classId: Session.get('classId')}, {sort: {XP: -1,_id: 1}}).XP;
     nota=100*xp/max;
@@ -463,13 +466,6 @@ Template.studentProfile.helpers({
               //console.log(cm);
             }
           }
-
-          //console.log(nmm);
-        /*}
-        catch(err){
-          console.error(nmm);
-        }*/
-        //console.log("Dep");
       }
     });
     //console.log(nmm);
@@ -503,9 +499,6 @@ Template.studentProfile.helpers({
     behavioursLog.find({classId: Session.get('classId'),student:Session.get('studentId'),behaviourType: 'HP'}).forEach(function(b){
       n+=parseInt(behaviours.findOne({_id: b.behavior}).points);
     });
-    /*nota=100*xp/max;
-    Session.set('nXP',nota);
-    return "( " + xp + "XP de un máximo de " + max + "XP ) = " + nota;*/
     perHP=classes.findOne({_id: Session.get('classId')}).perHP;
     nota=perHP*n;
     if (isNaN(nota)) { nota=0; }
@@ -524,6 +517,7 @@ Template.studentProfile.helpers({
     notas="{ " + Session.get('nXP')*perXP/100 + " [ " + perXP + " % XP ] + " + Session.get('nBg')*perBG/100 + " [ " + perBG + " % BG ] + " + Session.get('nMM')*perMissions/100 + " [ " + perMissions + " % Misiones ] + " + Session.get('nR')*perChallenges/100 + " [ " + perChallenges + " % Retos ] } - " + Session.get('nHP') + " [ " + perHP + " * HP ]";
     return notas + " = " + nota;
   },
+  */
   parent: function() {
     if (Session.get('userType')!="teacher") {
      return true;
