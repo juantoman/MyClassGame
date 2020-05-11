@@ -332,6 +332,7 @@ Template.studentProfile.helpers({
     if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
       return true;
     }
+    if (!emailStudent) {emailStudent=""}
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
       return true;
     } else {

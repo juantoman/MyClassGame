@@ -1,5 +1,5 @@
 Template.admin.rendered = function() {
-  Session.set('className', "");
+  //Session.set('className', "");
 }
 
 Template.admin.helpers({
@@ -32,7 +32,7 @@ Template.admin.events({
     $("#fondo").css("background-image", "url("+backImg+")");
     Session.set('orderStudents', "XP");
     Session.set('invertOrder', "checked");
-    Router.go('myNav');
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
   },
   'click #btn-duplicar': function(event) {
     event.preventDefault();

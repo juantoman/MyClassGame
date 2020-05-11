@@ -134,7 +134,7 @@ Template.adminClass.events({
       Session.set('studentSelected', false);
       Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     }
-    Router.go("myNav",{_id:Session.get('classId')});
+    Router.go('studentsMainPage',{_id:Session.get('classId')});
     Modal.hide('adminClass');
   }
 });
