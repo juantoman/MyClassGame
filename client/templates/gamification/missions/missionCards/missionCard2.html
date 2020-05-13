@@ -1,7 +1,7 @@
 <template name="missionCard2Template">
     <div class="missionWrapper">
-      <div class="missionCard2 float-up">
-        <div class="front {{#unless missionVisible}}missionCardNotVisible{{/unless}}" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
+      <div class="missionCard2 float-up {{#unless missionVisible}}missionCardNotVisible{{/unless}}">
+        <div class="front" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
           <div class="missionVisibleBtn">
             <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
@@ -85,6 +85,9 @@
             <i class="fa fa-codepen"></i>
             </a>
             -->
+            <a href="javascript:voclass" class="missionInfo">
+              <i class="fas fa-plus-circle"></i>
+            </a>
             <a href="javascript:voclass" class="undoBtn">
               <i class="fa fa-undo"></i>
             </a>

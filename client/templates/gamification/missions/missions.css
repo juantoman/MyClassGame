@@ -1,0 +1,27 @@
+.missionsBtns {
+  font-size: 1em;
+}
+
+#missionId {
+  position: relative;
+  width:500px;
+  height:400px;
+  border:1px solid blue;
+}
+
+.missionP {
+  position:absolute;
+  padding:.1em;
+  margin:0;
+  background-color: red;
+}
+
+#missionP1 {
+  top:100px;
+  left:100px;
+}
+
+#missionP2 {
+  top:300px;
+  left:200px;
+}

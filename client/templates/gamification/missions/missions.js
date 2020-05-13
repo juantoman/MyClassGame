@@ -202,6 +202,14 @@ Template.missions.helpers({
   }
 });
 
+Template.mission.inheritsHelpersFrom('missions');
+
+Template.mission.helpers({
+  mission: function() {
+    return challenges.findOne({_id: Session.get('chalId')});
+  }
+});
+
 Template.missions.events({
   'submit form.missionFormCreate': function(event) {
     event.preventDefault();
@@ -443,8 +451,26 @@ Template.missions.events({
     //Modal.show('scheduler');
   },
   'click .datetimepicker': function(event) {
-        $(event.currentTarget).datetimepicker();
+    event.preventDefault();
+    $(event.currentTarget).datetimepicker();
   },
+  'click .allMissions': function(event) {
+    event.preventDefault();
+    $("#missionsPage").removeClass("oculto");
+    $("#missionPage").addClass("oculto");
+  },
+  'click .oneMission': function(event) {
+    event.preventDefault();
+    $("#missionsPage").addClass("oculto");
+    $("#missionPage").removeClass("oculto");
+    Session.set('chalId',this._id);
+  },
+  'click #missionId': function(event) {
+    event.preventDefault();
+    var x = event.pageX - $('#missionId').offset().left;
+    var y = event.pageY - $('#missionId').offset().top;
+    alert(x + " " + y);
+  }
 });
 
 Template.deleteMission.events({

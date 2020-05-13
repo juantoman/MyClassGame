@@ -32,19 +32,12 @@
             -->
             <label>Clase</label>
             <div class="btn-group className" role="group">
-              {{#if teacher}}
-<<<<<<< HEAD
-                  <input class="text-center" id="className" type="text" value="{{className}}">
-                {{else}}
-                  <input class="text-center" readonly id="className" type="text" value="{{className}}">
-                {{/if}}
-=======
-                <input class="text-center" id="className" type="text" value="{{className}}">
-              {{else}}
-                <input class="text-center" readonly id="className" type="text" value="{{className}}">
-              {{/if}}
->>>>>>> bbd418650c8d172491a9ad72d861f24f7c30dc7a
-            </div>
+             {{#if teacher}}
+                 <input class="text-center" id="className" type="text" value="{{className}}">
+               {{else}}
+                 <input class="text-center" readonly id="className" type="text" value="{{className}}">
+               {{/if}}
+           </div>
             <div class="btn-group className" role="group">
               {{#if teacher}}
                 <button id="hashClase" type="button" class="btn btn-sm">Id Clase</button>

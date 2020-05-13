@@ -128,6 +128,12 @@ Template.missionCard2Template.events({
     event.preventDefault();
     Meteor.call('missionColorChange', this._id, event.currentTarget.value);
   },
+  'click .missionInfo': function(event) {
+    event.preventDefault();
+    $("#missionsPage").addClass("oculto");
+    $("#missionPage").removeClass("oculto");
+    Session.set('chalId',this._id);
+  }
 })
 
 Template.missionCardCreate.events({
