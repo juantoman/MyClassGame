@@ -1110,7 +1110,9 @@ Template.studentProfile.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
+        p=$(event.currentTarget).data('points');
         Meteor.call('studentBadgePull', Session.get('studentId'), this.badgeId);
+        Meteor.call('studentXP', Session.get('studentId'), -p);
         swal({
           title: 'Insignia eliminada!',
           type: 'success'

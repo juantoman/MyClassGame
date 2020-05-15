@@ -529,7 +529,7 @@
                 {{#each badges}}
                   <li class="list-item">
                     <span class="power-icon">{{badge.badgeDescription}}</span>
-                    <span class="stock-icon btn removeBadgeBtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+                    <span class="stock-icon btn removeBadgeBtn" data-points="{{badge.points}}">{{stock}}<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
                     <span class="item-image"><img src="{{image_url badge.badgeImage}}" alt=""></span>
                     <span class="item-strength">{{badge.points}} XP</span>
                   </li>

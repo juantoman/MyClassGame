@@ -117,6 +117,7 @@
               <span>Menú Principal</span>
             </li>
             <li>
+              <!--
               <ul>
                 <li class="active">
                   <a id="studentsMain" href="#" role="tab" data-toggle="tab">
@@ -175,6 +176,89 @@
                   </li>
                   <li>
                     <a id="settings" href="#" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                      <span>Configuración</span>
+                    </a>
+                  </li>
+                {{/if}}
+                {{#unless onlyMyStudent}}
+                  <li class="header-menu">
+                    <span>Estudiantes</span>
+                  </li>
+                  {{#each students}}
+                    <li>
+                      <a href="#" class="student_button" role="tab" data-toggle="tab"><img src="{{image avatar}}" class="avatar" /> {{studentName}}</a>
+                    </li>
+                  {{/each}}
+                  <li class="header-menu">
+                    <span>Equipos</span>
+                  </li>
+                  {{#each groups}}
+                    <li>
+                      <a href="#" class="group_button"><img src="{{gImage}}" class="avatar" /> {{groupName}}</a>
+                    </li>
+                  {{/each}}
+                {{/unless}}
+              </ul>
+              -->
+              <ul>
+                <li class="active" id="studentsMenu">
+                  <a id="studentsMain2" href="#studentsMain" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <span>Estudiantes</span>
+                  </a>
+                </li>
+                <li>
+                  <a id="myAdventure2" href="#myAdventure" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    <span>Aventura</span>
+                  </a>
+                </li>
+                <li>
+                  <a id="chat2" href="#chat" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    <span>Chat</span>
+                  </a>
+                </li>
+                {{#if teacher}}
+                  <li>
+                    <a id="gamification2" href="#gamification" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+                      <span>Elementos del Juego</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="questions2" href="#questions" role="tab" data-toggle="tab">
+                      <i class="fas fa-question-circle"></i>
+                      <span>Cuestionarios</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="battle2" href="#battle" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                      <span>Batallas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="tools2" href="#tools" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                      <span>Herramientas</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="statistics2" href="#statistics" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+                      <span>Historial</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="notifications2" href="#notifications" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                      <span>Notificaciones</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a id="settings2" href="#settings" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                       <span>Configuración</span>
                     </a>

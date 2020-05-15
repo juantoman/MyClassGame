@@ -131,8 +131,8 @@ Template.leftNav.events({
   'click .student_button': function(event) {
     event.preventDefault();
     Session.setPersistent('studentId',this._id);
-    Router.go('studentPage',{_id:Session.get('classId')});
-    /*Session.set('studentSelected', true);
+    //Router.go('studentPage',{_id:Session.get('classId')});
+    Session.set('studentSelected', true);
     Session.setPersistent('sogBtn', "students");
     Session.set('groupSelected', false);
     $(".main-tab-content > .active").removeClass("active");
@@ -143,7 +143,7 @@ Template.leftNav.events({
     $(".sidebar-wrapper .active").removeClass("active");
     //$("#studentsMenu").addClass("active");
     $(event.target).parent().addClass("active");
-    event.stopPropagation();*/
+    event.stopPropagation();
   },
   'click .group_button': function(event) {
     event.preventDefault();
