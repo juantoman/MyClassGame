@@ -144,7 +144,7 @@ a:hover, a:link {
 }
 
 .tab-content{
-  margin-top:20px;
+  /*margin-top:20px;*/
 }
 
 #mainTab {
@@ -793,12 +793,18 @@ input[type=submit] {
 }
 
 .form-group {
-  padding: 10px;
+  padding: 0px;
+  margin: 3px;
   /*
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;
   margin: 10px 0;*/
+}
+
+.form-group.missionFG label input{
+  margin: 8px;
+  vertical-align: middle;
 }
 
 #adventure .btn {
@@ -879,8 +885,8 @@ input[type=submit] {
 }
 
 .big-checkbox {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
 }
 
 .descStudent {

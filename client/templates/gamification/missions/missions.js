@@ -207,6 +207,13 @@ Template.mission.inheritsHelpersFrom('missions');
 Template.mission.helpers({
   mission: function() {
     return challenges.findOne({_id: Session.get('chalId')});
+  },
+  missionType: function(tipo) {
+    if (tipo==this.IoG) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 
@@ -233,11 +240,26 @@ Template.missions.events({
     };
     Meteor.call('chalInsert', chal);
   },
+  'submit form.missionForm': function(event) {
+    event.preventDefault();
+    //alert($(event.target).find('[name=MoC]').val())
+    //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
+    //n=challenges.find({classId: Session.get('classId')}).count()+1;
+    var chal = {
+      IoG: $(event.target).find('[name=IoG]').val(),
+      chalName: $(event.target).find('[name=chalName]').val(),
+      chalDesc: $(event.target).find('[name=chalDesc]').val(),
+      missionVisible: $(event.target).find('[name=missionVisible]').prop('checked'),
+      notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked')
+    };
+    Meteor.call('chalUpdate', this._id, chal);
+  },
   'click .notas': function(event) {
     event.preventDefault();
     Session.set('chalId',this._id)
     Modal.show('notes');
   },
+  /*
   'change .chalName': function(event) {
     event.preventDefault();
     if (event.currentTarget.value )
@@ -251,6 +273,7 @@ Template.missions.events({
     event.preventDefault();
     Meteor.call('chalUpdateDesc', this._id, event.currentTarget.value);
   },
+  */
   'click .chalDel': function(event) {
     event.preventDefault();
     Session.set('missionId',this._id)
@@ -288,12 +311,12 @@ Template.missions.events({
     } else {
       $("#selectMoC").val("Reto");
     };
-  },*/
+  },
   'change .nbDepCheck': function(event) {
     event.preventDefault();
     //alert(event.currentTarget.checked);
     Meteor.call('nbDepChange', this._id, event.currentTarget.checked);
-  },
+  },*/
   'click .chalSave': function(event) {
     event.preventDefault();
     id=this._id;
@@ -410,13 +433,15 @@ Template.missions.events({
   },
   'click .duplicarMision': function(event) {
     event.preventDefault();
-    Session.set('chalId',event.target.name);
+    //Session.set('chalId',event.target.name);
     cId=Session.get('classId');
     var c = challenges.findOne({'_id': Session.get('chalId')});
+    n=challenges.find({'classId':Session.get('classId')}).count();
     mId=c._id;
     delete c._id;
     missionName=c.chalName;
     c.chalName="Copia de " + missionName;
+    c.order=n+1;
     Meteor.call('chalDuplicate',c,cId,mId);
   },
   'click .drive': function(event) {
@@ -477,5 +502,7 @@ Template.deleteMission.events({
   'submit form': function(event) {
     Meteor.call('chalDelete',Session.get('missionId'),Session.get('classId'));
     Modal.hide('deleteMission');
+    $("#missionsPage").removeClass("oculto");
+    $("#missionPage").addClass("oculto");
   }
 });

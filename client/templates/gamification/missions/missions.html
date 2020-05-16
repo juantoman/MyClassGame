@@ -35,28 +35,71 @@
 <template name="mission">
   <div class="container-fluid float-up">
     {{#with mission}}
-      <div class="form-group">
-        <div class="input-group col-xs-12">
-          <label for="chalName">Nombre misión {{IoG}}</label>
-          <input type="text" class="form-control inputGroup chalName" name="chalName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
-        </div>
-        <div class="input-group col-xs-12">
-          <label for="chalDesc">Descripción</label>
-          <textarea class="form-control chalDesc" name="chalDesc" {{teacher}} rows="3">{{chalDesc}}</textarea>
-        </div>
-        <div class="input-group mb-3">
-          <input type="checkbox" class="nbDepCheck" name="nbDepCheck" {{disTeacher}} checked={{notebookDependence}}>
-          <label for="nbDepCheck"> Notas dependen del cuaderno de grupo</label>
-        </div>
-        {{#if isTeacher}}
-          <div class="input-group mb-3">
-            <button class="duplicarMision btn btn-info" name="duplicarMision">Duplicar</button>
-            <!--<button class="notas btn btn-info" name="{{_id}}">Introducir Notas</button>-->
-            <button class="btn btn-info chalDel" name="chalDel">Eliminar</button>
-            <label for="nbDepCheck"> Color </label> <!--<input class="btn missionColor" type="color" value="{{missionColor}}">-->
-            <input type="color" value="{{missionColor}}" class="colorpicker missionColor">
+      <div class="float-up">
+        <h2>Mision {{IoG}} {{order}}</h2>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-3">
+            {{> missionCard2Template}}
           </div>
-        {{/if}}
+          <div class="col-xs-9">
+            <form role="form" class="missionForm">
+              <div class="row">
+
+                <div class="col-xs-12 col-sm-7">
+                  <div class="form-group">
+                    <label for="chalName" class="control-label">Nombre</label>
+                    <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
+                  </div>
+                </div>
+
+                <div class="col-xs-8 col-sm-4">
+                  <div class="form-group">
+                    <label for="sName" class="control-label">Tipo</label>
+                    <select class="custom-select form-control input-lg" name="IoG">
+                      <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
+                      <option value="Individual" selected="{{#if missionType 'Individual'}}selected{{/if}}">Individual</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-1">
+                  <div class="form-group">
+                    <label for="sName" class="control-label">Visible</label>
+                    <label class="switch">
+                      <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="chalDesc" class="control-label">Descripción</label>
+                    <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12">
+                  <div class="form-group missionFG">
+                    <label class="control-label"> Notas dependen del cuaderno de grupo <input type="checkbox" class="big-checkbox" name="notebookCheck" checked={{notebookDependence}}></label>
+                    <label for="notebookCheck" class="control-label">Color <input type="color" value="{{missionColor}}" class="colorpicker missionColor form-control input-lg"></label>
+                  </div>
+                </div>
+
+              </div>
+
+              <hr class="colorgraph">
+              <div class="row">
+                  <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">Duplicar</button></div>
+                  <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">Eliminar</button></div>
+                  <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
         <div class="input-group col-xs-12">
           <div class="panel panel-info" id="{{_id}}">
             <div class="panel-heading">Tareas</div>
@@ -153,7 +196,7 @@
             {{/if}}
           </div>
         </div>
-      </div>
+
     {{/with}}
   </div>
 </template>

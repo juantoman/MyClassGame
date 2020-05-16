@@ -186,7 +186,7 @@
                   		<div class="form-group">
                   			<label for="sLevel" class="control-label">{{_ "level"}}</label>
                         <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-                        <select class="form-control" id="sLevel" name="sLevel" {{inputDisabled}}>
+                        <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}}>
                           {{#each selectLevels}}
                             <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
                           {{/each}}
@@ -529,7 +529,7 @@
                 {{#each badges}}
                   <li class="list-item">
                     <span class="power-icon">{{badge.badgeDescription}}</span>
-                    <span class="stock-icon btn removeBadgeBtn" data-points="{{badge.points}}">{{stock}}<span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+                    <span class="stock-icon btn {{#if teacher}}removeBadgeBtn{{/if}}" data-points="{{badge.points}}">{{stock}}{{#if teacher}}<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>{{/if}}</span>
                     <span class="item-image"><img src="{{image_url badge.badgeImage}}" alt=""></span>
                     <span class="item-strength">{{badge.points}} XP</span>
                   </li>
@@ -568,7 +568,7 @@
                 {{#each cards}}
                   <li class="list-item">
                     <span class="power-icon">{{card.cardName}}</span>
-                    <span class="stock-icon btn removeCardBtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
+                    {{#if teacher}}<span class="stock-icon btn removeCardBtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>{{/if}}
                     <!--<span class="stock-icon">{{cardTypeDesc card.cardType}}</span>-->
                     <span class="item-image"><img src="{{image_url card.cardImage}}" alt=""></span>
                     <span class="item-strength">{{card.cardPrice}} €</span>
