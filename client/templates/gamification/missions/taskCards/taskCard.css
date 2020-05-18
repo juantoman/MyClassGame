@@ -20,12 +20,12 @@
 .taskCard img
 {
   height:100%;
-  width:100%;
   position:absolute;
   top:0;
   left:0;
   z-index:0;
   transition: all 0.4s ease-out;
+  opacity: 0.7;
 }
 .taskCard .text
 {
@@ -42,6 +42,7 @@
   text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 
 }
+
 .taskCard h1.fasIcon {
   position:relative;
   top: 50%;
@@ -52,84 +53,93 @@
 
 .taskCard h2
 {
-  font-size:1em;
+  font-size:1.2em;
   margin:20px 0 0 0;
   font-style:italic;
-  transform: translateX(200px);
+  /*transform: translateX(200px);*/
 }
+
 .taskCard p
 {
-  font-size:.8em;
+  font-size:1em;
   margin:20px 0 0 0;
   line-height: 15px;
-/*   opacity:0; */
-  transform: translateX(-200px);
+  /*   opacity:0;
+  transform: translateX(-200px);*/
   transition-delay: 0.2s;
 }
+
 .taskCard .animate-text
 {
-  opacity:0;
+  opacity:0.5;
   transition: all 0.6s ease-in-out;
 }
+
 .taskCard:hover
 {
-/*   background-color:#99aeff; */
-box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+    /*   background-color:#99aeff; */
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:scale(1.05);
 }
+
 .taskCard:hover img
 {
   opacity: 0.2;
 }
+
 .taskCard:hover .animate-text
 {
   transform:translateX(0);
   opacity:1;
 }
-.taskCard .dots
-{
-  position:absolute;
-  bottom:10px;
-  right:5px;
-  margin: 0 auto;
-  width:25px;
-  height:25px;
-  color:currentColor;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:space-around;
 
+.taskCard .taskButtons {
+  font-size: 1.5em;
+  opacity: 0.5;
+  transition: font-size 0.4s ease-out, opacity 0.5s ease;
+  cursor: pointer;
 }
 
-.taskCard .dots span
-{
-    width: 5px;
-    height:5px;
-    background-color: currentColor;
-    border-radius: 50%;
-    display:block;
-  opacity:0;
-  transition: transform 0.4s ease-out, opacity 0.5s ease;
-  transform: translateY(30px);
-
+.taskCard:hover .taskButtons {
+  font-size: 1.7em;
+  opacity: 1;
 }
 
-.taskCard:hover span
-{
-  opacity:1;
-  transform:translateY(0px);
+.taskCard .taskButtons .chalMissionDel{
+  position: absolute;
+  top:5px;
+  right: 10px;
 }
 
-.taskCard .dots span:nth-child(1)
-{
-   transition-delay: 0.05s;
+.taskCard .taskButtons .taskOrderDown{
+  position: absolute;
+  bottom:75px;
+  right: 10px;
 }
-.taskCard .dots span:nth-child(2)
-{
-   transition-delay: 0.1s;
+
+.taskCard .taskButtons .taskOrderUp{
+  position: absolute;
+  bottom:75px;
+  left: 10px;
 }
-.taskCard .dots span:nth-child(3)
-{
-   transition-delay: 0.15s;
+
+.taskCard .taskButtons .taskBtnCenter{
+  position: absolute;
+  bottom:0px;
+  width:100%;
+  padding:2px;
+  transition: background 0.4s;
+}
+
+.taskCard:hover .taskButtons .taskBtnCenter{
+  background: transparent !important;
+}
+
+.taskCard .taskButtons .taskBtnCenter *{
+  margin: 0 10px;
+  transition: all 0.4s;
+}
+
+.taskCard:hover .taskButtons .taskBtnCenter *{
+  margin: 0 12px;
 }

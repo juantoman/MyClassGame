@@ -51,6 +51,14 @@ Template.taskCardTemplate.helpers({
       color=LightenDarkenColor(color,-150);
     }
     return color;
+  },
+  cardPic: function(missionImg) {
+    if (missionImg) {
+      url=images.findOne({_id: missionImg}).image_url;
+    } else {
+      url="";
+    }
+    return url;
   }
 });
 
@@ -77,5 +85,13 @@ Template.taskCardCreateTemplate.helpers({
       color=LightenDarkenColor(color,-150);
     }
     return color;
+  },
+  cardPic: function(missionImg) {
+    if (missionImg) {
+      url=images.findOne({_id: missionImg}).image_url;
+    } else {
+      url="";
+    }
+    return url;
   }
 });

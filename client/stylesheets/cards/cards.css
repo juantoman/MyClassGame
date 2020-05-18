@@ -6,7 +6,14 @@ figure {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5) !important;
-  transition: transform 0.3s;
+  border:0px solid yellow;
+  transition: ease 0.3s;
+
+}
+
+
+figure.selected {
+  border:3px solid yellow;
 
 }
 
@@ -55,7 +62,7 @@ h1, h2, h3, h4, h5 {
   display: inline-block;
   width: 300px;
   padding: 1em;
-  border-radius: 15px;
+  border-radius: 10px;
   margin: 5px;
   background: #ddd;
   text-align: left;
@@ -96,7 +103,8 @@ h1, h2, h3, h4, h5 {
     border-radius: 3px 3px 0 0;
     height: 200px;
     position: relative;
-  }
+    border-top:5px solid rgba(255,255,255, 0);
+}
 
 .card__image-containerType {
     background-color: rgba(0,0,0, 0.3) !important;
@@ -175,7 +183,7 @@ h1, h2, h3, h4, h5 {
 
 .cardMessages {
     position: absolute;
-    bottom: 5px;
+    top: 5px;
     right: 5px;
     width:25px;
     background-color: #00ff00 !important;

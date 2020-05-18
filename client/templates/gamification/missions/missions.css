@@ -88,3 +88,28 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+.tooltip{
+  font-size: 1.5em !important;
+}
+
+.tooltip-inner {
+  background-color: #2196F3 !important;
+  color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: #2196F3 !important;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: #2196F3 !important;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: #2196F3 !important;
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: #2196F3 !important;
+}
