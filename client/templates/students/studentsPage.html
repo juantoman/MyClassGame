@@ -19,7 +19,7 @@
       {{#each students}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent float-up">
           <figure class="card card__water {{#if myuser email}}myuser{{/if}} {{#if selected}}selected{{/if}}">
-            <div class="card__image-container {{#if selected}}selected{{/if}}" name="{{_id}}">
+            <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
               {{#if teacher}}
                 <p class="{{#unless present}}studentAbsent{{else}}studentPresent{{/unless}} label">{{#unless present}}AUSENTE{{else}}PRESENTE{{/unless}}</p>

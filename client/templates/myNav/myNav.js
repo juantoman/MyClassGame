@@ -99,7 +99,12 @@ Template.myNav.events({
     event.preventDefault();
     $("#collapseStudents").removeClass("in");
     //Router.go('/');
-  }/*,
+  },
+  'click .btnCF': function(event) {
+    event.preventDefault();
+    Modal.show('notifyModal');
+  }
+  /*,
   'click #menu_lateral li': function(event) {
     event.preventDefault();
     $("#menu_lateral").toggleClass("visible");

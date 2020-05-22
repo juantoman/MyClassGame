@@ -58,7 +58,7 @@
             <li>
               <a href="#">
                 <i class="fas fa-layer-group"></i>
-                <span class="clases">Mis Clases</span>
+                <span class="clases">{{_ "myclasses"}}</span>
                 <!--
                 <span class="badge badge-pill badge-warning">New</span>
                 -->
@@ -114,7 +114,7 @@
               -->
             </li>
             <li class="header-menu">
-              <span>Menú Principal</span>
+              <span>{{_ "PrincipalMenu"}}</span>
             </li>
             <li>
               <!--
@@ -205,13 +205,13 @@
                 <li class="active" id="studentsMenu">
                   <a id="studentsMain2" href="#studentsMain" role="tab" data-toggle="tab">
                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                    <span>Estudiantes</span>
+                    <span>{{_ "students"}}</span>
                   </a>
                 </li>
                 <li>
                   <a id="myAdventure2" href="#myAdventure" role="tab" data-toggle="tab">
                     <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                    <span>Aventura</span>
+                    <span>{{_ "adventure"}}</span>
                   </a>
                 </li>
                 <li>
@@ -224,49 +224,49 @@
                   <li>
                     <a id="gamification2" href="#gamification" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
-                      <span>Elementos del Juego</span>
+                      <span>{{_ "GameElements"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="questions2" href="#questions" role="tab" data-toggle="tab">
                       <i class="fas fa-question-circle"></i>
-                      <span>Cuestionarios</span>
+                      <span>{{_ "quizzes"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="battle2" href="#battle" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
-                      <span>Batallas</span>
+                      <span>{{_ "battles"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="tools2" href="#tools" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-                      <span>Herramientas</span>
+                      <span>{{_ "tools"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="statistics2" href="#statistics" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-                      <span>Historial</span>
+                      <span>{{_ "history"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="notifications2" href="#notifications" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                      <span>Notificaciones</span>
+                      <span>{{_ "notifications"}}</span>
                     </a>
                   </li>
                   <li>
                     <a id="settings2" href="#settings" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                      <span>Configuración</span>
+                      <span>{{_ "configuration"}}</span>
                     </a>
                   </li>
                 {{/if}}
                 {{#unless onlyMyStudent}}
                   <li class="header-menu">
-                    <span>Estudiantes</span>
+                    <span>{{_ "students"}}</span>
                   </li>
                   {{#each students}}
                     <li>
@@ -274,7 +274,7 @@
                     </li>
                   {{/each}}
                   <li class="header-menu">
-                    <span>Equipos</span>
+                    <span>{{_ "teams"}}</span>
                   </li>
                   {{#each groups}}
                     <li>
@@ -286,7 +286,7 @@
             </li>
             {{/if}}
             <li class="header-menu">
-              <span>Ayudas</span>
+              <span>{{_ "help"}}</span>
             </li>
             <li>
               <a href="https://myclassgame.helpsite.com/" target="_blank">

@@ -215,5 +215,9 @@ Template.classesPage.events({
     if (Meteor.user().services.google.email == "Juan.Torres@iestacio.com") {
       $('#allClasses').toggleClass("oculto");
     }
+  },
+  'click .btnCF': function(event) {
+    event.preventDefault();
+    Modal.show('notifyModal');
   }
 });

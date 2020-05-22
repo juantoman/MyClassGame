@@ -10,5 +10,9 @@ Template.carrusel.events({
   'click .btnSignin': function(event) {
     event.preventDefault();
     Modal.show('signinModal');
+  },
+  'click .btnCF': function(event) {
+    event.preventDefault();
+    Modal.show('notifyModal');
   }
 });

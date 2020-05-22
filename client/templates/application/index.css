@@ -261,3 +261,16 @@ body {
     margin-top: 120px;
   }
 }
+
+#i18nDropdown{
+  position:absolute;
+  right:15px;
+  top:15px;
+}
+
+.btnCF {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+}

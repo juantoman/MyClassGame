@@ -11,12 +11,6 @@ figure {
 
 }
 
-
-figure.selected {
-  border:3px solid yellow;
-
-}
-
 figure:hover {
   -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
   -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 1) !important;
@@ -66,6 +60,10 @@ h1, h2, h3, h4, h5 {
   margin: 5px;
   background: #ddd;
   text-align: left;
+}
+
+.card.selected {
+  -webkit-filter: drop-shadow(15px 15px 15px #a00 );
 }
 
 .card_image {
