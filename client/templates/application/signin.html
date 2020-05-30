@@ -12,7 +12,7 @@
           <div class="container" id="container">
           	<div class="form-container sign-up-container">
           		<form action="#" class="login-form-code">
-          			<h1>Estudiante con código</h1>
+          			<h1>{{_ "studentWithCode"}}</h1>
                 <!--
           			<div class="social-container">
           				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -22,19 +22,19 @@
                 -->
           			<input type="text" placeholder="Alias" id="aliasStudent" />
           			<input type="password" placeholder="Code" id="codeStudent" />
-          			<button type="submit">Iniciar sesión</button>
+          			<button type="submit">{{_ "signin"}}</button>
           		</form>
           	</div>
           	<div class="form-container sign-in-container">
           		<form action="#" class="login-form-email">
-          			<h1>Usuario con correo</h1>
+          			<h1>{{_ "userWithEmail"}}</h1>
           			<button id="google">Google</button>
-          			<span>o utiliza tu cuenta de correo</span>
+          			<span>{{_ "useAnEmail"}}</span>
           			<input type="email" placeholder="Email" id="emailTeacher"/>
           			<input type="password" placeholder="Contraseña" id="passwordTeacher"/>
-          			<a href="#" id="reset">¿Olvidaste tu contraseña?</a>
-          			<button type="submit">Iniciar sesión</button>
-                <button id="register">Registrar</button>
+          			<a href="#" id="reset">{{_ "remember"}}</a>
+          			<button type="submit">{{_ "signin"}}</button>
+                <button id="register">{{_ "register"}}</button>
           		</form>
           	</div>
           	<div class="overlay-container">
@@ -42,16 +42,16 @@
           			<div class="overlay-panel overlay-left">
                   <img width="60vmax" src="/images/@mcgnb.png">
                   <br />
-          				<h1>!Bienvenid@ a <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
-          				<p>Si utilizas una cuenta de correo</p>
-          				<button class="ghost" id="signIn">Usuario con correo</button>
+          				<h1>{{_ "welcomeTo"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
+          				<p>{{_ "ifUseEmail"}}</p>
+          				<button class="ghost" id="signIn">{{_ "userWithEmail"}}</button>
           			</div>
           			<div class="overlay-panel overlay-right">
                   <img width="60vmax" src="/images/@mcgnb.png">
                   <br />
-          				<h1>!Bienvenid@ a <span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
-          				<p>Si eres estudiante con código</p>
-          				<button class="ghost" id="signUp">Estudiante con código</button>
+          				<h1>{{_ "welcomeTo"}} <span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
+          				<p>{{_ "ifStudentCode"}}</p>
+          				<button class="ghost" id="signUp">{{_ "studentWithCode"}}</button>
           			</div>
           		</div>
           	</div>

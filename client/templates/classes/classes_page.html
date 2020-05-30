@@ -59,7 +59,7 @@
   </div>
   -->
   <br/>
-  <h3 class="nameSection">Mis clases</h3>
+  <h3 class="nameSection">{{_ "myclasses"}}</h3>
   <div class="container-fluid myContent activeClasses float-up">
     <!--<h4 id="pruebas">Pruebas</h4>-->
     <div class="row" id="allClasses">
@@ -105,7 +105,7 @@
         -->
       {{/each}}
       {{#each classesStudent}}
-        <figure class="card card__ice btn-class classAsStudent">
+        <figure class="card card__ice btn-class classAsStudent" style="margin:5px auto;">
           <div class="card__image-container" >
             <img class="cardLogo" src="/images/@mcgnb.png">
             <img src="{{classImage}}" class="card__image">
@@ -120,7 +120,7 @@
         </figure>
       {{/each}}
       {{#each classesParent}}
-        <figure class="card card__ice btn-class classAsParent">
+        <figure class="card card__ice btn-class classAsParent" style="margin:5px auto;">
           <div class="card__image-container" >
             <img class="cardLogo" src="/images/@mcgnb.png">
             <img src="{{classImage}}" class="card__image">

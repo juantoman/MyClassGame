@@ -1,12 +1,12 @@
 <template name="xpModal">
     <!-- XP Modal -->
-   <div class="modal xpModal" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal xpModal fade" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_xp_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="XPModalLabel">Incrementar XP</h4>
+            <h4 class="modal-title" id="XPModalLabel">{{_ "studentXP"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
@@ -18,12 +18,12 @@
                     </button>
                   {{/each}}
                 </ul>
-                <label for="student-name" class="control-label">Comentarios</label>
+                <label for="student-name" class="control-label">{{_ "comments"}}</label>
                 <input type="text" class="form-control" id="commentXP" name="commentXP">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>

@@ -55,7 +55,7 @@ h1, h2, h3, h4, h5 {
 .card, .card-turned {
   display: inline-block;
   width: 300px;
-  padding: 1em;
+  padding: 15px;
   border-radius: 10px;
   margin: 5px;
   background: #ddd;
@@ -63,7 +63,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .card.selected {
-  -webkit-filter: drop-shadow(15px 15px 15px #a00 );
+  border: 4px solid GreenYellow;
+  padding: 10px;
 }
 
 .card_image {

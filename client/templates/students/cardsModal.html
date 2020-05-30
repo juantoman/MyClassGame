@@ -1,22 +1,22 @@
 <template name="cardsModal">
   <!-- HP Modal -->
-   <div class="modal" id="cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_card_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="cardsModalLabel">Cartas y cromos</h4>
+            <h4 class="modal-title" id="cardsModalLabel">{{_ "powers"}}/{{_ "collections"}}</h4>
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Cartas</a></li>
-              <li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Cromos</a></li>
+              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "powers"}}</a></li>
+              <li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "collections"}}</a></li>
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
               <div role="tabpanel" class="tab-pane active cardsModal" id="cartas">
-                <h2 class="text-center bg-info">Cartas</h2>
+                <h2 class="text-center bg-info">{{_ "powers"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each cards}}
@@ -33,7 +33,7 @@
                 </div>
               </div>
               <div role="tabpanel" class="tab-pane chromesModal" id="cromos">
-                <h2 class="text-center bg-info">Cromos</h2>
+                <h2 class="text-center bg-info">{{_ "collections"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="cardModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>

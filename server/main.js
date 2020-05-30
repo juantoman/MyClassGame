@@ -6,9 +6,9 @@ import { Email } from 'meteor/email';
 
 Meteor.startup(() => {
 
-  //API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
+  API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
   //process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
-  //process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
+  process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
   //Escribir en fichero local
   //fs = Npm.require('fs');
 });

@@ -3,36 +3,36 @@
 
   <!-- Add Student Modal -->
 
-  <div class="modal" id="add_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="add_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="add_student_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="AddStudentModalLabel">Añadir estudiantes</h4>
+            <h4 class="modal-title" id="AddStudentModalLabel">{{_ "add_student"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
-                <label for="student-name" class="control-label">Nombres estudiantes (separados por coma)</label>
+                <label for="student-name" class="control-label">{{_ "studentNames"}}</label>
                 <input type="text" class="form-control" name="students-names">
               </div>
               <div class="form-group">
-                <label for="student-name" class="control-label">Correos estudiantes (separados por coma)</label>
+                <label for="student-name" class="control-label">{{_ "studentEmails"}}</label>
                 <input type="text" class="form-control" name="students-emails">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </form>
       </div>
     </div>
   </div>
-  
+
   <!-- Modify Student Modal -->
 
-  <div class="modal" id="mod_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="mod_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="mod_student_form">
@@ -43,9 +43,9 @@
           {{#with student}}
             <div class="modal-body">
               <div class="form-group">
-                <label for="sName" class="control-label">Nombre estudiante</label>
+                <label for="sName" class="control-label">{{_ "student_name"}}</label>
                 <input type="text" class="form-control" id="sName" name="sName" value="{{studentName}}">
-                <label for="sLevel" class="control-label">Nivel</label>
+                <label for="sLevel" class="control-label">{{_ "level"}}</label>
                 <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}">
                 <label for="sAlias" class="control-label">Alias</label>
                 <input type="text" class="form-control" id="sAlias" name="sAlias"  value="{{alias}}">
@@ -55,36 +55,36 @@
             </div>
           {{/with}}
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </form>
       </div>
     </div>
-  </div>  
+  </div>
 
   <!-- Add Group Modal -->
 
-  <div class="modal" id="add_group_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="add_group_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="add_group_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="AddGroupModalLabel">Añadir equipo</h4>
+            <h4 class="modal-title" id="AddGroupModalLabel">{{ _"newTeam"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
-                <label for="student-name" class="control-label">Nombre equipo</label>
+                <label for="student-name" class="control-label">{{ _"team_name"}}</label>
                 <input type="text" class="form-control" id="group-name" name="group-name">
               </div>
               <div class="form-group">
-                <label for="studentsNumber" class="control-label">Número de estudiantes aleatorios</label>
+                <label for="studentsNumber" class="control-label">{{ _"studentsNumberTeam"}}</label>
                 <input type="text" class="form-control" id="studentsNumber" name="studentsNumber" value="0">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </form>

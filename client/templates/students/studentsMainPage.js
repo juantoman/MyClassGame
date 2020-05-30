@@ -89,7 +89,7 @@ Template.studentsMainPage.events({
   },
   'click .btn-gol': function(event) {
     event.preventDefault();
-    Session.setPersistent('golBtn', event.target.id);
+    Session.setPersistent('golBtn', event.currentTarget.id);
   },
   'click .btn-all': function(event) {
     event.preventDefault();

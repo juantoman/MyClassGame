@@ -4,9 +4,9 @@ Template.groupProfile.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) {
-      return "list-group-item-danger"; 
+      return "list-group-item-danger";
     } else {
-      return "noGroup"; 
+      return "noGroup";
     }
   },
   gImage: function() {
@@ -91,7 +91,9 @@ Template.groupProfile.events({
     event.preventDefault();
     Session.set('imageType','group');
     Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
+    if (Session.get('userType')=="teacher") {
+      Modal.show('imagesTemplate');
+    }
   },
   'click .btn-warning': function(event) {
     event.preventDefault();
@@ -101,7 +103,7 @@ Template.groupProfile.events({
   'click button.list-group-item': function(event) {
     if (Session.get('userType')=="teacher") {
       event.preventDefault();
-      
+
       if ($(event.currentTarget).hasClass("list-group-item-danger")){
         $(event.currentTarget).removeClass("list-group-item-danger");
         $(event.currentTarget).addClass("noGroup");

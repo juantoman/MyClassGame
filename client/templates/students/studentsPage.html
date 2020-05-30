@@ -39,7 +39,7 @@
               </h3>
               <img class="medal {{medal}}" src="/images/{{medal}}">
               <h3 class="card__type">
-                Nivel {{levelAutomatic _id}}
+                {{_ "level"}} {{levelAutomatic _id}}
               </h3>
 
               <table class="card__stats">
@@ -55,7 +55,7 @@
                   </tr>
 
                   <tr>
-                    <th><span class="btn-store">Monedas</span></th>
+                    <th><span class="btn-store">$ </span></th>
                     <td><span class="btn-store">{{coins}}</span></td>
                   </tr>
 
@@ -152,6 +152,7 @@
     </div>
     -->
     <div class="container-responsive">
+      <!--
       {{#if teacher}}
 
           <div class="btn-group newStudentBtn" role="group">
@@ -161,6 +162,7 @@
           </div>
 
       {{/if}}
+      -->
       {{#each students}}
 
       <div class="user-card flex-container float-up delay-1">
@@ -188,14 +190,14 @@
 
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-primary btn-store">
-              <h6 class="text-center">Monedas</h6>
+              <h6 class="text-center">$</h6>
               <h4 class="text-center">{{coins}}</h4>
             </button>
           </div>
 
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-default">
-              <h6 class="text-center">Equipo</h6>
+              <h6 class="text-center">{{_ "team"}}</h6>
               <h4 class="text-center">{{grupo.groupName}}</h4>
             </button>
           </div>

@@ -1,18 +1,18 @@
 <template name="messageModal">
   <!-- HP Modal -->
-   <div class="modal hpModal" id="hp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal hpModal fade" id="hp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_hp_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="HPModalLabel">ID CLASE</h4>
+            <h4 class="modal-title" id="HPModalLabel">ClassId</h4>
           </div>
           <div class="form-group">
             <p class="idClass text-center">{{classId}}</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
           </div>
         </div>
       </div>

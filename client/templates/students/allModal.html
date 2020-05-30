@@ -1,16 +1,16 @@
 <template name="allModal">
   <!-- All Modal -->
-  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="GroupModalLabel">Añadir estudiantes al equipo "{{groupName}}"</h4>
+            <h4 class="modal-title" id="GroupModalLabel">{{_ "addStudentsTeam"}} "{{groupName}}"</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
-                <label for="student-name" class="control-label">Nombre equipo</label>
+                <label for="student-name" class="control-label">{{_ "team_name"}}</label>
                 <input type="text" class="form-control" id="gName" name="gName" value="{{groupName}}">
               </div>
           </div>
@@ -26,7 +26,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Cerrar</button>
+            <button type="button" class="btn btn-default">{{_ "close"}}</button>
             <input type="submit" id="groupModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
@@ -38,13 +38,13 @@
 
 <!-- All XP Modal -->
 <template name="allXPModal">
-   <div class="modal" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_xp_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="XPModalLabel">Incrementar XP a todos los alumnos seleccionados</h4>
+            <h4 class="modal-title" id="XPModalLabel">{{_ "allStudentsXP"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
@@ -56,12 +56,12 @@
                     </button>
                   {{/each}}
                 </ul>
-                <label for="student-name" class="control-label">Comentarios</label>
+                <label for="student-name" class="control-label">{{_ "comments"}}</label>
                 <input type="text" class="form-control" id="commentXPGroup" name="commentXPGroup">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
@@ -72,13 +72,13 @@
 
 <!-- All HP Modal -->
 <template name="allHPModal">
-   <div class="modal" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_hp_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="HPModalLabel">Reducir HP a todos los alumnos seleccionados</h4>
+            <h4 class="modal-title" id="HPModalLabel">{{_ "allStudentsHP"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
@@ -90,12 +90,12 @@
                     </button>
                   {{/each}}
                 </ul>
-                <label for="student-name" class="control-label">Comentarios</label>
+                <label for="student-name" class="control-label">{{_ "comments"}}</label>
                 <input type="text" class="form-control" id="commentHPGroup" name="commentHPGroup">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="hpModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
@@ -106,13 +106,13 @@
 
 <!-- All BG Modal -->
 <template name="allBGModal">
-   <div class="modal" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_bg_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="HPModalLabel">Asignar insignia a todos los alumnos seleccionados</h4>
+            <h4 class="modal-title" id="HPModalLabel">{{_ "allStudentsBG"}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
@@ -124,12 +124,12 @@
                     </button>
                   {{/each}}
                 </ul>
-                <label for="student-name" class="control-label">Comentarios</label>
+                <label for="student-name" class="control-label">{{_ "comments"}}</label>
                 <input type="text" class="form-control" id="commentBGGroup" name="commentHPGroup">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="bgModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
@@ -140,23 +140,23 @@
 
 <!-- All Cards Modal -->
 <template name="allCardsModal">
-   <div class="modal" id="all_cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="all_cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_card_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="cardsModalLabel">Cartas y cromos</h4>
+            <h4 class="modal-title" id="cardsModalLabel">{{_ "allPowersCollections"}}</h4>
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Cartas</a></li>
-              <li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Cromos</a></li>
+              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "powers"}}</a></li>
+              <li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "collections"}}</a></li>
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
               <div role="tabpanel" class="tab-pane active cardsModal" id="cartas">
-                <h2 class="text-center bg-info">Cartas</h2>
+                <h2 class="text-center bg-info">{{_ "powers"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each cards}}
@@ -173,7 +173,7 @@
                 </div>
               </div>
               <div role="tabpanel" class="tab-pane chromesModal" id="cromos">
-                <h2 class="text-center bg-info">Cromos</h2>
+                <h2 class="text-center bg-info">{{_ "collections"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
@@ -192,7 +192,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" id="cardModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
@@ -203,26 +203,26 @@
 
 <!-- All Coins Modal -->
 <template name="allCoinsModal">
-   <div class="modal" id="all_coins_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade" id="all_coins_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="allCoinsModalLabel">Dinero</h4>
+            <h4 class="modal-title" id="allCoinsModalLabel">{{_ "buy"}}</h4>
           </div>
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Ganar</a></li>
-              <li role="presentation"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Tienda</a></li>
+              <li role="presentation" class="active"><a href="#earn" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "money"}}</a></li>
+              <li role="presentation"><a href="#spend" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "store"}}</a></li>
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
               <div role="tabpanel" class="tab-pane active" id="earn">
-                <h2 class="text-center bg-info">Ganar</h2>
+                <h2 class="text-center bg-info">{{_ "money"}}</h2>
                   <div class="billetes text-center">
                       <button type="button" class="btn btn-info" name="one">
                         <span class="badge text-center">1 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" /></span>
@@ -269,7 +269,7 @@
                     </div>
               </div>
               <div role="tabpanel" class="tab-pane" id="spend">
-                <h2 class="text-center bg-info">Tienda</h2>
+                <h2 class="text-center bg-info">{{_ "store"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each itemList}}
@@ -294,7 +294,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Cerrar</button>
+            <button type="button" class="btn btn-default">{{_ "close"}}</button>
             <input type="submit" id="allCoinsModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
