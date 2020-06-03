@@ -43,10 +43,10 @@
                       {{#with student1Battle}}
                         <h1 class="card__name">{{studentName}}</h1>
                         <h3 class="studentTeam">
-                          Grupo
+                          {{_ "team"}}
                         </h3>
                         <h3 class="card__type">
-                          Nivel {{level}}
+                          {{_ "level"}} {{level}}
                         </h3>
 
                         <table class="card__stats">
@@ -60,7 +60,7 @@
                           </tr>
 
                           <tr>
-                            <th><span class="btn-store">Monedas</span></th>
+                            <th><span class="btn-store">$</span></th>
                             <td><span class="btn-store">{{coins}}</span></td>
                           </tr>
 
@@ -124,10 +124,10 @@
                           {{#with student2Battle}}
                             <h1 class="card__name">{{studentName}}</h1>
                             <h3 class="studentTeam">
-                              Grupo
+                              {{_ "team"}}
                             </h3>
                             <h3 class="card__type">
-                              Nivel {{level}}
+                              {{_ "level"}} {{level}}
                             </h3>
                             <table class="card__stats">
                               <tbody>
@@ -141,7 +141,7 @@
                                 </tr>
 
                                 <tr>
-                                  <th><span class="btn-store">Monedas</span></th>
+                                  <th><span class="btn-store">$</span></th>
                                   <td><span class="btn-store">{{coins}}</span></td>
                                 </tr>
                               </tbody>

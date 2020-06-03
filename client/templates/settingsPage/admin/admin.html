@@ -45,11 +45,11 @@
       <ul class="list-items">
         <li class="list-item addBtn" id="btn-acceso-estudiantes">
           <span class="item-image btn"><span class="glyphicon glyphicon-education" aria-hidden="true"></span></span>
-          <p class="text-center" style="padding:5px;">Acceso estudiantes</p>
+          <p class="text-center" style="padding:5px;">{{_ "studentsCards"}}</p>
         </li>
         <li class="list-item addBtn" id="btn-acceso-padres">
           <span class="item-image btn"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-          <p class="text-center" style="padding:5px;">Acceso padres</p>
+          <p class="text-center" style="padding:5px;">{{_ "familyCards"}}</p>
         </li>
         <!--
         <li class="list-item addBtn" id="btn-imprimir-estudiantes">
@@ -64,7 +64,7 @@
         {{#if admin}}
         <li class="list-item addBtn" id="btn-tipo">
           <span class="item-image btn"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></span>
-          <p class="text-center" style="padding:5px;">Clase Tipo</p>
+          <p class="text-center" style="padding:5px;">{{_ "thematicTemplate"}}</p>
         </li>
         {{/if}}
         <li class="list-item addBtn" id="btn-store-class">
@@ -77,11 +77,11 @@
         </li>
         <li class="list-item addBtn" id="btn-duplicar">
           <span class="item-image btn"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></span>
-          <p class="text-center" style="padding:5px;">Duplicar clase</p>
+          <p class="text-center" style="padding:5px;">{{_ 'double'}} {{_ 'class'}}</p>
         </li>
         <li class="list-item addBtn" id="btn-eliminar">
           <span class="item-image btn"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></span>
-          <p class="text-center" style="padding:5px;">Eliminar clase</p>
+          <p class="text-center" style="padding:5px;">{{_ 'delete'}} {{_ 'class'}}</p>
         </li>
       </ul>
     </div>

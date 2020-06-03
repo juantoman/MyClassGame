@@ -18,12 +18,12 @@ Template.login.events({
         Meteor.loginWithPassword(user, password,function(error){
           if(error) {
             swal({
-                title: "¡Error de login!",
+                title: TAPi18n.__('loginError'),
                 text: error.reason,
                 icon: "warning",
             });
           }else{
-            Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
+            //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
             Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
             Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
             Session.setPersistent('navItem', "Students");
@@ -66,12 +66,12 @@ Template.login.events({
         Meteor.loginWithGoogle(redirect_uri="https://www.myclassgame.tk/_oauth/google",function(error){
             if(error) {
               swal({
-                  title: "¡Error de login!",
+                  title: TAPi18n.__('loginError'),
                   text: error,
                   icon: "warning",
               });
             }else{
-              Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
+              //Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
               Router.go('classesPage');
             }
         });
@@ -82,14 +82,14 @@ Template.login.events({
         Accounts.forgotPassword({email: email}, function (e, r) {
             if (e) {
               swal({
-                  title: "¡Error!",
+                  title: TAPi18n.__('error'),
                   text: e.reason,
                   icon: "warning",
               });
             } else {
                 swal({
-                    title: "¡Correo de recuperación enviado!",
-                    text: "Correo enviado a: "+ email,
+                    title: TAPi18n.__('emailSended'),
+                    text: TAPi18n.__('to') + " " + email,
                     icon: "info",
                 });
             }
@@ -105,15 +105,15 @@ Template.login.events({
         Accounts.createUser({email: email,password: password}, function (e, r) {
             if (e) {
                 swal({
-                    title: "¡Error de registro!",
+                    title: TAPi18n.__('resgisterError'),
                     text: e.reason,
                     icon: "warning",
                 });
             } else {
                 // success
                 swal({
-                    title: "¡Usuario registrado correctamente!",
-                    text: "Se ha registrado el usuario "+ email,
+                    title: TAPi18n.__('resgisteredUser'),
+                    text: TAPi18n.__('emailUserRegistered') + email,
                     icon: "info",
                 });
             }

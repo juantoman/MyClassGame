@@ -64,8 +64,8 @@ Template.storeModal.events({
         Meteor.call('buyingItem', Session.get('studentId'), itemId, price);
       } else {
         swal({
-          title: "¡No tienes bastantes monedas!",
-          text: "¡Esfuérzate para conseguirlas y así poder comprar artículos en la tienda!",
+          title: TAPi18n.__('noMoney'),
+          text: TAPi18n.__('workHard'),
           icon: "warning",
         });
       }

@@ -22,20 +22,20 @@
             <input type="text" class="form-control inputGroup eventName" name="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
             <textarea class="form-control inputGroup eventDesc" name="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
             <div class="groupBtnCard">
-              <input type="button" value="Eliminar" class="btn btn-info btnDeleteEvent">
-              <input type="submit" value="Guardar" class="btn btn-info btnUpdateEvent">
+              <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteEvent">
+              <input type="submit" value="{{_ 'save'}}" class="btn btn-info btnUpdateEvent">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
         <input type="text" class="form-control inputGroup eventName" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
-        <textarea class="form-control inputGroup eventDesc" name="{{_id}}" id="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
+        <textarea class="form-control inputGroup eventDesc" name="{{_id}}" {{teacher}} rows="2">{{eventDescription}}</textarea>
         <!--
         <h1>{{eventName}}</h1>
         <p>{{eventDescription}}</p>
         -->
-        <span class="more">Pasa el ratón para editar</span>
+        <span class="more">{{_ "mouseToEdit"}}</span>
       </div>
     </div>
     <!--
@@ -156,27 +156,27 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            NUEVO
+            {{_ "new"}}
           </div>
           <div class="points center">
-            EVENTO
+            {{_ "event"}}
           </div>
           <div class="center"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createEventForm">
-            <input type="text" placeholder="Nombre" class="form-control inputGroup eventName" name="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
-            <textarea class="form-control inputGroup eventDesc" placeholder="Descripción" id="eventDescription" name="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
+            <input type="text" placeholder="{{_ 'name'}}" class="form-control inputGroup eventName" name="eventName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+            <textarea class="form-control inputGroup eventDesc" placeholder="{{_ 'description'}}" id="eventDescription" name="eventDescription" {{teacher}} rows="2">{{eventDescription}}</textarea>
             <div class="groupBtnCard">
-              <input type="submit" value="Crear" class="btn btn-info">
+              <input type="submit" value="{{_ 'create'}}" class="btn btn-info">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
-        <h1>Nuevo evento</h1>
-        <p>Crea un nuevo evento para tu clase</p>
-        <span class="more">Pasa el ratón para crear un  nuevo evento</span>
+        <h1>{{_ "newEvent"}}</h1>
+        <p>{{_ "createNewEvent"}}</p>
+        <span class="more">{{_ "mouseToCreate"}}</span>
       </div>
     </div>
 

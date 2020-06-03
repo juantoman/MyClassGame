@@ -1,5 +1,5 @@
 <template name="quizBattle">
-  <h1>¡Batalla de preguntas!</h1>
+  <h1>{{_ "questionsBattle"}}</h1>
 
     <div class="quiz">
       <div class="fight">
@@ -29,7 +29,7 @@
       <form class="form-inline">
         <div class="form-group">
           <label>
-            Cuestionario
+            {{_ "quiz"}}
           </label>
           <select id="quizId">
             {{#each quizzes}}
@@ -37,7 +37,7 @@
             {{/each}}
           </select>
           <button class="btn btn-info" id="startBattle">
-            Iniciar Batalla
+            {{_ "init"}} {{_ "battle"}}
           </button>
         </div>
       </form>
@@ -69,10 +69,10 @@
         {{/each}}
         <div class="battleCorrectBtn btn-group btn-group-battle" data-toggle="buttons">
           <label class="btn btn-info" id="correctAnswer">
-            Corregir
+            {{_ "correct"}}
           </label>
           <label class="btn btn-info oculto" id="nextQuestion">
-            Siguiente
+            {{_ "next"}}
           </label>
         </div>
 

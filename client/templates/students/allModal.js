@@ -53,7 +53,7 @@ Template.allModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'HP',
-        evaluation: Session.get('evaluation'),         
+        evaluation: Session.get('evaluation'),
         comment: $("#commentHP").val(),
         createdOn: new Date()
       };
@@ -73,7 +73,7 @@ Template.allModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'XP',
-        evaluation: Session.get('evaluation'),         
+        evaluation: Session.get('evaluation'),
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
@@ -144,7 +144,7 @@ Template.allXPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'XP',
-          evaluation: Session.get('evaluation'), 
+          evaluation: Session.get('evaluation'),
           comment: $("#commentXPGroup").val(),
           createdOn: new Date()
         };
@@ -198,7 +198,7 @@ Template.allHPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'HP',
-          evaluation: Session.get('evaluation'),           
+          evaluation: Session.get('evaluation'),
           comment: $("#commentHPGroup").val(),
           createdOn: new Date()
         };
@@ -288,7 +288,12 @@ Template.allCardsModal.events({
         if ( coins >= price ) {
           Meteor.call('buyingItem', item["_id"], itemId, price);
         } else {
-          alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
+          //alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
+          swal({
+            title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+            text: TAPi18n.__('workHard'),
+            icon: "warning",
+          });
         }
       });
     });
@@ -372,8 +377,8 @@ Template.allCoinsModal.events({
           Meteor.call('buyingItem', item["_id"], itemId, price);
         } else {
           swal({
-            title: "¡"+ students.findOne({_id: item["_id"]}).studentName + " no tiene bastantes monedas!",
-            text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+            title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+            text: TAPi18n.__('workHard'),
             icon: "warning",
           });
         }

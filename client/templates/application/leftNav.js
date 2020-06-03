@@ -185,11 +185,11 @@ Template.leftNav.events({
     //gapi.auth2.getAuthInstance().signOut();
     //Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
     swal({
-      title: 'Salir de @MyClassGame',
-      text: '¿Estás seguro de querer salir de la aplicación?',
+      title: TAPi18n.__('exit'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {

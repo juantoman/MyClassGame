@@ -111,17 +111,17 @@ Template.chatClass.events({
   'click .chatRemove': function(event) {
     event.preventDefault();
     swal({
-      title: 'Borrar mensaje',
-      text: '¿Estás seguro de querer borrar este mensaje?',
+      title: TAPi18n.__('delete') + " " + TAPi18n.__('message'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('messageRemove', this._id);
         swal({
-          title: '¡Mensaje borrado!',
+          title: TAPi18n.__('message') + " " + TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'

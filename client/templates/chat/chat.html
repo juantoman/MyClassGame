@@ -10,19 +10,19 @@
       <!-- Nav tabs -->
       {{#if teacher}}
         <ul class="nav nav-pills" role="tablist">
-          <li role="presentation" class="active"><a href="#chatClass" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>Clase</a></li>
-          <li role="presentation"><a href="#chatTeachers" aria-controls="chatTeachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> Profesores</a></li>
+          <li role="presentation" class="active"><a href="#chatClass" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>{{_ "class"}}</a></li>
+          <li role="presentation"><a href="#chatTeachers" aria-controls="chatTeachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>{{_ "teachers"}}</a></li>
         </ul>
 
         <!-- Tab panels -->
         <div class="tab-content container-responsive mytab">
           <div role="tabpanel" class="tab-pane active" id="chatClass">
-            <h2 class="text-center bg-info">Chat Clase</h2>
+            <h2 class="text-center bg-info">{{_ "class"}}</h2>
             {{> chatClass}}
           </div>
 
           <div role="tabpanel" class="tab-pane" id="chatTeachers">
-            <h2 class="text-center bg-info">Chat Profesores</h2>
+            <h2 class="text-center bg-info">{{_ "teachers"}}</h2>
             {{> chatTeachers}}
           </div>
         </div>

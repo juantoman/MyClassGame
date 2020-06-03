@@ -4,10 +4,10 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            Nivel {{itemLevel}}
+            {{_ 'level'}} {{itemLevel}}
           </div>
           <div class="points center">
-            Precio: {{price}}
+            {{_ 'price'}}: {{price}}
           </div>
           <div class="center">
             {{#if itemImage}}
@@ -22,16 +22,16 @@
             <input type="text" class="form-control inputGroup itemName" name="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
             <textarea class="form-control inputGroup itemDesc" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
             <div class="input-group col-xs-6">
-              <span class="input-group-addon">Precio</span>
+              <span class="input-group-addon">{{_ 'price'}}</span>
               <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ 'level'}}</span>
               <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}">
             </div>
             <div class="groupBtnCard">
-              <input type="button" value="Eliminar" class="btn btn-info btnDeleteItem">
-              <input type="submit" value="Guardar" class="btn btn-info btnUpdateItem">
+              <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteItem">
+              <input type="submit" value="{{_ 'save'}}" class="btn btn-info btnUpdateItem">
             </div>
           </form>
         </div>
@@ -39,7 +39,7 @@
       <div class="general">
         <input type="text" class="form-control inputGroup itemName" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
         <textarea class="form-control inputGroup itemDesc" name="{{_id}}" id="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
-        <span class="more">Pasa el ratón para editar</span>
+        <span class="more">{{_ "mouseToEdit"}}</span>
       </div>
     </div>
 
@@ -51,35 +51,35 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            NUEVO
+            {{_ 'new'}}
           </div>
           <div class="points center">
-            ARTÍCULO
+            {{_ 'item'}}
           </div>
           <div class="center"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createItemForm">
-            <input type="text" class="form-control inputGroup itemName" placeholder="Nombre" name="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
-            <textarea class="form-control inputGroup itemDesc" placeholder="Descripción" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
+            <input type="text" class="form-control inputGroup itemName" placeholder="{{_ 'name'}}" name="itemName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+            <textarea class="form-control inputGroup itemDesc" placeholder="{{_ 'description'}}" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
             <div class="input-group col-xs-6">
-              <span class="input-group-addon">Precio</span>
+              <span class="input-group-addon">{{_ 'price'}}</span>
               <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ 'level'}}</span>
               <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}">
             </div>
             <div class="groupBtnCard">
-              <input type="submit" value="Crear" class="btn btn-info createItemBtn">
+              <input type="submit" value="{{_ 'create'}}" class="btn btn-info createItemBtn">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
-        <h1>Nuevo artículo</h1>
-        <p>Crea un nuevo artículo para tu clase</p>
-        <span class="more">Pasa el ratón para crear un  nuevo artículo</span>
+        <h1>{{_ "newItem"}}</h1>
+        <p>{{_ "createNewItem"}}</p>
+        <span class="more">{{_ "mouseToCreate"}}</span>
       </div>
     </div>
 

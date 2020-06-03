@@ -3,16 +3,16 @@
     <div class="list-group">
     {{#each teachers}}
           <div class="form-group">
-            <label class="control-label" for="inputGroupSuccess1">Profesores esperando aceptación...</label>
+            <label class="control-label" for="inputGroupSuccess1">{{_ "teachersWaiting"}}</label>
             <p class="btn btn-info acceptTeacher">{{email}}</p>
           </div>
     {{/each}}
     </div>
     <form>
       <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess1">Nuevo profesor de la clase</label>
+        <label class="control-label" for="inputGroupSuccess1">{{_ "new"}} {{_ "teacher"}}</label>
         <div class="input-group col-xs-11">
-          <span class="input-group-addon">Nuevo</span>
+          <span class="input-group-addon">{{_ "new"}}</span>
           <input type="text" class="form-control input-lg" name="quoteText" aria-describedby="inputGroupSuccess1Status">
           <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
           <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>

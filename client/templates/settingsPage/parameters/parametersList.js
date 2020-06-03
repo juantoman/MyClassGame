@@ -139,17 +139,17 @@ Template.parametersList.events({
   'click #btn-reset': function(event) {
     event.preventDefault();
     swal({
-      title: 'Resetear puntuaciones',
-      text: '¿Estás seguro de querer resetear todas las puntuaciones de la clase?',
+      title: TAPi18n.__('resetAll'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('resetClass', Session.get('classId'));
         swal({
-          title: '¡Puntuaciones reseteadas!',
+          title: TAPi18n.__('resetedPoints'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -177,17 +177,17 @@ Template.parametersList.events({
   'click #btn-resetXPHP': function(event) {
     event.preventDefault();
     swal({
-      title: 'Resetear XP y HP',
-      text: '¿Estás seguro de querer resetar los XP y HP de los alumnos?',
+      title: TAPi18n.__('resetStudent'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('resetXPHP', Session.get('classId'));
         swal({
-          title: '¡XP y HP reseteadas!',
+          title: TAPi18n.__('resetedPoints'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

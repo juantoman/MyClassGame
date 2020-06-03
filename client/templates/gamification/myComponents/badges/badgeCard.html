@@ -4,7 +4,7 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            Nivel {{level}}
+            {{_ 'level'}} {{level}}
           </div>
           <div class="points center">
             XP: {{points}}
@@ -26,12 +26,12 @@
               <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ "level"}}</span>
               <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
             </div>
             <div class="groupBtnCard">
-              <input type="button" value="Eliminar" class="btn btn-info btnDeleteBadge">
-              <input type="submit" value="Guardar" class="btn btn-info btnUpdateBadge">
+              <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteBadge">
+              <input type="submit" value="{{_ 'save'}}" class="btn btn-info btnUpdateBadge">
             </div>
           </form>
         </div>
@@ -39,7 +39,7 @@
       <div class="general">
         <input type="text" class="form-control inputGroup badgeName" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
         <textarea class="form-control inputGroup badgeDesc" name="{{_id}}" id="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
-        <span class="more">Pasa el ratón para editar</span>
+        <span class="more">{{_ "mouseToEdit"}}</span>
       </div>
     </div>
 
@@ -51,35 +51,35 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            NUEVA
+            {{_ 'fnew'}}
           </div>
           <div class="points center">
-            INSIGNIA
+            {{_ 'badge'}}
           </div>
           <div class="center"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createBadgeForm">
-            <input type="text" class="form-control inputGroup badgeName" placeholder="Nombre" name="badgeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
-            <textarea class="form-control inputGroup badgeDesc" placeholder="Descripción" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
+            <input type="text" class="form-control inputGroup badgeName" placeholder="{{_ 'name'}}" name="badgeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+            <textarea class="form-control inputGroup badgeDesc" placeholder="{{_ 'description'}}" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
             <div class="input-group col-xs-6">
               <span class="input-group-addon">XP</span>
               <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ 'level'}}</span>
               <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
             </div>
             <div class="groupBtnCard">
-              <input type="submit" value="Crear" class="btn btn-info createBadgeBtn">
+              <input type="submit" value="{{_ 'create'}}" class="btn btn-info createBadgeBtn">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
-        <h1>Nueva insignia</h1>
-        <p>Crea una nueva insignia para tu clase</p>
-        <span class="more">Pasa el ratón para crear una nueva insignia</span>
+        <h1>{{_ "newBadge"}}</h1>
+        <p>{{_ "createNewBadge"}}</p>
+        <span class="more">{{_ "mouseToCreate"}}</span>
       </div>
     </div>
 

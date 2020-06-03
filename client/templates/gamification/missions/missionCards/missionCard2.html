@@ -12,7 +12,7 @@
           <div class="info-box">
             <div class="info">
               <h1>{{chalName}}</h1>
-              <h2>Misión {{IoG}}</h2>
+              <h2>{{_ 'mission'}} {{IoG}}</h2>
               <p>{{chalDesc}}</p>
             </div>
           </div>
@@ -41,17 +41,17 @@
           <div class="back-info">
             <div class="missionBadgeBack">{{> badgeTemplate}}</div>
             <div class="missionData">
-              <h2>Misión {{IoG}}</h2>
+              <h2>{{_ 'mission'}} {{IoG}}</h2>
               <form class="missionForm">
                 <div class="input-group col-xs-12">
-                  <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                  <input type="text" placeholder="{{_ 'name'}}" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                 </div>
                 <div class="input-group col-xs-12">
-                  <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                  <textarea class="form-control inputGroup" placeholder="{{_ 'description'}}" name="chalDesc" rows="2">{{chalDesc}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
                   <div class="input-group-addon">
-                    <span class="input-group-text">Tipo</span>
+                    <span class="input-group-text">{{_ 'type'}}</span>
                   </div>
                   <select class="custom-select form-control" name="IoG">
                     <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
@@ -60,11 +60,11 @@
                 </div>
                 <div class="input-group col-xs-12">
                   <input type="checkbox" name="notebookCheck" checked={{notebookDependence}}>
-                  <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                  <label  for="notebookCheck"> {{_ 'scoreDependTeam'}}</label>
                 </div>
                 <div class="groupBtnCard">
-                  <input type="button" value="Borrar" class="btn missionDeleteBtn btn-xs btn-warning">
-                  <input type="submit" value="Guardar" class="btn missionSaveBtn btn-xs btn-info">
+                  <input type="button" value="{{_ 'delete'}}" class="btn missionDeleteBtn btn-xs btn-warning">
+                  <input type="submit" value="{{_ 'save'}}" class="btn missionSaveBtn btn-xs btn-info">
                   <input type="color" value="{{missionColor}}" class="colorpicker missionColor">
                 </div>
               </form>
@@ -119,8 +119,8 @@
           <div class="missionBadge">{{> badgeTemplate}}</div>
           <div class="info-box">
             <div class="info">
-              <h1>Crear Misión</h1>
-              <h2>Comienza la aventura</h2>
+              <h1>{{_ 'create'}} {{_ 'mission'}}</h1>
+              <h2>{{_ 'adventureStarts'}}</h2>
             </div>
           </div>
 
@@ -148,17 +148,17 @@
           <div class="back-info">
             <div class="missionBadgeBack">{{> badgeTemplate}}</div>
             <div class="missionData">
-              <h2>Misión</h2>
+              <h2>{{_ 'mission'}}</h2>
               <form class="missionCreateForm">
                 <div class="input-group col-xs-12">
-                  <input type="text" placeholder="Nombre" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
+                  <input type="text" placeholder="{{_ 'name'}}" class="form-control inputGroup" name="chalName"  aria-describedby="inputGroupSuccess1Status" value="{{chalName}}">
                 </div>
                 <div class="input-group col-xs-12">
-                  <textarea class="form-control inputGroup" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                  <textarea class="form-control inputGroup" placeholder="{{_ 'description'}}" name="chalDesc" rows="2">{{chalDesc}}</textarea>
                 </div>
                 <div class="input-group col-xs-12">
                   <div class="input-group-addon">
-                    <span class="input-group-text">Tipo</span>
+                    <span class="input-group-text">{{_ 'type'}}</span>
                   </div>
                   <select class="custom-select form-control" name="IoG">
                     <option value="Grupal">Grupal</option>
@@ -167,11 +167,11 @@
                 </div>
                 <div class="input-group col-xs-12">
                   <input type="checkbox" name="notebookCheck" checked={{notebookDependence}}>
-                  <label  for="notebookCheck"> Notas dependen del cuaderno de grupo</label>
+                  <label  for="notebookCheck"> {{_ 'scoreDependTeam'}}</label>
                 </div>
                 <div class="groupBtnCard">
-                  <input type="button" value="Borrar" class="btn missionDeleteBtn btn-xs btn-warning">
-                  <input type="submit" value="Guardar" class="btn missionSaveBtn btn-xs btn-info">
+                  <input type="button" value="{{_ 'delete'}}" class="btn missionDeleteBtn btn-xs btn-warning">
+                  <input type="submit" value="{{_ 'save'}}" class="btn missionSaveBtn btn-xs btn-info">
                 </div>
               </form>
             </div>

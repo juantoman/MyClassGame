@@ -3,7 +3,7 @@
   <div class="container-fluid studentInventory float-up">
     <div id="notifications">
       <div role="tabpanel" class="tab-pane well" id="Artículos">
-        <h4>Artículos</h4>
+        <h4>{{_ 'items'}}</h4>
     		<hr class="colorgraph">
         <ul class="list-items">
           {{#each notiItem}}
@@ -14,14 +14,14 @@
                 <span class="item-strength">{{student.studentName}}</span>
               </div>
               {{#if used}}
-                <span class="displayUsed">Aceptada</span>
+                <span class="displayUsed">{{_ 'accepted'}}</span>
               {{/if}}
             </li>
           {{/each}}
         </ul>
       </div>
       <div role="tabpanel" class="tab-pane well" id="Cartas">
-        <h4>Cartas</h4>
+        <h4>{{_ 'powers'}}</h4>
     		<hr class="colorgraph">
         <ul class="list-items">
           {{#each notiCards}}
@@ -32,7 +32,7 @@
                 <span class="item-strength">{{student.studentName}}</span>
               </div>
               {{#if used}}
-                <span class="displayUsed">Aceptada</span>
+                <span class="displayUsed">{{_ 'accepted'}}</span>
               {{/if}}
             </li>
           {{/each}}

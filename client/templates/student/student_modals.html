@@ -18,7 +18,7 @@
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Tancar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </form>
@@ -30,23 +30,23 @@
 <!-- Delete student -->
 
 <template name="deleteStudent">
-  <div class="modal" id="delete_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="delete_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="add_class_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">Borrar estudiante</h4>
+            <h4 class="modal-title">{{_ "deleteStudent"}}</h4>
           </div>
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Borrar estudiante</h1>
-              <p class="lead">¿Estás seguro de borrar el estudiante?</p>
+              <h1 class="display-4">{{_ "deleteStudent"}}</h1>
+              <p class="lead">{{_ "areYouSure"}}</p>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <input type="submit" class="btn btn-primary" value="Borrar">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
+            <input type="submit" class="btn btn-primary" value='{{_ "delete"}}'>
           </div>
         </form>
       </div>
@@ -57,22 +57,22 @@
 <!-- Reset student -->
 
 <template name="resetStudent">
-  <div class="modal" id="reset_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" id="reset_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form id="add_class_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">Reiniciar puntuaciones del estudiante</h4>
+            <h4 class="modal-title" id="exampleModalLabel">{{_ "resetStudent"}}</h4>
           </div>
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Reiniciar puntuaciones del estudiante</h1>
-              <p class="lead">¿Estás seguro de Reiniciar las puntuaciones del estudiante (XP, HP y monedas)?</p>
+              <h1 class="display-4">{{_ "resetStudent"}}</h1>
+              <p class="lead">{{_ "areYouSure"}}</p>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="Reiniciar">
           </div>
         </form>
@@ -80,5 +80,3 @@
     </div>
   </div>
 </template>
-
-

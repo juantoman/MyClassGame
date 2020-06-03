@@ -7,7 +7,7 @@
             {{behaviourDescription}}
           </div>
           <div class="points center">
-            Puntos: {{points}}
+            {{_ "points"}}: {{points}}
           </div>
           <div class="center">
             {{#if behaviourImage}}
@@ -26,19 +26,19 @@
             <input type="text" class="form-control inputGroup behaviourName" name="behaviourName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
             <textarea class="form-control inputGroup behaviourDesc" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Puntos</span>
+              <span class="input-group-addon">{{_ "points"}}</span>
               <input type="text" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}">
             </div>
             <div class="switchCard col-xs-6">
               {{> behaviourTypeTemplate}}
             </div>
             <div class="input-group col-xs-12">
-              <span class="input-group-addon">Competencia</span>
+              <span class="input-group-addon">{{_ "competence"}}</span>
               <input type="text" class="form-control behaviourDescription" name="behaviourType" {{teacher}} value="{{behaviourType}}">
             </div>
             <div class="groupBtnCard">
-              <input type="button" value="Eliminar" class="btn btn-info btnDeleteBehaviour">
-              <input type="submit" value="Guardar" class="btn btn-info btnUpdateBehaviour">
+              <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteBehaviour">
+              <input type="submit" value="{{_ 'save'}}" class="btn btn-info btnUpdateBehaviour">
             </div>
           </form>
         </div>
@@ -46,7 +46,7 @@
       <div class="general">
         <input type="text" class="form-control inputGroup behaviourName" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
         <textarea class="form-control inputGroup behaviourDesc" name="{{_id}}" id="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
-        <span class="more">Pasa el ratón para editar</span>
+        <span class="more">{{_ "mouseToEdit"}}</span>
       </div>
     </div>
 
@@ -58,46 +58,46 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            NUEVO
+            {{_ "new"}}
           </div>
           <div class="points center">
-            COMPORTAMIENTO
+            {{_ "behaviour"}}
           </div>
           <div class="center"><span id="behaviourGlyphicon" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createBehaviourForm">
-            <input type="text" class="form-control inputGroup behaviourName" placeholder="Nombre" name="behaviourName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
-            <textarea class="form-control inputGroup behaviourDesc" placeholder="Descripción" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
+            <input type="text" class="form-control inputGroup behaviourName" placeholder="{{_ 'name'}}" name="behaviourName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
+            <textarea class="form-control inputGroup behaviourDesc" placeholder="{{_ 'description'}}" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Puntos</span>
+              <span class="input-group-addon">{{_ "points"}}</span>
               <input type="text" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}">
             </div>
             <div class="switchCard col-xs-6">
               {{> behaviourTypeTemplate}}
             </div>
             <div class="input-group col-xs-12">
-              <span class="input-group-addon">Competencia</span>
+              <span class="input-group-addon">{{_ "competence"}}</span>
               <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="inputType" aria-describedby="inputGroupSuccess1Status">>
-                <option value="Lingüística">Lingüística</option>
-                <option value="Matemática">Matemática</option>
+                <option value="Lingüística">{{_ "linguistics"}}</option>
+                <option value="Matemática">{{_ "maths"}}</option>
                 <option value="Digital">Digital</option>
                 <option value="Social">Social</option>
-                <option value="Iniciativa">Iniciativa</option>
+                <option value="Iniciativa">{{_ "initiative"}}</option>
                 <option value="Cultural">Cultural</option>
-                <option value="Aprender">Aprender a aprender</option>
+                <option value="Aprender">{{_ "learnToLearn"}}</option>
               </select>
             </div>
             <div class="groupBtnCard">
-              <input type="submit" value="Crear" class="btn btn-info createBehaviourBtn">
+              <input type="submit" value="{{_ 'create'}}" class="btn btn-info createBehaviourBtn">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
-        <h1>Nuevo comportamiento</h1>
-        <p>Crea un nuevo comportamiento para tu clase</p>
-        <span class="more">Pasa el ratón para crear un nuevo comportamiento</span>
+        <h1>{{_ "newBehaviour"}}</h1>
+        <p>{{_ "createNewBehaviour"}}</p>
+        <span class="more">{{_ "mouseToCreate"}}</span>
       </div>
     </div>
 

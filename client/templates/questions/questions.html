@@ -1,10 +1,10 @@
 <template name="questions">
-  <h3 class="nameSection">Cuestionarios</h3>
+  <h3 class="nameSection">{{_ 'quizzes'}}</h3>
   <div class="container-fluid float-up quizContainer">
     <div class="input-group quizCreateContainer">
-      <input type="text" class="form-control" id="quizName" name="quizName" placeholder="Nombre cuestionario a crear" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
+      <input type="text" class="form-control" id="quizName" name="quizName" placeholder="{{_ 'name'}} {{_ 'quiz'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
       <div class="input-group-addon btn quizCreateBtn">
-        <span class="input-group-text">Crear cuestionario</span>
+        <span class="input-group-text">{{_ 'create'}} {{_ 'quiz'}}</span>
       </div>
     </div>
     {{#each quizzes}}
@@ -17,21 +17,21 @@
           </div>
           <div id="quiz{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headQuiz">
             <div class="panel-body">
-              <label class="control-label" for="inputGroupSuccess1">Cuestionario</label>
+              <label class="control-label" for="inputGroupSuccess1">{{_ 'quiz'}}</label>
               <div class="input-group">
                 <div class="input-group-addon">
-                  <span class="input-group-text">Nombre</span>
+                  <span class="input-group-text">{{_ 'name'}}</span>
                 </div>
-                <input type="text" class="form-control quizName" name="quizName" placeholder="Nombre cuestionario" aria-label="pregunta" aria-describedby="basic-addon1" value="{{quizName}}">
+                <input type="text" class="form-control quizName" name="quizName" placeholder="{{_ 'name'}} {{_ 'quiz'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{quizName}}">
                 <div class="input-group-addon btn quizUpdateBtn">
-                  <span class="input-group-text">Guardar</span>
+                  <span class="input-group-text">{{_ 'save'}}</span>
                 </div>
                 <div class="input-group-addon btn quizRemoveBtn">
-                  <span class="input-group-text">Eliminar cuestionario</span>
+                  <span class="input-group-text">{{_ 'delete'}} {{_ 'quiz'}}</span>
                 </div>
               </div>
               <div class="form-group has-info">
-                <label class="control-label" for="inputGroupSuccess1">Preguntas</label>
+                <label class="control-label" for="inputGroupSuccess1">{{_ 'questions'}}</label>
                 <div class="panel-group" id="accordionMissions" role="tablist" aria-multiselectable="true">
                   {{#each questions}}
                     <div class="panel" >
@@ -46,25 +46,25 @@
                         <div class="panel-body">
                           <form class="questionForm">
                             <div class="form-group">
-                              <label class="control-label" for="inputGroupSuccess1">Pregunta:</label>
+                              <label class="control-label" for="inputGroupSuccess1">{{_ 'question'}}:</label>
                               <div class="input-group mb-3">
                                 <div class="input-group-addon">
-                                  <span class="input-group-text">Pregunta</span>
+                                  <span class="input-group-text">{{_ 'questions'}}</span>
                                 </div>
-                                <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="Pregunta" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
+                                <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
                               </div>
-                              <label class="control-label" for="inputGroupSuccess1">Respuestas</label>
+                              <label class="control-label" for="inputGroupSuccess1">{{_ 'answer'}}</label>
                               {{#each answers}}
                                 <div class="input-group mb-3">
                                   <div class="input-group-addon btn {{#if correct}}answerSelected{{/if}} answerBtn">
-                                    <span class="input-group-text">Respuesta {{@index}}</span>
+                                    <span class="input-group-text">{{_ 'answer'}} {{@index}}</span>
                                   </div>
-                                  <input type="text" class="form-control answer" name="answer" placeholder="respuesta" aria-label="repuesta" aria-describedby="basic-addon1" value="{{answer}}">
+                                  <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}}" aria-label="{{_ 'answer'}}" aria-describedby="basic-addon1" value="{{answer}}">
                                 </div>
                               {{/each}}
                               <div class="mb-3">
-                                <input type="button" value="Borrar" class="btn btn-info deleteQuestionBtn">
-                                <input type="submit" value="Guardar" class="btn btn-info saveQuestionBtn">
+                                <input type="button" value="{{_ 'delete'}}" class="btn btn-info deleteQuestionBtn">
+                                <input type="submit" value="{{_ 'save'}}" class="btn btn-info saveQuestionBtn">
                               </div>
                             </div>
                           </form>
@@ -76,34 +76,34 @@
               </div>
               <form class="newQuestionForm">
                 <div class="form-group">
-                  <label class="control-label" for="inputGroupSuccess1">Crear pregunta</label>
+                  <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label>
                   <div class="input-group mb-3">
                     <div class="input-group-addon">
-                      <span class="input-group-text">Pregunta</span>
+                      <span class="input-group-text">{{_ 'question'}}</span>
                     </div>
-                    <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="Pregunta" aria-label="pregunta" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1">
                   </div>
-                  <label class="control-label" for="inputGroupSuccess1">Respuestas</label>
+                  <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
                   <div class="input-group mb-3">
                     <div class="input-group-addon btn answerBtn">
                       <span class="input-group-text">A</span>
                     </div>
-                    <input type="text" class="form-control answer" name="answer" placeholder="Respuesta A" aria-label="repuestaA" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} A" aria-label="repuestaA" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-addon btn answerBtn">
                       <span class="input-group-text">B</span>
                     </div>
-                    <input type="text" class="form-control answer" name="answer" placeholder="Respuesta B" aria-label="respuestaB" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-addon btn answerBtn">
                       <span class="input-group-text">C</span>
                     </div>
-                    <input type="text" class="form-control answer" name="answer" placeholder="Respuesta C" aria-label="respuestaC" aria-describedby="basic-addon1">
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
                   </div>
                   <div class=" mb-3">
-                    <input type="submit" value="Añadir pregunta" class="btn btn-info">
+                    <input type="submit" value="{{_ 'fnew'}} {{_ 'question'}}" class="btn btn-info">
                   </div>
                 </div>
               </form>

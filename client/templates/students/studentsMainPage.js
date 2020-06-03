@@ -135,11 +135,11 @@ Template.studentsMainPage.events({
     event.preventDefault();
     if (students.find( { classId: Session.get('classId'), selected: 1  } ).count() > 0 ) {
       swal({
-        title: 'Eliminar estudiantes',
-        text: '¿Estás seguro de querer eliminar todos los estudiantes seleccionados?',
+        title: TAPi18n.__('delete') + " " + TAPi18n.__('students'),
+        text: TAPi18n.__('areYouSure'),
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sí',
+        confirmButtonText: TAPi18n.__('yes'),
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
@@ -147,7 +147,7 @@ Template.studentsMainPage.events({
             Meteor.call('studentDelete', item["_id"]);
           });
           swal({
-            title: '¡Estudiantes eliminados!',
+            title: TAPi18n.__('students') + " " + TAPi18n.__('deleted'),
             type: 'success'
           })
         // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

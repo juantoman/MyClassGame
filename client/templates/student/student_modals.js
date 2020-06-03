@@ -11,3 +11,21 @@ Template.studentModals.events({
     //Meteor.call('studentInsert', student);
   }
 });
+
+Template.deleteStudent.events({
+  'submit form': function(event) {
+    event.preventDefault();
+    Meteor.call('studentDelete', Session.get('studentId'));
+    Modal.hide('deleteStudent');
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+  }
+});
+
+Template.resetStudent.events({
+  'submit form': function(event) {
+    event.preventDefault();
+    Meteor.call('studentReset', Session.get('studentId'));
+    Modal.hide('resetStudent');
+  }
+});

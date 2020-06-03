@@ -123,18 +123,20 @@ Template.adminClass.events({
     regla="^" + $(event.target).find('[name=class-name]').val();
     Meteor.subscribe('classes','all'),
     n=classes.find({"_id" : {'$regex' : regla }}).count();
+    alert(n + " de " + classes.find().count());
     if (n==1){
       cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
-      cName=classes.findOne({"_id" : {'$regex' : regla }}).className;
+      cName="admin";//classes.findOne({"_id" : {'$regex' : regla }}).className;
       Session.set('classId', cId);
       Session.set('className', cName);
       Session.setPersistent('navItem', "Students");
       Session.setPersistent('sogBtn',"students");
       Session.setPersistent('golBtn',"grid");
       Session.set('studentSelected', false);
-      Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-    }
-    Router.go('studentsMainPage',{_id:Session.get('classId')});
+      Session.setPersistent('evaluation',1);//classes.findOne({_id:Session.get('classId')}).evaluation);
+      alert(cId);
+      Router.go('myNav',{_id:Session.get('classId')});
+    }  
     Modal.hide('adminClass');
   }
 });

@@ -143,17 +143,17 @@ Template.imagesTemplate.events({
   'click .deleteImage': function(event) {
     event.preventDefault();
     swal({
-      title: 'Borrar imagen',
-      text: '¿Estás seguro de querer borrar esta imagen?',
+      title: TAPi18n.__('delete') + " " + TAPi18n.__('image'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('imageDelete',this._id);
         swal({
-          title: 'Imagen borrada!',
+          title: TAPi18n.__('image') + " " + TAPi18n.__('fdeleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'

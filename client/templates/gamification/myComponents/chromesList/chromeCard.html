@@ -4,10 +4,10 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            Nivel {{chromeLevel}}
+            {{_ 'level'}} {{chromeLevel}}
           </div>
           <div class="points center">
-            Precio: {{chromePrice}}
+            {{_ 'price'}}: {{chromePrice}}
           </div>
           <div class="center">
             {{#if chromeImage}}
@@ -22,16 +22,16 @@
             <input type="text" class="form-control inputGroup chromeName" name="chromeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
             <textarea class="form-control inputGroup chromeDesc" name="chromeDescription" {{teacher}} rows="2">{{chromeDescription}}</textarea>
             <div class="input-group col-xs-6">
-              <span class="input-group-addon">Precio</span>
+              <span class="input-group-addon">{{_ 'price'}}</span>
               <input type="text" class="form-control inputGroup chromeDescription" name="chromePrice" {{teacher}} value="{{chromePrice}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ 'level'}}</span>
               <input type="text" class="form-control chromeDescription" name="chromeLevel" {{teacher}} value="{{chromeLevel}}">
             </div>
             <div class="groupBtnCard">
-              <input type="button" value="Eliminar" class="btn btn-info btnDeleteChrome">
-              <input type="submit" value="Guardar" class="btn btn-info btnUpdateChrome">
+              <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteChrome">
+              <input type="submit" value="{{_ 'save'}}" class="btn btn-info btnUpdateChrome">
             </div>
           </form>
         </div>
@@ -39,7 +39,7 @@
       <div class="general">
         <input type="text" class="form-control inputGroup chromeName" name="{{_id}}" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
         <textarea class="form-control inputGroup chromeDesc" name="{{_id}}" id="chromeDescription" {{teacher}} rows="2">{{chromeDescription}}</textarea>
-        <span class="more">Pasa el ratón para editar</span>
+        <span class="more">{{_ "mouseToEdit"}}</span>
       </div>
     </div>
 
@@ -51,35 +51,35 @@
       <div class="additional">
         <div class="user-card">
           <div class="level center">
-            NUEVO
+            {{_ 'new'}}
           </div>
           <div class="points center">
-            LOGRO
+            {{_ 'collectionable'}}
           </div>
           <div class="center"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createChromeForm">
-            <input type="text" class="form-control inputGroup chromeName" placeholder="Nombre" name="chromeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
-            <textarea class="form-control inputGroup chromeDesc" placeholder="Descripción" name="chromeDescription" {{teacher}} rows="2">{{chromeDescription}}</textarea>
+            <input type="text" class="form-control inputGroup chromeName" placeholder="{{_ 'name'}}" name="chromeName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{chromeName}}">
+            <textarea class="form-control inputGroup chromeDesc" placeholder="{{_ 'description'}}" name="chromeDescription" {{teacher}} rows="2">{{chromeDescription}}</textarea>
             <div class="input-group col-xs-6">
-              <span class="input-group-addon">Precio</span>
+              <span class="input-group-addon">{{_ 'price'}}</span>
               <input type="text" class="form-control inputGroup chromeDescription" name="chromePrice" {{teacher}} value="{{chromePrice}}">
             </div>
             <div class="input-group col-xs-5">
-              <span class="input-group-addon">Nivel</span>
+              <span class="input-group-addon">{{_ 'level'}}</span>
               <input type="text" class="form-control chromeDescription" name="chromeLevel" {{teacher}} value="{{chromeLevel}}">
             </div>
             <div class="groupBtnCard">
-              <input type="submit" value="Crear" class="btn btn-info createChromeBtn">
+              <input type="submit" value="{{_ 'create'}}" class="btn btn-info createChromeBtn">
             </div>
           </form>
         </div>
       </div>
       <div class="general">
-        <h1>Nuevo logro</h1>
-        <p>Crea un nuevo logro para tu clase</p>
-        <span class="more">Pasa el ratón para crear un nuevo logro</span>
+        <h1>{{_ "newCollectionable"}}</h1>
+        <p>{{_ "createNewCollectionable"}}</p>
+        <span class="more">{{_ "mouseToCreate"}}</span>
       </div>
     </div>
 

@@ -3,7 +3,7 @@
     {{#if taskImg}}<img src=''/>{{/if}}
     <img src='{{cardPic ../missionImg}}'/>
     <div class="text">
-      <h1 class="text-center">TAREA {{order}}</h1>
+      <h1 class="text-center">{{_ 'task'}} {{order}}</h1>
       <h2 class="text-center">{{chalMissionXP}} XP</h2>
       <p class="text-center">{{chalMissionDesc}}</p>
     </div>
@@ -21,9 +21,9 @@
     {{#if taskImg}}<img src=''/>{{/if}}
     <img src='{{cardPic missionImg}}'/>
     <div class="text">
-      <h1 class="text-center">Nueva tarea</h1>
+      <h1 class="text-center">{{_ 'newTask'}}</h1>
       <h1 class="text-center fasIcon"><i class="fas fa-plus-circle"></i></h1>
-      <p class="text-center">Crea una nueva tarea</p>
+      <p class="text-center">{{_ 'create'}} {{_ 'newTask'}}</p>
     </div>
   </div>
 </template>

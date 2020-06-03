@@ -31,18 +31,18 @@ Template.notifications.events({
  'click .validarCard': function(event) {
     event.preventDefault();
     swal({
-      title: 'Usar carta',
-      text: '¿Estás seguro de querer validar el uso de esta carta?',
+      title: TAPi18n.__('use') + " " + TAPi18n.__('power'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentUseCard', this.studentId, this.elementId);
         Meteor.call('usedCard', this._id);
         swal({
-          title: '¡Ya se puede usar esta carta!',
+          title: TAPi18n.__('canUse') + " " + TAPi18n.__('power'),
           type: 'success'
         })
       // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
@@ -52,18 +52,18 @@ Template.notifications.events({
   'click .validarItem': function(event) {
     event.preventDefault();
     swal({
-      title: 'Usar artículo',
-      text: '¿Estás seguro de querer validar el uso de este artículo?',
+      title: TAPi18n.__('use') + " " + TAPi18n.__('item'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentUseItem', this.studentId, this.elementId);
         Meteor.call('usedItem', this._id);
         swal({
-          title: '¡Ya se puede usar este artículo!',
+          title: TAPi18n.__('canUse') + " " + TAPi18n.__('item'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

@@ -4,7 +4,7 @@
       <div class="modal-content">
         <div id="group_form">
           <div class="modal-header">
-            <h4 class="modal-title" id="GroupModalLabel">Imagenes</h4>
+            <h4 class="modal-title" id="GroupModalLabel">{{_ 'images'}}</h4>
           </div>
           <div class="modal-body">
             <div class="row">
@@ -39,17 +39,17 @@
                 <figure class="card_image snip1519 {{checkedImage _id}}">
                   <figcaption class="card__caption text-center"><img src="{{image_url}}" />
                     <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
-                    <a href="#" class="button deleteImage">Eliminar</a>
+                    <a href="#" class="button deleteImage">{{_ 'delete'}}</a>
                   </figcaption>
                 </figure>
               {{/each}}
             </div>
             <br />
-            <button class="btn btn-info cloudinary" name="cloudinary" {{inputDisabled}}>Subir imágenes</button>
+            <button class="btn btn-info cloudinary" name="cloudinary" {{inputDisabled}}>{{_ 'uploadImages'}}</button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default">Cerrar</button>
-            <input type="submit" class="btn btn-primary selectImage" value="Seleccionar">
+            <button type="button" class="btn btn-default">{{_ 'close'}}</button>
+            <input type="submit" class="btn btn-primary selectImage" value="{{_ 'select'}}">
           </div>
         </div>
       </div>

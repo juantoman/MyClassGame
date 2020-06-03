@@ -48,17 +48,17 @@ Template.questions.events({
   'click .deleteQuestionBtn': function(event) {
     event.preventDefault();
     swal({
-      title: 'Eliminar pregunta',
-      text: '¿Estás seguro de querer eliminar esta pregunta?',
+      title: TAPi18n.__('delete') + " " + TAPi18n.__('question'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('questionDelete', this._id);
         swal({
-          title: '¡Pregunta eliminada!',
+          title: TAPi18n.__('question') + " " + TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -82,18 +82,18 @@ Template.questions.events({
   'click .quizRemoveBtn': function(event) {
     event.preventDefault();
     swal({
-      title: 'Eliminar cuestionario y sus preguntas',
-      text: '¿Estás seguro de querer eliminar este cuestionario?',
+      title: TAPi18n.__('delete') + " " + TAPi18n.__('quiz'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('quizDelete', this._id);
         Meteor.call('questionsQuizDelete', this._id);
         swal({
-          title: 'Cuestionario eliminado!',
+          title: TAPi18n.__('quiz') + " " + TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

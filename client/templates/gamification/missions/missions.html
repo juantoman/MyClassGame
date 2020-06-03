@@ -1,7 +1,7 @@
 <template name="missions">
   <!--<h3 class="nameSection">Misiones</h3>-->
   <div class="missionsBtns text-center">
-    <span class="btn btn-info allMissions">MISIONES <i class="fas fa-th"></i></span>
+    <span class="btn btn-info allMissions">{{_ 'missions'}} <i class="fas fa-th"></i></span>
     {{#each challenge}}
       <span class="btn btn-info oneMission" data-toggle="tooltip" data-placement="bottom" title="{{chalName}}">M{{order}}</span>
     {{/each}}
@@ -48,14 +48,14 @@
 
                 <div class="col-xs-12 col-sm-7">
                   <div class="form-group">
-                    <label for="chalName" class="control-label">Nombre</label>
+                    <label for="chalName" class="control-label">{{_ 'name'}}</label>
                     <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
                   </div>
                 </div>
 
                 <div class="col-xs-8 col-sm-4">
                   <div class="form-group">
-                    <label for="sName" class="control-label">Tipo</label>
+                    <label for="sName" class="control-label">{{_ 'type'}}</label>
                     <select class="custom-select form-control input-lg" name="IoG">
                       <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
                       <option value="Individual" selected="{{#if missionType 'Individual'}}selected{{/if}}">Individual</option>
@@ -75,14 +75,14 @@
 
                 <div class="col-xs-12">
                   <div class="form-group">
-                    <label for="chalDesc" class="control-label">Descripción</label>
+                    <label for="chalDesc" class="control-label">{{_ 'description'}}</label>
                     <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
                   </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12">
                   <div class="form-group missionFG">
-                    <label class="control-label"> Notas dependen del cuaderno de grupo <input type="checkbox" class="big-checkbox" name="notebookCheck" checked={{notebookDependence}}></label>
+                    <label class="control-label"> {{_ "scoreDependTeam"}} <input type="checkbox" class="big-checkbox" name="notebookCheck" checked={{notebookDependence}}></label>
                     <label for="notebookCheck" class="control-label">Color <input type="color" value="{{missionColor}}" class="colorpicker missionColor form-control input-lg"></label>
                   </div>
                 </div>
@@ -91,9 +91,9 @@
 
               <hr class="colorgraph">
               <div class="row">
-                  <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">Duplicar</button></div>
-                  <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">Eliminar</button></div>
-                  <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                  <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">{{_ "double"}}</button></div>
+                  <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">{{_ "delete"}}</button></div>
+                  <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
                 </div>
             </form>
           </div>
@@ -102,12 +102,12 @@
 
         <div class="input-group col-xs-12">
           <div class="panel panel-info" id="{{_id}}">
-            <div class="panel-heading">Tareas</div>
+            <div class="panel-heading">{{_ "tasks"}}</div>
             <div class="panel-body panelChal">
               {{#each chalMissions _id}}
                 <div class="input-group">
                   <div class="input-group-addon">
-                    <span class="input-group-text">Tarea {{order}}</span>
+                    <span class="input-group-text">{{_ "task"}} {{order}}</span>
                   </div>
                   <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Tarea" aria-label="Tarea" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
                   <div class="input-group-addon">
@@ -127,11 +127,11 @@
                 </div>
                 <div class="oculto" id="rubrica{{_id}}">
                   <div class="input-group col-xs-12">
-                    <label>Descripción</label>
+                    <label>{{_ "descriptions"}}</label>
                     <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} rows="3">{{descTask}}</textarea>
                   </div>
                   <div id="studentsPoints">
-                    <label>Rúbrica</label>
+                    <label>{{_ "rubric"}}</label>
                     <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
                       <label class="btn btn-info btn-emoticon">
                         <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>
@@ -158,14 +158,14 @@
                         <textarea class="form-control rubricaText r6" {{teacher}} rows="3">{{r6}}</textarea>
                       </label>
                     </div>
-                    <div class="input-group col-xs-12">
+                    <div class="input-group col-xs-12 oculto">
                       <button class="btn btn-info drive" {{teacher}}>Seleccionar fichero Drive</button>
                       <a class="btn btn-info" href="https://drive.google.com/open?id={{drive}}" target="_blank" {{teacher}}>Ver fichero</a>
                     </div>
                   </div>
                 </div>
               {{/each}}
-              <div><button class="btn btn-info schedulerBtn">Calendario</button></div>
+              <div><button class="btn btn-info schedulerBtn">{{_ "calendar"}}</button></div>
               <div class='input-group date datetimepicker'>
                   <input type='text' class="form-control" />
                   <span class="input-group-addon">
@@ -181,9 +181,9 @@
               <div class="panel-footer">
                 <div class="input-group">
                   <div class="input-group-addon">
-                    <span class="input-group-text">Nueva</span>
+                    <span class="input-group-text">{{_ "fnew"}}</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Tarea" id="chalMissionDesc{{_id}}">
+                  <input type="text" class="form-control" placeholder="{{_ "task"}}" id="chalMissionDesc{{_id}}">
                   <div class="input-group-addon">
                     <span class="input-group-text"></span>
                   </div>
@@ -208,17 +208,17 @@
         <form id="add_class_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">Borrar misión</h4>
+            <h4 class="modal-title" id="exampleModalLabel">{{_ "deleteMission"}}</h4>
           </div>
           <div class="jumbotron jumbotron-fluid">
             <div class="container">
-              <h1 class="display-4">Borrar misión</h1>
-              <p class="lead">¿Estás seguro de borrar la misión?</p>
+              <h1 class="display-4">{{_ "deleteMission"}}</h1>
+              <p class="lead">{{_ "areYouSure"}}</p>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-            <input type="submit" class="btn btn-primary" value="Borrar">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ 'close'}}</button>
+            <input type="submit" class="btn btn-primary" value="{{_ 'delete'}}">
           </div>
         </form>
       </div>

@@ -19,29 +19,29 @@
       <thead>
         <tr>
           <th id="student_th">
-            Estudiante
+            {{_ "student"}}
           </th>
           <th id="evaluation_th">
-            Evaluación
+            {{_ "evaluation"}}
           </th>
           <th id="behaviour_th">
-            Comportamiento
+            {{_ "behaviour"}}
           </th>
           <th>
-            Comentarios
+            {{_ "comments"}}
           </th>
           <th>
-            Puntos
+            {{_ "points"}}
           </th>
            <th id="behaviour_type_th">
-            Tipo
+            {{_ "type"}}
           </th>
           <th id="date_th">
-            Fecha
+            {{_ "date"}}
           </th>
           {{#if teacher}}
             <th id="date_th">
-              Borrar
+              {{_ "delete"}}
             </th>
           {{/if}}
         </tr>
@@ -72,7 +72,7 @@
               </td>
               {{#if teacher}}
                 <td class="text-center">
-                  <button name="{{_id}}" class="borrar">Borrar</button>
+                  <button name="{{_id}}" class="borrar">{{_ "delete"}}</button>
                 </td>
               {{/if}}
             </tr>

@@ -55,31 +55,31 @@ Template.battle.events({
     h2=$('.bat2').find('[data-icon=heart]').length;
     if ( h2 == 0 ) {
       swal({
-        title: students.findOne({'_id': Session.get('studentId1Battle')}).studentName + ' GANA!!!',
+        title: students.findOne({'_id': Session.get('studentId1Battle')}).studentName + TAPi18n.__('wins'),
         type: 'success'
       });
       $('.bat1 [data-icon=heart-broken]').attr('data-icon','heart');
       $('.bat2 [data-icon=heart-broken]').attr('data-icon','heart');
     } else if ( h1 == 0 ) {
       swal({
-        title: students.findOne({'_id': Session.get('studentId2Battle')}).studentName + ' GANA!!!',
+        title: students.findOne({'_id': Session.get('studentId2Battle')}).studentName + TAPi18n.__('wins'),
         type: 'success'
       });
       $('.bat1 [data-icon=heart-broken]').attr('data-icon','heart');
       $('.bat2 [data-icon=heart-broken]').attr('data-icon','heart');
     } else if (h1 == h2 ) {
       swal({
-        title: "Vais empatados a " + h1 ,
+        title: TAPi18n.__('tied') + h1 ,
         type: 'success'
       });
     } else if (h1 > h2) {
       swal({
-        title: students.findOne({'_id': Session.get('studentId1Battle')}).studentName + " va ganando " + h1  + " a " + h2 ,
+        title: students.findOne({'_id': Session.get('studentId1Battle')}).studentName + " " + TAPi18n.__('isWinning') + " " + h1  + " " + TAPi18n.__('to') + " " + h2 ,
         type: 'success'
       });
     } else if (h1 < h2) {
       swal({
-        title: students.findOne({'_id': Session.get('studentId2Battle')}).studentName + " va ganando " + h2  + " a " + h1 ,
+        title: students.findOne({'_id': Session.get('studentId2Battle')}).studentName + " " + TAPi18n.__('isWinning') + " " + h2  + " " + TAPi18n.__('to') + " " + h1 ,
         type: 'success'
       });
     }

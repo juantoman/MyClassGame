@@ -839,18 +839,18 @@ Template.studentProfile.events({
   'click .demandCard': function(event) {
     event.preventDefault();
     swal({
-      title: 'Utilizar carta',
-      text: '¿Estás seguro de querer solicitar el uso de esta carta?',
+      title: TAPi18n.__('use') + " " + TAPi18n.__('power'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
         Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
         swal({
-          title: '¡Has solicitado usar esta carta!',
+          title: TAPi18n.__('solicitated') + " " +  TAPi18n.__('power'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -878,18 +878,18 @@ Template.studentProfile.events({
     event.preventDefault();
     if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
       swal({
-        title: 'Utilizar carta',
-        text: '¿Estás seguro de querer utilizar esta carta?',
+        title: TAPi18n.__('use') + " " + TAPi18n.__('power'),
+        text: TAPi18n.__('areYouSure'),
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Sí',
+        confirmButtonText: TAPi18n.__('yes'),
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
           Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
           Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
           swal({
-            title: '¡Has usado esta carta!',
+            title: TAPi18n.__('power') + " " +  TAPi18n.__('used'),
             type: 'success'
           })
         // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -914,8 +914,8 @@ Template.studentProfile.events({
       })*/
     } else {
       swal({
-        title: "¡No tienes bastantes monedas!",
-        text: "¡Esfuérzate para conseguirlas y así poder comprar!",
+        title: TAPi18n.__('noMoney'),
+        text: TAPi18n.__('workHard'),
         icon: "warning",
       });
     }
@@ -923,18 +923,18 @@ Template.studentProfile.events({
   'click .demandItem': function(event) {
     event.preventDefault();
     swal({
-      title: 'Utilizar artículo',
-      text: '¿Estás seguro de querer solicitar el uso de este artículo?',
+      title: TAPi18n.__('use') + " " +  TAPi18n.__('item'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
         Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
         swal({
-          title: '¡Has solicitado usar este artículo!',
+          title: TAPi18n.__('solicitated') + " " +  TAPi18n.__('item'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -961,17 +961,17 @@ Template.studentProfile.events({
   'click .useItem': function(event) {
     event.preventDefault();
     swal({
-      title: 'Utilizar artículo',
-      text: '¿Estás seguro de querer utilizar este artículo?',
+      title: TAPi18n.__('use') + " " +  TAPi18n.__('item'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
         swal({
-          title: '¡Has usado este artículo!',
+          title: TAPi18n.__('item') + " " +  TAPi18n.__('used'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -1007,8 +1007,8 @@ Template.studentProfile.events({
     if ( ! this.userCreated || this.userCreated == null) {
       if (this.alias.split(" ").length -1 != 0) {
         swal({
-          title: 'No se puede crear la cuenta para este estudiante',
-          text: 'El alias ha de ser una única palabra sin espacios',
+          title: TAPi18n.__('cantCreateStudentAccount'),
+          text: TAPi18n.__('noSpaces'),
           type: 'warning',
           confirmButtonText: 'Ok'
         })
@@ -1030,17 +1030,17 @@ Template.studentProfile.events({
   'click .removeBtn': function(event) {
     event.preventDefault();
     swal({
-      title: 'Eliminar cromo',
-      text: '¿Estás seguro de querer eliminar este cromo?',
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('collectionable'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentChromePull', Session.get('studentId'), this.chromeId);
         swal({
-          title: '¡Cromo eliminado!',
+          title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -1066,17 +1066,17 @@ Template.studentProfile.events({
   'click .removeCardBtn': function(event) {
     event.preventDefault();
     swal({
-      title: 'Eliminar carta',
-      text: '¿Estás seguro de querer eliminar este carta?',
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('power'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
         swal({
-          title: 'Carta eliminada!',
+          title: TAPi18n.__('power') + " " +  TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -1102,11 +1102,11 @@ Template.studentProfile.events({
   'click .removeBadgeBtn': function(event) {
     event.preventDefault();
     swal({
-      title: 'Eliminar insignia',
-      text: '¿Estás seguro de querer eliminar este insignia?',
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('badge'),
+      text: TAPi18n.__('areYouSure'),
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Sí',
+      confirmButtonText: TAPi18n.__('yes'),
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
@@ -1114,7 +1114,7 @@ Template.studentProfile.events({
         Meteor.call('studentBadgePull', Session.get('studentId'), this.badgeId);
         Meteor.call('studentXP', Session.get('studentId'), -p);
         swal({
-          title: 'Insignia eliminada!',
+          title: TAPi18n.__('badge') + " " +  TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
@@ -1152,20 +1152,4 @@ Template.studentProfile.events({
      e.relatedTarget // previous active tab
     */
    }
-});
-
-Template.deleteStudent.events({
-  'submit form': function(event) {
-    Meteor.call('studentDelete', Session.get('studentId'));
-    Modal.hide('deleteStudent');
-    Session.set('studentSelected', false);
-    Session.set('groupSelected', false);
-  }
-});
-
-Template.resetStudent.events({
-  'submit form': function(event) {
-    Meteor.call('studentReset', Session.get('studentId'));
-    Modal.hide('resetStudent');
-  }
 });

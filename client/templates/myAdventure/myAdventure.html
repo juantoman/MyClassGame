@@ -1,14 +1,14 @@
 <template name="myAdventure">
-  <h3 class="nameSection">Mi aventura</h3>
+  <h3 class="nameSection">{{_ "adventure"}}</h3>
   <div class="container-fluid myAdveture">
 
     <div class="panel panel-info float-up">
       <div class="panel-heading ">
-          <h1>Bienvenido {{studentName}}</h1>
+          <h1>{{_ "welcome!"}} {{studentName}}</h1>
       </div>
       <div class="panel-body">
         {{#with class}}
-          <h1>Aventura: {{adventureName}}</h1>
+          <h1>{{_ "adventure"}}: {{adventureName}}</h1>
           <!--<div id="sn"></div>-->
           <div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe class="tox-edit-area__iframe" srcdoc='<html><head><link rel="stylesheet" type="text/css" id="u0" crossorigin="anonymous" referrerpolicy="origin" href="https://cdn.tiny.cloud/1/uxh471978q9jgw7y107j4cuzopr9tsqh5ytfj1ajjhywc89m/tinymce/5.2.1-76/skins/ui/oxide/content.min.css"><link rel="stylesheet" type="text/css" id="u1" crossorigin="anonymous" referrerpolicy="origin" href="//www.tiny.cloud/css/codepen.min.css"></head><body class="mce-content-body">{{adventureDesc}}</body></html>' frameborder="0" width="1200px" height="675px" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
 
@@ -21,7 +21,7 @@
         <div class="panel panel-warning">
           <div class="panel-heading">
             {{#with mission}}
-              <h2>Misión {{order}}: {{chalName}}</h2>
+              <h2>{{_ "mission"}} {{order}}: {{chalName}}</h2>
             {{/with}}
           </div>
           <div class="panel-body">
@@ -30,16 +30,16 @@
             {{/with}}
             {{#with task}}
             <div class="jumbotron">
-              <h2>Tarea {{order}}: {{chalMissionDesc}}</h2>
+              <h2>{{_ "task"}} {{order}}: {{chalMissionDesc}}</h2>
               <h3>{{chalMissionXP}} XP en juego</h3>
               <h4>{{descTask}}</h4>
               <div class="disableDiv">
                 <div class="input-group col-xs-12">
-                  <label>Descripción</label>
+                  <label>{{_ "description"}}</label>
                   <textarea class="form-control descTask" rows="3">{{descTask}}</textarea>
                 </div>
                 <div id="studentsPoints">
-                  <label>Rúbrica</label>
+                  <label>{{_ "rubric"}}</label>
                   <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
                     <label class="btn btn-info btn-emoticon">
                       <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/v1549277040/images/star_red.png"/>

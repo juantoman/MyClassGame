@@ -39,17 +39,17 @@ Template.villainsPage.events({
     },
    'click .villainCard .cardDelete': function() {
      swal({
-       title: 'Eliminar villano',
-       text: '¿Estás seguro de querer eliminar este villano?',
+       title: TAPi18n.__('delete') + " " + TAPi18n.__('villain'),
+       text: TAPi18n.__('areYouSure'),
        type: 'warning',
        showCancelButton: true,
-       confirmButtonText: 'Sí',
+       confirmButtonText: TAPi18n.__('yes'),
        cancelButtonText: 'No'
      }).then((result) => {
        if (result.value) {
          Meteor.call('villainDelete', this._id);
          swal({
-           title: 'Villano eliminado!',
+           title: TAPi18n.__('villain') + " " + TAPi18n.__('deleted'),
            type: 'success'
          })
        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

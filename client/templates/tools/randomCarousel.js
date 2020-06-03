@@ -57,7 +57,7 @@ Template.randomCarousel.helpers({
    }
  },
  element: function() {
-   return Session.get("randomElement");
+   return $("#"+Session.get('randomElement')).text();
  },
  image: function(avatar) {
    avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;

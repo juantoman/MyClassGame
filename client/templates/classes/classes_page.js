@@ -120,7 +120,7 @@ Template.classesPage.events({
       Meteor.call('userTypeInsert', "parent");
       Session.setPersistent('userType','parent');
     }
-    Meteor.call('mcgLog', 'selectClass -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId'));
+    //Meteor.call('mcgLog', 'selectClass -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId'));
     Router.go('myNav',{_id:Session.get('classId')});
   },
   'click .btn-double-class': function(event) {

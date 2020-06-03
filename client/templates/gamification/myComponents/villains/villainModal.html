@@ -5,16 +5,16 @@
         <form id="add_villain_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="AddVillainModalLabel">Añadir villanos</h4>
+            <h4 class="modal-title" id="AddVillainModalLabel">{{_ 'newVillain'}}</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
-                <label for="villains-names" class="control-label">Nombres villanos (separados por coma)</label>
+                <label for="villains-names" class="control-label">{{_ 'villainNames'}}</label>
                 <input type="text" class="form-control" name="villains-names">
               </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ 'close'}}</button>
             <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </form>

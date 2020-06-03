@@ -9,23 +9,23 @@
     <div class="settingsMenu">
       <!-- Nav tabs -->
       <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="active"><a href="#parameters" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><span class="spanMenu"> Parámetros</span></a></li>
-        <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><span class="spanMenu"> Profesores</span></a></li>
-        <li role="presentation"><a href="#admin" aria-controls="admin" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-king" aria-hidden="true"></span><span class="spanMenu"> Administrar</span></a></li>
+        <li role="presentation" class="active"><a href="#parameters" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><span class="spanMenu"> {{_ "parameters"}}</span></a></li>
+        <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><span class="spanMenu"> {{_ "teachers"}}</span></a></li>
+        <li role="presentation"><a href="#admin" aria-controls="admin" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-king" aria-hidden="true"></span><span class="spanMenu"> {{_ "admin"}}</span></a></li>
       </ul>
 
       <!-- Tab panels -->
       <div class="tab-content container-responsive mytab">
         <div role="tabpanel" class="tab-pane active" id="parameters">
-          <h2 class="text-center bg-info">Parámetros</h2>
+          <!--<h2 class="text-center bg-info">Parámetros</h2>-->
           {{> parametersList}}
         </div>
         <div role="tabpanel" class="tab-pane" id="teachers">
-          <h2 class="text-center bg-info">Profesores</h2>
+          <!--<h2 class="text-center bg-info">Profesores</h2>-->
           {{> teachersTemplate}}
         </div>
         <div role="tabpanel" class="tab-pane" id="admin">
-          <h2 class="text-center bg-info">Administrar</h2>
+          <!--<h2 class="text-center bg-info">Administrar</h2>-->
           {{> admin}}
         </div>
       </div>
