@@ -87,10 +87,12 @@ Template.classesPage.helpers({
       if (avatar.substring(0, 4)=="http") {
         return avatar;
       } else {
-        return images.findOne({_id: avatar}).image_url;
+        cloudinary_url=images.findOne({_id: avatar}).image_url;
+        cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+        return cloudinary_url;
       }
     } else {
-      return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+      return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/v1543412151/proves/grupo.png";
     }
   }
 });

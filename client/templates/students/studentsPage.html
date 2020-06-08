@@ -22,7 +22,7 @@
             <div class="card__image-container" name="{{_id}}">
               <img class="cardLogo" src="/images/@mcgnb.png">
               {{#if teacher}}
-                <p class="{{#unless present}}studentAbsent{{else}}studentPresent{{/unless}} label">{{#unless present}}AUSENTE{{else}}PRESENTE{{/unless}}</p>
+                <p class="{{#unless present}}studentAbsent{{else}}studentPresent{{/unless}} label">{{#unless present}}{{_ "absent"}}{{else}}{{_ "present"}}{{/unless}}</p>
               {{/if}}
               <img src="{{image avatar}}" class="card__image" name="{{_id}}">
               <!--<h1 class="cardSelected {{#unless selected}}oculto{{/unless}}"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></h1>-->

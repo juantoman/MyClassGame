@@ -7,10 +7,14 @@ Template.cardsList.helpers({
   },
   card_src: function(imageId) {
     if (imageId) {
-      return images.findOne({_id: imageId}).image_url;
+      cloudinary_url=images.findOne({_id: imageId}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/');
+      return cloudinary_url;
     } else {
       if (Session.get('selectedImage')) {
-        return images.findOne({_id: Session.get('selectedImage')}).image_url;
+        cloudinary_url=images.findOne({_id: Session.get('selectedImage')}).image_url;
+        cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/');
+        return cloudinary_url;
       } else {
         return "https://res.cloudinary.com/myclassgame/image/upload/v1554809984/images/22190738841_41626354b7_b.jpg";
       }

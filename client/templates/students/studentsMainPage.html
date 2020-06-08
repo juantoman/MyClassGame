@@ -1,6 +1,6 @@
 <template name="studentsMainPage">
-  <h3 class="nameSection">{{_ "students"}}</h3>
-  <div  class="container-fluid myContent float-up">
+  <h3 class="nameSection">{{_ "students"}}<!-- <i class="fas fa-caret-down"></i>--></h3>
+  <div  class="container-fluid myContent">
     <!--
     <form class="form-inline text-center">
       <div class="form-group className">
@@ -63,12 +63,10 @@
                   <button id="none" type="button" class="btn btn-none btn-sm">{{_ "none"}}</button>
                   <button id="present" type="button" class="btn btn-presents btn-sm">{{_ "presents"}}</button>
                   <button id="invert" type="button" class="btn invert btn-sm">{{_ "invert"}}</button>
-                  <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
-                  <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
-                  <button id="all_bg" type="button" class="btn btn-bg3 btn-sm">{{_ "badges"}}</button>
-                  <button id="all_cards" type="button" class="btn btn-cards3 btn-sm">{{_ "powers"}}</button>
-                  <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">{{_ "buy"}}</button>
-                  <button id="all_delete" type="button" class="btn btn-deleteStudents btn-sm">{{_ "delete"}}</button>
+                </div>
+                <div class="btn-group" role="group" aria-label="Presentes o Ausentes">
+                  <button id="allStudentsPresents" type="button" class="btn btn-sm">{{_ "allPresents"}}</button>
+                  <button id="allStudentsAbsents" type="button" class="btn btn-sm">{{_ "allAbsents"}}</button>
                 </div>
               </div>
               <!--
@@ -80,10 +78,15 @@
             {{/if}}
             <div class="form-group">
               {{#if teacher}}
-                <div class="btn-group" role="group" aria-label="Presentes o Ausentes">
-                  <button id="allStudentsPresents" type="button" class="btn btn-sm">{{_ "allPresents"}}</button>
-                  <button id="allStudentsAbsents" type="button" class="btn btn-sm">{{_ "allAbsents"}}</button>
-                </div>
+              <label>{{_ "actions"}}</label>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
+                <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
+                <button id="all_bg" type="button" class="btn btn-bg3 btn-sm">{{_ "badges"}}</button>
+                <button id="all_cards" type="button" class="btn btn-cards3 btn-sm">{{_ "powers"}}</button>
+                <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">{{_ "buy"}}</button>
+                <button id="all_delete" type="button" class="btn btn-deleteStudents btn-sm">{{_ "delete"}}</button>
+              </div>
               {{/if}}
 
               <label>{{_ "order"}} </label>
@@ -107,11 +110,13 @@
           </div>
         </div>
       </div>
-      {{#if studentsSelected}}
-        {{> studentsPage}}
-      {{else}}
-        {{> groupsPage}}
-      {{/if}}
+      <div class="float-up">
+        {{#if studentsSelected}}
+          {{> studentsPage}}
+        {{else}}
+          {{> groupsPage}}
+        {{/if}}
+      </div>
     {{/if}}
     {{> studentsModals}}
   </div>

@@ -36,12 +36,14 @@ Template.missionCard2Template.helpers({
   cardPic: function() {
     if (this.missionImg) {
       url=images.findOne({_id: this.missionImg}).image_url;
+      url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
     } else {
       cardPic=classes.findOne({_id:Session.get('classId')}).backImg;
       if (cardPic.substring(0, 4)=="http") {
         url=cardPic;
       } else {
         url=images.findOne({_id: cardPic}).image_url;
+        url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
       }
     }
     return "background-image: url(" + url + ");"

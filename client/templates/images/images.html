@@ -37,7 +37,7 @@
               -->
               {{#each images}}
                 <figure class="card_image snip1519 {{checkedImage _id}}">
-                  <figcaption class="card__caption text-center"><img src="{{image_url}}" />
+                  <figcaption class="card__caption text-center"><img src="{{image_low}}" />
                     <input type="radio" value="{{_id}}" name="imageId" {{checkedImage _id}} hidden/>
                     <a href="#" class="button deleteImage">{{_ 'delete'}}</a>
                   </figcaption>

@@ -108,7 +108,10 @@
     "selection": "Selection",
     "all": "All",
     "none": "None",
+    "present":"Present",
     "presents":"Presents",
+    "absent":"Absent",
+    "absents":"Absents",
     "invert": "Invert",
     "power": "Power",
     "powers": "Powers",
@@ -301,5 +304,6 @@
     "noSpaces": "Alias must be a single word without spaces",
     "noMoney": "You don't have enough money!",
     "workHard": "Work hard to get them so you can buy!",
-    "studentWithoutMoney": "don't have enough money"
+    "studentWithoutMoney": "don't have enough money",
+    "actions": "Actions"
 }

@@ -108,7 +108,10 @@
     "selection": "Selecció",
     "all": "Tots",
     "none": "Cap",
+    "present":"Present",
     "presents":"Presents",
+    "absent":"Ausent",
+    "absents":"Ausents",
     "invert": "Invertir",
     "power": "Poder",
     "powers": "Poders",
@@ -301,5 +304,6 @@
     "noSpaces": "El alias ha de ser una única paraula sense espais",
     "noMoney": "No tens prou monedes!",
     "workHard": "Esforçat per aconseguir i aixi pots comprar!",
-    "studentWithoutMoney": "no tens prou monedes"
+    "studentWithoutMoney": "no tens prou monedes",
+    "actions": "Accions"
 }

@@ -6,7 +6,9 @@ Template.villainsPage.helpers({
     if (this.villainImage.substring(0, 4)=="http") {
       return this.villainImage;
     } else {
-      return images.findOne({_id: this.villainImage}).image_url;
+      cloudinary_url=images.findOne({_id: this.villainImage}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
+      return cloudinary_url;
     }
   }
 })

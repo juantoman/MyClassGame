@@ -38,6 +38,11 @@ Template.imagesTemplate.helpers({
       return images.find( { classId: Session.get('classId'), type: Session.get('imageType') } );
     }
   },
+  image_low: function() {
+    cloudinary_url=this.image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/')
+    return cloudinary_url;
+  },
   checkedImage: function(idImage) {
     if ( Session.get('imageType') == "badge" ) {
       idElement=badges.findOne({_id: Session.get('idElementImage')}).badgeImage;

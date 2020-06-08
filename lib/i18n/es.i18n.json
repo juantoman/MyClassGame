@@ -108,7 +108,10 @@
     "selection": "Selección",
     "all": "Todos",
     "none": "Ninguno",
+    "present":"Presente",
     "presents":"Presentes",
+    "absent":"Ausente",
+    "absents":"Ausentes",
     "invert": "Invertir",
     "power": "Poder",
     "powers": "Poderes",
@@ -301,5 +304,6 @@
     "noSpaces": "El alias ha de ser una única palabra sin espacios",
     "noMoney": "¡No tienes bastantes monedas!",
     "workHard": "¡Esfuérzate para conseguirlas y así poder comprar!",
-    "studentWithoutMoney": "no tiene bastantes monedas"
+    "studentWithoutMoney": "no tiene bastantes monedas",
+    "actions": "Acciones"
 }

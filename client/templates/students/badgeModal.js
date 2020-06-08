@@ -3,7 +3,9 @@ Template.badgeModal.helpers({
     return badges.find({ classId: Session.get('classId') });
   },
   srcImage: function(imgId) {
-    return images.findOne({_id: imgId }).image_url;
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
   }
 });
 
