@@ -119,6 +119,8 @@
     "buy": "Buy",
     "allPresents":"All Presents",
     "allAbsents":"All Absents",
+    "hideAbsents":"Hide Absents",
+    "showAbsents":"Show Absents",
     "order": "Order",
     "newTeam": "New Team",
     "addStudentsTeam": "Add students to a team",
@@ -229,7 +231,7 @@
     "challenges": "Challenges",
     "virtualGoods": "Virtual Goods",
     "prizes": "Prizes/Rewards",
-    "presents": "Presents",
+    "gifts": "Gifts",
     "rules": "Instructions/Rules",
     "gameStands": "Game Stands",
     "avatars": "Avatars",
@@ -305,5 +307,6 @@
     "noMoney": "You don't have enough money!",
     "workHard": "Work hard to get them so you can buy!",
     "studentWithoutMoney": "don't have enough money",
-    "actions": "Actions"
+    "actions": "Actions",
+    "classManagement": "Class Management"
 }

@@ -119,6 +119,8 @@
     "buy": "Comprar",
     "allPresents":"Tots Presents",
     "allAbsents":"Tots Ausents",
+    "hideAbsents":"Ocultar Ausents",
+    "showAbsents":"Mostrar Ausents",
     "order": "Ordenar",
     "newTeam": "Nou Equip",
     "addStudentsTeam": "Asignar estudiants a l'equip",
@@ -229,7 +231,7 @@
     "challenges": "Desafiaments",
     "virtualGoods": "Béns Virtuals",
     "prizes": "Premis/Recompenses",
-    "presents": "Regals",
+    "gifts": "Regals",
     "rules": "Instruccions/Normes",
     "gameStands": "Suports del joc",
     "avatars": "Avatars",
@@ -305,5 +307,6 @@
     "noMoney": "No tens prou monedes!",
     "workHard": "Esforçat per aconseguir i aixi pots comprar!",
     "studentWithoutMoney": "no tens prou monedes",
-    "actions": "Accions"
+    "actions": "Accions",
+    "classManagement": "Gestió de classe"
 }

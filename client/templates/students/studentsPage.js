@@ -186,6 +186,9 @@ Template.studentsPage.helpers({
       n=chatStudentTeacher.find({$and: [ { read: false } , { userIdWith:this._id} ] }).count();
     }
     if (n>0) { return n; }
+  },
+  hideAbsents: function() {
+    return Session.get('hideAbsents');
   }
 });
 
@@ -223,11 +226,11 @@ Template.studentsPage.events({
   },
    'click .btn-cards': function(event) {
     event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
     Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('cardsModal');
@@ -248,11 +251,11 @@ Template.studentsPage.events({
   },
   'click .btn-badge': function(event) {
     event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
     Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('badgeModal');
@@ -261,11 +264,11 @@ Template.studentsPage.events({
   },
   'click .btn-store': function(event) {
     event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
     Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('storeModal');

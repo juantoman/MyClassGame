@@ -119,6 +119,8 @@
     "buy": "Comprar",
     "allPresents":"Todos Presentes",
     "allAbsents":"Todos Ausentes",
+    "hideAbsents":"Ocultar Ausentes",
+    "showAbsents":"Mostrar Ausentes",
     "order": "Ordenar",
     "newTeam": "Nuevo Equipo",
     "addStudentsTeam": "Añadir estudiantes al equipo",
@@ -229,7 +231,7 @@
     "challenges": "Desafios",
     "virtualGoods": "Bienes virtuales",
     "prizes": "Premios/recompensas",
-    "presents": "Regalos",
+    "gifts": "Regalos",
     "rules": "Instrucciones/Normas",
     "gameStands": "Soportes del juego",
     "avatars": "Avatares",
@@ -305,5 +307,6 @@
     "noMoney": "¡No tienes bastantes monedas!",
     "workHard": "¡Esfuérzate para conseguirlas y así poder comprar!",
     "studentWithoutMoney": "no tiene bastantes monedas",
-    "actions": "Acciones"
+    "actions": "Acciones",
+    "classManagement": "Gestión de clase"
 }

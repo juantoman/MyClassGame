@@ -144,7 +144,7 @@ a:hover, a:link {
 }
 
 .tab-content{
-  /*margin-top:20px;*/
+  margin-top:40px;
 }
 
 #mainTab {
@@ -452,13 +452,18 @@ label {
 
 .submenu {
   padding: 5px 50px 5px 50px;
-  background-color: #268BD2;
+  background-color: #268BD2dd;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  margin: 0px auto 10px auto !important;
-
+  position: fixed;
+  z-index: 1;
+  left:50%;
+  -webkit-transform: translate(-50%, 0%);
+  width:90%;
+  top:102px;
+  border:1px solid lightblue;
 }
 
 .submenu label{
@@ -527,6 +532,7 @@ label {
   display: flex;
   flex-wrap: wrap;
 }
+
 .thumbnail {
   width:100%;
   height:90%;
@@ -593,6 +599,7 @@ label {
 }
 .activeClasses {
   background-color: white;
+  margin-top: 15px;
 }
 
 .storedClasses {
@@ -1233,25 +1240,32 @@ h4.panel-title {
 #mcgMobileVersion {
   display:none;
 }
-/*
+
 .nameSection {
   position:fixed;
   left:50%;
   text-align: center;
-  margin:0;
-  background-color: lightblue;
-  border: 1px solid orange;
+  margin: 0;
+  top: 64px;
   padding: 5px 10px;
-  z-index: 100;
+  z-index: 2;
   -webkit-transform: translate(-50%, 0%);
+  background-color: lightblue;
+  border:1px solid #268BD2;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
 }
-*/
+/*
 .nameSection {
   mix-blend-mode: screen;
   text-align: center;
   margin:0px 0 5px 0;
 }
-
+*/
 @media (max-width: 740px) {
 
 
@@ -1349,7 +1363,9 @@ h4.panel-title {
  #show-sidebar-line {
     display:none;
  }
-
+ .nameSection {
+   width: 90%;
+ }
 }
 
 @media (max-width: 510px) {

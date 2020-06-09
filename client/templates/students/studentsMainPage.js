@@ -79,6 +79,9 @@ Template.studentsMainPage.helpers({
         return images.findOne({_id: avatar}).image_url;
       }
     }
+  },
+  hideAbsents: function() {
+    return Session.get('hideAbsents');
   }
 });
 
@@ -270,13 +273,19 @@ Template.studentsMainPage.events({
     event.preventDefault();
     Meteor.call('allStudentsPresents', Session.get('classId'));
   },
+  'click #hideAbsents': function(event) {
+    event.preventDefault();
+    Session.set('hideAbsents', !Session.get('hideAbsents'));
+  },
   'click .submenuBtn': function(event) {
     event.preventDefault();
+    $('#mainPageMenu').toggleClass('in');
+    /*
     $('.submenuHide').toggleClass('oculto');
     if ($('.submenuBtn').text()=="-") {
       $('.submenuBtn').text("+");
     } else {
       $('.submenuBtn').text("-");
-    }
+    }*/
   }
  });
