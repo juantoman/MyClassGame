@@ -100,7 +100,8 @@ Template.signinModal.events({
 
    'click #google': function(e) {
       e.preventDefault();
-      Meteor.loginWithGoogle(redirect_uri="https://www.myclassgame.tk/_oauth/google",function(error){
+      var SCOPES = "'https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/classroom.courses.readonly','https://www.googleapis.com/auth/classroom.rosters.readonly','https://www.googleapis.com/auth/classroom.profile.emails','https://www.googleapis.com/auth/classroom.coursework.students.readonly','https://www.googleapis.com/auth/classroom.coursework.students','https://www.googleapis.com/auth/classroom.topics.readonly'";
+      Meteor.loginWithGoogle({requestPermissions:['https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/drive.metadata.readonly','https://www.googleapis.com/auth/classroom.courses.readonly','https://www.googleapis.com/auth/classroom.rosters.readonly','https://www.googleapis.com/auth/classroom.profile.emails','https://www.googleapis.com/auth/classroom.coursework.students.readonly','https://www.googleapis.com/auth/classroom.coursework.students','https://www.googleapis.com/auth/classroom.topics.readonly']},function(error){
           if(error) {
             swal({
                 title: TAPi18n.__('loginError'),
@@ -112,6 +113,7 @@ Template.signinModal.events({
             Router.go('classesPage');
           }
       });
+
       Modal.hide('signinModal');
    },
    'click #reset': function(e) {

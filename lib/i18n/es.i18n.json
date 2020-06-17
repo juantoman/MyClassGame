@@ -10,6 +10,7 @@
     "team_name": "Nombre del Equipo",
     "add_student": "Nuevos Estudiantes",
     "store": "Tienda",
+    "badge": "Insignia",
     "badges": "Insignias",
     "delete": "Borrar",
     "restore":"Recuperar",
@@ -308,5 +309,9 @@
     "workHard": "¡Esfuérzate para conseguirlas y así poder comprar!",
     "studentWithoutMoney": "no tiene bastantes monedas",
     "actions": "Acciones",
-    "classManagement": "Gestión de clase"
+    "classManagement": "Gestión de clase",
+    "experience": "Experiencia",
+    "life": "Vida",
+    "energy": "Energía",
+    "money": "Dinero"
 }

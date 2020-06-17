@@ -10,6 +10,7 @@
     "team_name": "Team Name",
     "add_student": "New Students",
     "store": "Store",
+    "badge": "Badge",
     "badges": "Badges",
     "delete": "Delete",
     "restore":"Restore",
@@ -308,5 +309,9 @@
     "workHard": "Work hard to get them so you can buy!",
     "studentWithoutMoney": "don't have enough money",
     "actions": "Actions",
-    "classManagement": "Class Management"
+    "classManagement": "Class Management",
+    "experience": "Experience",
+    "life": "Life",
+    "energy": "Energy",
+    "money": "Money"
 }

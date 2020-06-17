@@ -1,5 +1,7 @@
 handleClientLoad=function() {
+  //Podemos llamarlo desde classes_paje.js para crear un nuevo Google OAuth
   gapi.load('client:auth2', initClient);
+  //otherScopes();
 }
 
 initClient=function() {
@@ -14,6 +16,7 @@ initClient=function() {
   //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
   var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.topics.readonly";
 
+
   gapi.client.init({
     apiKey: API_KEY,
     clientId: CLIENT_ID,
@@ -26,6 +29,34 @@ initClient=function() {
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 
   });
+
+}
+
+otherScopes=function() {
+
+  // Cargamos el servicio Rest API de Google
+  //var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+  var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/classroom/v1/rest","https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+
+  // El servicio de Autenticación con una cuenta de Google
+  //var SCOPES = 'https://www.googleapis.com/auth/drive.metadata.readonly';
+  var SCOPES = "https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/classroom.courses.readonly https://www.googleapis.com/auth/classroom.rosters.readonly https://www.googleapis.com/auth/classroom.profile.emails https://www.googleapis.com/auth/classroom.coursework.students.readonly https://www.googleapis.com/auth/classroom.coursework.students https://www.googleapis.com/auth/classroom.topics.readonly";
+    // console.log(Meteor.user());
+    // var options = new gapi.auth2.SigninOptionsBuilder(
+    //   {
+    //     discoveryDocs: DISCOVERY_DOCS,
+    //     scope: SCOPES
+    //   }
+    // );
+
+    ListaCursos();
+
+}
+
+gapiSignOut=function() {
+  gapi.auth2.getAuthInstance().signOut().then(function () {
+      console.log('User signed out.');
+    });
 }
 
 updateSigninStatus=function(isSignedIn) {
@@ -218,5 +249,5 @@ listaTemas=function() {
   });
 }
 
-$.getScript("https://apis.google.com/js/api.js");
-$.getScript("https://apis.google.com/js/platform.js");
+//$.getScript("https://apis.google.com/js/api.js");
+//$.getScript("https://apis.google.com/js/platform.js");

@@ -198,6 +198,7 @@ Template.leftNav.events({
     }).then((result) => {
       if (result.value) {
         $(".classes").click();
+        //gapiSignOut();
         Meteor.logout();
         window.location.replace('https://accounts.google.com/Logout');
         window.location.href = "/";

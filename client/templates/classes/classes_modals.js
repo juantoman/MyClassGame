@@ -60,34 +60,48 @@ Template.classesModals.events({
         Meteor.call('otherTeacherInsert', otherClassId);
       }
       if (Session.get("gcId")!="") {
-          Session.get('sc'+Session.get("gcId")).forEach(function (gcStudent) {
-          var student = {
-            classId: Session.get('classId'),
-            studentName: gcStudent.profile.name.fullName,
-            alias: gcStudent.profile.name.givenName,
-            email:gcStudent.profile.emailAddress,
-            gcsId:gcStudent.userId,
-            groupId: 0,
-            XP: 0,
-            HP: 10,
-            level: 0,
-            coins: 0,
-            rs: 0,
-            os: 0,
-            ys: 0,
-            ws: 0,
-            bs: 0,
-            gs: 0,
-            badges: [],
-            items: [],
-            cards: [],
-            powers: [],
-            collection: [],
-            selected: 0,
-            conected: 0,
-            createdOn: new Date()
-          };
-          Meteor.call('studentInsert', student);
+        var url = 'https://classroom.googleapis.com/v1/courses/'+Session.get("gcId")+'/students';
+        var myAccessToken=Meteor.user().services.google.accessToken;
+
+        var params = {
+           access_token: myAccessToken
+        }
+
+        HTTP.get(url,{params:params},function(error,resp){
+          if (error) {
+            //console.log(error);
+          } else {
+            //console.log(resp);
+            resp.data.students.forEach(function (gcStudent) {
+              var student = {
+                classId: Session.get('classId'),
+                studentName: gcStudent.profile.name.fullName,
+                alias: gcStudent.profile.name.givenName,
+                email:gcStudent.profile.emailAddress,
+                gcsId:gcStudent.userId,
+                groupId: 0,
+                XP: 0,
+                HP: 10,
+                level: 0,
+                coins: 0,
+                rs: 0,
+                os: 0,
+                ys: 0,
+                ws: 0,
+                bs: 0,
+                gs: 0,
+                badges: [],
+                items: [],
+                cards: [],
+                powers: [],
+                collection: [],
+                selected: 0,
+                conected: 0,
+                createdOn: new Date()
+              };
+              Meteor.call('studentInsert', student);
+            });
+          }
         });
       }
     } else {
@@ -136,7 +150,7 @@ Template.adminClass.events({
       Session.setPersistent('evaluation',1);//classes.findOne({_id:Session.get('classId')}).evaluation);
       alert(cId);
       Router.go('myNav',{_id:Session.get('classId')});
-    }  
+    }
     Modal.hide('adminClass');
   }
 });

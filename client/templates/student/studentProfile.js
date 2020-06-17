@@ -1121,7 +1121,7 @@ Template.studentProfile.events({
         Meteor.call('studentBadgePull', Session.get('studentId'), this.badgeId);
         Meteor.call('studentXP', Session.get('studentId'), -p);
         swal({
-          title: TAPi18n.__('badge') + " " +  TAPi18n.__('deleted'),
+          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fdeleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

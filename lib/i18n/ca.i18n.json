@@ -10,6 +10,7 @@
     "team_name": "Nom de l'Equip",
     "add_student": "Nous Estudiants",
     "store": "Tenda",
+    "badge": "Insignia",
     "badges": "Insignies",
     "delete": "Borrar",
     "restore":"Recuperar",
@@ -308,5 +309,9 @@
     "workHard": "Esforçat per aconseguir i aixi pots comprar!",
     "studentWithoutMoney": "no tens prou monedes",
     "actions": "Accions",
-    "classManagement": "Gestió de classe"
+    "classManagement": "Gestió de classe",
+    "experience": "Experiència",
+    "life": "Vida",
+    "energy": "Energia",
+    "money": "Diners"
 }

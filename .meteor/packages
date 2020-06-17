@@ -43,3 +43,6 @@ tsega:bootstrap3-datetimepicker
 sinocyc:spectrum-colorpicker
 aldeed:template-extension
 harrison:papa-parse
+service-configuration
+http
+percolate:google-api

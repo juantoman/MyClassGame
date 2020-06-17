@@ -7,8 +7,38 @@ Template.gcCourses.onRendered(function () {
 
 Template.gcCourses.helpers({
   gc: function() {
-    //return $.grep(Session.get('lc'), function(e){ return e.id == '31168491805'; });
-    //ListaEstudiantes(this.id);
+    var url = "https://classroom.googleapis.com/v1/courses";
+    var myAccessToken=Meteor.user().services.google.accessToken;
+
+    var params = {
+       access_token: myAccessToken
+    }
+
+    HTTP.get(url,{params:params},function(error,resp){
+      if (error) {
+        //console.log(error);
+      } else {
+        //console.log(resp);
+        Session.set('lc',resp.data.courses);
+        /*
+        if (courses.length > 0) {
+          for (i = 0; i < courses.length; i++) {
+            var course = courses[i];
+            url_students='https://classroom.googleapis.com/v1/courses/'+course.id+'/students';
+            HTTP.get(url_students,{params:params},function(error,respS){
+              if (error) {
+                console.log(error);
+              } else {
+                console.log(respS);
+                Session.set('sc'+course.id,respS.data.students);
+              }
+            });
+          }
+        } else {
+          appendPre('No courses found.');
+        }*/
+      }
+    })
     return Session.get('lc');
   },
   gcs: function(c) {

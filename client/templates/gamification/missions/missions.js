@@ -63,6 +63,7 @@ function createPicker() {
         setCallback(pickerCallback).
         build();
     picker.setVisible(true);
+    pickerApiLoaded=false;
     //createFolder();
 
     /*var picker = new google.picker.PickerBuilder()
