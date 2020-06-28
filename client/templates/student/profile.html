@@ -7,9 +7,9 @@
                     	<figure class="card card__water">
                           <div class="card__image-container" name="{{_id}}">
                             <img class="cardLogo" src="/images/@mcgnb.png">
-                            <img src="{{image avatar}}" alt="Eevee" class="card__image eImage" name="{{_id}}">   
+                            <img src="{{image avatar}}" alt="Eevee" class="card__image eImage" name="{{_id}}">
                           </div>
-                          
+
                           <figcaption class="card__caption">
                             {{#if teacher}}
                               <h1 class="card__name">{{alias}} ({{studentName}})</h1>
@@ -22,7 +22,7 @@
                             <h3 class="card__type">
                               Nivel {{levelAutomatic _id}}
                             </h3>
-                        
+
                             <table class="card__stats">
                               <tbody><tr>
                                 <th><span class="btn-xp">XP</span></th>
@@ -32,19 +32,19 @@
                                 <th><span class="btn-hp">HP</span></th>
                                 <td><span class="btn-hp">{{HP}}</span></td>
                               </tr>
-                              
+
                               <tr>
                                 <th><span class="btn-store">Monedas</span></th>
                                 <td><span class="btn-store">{{coins}}</span></td>
                               </tr>
-                              
+
                             </tbody></table>
                             <div class="cardLine">
                             </div>
                             <ul class="cardIcons" title="{{_id}}">
-                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
-                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
-                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549270043/images/shield-31869.png" class="btn-badge" /></li>
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /></li>
+                              <li><img src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" class="btn-store"/></li>
                             </ul>
                             <!--
                             <div class="cardLine">
@@ -68,6 +68,6 @@
             <div class="col-xs-12 col-md-8 well" id="rightPanel">
               {{> studentData}}
             </div>
-        </div>       
-    </div>  
+        </div>
+    </div>
 </template>

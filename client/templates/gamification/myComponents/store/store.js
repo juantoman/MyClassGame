@@ -13,7 +13,7 @@ Template.store.helpers({
         cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/');
         return cloudinary_url;
       } else {
-        return "https://res.cloudinary.com/myclassgame/image/upload/v1554809836/images/design-2381160_960_720.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1554809836/images/design-2381160_960_720.png";
       }
     }
   }

@@ -81,5 +81,8 @@ Meteor.methods({
   deleteParentUser: function(userId,studentId) {
     Meteor.users.remove({'_id':userId});
     var Id =  students.update({ _id: studentId }, { $set: {userCreated: false, userId:""} });
+  },
+  adminClass: function(hash) {
+    return classes.findOne({"_id" : {'$regex' : hash }});
   }
 });

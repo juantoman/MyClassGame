@@ -24,7 +24,9 @@ Template.parametersList.helpers({
     if (avatar.substring(0, 4)=="http") {
       return avatar;
     } else {
-      return images.findOne({_id: avatar}).image_url;
+      cloudinary_url=images.findOne({_id: avatar}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      return cloudinary_url;
     }
   },
   sImage: function() {
@@ -32,7 +34,9 @@ Template.parametersList.helpers({
     if (avatar.substring(0, 4)=="http") {
       return avatar;
     } else {
-      return images.findOne({_id: avatar}).image_url;
+      cloudinary_url=images.findOne({_id: avatar}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      return cloudinary_url;
     }
   },
   bImage: function() {
@@ -40,7 +44,9 @@ Template.parametersList.helpers({
     if (avatar.substring(0, 4)=="http") {
       return avatar;
     } else {
-      return images.findOne({_id: avatar}).image_url;
+      cloudinary_url=images.findOne({_id: avatar}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      return cloudinary_url;
     }
   }
 });

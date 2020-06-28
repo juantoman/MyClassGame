@@ -13,7 +13,7 @@ Template.badgesList.helpers({
         cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/');
         return cloudinary_url;
       } else {
-        return "https://res.cloudinary.com/myclassgame/image/upload/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1542714723/myclassgame/Gold_Badge_Template_Clipart_Picture_ohwmt7.png";
       }
     }
   }

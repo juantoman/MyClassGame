@@ -28,7 +28,9 @@ Template.chatClass.helpers({
         if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
           return classes.findOne({_id: Session.get('classId')}).studentImg;
         } else {
-          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+          cloudinary_url=images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+          cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+          return cloudinary_url;
         }
       } else {
         return "https://avatars.dicebear.com/v2/avataaars/"+this._id+".svg";
@@ -37,7 +39,9 @@ Template.chatClass.helpers({
       if (avatar.substring(0, 4)=="http") {
         return avatar;
       } else {
-        return images.findOne({_id: avatar}).image_url;
+        cloudinary_url=images.findOne({_id: avatar}).image_url;
+        cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+        return cloudinary_url;
       }
     }
   },
@@ -46,7 +50,9 @@ Template.chatClass.helpers({
     if (a.substring(0, 4)=="http") {
       return a;
     } else {
-      return images.findOne({'_id': a}).image_url;
+      cloudinary_url=images.findOne({'_id': a}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+      return cloudinary_url;
     }
   },
   messages: function() {

@@ -49,6 +49,10 @@ Template.admin.events({
     c.className="Copia_" + c.className;
     c.iniHP=10;
     Meteor.call('classDuplicate',c,cId);
+    swal({
+      title: TAPi18n.__('duplicateClass'),
+      type: 'success'
+    });
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
       delete student._id;

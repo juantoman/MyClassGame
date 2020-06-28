@@ -313,5 +313,6 @@
     "experience": "Experience",
     "life": "Life",
     "energy": "Energy",
-    "money": "Money"
+    "money": "Money",
+    "duplicateClass": "Duplicate Class"
 }

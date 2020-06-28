@@ -6,7 +6,7 @@ Template.quoteCard.helpers({
       if (Session.get('selectedImage')) {
         return images.findOne({_id: Session.get('selectedImage')}).image_url;
       } else {
-        return "https://res.cloudinary.com/myclassgame/image/upload/v1554810211/images/quote-2930674_960_720.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1554810211/images/quote-2930674_960_720.png";
       }
     }
   }

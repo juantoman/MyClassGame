@@ -313,5 +313,6 @@
     "experience": "Experiència",
     "life": "Vida",
     "energy": "Energia",
-    "money": "Diners"
+    "money": "Diners",
+    "duplicateClass": "Classe duplicada"
 }

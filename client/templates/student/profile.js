@@ -6,16 +6,20 @@ Template.userProfile.helpers({
         if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
           return classes.findOne({_id: Session.get('classId')}).studentImg;
         } else {
-          return images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+          cloudinary_url=images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+          cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/')
+          return cloudinary_url;
         }
       } else {
-        return "https://res.cloudinary.com/myclassgame/image/upload/v1542963357/proves/luke.png";
+        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1542963357/proves/luke.png";
       }
     } else  {
       if (avatar.substring(0, 4)=="http") {
         return avatar;
       } else {
-        return images.findOne({_id: avatar}).image_url;
+        cloudinary_url=images.findOne({_id: avatar}).image_url;
+        cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/')
+        return cloudinary_url;
       }
     }
   },

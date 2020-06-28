@@ -19,10 +19,14 @@ Template.classesModals.helpers({
       if (avatar.substring(0, 4)=="http") {
         return avatar;
       } else {
-        return images.findOne({_id: avatar}).image_url;
+        cloudinary_url=images.findOne({_id: avatar}).image_url;
+        cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/')
+        return cloudinary_url;
       }
     } else {
-      return "https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+      cloudinary_url="https://res.cloudinary.com/myclassgame/image/upload/v1543412151/proves/grupo.png";
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/')
+      return cloudinary_url;
     }
   }
 });
@@ -135,22 +139,38 @@ Template.adminClass.events({
     //alert($(event.target).find('[name=class-name]').val());
     event.preventDefault();
     regla="^" + $(event.target).find('[name=class-name]').val();
-    Meteor.subscribe('classes','all'),
-    n=classes.find({"_id" : {'$regex' : regla }}).count();
-    alert(n + " de " + classes.find().count());
-    if (n==1){
-      cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
+    //Meteor.subscribe('classes','all');
+    Meteor.call('adminClass', regla,function(error,data){
+      if (error) {
+        console.log(error);
+      } else {
+        Modal.hide('adminClass');
+        Session.set('classId', data._id);
+        Session.set('className', data.className);
+        Session.setPersistent('navItem', "Students");
+        Session.setPersistent('sogBtn',"students");
+        Session.setPersistent('golBtn',"grid");
+        Session.set('studentSelected', false);
+        Session.setPersistent('evaluation',1);//classes.findOne({_id:Session.get('classId')}).evaluation);
+        Router.go('myNav',{_id:Session.get('classId')});
+      }
+    });
+    /*
+    if (c){
+      alert("Se ha encontrado la clase");
+      //cId=classes.findOne({"_id" : {'$regex' : regla }})._id;
       cName="admin";//classes.findOne({"_id" : {'$regex' : regla }}).className;
-      Session.set('classId', cId);
+      Session.set('classId', c._id);
       Session.set('className', cName);
       Session.setPersistent('navItem', "Students");
       Session.setPersistent('sogBtn',"students");
       Session.setPersistent('golBtn',"grid");
       Session.set('studentSelected', false);
       Session.setPersistent('evaluation',1);//classes.findOne({_id:Session.get('classId')}).evaluation);
-      alert(cId);
+      Modal.hide('adminClass');
       Router.go('myNav',{_id:Session.get('classId')});
-    }
-    Modal.hide('adminClass');
+    } else {
+      alert("No se ha encontrado la clase");
+    }*/
   }
 });
