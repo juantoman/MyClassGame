@@ -1,0 +1,31 @@
+body {
+  background-color: lightblue;
+}
+
+.container {
+  background-color: #268bd2;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid
+}
+
+.mcg_link {
+  text-align: center;
+}
+
+h2, h3 {
+  color: Aqua;
+}
+
+p, ul {
+  color: white;
+}
+
+a {
+  color: SkyBlue;
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration:none;
+}

@@ -12,14 +12,19 @@ Template.leftNav.helpers({
    return classes.find({"teacherId": Meteor.userId()});
  },
  userN: function() {
-   try {
-     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+   if (Meteor.user().userType=="student"){
+     alias=students.findOne({userId:Meteor.userId()}).alias;
+     return alias;
+   } else {
+     try {
+       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+     }
+     catch(err) {
+       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+     }
+     n=emailUser.indexOf("@");
+     return emailUser.substring(0,n);
    }
-   catch(err) {
-     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-   }
-   n=emailUser.indexOf("@");
-   return emailUser.substring(0,n);
  },
  userType: function() {
   if (Session.get('userType')=="teacher") {
@@ -97,13 +102,39 @@ Template.leftNav.helpers({
    }
  },
  userImage: function() {
-   if (Meteor.user().userAvatar) {
-     cloudinary_url=images.findOne({'_id':Meteor.user().userAvatar}).image_url;
-     cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
-     return cloudinary_url;
+   if (Meteor.user().userType=="student"){
+     student=students.findOne({userId:Meteor.userId()});
+     avatar=student.avatar;
+     if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
+       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
+         if (classes.findOne({_id: Session.get('classId')}).studentImg.substring(0, 4)=="http") {
+           return classes.findOne({_id: Session.get('classId')}).studentImg;
+         } else {
+           cloudinary_url=images.findOne({_id: classes.findOne({_id: Session.get('classId')}).studentImg}).image_url;
+           cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+           return cloudinary_url;
+         }
+       } else {
+         return "https://avatars.dicebear.com/v2/avataaars/"+student._id+".svg";
+       }
+     } else  {
+       if (avatar.substring(0, 4)=="http") {
+         return avatar;
+       } else {
+         cloudinary_url=images.findOne({_id: avatar}).image_url;
+         cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+         return cloudinary_url;
+       }
+     }
    } else {
-    return "https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
-   };
+     if (Meteor.user().userAvatar) {
+       cloudinary_url=images.findOne({'_id':Meteor.user().userAvatar}).image_url;
+       cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/')
+       return cloudinary_url;
+     } else {
+      return "https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
+     };
+   }
  }
 })
 

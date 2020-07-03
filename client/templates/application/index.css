@@ -42,6 +42,7 @@ body {
   -webkit-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #1e2229 !important;
 }
 
 .navbar .navbar-inner {
@@ -121,8 +122,9 @@ body {
 
 /* Carousel base class */
 .carousel {
-  height: 40vh;
-  margin-bottom: -25px;
+  margin-top: -1px;
+  height: 50vh;
+  margin-bottom: -20px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -131,16 +133,16 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 40vh;
+  height: 50vh;
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  width: 54vh !important;
+  width: 100vw !important;
   margin: auto !important;
 }
 
 .carousel-inner img{
-  opacity: 0.4;
+  opacity: 0.7;
 }
 .carousel-caption{
   color:#073642;
@@ -254,6 +256,7 @@ body {
 	text-transform: uppercase;
 	transition: transform 80ms ease-in;
 	margin: 2px;
+  z-index:2;
 }
 
 @media (min-width: 992px) {
@@ -270,7 +273,10 @@ body {
 
 .btnCF {
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   right: 10px;
   z-index: 100;
+  -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
 }

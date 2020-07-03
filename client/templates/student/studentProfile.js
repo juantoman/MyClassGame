@@ -233,6 +233,13 @@ Template.studentProfile.helpers({
      return "readonly";
     };
   },
+  levelDisabled: function() {
+    if (!classes.findOne({_id: Session.get('classId')}).xpChangeLevel) {
+     return "";
+    } else {
+     return "disabled";
+    };
+  },
   /*roMission: function(type) {
     if (type == "Reto") {
      return "";
@@ -303,11 +310,21 @@ Template.studentProfile.helpers({
   selectLevels: function(){
     return levels.find({classId: Session.get('classId')});
   },
-  levelSelected: function(l){
-    if ( students.findOne({_id: Session.get('studentId')}).level == l ) {
-      return "selected"
+  levelSelected: function(l,xp){
+    if (classes.findOne({_id: Session.get('classId')}).xpChangeLevel ) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      n=parseInt(xp/levelXP);
+      if ( n == l ) {
+        return "selected"
+      } else {
+        return "";
+      }
     } else {
-      return "";
+      if ( students.findOne({_id: Session.get('studentId')}).level == l ) {
+        return "selected"
+      } else {
+        return "";
+      }
     }
   },
   selectMissions: function(){

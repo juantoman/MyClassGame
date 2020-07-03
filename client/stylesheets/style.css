@@ -329,6 +329,7 @@ a:hover, a:link {
 	width:35px;
 	height:35px;
 	margin:0 auto;
+  top:5px;
 	position:relative;
 	-webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
@@ -338,9 +339,11 @@ a:hover, a:link {
 }
 
 .footer #button img{
-	width:20px;
-	height:20px;
+	width:29px;
+	height:29px;
 	position:relative;
+  margin: 0px 0 0 0;
+  z-index:1;
 }
 
 .footer {
@@ -349,7 +352,7 @@ a:hover, a:link {
 	position:fixed;
 	background-color: transparent !important;
     width: 100%;
-    height: 2em;
+    height: 35px;
     overflow:hidden;
     margin:0 auto;
 	-webkit-transition: all 1s ease;
@@ -357,7 +360,7 @@ a:hover, a:link {
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
-	z-index:999;
+	z-index:10;
 }
 .footer:hover {
 	-webkit-transition: all 1s ease;
@@ -365,16 +368,20 @@ a:hover, a:link {
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
     transition: all 1s ease;
-	height: 10em;
+	height: 120px;
 }
 .footer #container{
-	margin-top:5px;
+	margin-top:-15px;
 	width:100%;
   height:100%;
   position:relative;
   top:0;
   left:0;
 	background-color: #268BD2;
+  border-top: 1px solid #1e2229;
+  -webkit-box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -5px 8px rgba(0, 0, 0, 0.5);
 }
 .footer #cont{
   position:relative;
@@ -393,15 +400,24 @@ a:hover, a:link {
 	font-family: 'Helvetica';
 	font-size: 30px;
 	font-weight: 100;
-	margin-top:70px;
+	margin-top:60px;
 	margin-left:40px;
 	color:white;
 	text-transform: none;
 }
 
+.footer h3 p{
+  margin:0;
+}
+
 .footer h3 a{
   text-decoration: none;
-  color:#02FF02;
+  color:Cyan;
+}
+
+.footer .privacy_link a{
+  color: MidnightBlue;
+  font-weight: bold;
 }
 
 #myheader {

@@ -314,5 +314,7 @@
     "life": "Life",
     "energy": "Energy",
     "money": "Money",
-    "duplicateClass": "Duplicate Class"
+    "duplicateClass": "Duplicate Class",
+    "policy": "Privacy Policy",
+    "policy_file": "privacy"
 }

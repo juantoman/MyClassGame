@@ -6,12 +6,12 @@ Template.signinModal.events({
   },
   'click #signUp': function(event) {
     event.preventDefault();
-    container = document.getElementById('container');
+    container = document.getElementById('container_sign');
     container.classList.add("right-panel-active");
   },
   'click #signIn': function(event) {
     event.preventDefault();
-    container = document.getElementById('container');
+    container = document.getElementById('container_sign');
     container.classList.remove("right-panel-active");
   },
  'submit .login-form-email': function(e) {

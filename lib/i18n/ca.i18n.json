@@ -314,5 +314,7 @@
     "life": "Vida",
     "energy": "Energia",
     "money": "Diners",
-    "duplicateClass": "Classe duplicada"
+    "duplicateClass": "Classe duplicada",
+    "policy": "Política de privacitat",
+    "policy_file": "privacitat"
 }

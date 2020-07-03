@@ -178,7 +178,7 @@
         <div class="col-xs-12 col-md-8 well" id="rightPanel">
           <div id="studentTab" class="col tab-content">
             <div role="tabpanel" class="tab-pane active float-up" id="Datos">
-              <h2>{{_ "data"}} <span class="label label-info" style="text-transform: none;"> {{studentId}}</span></h2>
+              <h2>{{_ "data"}} {{#if teacher}}<span class="label label-info" style="text-transform: none;"> {{studentId}}</span>{{/if}}</h2>
           		<hr class="colorgraph">
               <div class="row">
                 <div class="col-xs-12">
@@ -210,9 +210,9 @@
                   		<div class="form-group">
                   			<label for="sLevel" class="control-label">{{_ "level"}}</label>
                         <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-                        <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}}>
+                        <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}} {{levelDisabled}}>
                           {{#each selectLevels}}
-                            <option value="{{level}}" {{levelSelected level}}>{{level}}.- {{levelDescription}}</option>
+                            <option value="{{level}}" {{levelSelected level ../XP}}>{{level}}.- {{levelDescription}}</option>
                           {{/each}}
                         </select>
                   		</div>
