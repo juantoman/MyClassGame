@@ -420,6 +420,19 @@ a:hover, a:link {
   font-weight: bold;
 }
 
+.footer .footer-social{
+  position: absolute;
+  color:white !important;
+  left: 20px;
+  top: 20px;
+  font-size: 40px;
+  letter-spacing: 10px;
+}
+
+.footer .footer-social a{
+  color:white !important;
+}
+
 #myheader {
   position:relative;
   height:60px;

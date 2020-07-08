@@ -140,22 +140,36 @@ p {
 .studentPresent {
   background-color: #1fef1f !important;
   color: #112233 !important;
+  cursor:pointer;
 }
 
 .studentAbsent {
   background-color: red !important;
+  cursor:pointer;
 }
 
 .badge {
   font-size: 1em !important;
 }
 
+.studentModal button.list-group-item {
+  padding:5px;
+  margin: 0;
+}
+
+.studentModal .list-group-item *{
+  padding:0 0 0 10px;
+  margin: 0;
+}
+
 .badgeXP {
-  background-color: #268BD2 !important;
+  background-color: LimeGreen !important;
+  padding: 10px !important;
 }
 
 .badgeHP {
   background-color: red !important;
+  padding: 10px !important;
 }
 
 .submenu .btnNewStudent {

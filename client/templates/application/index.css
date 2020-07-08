@@ -163,6 +163,35 @@ body {
   margin-right: 10px;
   margin-left: 10px;
 }
+.marketing .row {
+  margin: 20px;
+}
+.marketing .card {
+  margin:0;
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 0px;
+  transition: .5s;
+}
+
+.marketing .card:hover {
+  background-color: #eeeeee;
+}
+
+.marketing .card img{
+  height:150px;
+  max-width: 235px;
+  cursor: pointer;
+}
+
+.marketing p {
+  font-size:calc(1em + 1vh);;
+}
+
+.marketing h1, .marketing h2, .featurette strong {
+  color: #268BD2;
+  font-weight:bold;
+}
 
 
 /* Featurettes
@@ -218,10 +247,6 @@ body {
 
   .featurette-heading {
     font-size: 50px;
-  }
-
-  .marketing p {
-    font-size: 1.5vmax !important;
   }
 
 }

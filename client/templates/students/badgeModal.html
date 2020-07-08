@@ -1,7 +1,7 @@
 <template name="badgeModal">
       <!-- Badge Modal -->
 
-  <div class="modal badgeModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal badgeModal fade studentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -14,10 +14,11 @@
                 <ul class="list-group">
                   {{#each badgesList}}
                     <button type="button" class="list-group-item" id="{{_id}}">
-                      <img src="{{srcImage badgeImage}}" style="width:12%;float:left;margin-right:10px;"/>
-                      <span class="badge">{{points}}</span>
+                      <img src="{{srcImage badgeImage}}" style="height:50px;float:left;margin-right:10px;"/>
+                      <span class="badge badgeXP">{{points}} XP</span>
                       <div style="width:86%;">
-                        <h4>{{badgeDescription}}</h4>
+                        <h3>{{badgeName}}</h3>
+                        <p>{{badgeDescription}}</p>
                       </div>
                     </button>
                   {{/each}}

@@ -1,6 +1,6 @@
 <template name="hpModal">
   <!-- HP Modal -->
-   <div class="modal hpModal fade" id="hp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal studentModal fade" id="hp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_hp_form">
@@ -14,7 +14,8 @@
                   {{#each hps}}
                     <button type="button" class="list-group-item" id="{{_id}}">
                       <span class="badge badgeHP">{{points}} HP </span>
-                      {{behaviourDescription}}
+                      <h3>{{behaviourName}}</h3>
+                      <p>{{behaviourDescription}}</p>
                     </button>
                   {{/each}}
                 </ul>

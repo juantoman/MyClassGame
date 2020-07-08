@@ -72,7 +72,7 @@
     "Twitter": "Segueix-nos a Twitter per estar informat de totes les novetats i millores que es van realitzant en @MyClassGame a més de per compartir les teves experiències i aportar idees.",
     "Telegram": "Segueix-nos a Telegram per estar informat de totes les novetats i millores que es van realitzant en @MyClassGame a més de per compartir les teves experiències i aportar idees amb la resta de membres.",
     "Facebook": "Segueix-nos a Facebook per estar informat de totes les novetats i millores que es van realitzant en @MyClassGame a més de per compartir les teves experiències i aportar idees amb la resta de membres.",
-    "whatisMCG": "Què és @MyClassGame?",
+    "whatisMCG": "Què és ",
     "intro1": "és una aplicació web que pretén ajudar a qualsevol docent a introduir noves metodologies a les seves classes de forma fàcil i intuïtiva",
     "intro2": "La idea és que es puguin crear Projectes Cooperatius Gamificados (PCG) a través de la plataforma i d'aquesta forma gestionar totes les dades rellevants per tenir un seguiment de cada tasca que realitzen els alumnes",
     "intro3": "Actualment la plataforma està en continu desenvolupament amb el que estem oberts a qualsevol idea i suggeriment",
@@ -92,7 +92,7 @@
     "notifications": "Notificacions",
     "configuration": "Configuració",
     "help": "Ajuda",
-    "collaborate": "Col·laborar",
+    "collaborate": "Col·laborar amb ",
     "askingCollaboration": "T'agradaria col·laborar amb el desenvolupament de @MyClassGame?",
     "login": "Iniciar Sessió / Registrar",
     "welcome": "Benvinguts a @MyClassGame.",
@@ -185,7 +185,7 @@
     "createNewPenalty": "Crea una nova penalització",
     "newBadge": "Nova Insignia",
     "createNewBadge": "Crea una nova insignia",
-    "price": "Preu",
+    "price": "Cost",
     "newPower": "Nou Poder",
     "createNewPower": "Crea un nou poder",
     "collectionable": "Col·leccionable",
@@ -261,6 +261,7 @@
     "seeAvatars": "Familia i estudiants poden vorer els avatars",
     "seeData": "Familia i estudiants no poden vorer les dades de la resta de estudiants",
     "coinXP": "Guanyar un $ per XP",
+    "coinsXP": "Número de monedes guanyades per XP",
     "resetXP&HP": "Resetejar sols XP i HP dels estudiants",
     "resetAll": "Resetejar puntuacions estudiants",
     "XPxHour": "XP per hora en entrades d'equip",
@@ -316,5 +317,6 @@
     "money": "Diners",
     "duplicateClass": "Classe duplicada",
     "policy": "Política de privacitat",
-    "policy_file": "privacitat"
+    "policy_file": "privacitat",
+    "contact": "Contacte"
 }

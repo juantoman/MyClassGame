@@ -238,6 +238,15 @@
 	width: 40px;
 }
 
+#google {
+	border: 1px solid transparent;
+}
+
+#google:hover {
+	border: 1px solid #4285F4;
+	cursor: pointer;
+}
+
 @media (max-width: 740px) {
 	#signinTemplate h1 {
   	font-size: 1.2em;

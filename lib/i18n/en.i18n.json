@@ -72,7 +72,7 @@
     "Twitter": "Follow us on Twitter to be informed of all the news and improvements that are being made in @MyClassGame as well as to share your experiences and contribute ideas.",
     "Telegram": "Follow us on Telegram to be informed of all the news and improvements that are being made in @MyClassGame as well as to share your experiences and contribute ideas with other members.",
     "Facebook": "Follow us on Facebook to be informed of all the news and improvements that are being made in @MyClassGame as well as to share your experiences and contribute ideas with other members.",
-    "whatisMCG": "What is @MyClassGame?",
+    "whatisMCG": "What is ",
     "intro1": "is a web application that aims to help any teacher to introduce new methodologies in their classes easily and intuitively",
     "intro2": "The idea is that Gamified Cooperative Projects (GCP) can be created through the platform and in this way manage all the relevant data to have a follow-up of each task carried out by the students",
     "intro3": "Currently the platform is in continuous development so we are open to any idea and suggestion",
@@ -92,7 +92,7 @@
     "notifications": "Notifications",
     "configuration": "Configuration",
     "help": "Help",
-    "collaborate": "Collaborate",
+    "collaborate": "Collaborate with ",
     "askingCollaboration": "Would you like to collaborate with the development of @MyClassGame?",
     "login": "Sign in / Sign up",
     "welcome": "Welcome to @MyClassGame.",
@@ -185,7 +185,7 @@
     "createNewPenalty": "Create a new penalty",
     "newBadge": "New Badge",
     "createNewBadge": "Create a New Badge",
-    "price": "Price",
+    "price": "Cost",
     "newPower": "New Power",
     "createNewPower": "Create a New Power",
     "collectionable": "Collectionable",
@@ -261,6 +261,7 @@
     "seeAvatars": "Family and Students can see avatars",
     "seeData": "Family and Students can't see data from other students",
     "coinXP": "Earn one $ per XP",
+    "coinsXP": "Number of coins earned by XP",
     "resetXP&HP": "Reset only XP and HP from students",
     "resetAll": "Reset all data from students",
     "XPxHour": "XP per hour in team inputs",
@@ -316,5 +317,6 @@
     "money": "Money",
     "duplicateClass": "Duplicate Class",
     "policy": "Privacy Policy",
-    "policy_file": "privacy"
+    "policy_file": "privacy",
+    "contact": "Contact"
 }

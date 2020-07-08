@@ -222,6 +222,11 @@ Template.allBGModal.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  },
+  srcImage: function(imgId) {
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
   }
 });
 
@@ -262,7 +267,9 @@ Template.allCardsModal.helpers({
     return chromes.find({classId: Session.get('classId')});
   },
   srcImage: function(imgId) {
-    return images.findOne({_id: imgId }).image_url;
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
   },
   students: function() {
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
@@ -332,7 +339,9 @@ Template.allCoinsModal.helpers({
     return store.find({ classId: Session.get('classId') });
   },
   srcImage: function(imgId) {
-    return images.findOne({_id: imgId }).image_url;
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
   },
   coins: function() {
     return students.findOne({_id: Session.get('studentId') }).coins;

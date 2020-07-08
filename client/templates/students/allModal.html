@@ -38,10 +38,10 @@
 
 <!-- All XP Modal -->
 <template name="allXPModal">
-   <div class="modal fade" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal" id="xp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div id="add_xp_form">
+        <div id="add_xp_all">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="XPModalLabel">{{_ "allStudentsXP"}}</h4>
@@ -51,8 +51,9 @@
                 <ul class="list-group">
                   {{#each xps}}
                     <button type="button" class="list-group-item" id="{{_id}}">
-                      <span class="badge">{{points}}</span>
-                      {{behaviourDescription}}
+                      <span class="badge badgeXP">{{points}}</span>
+                      <h3>{{behaviourName}}</h3>
+                      <p>{{behaviourDescription}}</p>
                     </button>
                   {{/each}}
                 </ul>
@@ -72,10 +73,10 @@
 
 <!-- All HP Modal -->
 <template name="allHPModal">
-   <div class="modal fade" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal studentModal fade" id="hp_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div id="add_hp_form">
+        <div id="add_hp_akk">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="HPModalLabel">{{_ "allStudentsHP"}}</h4>
@@ -85,8 +86,9 @@
                 <ul class="list-group">
                   {{#each hps}}
                     <button type="button" class="list-group-item" id="{{_id}}">
-                      <span class="badge">{{points}}</span>
-                      {{behaviourDescription}}
+                      <span class="badge badgeHP">{{points}}</span>
+                      <h3>{{behaviourName}}</h3>
+                      <p>{{behaviourDescription}}</p>
                     </button>
                   {{/each}}
                 </ul>
@@ -106,7 +108,7 @@
 
 <!-- All BG Modal -->
 <template name="allBGModal">
-   <div class="modal fade" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_bg_form">
@@ -119,8 +121,12 @@
                 <ul class="list-group">
                   {{#each bgs}}
                     <button type="button" class="list-group-item" id="{{_id}}">
-                      <span class="badge">{{points}}</span>
-                      {{badgeDescription}}
+                      <img src="{{srcImage badgeImage}}" style="height:50px;float:left;margin-right:10px;"/>
+                      <span class="badge badgeXP">{{points}} XP</span>
+                      <div style="width:86%;">
+                        <h3>{{badgeName}}</h3>
+                        <p>{{badgeDescription}}</p>
+                      </div>
                     </button>
                   {{/each}}
                 </ul>
@@ -140,7 +146,7 @@
 
 <!-- All Cards Modal -->
 <template name="allCardsModal">
-   <div class="modal fade" id="all_cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal" id="all_cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_card_form">
@@ -161,13 +167,12 @@
                   <ul class="list-group">
                     {{#each cards}}
                       <button type="button" class="list-group-item" id="{{_id}}">
-                        <img src="{{srcImage cardImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <img src="{{srcImage cardImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:74%;float:left;">
                           <h3>{{cardName}}</h3>
                           <h4>{{cardDescription}}</h4>
                         </div>
-                        <span style="width:10%;float:right;" class="badge text-center">{{cardPrice}}</span>
-                      </button>
+                        <span style="width:10%;float:right;" class="badge text-center badgeXP">{{cardPrice}} <i class="fa fa-coins"></i></span>                      </button>
                     {{/each}}
                   </ul>
                 </div>
@@ -178,12 +183,12 @@
                   <ul class="list-group">
                     {{#each chromes}}
                       <button type="button" class="list-group-item" id="{{_id}}">
-                        <img src="{{srcImage chromeImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <img src="{{srcImage chromeImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{chromeName}}</h3>
                           <h4>{{chromeDescription}}</h4>
                         </div>
-                        <span style="width:12%;float:right;" class="price text-center badge">{{chromePrice}}</span>
+                        <span style="width:10%;float:right;" class="price text-center badge badgeXP">{{chromePrice}} <i class="fa fa-coins"></i></span>
                       </button>
                     {{/each}}
                   </ul>
@@ -203,7 +208,7 @@
 
 <!-- All Coins Modal -->
 <template name="allCoinsModal">
-   <div class="modal fade" id="all_coins_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal" id="all_coins_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -225,45 +230,45 @@
                 <h2 class="text-center bg-info">{{_ "money"}}</h2>
                   <div class="billetes text-center">
                       <button type="button" class="btn btn-info" name="one">
-                        <span class="badge text-center">1 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">1 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="two">
-                        <span class="badge text-center">2 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">2 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="three">
-                        <span class="badge text-center">3 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">3 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="five">
-                        <span class="badge text-center">5 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">5 <i class="fa fa-coins"></i></span>
                       </button>
                       <br/><br/>
                       <button type="button" class="btn btn-info" name="ten">
-                        <span class="badge text-center">10 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">10 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="twenty">
-                        <span class="badge text-center">20 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">20 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="therty">
-                        <span class="badge text-center">30 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">30 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="fifty">
-                        <span class="badge text-center">50 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">50 <i class="fa fa-coins"></i></span>
                       </button>
                       <br/><br/>
                       <button type="button" class="btn btn-info" name="ten">
-                        <span class="badge text-center">100 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">100 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="twenty">
-                        <span class="badge text-center">200 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">200 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="therty">
-                        <span class="badge text-center">300 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">300 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="fifty">
-                        <span class="badge text-center">500 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">500 <i class="fa fa-coins"></i></span>
                       </button>
                       <button type="button" class="btn btn-info" name="hundred">
-                        <span class="badge text-center">1000 <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                        <span class="badge text-center">1000 <i class="fa fa-coins"></i></span>
                       </button>
                       <br/><br/>
                     </div>
@@ -274,12 +279,12 @@
                   <ul class="list-group">
                     {{#each itemList}}
                       <button type="button" class="list-group-item" id="{{_id}}">
-                        <img src="{{srcImage itemImage}}" style="width:12%;float:left;margin-right:10px;"/>
+                        <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{itemName}}</h3>
-                          <h4>{{itemDescription}}</h4>
+                          <p>{{itemDescription}}</p>
                         </div>
-                        <span style="width:12%;float:right;" class="price text-center badge">{{price}}</span>
+                        <span style="width:12%;float:right;" class="price text-center badge badgeXP">{{price}} <i class="fa fa-coins"></i></span>
                       </button>
                     {{/each}}
                   </ul>
@@ -288,8 +293,8 @@
             </div>
             <div class="text-center ">
               <h2>
-                <span class="label label-success">{{wonCoins}} <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
-                <span class="label label-warning">{{spentCoins}} <img width="20px" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_60,f_auto,dpr_auto/v1549268143/images/Gold_coin_icon.png" /></span>
+                <span class="label label-success">{{wonCoins}} <i class="fa fa-coins"></i></span>
+                <span class="label label-warning">{{spentCoins}} <i class="fa fa-coins"></i></span>
               </h2>
             </div>
           </div>

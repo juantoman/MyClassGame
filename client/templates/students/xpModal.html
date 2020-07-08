@@ -1,6 +1,6 @@
 <template name="xpModal">
     <!-- XP Modal -->
-   <div class="modal xpModal fade" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal studentModal fade" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_xp_form">
@@ -14,7 +14,8 @@
                   {{#each xps}}
                     <button type="button" class="list-group-item" id="{{_id}}">
                       <span class="badge badgeXP">{{points}} XP</span>
-                      {{behaviourDescription}}
+                      <h3>{{behaviourName}}</h3>
+                      <p>{{behaviourDescription}}</p>
                     </button>
                   {{/each}}
                 </ul>

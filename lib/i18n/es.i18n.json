@@ -72,7 +72,7 @@
     "Twitter": "Síguenos en Twitter para estar informado de todas las novedades y mejoras que se van realizando en @MyClassGame además de para compartir tus experiencias y aportar ideas.",
     "Telegram": "Síguenos en Telegram para estar informado de todas las novedades y mejoras que se van realizando en @MyClassGame además de para compartir tus experiencias y aportar ideas con el resto de miembros.",
     "Facebook": "Síguenos en Facebook para estar informado de todas las novedades y mejoras que se van realizando en @MyClassGame además de para compartir tus experiencias y aportar ideas con el resto de miembros.",
-    "whatisMCG": "¿Qué es @MyClassGame?",
+    "whatisMCG": "¿Qué es ",
     "intro1": "es una aplicación web que pretende ayudar a cualquier docente a introducir nuevas metodologías en sus clases de forma fácil e intuitiva",
     "intro2": "La idea es que se puedan crear Proyectos Cooperativos Gamificados (PCG) a través de la plataforma y de esa forma gestionar todos los datos relevantes para tener un seguimiento de cada tarea que realizan los alumnos",
     "intro3": "Actualmente la plataforma está en continuo desarrollo con lo que estamos abiertos a cualquier idea y sugerencia",
@@ -92,7 +92,7 @@
     "notifications": "Notificaciones",
     "configuration": "Configuración",
     "help": "Ayuda",
-    "collaborate": "Colaborar",
+    "collaborate": "Colaborar con ",
     "askingCollaboration": "¿Te gustaría colaborar con el desarrollo de @MyClassGame?",
     "login": "Iniciar Sesión / Registrar",
     "welcome": "Bienvenid@s a @MyClassGame.",
@@ -185,7 +185,7 @@
     "createNewPenalty": "Crea una nueva penalización",
     "newBadge": "Nueva Insignia",
     "createNewBadge": "Crea una nueva insignia",
-    "price": "Precio",
+    "price": "Coste",
     "newPower": "Nuevo Poder",
     "createNewPower": "Crea un nuevo poder",
     "collectionable": "Coleccionable",
@@ -261,6 +261,7 @@
     "seeAvatars": "Familia y estudiantes pueden ver los avatares",
     "seeData": "Familia y estudiantes no pueden ver los datos del resto de estudiantes",
     "coinXP": "Ganar un $ por XP",
+    "coinsXP": "Número de monedas ganadas por XP",
     "resetXP&HP": "Resetear sólo XP y HP estudiantes",
     "resetAll": "Resetear puntuaciones estudiantes",
     "XPxHour": "XP por hora en entradas de equipo",
@@ -316,5 +317,6 @@
     "money": "Dinero",
     "duplicateClass": "Clase duplicada",
     "policy": "Política de privacidad",
-    "policy_file": "privacidad"
+    "policy_file": "privacidad",
+    "contact": "Contacto"
 }
