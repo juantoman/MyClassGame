@@ -342,7 +342,7 @@ a:hover, a:link {
 	width:29px;
 	height:29px;
 	position:relative;
-  margin: 0px 0 0 0;
+  margin: 1px 0 0 0;
   z-index:1;
 }
 
@@ -385,7 +385,7 @@ a:hover, a:link {
 }
 .footer #cont{
   position:relative;
-  top:-45px;
+  top:-51px;
   right:190px;
 	width:150px;
 	height:auto;
@@ -408,11 +408,12 @@ a:hover, a:link {
 
 .footer h3 p{
   margin:0;
+  font-size:0.6em;
 }
 
 .footer h3 a{
   text-decoration: none;
-  color:Cyan;
+  color:white;
 }
 
 .footer .privacy_link a{
@@ -420,17 +421,20 @@ a:hover, a:link {
   font-weight: bold;
 }
 
-.footer .footer-social{
-  position: absolute;
-  color:white !important;
+.footer-social{
+  color:#268BD2 !important;
   left: 20px;
   top: 20px;
-  font-size: 40px;
-  letter-spacing: 10px;
+  font-size: 70px;
+  letter-spacing: 15px;
 }
 
-.footer .footer-social a{
-  color:white !important;
+.footer-social a{
+  color:#268BD2;
+}
+
+.footer-social a:hover{
+  color:MidnightBlue;
 }
 
 #myheader {

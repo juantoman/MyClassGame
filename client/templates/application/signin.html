@@ -12,6 +12,7 @@
           <div class="container" id="container_sign">
           	<div class="form-container sign-up-container">
           		<form action="#" class="login-form-code">
+                <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
           			<h1>{{_ "studentWithCode"}}</h1>
                 <!--
           			<div class="social-container">
@@ -24,9 +25,11 @@
           			<input type="password" placeholder="Code" id="codeStudent" />
           			<button type="submit">{{_ "signin"}}</button>
           		</form>
+              <p class="oculto bottom_button text-center btn" id="signIn">{{_ "userWithEmail"}}</p>
           	</div>
           	<div class="form-container sign-in-container">
           		<form action="#" class="login-form-email">
+                <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
           			<h1>{{_ "userWithEmail"}}</h1>
           			<img id="google" src="/images/btn_google_signin_dark_normal_web.png" />
           			<span>{{_ "useAnEmail"}}</span>
@@ -35,7 +38,9 @@
           			<a href="#" id="reset">{{_ "remember"}}</a>
           			<button type="submit">{{_ "signin"}}</button>
                 <button id="register">{{_ "register"}}</button>
+
           		</form>
+              <p class="oculto bottom_button text-center btn" id="signUp">{{_ "studentWithCode"}}</p>
           	</div>
           	<div class="overlay-container">
           		<div class="overlay">
