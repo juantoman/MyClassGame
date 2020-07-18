@@ -1,23 +1,33 @@
 <template name="teachersTemplate">
-  <div class="container">
+  <div class="container-fluid">
     <div class="list-group">
-    {{#each teachers}}
-          <div class="form-group">
-            <label class="control-label" for="inputGroupSuccess1">{{_ "teachersWaiting"}}</label>
-            <p class="btn btn-info acceptTeacher">{{email}}</p>
-          </div>
-    {{/each}}
-    </div>
-    <form>
       <div class="form-group">
-        <label class="control-label" for="inputGroupSuccess1">{{_ "new"}} {{_ "teacher"}}</label>
-        <div class="input-group col-xs-11">
-          <span class="input-group-addon">{{_ "new"}}</span>
-          <input type="text" class="form-control input-lg" name="quoteText" aria-describedby="inputGroupSuccess1Status">
-          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
-          <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+        <label class="control-label">{{_ "teachers"}}</label>
+        <div>
+          {{#each teachers}}
+            <p class="btn {{#if teacherOwner _id}}btn-warning{{else}}btn-info{{/if}}">{{teacherEmail}} {{#unless teacherOwner _id}}<span class="removeTeacher"><i class="fa fa-times" aria-hidden="true"></i></span>{{/unless}}</p>
+          {{/each}}
         </div>
-
+      </div>
+      <div class="form-group">
+        <label class="control-label">{{_ "teachersWaiting"}}</label>
+        <div>
+          {{#each teachersWaiting}}
+            <p class="btn btn-info acceptTeacher">{{email}}></p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <form id="newTeachers">
+      <div class="form-group">
+        <label class="control-label">{{_ "new"}} {{_ "teacher"}}</label>
+        <div class="input-group col-xs-12">
+          <span class="input-group-addon">{{_ "new"}}</span>
+          <input type="text" class="form-control input-lg" name="teacherEmail" aria-describedby="inputGroupSuccess1Status">
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+          <span class="sr-only">(success)</span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="{{_ 'new'}} {{_ 'teacher'}}">
       </div>
     </form>
   </div>

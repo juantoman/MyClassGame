@@ -4,8 +4,8 @@
       <ul class="nav nav-pills nav-profile" role="tablist">
         <li id="studentData" role="presentation" class="active"><a class="aProfile" href="#Datos" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span><br /> <span class="spanMenu">{{_ "data"}}</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Portfolio" aria-controls="studentsMain" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span><br /> <span class="spanMenu">Portfolio</span></a></li>
-        <li role="presentation"><a class="aProfile" href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span><i class="fas fa-user"></i></span><br /> <span class="spanMenu">{{_ "missions"}}</span></a></li>
-        <li role="presentation"><a class="aProfile" href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span><i class="fas fa-users"></i></span><br /> <span class="spanMenu">{{_ "missions"}}</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Grupales" aria-controls="myAdventure" role="tab" data-toggle="tab"><span><i class="fas fa-users"></i></span><br /> <span class="spanMenu">{{_ "missions"}}</span></a></li>
+        <li role="presentation"><a class="aProfile" href="#Individuales" aria-controls="chat" role="tab" data-toggle="tab"><span><i class="fas fa-user"></i></span><br /> <span class="spanMenu">{{_ "missions"}}</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Insignias" aria-controls="gamification" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span><br /> <span class="spanMenu">{{_ "badges"}}</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Cartas" aria-controls="tools" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><br /> <span class="spanMenu">{{_ "powers"}}</span></a></li>
         <li role="presentation"><a class="aProfile" href="#Cromos" aria-controls="statistics" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><br /> <span class="spanMenu">{{_ "collections"}}</span></a></li>
@@ -57,8 +57,8 @@
                             </tr>
 
                             <tr>
-                              <th><span class="btn-store">$</span></th>
-                              <td><span class="btn-store">{{coins}}</span></td>
+                              <th><span class="btn-coins">$</span></th>
+                              <td><span class="btn-coins">{{coins}}</span></td>
                             </tr>
 
                           </tbody></table>
@@ -119,34 +119,41 @@
                       </h3>
 
                       <table class="card__stats">
-                        <tbody><tr>
-                          <th><span class="btn-xp">XP</span></th>
-                          <td><span class="btn-xp">{{XP}}</span></td>
-                        </tr>
-                        <tr>
-                          <th><span class="btn-hp">HP</span></th>
-                          <td><span class="btn-hp">{{HP}}</span></td>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <th><span class="btn-xp">{{_ "experience"}}</span></th>
+                            <td><span class="btn-xp">{{XP}}</span></td>
+                          </tr>
+                          <tr>
+                            <th><span class="btn-hp">{{_ "life"}}</span></th>
+                            <td><span class="btn-hp">{{HP}}</span></td>
+                          </tr>
+                          <!--
+                          <tr>
+                            <th><span class="btn-energy">{{_ "energy"}}</span></th>
+                            <td><span class="btn-energy">0</span></td>
+                          </tr>
+                          -->
+                          <tr>
+                            <th><span class="btn-coins">{{_ "money"}}</span></th>
+                            <td><span class="btn-coins">{{coins}}</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
 
-                        <tr>
-                          <th><span class="btn-store">$</span></th>
-                          <td><span class="btn-store">{{coins}}</span></td>
-                        </tr>
-
-                      </tbody></table>
                       <div class="cardLine">
                       </div>
                       <ul class="cardIcons">
                         <li>
-                          <i class="fas fa-shield-alt btn-badge"></i>
+                          <i class="fas fa-award btn-badge"></i>
                           <!-- <img src="https://res.cloudinary.com/myclassgame/image/upload/v1549270043/images/shield-31869.png" class="btn-badge" /> -->
                         </li>
                         <li>
-                          <i class="fas fa-rocket btn-cards"></i>
+                          <i class="fas fa-bolt btn-cards"></i>
                           <!-- <img src="https://res.cloudinary.com/myclassgame/image/upload/v1551794067/myclassgame/aberrant-berserker-300x429_izzvai.png" class="btn-cards" /> -->
                         </li>
                         <li>
-                          <i class="fas fa-coins btn-store"></i>
+                          <i class="fas fa-store-alt btn-store"></i>
                           <!-- <img src="https://res.cloudinary.com/myclassgame/image/upload/v1549268143/images/Gold_coin_icon.png" class="btn-store"/> -->
                         </li>
                       </ul>

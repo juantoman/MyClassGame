@@ -32,10 +32,11 @@ Template.classesModals.helpers({
 });
 
 Template.classesModals.events({
-  'submit form': function(event) {
-    userType=$(".active").get(1).id;
-    Session.set('userType',userType);
-    if ( userType == "teacher") {
+  'submit form#add_class_form': function(event) {
+    event.preventDefault();
+    //userType=$(".active").get(1).id;
+    //Session.set('userType',userType);
+    if ( Session.get('userType') == "teacher") {
       event.preventDefault();
       if (Session.get("gcId")=="") {
         cn=$(event.target).find('[name=class-name-teacher]').val();

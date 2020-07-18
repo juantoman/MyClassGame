@@ -275,6 +275,19 @@ Template.studentsPage.events({
     }
     event.stopPropagation();
   },
+  'click .btn-coins': function(event) {
+    event.preventDefault();
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
+    Session.setPersistent('studentId', this._id);
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('coinsModal');
+    }
+    event.stopPropagation();
+  },
   'click .foto,.info-grid,.card__image,.card__name': function(event) {
     event.preventDefault();
     Session.set('nXP',0);

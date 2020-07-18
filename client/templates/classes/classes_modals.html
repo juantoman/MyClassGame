@@ -10,7 +10,10 @@
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#teacher" aria-controls="earn" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> {{_ "teacher"}}</a></li>
+              <li role="presentation" class="active"><a href="#nclass" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "nclass"}}</a></li>
+              <li role="presentation"><a href="#classCode" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "classCode"}}</a></li>
+              <li role="presentation"><a href="#tclasses" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "tclasses"}}</a></li>
+              <li role="presentation"><a href="#googleClassroom" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "Google Classroom"}}</a></li>
               <!--
               <li role="presentation"><a href="#student" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Estudiante</a></li>
               <li role="presentation"><a href="#parent" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Padre/Madre</a></li>
@@ -18,20 +21,24 @@
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
-              <div role="tabpanel" class="tab-pane active" id="teacher">
-
+              <div role="tabpanel" class="tab-pane active" id="nclass">
                 <div class="form-group">
                   <label for="class-name" class="control-label">{{_ "className"}}</label>
                   <input type="text" class="form-control" id="class-name-teacher" name="class-name-teacher">
-                  <br/>
                 </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="classCode">
                 <div class="form-group">
                   <label for="class-name" class="control-label">{{_ "classCode"}}</label>
                   <input type="text" class="form-control" id="class-name-other-teacher" name="class-name-other-teacher">
                 </div>
+              </div>
+
+              <div role="tabpanel" class="tab-pane" id="tclasses">
+
                 <div class="form-group">
                   <div class="container-fluid myContent typeClasses">
-                    <h4 id="changeRol">{{_ "tclasses"}}</h4>
                     <div class="row">
                       {{#each types}}
                         <figure class="cardType card__blue btn-type">
@@ -54,18 +61,15 @@
                       {{/each}}
                     </div>
                   </div>
-                  <div class="panel panel-info">
-                    <div class="panel-heading">
-                        <p class="panel-title">
-                            <a data-toggle="collapse" href="#collapseGC">Google Classroom</a>
-                        </p>
-                    </div>
-                    <div id="collapseGC" class="panel-collapse collapse">
-                        {{> gcCourses}}
-                    </div>
-                  </div>
                 </div>
               </div>
+
+              <div role="tabpanel" class="tab-pane" id="googleClassroom">
+                    <div id="collapseGC">
+                        {{> gcCourses}}
+                    </div>
+              </div>
+
               <div role="tabpanel" class="tab-pane" id="student">
 
                 <div class="form-group">
@@ -84,7 +88,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
-            <input type="submit" class="btn btn-primary" value="{{_ "save"}}">
+            <input type="submit" class="btn btn-primary" value="{{_ 'save'}}">
           </div>
         </form>
       </div>
