@@ -320,5 +320,9 @@
     "policy": "Política de privacidad",
     "policy_file": "privacidad",
     "contact": "Contacto",
-    "followus": "Síguenos en:"
+    "followus": "Síguenos en:",
+    "noTeacher": "No puedes borrar todos los docentes",
+    "teacherAccepted": "Docente aceptado en la clase",
+    "teacherInClassroom": "Docente ya está en la clase",
+    "teacherNotFound": "Docente no encontrado"
 }

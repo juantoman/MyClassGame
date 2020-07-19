@@ -320,5 +320,9 @@
     "policy": "Privacy Policy",
     "policy_file": "privacy",
     "contact": "Contact",
-    "followus": "Follow us on:"
+    "followus": "Follow us on:",
+    "noTeacher": "You can't delete all teachers",
+    "teacherAccepted": "Teacher accepted in the class",
+    "teacherInClassroom": "Teacher is already in the class",
+    "teacherNotFound": "Teacher not found"
 }

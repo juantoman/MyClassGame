@@ -320,5 +320,9 @@
     "policy": "Política de privacitat",
     "policy_file": "privacitat",
     "contact": "Contacte",
-    "followus": "Segueix-nos a:"
+    "followus": "Segueix-nos a:",
+    "noTeacher": "No pots borrar tots els docents",
+    "teacherAccepted": "Docent aceptat en la classe",
+    "teacherInClassroom": "Docent ja està en la classe",
+    "teacherNotFound": "Docent no trobat"
 }
