@@ -324,5 +324,7 @@
     "noTeacher": "You can't delete all teachers",
     "teacherAccepted": "Teacher accepted in the class",
     "teacherInClassroom": "Teacher is already in the class",
-    "teacherNotFound": "Teacher not found"
+    "teacherNotFound": "Teacher not found",
+    "downloadCSV": "Download CSV file",
+    "CSVdownloaded": "CSV file downloaded"
 }

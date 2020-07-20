@@ -324,5 +324,7 @@
     "noTeacher": "No pots borrar tots els docents",
     "teacherAccepted": "Docent aceptat en la classe",
     "teacherInClassroom": "Docent ja està en la classe",
-    "teacherNotFound": "Docent no trobat"
+    "teacherNotFound": "Docent no trobat",
+    "downloadCSV": "Descarregar fitxer CSV",
+    "CSVdownloaded": "Fitxer CSV descarregat"
 }

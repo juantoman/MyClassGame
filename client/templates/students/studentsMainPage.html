@@ -42,7 +42,7 @@
             <div class="btn-group className" role="group">
               {{#if teacher}}
                 <button id="hashClase" type="button" class="btn btn-sm">ClassId</button>
-                <button type="button" class="btn btnNewStudent btn-sm" data-toggle="modal" data-target="#add_student_modal">
+                <button type="button" class="btn btnNewStudent btnSubmenuSpecial btn-sm" data-toggle="modal" data-target="#add_student_modal">
                   <i class="fas fa-user-plus"></i> {{_ "add_student"}}
                 </button>
               {{/if}}
@@ -80,15 +80,15 @@
             {{/if}}
             <div class="form-group">
               {{#if teacher}}
-              <label>{{_ "actions"}}</label>
-              <div class="btn-group" role="group" aria-label="Basic example">
-                <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
-                <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
-                <button id="all_bg" type="button" class="btn btn-bg3 btn-sm">{{_ "badges"}}</button>
-                <button id="all_cards" type="button" class="btn btn-cards3 btn-sm">{{_ "powers"}}</button>
-                <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">{{_ "buy"}}</button>
-                <button id="all_delete" type="button" class="btn btn-deleteStudents btn-sm">{{_ "delete"}}</button>
-              </div>
+                <label>{{_ "actions"}}</label>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                  <button id="all_xp" type="button" class="btn btn-xp3 btn-sm">XP</button>
+                  <button id="all_hp" type="button" class="btn btn-hp3 btn-sm">HP</button>
+                  <button id="all_bg" type="button" class="btn btn-bg3 btn-sm">{{_ "badges"}}</button>
+                  <button id="all_cards" type="button" class="btn btn-cards3 btn-sm">{{_ "powers"}}</button>
+                  <button id="all_euros" type="button" class="btn btn-coins3 btn-sm">{{_ "buy"}}</button>
+                  <button id="all_delete" type="button" class="btn btn-deleteStudents btn-sm">{{_ "delete"}}</button>
+                </div>
               {{/if}}
 
               <label>{{_ "order"}} </label>
@@ -108,6 +108,11 @@
               <div class="btn-group" role="group" aria-label="orderSelect">
                 <input type="checkbox" class="big-checkbox" id="invertCheck" {{invertChecked}}>
               </div>
+              {{#if teacher}}
+                <button type="button" class="btn export btn-sm btnSubmenuSpecial">
+                  <i class="fa fa-download"></i>
+                </button>
+              {{/if}}
             </div>
           </div>
         </div>

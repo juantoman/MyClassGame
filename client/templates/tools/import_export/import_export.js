@@ -16,8 +16,12 @@ Template.import_export.events({
     event.preventDefault();
 
     var fields = [
-      "Name",
-      "Id"
+      "id",
+      "alias",
+      "name",
+      "level",
+      "XP",
+      "HP"
     ];
 
     var data = [];
@@ -26,8 +30,12 @@ Template.import_export.events({
     var elements = students.find().fetch();
     _.each(elements, function(c) {
       data.push([
+        c._id,
+        c.alias,
         c.studentName,
-        c._id
+        c.level,
+        c.XP,
+        c.HP
       ]);
     });
 
@@ -36,7 +44,7 @@ Template.import_export.events({
     var blob = new Blob([csv]);
 		var a = window.document.createElement("a");
     a.href = window.URL.createObjectURL(blob, {type: "text/plain"});
-    a.download = "contacts.csv";
+    a.download = "students_" + Session.get("className") + ".csv";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

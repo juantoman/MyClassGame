@@ -291,5 +291,61 @@ Template.studentsMainPage.events({
     } else {
       $('.submenuBtn').text("-");
     }*/
+  },
+  'click .export': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('downloadCSV'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        var fields = [
+          "id",
+          "alias",
+          "name",
+          "email",
+          "level",
+          "XP",
+          "HP"
+        ];
+
+        var data = [];
+        data.push(fields);
+
+        var elements = students.find().fetch();
+        _.each(elements, function(c) {
+          data.push([
+            c._id,
+            c.alias,
+            c.studentName,
+            c.email,
+            c.level,
+            c.XP,
+            c.HP
+          ]);
+        });
+
+        var csv = Papa.unparse(data);
+
+        var blob = new Blob([csv]);
+    		var a = window.document.createElement("a");
+        a.href = window.URL.createObjectURL(blob, {type: "text/plain"});
+        a.download = "students_" + Session.get("className") + ".csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        swal({
+          title: TAPi18n.__('CSVdownloaded'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+
   }
  });

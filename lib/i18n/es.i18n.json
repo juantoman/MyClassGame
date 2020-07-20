@@ -324,5 +324,7 @@
     "noTeacher": "No puedes borrar todos los docentes",
     "teacherAccepted": "Docente aceptado en la clase",
     "teacherInClassroom": "Docente ya está en la clase",
-    "teacherNotFound": "Docente no encontrado"
+    "teacherNotFound": "Docente no encontrado",
+    "downloadCSV": "Descargar fichero CSV",
+    "CSVdownloaded": "Fichero CSV descargado"
 }
