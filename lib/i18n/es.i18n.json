@@ -326,5 +326,6 @@
     "teacherInClassroom": "Docente ya está en la clase",
     "teacherNotFound": "Docente no encontrado",
     "downloadCSV": "Descargar fichero CSV",
-    "CSVdownloaded": "Fichero CSV descargado"
+    "CSVdownloaded": "Fichero CSV descargado",
+    "suggestions": "Tus sugerencias"
 }

@@ -192,6 +192,7 @@
   bottom: 1rem;
   right: 1rem;
   font-size: 0.9em;
+  color:white;
 }
 
 .componentName, .componentDesc {

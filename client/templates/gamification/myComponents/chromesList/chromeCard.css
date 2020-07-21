@@ -1,18 +1,18 @@
 .chromeCard {
-  border: 2px solid rgba(232,255,153,1);
+  border: 2px solid gray;
 }
 
 .chromeCard {
   height: 200px;
-  background: linear-gradient(rgba(255,222,0,1),rgba(232,255,153,1));
+  background: linear-gradient(#333,gray);
 }
 
 .chromeCard .additional {
-  background-color: rgba(232,255,153,1);
+  background-color: gray;
 }
 
 .chromeCard .additional .user-card {
-  background: linear-gradient(120deg, rgba(232,255,153,1) 0%, rgba(255,222,0,1) 100%);
+  background: linear-gradient(120deg, gray 0%, #333 100%);
 }
 
 .chromeName, .chromeDesc {
@@ -40,11 +40,11 @@
 }
 
 .chromeCard .input-group .input-group-addon{
-  background-color: rgba(255,222,0,1) !important;
+  background-color: #333 !important;
 }
 
 .chromeCard input, .chromeCard textarea, .chromeCard .input-group-addon {
-  border: 1px solid rgba(255,222,0,1) !important;
+  border: 1px solid #333 !important;
 }
 
 .chromeCard .groupBtnCard{
@@ -52,6 +52,6 @@
 }
 
 .chromeCard .groupBtnCard *{
-  background-color: rgba(255,222,0,1) !important;
-  border: 1px solid rgba(255,222,0,1);
+  background-color: #333 !important;
+  border: 1px solid gray;
 }

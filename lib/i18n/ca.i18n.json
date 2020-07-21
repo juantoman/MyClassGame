@@ -326,5 +326,6 @@
     "teacherInClassroom": "Docent ja està en la classe",
     "teacherNotFound": "Docent no trobat",
     "downloadCSV": "Descarregar fitxer CSV",
-    "CSVdownloaded": "Fitxer CSV descarregat"
+    "CSVdownloaded": "Fitxer CSV descarregat",
+    "suggestions": "Els teus suggeriments"
 }
