@@ -7,10 +7,44 @@
             <h4 class="modal-title" id="exampleModalLabel">{{_ "askingCollaboration"}}</h4>
           </div>
           <div class="modal-body">
-            <iframe src="https://www.gofundme.com/f/myclassgame" width="100%" height="500px"></iframe>
+            <div class="row">
+              <div class="col-sm-9">
+                <p class="collaborateP">
+                  Aunque el desarrolo de @MyClassGame está realizándose de forma desinteresada, con la intención de crear una herramienta de código libre que ayude a los profesores a gestionar sus clases, todos los servicios informáticos contratados como el servidor VPS donde se tiene alojada la aplicación, tienen un coste que por ahora recae íntegramente en el desarrollador.
+                </p>
+                <p class="collaborateP">
+                  Por ello, si consideras interesante el proyecto y te apetece colaborar desinteresadamente en que pueda seguir adelante, te agradecemos tu pequeña aportación.
+                </p>
+                <p class="collaborateP">
+                  Para ello tienes las siguientes opciones: a través de PayPal o con un crowdfunding de GoFundMe.
+                </p>
+                <p class="collaborateP">
+                  Muchísimas gracias por tu apoyo al Proyecto @MyClassGame.
+                </p>
+                <p class="collaborateP">
+                  Seguimos trabajando...
+                </p>
+              </div>
+              <div class="collaborateImgs col-sm-3">
+                <div class="text-center">
+                  <img src="/images/@mcg.png" height="150px" class="text-center"/>
+                </div>
+                <br />
+                <br />
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" class="text-center">
+                  <input type="hidden" name="cmd" value="_s-xclick" />
+                  <input type="hidden" name="hosted_button_id" value="2JRD3LJBGJ92L" />
+                  <input type="image" src="/images/paypaldonar.png" height="100px" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                  <img alt="" border="0" src="https://www.paypal.com/en_ES/i/scr/pixel.gif" width="1" height="1" />
+                </form>
+                <br />
+                <div class="text-center">
+                  <a href="https://gf.me/u/x4x3ji" target="_blank" onclick="window.open('https://gf.me/u/x4x3ji', '_system'); return false;"><img src="/images/gofundme-donate-button.png" height="100px" /></a>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
-            <a href="https://www.gofundme.com/f/myclassgame" class="btn btn-warning" target="_blank">{{_ "collaborate"}}</a>
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
           </div>
       </div>

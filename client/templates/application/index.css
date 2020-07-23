@@ -185,7 +185,7 @@ body {
 }
 
 .marketing p {
-  font-size:calc(1em + 1vh);;
+  font-size:calc(1em + 1vh);
 }
 
 .marketing h1, .marketing h2, .featurette strong {
@@ -193,6 +193,45 @@ body {
   font-weight:bold;
 }
 
+.marketing .fotoTeam{
+  padding:10px;
+  background-color: white;
+  border: 1px solid lightgray;
+  transition: .6s;
+  margin:5px auto;
+}
+
+.marketing .fotoTeam:hover {
+  background-color: #eeeeee;
+  border-color: #268BD2;
+  transform: scale(1.05);
+}
+
+.marketing .fotoTeam:hover p{
+  color: #268BD2;
+}
+
+.marketing .fotoTeam img{
+  width:150px;
+  height:auto;
+  max-width: auto;
+  cursor: pointer;
+}
+
+.marketing .fotoTeam p{
+  margin: 0;
+  padding: 0;
+  color:gray;
+}
+
+.marketing .fotoTeam p.nameTeam{
+  font-size:calc(.9em + 1vh);
+  font-weight: bold;
+}
+
+.marketing .fotoTeam p.twitterTeam{
+  font-size:calc(.6em + 1vh);
+}
 
 /* Featurettes
 ------------------------- */
@@ -305,4 +344,18 @@ body {
   -webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.collaborateP {
+  font-size: 1.5em;
+  margin: 1em 5em;
+  font-weight: bold;
+}
+
+.collaborateImgs {
+  margin:auto;
+}
+
+.collaborateImgs input{
+  border: 1px solid transparent !important ;
 }

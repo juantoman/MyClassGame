@@ -292,5 +292,9 @@ Template.leftNav.events({
   'click #battle': function(event) {
     event.preventDefault();
     Router.go('battle',{_id:Session.get('classId')});
+  },
+  'click .collaborate': function(event) {
+    event.preventDefault();
+    Modal.show('notifyModal');
   }
 })
