@@ -1,5 +1,5 @@
 <template name="taskModal">
-  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -15,7 +15,47 @@
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
               <div role="tabpanel" class="tab-pane active" id="taskInfo">
-                
+                <form role="form" class="missionForm">
+                  <div class="row">
+
+                    <div class="col-xs-12 col-sm-7">
+                      <div class="form-group">
+                        <label for="chalName" class="control-label">{{_ 'name'}}</label>
+                        <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+                      <div class="form-group">
+                        <label for="chalName" class="control-label">XP</label>
+                        <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="XP" tabindex="1" value="{{chalName}}">
+                      </div>
+                    </div>
+
+                    <div class="col-xs-4 col-sm-1">
+                      <div class="form-group">
+                        <label for="sName" class="control-label">Visible</label>
+                        <label class="switch">
+                          <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                          <span class="slider round"></span>
+                        </label>
+                      </div>
+                    </div>
+                    <!--
+                    <div class="col-xs-12">
+                      <div class="form-group">
+                        <label for="chalDesc" class="control-label">{{_ 'description'}}</label>
+                        <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                      </div>
+                    </div>
+                    -->
+                  </div>
+
+                  <hr class="colorgraph">
+                  <div class="row">
+                      <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                    </div>
+                </form>
               </div>
               <div role="tabpanel" class="tab-pane" id="taskNotes">
                 {{#if mision}}

@@ -93,11 +93,15 @@
   opacity:1;
 }
 
-.taskCard .taskButtons {
+.taskCard .taskButtons{
   font-size: 1.5em;
   opacity: 0.5;
   transition: font-size 0.4s ease-out, opacity 0.5s ease;
   cursor: pointer;
+}
+
+.chalMissionUp {
+  opacity: 1 !important;
 }
 
 .taskCard:hover .taskButtons {
@@ -109,6 +113,12 @@
   position: absolute;
   top:5px;
   right: 10px;
+}
+
+.taskCard .taskButtons .taskVisible{
+  position: absolute;
+  top:5px;
+  left: 10px;
 }
 
 .taskCard .taskButtons .taskOrderDown{
@@ -136,10 +146,10 @@
 }
 
 .taskCard .taskButtons .taskBtnCenter *{
-  margin: 0 10px;
+  margin: 0 15px;
   transition: all 0.4s;
 }
 
 .taskCard:hover .taskButtons .taskBtnCenter *{
-  margin: 0 13px;
+  margin: 0 20px;
 }
