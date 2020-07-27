@@ -58,7 +58,7 @@
 }
 
 .opacityProfile {
-  background-color: rgba(0,0,0,0.4) !important;
+  background-color: rgba(0,0,0,0.6) !important;
   overflow:hidden;
   min-height: 100vh;
 }

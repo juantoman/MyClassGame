@@ -62,6 +62,13 @@ Template.taskCardTemplate.helpers({
   }
 });
 
+Template.taskCardTemplate.events({
+  'click .taskBtnInfo': function(event) {
+    event.preventDefault();
+    Modal.show("taskModal");
+  }
+});
+
 Template.taskCardCreateTemplate.helpers({
   otherColor: function(color) {
     /*

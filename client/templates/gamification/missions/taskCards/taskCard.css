@@ -128,7 +128,7 @@
   bottom:0px;
   width:100%;
   padding:2px;
-  transition: background 0.4s;
+  transition: all 0.4s;
 }
 
 .taskCard:hover .taskButtons .taskBtnCenter{
@@ -141,5 +141,5 @@
 }
 
 .taskCard:hover .taskButtons .taskBtnCenter *{
-  margin: 0 12px;
+  margin: 0 13px;
 }
