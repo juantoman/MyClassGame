@@ -327,5 +327,6 @@
     "teacherNotFound": "Docente no encontrado",
     "downloadCSV": "Descargar fichero CSV",
     "CSVdownloaded": "Fichero CSV descargado",
-    "suggestions": "Tus sugerencias"
+    "suggestions": "Tus sugerencias",
+    "code": "Código"
 }

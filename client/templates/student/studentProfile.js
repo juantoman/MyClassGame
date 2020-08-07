@@ -65,6 +65,7 @@ Template.studentProfile.onRendered(function() {
     $(".opacityDiv").addClass('opacityProfile');
    }
    grafica();
+   $('[data-toggle="tooltip"]').tooltip();
 });
 
 Template.studentProfile.helpers({
@@ -569,6 +570,13 @@ Template.studentProfile.helpers({
       };
       return group;
     }
+  },
+  chatVisible: function() {
+    if (classes.findOne({"_id": Session.get('classId')}).chatVisible) {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 
@@ -1187,5 +1195,15 @@ Template.studentProfile.events({
      e.target // newly activated tab
      e.relatedTarget // previous active tab
     */
-   }
+  },
+  'click .copyCodeBtn': function(event) {
+    event.preventDefault();
+    var copied =$(event.currentTarget).attr('value');
+    const el = document.createElement('textarea');
+    el.value = copied;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
 });

@@ -214,12 +214,14 @@
                     <span>{{_ "adventure"}}</span>
                   </a>
                 </li>
-                <li>
-                  <a id="chat2" href="#chat" role="tab" data-toggle="tab">
-                    <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                    <span>Chat</span>
-                  </a>
-                </li>
+                {{#if chatVisible}}
+                  <li>
+                    <a id="chat2" href="#chat" role="tab" data-toggle="tab">
+                      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                      <span>Chat</span>
+                    </a>
+                  </li>
+                {{/if}}
                 {{#if teacher}}
                   <li>
                     <a id="gamification2" href="#gamification" role="tab" data-toggle="tab">

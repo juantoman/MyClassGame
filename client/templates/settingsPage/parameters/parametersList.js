@@ -137,6 +137,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('CoinXPChange', Session.get('classId'), event.currentTarget.checked);
   },
+  'change #chatVisible': function(event) {
+    event.preventDefault();
+    Meteor.call('chatVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
   'click #btn-reset': function(event) {
     event.preventDefault();
     Modal.show('resetClass');

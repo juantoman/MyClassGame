@@ -327,5 +327,6 @@
     "teacherNotFound": "Docent no trobat",
     "downloadCSV": "Descarregar fitxer CSV",
     "CSVdownloaded": "Fitxer CSV descarregat",
-    "suggestions": "Els teus suggeriments"
+    "suggestions": "Els teus suggeriments",
+    "code": "Codi"
 }

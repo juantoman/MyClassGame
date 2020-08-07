@@ -1,6 +1,8 @@
 Template.header.onRendered(function() {
+   /*
    accountsUIBootstrap3.setLanguage("es");
    TAPi18n.setLanguage("es");
+   */
 });
 
 Template.header.helpers({

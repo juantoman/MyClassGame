@@ -51,6 +51,13 @@ Template.leftNav.helpers({
     return false;
    };
  },
+ chatVisible: function() {
+    if (classes.findOne({"_id": Session.get('classId')}).chatVisible) {
+     return true;
+    } else {
+     return false;
+    };
+  },
  image: function(avatar) {
    avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
    if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {

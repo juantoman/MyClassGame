@@ -128,7 +128,7 @@ Template.missions.onRendered(function() {
   };*/
   $.getScript("https://apis.google.com/js/api.js");
   $.getScript("https://apis.google.com/js/platform.js");
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip();
   //renderWidget();
   $('.colorpicker').spectrum({
     type: "color",

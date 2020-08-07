@@ -24,7 +24,7 @@
   color:rgba(0,0,0,.7) !important;
   font-size: 4vh;
   font-weight: bold;
-  letter-spacing: .3em
+  letter-spacing: .3em;
 }
 
 .studentInfo h4{
@@ -331,4 +331,12 @@
   font-weight: bold;
   color: #000;
   background-color: var(--color-white);
+}
+
+#studentTab h2 {
+  display: inline;
+}
+
+#studentTab .copyCodeBtn{
+  font-size: .7em !important;
 }
