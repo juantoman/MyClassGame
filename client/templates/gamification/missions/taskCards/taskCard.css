@@ -82,6 +82,11 @@
   transform:scale(1.05);
 }
 
+.taskCard img
+{
+  opacity: 0.4;
+}
+
 .taskCard:hover img
 {
   opacity: 0.2;

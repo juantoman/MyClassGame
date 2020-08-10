@@ -258,7 +258,7 @@ Template.missions.events({
   },
   'click .notas': function(event) {
     event.preventDefault();
-    Session.set('chalId',this._id)
+    Session.set('chalId',this._id);
     Modal.show('notes');
   },
   /*
@@ -348,7 +348,23 @@ Template.missions.events({
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())
     //alert($(event.target).find('[id=notebookCheck]').prop('checked'));
-    Meteor.call('chalMissionDelete', this._id, this.missionId, this.order);
+    swal({
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('task'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('chalMissionDelete', this._id, this.missionId, this.order);
+        swal({
+          title: TAPi18n.__('task') + " " +  TAPi18n.__('fdeleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   },
   'click .chalMissionUp': function(event) {
     event.preventDefault
@@ -390,7 +406,7 @@ Template.missions.events({
     event.preventDefault();
     //alert(this._id);
     //alert(challenges.findOne({_id: this.missionId}).IoG);
-    Session.set('taskId',this._id)
+    Session.set('taskId',this._id);
     Modal.show('notes');
     //o=this.order;
     //alert($(event.target).find('[name=MoC]').val())

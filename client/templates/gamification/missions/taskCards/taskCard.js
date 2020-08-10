@@ -53,18 +53,32 @@ Template.taskCardTemplate.helpers({
     return color;
   },
   cardPic: function(missionImg) {
+    // if (missionImg) {
+    //   url=images.findOne({_id: missionImg}).image_url;
+    // } else {
+    //   url="";
+    // }
+    // return url;
     if (missionImg) {
-      url=images.findOne({_id: missionImg}).image_url;
+      url=images.findOne({_id: this.missionImg}).image_url;
+      url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
     } else {
-      url="";
+      cardPic=classes.findOne({_id:Session.get('classId')}).backImg;
+      if (cardPic.substring(0, 4)=="http") {
+        url=cardPic;
+      } else {
+        url=images.findOne({_id: cardPic}).image_url;
+        url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
+      }
     }
     return url;
   }
 });
 
 Template.taskCardTemplate.events({
-  'click .taskBtnInfo': function(event) {
+  'click .taskBtnInfo,.taskCard .text': function(event) {
     event.preventDefault();
+    Session.set('taskId',this._id);
     Modal.show("taskModal");
   }
 });
@@ -94,11 +108,31 @@ Template.taskCardCreateTemplate.helpers({
     return color;
   },
   cardPic: function(missionImg) {
+    // if (missionImg) {
+    //   url=images.findOne({_id: missionImg}).image_url;
+    // } else {
+    //   url="";
+    // }
+    // return url;
     if (missionImg) {
-      url=images.findOne({_id: missionImg}).image_url;
+      url=images.findOne({_id: this.missionImg}).image_url;
+      url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
     } else {
-      url="";
+      cardPic=classes.findOne({_id:Session.get('classId')}).backImg;
+      if (cardPic.substring(0, 4)=="http") {
+        url=cardPic;
+      } else {
+        url=images.findOne({_id: cardPic}).image_url;
+        url=url.replace('/upload/','/upload/q_auto,w_auto,h_200,f_auto,dpr_auto/');
+      }
     }
     return url;
+  }
+});
+
+Template.taskCardCreateTemplate.events({
+  'click .taskCard': function(event) {
+    event.preventDefault();
+    Modal.show("newTaskModal");
   }
 });

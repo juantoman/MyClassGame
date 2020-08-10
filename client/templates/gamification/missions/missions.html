@@ -104,6 +104,8 @@
           <div class="panel panel-info" id="{{_id}}">
             <div class="panel-heading">{{_ "tasks"}}</div>
             <div class="panel-body panelChal">
+
+              <!-- Gestió tasques antic
               {{#each chalMissions _id}}
                 <div class="input-group">
                   <div class="input-group-addon">
@@ -127,7 +129,7 @@
                 </div>
                 <div class="oculto" id="rubrica{{_id}}">
                   <div class="input-group col-xs-12">
-                    <label>{{_ "descriptions"}}</label>
+                    <label>{{_ "description"}}</label>
                     <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} rows="3">{{descTask}}</textarea>
                   </div>
                   <div id="studentsPoints">
@@ -165,6 +167,9 @@
                   </div>
                 </div>
               {{/each}}
+               -->
+
+              <!-- calendar i datetimepicker
               <div><button class="btn btn-info schedulerBtn">{{_ "calendar"}}</button></div>
               <div class='input-group date datetimepicker'>
                   <input type='text' class="form-control" />
@@ -172,11 +177,13 @@
                       <span class="glyphicon glyphicon-calendar"></span>
                   </span>
               </div>
+               -->
               {{> taskCardCreateTemplate}}
               {{#each chalMissions _id}}
                 {{> taskCardTemplate}}
               {{/each}}
             </div>
+            <!--
             {{#if isTeacher}}
               <div class="panel-footer">
                 <div class="input-group">
@@ -194,6 +201,7 @@
                 </div>
               </div>
             {{/if}}
+             -->
           </div>
         </div>
 

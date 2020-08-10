@@ -15,32 +15,77 @@
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
               <div role="tabpanel" class="tab-pane active" id="taskInfo">
-                <form role="form" class="missionForm">
+                <form role="form" class="taskForm">
                   <div class="row">
-
-                    <div class="col-xs-12 col-sm-7">
-                      <div class="form-group">
-                        <label for="chalName" class="control-label">{{_ 'name'}}</label>
-                        <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
+                    {{#with task}}
+                      <div class="col-xs-12 col-sm-7">
+                        <div class="form-group">
+                          <label for="chalName" class="control-label">{{_ 'name'}}</label>
+                          <input type="text" name="chalMissionDesc" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalMissionDesc}}">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="col-xs-12 col-sm-3">
-                      <div class="form-group">
-                        <label for="chalName" class="control-label">XP</label>
-                        <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="XP" tabindex="1" value="{{chalName}}">
+                      <div class="col-xs-12 col-sm-3">
+                        <div class="form-group">
+                          <label for="chalName" class="control-label">XP</label>
+                          <input type="text" name="chalMissionXP" class="form-control input-lg chalName" placeholder="XP" tabindex="1" value="{{chalMissionXP}}">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="col-xs-4 col-sm-1">
-                      <div class="form-group">
-                        <label for="sName" class="control-label">Visible</label>
-                        <label class="switch">
-                          <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
-                          <span class="slider round"></span>
-                        </label>
+                      <div class="col-xs-4 col-sm-1">
+                        <div class="form-group">
+                          <label for="sName" class="control-label">Visible</label>
+                          <label class="switch">
+                            <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                            <span class="slider round"></span>
+                          </label>
+                        </div>
                       </div>
-                    </div>
+
+                      <div class="col-xs-12">
+                        <div class="form-group">
+                          <label>{{_ "description"}}</label>
+                          <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} name="descTask" rows="3">{{descTask}}</textarea>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-12" id="studentsPoints">
+                        <label>{{_ "rubric"}}</label>
+                        <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_red.png"/>
+                            <textarea class="form-control rubricaText r1" name="r1" {{teacher}} rows="3">{{r1}}</textarea>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277039/images/star_orange.png"/>
+                            <textarea class="form-control rubricaText r2" name="r2" {{teacher}} rows="3">{{r2}}</textarea>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_yellow.png"/>
+                            <textarea class="form-control rubricaText r3" name="r3" {{teacher}} rows="3">{{r3}}</textarea>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_white.png"/>
+                            <textarea class="form-control rubricaText r4" name="r4" {{teacher}} rows="3">{{r4}}</textarea>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277083/images/star_blue.png"/>
+                            <textarea class="form-control rubricaText r5" name="r5" {{teacher}} rows="3">{{r5}}</textarea>
+                          </label>
+                          <label class="btn btn-info btn-emoticon">
+                            <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277035/images/star_green.png"/>
+                            <textarea class="form-control rubricaText r6" name="r6" {{teacher}} rows="3">{{r6}}</textarea>
+                          </label>
+                        </div>
+                        <!--
+                        <div class="input-group col-xs-12">
+                          <button class="btn btn-info drive" {{teacher}}>Seleccionar fichero Drive</button>
+                          <a class="btn btn-info" href="https://drive.google.com/open?id={{drive}}" target="_blank" {{teacher}}>Ver fichero</a>
+                        </div>
+                         -->
+                      </div>
+
+                    {{/with}}
                     <!--
                     <div class="col-xs-12">
                       <div class="form-group">
@@ -53,8 +98,10 @@
 
                   <hr class="colorgraph">
                   <div class="row">
-                      <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
-                    </div>
+                    <div class="col-xs-6 text-center"><button type="button" class="btn btn-default btn-block btn-lg">{{_ 'close'}}</button></div>
+                    <div class="col-xs-6 text-center"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                  </div>
+
                 </form>
               </div>
               <div role="tabpanel" class="tab-pane" id="taskNotes">
@@ -118,10 +165,12 @@
               </div>
             </div>
           </div>
+          <!--
           <div class="modal-footer">
             <button type="button" class="btn btn-default">Cerrar</button>
             <input type="submit" id="notesSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
+           -->
         </div>
       </div>
     </div>

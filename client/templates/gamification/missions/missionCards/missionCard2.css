@@ -302,6 +302,6 @@
 }
 
 .missionCardNotVisible {
-	opacity: 0.5;
-	transform: scale(0.9);
+	opacity: 0.7;
+	filter: grayscale(100%);
 }

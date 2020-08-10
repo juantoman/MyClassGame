@@ -1,4 +1,4 @@
-Template.taskModal.helpers({
+Template.newTaskModal.helpers({
   students: function() {
     return students.find( { classId: Session.get('classId')  } );
   },
@@ -45,10 +45,15 @@ Template.taskModal.helpers({
   }
 });
 
-Template.taskModal.events({
-  'submit form.taskForm': function(event) {
+Template.newTaskModal.events({
+  'submit form.newTaskForm': function(event) {
     event.preventDefault();
+    id=Session.get("chalId");
+    n=chalMissions.find({missionId: id}).count()+1;
     var chal = {
+      classId: Session.get('classId'),
+      missionId: id,
+      order: n,
       chalMissionDesc: $(event.target).find('[name=chalMissionDesc]').val(),
       chalMissionXP: $(event.target).find('[name=chalMissionXP]').val(),
       descTask:$(event.target).find('[name=descTask]').val(),
@@ -58,8 +63,9 @@ Template.taskModal.events({
       r4: $(event.target).find('[name=r4]').val(),
       r5: $(event.target).find('[name=r5]').val(),
       r6: $(event.target).find('[name=r6]').val(),
+      createdOn: new Date()
     };
-    Meteor.call('chalMissionUpdate', Session.get('taskId'), chal);
+    Meteor.call('chalMissionInsert', chal);
     Modal.hide("taskModal");
   },
   'click #notesSubmit': function(event) {
