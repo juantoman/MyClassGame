@@ -1,0 +1,237 @@
+<template name="missions">
+  <!--<h3 class="nameSection">Misiones</h3>-->
+  <div class="missionsBtns text-center">
+    <span class="btn btn-info allMissions">{{_ 'missions'}} <i class="fas fa-th"></i></span>
+    {{#each challenge}}
+      <span class="btn btn-info oneMission" data-toggle="tooltip" data-placement="bottom" title="{{chalName}}">M{{order}}</span>
+    {{/each}}
+  </div>
+  {{> scheduler}}
+  <div class="container-fluid" id="missionsPage">
+    <!-- <a href="#" onClick="renderWidget();">Render the Classroom share button</a>
+    <div id="widget-div"></div> -->
+    <!--<h4><g:sharetoclassroom size=32 url="https://google.com"></g:sharetoclassroom> <span style="vertical-align:10px;">Google Classroom</span></h4>
+    {{> GCTasks}}-->
+    <div class="row">
+      {{#if isTeacher}}
+        {{> missionCardCreate}}
+      {{/if}}
+      {{#each challenge}}
+        {{> missionCard2Template}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="oculto" id="missionPage">
+    <!--
+    <div id="missionId">
+      <svg height="5000" width="400">
+        <line x1="100" y1="100" x2="200" y2="300" style="stroke:rgb(255,0,0);stroke-width:2" />
+      </svg>
+      <p class="missionP" id="missionP1">p1</p>
+      <p class="missionP" id="missionP2">p2</p>
+    </div>-->
+    {{> mission}}
+  </div>
+</template>
+
+<template name="mission">
+  <div class="container-fluid float-up">
+    {{#with mission}}
+      <div class="float-up">
+        <h2>Mision {{IoG}} {{order}}</h2>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-3">
+            {{> missionCard2Template}}
+          </div>
+          <div class="col-xs-9">
+            <form role="form" class="missionForm">
+              <div class="row">
+
+                <div class="col-xs-12 col-sm-7">
+                  <div class="form-group">
+                    <label for="chalName" class="control-label">{{_ 'name'}}</label>
+                    <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
+                  </div>
+                </div>
+
+                <div class="col-xs-8 col-sm-4">
+                  <div class="form-group">
+                    <label for="sName" class="control-label">{{_ 'type'}}</label>
+                    <select class="custom-select form-control input-lg" name="IoG">
+                      <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
+                      <option value="Individual" selected="{{#if missionType 'Individual'}}selected{{/if}}">Individual</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-xs-4 col-sm-1">
+                  <div class="form-group">
+                    <label for="sName" class="control-label">Visible</label>
+                    <label class="switch">
+                      <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="chalDesc" class="control-label">{{_ 'description'}}</label>
+                    <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                  </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-12">
+                  <div class="form-group missionFG">
+                    <label class="control-label"> {{_ "scoreDependTeam"}} <input type="checkbox" class="big-checkbox" name="notebookCheck" checked={{notebookDependence}}></label>
+                    <label for="notebookCheck" class="control-label">Color <input type="color" value="{{missionColor}}" class="colorpicker missionColor form-control input-lg"></label>
+                  </div>
+                </div>
+
+              </div>
+
+              <hr class="colorgraph">
+              <div class="row">
+                  <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">{{_ "double"}}</button></div>
+                  <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">{{_ "delete"}}</button></div>
+                  <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+        <div class="input-group col-xs-12">
+          <div class="panel panel-info" id="{{_id}}">
+            <div class="panel-heading">{{_ "tasks"}}</div>
+            <div class="panel-body panelChal">
+
+              <!-- Gestió tasques antic
+              {{#each chalMissions _id}}
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <span class="input-group-text">{{_ "task"}} {{order}}</span>
+                  </div>
+                  <input id="cmd{{_id}}" type="text" class="form-control" {{teacher}} name="chalName" placeholder="Tarea" aria-label="Tarea" aria-describedby="basic-addon1" value="{{chalMissionDesc}}">
+                  <div class="input-group-addon">
+                    <span class="input-group-text">XP</span>
+                  </div>
+                  <input id="cmxp{{_id}}" type="text" class="form-control" {{teacher}} name="chalXP" placeholder="XP" aria-label="XP" aria-describedby="basic-addon1" value="{{chalMissionXP}}">
+                  {{#if isTeacher}}
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-ok-circle chalMissionUpdate" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-th-list chalMissionRub" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-education chalMissionGrades" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-circle-arrow-up chalMissionUp" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-circle-arrow-down chalMissionDown" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-remove-circle chalMissionDel" aria-hidden="true"></span>
+                  </div>
+                  {{/if}}
+                </div>
+                <div class="oculto" id="rubrica{{_id}}">
+                  <div class="input-group col-xs-12">
+                    <label>{{_ "description"}}</label>
+                    <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} rows="3">{{descTask}}</textarea>
+                  </div>
+                  <div id="studentsPoints">
+                    <label>{{_ "rubric"}}</label>
+                    <div class="btn-group btn-group-toggle btn-group-justified" data-toggle="buttons">
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_red.png"/>
+                        <textarea class="form-control rubricaText r1" {{teacher}} rows="3">{{r1}}</textarea>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277039/images/star_orange.png"/>
+                        <textarea class="form-control rubricaText r2" {{teacher}} rows="3">{{r2}}</textarea>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_yellow.png"/>
+                        <textarea class="form-control rubricaText r3" {{teacher}} rows="3">{{r3}}</textarea>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277040/images/star_white.png"/>
+                        <textarea class="form-control rubricaText r4" {{teacher}} rows="3">{{r4}}</textarea>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277083/images/star_blue.png"/>
+                        <textarea class="form-control rubricaText r5" {{teacher}} rows="3">{{r5}}</textarea>
+                      </label>
+                      <label class="btn btn-info btn-emoticon">
+                        <img class="emoticon" src="https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1549277035/images/star_green.png"/>
+                        <textarea class="form-control rubricaText r6" {{teacher}} rows="3">{{r6}}</textarea>
+                      </label>
+                    </div>
+                    <div class="input-group col-xs-12">
+                      <button class="btn btn-info drive" {{teacher}}>Seleccionar fichero Drive</button>
+                      <a class="btn btn-info" href="https://drive.google.com/open?id={{drive}}" target="_blank" {{teacher}}>Ver fichero</a>
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+               -->
+
+              <!-- calendar i datetimepicker
+              <div><button class="btn btn-info schedulerBtn">{{_ "calendar"}}</button></div>
+              <div class='input-group date datetimepicker'>
+                  <input type='text' class="form-control" />
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+               -->
+              {{> taskCardCreateTemplate}}
+              {{#each chalMissions _id}}
+                {{> taskCardTemplate}}
+              {{/each}}
+            </div>
+            <!--
+            {{#if isTeacher}}
+              <div class="panel-footer">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <span class="input-group-text">{{_ "fnew"}}</span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="{{_ "task"}}" id="chalMissionDesc{{_id}}">
+                  <div class="input-group-addon">
+                    <span class="input-group-text"></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="XP" id="chalMissionXP{{_id}}">
+                  <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-ok-circle chalSave" aria-hidden="true"></span>
+                  </div>
+                </div>
+              </div>
+            {{/if}}
+             -->
+          </div>
+        </div>
+
+    {{/with}}
+  </div>
+</template>
+
+<template name="deleteMission">
+  <div class="modal" id="add_class_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form id="add_class_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="exampleModalLabel">{{_ "deleteMission"}}</h4>
+          </div>
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">{{_ "deleteMission"}}</h1>
+              <p class="lead">{{_ "areYouSure"}}</p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ 'close'}}</button>
+            <input type="submit" class="btn btn-primary" value="{{_ 'delete'}}">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>

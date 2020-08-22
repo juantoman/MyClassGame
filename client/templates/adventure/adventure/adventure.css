@@ -1,0 +1,24 @@
+.tox-edit-area__iframe {
+  background-color: white;
+}
+
+#descBtn, #saveDescBtn {
+  position:absolute;
+  top:10px;
+  right:0;
+  z-index:1;
+}
+
+#adventureBtn {
+  position:absolute;
+  color: lightgray;
+  font-size: 3em;
+  top:45px;
+  left: 10px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#adventureBtn:hover {
+  color: gray;
+}

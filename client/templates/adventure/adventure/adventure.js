@@ -142,6 +142,8 @@ Template.adventure.events({
   },
   'click #adventureBtn': function(event) {
     event.preventDefault();
+    var opened = window.open("");
+    opened.document.write("<html><head>" + this.adventureDesc + "</html>");
     //Modal.show('adventureTemplate');
   }
 });

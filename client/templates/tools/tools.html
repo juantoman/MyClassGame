@@ -12,6 +12,8 @@
         <li role="presentation" class="active"><a href="#random" aria-controls="random" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-random" aria-hidden="true"></span> <span class="spanMenu">Random</span></a></li>
         <li role="presentation"><a href="#chrono" aria-controls="chrono" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span class="spanMenu">{{_ "chrono"}}</span></a></li>
         <li role="presentation"><a href="#countdown" aria-controls="countdown" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> <span class="spanMenu">{{_ "countDown"}}</span></a></li>
+        <li role="presentation"><a href="#dessign" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span class="spanMenu">{{_ "dessign"}}</span></a></li>
+
         <!--
         <li role="presentation"><a href="#ClassroomScreen" aria-controls="ClassroomScreen" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span> <span class="spanMenu">ClassroomScreen</span></a></li>
         <li role="presentation"><a href="#Formacion" aria-controls="Formacion" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span> <span class="spanMenu">Formación</span></a></li>
@@ -21,16 +23,20 @@
       <!-- Tab panels -->
       <div class="tab-content container-responsive mytab">
         <div role="tabpanel" class="tab-pane active" id="random">
-          <h2 class="text-center bg-info">Random</h2>
+          <!-- <h2 class="text-center bg-info">Random</h2> -->
           {{> randomPage}}
         </div>
         <div role="tabpanel" class="tab-pane" id="chrono">
-          <h2 class="text-center bg-info">Cronómetro</h2>
+          <!-- <h2 class="text-center bg-info">Cronómetro</h2> -->
           <div style="width: 90%; margin:auto;margin-top:10px;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.tickcounter.com/stopwatch" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div> </div>
         </div>
         <div role="tabpanel" class="tab-pane" id="countdown">
-          <h2 class="text-center bg-info">Cuenta atrás</h2>
+          <!-- <h2 class="text-center bg-info">Cuenta atrás</h2> -->
           <div style="width: 90%; margin:auto;margin-top:10px;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;" class="text-center"><iframe frameborder="0" width="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.tickcounter.com/timer" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> </div></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="dessign">
+          <br />
+          {{> dessignTemplate}}
         </div>
         <!--
         <div role="tabpanel" class="tab-pane" id="ClassroomScreen">

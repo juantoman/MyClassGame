@@ -77,6 +77,23 @@ Template.missionCard2Template.helpers({
       color=LightenDarkenColor(this.missionColor,-150);
     }
     return color;
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
+  },
+  teacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "readonly";
+    };
+  },
+  disTeacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disabled";
+    };
   }
 });
 
