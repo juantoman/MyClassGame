@@ -130,9 +130,11 @@ Template.missionCard2Template.events({
   },
   'click .missionBadge': function(event) {
     event.preventDefault();
-    Session.set('imageType','mission');
-    Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
+    if (Session.get('userType')=="teacher") {
+      Session.set('imageType','mission');
+      Session.set('idElementImage',this._id);
+      Modal.show('imagesTemplate');
+    }
   },
   'click .missionVisibleBtn': function(event) {
     event.preventDefault();

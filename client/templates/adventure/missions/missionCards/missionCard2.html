@@ -3,9 +3,11 @@
       <div class="missionCard2 float-up {{#unless missionVisible}}missionCardNotVisible{{/unless}}">
         <div class="front" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
-          <div class="missionVisibleBtn">
-            <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
-          </div>
+          {{#if isTeacher}}
+            <div class="missionVisibleBtn">
+              <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
+            </div>
+          {{/if}}
           <div class="top-pic" style="{{cardPic}}"></div>
           <!--<div class="avatar"></div>-->
           <div class="missionBadge">{{> badgeTemplate}}</div>

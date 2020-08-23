@@ -72,6 +72,23 @@ Template.taskCardTemplate.helpers({
       }
     }
     return url;
+  },
+  teacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "readonly";
+    };
+  },
+  disTeacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disabled";
+    };
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
   }
 });
 

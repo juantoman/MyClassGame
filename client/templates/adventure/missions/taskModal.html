@@ -10,7 +10,9 @@
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
               <li role="presentation" class="active"><a href="#taskInfo" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "description"}}</a></li>
-              <li role="presentation"><a href="#taskNotes" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "grades"}}</a></li>
+              {{#if isTeacher}}
+                <li role="presentation"><a href="#taskNotes" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "grades"}}</a></li>
+              {{/if}}
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
@@ -21,26 +23,27 @@
                       <div class="col-xs-12 col-sm-7">
                         <div class="form-group">
                           <label for="chalName" class="control-label">{{_ 'name'}}</label>
-                          <input type="text" name="chalMissionDesc" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalMissionDesc}}">
+                          <input type="text" name="chalMissionDesc" class="form-control input-lg chalName" {{teacher}} placeholder="Nombre" tabindex="1" value="{{chalMissionDesc}}">
                         </div>
                       </div>
 
                       <div class="col-xs-12 col-sm-3">
                         <div class="form-group">
                           <label for="chalName" class="control-label">XP</label>
-                          <input type="text" name="chalMissionXP" class="form-control input-lg chalName" placeholder="XP" tabindex="1" value="{{chalMissionXP}}">
+                          <input type="text" name="chalMissionXP" class="form-control input-lg chalName" {{teacher}} placeholder="XP" tabindex="1" value="{{chalMissionXP}}">
                         </div>
                       </div>
-
-                      <div class="col-xs-4 col-sm-1">
-                        <div class="form-group">
-                          <label for="sName" class="control-label">Visible</label>
-                          <label class="switch">
-                            <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
-                            <span class="slider round"></span>
-                          </label>
+                      {{#if isTeacher}}
+                        <div class="col-xs-4 col-sm-1">
+                          <div class="form-group">
+                            <label for="sName" class="control-label">Visible</label>
+                            <label class="switch">
+                              <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                              <span class="slider round"></span>
+                            </label>
+                          </div>
                         </div>
-                      </div>
+                      {{/if}}
 
                       <div class="col-xs-12">
                         <div class="form-group">
@@ -99,7 +102,9 @@
                   <hr class="colorgraph">
                   <div class="row">
                     <div class="col-xs-6 text-center"><button type="button" class="btn btn-default btn-block btn-lg">{{_ 'close'}}</button></div>
-                    <div class="col-xs-6 text-center"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                    {{#if isTeacher}}
+                      <div class="col-xs-6 text-center"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                    {{/if}}
                   </div>
 
                 </form>

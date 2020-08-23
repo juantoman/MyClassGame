@@ -177,7 +177,11 @@ Template.missions.onRendered(function() {
 
 Template.missions.helpers({
   challenge: function() {
-    return challenges.find({classId: Session.get('classId')}, {sort: {order: 1}});
+    if (Session.get('userType')=="teacher") {
+      return challenges.find({classId: Session.get('classId')}, {sort: {order: 1}});
+    } else {
+      return challenges.find({classId: Session.get('classId'),missionVisible:true}, {sort: {order: 1}});
+    }
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});

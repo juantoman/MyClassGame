@@ -11,13 +11,19 @@
       <!-- <div class="missionVisibleBtn">
         <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
       </div> -->
+      {{#if isTeacher}}
       <i class="taskVisible far fa-eye"></i>
       <i class="taskDel fas fa-times chalMissionDel"></i>
+      {{/if}}
       <span class="taskBtnCenter text-center" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
         <!-- <i class="fas fa-th-list"></i><i class="taskBtnInfo fas fa-plus-circle"></i><i class="fas fa-graduation-cap chalMissionGrades"></i> -->
-        <i class="fas fa-chevron-left chalMissionUp"></i>
+        {{#if isTeacher}}
+          <i class="fas fa-chevron-left chalMissionUp"></i>
+        {{/if}}
         <i class="taskBtnInfo fas fa-plus-circle"></i>
-        <i class="fas fa-chevron-right chalMissionDown"></i>
+        {{#if isTeacher}}
+          <i class="fas fa-chevron-right chalMissionDown"></i>
+        {{/if}}
       </span>
 
     </h2>

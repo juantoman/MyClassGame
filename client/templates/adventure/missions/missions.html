@@ -51,52 +51,57 @@
                 <div class="col-xs-12 col-sm-7">
                   <div class="form-group">
                     <label for="chalName" class="control-label">{{_ 'name'}}</label>
-                    <input type="text" name="chalName" class="form-control input-lg chalName" placeholder="Nombre" tabindex="1" value="{{chalName}}">
+                    <input type="text" name="chalName" class="form-control input-lg chalName" {{teacher}} placeholder="Nombre" tabindex="1" value="{{chalName}}">
                   </div>
                 </div>
 
                 <div class="col-xs-8 col-sm-4">
                   <div class="form-group">
                     <label for="sName" class="control-label">{{_ 'type'}}</label>
-                    <select class="custom-select form-control input-lg" name="IoG">
+                    <select class="custom-select form-control input-lg" name="IoG" {{disTeacher}}>
                       <option value="Grupal" selected="{{#if missionType 'Grupal'}}selected{{/if}}">Grupal</option>
                       <option value="Individual" selected="{{#if missionType 'Individual'}}selected{{/if}}">Individual</option>
                     </select>
                   </div>
                 </div>
 
-                <div class="col-xs-4 col-sm-1">
-                  <div class="form-group">
-                    <label for="sName" class="control-label">Visible</label>
-                    <label class="switch">
-                      <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
-                      <span class="slider round"></span>
-                    </label>
+                {{#if isTeacher}}
+                  <div class="col-xs-4 col-sm-1">
+                    <div class="form-group">
+                      <label for="sName" class="control-label">Visible</label>
+                      <label class="switch">
+                        <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
                   </div>
-                </div>
+                {{/if}}
 
                 <div class="col-xs-12">
                   <div class="form-group">
                     <label for="chalDesc" class="control-label">{{_ 'description'}}</label>
-                    <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" name="chalDesc" rows="2">{{chalDesc}}</textarea>
+                    <textarea class="form-control inputGroup  input-lg" placeholder="Descripción" {{teacher}} name="chalDesc" rows="2">{{chalDesc}}</textarea>
                   </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12">
                   <div class="form-group missionFG">
-                    <label class="control-label"> {{_ "scoreDependTeam"}} <input type="checkbox" class="big-checkbox" name="notebookCheck" checked={{notebookDependence}}></label>
-                    <label for="notebookCheck" class="control-label">Color <input type="color" value="{{missionColor}}" class="colorpicker missionColor form-control input-lg"></label>
+                    <label class="control-label"> {{_ "scoreDependTeam"}} <input type="checkbox" class="big-checkbox" {{disTeacher}} name="notebookCheck" checked={{notebookDependence}}></label>
+                    {{#if isTeacher}}
+                      <label for="notebookCheck" class="control-label">Color <input type="color" value="{{missionColor}}" class="colorpicker missionColor form-control input-lg"></label>
+                    {{/if}}
                   </div>
                 </div>
 
               </div>
-
-              <hr class="colorgraph">
-              <div class="row">
+              {{#if isTeacher}}
+                <hr class="colorgraph">
+                <div class="row">
                   <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">{{_ "double"}}</button></div>
                   <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">{{_ "delete"}}</button></div>
                   <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
                 </div>
+              {{/if}}
             </form>
           </div>
         </div>
@@ -180,7 +185,9 @@
                   </span>
               </div>
                -->
-              {{> taskCardCreateTemplate}}
+              {{#if isTeacher}}
+                {{> taskCardCreateTemplate}}
+              {{/if}}
               {{#each chalMissions _id}}
                 {{> taskCardTemplate}}
               {{/each}}

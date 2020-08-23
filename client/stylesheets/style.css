@@ -144,6 +144,10 @@ a:hover, a:link {
 }
 
 .tab-content{
+  margin-top:10px;
+}
+
+.main-tab-content {
   margin-top:40px;
 }
 
@@ -151,10 +155,11 @@ a:hover, a:link {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  margin-top:-1px;
 }
 
 .opacityDiv {
-  
+
 }
 
 .tab-content .tab-content{
@@ -1285,7 +1290,7 @@ h4.panel-title {
   margin: 0;
   top: 64px;
   padding: 5px 10px;
-  z-index: 2;
+  z-index: 3;
   -webkit-transform: translate(-50%, 0%);
   background-color: lightblue;
   border:1px solid #268BD2;

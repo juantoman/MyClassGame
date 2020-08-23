@@ -42,6 +42,23 @@ Template.taskModal.helpers({
   },
   task: function() {
     return chalMissions.findOne({_id: Session.get('taskId')});
+  },
+  teacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "readonly";
+    };
+  },
+  disTeacher: function() {
+    if (Session.get('userType')!="teacher") {
+     return "disabled";
+    };
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
   }
 });
 
