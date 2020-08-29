@@ -2,10 +2,10 @@ module.exports = {
   servers: {
     one: {
       // TODO: set host address, username, and authentication method
-      host: '51.68.126.115',
+      host: '173.212.213.93',
       username: 'root',
       // pem: './path/to/pem'
-      password: ''
+      password: '',
       // or neither for authenticate from ssh-agent
     }
   },
@@ -26,7 +26,7 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://www.myclassgame.tk',
+      ROOT_URL: 'https://www.mcgdeploy.tk',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
@@ -48,7 +48,7 @@ module.exports = {
     }
   },
   proxy: {
-    domains: 'myclassgame.tk,www.myclassgame.tk',
+    domains: 'mcgdeploy.tk,www.mcgdeploy.tk',
     //domains: 'www.myclassgame.tk',
     ssl: {
       // Enable let's encrypt to create free certificates.

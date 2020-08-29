@@ -82,6 +82,9 @@ Template.imagesTemplate.helpers({
     if ( Session.get('imageType') == "mission" ) {
       idElement=challenges.findOne({_id: Session.get('idElementImage')}).missionImg;
     }
+    if ( Session.get('imageType') == "behaviour" ) {
+      idElement=behaviours.findOne({_id: Session.get('idElementImage')}).behaviourImage;
+    }
     if (idImage==idElement) {
       return "checked";
     } else {
@@ -131,6 +134,9 @@ Template.imagesTemplate.events({
       }
       if (Session.get('imageType')=="userAvatar") {
         Meteor.call('userAvatarUpdate',$("input[name='imageId']:checked").val());
+      }
+      if (Session.get('imageType')=="behaviour") {
+        Meteor.call('behaviourImageUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());

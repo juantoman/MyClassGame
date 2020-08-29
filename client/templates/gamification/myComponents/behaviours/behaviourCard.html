@@ -11,7 +11,7 @@
           </div>
           <div class="center">
             {{#if behaviourImage}}
-              <img width="100%" alt="Imagen artículo" src="{{behaviour_src behaviourImage}}" />
+              <img width="100%" alt="Imagen comportamiento" src="{{behaviour_src behaviourImage}}" />
             {{else}}
               {{#if positive}}
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
@@ -54,7 +54,7 @@
 
 <template name="behaviourCardCreate">
 
-    <div id="behaviourCardCreate" class="componentCard hp behaviourCard float-up">
+    <div id="behaviourCardCreate" class="componentCard behaviourCard float-up">
       <div class="additional">
         <div class="user-card">
           <div class="level center">
@@ -63,7 +63,7 @@
           <div class="points center">
             {{_ "behaviour"}}
           </div>
-          <div class="center"><span id="behaviourGlyphicon" class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span></div>
+          <div class="center"><span id="behaviourGlyphicon" class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span></div>
         </div>
         <div class="more-info">
           <form class="createBehaviourForm">
@@ -74,7 +74,7 @@
               <input type="text" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}">
             </div>
             <div class="switchCard col-xs-6">
-              {{> behaviourTypeTemplate}}
+              {{> behaviourTypeCreateTemplate}}
             </div>
             <div class="input-group col-xs-12">
               <span class="input-group-addon">{{_ "competence"}}</span>
