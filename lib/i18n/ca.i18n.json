@@ -329,5 +329,7 @@
     "downloadCSV": "Descarregar fitxer CSV",
     "CSVdownloaded": "Fitxer CSV descarregat",
     "suggestions": "Els teus suggeriments",
-    "code": "Codi"
+    "code": "Codi",
+    "win": "Guanyar",
+    "lose": "Perdre"
 }

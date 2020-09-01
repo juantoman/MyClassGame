@@ -5,9 +5,9 @@ Template.admin.rendered = function() {
 Template.admin.helpers({
   claseTipo: function() {
     if (mcgParameters.find({'typeClasses':Session.get('classId')}).count() == 0) {
-      return "Establecer como 'Clase Tipo'";
+      return false;
     } else {
-      return "Eliminar como 'Clase Tipo'";
+      return true;
     }
   },
   admin: function() {

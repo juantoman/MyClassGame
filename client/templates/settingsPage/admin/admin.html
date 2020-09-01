@@ -1,4 +1,5 @@
 <template name="admin">
+  <br />
   <div class="container">
     <!--
     <form>
@@ -41,7 +42,7 @@
       </div>
     </form>
     -->
-    <div class="container studentInventory">
+    <div class="studentInventory">
       <ul class="list-items">
         <li class="list-item addBtn" id="btn-acceso-estudiantes">
           <span class="item-image btn"><span class="glyphicon glyphicon-education" aria-hidden="true"></span></span>
@@ -63,7 +64,7 @@
         -->
         {{#if admin}}
         <li class="list-item addBtn" id="btn-tipo">
-          <span class="item-image btn"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span></span>
+          <span class="item-image btn"><span class="glyphicon glyphicon-certificate" aria-hidden="true" style="color:{{#if claseTipo}}white{{/if}};"></span></span>
           <p class="text-center" style="padding:5px;">{{_ "thematicTemplate"}}</p>
         </li>
         {{/if}}

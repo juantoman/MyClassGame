@@ -1,7 +1,7 @@
 <template name="coinsModal">
       <!-- Store Modal -->
 
-  <div class="modal storeModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal coinsModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -67,10 +67,19 @@
                         <span class="badge text-center">1000 <i class="fa fa-coins"></i></span>
                       </button>
                       <br/><br/>
+                      <div class="behaviourType">
+                        <span>{{_ "lose"}}</span>
+                        <label class="switch">
+                          <input id="WinOrLose" type="checkbox" name="WinOrLose" checked>
+                          <span class="slider round"></span>
+                        </label>
+                        <span>{{_ "win"}}</span>
+                      </div>
                     </div>
               </div>
+
               {{/if}}
-              <div role="tabpanel" class="tab-pane" id="spend">
+              <!-- <div role="tabpanel" class="tab-pane" id="spend">
                 <h2 class="text-center bg-info">{{_ "store"}}</h2>
                 <div class="form-group studentInventory">
                   <ul class="list-items list-group">
@@ -83,7 +92,7 @@
                     {{/each}}
                   </ul>
                 </div>
-              </div>
+              </div> -->
             </div>
             <div class="text-center ">
               <h2>

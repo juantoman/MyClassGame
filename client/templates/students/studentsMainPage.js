@@ -192,6 +192,12 @@ Template.studentsMainPage.events({
       Modal.show('allCoinsModal');
     }
   },
+  'click .btn-store3': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allStoreModal');
+    }
+  },
   'change #className': function(event) {
     event.preventDefault();
     Meteor.call('classUpdate',Session.get('classId'), event.currentTarget.value);

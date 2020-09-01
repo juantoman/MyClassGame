@@ -329,5 +329,7 @@
     "downloadCSV": "Download CSV file",
     "CSVdownloaded": "CSV file downloaded",
     "suggestions": "Your suggestions",
-    "code": "Code"
+    "code": "Code",
+    "win": "Win",
+    "lose": "Lose"
 }

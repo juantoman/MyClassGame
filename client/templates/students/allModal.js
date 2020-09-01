@@ -369,7 +369,117 @@ Template.allCoinsModal.events({
     event.preventDefault();
     Modal.hide('allCoinsModal');
   },
+  'click #AllWinOrLose': function(event) {
+
+    win=$(event.target).is(":checked");
+
+    if (win) {
+      Session.set('wonCoins', Session.get('spentCoins'));
+      Session.set('spentCoins',0);
+    } else {
+      Session.set('spentCoins', Session.get('wonCoins'));
+      Session.set('wonCoins', 0);
+    }
+  },
   'click #allCoinsModalSubmit': function(event) {
+    event.preventDefault();
+    $('#all_coins_modal').find(".activeTask").each( function() {
+      coins=parseInt($(this).find(".badge").text());
+      win=$("#AllWinOrLose").is(":checked");
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        if (win) {
+          Meteor.call('incCoins', item["_id"], coins);
+        } else {
+          Meteor.call('incCoins', item["_id"], -coins);
+        }
+
+      });
+    });
+    $('#all_coins_modal').find(".list-group-item-danger").each( function() {
+      itemId=this.id;
+      price=parseInt($(this).find(".badge").text());
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        coins = students.findOne({_id: item["_id"]}).coins;
+        if ( coins >= price ) {
+          Meteor.call('buyingItem', item["_id"], itemId, price);
+        } else {
+          swal({
+            title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+            text: TAPi18n.__('workHard'),
+            icon: "warning",
+          });
+        }
+      });
+    });
+    Modal.hide('allCoinsModal');
+  },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+    coins=parseInt($(event.currentTarget).find(".badge").text());
+    win=$("#AllWinOrLose").is(":checked");
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      if (win) {
+        Session.set('wonCoins', Session.get('wonCoins') + coins);
+      } else {
+        Session.set('spentCoins', Session.get('spentCoins') + coins);
+      }
+    } else {
+      if (win) {
+        Session.set('wonCoins', Session.get('wonCoins') - coins);
+      } else {
+        Session.set('spentCoins', Session.get('spentCoins') - coins);
+      }
+    }
+  }
+});
+
+/* allStoreModal */
+
+Template.allStoreModal.rendered = function() {
+  Session.set('wonCoins', 0);
+  Session.set('spentCoins', 0);
+}
+
+Template.allStoreModal.helpers({
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  itemList: function() {
+    return store.find({ classId: Session.get('classId') });
+  },
+  srcImage: function(imgId) {
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
+  },
+  coins: function() {
+    return students.findOne({_id: Session.get('studentId') }).coins;
+  },
+  wonCoins: function() {
+    return Session.get('wonCoins');
+  },
+  spentCoins: function() {
+    return Session.get('spentCoins');
+  }
+});
+
+Template.allStoreModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("list-group-item-danger");
+    coins=parseInt($(event.currentTarget).find(".price").text());
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      Session.set('spentCoins', Session.get('spentCoins') + coins);
+    } else {
+      Session.set('spentCoins', Session.get('spentCoins') - coins);
+    }
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('allStoreModal');
+  },
+  'click #allStoreModalSubmit': function(event) {
     event.preventDefault();
     $('#all_coins_modal').find(".activeTask").each( function() {
       coins=parseInt($(this).find(".badge").text());
@@ -393,7 +503,7 @@ Template.allCoinsModal.events({
         }
       });
     });
-    Modal.hide('allCoinsModal');
+    Modal.hide('allStoreModal');
   },
   'click .btn-info': function(event) {
     event.preventDefault();
