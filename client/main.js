@@ -5,7 +5,14 @@ Meteor.startup(function () {
   console.log(location);
   if ( location.host !== 'localhost:8000' ) {
     if (location.href !== 'https://www.myclassgame.tk/') {
-        location.href = 'https://www.myclassgame.tk/';
+        //location.href = 'https://www.myclassgame.tk/';
+        // loc=location.href;
+        // if (loc.includes('myclassgame.tk')) {
+        //     location.href = 'https://www.myclassgame.tk/';
+        // }
+        // if (loc.includes('mcgdeploy.tk')) {
+        //     location.href = 'https://www.mcgdeploy.tk/';
+        // }
     }
   }
 });

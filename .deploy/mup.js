@@ -28,7 +28,7 @@ module.exports = {
       // If you are using ssl, it needs to start with https://
       ROOT_URL: 'https://www.myclassgame.tk',
       MONGO_URL: 'mongodb://mongodb/meteor',
-      MONGO_OPLOG_URL: 'mongodb://mongodb/local',
+      //MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
 
     docker: {

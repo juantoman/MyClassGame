@@ -1,0 +1,20 @@
+.input-group label {
+  margin: 0 .5em;
+}
+
+.paramsImage {
+  position:relative;
+  margin: 0px auto;
+}
+
+.paramsImage .thumbnail{
+  width: 250px;
+  margin: 10px;
+}
+
+#delBackImage {
+  position:absolute;
+  color:gray;
+  right:20px;
+  top:20px;
+}

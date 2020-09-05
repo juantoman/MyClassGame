@@ -331,5 +331,6 @@
     "suggestions": "Tus sugerencias",
     "code": "Código",
     "win": "Ganar",
-    "lose": "Perder"
+    "lose": "Perder",
+    "coinsperXP": "monedas por cada"
 }

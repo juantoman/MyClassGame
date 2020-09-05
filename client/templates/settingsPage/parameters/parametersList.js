@@ -22,30 +22,33 @@ Template.parametersList.helpers({
   gImage: function() {
     avatar=this.groupImg;
     if (avatar.substring(0, 4)=="http") {
+      avatar=avatar.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return avatar;
     } else {
       cloudinary_url=images.findOne({_id: avatar}).image_url;
-      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return cloudinary_url;
     }
   },
   sImage: function() {
     avatar=this.studentImg;
     if (avatar.substring(0, 4)=="http") {
+      avatar=avatar.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return avatar;
     } else {
       cloudinary_url=images.findOne({_id: avatar}).image_url;
-      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return cloudinary_url;
     }
   },
   bImage: function() {
     avatar=this.backImg;
     if (avatar.substring(0, 4)=="http") {
+      avatar=avatar.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return avatar;
     } else {
       cloudinary_url=images.findOne({_id: avatar}).image_url;
-      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return cloudinary_url;
     }
   }
@@ -244,5 +247,13 @@ Template.parametersList.events({
     $("#mainTab").css('background-image','');
     $(".studentProfile").css('background-image','');
     $(".opacityDiv").toggleClass('opacityProfile');
+  },
+  'change #CoinsRel': function(event) {
+    event.preventDefault();
+    Meteor.call('CoinsRelChange', Session.get('classId'), $(event.target).val());
+  },
+  'change #XPsRel': function(event) {
+    event.preventDefault();
+    Meteor.call('XPsRelChange', Session.get('classId'), $(event.target).val());
   }
 });

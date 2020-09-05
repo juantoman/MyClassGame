@@ -331,5 +331,6 @@
     "suggestions": "Els teus suggeriments",
     "code": "Codi",
     "win": "Guanyar",
-    "lose": "Perdre"
+    "lose": "Perdre",
+    "coinsperXP": "monedes per cada"
 }
