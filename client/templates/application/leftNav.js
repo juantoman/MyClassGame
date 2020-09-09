@@ -243,12 +243,20 @@ Template.leftNav.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        $(".classes").click();
+        //$(".classes").click();
         //gapiSignOut();
+        //Router.go("/");
+        //Meteor.logout();
+
+        Session.keys = {};
         Meteor.logout();
         window.location.replace('https://accounts.google.com/Logout');
         window.location.href = "/";
-      // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
+        // Meteor.logout(function(){
+          //window.location.replace('https://accounts.google.com/Logout');
+          //window.location.href = "/";
+        // })
+        // result.dismiss can be 'overlay', 'cancel', 'close', 'esc', 'timer'
       }
     })
   },

@@ -20,9 +20,9 @@ Template.index.onRendered(function () {
 
 Template.index.helpers({
   'userType': function() {
-    tipo=Meteor.users.findOne(Meteor.user()).userType;
+    tipo=Meteor.user().userType;
     if (typeof tipo == "undefined") {
-      Meteor.call('userTypeInsert', "");
+      Meteor.call('userTypeInsert', "teacher");
     }
     Session.setPersistent('userType', tipo);
     if ( tipo != "" ) {

@@ -26,6 +26,7 @@ Template.signinModal.events({
               icon: "warning",
           });
         }else{
+
           //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
           Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
           Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
@@ -52,6 +53,7 @@ Template.signinModal.events({
           }
         }
       });
+      Meteor.call('userTypeInsert', "teacher");
       Modal.hide('signinModal');
    },
    'submit .login-form-code': function(e) {
@@ -61,6 +63,7 @@ Template.signinModal.events({
       if ( user.indexOf("@") === -1 ) {
         user+="@myclassgame.tk";
       }
+
       Meteor.loginWithPassword(user, password,function(error){
         if(error) {
           swal({
@@ -78,6 +81,7 @@ Template.signinModal.events({
           Session.set('studentSelected', false);
           Session.set('orderStudents', "XP");
           Session.set('invertOrder', "checked");
+
           if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
             Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
             backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
@@ -95,6 +99,7 @@ Template.signinModal.events({
           }
         }
       });
+      Session.set('userType', "student");
       Modal.hide('signinModal');
    },
 
@@ -111,10 +116,11 @@ Template.signinModal.events({
             });
           }else{
             //Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
+            Meteor.call('userTypeInsert', "teacher");
             Router.go('classesPage');
           }
       });
-
+      Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
    'click #reset': function(e) {
@@ -155,8 +161,10 @@ Template.signinModal.events({
                   text: TAPi18n.__('emailUserRegistered') + email,
                   icon: "info",
               });
+              Meteor.call('userTypeInsert', "teacher");
           }
       });
+      Meteor.call('userTypeInsert', "teacher");
       Modal.hide('signinModal');
    }
 });

@@ -1,9 +1,10 @@
 Template.classesPage.onRendered(function() {
   Session.set('className', "");
   if ( typeof Meteor.user().userType == "undefined" ) {
-    Meteor.call('userTypeInsert', "teacher");
+    //Meteor.call('userTypeInsert', "teacher");
   }
-  Session.set('userType', Meteor.user().userType);
+  //Session.set('userType', Meteor.user().userType);
+  //Session.set('userType', Meteor.user().userType);
   //Meteor.call('userTypeInsert', "teacher");
   //alert(Meteor.userId());
   Session.set('lc',null);
