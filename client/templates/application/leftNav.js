@@ -243,7 +243,7 @@ Template.leftNav.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        //$(".classes").click();
+        $(".classes").click();
         //gapiSignOut();
         //Router.go("/");
         //Meteor.logout();

@@ -53,7 +53,7 @@ Template.signinModal.events({
           }
         }
       });
-      Meteor.call('userTypeInsert', "teacher");
+      Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
    'submit .login-form-code': function(e) {
@@ -141,6 +141,7 @@ Template.signinModal.events({
               });
           }
       });
+      Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
    'click #register': function(e) {
@@ -164,7 +165,7 @@ Template.signinModal.events({
               Meteor.call('userTypeInsert', "teacher");
           }
       });
-      Meteor.call('userTypeInsert', "teacher");
+      Session.set('userType', "teacher");
       Modal.hide('signinModal');
    }
 });
