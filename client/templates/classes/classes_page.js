@@ -1,6 +1,7 @@
 Template.classesPage.onRendered(function() {
   Session.set('className', "");
   Meteor.call('userTypeInsert', Session.get('userType'));
+  Meteor.call('userAlive');
   if ( typeof Meteor.user().userType == "undefined" ) {
     //Meteor.call('userTypeInsert', "teacher");
   }
@@ -126,6 +127,7 @@ Template.classesPage.events({
       Session.setPersistent('userType','parent');
     }
     //Meteor.call('mcgLog', 'selectClass -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId'));
+    Meteor.call('classAlive', Session.get('classId'));
     Router.go('myNav',{_id:Session.get('classId')});
   },
   'click .btn-double-class': function(event) {

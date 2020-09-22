@@ -4,8 +4,8 @@ App.info({
   description: 'We play, we learn',
   author: '@juantoman',
   email: 'myclassgame@gmail.com',
-  website: 'https://www.myclassgame.tk',
-  version: "2.0.3"
+  website: 'https://www.myclassgame.es',
+  version: "2.1.0"
 });
 
 // Set up resources such as icons and launch screens.

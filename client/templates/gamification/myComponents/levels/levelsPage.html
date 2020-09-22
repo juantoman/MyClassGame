@@ -25,13 +25,13 @@
       {{#each levelObj}}
             <div class="form-group">
               <div class="form-inline">
-                <div class="input-group col-xs-3">
+                <div class="input-group col-xs-2">
                   <span class="input-group-addon">{{_ 'level'}}</span>
-                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{level}}">
+                  <input type="text" class="form-control inputGroup input-lg level text-center" aria-describedby="inputGroupSuccess1Status" value="{{level}}">
                 </div>
-                <div class="input-group col-xs-8">
+                <div class="input-group col-xs-9">
                   <span class="input-group-addon">{{_ 'description'}}</span>
-                  <input type="text" class="form-control inputGroup input-lg" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
+                  <input type="text" class="form-control inputGroup input-lg" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
                 </div>
               </div>
             </div>
@@ -43,7 +43,7 @@
         <div class="form-inline">
           <div class="input-group col-xs-2">
             <span class="input-group-addon">{{_ 'level'}}</span>
-            <input type="text" class="form-control input-lg" name="level" id="level" aria-describedby="inputGroupSuccess1Status" value=1>
+            <input type="text" class="form-control input-lg text-center" name="level" id="level" aria-describedby="inputGroupSuccess1Status" value={{nextLevel}}>
           </div>
           <div class="input-group col-xs-8">
             <span class="input-group-addon">{{_ 'description'}}</span>

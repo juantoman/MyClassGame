@@ -1,7 +1,7 @@
 <template name="storeModal">
       <!-- Store Modal -->
 
-  <div class="modal storeModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal storeModal studentModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -23,7 +23,7 @@
             <div class="tab-content container-responsive">
               {{#if teacher}}
                 <div role="tabpanel" class="tab-pane" id="earn">
-                <h2 class="text-center bg-info">{{_ "money"}}</h2>
+                  <h2 class="text-center bg-info">{{_ "money"}}</h2>
                   <div class="billetes text-center">
                       <button type="button" class="btn btn-info" name="one">
                         <span class="badge text-center">1 <i class="fa fa-coins"></i></span>
@@ -68,17 +68,20 @@
                       </button>
                       <br/><br/>
                     </div>
-              </div>
+                </div>
               {{/if}}
               <div role="tabpanel" class="tab-pane active" id="spend">
                 <!--<h2 class="text-center bg-info">{{_ "store"}}</h2>-->
-                <div class="form-group studentInventory">
-                  <ul class="list-items list-group">
+                <div class="form-group">
+                  <ul class="list-group">
                     {{#each itemList}}
-                      <button class="list-item list-group-item" id="{{_id}}">
-                        <span class="power-icon">{{itemName}}</span>
-                        <span class="item-image"><img src="{{srcImage itemImage}}" alt=""></span>
-                        <span class="item-strength price">{{price}} <i class="fa fa-coins"></i></span>
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
+                        <div style="width:72%;float:left;">
+                          <h3>{{itemName}}</h3>
+                          <p>{{itemDescription}}</p>
+                        </div>
+                        <span style="width:12%;float:right;" class="price text-center badge badgeXP">{{price}} <i class="fa fa-coins"></i></span>
                       </button>
                     {{/each}}
                   </ul>

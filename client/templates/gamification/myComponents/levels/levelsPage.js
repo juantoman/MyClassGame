@@ -3,7 +3,10 @@ Template.levelsTemplate.helpers({
     return classes.findOne({_id: Session.get('classId')});
   },
   levelObj: function() {
-    return levels.find({classId: Session.get('classId')});
+    return levels.find({classId: Session.get('classId')}); //,{sort: { 'level' : 1 }});
+  },
+  nextLevel: function() {
+    return levels.find({classId: Session.get('classId')}).count();
   }
 });
 
@@ -21,6 +24,7 @@ Template.levelsTemplate.events({
   },
   'submit form': function(event) {
     event.preventDefault();
+    //n=parseInt(levels.find({classId: Session.get('classId')}).count());
     var level = {
       classId: Session.get('classId'),
       levelDescription: $(event.target).find('[name=levelDescription]').val(),
@@ -33,14 +37,14 @@ Template.levelsTemplate.events({
     event.preventDefault();
     if (event.currentTarget.value )
     {
-      if (event.target.id=="inputDesc")
+      if (! $(event.target).hasClass("level"))
       {
-        Meteor.call('levelUpdateDesc', event.target.name, event.currentTarget.value);
+        Meteor.call('levelUpdateDesc', this._id, event.currentTarget.value);
       } else {
-        Meteor.call('levelUpdate', event.target.name, event.currentTarget.value);
+        Meteor.call('levelUpdate', this._id, event.currentTarget.value);
       }
     } else {
-      Meteor.call('levelDelete',event.target.name);
+      Meteor.call('levelDelete',this._id);
     }
   }
 });

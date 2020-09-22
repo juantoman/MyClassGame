@@ -4,3 +4,5 @@ db.students.find({'classId':{'$regex' :'^zcLgJy'}}).count();
 db.students.update({'classId':'2hp5LiGnbzg9W7FAK'},{$set:{'gs':0}}, {multi: true});
 3.- Canviar text en tots el camps
 db.images.find().forEach(function(img,k){img.image_url=img.image_url.replace('http:','https:');db.images.save(img);});
+3. Buscar correu:
+db.users.findOne({'emails.address':{'$regex' :'^juantoman'}});

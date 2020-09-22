@@ -26,7 +26,7 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://www.mcgdeploy.tk',
+      ROOT_URL: 'https://www.myclassgame.es',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
@@ -48,7 +48,7 @@ module.exports = {
     }
   },
   proxy: {
-    domains: 'mcgdeploy.tk,www.mcgdeploy.tk',
+    domains: 'myclassgame.es,www.myclassgame.es',
     //domains: 'www.myclassgame.tk',
     ssl: {
       // Enable let's encrypt to create free certificates.

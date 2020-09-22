@@ -225,12 +225,11 @@ Template.leftNav.events({
   },
   'click .closeSession': function(event) {
     event.preventDefault();
-    //Session.set('className', '');
-    //Session.set('studentSelected', false);
-    //Session.set('groupSelected', false);
-    //Session.set('userType', "");
-    //$("#fondo").css("background-image", "");
-    //Router.go('/');
+    Session.set('className', '');
+    Session.set('studentSelected', false);
+    Session.set('groupSelected', false);
+    $("#fondo").css("background-image", "");
+    Router.go('/');
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     //Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
@@ -243,7 +242,7 @@ Template.leftNav.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        $(".classes").click();
+        //$(".classes").click();
         //gapiSignOut();
         //Router.go("/");
         //Meteor.logout();
