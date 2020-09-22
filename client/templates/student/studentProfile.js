@@ -85,10 +85,20 @@ Template.studentProfile.helpers({
   },
   challengesI: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    return challenges.find({classId: Session.get('classId'),IoG:"Individual"});
+    if (Session.get('userType')=="teacher") {
+      return challenges.find({classId: Session.get('classId'), IoG:"Individual"}, {sort: {order: 1}});
+    } else {
+      return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Individual"}, {sort: {order: 1}});
+    }
+    //return challenges.find({classId: Session.get('classId'),IoG:"Individual"});
   },
   challengesG: function() {
-    return challenges.find({classId: Session.get('classId'),IoG:"Grupal"});
+    if (Session.get('userType')=="teacher") {
+      return challenges.find({classId: Session.get('classId'), IoG:"Grupal"}, {sort: {order: 1}});
+    } else {
+      return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Grupal"}, {sort: {order: 1}});
+    }
+    //return challenges.find({classId: Session.get('classId'),IoG:"Grupal"});
   },
   chalMissions: function(id) {
     return chalMissions.find({classId: Session.get('classId'), missionId: id}, {sort: {order: 1}});
