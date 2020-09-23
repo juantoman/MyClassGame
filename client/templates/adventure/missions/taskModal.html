@@ -48,7 +48,10 @@
                       <div class="col-xs-12">
                         <div class="form-group">
                           <label>{{_ "description"}}</label>
-                          <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} name="descTask" rows="3">{{descTask}}</textarea>
+                          <!--
+                          <textarea class="form-control descTask" id="desc{{_id}}" {{teacher}} name="descTask" rows="3"><a href="#">A</a>{{#autolink}}{{descTask}}{{/autolink}}</textarea>
+                          -->
+                          <div class="form-control descTask" id="desc{{_id}}" {{teacher}} name="descTask" contenteditable="false">{{#autolink}}{{descTask}}{{/autolink}}</div>
                         </div>
                       </div>
 

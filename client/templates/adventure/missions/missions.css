@@ -113,3 +113,15 @@ input:checked + .slider:before {
 .tooltip.left .tooltip-arrow {
   border-left-color: #2196F3 !important;
 }
+
+div.descTask {
+    width: auto;
+    height:6em;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 1.5em;
+}
+
+div.descTask a{
+    color: DodgerBlue;
+}

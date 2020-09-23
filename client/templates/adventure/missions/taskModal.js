@@ -68,7 +68,7 @@ Template.taskModal.events({
     var chal = {
       chalMissionDesc: $(event.target).find('[name=chalMissionDesc]').val(),
       chalMissionXP: $(event.target).find('[name=chalMissionXP]').val(),
-      descTask:$(event.target).find('[name=descTask]').val(),
+      descTask:$(event.target).find('[name=descTask]').html(),
       r1: $(event.target).find('[name=r1]').val(),
       r2: $(event.target).find('[name=r2]').val(),
       r3: $(event.target).find('[name=r3]').val(),
@@ -296,4 +296,14 @@ Template.taskModal.events({
       Meteor.call('updateStar', this._id, stars[100], ngs);
     };
   },
+  'click .descTask': function(event) {
+    if (Session.get('userType')!="teacher") {
+      $('.descTask').prop('contentEditable', true).focus();
+    }
+  },
+  'focusout .descTask': function(event) {
+      event.preventDefault();
+      $('.descTask').prop('contentEditable', false).blur();
+
+  }
 });
