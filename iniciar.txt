@@ -1,8 +1,17 @@
-db.mcgParameters.insert({"_id":1,"typeClasses" : [], "passMCG" : "" });
-db.meteor_accounts_loginServiceConfiguration.insert({"service" : "google", "clientId" : "", "secret" : "", "loginStyle" : "popup" });
+sudo apt install git
+
+git clone https://github.com/juantoman/MyClassGame.git
+
+curl https://install.meteor.com/ | sh
 
 meteor npm install --save sweetalert
 
-meteor npm install --save chart.js  
+meteor npm install --save chart.js
 
 meteor npm install @babel/runtime@7.0.0-beta.55
+
+meteor -p 8000 port
+
+db.mcgParameters.insert({"_id":1,"typeClasses" : [], "passMCG" : "" });
+
+db.meteor_accounts_loginServiceConfiguration.insert({"service" : "google", "clientId" : "", "secret" : "", "loginStyle" : "popup" });
