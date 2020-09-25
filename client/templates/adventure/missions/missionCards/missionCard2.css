@@ -37,6 +37,9 @@
 .missionWrapper label {
 	font-size: 12px !important;
 	color: lightblue;
+	width:200px;
+	word-wrap: normal;
+	word-break: break-word;
 }
 
 .missionWrapper .btn {
