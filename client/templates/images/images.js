@@ -3,7 +3,9 @@ var new_image="";
 
 Template.imagesTemplate.onRendered(function() {
    $.getScript("https://media-library.cloudinary.com/global/all.js");
-   widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame',  googleApiKey: 'AIzaSyBqyxpnFhDv1nOkTszttyDSXn2HPpznhZI', cropping: true, croppingAspectRatio: 1}, function(error, result){
+   key=mcgParameters.findOne({'_id':1}).GoogleApiKeyForCloudinary;
+   widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame', googleApiKey: key, cropping: true, croppingAspectRatio: 1, searchBySites: ["all", "cloudinary.com"],
+  searchByRights: true}, function(error, result){
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
       if (Session.get('imageType')!="userAvatar") {
