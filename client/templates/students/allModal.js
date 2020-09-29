@@ -294,6 +294,7 @@ Template.allCardsModal.events({
         coins = students.findOne({_id: item["_id"]}).coins;
         if ( coins >= price ) {
           Meteor.call('buyingItem', item["_id"], itemId, price);
+          coins-=price;
         } else {
           //alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
           swal({
@@ -402,6 +403,7 @@ Template.allCoinsModal.events({
         coins = students.findOne({_id: item["_id"]}).coins;
         if ( coins >= price ) {
           Meteor.call('buyingItem', item["_id"], itemId, price);
+          coins-=price;
         } else {
           swal({
             title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
@@ -494,6 +496,7 @@ Template.allStoreModal.events({
         coins = students.findOne({_id: item["_id"]}).coins;
         if ( coins >= price ) {
           Meteor.call('buyingItem', item["_id"], itemId, price);
+          coins-=price;
         } else {
           swal({
             title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),

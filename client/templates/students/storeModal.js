@@ -59,19 +59,23 @@ Template.storeModal.events({
       Meteor.call('incCoins', Session.get('studentId'), coins);
     });
     coins = students.findOne({_id: studentId}).coins;
+    price=0;
     $('.storeModal').find(".list-item-selected").each( function() {
-      itemId=this.id;
-      price=parseInt($(this).find(".price").text());
-      if ( coins >= price ) {
-        Meteor.call('buyingItem', Session.get('studentId'), itemId, price);
-      } else {
-        swal({
-          title: TAPi18n.__('noMoney'),
-          text: TAPi18n.__('workHard'),
-          icon: "warning",
-        });
-      }
+      price+=parseInt($(this).find(".price").text());
     });
+    if ( coins >= price ) {
+      $('.storeModal').find(".list-item-selected").each( function() {
+        itemId=this.id;
+        price=parseInt($(this).find(".price").text());
+        Meteor.call('buyingItem', Session.get('studentId'), itemId, price);
+      });
+    } else {
+      swal({
+        title: TAPi18n.__('noMoney'),
+        text: TAPi18n.__('workHard'),
+        icon: "warning",
+      });
+    }
     Modal.hide('storeModal');
   },
   'click .btn-default': function(event) {
