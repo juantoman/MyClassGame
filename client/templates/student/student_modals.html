@@ -60,7 +60,7 @@
   <div class="modal fade" id="reset_student_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form id="add_class_form">
+        <form id="reset_student_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="exampleModalLabel">{{_ "resetStudent"}}</h4>
@@ -71,6 +71,27 @@
               <p class="lead">{{_ "areYouSure"}}</p>
             </div>
           </div>
+          <div class="row container-fluid">
+            <div class="col-xs-12 col-sm-4">
+              <div class="form-group">
+                <label for="xp" class="control-label">XP</label>
+                <input type="text" name="xp" class="form-control input-lg" placeholder="XP" tabindex="1" value=0>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="form-group">
+                <label for="money" class="control-label">{{_ "money"}}</label>
+                <input type="text" name="money" class="form-control input-lg" placeholder="{{_ 'money'}}" tabindex="2" value=0 {{inputDisabled}}>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <div class="form-group">
+                <label for="hp" class="control-label">HP</label>
+                <input type="text" name="hp" class="form-control input-lg" placeholder="HP" tabindex="2" value=0 {{inputDisabled}}>
+              </div>
+            </div>
+          </div>
+          <br />
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
             <input type="submit" class="btn btn-primary" value="Reiniciar">

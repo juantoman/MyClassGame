@@ -23,9 +23,12 @@ Template.deleteStudent.events({
 });
 
 Template.resetStudent.events({
-  'submit form': function(event) {
+  'submit form#reset_student_form': function(event) {
     event.preventDefault();
-    Meteor.call('studentReset', Session.get('studentId'));
+    xp=$(event.target).find('[name=xp]').val();
+    hp=$(event.target).find('[name=hp]').val();
+    money=$(event.target).find('[name=money]').val();
+    Meteor.call('studentReset', Session.get('studentId'),xp, money, hp);
     Modal.hide('resetStudent');
   }
 });
