@@ -55,13 +55,14 @@ Template.behavioursList.events({
     } else {
       positiveBehaviour=false;
     }*/
+    var points = isNaN($(event.target).find('[name=behaviourPoints]').val()) ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
     var behaviour = {
       classId: Session.get('classId'),
       behaviourName: $(event.target).find('[name=behaviourName]').val(),
       behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),
       positive: $(event.target).find('[name=XPorHP]').is(":checked"),
       behaviourType: $(event.target).find('[name=behaviourType]').val(),
-      points: $(event.target).find('[name=behaviourPoints]').val(),
+      points: points,
       createdOn: new Date()
     };
     Meteor.call('behaviourInsert', behaviour);
@@ -75,12 +76,13 @@ Template.behavioursList.events({
     } else {
       positiveBehaviour=false;
     }*/
+    var points = isNaN($(event.target).find('[name=behaviourPoints]').val()) ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
     var behaviour = {
       behaviourName: $(event.target).find('[name=behaviourName]').val(),
       behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),
       positive: $(event.target).find('[name=XPorHP]').is(":checked"),
       behaviourType: $(event.target).find('[name=behaviourType]').val(),
-      points: $(event.target).find('[name=behaviourPoints]').val()
+      points: points
     };
     Meteor.call('behaviourUpdate', this._id, behaviour);
   },
