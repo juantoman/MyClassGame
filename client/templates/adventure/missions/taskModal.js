@@ -65,10 +65,14 @@ Template.taskModal.helpers({
 Template.taskModal.events({
   'submit form.taskForm': function(event) {
     event.preventDefault();
+    var xp=$(event.target).find('[name=chalMissionXP]').val();
+    xp = xp == "" ? parseInt(0): xp;
+    xp = isNaN(xp) ? parseInt(0): parseInt(xp);
     var chal = {
       chalMissionDesc: $(event.target).find('[name=chalMissionDesc]').val(),
-      chalMissionXP: $(event.target).find('[name=chalMissionXP]').val(),
+      chalMissionXP: xp,
       descTask:$(event.target).find('[name=descTask]').html(),
+      visible: $(event.target).find('[name=taskVisible]').is(":checked"),
       r1: $(event.target).find('[name=r1]').val(),
       r2: $(event.target).find('[name=r2]').val(),
       r3: $(event.target).find('[name=r3]').val(),

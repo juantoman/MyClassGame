@@ -33,17 +33,19 @@
                           <input type="text" name="chalMissionXP" class="form-control input-lg chalName" {{teacher}} placeholder="XP" tabindex="1" value="{{chalMissionXP}}">
                         </div>
                       </div>
+
                       {{#if isTeacher}}
                         <div class="col-xs-4 col-sm-1">
                           <div class="form-group">
                             <label for="sName" class="control-label">Visible</label>
                             <label class="switch">
-                              <input type="checkbox" checked="{{#if missionVisible}}checked{{/if}}" name="missionVisible">
+                              <input type="checkbox" checked="{{#if visible}}checked{{/if}}" name="taskVisible">
                               <span class="slider round"></span>
                             </label>
                           </div>
                         </div>
                       {{/if}}
+
 
                       <div class="col-xs-12">
                         <div class="form-group">
