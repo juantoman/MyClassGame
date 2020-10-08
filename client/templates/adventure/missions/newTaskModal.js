@@ -51,8 +51,11 @@ Template.newTaskModal.events({
     id=Session.get("chalId");
     n=chalMissions.find({missionId: id}).count()+1;
     var xp=$(event.target).find('[name=chalMissionXP]').val();
-    xp = xp == "" ? parseInt(0): xp;
-    xp = isNaN(xp) ? parseInt(0): parseInt(xp);
+    if ( xp == "" || isNaN(parseInt(xp)) ) {
+      xp=parseInt(0);
+    } else {
+      xp=parseInt(xp);
+    }
     var chal = {
       classId: Session.get('classId'),
       missionId: id,

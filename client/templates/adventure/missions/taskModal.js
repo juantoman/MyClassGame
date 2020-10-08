@@ -66,8 +66,13 @@ Template.taskModal.events({
   'submit form.taskForm': function(event) {
     event.preventDefault();
     var xp=$(event.target).find('[name=chalMissionXP]').val();
-    xp = xp == "" ? parseInt(0): xp;
-    xp = isNaN(xp) ? parseInt(0): parseInt(xp);
+    //xp = xp == "" ? parseInt(0): xp;
+    //xp = isNaN(xp) ? parseInt(0): parseInt(xp);
+    if ( xp == "" || isNaN(parseInt(xp)) ) {
+      xp=parseInt(0);
+    } else {
+      xp=parseInt(xp);
+    }
     var chal = {
       chalMissionDesc: $(event.target).find('[name=chalMissionDesc]').val(),
       chalMissionXP: xp,
