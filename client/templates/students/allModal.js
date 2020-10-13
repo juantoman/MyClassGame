@@ -483,13 +483,13 @@ Template.allStoreModal.events({
   },
   'click #allStoreModalSubmit': function(event) {
     event.preventDefault();
-    $('#all_coins_modal').find(".activeTask").each( function() {
+    $('#all_store_modal').find(".activeTask").each( function() {
       coins=parseInt($(this).find(".badge").text());
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
         Meteor.call('incCoins', item["_id"], coins);
       });
     });
-    $('#all_coins_modal').find(".list-group-item-danger").each( function() {
+    $('#all_store_modal').find(".list-group-item-danger").each( function() {
       itemId=this.id;
       price=parseInt($(this).find(".badge").text());
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){

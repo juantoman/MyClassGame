@@ -14,7 +14,6 @@ module.exports = {
     // TODO: change app name and path
     name: 'myclassgame',
     path: '../',
-
     servers: {
       one: {},
     },

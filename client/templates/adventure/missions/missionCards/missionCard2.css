@@ -65,9 +65,9 @@
 	 transition: 2.5s ease-in-out;
 }
  .missionWrapper {
-	 display: table-cell;
+	 /*display: table-cell;*/
 	 vertical-align: middle;
-   padding: 30px;
+   padding: 10px;
 }
  .missionCard2 {
 	 height: 400px;
@@ -91,12 +91,12 @@
 	 top: 0;
 	 transform-style: preserve-3d;
 	 backface-visibility: hidden;
-	 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+	 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
    border:1px solid #268BD2;
 }
 
 .missionCard2 .front:hover, .missionCard2 .back:hover {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
 
  .missionCard2 .front {

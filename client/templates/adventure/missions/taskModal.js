@@ -306,7 +306,7 @@ Template.taskModal.events({
     };
   },
   'click .descTask': function(event) {
-    if (Session.get('userType')!="teacher") {
+    if (Session.get('userType')=="teacher") {
       $('.descTask').prop('contentEditable', true).focus();
     }
   },

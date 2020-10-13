@@ -1,11 +1,11 @@
-#Variables per treballar
+#Variables per treballar (Mholita20?)
 source ./android.sh
 #Build apk
-meteor build ../MCG --server=http://myclassgame.iestacio.com
+meteor build ../MCG --server=https://www.myclassgame.es
 #Now you can sign your app by
-keytool -genkey -alias mcg -keyalg RSA -keysize 2048 -validity 10000
+#keytool -genkey -alias mcg -keyalg RSA -keysize 2048 -validity 10000
 cd MCG/android/project/build/outputs/apk/release
-jarsigner -digestalg SHA1 mcg.apk mcg
+#jarsigner -digestalg SHA1 mcg.apk mcg
 #Per a pujar a Play Store
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 myclassgame.apk mcg
 #Alinia el apk
@@ -15,3 +15,12 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 myclassgame.apk mcg
 #Traure el SHA1
 keytool -exportcert -alias mcg -list -v
 #Buscar per a Android en MCG/android/project/build/intermediates/manifests/full/release/AndroidManifest.xml la variable "package"
+#Play console
+https://play.google.com/apps/publish/?authuser=1&hl=es&account=8941321232150302134#AppListPlace
+
+
+#ERRADES
+Has penjat un APK que no està signat amb el certificat penjat. Has de fer servir el mateix certificat. El certificat penjat té l'empremta digital
+[ SHA1: A6:20:84:81:19:6E:BB:BE:BD:5D:5E:40:33:26:73:F0:13:9B:9B:3E ]
+i el certificat utilitzat per signar l'APK que has penjat té l'empremta digital
+[ SHA1: BD:C5:76:71:EA:92:7D:96:B2:C1:DD:BF:55:E4:3D:4C:65:AB:E2:F6 ]
