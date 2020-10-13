@@ -29,7 +29,7 @@ module.exports = {
       ROOT_URL: 'https://www.myclassgame.tk',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
-    },
+    },oli
 
     docker: {
       // change to 'abernix/meteord:base' if your app is using Meteor 1.4 - 1.5
