@@ -5,7 +5,12 @@
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
           {{#if isTeacher}}
             <div class="missionVisibleBtn">
-              <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
+              <!-- <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i> -->
+              {{#if missionVisible}}
+                <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+              {{else}}
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              {{/if}}
             </div>
           {{/if}}
           <div class="top-pic" style="{{cardPic}}"></div>

@@ -138,11 +138,13 @@ Template.missionCard2Template.events({
   },
   'click .missionVisibleBtn': function(event) {
     event.preventDefault();
+    /*
     if ($(event.currentTarget).find('[data-fa-i2svg]').attr('data-icon')== 'eye') {
       $(event.currentTarget).find('[data-fa-i2svg]').attr('data-icon','eye-slash');
     } else {
       $(event.currentTarget).find('[data-fa-i2svg]').attr('data-icon','eye');
     }
+    */
     Meteor.call('missionVisibleToggle', this._id);
   },
   'change .missionColor': function(event) {

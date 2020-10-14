@@ -1,5 +1,5 @@
 <template name="taskCardTemplate">
-  <div class="taskCard" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
+  <div class="taskCard {{#unless visible}}taskCardNotVisible{{/unless}}" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
     {{#if taskImg}}<img src=''/>{{/if}}
     <img src='{{cardPic ../missionImg}}'/>
     <div class="text">
@@ -12,10 +12,17 @@
         <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
       </div> -->
       {{#if isTeacher}}
-      <i class="taskVisible far fa-eye"></i>
-      <i class="taskDel fas fa-times chalMissionDel"></i>
+        <!-- <i class="taskVisible far fa-eye"></i> -->
+        <div class="taskVisibleBtn">
+          {{#if visible}}
+            <span class="glyphicon glyphicon-eye-open taskVisible" aria-hidden="true"></span>
+          {{else}}
+            <span class="glyphicon glyphicon-eye-close taskVisible" aria-hidden="true"></span>
+          {{/if}}
+        </div>
+        <i class="taskDel fas fa-times chalMissionDel"></i>
       {{/if}}
-      <span class="taskBtnCenter text-center" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
+      <span class="taskBtnCenter" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
         <!-- <i class="fas fa-th-list"></i><i class="taskBtnInfo fas fa-plus-circle"></i><i class="fas fa-graduation-cap chalMissionGrades"></i> -->
         {{#if isTeacher}}
           <i class="fas fa-chevron-left chalMissionUp"></i>

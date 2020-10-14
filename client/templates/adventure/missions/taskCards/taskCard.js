@@ -97,6 +97,10 @@ Template.taskCardTemplate.events({
     event.preventDefault();
     Session.set('taskId',this._id);
     Modal.show("taskModal");
+  },
+  'click .taskVisibleBtn': function(event) {
+    event.preventDefault();
+    Meteor.call('taskVisibleToggle', this._id);
   }
 });
 

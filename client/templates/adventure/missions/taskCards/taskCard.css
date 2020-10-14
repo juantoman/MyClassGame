@@ -140,6 +140,7 @@
 
 .taskCard .taskButtons .taskBtnCenter{
   position: absolute;
+  left:0px;
   bottom:0px;
   width:100%;
   padding:2px;
@@ -157,4 +158,9 @@
 
 .taskCard:hover .taskButtons .taskBtnCenter *{
   margin: 0 20px;
+}
+
+.taskCardNotVisible {
+	opacity: 0.7;
+	filter: grayscale(100%);
 }

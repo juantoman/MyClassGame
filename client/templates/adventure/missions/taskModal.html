@@ -20,20 +20,20 @@
                 <form role="form" class="taskForm">
                   <div class="row">
                     {{#with task}}
-                      <div class="col-xs-12 col-sm-7">
+                      <div class="col-xs-8">
                         <div class="form-group">
                           <label for="chalName" class="control-label">{{_ 'name'}}</label>
                           <input type="text" name="chalMissionDesc" class="form-control input-lg chalName" {{teacher}} placeholder="Nombre" tabindex="1" value="{{chalMissionDesc}}">
                         </div>
                       </div>
 
-                      <div class="col-xs-12 col-sm-3">
+                      <div class="col-xs-4">
                         <div class="form-group">
                           <label for="chalName" class="control-label">XP</label>
                           <input type="text" name="chalMissionXP" class="form-control input-lg chalName" {{teacher}} placeholder="XP" tabindex="1" value="{{chalMissionXP}}">
                         </div>
                       </div>
-
+                      <!--
                       {{#if isTeacher}}
                         <div class="col-xs-4 col-sm-1">
                           <div class="form-group">
@@ -45,7 +45,7 @@
                           </div>
                         </div>
                       {{/if}}
-
+                    -->
 
                       <div class="col-xs-12">
                         <div class="form-group">
@@ -105,12 +105,11 @@
                   </div>
 
                   <hr class="colorgraph">
-                  <div class="row">
-                    <div class="col-xs-6 text-center"><button type="button" class="btn btn-default btn-block btn-lg">{{_ 'close'}}</button></div>
+
+                    <button type="button" class="btn btn-default btn-lg">{{_ 'close'}}</button>
                     {{#if isTeacher}}
-                      <div class="col-xs-6 text-center"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                      <input type="submit" class="btn btn-success btn-lg" value="{{_ 'save'}}">
                     {{/if}}
-                  </div>
 
                 </form>
               </div>
@@ -171,6 +170,10 @@
                         </div>
                     </div>
                   {{/each}}
+                  <hr class="colorgraph">
+
+                    <button type="button" class="btn btn-default btn-lg">{{_ 'close'}}</button>
+                
                 {{/if}}
               </div>
             </div>
