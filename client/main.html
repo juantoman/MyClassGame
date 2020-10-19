@@ -7,6 +7,62 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-167559725-1');
+
+    //This is the "Offline page" service worker
+
+    importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+    const CACHE = "pwabuilder-page";
+
+    // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+    const offlineFallbackPage = "ToDo-replace-this-name.html";
+
+    self.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "SKIP_WAITING") {
+        self.skipWaiting();
+      }
+    });
+
+    self.addEventListener('install', async (event) => {
+      event.waitUntil(
+        caches.open(CACHE)
+          .then((cache) => cache.add(offlineFallbackPage))
+      );
+    });
+
+    if (workbox.navigationPreload.isSupported()) {
+      workbox.navigationPreload.enable();
+    }
+
+    self.addEventListener('fetch', (event) => {
+      if (event.request.mode === 'navigate') {
+        event.respondWith((async () => {
+          try {
+            const preloadResp = await event.preloadResponse;
+
+            if (preloadResp) {
+              return preloadResp;
+            }
+
+            const networkResp = await fetch(event.request);
+            return networkResp;
+          } catch (error) {
+
+            const cache = await caches.open(CACHE);
+            const cachedResp = await cache.match(offlineFallbackPage);
+            return cachedResp;
+          }
+        })());
+      }
+    });
+
+  </script>
+
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
   </script>
 
   <title>@MyClassGame</title>
@@ -14,4 +70,5 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="gJDfs0cwVpK3EOFvwxw5wA9ID3_GvG6GhN3CZ569sF0" />
   <link rel="shortcut icon" type="image/x-icon" href="/images/@mcgnb.png" />
+  <link rel="manifest" href="/manifest.json">
 </head>

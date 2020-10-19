@@ -7,7 +7,7 @@ meteor build ../MCG --server=https://www.myclassgame.es
 cd MCG/android/project/build/outputs/apk/release
 #jarsigner -digestalg SHA1 mcg.apk mcg
 #Per a pujar a Play Store
-jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 myclassgame.apk mcg
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myclassgame.jks myclassgame.apk mcg
 #Alinia el apk
 /home/juantoman/Android/Sdk/build-tools/29.0.2/zipalign -v -p 4 myclassgame.apk myclassgame-align.apk
 #Introduir dades en Google Development https://console.developers.google.com/apis/credentials
@@ -24,3 +24,23 @@ Has penjat un APK que no està signat amb el certificat penjat. Has de fer servi
 [ SHA1: A6:20:84:81:19:6E:BB:BE:BD:5D:5E:40:33:26:73:F0:13:9B:9B:3E ]
 i el certificat utilitzat per signar l'APK que has penjat té l'empremta digital
 [ SHA1: BD:C5:76:71:EA:92:7D:96:B2:C1:DD:BF:55:E4:3D:4C:65:AB:E2:F6 ]
+
+#Google
+Here’s how to generate and register a new upload key:
+
+Follow the instructions in the Android Studio Help Center to generate a new key. It must be different from any previous keys. Alternatively, you can use the following command line to generate a new key:
+keytool -genkeypair -alias myclassgame -keyalg RSA -keysize 2048 -validity 9125 -keystore myclassgame.jks
+
+This key must be a 2048 bit RSA key and have 25-year validity.
+Export the certificate for that key to PEM format:
+keytool -export -rfc -alias myclassgame -file myclassgame_certificate.pem -keystore myclassgame.jks
+
+Reply to this email and attach the upload_certificate.pem file.
+I look forward to your response. Please let me know if you have any questions in the meantime.
+
+#script
+source ./android.sh
+meteor build ../MCG --server=https://www.myclassgame.es
+cd ~/MCG/android/project/build/outputs/apk/release
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore myclassgame.jks myclassgame.apk myclassgame
+/home/juantoman/Android/Sdk/build-tools/29.0.2/zipalign -v -p 4 myclassgame.apk myclassgame-align.apk

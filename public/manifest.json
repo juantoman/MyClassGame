@@ -1,0 +1,28 @@
+{
+  "name": "@MyClassGame",
+  "short_name": "@MyClassGame",
+  "description": "We play, we learn.",
+  "start_url": "https://www.myclassgame.es",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "Spanish; Castilian",
+  "background_color": "#5c95ff",
+  "scope": "/app/",
+  "icons": [{
+    "src": "images/mcg_ico.png",
+    "sizes": "48x48",
+    "type": "image/png"
+  }, {
+    "src": "images/mcg_ico.png",
+    "sizes": "72x72",
+    "type": "image/png"
+  }, {
+    "src": "images/mcg_ico.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  }, {
+    "src": "images/mcg_ico.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }]
+}
