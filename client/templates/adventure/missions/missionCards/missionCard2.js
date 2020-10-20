@@ -94,6 +94,13 @@ Template.missionCard2Template.helpers({
     if (Session.get('userType')!="teacher") {
      return "disabled";
     };
+  },
+  TeacherOrVisible: function() {
+    if (Session.get('userType')=="teacher" || this.missionVisible) {
+      return true;
+    } else {
+      return false;
+    };
   }
 });
 

@@ -1,6 +1,6 @@
 <template name="missionCard2Template">
     <div class="missionWrapper">
-      <div class="missionCard2 float-up {{#unless missionVisible}}missionCardNotVisible{{/unless}}">
+      <div class="missionCard2 float-up {{#unless missionVisible}}{{#if isTeacher}}missionCardNotVisible{{/if}}{{/unless}}">
         <div class="front" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
           <div class="arrow"><i class="fa fa-arrow-left"></i></div>
           {{#if isTeacher}}
@@ -16,33 +16,41 @@
           <div class="top-pic" style="{{cardPic}}"></div>
           <!--<div class="avatar"></div>-->
           <div class="missionBadge">{{> badgeTemplate}}</div>
-          <div class="info-box">
-            <div class="info">
-              <h1>{{chalName}}</h1>
-              <h2>{{_ 'mission'}} {{IoG}}</h2>
-              <!--<p>{{chalDesc}}</p>-->
+          {{#if TeacherOrVisible}}
+            <div class="info-box">
+              <div class="info">
+                <h1>{{chalName}}</h1>
+                <h2>{{_ 'mission'}} {{IoG}}</h2>
+                <!--<p>{{chalDesc}}</p>-->
+              </div>
             </div>
-          </div>
 
-          <div class="social-bar">
-            <!--
-            <a href="https://www.facebook.com/designcouch" target="_blank">
-              <i class="fa fa-facebook"></i>
-            </a>
-            <a href="https://www.twitter.com/designcouch" target="_blank">
-            <i class="fa fa-twitter"></i>
-            </a>
-            <a href="https://www.dribbble.com/designcouch" target="_blank">
-            <i class="fa fa-dribbble"></i>
-            </a>
-            <a href="https://www.codepen.io/designcouch/public">
-            <i class="fa fa-codepen"></i>
-            </a>
-            -->
-            <a href="javascript:voclass" class="more-info">
-              <i class="fas fa-plus-circle"></i>
-            </a>
-          </div>
+            <div class="social-bar">
+              <!--
+              <a href="https://www.facebook.com/designcouch" target="_blank">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="https://www.twitter.com/designcouch" target="_blank">
+              <i class="fa fa-twitter"></i>
+              </a>
+              <a href="https://www.dribbble.com/designcouch" target="_blank">
+              <i class="fa fa-dribbble"></i>
+              </a>
+              <a href="https://www.codepen.io/designcouch/public">
+              <i class="fa fa-codepen"></i>
+              </a>
+              -->
+              <a href="javascript:voclass" class="more-info">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+            </div>
+          {{else}}
+            <div class="info-box">
+              <div class="info">
+                <img class="topsecret" width="100%" src="/images/topsecret.png" />
+              </div>
+            </div>
+          {{/if}}
         </div>
         <div class="back" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:2px solid {{missionColor}};">
           <div class="back-info">

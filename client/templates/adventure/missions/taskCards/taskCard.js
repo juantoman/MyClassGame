@@ -89,6 +89,13 @@ Template.taskCardTemplate.helpers({
     } else {
       return false;
     };
+  },
+  TeacherOrVisible: function() {
+    if (Session.get('userType')=="teacher" || this.visible) {
+      return true;
+    } else {
+      return false;
+    };
   }
 });
 

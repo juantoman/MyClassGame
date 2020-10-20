@@ -205,6 +205,13 @@ Template.missions.helpers({
     } else {
       return false;
     };
+  },
+  TeacherOrVisible: function() {
+    if (Session.get('userType')=="teacher" || this.missionVisible) {
+      return true;
+    } else {
+      return false;
+    };
   }
 });
 

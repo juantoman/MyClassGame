@@ -164,3 +164,9 @@
 	opacity: 0.7;
 	filter: grayscale(100%);
 }
+
+.tasksecret {
+  position:relative;
+  transform: scale(0.9);
+  width:100%;
+}
