@@ -308,3 +308,10 @@
 	opacity: 0.7;
 	filter: grayscale(100%);
 }
+
+.missionCard2 .missionsecret {
+  position:relative;
+	top:30px;
+  width:100%;
+  -webkit-filter: drop-shadow(5px 5px 10px #FFF );
+}

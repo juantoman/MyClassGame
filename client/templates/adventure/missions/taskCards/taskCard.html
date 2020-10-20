@@ -1,7 +1,7 @@
 <template name="taskCardTemplate">
-  <div class="taskCard {{#unless visible}}taskCardNotVisible{{/unless}}" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
+  <div class="taskCard {{#unless visible}}{{#if isTeacher}}taskCardNotVisible{{/if}}{{/unless}}" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
     {{#if taskImg}}<img src=''/>{{/if}}
-    <img src='{{cardPic ../missionImg}}'/>
+    <img class="taskImg" src='{{cardPic ../missionImg}}'/>
     {{#if TeacherOrVisible}}
       <div class="text">
         <h1 class="text-center">{{_ 'task'}} {{order}}</h1>
@@ -35,7 +35,7 @@
         </span>
       </h2>
     {{else}}
-      <div class="t">
+      <div class="textsecret">
         <h1 class="text-center">{{_ 'task'}} {{order}}</h1>
         <img class="tasksecret" src="/images/topsecret.png" />
       </div>
