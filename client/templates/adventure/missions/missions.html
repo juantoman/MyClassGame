@@ -3,7 +3,7 @@
   <div class="missionsBtns text-center">
     <span class="btn btn-info allMissions">{{_ 'missions'}} <i class="fas fa-th"></i></span>
     {{#each challenge}}
-      <span class="btn btn-info oneMission" data-toggle="tooltip" data-placement="bottom" title="{{chalName}}">M{{order}}</span>
+      <span class="btn btn-info {{#if missionVisible}}btn-info oneMission{{else}}btn-primary{{/if}}" data-toggle="tooltip" data-placement="bottom" title="{{chalName}}">M{{order}}</span>
     {{/each}}
   </div>
   {{> scheduler}}
