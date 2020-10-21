@@ -31,7 +31,7 @@ Template.studentsPrint.helpers({
       currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
       return students.find({'_id': currentStudent});
     } else {
-      return students.find({'classId': Session.get('classId')}, {sort: sortOrder});
+      return students.find({'classId': Session.get('classId'), 'userCreated': true }, {sort: sortOrder});
     }
   },
   image: function(avatar) {
