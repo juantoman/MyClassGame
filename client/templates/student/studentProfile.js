@@ -85,19 +85,19 @@ Template.studentProfile.helpers({
   },
   challengesI: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    if (Session.get('userType')=="teacher") {
-      return challenges.find({classId: Session.get('classId'), IoG:"Individual"}, {sort: {order: 1}});
-    } else {
-      return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Individual"}, {sort: {order: 1}});
-    }
+    // if (Session.get('userType')=="teacher") {
+       return challenges.find({classId: Session.get('classId'), IoG:"Individual"}, {sort: {order: 1}});
+    // } else {
+    //   return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Individual"}, {sort: {order: 1}});
+    // }
     //return challenges.find({classId: Session.get('classId'),IoG:"Individual"});
   },
   challengesG: function() {
-    if (Session.get('userType')=="teacher") {
-      return challenges.find({classId: Session.get('classId'), IoG:"Grupal"}, {sort: {order: 1}});
-    } else {
-      return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Grupal"}, {sort: {order: 1}});
-    }
+    // if (Session.get('userType')=="teacher") {
+       return challenges.find({classId: Session.get('classId'), IoG:"Grupal"}, {sort: {order: 1}});
+    // } else {
+    //   return challenges.find({classId: Session.get('classId'),missionVisible:true, IoG:"Grupal"}, {sort: {order: 1}});
+    // }
     //return challenges.find({classId: Session.get('classId'),IoG:"Grupal"});
   },
   chalMissions: function(id) {
@@ -586,6 +586,20 @@ Template.studentProfile.helpers({
      return true;
     } else {
      return false;
+    };
+  },
+  TeacherOrMissionVisible: function() {
+    if (Session.get('userType')=="teacher" || this.missionVisible) {
+      return true;
+    } else {
+      return false;
+    };
+  },
+  TeacherOrTaskVisible: function() {
+    if (Session.get('userType')=="teacher" || this.visible) {
+      return true;
+    } else {
+      return false;
     };
   }
 });
