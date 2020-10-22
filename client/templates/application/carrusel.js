@@ -19,5 +19,17 @@ Template.carrusel.events({
   'click .btnCF': function(event) {
     event.preventDefault();
     Modal.show('notifyModal');
+  },
+  'click .installPWA': function(event) {
+    event.preventDefault();
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Stash the event so it can be triggered later.
+      deferredPrompt = e;
+      // Update UI notify the user they can add to home screen
+      showInstallPromotion();
+      
+    });
   }
 });
