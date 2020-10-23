@@ -332,5 +332,6 @@
     "code": "Code",
     "win": "Win",
     "lose": "Lose",
-    "coinsperXP": "coins per"
+    "coinsperXP": "coins per",
+    "install": "Install"
 }

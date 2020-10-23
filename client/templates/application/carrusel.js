@@ -1,3 +1,14 @@
+Template.carrusel.onRendered(function() {
+   /*
+   accountsUIBootstrap3.setLanguage("es");
+   TAPi18n.setLanguage("es");
+   */
+   // const myPWA = document.getElementById('installPWA');
+   // myPWA.openPrompt()	;
+   //document.querySelector('pwa-install').showopen=true;
+   //document.querySelector('pwa-install').openPrompt();
+});
+
 Template.carrusel.helpers({
   profes: function() {
     return Meteor.users.find().count;
@@ -6,6 +17,7 @@ Template.carrusel.helpers({
     return Meteor.users.find().count;
   }
 });
+
 Template.carrusel.events({
   'click .btnSignin': function(event) {
     event.preventDefault();
@@ -22,14 +34,5 @@ Template.carrusel.events({
   },
   'click .installPWA': function(event) {
     event.preventDefault();
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Stash the event so it can be triggered later.
-      deferredPrompt = e;
-      // Update UI notify the user they can add to home screen
-      showInstallPromotion();
-      
-    });
   }
 });

@@ -4,7 +4,7 @@
   "description": "We play, we learn.",
   "start_url": "https://www.myclassgame.es",
   "display": "standalone",
-  "orientation": "portrait-primary",
+  "orientation": "any",
   "lang": "Spanish; Castilian",
   "background_color": "#5c95ff",
   "scope": "/app/",

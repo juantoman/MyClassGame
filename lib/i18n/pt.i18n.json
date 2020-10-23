@@ -332,5 +332,6 @@
     "code": "Código",
     "win": "Ganhar",
     "lose": "Perder",
-    "coinsperXP": "moedas por cada"
+    "coinsperXP": "moedas por cada",
+    "install": "Instalar"
 }
