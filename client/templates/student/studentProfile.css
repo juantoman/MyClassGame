@@ -89,39 +89,39 @@
 
 .studentInventory .list-items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 150px);
+  grid-template-columns: repeat(auto-fill, 180px);
   grid-gap: 10px;
   list-style: none;
 }
 
 .studentInventory .list-item {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   outline: 2px solid grey;
   outline-offset: -5px;
   background-color: rgba(0, 0, 0, .7);
   position: relative;
   box-sizing: border-box;
   font-weight: bold;
-  transition: transform 0.1s;
+  transition: transform 0.5s;
 }
 
 .studentInventory .list-item:not(.addBtn):hover {
   transform: scale(1.02);
   background-color: rgba(0, 0, 0, 1);
-  z-index: 1000;
+  z-index: 1;
 }
 
 .studentInventory .list-item:not(.addBtn):hover .item-image {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-64%) translateY(-50%);
+
 }
 
 .studentInventory .list-item:hover .item-image img{
   display: block;
-  width: 130%;
+  transform: scale(1.4);
 }
 
 .studentInventory .list-item .power-icon {
@@ -162,9 +162,13 @@
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 .studentInventory .list-item .item-image img{
   display: block;
   width: 100%;
+  transition: transform 0.5s;
+  transform: scale(1.3);
+  z-index:1;
 }
 
 .studentInventory .item-strength {
@@ -339,4 +343,112 @@
 
 #studentTab .copyCodeBtn{
   font-size: .7em !important;
+}
+
+.studentHasntBadge {
+  opacity: 0.7;
+	filter: grayscale(100%);
+}
+
+.studentProfile .list-item .itemData{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  width: 180px;
+  height: 180px;
+
+
+  position: relative;
+
+  font-weight: bold;
+  transition: transform 0.5s;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  outline: 2px solid grey;
+  outline-offset: -5px;
+  background-color: rgba(0, 0, 0, .7);
+  transform-style: preserve-3d;
+}
+
+.flip-card .item-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.flip-card .item-image img{
+  display: block;
+  width: 100%;
+  transition: transform 0.5s;
+  transform: scale(1.3);
+  z-index:1;
+}
+
+.flip-card:hover {
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.flip-card:hover .flip-card-inner{
+  background-color: black;
+}
+
+.flip-card:not(.addBtn):hover .item-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.flip-card:hover .item-image img{
+  display: block;
+  transform: scale(1.4);
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+.flip-card-inner-rotated {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  outline: 2px solid grey;
+  outline-offset: -5px;
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.img-flip-card-back {
+  width: 50%;
 }

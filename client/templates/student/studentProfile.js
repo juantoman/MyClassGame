@@ -123,6 +123,21 @@ Template.studentProfile.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).badges;
   },
+  badge: function(){
+    return badges.findOne({_id: this.badgeId});
+  },
+  allBadges: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return badges.find({classId: Session.get('classId')});
+  },
+  studentHasBadge: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
+      return true;
+    } else {
+      return false;
+    }
+  },
   cards: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return students.findOne({_id: Session.get('studentId')}).cards;
@@ -272,9 +287,6 @@ Template.studentProfile.helpers({
     } else {
       return "has-success"
     }
-  },
-  badge: function(){
-    return badges.findOne({_id: this.badgeId});
   },
   card: function(){
     return cards.findOne({_id: this.cardId});
@@ -1229,5 +1241,15 @@ Template.studentProfile.events({
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+  },
+  'click .flip-card': function(event) {
+    event.preventDefault();
+    $('.flip-card-inner').removeClass('flip-card-inner-rotated');
+    $(event.target).closest('.flip-card-inner').toggleClass('flip-card-inner-rotated');
+  },
+  'click .flip-card-turn': function(event) {
+    event.preventDefault();
+    $('.flip-card-inner').removeClass('flip-card-inner-rotated');
+    event.stopPropagation();
   }
 });

@@ -600,6 +600,43 @@
                   </li>
                 {{/if}}
               </ul>
+              <ul class="list-items">
+                {{#each allBadges}}
+                  <li class="list-item {{#unless studentHasBadge}}studentHasntBadge{{/unless}}">
+                    <span class="power-icon">{{badgeDescription}}</span>
+                    {{#if studentHasBadge}}
+                      <span class="stock-icon btn {{#if teacher}}removeBadgeBtn{{/if}}" data-points="{{points}}">{{stock}}{{#if teacher}}<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>{{/if}}</span>
+                    {{/if}}
+                    <span class="item-image"><img src="{{image_url badgeImage}}" alt=""></span>
+                    <div class="itemData text-center">
+                      <h4>{{badgeName}}</h4>
+                      <h5 class="price">{{points}} XP</h5>
+                      <p>{{badgeDescription}}</p>
+                      <p><button>+</button></p>
+                    </div>
+                    <span class="item-strength">{{points}} XP</span>
+                  </li>
+                {{/each}}}
+              </ul>
+              <ul class="list-items">
+              {{#each allBadges}}
+                  <li class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <span class="item-image"><img src="{{image_url badgeImage}}" alt=""></span>
+                      </div>
+                      <div class="flip-card-back">
+                        <img class="img-flip-card-back" src="{{image_url badgeImage}}" alt="">
+                        <h4>{{badgeName}}</h4>
+                        <h5 class="price">{{points}} XP</h5>
+                        <p>{{badgeDescription}}</p>
+                        <i class="fa fa-undo flip-card-turn"></i>
+                      </div>
+                    </div>
+                  </li>
+              {{/each}}
+              </ul>
+
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Cartas">
               <!--

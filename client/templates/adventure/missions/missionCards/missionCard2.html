@@ -2,7 +2,7 @@
     <div class="missionWrapper">
       <div class="missionCard2 float-up {{#unless missionVisible}}{{#if isTeacher}}missionCardNotVisible{{/if}}{{/unless}}">
         <div class="front" style="background: linear-gradient(120deg, {{otherColor}} 0%, {{missionColor}} 100%); border:1px solid {{missionColor}};">
-          <div class="arrow"><i class="fa fa-arrow-left"></i></div>
+          <!-- <div class="arrow"><i class="fa fa-arrow-left"></i></div> -->
           {{#if isTeacher}}
             <div class="missionVisibleBtn">
               <!-- <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i> -->
@@ -138,8 +138,8 @@
     <div class="missionWrapper">
       <div class="missionCard2 float-up">
         <div class="front">
-          <div class="arrow"><i class="fa fa-arrow-left"></i></div>
-          <!--<div class="avatar"></div>-->
+          <!--<div class="arrow"><i class="fa fa-arrow-left"></i></div>
+          <div class="avatar"></div>-->
           <div class="missionBadge">{{> badgeTemplate}}</div>
           <div class="info-box">
             <div class="info">
