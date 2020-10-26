@@ -442,6 +442,8 @@
 
 .flip-card-front:hover {
   background-color: black;
+  outline: 2px solid grey;
+  outline-offset: -5px;
 }
 
 /* Style the back side */
@@ -469,7 +471,7 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
-.flip-card-back-text a{
+.flip-card-back a{
   display: inline-block;
   color: white;
   text-decoration: none;
@@ -478,8 +480,18 @@
   border-radius: 5px;
 }
 
-.flip-card-back-text a:hover {
+.flip-card-back a:hover {
   color: #450300;
   background: rgba(255, 255, 255, .3);
   transition: 0.25s ease-in-out;
+}
+
+.flip-card-number {
+  font-size: 1.4em;
+}
+
+.flip-card-turn {
+  position:absolute;
+  bottom:0;
+  transform: translateX(-50%);
 }

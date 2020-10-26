@@ -130,13 +130,14 @@ Template.studentProfile.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return badges.find({classId: Session.get('classId')});
   },
-  studentHasBadge: function() {
+  studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
-      return true;
-    } else {
-      return false;
-    }
+    return students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).stock;
+    // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   },
   cards: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;

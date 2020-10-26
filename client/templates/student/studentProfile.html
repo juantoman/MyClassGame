@@ -631,10 +631,19 @@
                           <h4>{{badgeName}}</h4>
                           <h5 class="price">{{points}} XP</h5>
                           <p>{{badgeDescription}}</p>
-                          <a href="javascript:voclass" class="undoBtn">
-                            <i class="fa fa-undo flip-card-turn"></i>
+                          <a href="javascript:voclass" class="flip-card-remove">
+                            <i class="fa fa-minus"></i>
+                          </a>
+                          <span class="flip-card-number">
+                            {{#if studentBadgeStock}}{{studentBadgeStock}}{{else}}0{{/if}}
+                          </span>
+                          <a href="javascript:voclass" class="flip-card-add">
+                            <i class="fa fa-plus"></i>
                           </a>
                         </div>
+                        <a href="javascript:voclass" class="flip-card-turn">
+                          <i class="fa fa-undo"></i>
+                        </a>
                       </div>
                     </div>
                   </li>
