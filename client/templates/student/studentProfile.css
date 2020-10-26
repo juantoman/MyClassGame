@@ -440,8 +440,13 @@
   color: black;
 }
 
+.flip-card-front:hover {
+  background-color: black;
+}
+
 /* Style the back side */
 .flip-card-back {
+  position:relative;
   outline: 2px solid grey;
   outline-offset: -5px;
   background-color: black;
@@ -449,6 +454,32 @@
   transform: rotateY(180deg);
 }
 
-.img-flip-card-back {
-  width: 50%;
+.flip-card-back-img {
+  position:absolute;
+  width: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  opacity:0.2;
+}
+.flip-card-back-text {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.flip-card-back-text a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  line-height: 18px;
+  border-radius: 5px;
+}
+
+.flip-card-back-text a:hover {
+  color: #450300;
+  background: rgba(255, 255, 255, .3);
+  transition: 0.25s ease-in-out;
 }

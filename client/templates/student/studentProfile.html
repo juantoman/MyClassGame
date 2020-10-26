@@ -626,11 +626,15 @@
                         <span class="item-image"><img src="{{image_url badgeImage}}" alt=""></span>
                       </div>
                       <div class="flip-card-back">
-                        <img class="img-flip-card-back" src="{{image_url badgeImage}}" alt="">
-                        <h4>{{badgeName}}</h4>
-                        <h5 class="price">{{points}} XP</h5>
-                        <p>{{badgeDescription}}</p>
-                        <i class="fa fa-undo flip-card-turn"></i>
+                        <img class="flip-card-back-img" src="{{image_url badgeImage}}" alt="">
+                        <div class="flip-card-back-text">
+                          <h4>{{badgeName}}</h4>
+                          <h5 class="price">{{points}} XP</h5>
+                          <p>{{badgeDescription}}</p>
+                          <a href="javascript:voclass" class="undoBtn">
+                            <i class="fa fa-undo flip-card-turn"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </li>
