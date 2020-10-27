@@ -1276,7 +1276,7 @@ Template.studentProfile.events({
         Meteor.call('studentBadge', Session.get('studentId'), this._id);
         Meteor.call('studentXP', Session.get('studentId'), this.points);
         swal({
-          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadd'),
+          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadded'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
