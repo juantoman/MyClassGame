@@ -132,7 +132,16 @@ Template.studentProfile.helpers({
   },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    return students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).stock;
+    n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
+    if ( n == 0 ) {
+      return 0;
+    }
+    s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).badges.find( badge => badge.badgeId == this._id).stock;
+    if ( s ) {
+      return s;
+    } else {
+      return 1;
+    }
     // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
     //   return true;
     // } else {
@@ -1251,6 +1260,51 @@ Template.studentProfile.events({
   'click .flip-card-turn': function(event) {
     event.preventDefault();
     $('.flip-card-inner').removeClass('flip-card-inner-rotated');
+    event.stopPropagation();
+  },
+  'click .flip-card-add': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('add') + " " +  TAPi18n.__('badge'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('studentBadge', Session.get('studentId'), this._id);
+        Meteor.call('studentXP', Session.get('studentId'), this.points);
+        swal({
+          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadd'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    event.stopPropagation();
+  },
+  'click .flip-card-remove': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('badge'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        p=$(event.currentTarget).data('points');
+        Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
+        Meteor.call('studentXP', Session.get('studentId'), this.points);
+        swal({
+          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fdeleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
     event.stopPropagation();
   }
 });
