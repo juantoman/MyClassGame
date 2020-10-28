@@ -1264,24 +1264,32 @@ Template.studentProfile.events({
   },
   'click .flip-card-add': function(event) {
     event.preventDefault();
-    swal({
-      title: TAPi18n.__('add') + " " +  TAPi18n.__('badge'),
-      text: TAPi18n.__('areYouSure'),
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: TAPi18n.__('yes'),
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-        Meteor.call('studentBadge', Session.get('studentId'), this._id);
-        Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
-        swal({
-          title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadded'),
-          type: 'success'
-        })
-      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
-      }
-    })
+    l=students.findOne( { '_id' : Session.get('studentId') } ).level;
+    if (this.level > l ) {
+      swal({
+        title: "Nivel del usuario inferior al de la insignia",
+        type: 'warning'
+      })
+    } else {
+      swal({
+        title: TAPi18n.__('add') + " " +  TAPi18n.__('badge'),
+        text: TAPi18n.__('areYouSure'),
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: TAPi18n.__('yes'),
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          Meteor.call('studentBadge', Session.get('studentId'), this._id);
+          Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
+          swal({
+            title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadded'),
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
     event.stopPropagation();
   },
   'click .flip-card-remove': function(event) {
