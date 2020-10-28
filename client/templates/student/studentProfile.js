@@ -1274,7 +1274,7 @@ Template.studentProfile.events({
     }).then((result) => {
       if (result.value) {
         Meteor.call('studentBadge', Session.get('studentId'), this._id);
-        Meteor.call('studentXP', Session.get('studentId'), this.points);
+        Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
         swal({
           title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadded'),
           type: 'success'
@@ -1297,7 +1297,7 @@ Template.studentProfile.events({
       if (result.value) {
         p=$(event.currentTarget).data('points');
         Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
-        Meteor.call('studentXP', Session.get('studentId'), this.points);
+        Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
           title: TAPi18n.__('badge') + " " +  TAPi18n.__('fdeleted'),
           type: 'success'

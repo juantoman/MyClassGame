@@ -624,6 +624,12 @@
                     <div class="flip-card-inner {{#if studentBadgeStock}}flip-card-inner-stock{{/if}}">
                       <div class="flip-card-front">
                         <span class="item-image {{#unless studentBadgeStock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>
+                        <div class="flip-card-level">
+                          {{level}}
+                        </div>
+                        <div class="flip-card-front-name">
+                          {{badgeName}}
+                        </div>
                         <div class="flip-card-stock">
                           {{studentBadgeStock}}
                         </div>
@@ -637,7 +643,7 @@
 
                         </div>
                         <div class="flip-card-back-buttons">
-                          <a href="javascript:voclass" class="flip-card-remove">
+                          <a href="javascript:voclass" class="{{#if studentBadgeStock}}flip-card-remove{{/if}}">
                             <i class="fa fa-minus"></i>
                           </a>
                           <span class="flip-card-number">
