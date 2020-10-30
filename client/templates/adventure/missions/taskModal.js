@@ -77,7 +77,6 @@ Template.taskModal.events({
       chalMissionDesc: $(event.target).find('[name=chalMissionDesc]').val(),
       chalMissionXP: xp,
       descTask:$(event.target).find('[name=descTask]').html(),
-      visible: $(event.target).find('[name=taskVisible]').is(":checked"),
       r1: $(event.target).find('[name=r1]').val(),
       r2: $(event.target).find('[name=r2]').val(),
       r3: $(event.target).find('[name=r3]').val(),

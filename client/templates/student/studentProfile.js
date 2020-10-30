@@ -128,7 +128,7 @@ Template.studentProfile.helpers({
   },
   allBadges: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    return badges.find({classId: Session.get('classId')});
+    return badges.find( { classId : Session.get('classId') } , { sort : { level : 1 } } );
   },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
@@ -147,6 +147,19 @@ Template.studentProfile.helpers({
     // } else {
     //   return false;
     // }
+  },
+  onlyStudentBadgeStock: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    if ( Session.get("allVisible") ) {
+      return true;
+    } else {
+      n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
+      if ( n == 0 ) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   },
   cards: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
@@ -1314,5 +1327,13 @@ Template.studentProfile.events({
       }
     })
     event.stopPropagation();
+  },
+  'click #allBadgesVisible': function(event) {
+    event.preventDefault();
+    Session.set("allVisible",true);
+  },
+  'click #stockBadgesVisible': function(event) {
+    event.preventDefault();
+    Session.set("allVisible",false);
   }
 });
