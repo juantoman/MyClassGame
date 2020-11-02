@@ -60,7 +60,7 @@ Template.coinsModal.events({
       }
     }
   },
-  'click #WinOrLose': function(event) {
+  'click #WinOrLoseHP': function(event) {
 
     win=$(event.target).is(":checked");
 

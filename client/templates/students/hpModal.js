@@ -1,3 +1,7 @@
+Template.hpModal.rendered = function() {
+  Session.set('addedHP', 0);
+}
+
 Template.hpModal.helpers({
   xps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: true });
@@ -13,6 +17,12 @@ Template.hpModal.helpers({
   },
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
+  },
+  studentHP: function() {
+    return students.findOne({_id: Session.get('studentId') }).HP;
+  },
+  addedHP: function() {
+    return Session.get('addedHP');
   }
 });
 
@@ -38,6 +48,8 @@ Template.hpModal.events({
       Meteor.call('behaviourLogInsert', behaviour);
       Meteor.call('studentHP', Session.get('studentId'), p);
     });
+    Meteor.call('studentHP', Session.get('studentId'), -Session.get('addedHP'));
+    wc=wc-Session.get('addedHP');
     Modal.hide('hpModal');
     if (hp <= wc) {
      Modal.show('conviction');
@@ -50,5 +62,27 @@ Template.hpModal.events({
     } else {
       $(event.currentTarget).addClass("list-group-item-danger");
     }
-  }
+  },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+    hp=parseInt($(event.currentTarget).find(".badge").text());
+    win=$("#WinOrLoseHP").is(":checked");
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      if (win) {
+        Session.set('addedHP', Session.get('addedHP') + hp);
+      } else {
+        Session.set('addedHP', Session.get('addedHP') - hp);
+      }
+    } else {
+      if (win) {
+        Session.set('addedHP', Session.get('addedHP') - hp);
+      } else {
+        Session.set('addedHP', Session.get('addedHP') + hp);
+      }
+    }
+  },
+  'click #WinOrLoseHP': function(event) {
+      Session.set('addedHP', -Session.get('addedHP'));
+  },
 });

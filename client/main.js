@@ -17,11 +17,11 @@ Meteor.startup(function () {
     }
   }
 
-  //ServiceWorker
-  // navigator.serviceWorker
-  //   .register('/sw.js')
-  //   .then(() => console.info('service worker registered'))
-  //   .catch(error => {
-  //     console.log('ServiceWorker registration failed: ', error)
-  //   })
+  ServiceWorker
+  navigator.serviceWorker
+    .register('/sw.js')
+    .then(() => console.info('service worker registered'))
+    .catch(error => {
+      console.log('ServiceWorker registration failed: ', error)
+    })
 });

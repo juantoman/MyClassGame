@@ -140,7 +140,7 @@
     "deleteStudent": "Borrar estudiante",
     "areYouSure": "¿Estás seguro?",
     "studentXP": "Incrementar XP",
-    "studentHP": "Reducir HP",
+    "studentHP": "HP del Estudiante",
     "studentsNumberTeam": "Número de estudiantes aleatorios",
     "studentNames": "Nombres estudiantes (separados por coma)",
     "studentEmails": "Correos estudiantes (separados por coma)",
