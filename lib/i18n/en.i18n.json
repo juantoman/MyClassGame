@@ -125,6 +125,7 @@
     "hideAbsents":"Hide Absents",
     "showAbsents":"Show Absents",
     "order": "Order",
+    "missionNumber": "Mission Number",
     "newTeam": "New Team",
     "addStudentsTeam": "Add students to a team",
     "allStudentsXP": "Increase XP to all selected students",

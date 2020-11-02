@@ -262,6 +262,7 @@ Template.missions.events({
       IoG: $(event.target).find('[name=IoG]').val(),
       chalName: $(event.target).find('[name=chalName]').val(),
       chalDesc: $(event.target).find('[name=chalDesc]').val(),
+      order: parseInt($(event.target).find('[name=chalOrder]').val()),
       missionVisible: $(event.target).find('[name=missionVisible]').prop('checked'),
       notebookDependence: $(event.target).find('[name=notebookCheck]').prop('checked')
     };

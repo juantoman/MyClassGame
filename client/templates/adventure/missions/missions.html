@@ -95,6 +95,15 @@
                   </div>
                 </div>
 
+                {{#unless order}}
+                  <div class="col-xs-12 col-md-3">
+                    <div class="form-group">
+                      <label for="chalOrder" class="control-label">{{_ 'missionNumber'}}</label>
+                      <input type="text" name="chalOrder" class="form-control input-lg chalOrder" {{teacher}} placeholder="Order" tabindex="1" value="{{chalOrder}}">
+                    </div>
+                  </div>
+                {{/unless}}
+
               </div>
               {{#if isTeacher}}
                 <hr class="colorgraph">
