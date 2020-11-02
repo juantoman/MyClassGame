@@ -3,7 +3,7 @@
   "short_name": "@MyClassGame",
   "description": "We play, we learn.",
   "start_url": "https://www.myclassgame.es",
-  "display": "standalone",
+  "display": "minimal-ui",
   "orientation": "any",
   "lang": "Spanish; Castilian",
   "background_color": "#5c95ff",

@@ -1,6 +1,6 @@
 Template.badgeModal.helpers({
   badgesList: function() {
-    return badges.find({ classId: Session.get('classId') });
+    return badges.find({ classId: Session.get('classId') } , { sort : { level : 1 } } );
   },
   srcImage: function(imgId) {
     cloudinary_url=images.findOne({_id: imgId }).image_url;
@@ -21,10 +21,19 @@ Template.badgeModal.events({
   'click #badgeModalSubmit': function(event) {
     event.preventDefault();
     $('.badgeModal').find(".list-group-item-danger").each( function() {
-      badgeId=this.id;
-      Meteor.call('studentBadge', Session.get('studentId'), badgeId);
-      p=parseInt($(this).find(".badge").text());
-      Meteor.call('studentXP', Session.get('studentId'), p);
+      l=parseInt(students.findOne( { '_id' : Session.get('studentId') } ).level);
+
+      if (parseInt(this.getAttribute("data-level")) > l ) {
+        swal({
+          title: "Nivel del usuario inferior al de la insignia",
+          type: 'warning'
+        })
+      } else {
+        badgeId=this.id;
+        Meteor.call('studentBadge', Session.get('studentId'), badgeId);
+        p=parseInt($(this).find(".badge").text());
+        Meteor.call('studentXP', Session.get('studentId'), p);
+      }
     });
     Modal.hide('badgeModal');
   },

@@ -26,8 +26,8 @@ Template.badgesList.events({
       classId: Session.get('classId'),
       badgeName: $(event.target).find('[name=badgeName]').val(),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
-      points: $(event.target).find('[name=badgePoints]').val(),
-      level: $(event.target).find('[name=badgeLevel]').val(),
+      points: parseInt($(event.target).find('[name=badgePoints]').val()),
+      level: parseInt($(event.target).find('[name=badgeLevel]').val()),
       badgeImage: Session.get('selectedImage'),
       createdOn: new Date()
     };
@@ -38,8 +38,8 @@ Template.badgesList.events({
     var badge = {
       badgeName: $(event.target).find('[name=badgeName]').val(),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
-      points: $(event.target).find('[name=badgePoints]').val(),
-      level: $(event.target).find('[name=badgeLevel]').val(),
+      points: parseInt($(event.target).find('[name=badgePoints]').val()),
+      level: parseInt($(event.target).find('[name=badgeLevel]').val()),
       badgeImage: Session.get('selectedImage')
     };
     Meteor.call('badgeUpdate', this._id, badge);
