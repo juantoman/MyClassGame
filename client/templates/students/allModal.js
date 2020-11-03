@@ -188,6 +188,10 @@ Template.allXPModal.events({
   }
 });
 
+Template.allHPModal.rendered = function() {
+  Session.set('addedHP', 0);
+}
+
 Template.allHPModal.helpers({
   xps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: true });
@@ -200,6 +204,9 @@ Template.allHPModal.helpers({
   },
   studentInGroup: function(studentId) {
     if ( Session.get('groupId') ==  students.findOne({_id: studentId}).groupId ) { return "list-group-item-danger"; }
+  },
+  addedHP: function() {
+    return Session.get('addedHP');
   }
 });
 
@@ -238,8 +245,33 @@ Template.allHPModal.events({
         Meteor.call('studentHP', item["_id"], p);
       });
     });
+    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      Meteor.call('studentHP', item["_id"], -Session.get('addedHP'));
+    });
     Modal.hide('groupHPModal');
   },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+    hp=parseInt($(event.currentTarget).find(".badge").text());
+    win=$("#WinOrLoseHP").is(":checked");
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      if (win) {
+        Session.set('addedHP', Session.get('addedHP') + hp);
+      } else {
+        Session.set('addedHP', Session.get('addedHP') - hp);
+      }
+    } else {
+      if (win) {
+        Session.set('addedHP', Session.get('addedHP') - hp);
+      } else {
+        Session.set('addedHP', Session.get('addedHP') + hp);
+      }
+    }
+  },
+  'click #WinOrLoseHP': function(event) {
+      Session.set('addedHP', -Session.get('addedHP'));
+  }
 });
 
 Template.allBGModal.helpers({
