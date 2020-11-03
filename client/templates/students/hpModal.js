@@ -84,5 +84,5 @@ Template.hpModal.events({
   },
   'click #WinOrLoseHP': function(event) {
       Session.set('addedHP', -Session.get('addedHP'));
-  },
+  }
 });

@@ -1,3 +1,7 @@
+Template.xpModal.rendered = function() {
+  Session.set('addedXP', 0);
+}
+
 Template.xpModal.helpers({
   xps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: true },{sort:{'behaviourDescription':1}});
@@ -13,6 +17,12 @@ Template.xpModal.helpers({
   },
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
+  },
+  studentXP: function() {
+    return students.findOne({_id: Session.get('studentId') }).XP;
+  },
+  addedXP: function() {
+    return Session.get('addedXP');
   }
 });
 
@@ -35,6 +45,7 @@ Template.xpModal.events({
       Meteor.call('behaviourLogInsert', behaviour);
       Meteor.call('studentXP', Session.get('studentId'), p);
     });
+    Meteor.call('studentXP', Session.get('studentId'), Session.get('addedXP'));
     Modal.hide('xpModal');
   },
   'click .list-group-item': function(event) {
@@ -44,5 +55,27 @@ Template.xpModal.events({
     } else {
       $(event.currentTarget).addClass("list-group-item-danger");
     }
+  },
+  'click .btn-info': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("activeTask");
+    xp=parseInt($(event.currentTarget).find(".badge").text());
+    win=$("#WinOrLoseXP").is(":checked");
+    if ($(event.currentTarget).hasClass("activeTask")) {
+      if (win) {
+        Session.set('addedXP', Session.get('addedXP') + xp);
+      } else {
+        Session.set('addedXP', Session.get('addedXP') - xp);
+      }
+    } else {
+      if (win) {
+        Session.set('addedXP', Session.get('addedXP') - xp);
+      } else {
+        Session.set('addedXP', Session.get('addedXP') + xp);
+      }
+    }
+  },
+  'click #WinOrLoseXP': function(event) {
+      Session.set('addedXP', -Session.get('addedXP'));
   }
 });

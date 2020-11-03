@@ -1,4 +1,108 @@
 <template name="xpModal">
+  <!-- HP Modal -->
+   <div class="modal fade studentModal" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="add_card_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="cardsModalLabel">{{_ "XP"}}</h4>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#behavioursXP" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "behaviours"}}</a></li>
+              <li role="presentation"><a href="#earnLoseXP" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "XP"}}</a></li>
+            </ul>
+            <!-- Tab panels -->
+            <div class="tab-content container-responsive">
+              <div role="tabpanel" class="tab-pane active" id="behavioursXP">
+                <div class="form-group">
+                  <ul class="list-group">
+                    {{#each xps}}
+                      <button type="button" class="list-group-item" id="{{_id}}">
+                        <span class="badge badgeHP">{{points}} XP </span>
+                        <h3>{{behaviourName}}</h3>
+                        <p>{{behaviourDescription}}</p>
+                      </button>
+                    {{/each}}
+                  </ul>
+                  <label for="student-name" class="control-label">{{_ "comments"}}</label>
+                  <input type="text" class="form-control" id="commentHP" name="commentHP">
+                </div>
+              </div>
+              <div role="tabpanel" class="tab-pane chromesModal" id="earnLoseXP">
+                <div class="billetes text-center">
+                    <button type="button" class="btn btn-info" name="one">
+                      <span class="badge text-center">1 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="two">
+                      <span class="badge text-center">2 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="three">
+                      <span class="badge text-center">3 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="five">
+                      <span class="badge text-center">5 XP</span>
+                    </button>
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" name="ten">
+                      <span class="badge text-center">10 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="twenty">
+                      <span class="badge text-center">20 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="therty">
+                      <span class="badge text-center">30 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="fifty">
+                      <span class="badge text-center">50 XP</span>
+                    </button>
+                    <br/><br/>
+                    <button type="button" class="btn btn-info" name="ten">
+                      <span class="badge text-center">100 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="twenty">
+                      <span class="badge text-center">200 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="therty">
+                      <span class="badge text-center">300 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="fifty">
+                      <span class="badge text-center">500 XP</span>
+                    </button>
+                    <button type="button" class="btn btn-info" name="hundred">
+                      <span class="badge text-center">1000 XP</span>
+                    </button>
+                    <br/><br/>
+                    <div class="behaviourType">
+                      <span>{{_ "lose"}}</span>
+                      <label class="switch">
+                        <input id="WinOrLoseXP" type="checkbox" name="WinOrLoseXP" checked>
+                        <span class="slider round"></span>
+                      </label>
+                      <span>{{_ "win"}}</span>
+                    </div>
+                </div>
+                <div class="text-center ">
+                  <h2>
+                    <span class="label label-primary">{{studentXP}} XP</span>
+                    <span class="label label-success">{{addedXP}} XP</span>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
+            <input type="submit" id="xpModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="xpModal2">
     <!-- XP Modal -->
    <div class="modal studentModal fade" id="xp_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
