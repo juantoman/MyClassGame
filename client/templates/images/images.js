@@ -9,18 +9,20 @@ Template.imagesTemplate.onRendered(function() {
   searchByRights: true}, function(error, result){
     if (!error && result && result.event === "success") {
       console.log('Done! Here is the image info: ', result.info);
+      image_url=result.info.url;
+      image_url=image_url.replace('http:','https:');
       if (Session.get('imageType')!="userAvatar") {
         var imgObject = {
            classId:Session.get('classId'),
            type: Session.get('imageType'),
-           image_url: result.info.url,
+           image_url: image_url,
            createdOn: new Date()
         };
       } else {
         var imgObject = {
            userId:Meteor.userId(),
            type: Session.get('imageType'),
-           image_url: result.info.url,
+           image_url: image_url,
            createdOn: new Date()
         };
       }

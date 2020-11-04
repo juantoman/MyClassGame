@@ -42,10 +42,40 @@ Template.xpModal.events({
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
+      var historyItem = {
+        classId: Session.get('classId'),
+        student: Session.get('studentId'),
+        logType: 'behaviourXP',
+        elementId: i,
+        XPs: p,
+        HPs: 0,
+        Coins: 0,
+        Energy:0,
+        evaluation: Session.get('evaluation'),
+        comment: $("#commentXP").val(),
+        createdOn: new Date()
+      };
       Meteor.call('behaviourLogInsert', behaviour);
+      Meteor.call('historyInsert', historyItem);
       Meteor.call('studentXP', Session.get('studentId'), p);
     });
-    Meteor.call('studentXP', Session.get('studentId'), Session.get('addedXP'));
+    if ( Session.get('addedXP') != 0) {
+      var log = {
+        classId: Session.get('classId'),
+        student: Session.get('studentId'),
+        logType: 'XP',
+        elementId: '',
+        'XP': Session.get('addedXP'),
+        'HP': 0,
+        Coins: 0,
+        Energy:0,
+        evaluation: Session.get('evaluation'),
+        comment: $("#commentXP").val(),
+        createdOn: new Date()
+      };
+      Meteor.call('logInsert', log);
+      Meteor.call('studentXP', Session.get('studentId'), Session.get('addedXP'));
+    }
     Modal.hide('xpModal');
   },
   'click .list-group-item': function(event) {

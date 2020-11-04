@@ -540,3 +540,11 @@ Meteor.publish('villains', function(classId) {
       return students.find({"classId": { "$in": c }});
   }*/
 });
+
+Meteor.publish('history', function(type,classId) {
+  if (classId){
+    return history.find({"classId":classId});
+  } else {
+    return history.find();
+  }
+});
