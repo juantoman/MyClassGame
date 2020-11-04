@@ -39,24 +39,28 @@ Template.statisticsPage.events({
   },
   'click .borrar': function(event) {
     event.preventDefault();
-    log=behavioursLog.findOne({_id: event.target.name});
-    student=log.student;
-    bType=log.behaviourType;
-    bId=log.behavior;
-    beh=behaviours.findOne({_id: log.behavior});
-    p=beh.points;
-    if (log.behaviourType=="XP") {
-      Meteor.call('studentXP', student, -p);
-    }
-    if (log.behaviourType=="HP") {
-      Meteor.call('studentHP', student, -p);
-    }
-    if (log.behaviourType=="BG") {
-      beh=badges.findOne({_id: log.behavior});
+    if (this.behaviourType=="XP") {
+      beh=behaviours.findOne({_id: this.behavior});
       p=beh.points;
-      Meteor.call('studentXP', student, -p);
+      Meteor.call('studentXP', this.student, -p);
+    }
+    if (this.behaviourType=="teacherXP") {
+      Meteor.call('studentXP', this.student, -parseInt(this.XP));
+    }
+    if (this.behaviourType=="HP") {
+      beh=behaviours.findOne({_id: this.behavior});
+      p=beh.points;
+      Meteor.call('studentHP',  this.student, -p);
+    }
+    if (this.behaviourType=="teacherHP") {
+      Meteor.call('studentHP', this.student, parseInt(this.HP));
+    }
+    if (this.behaviourType=="BG") {
+      beh=badges.findOne({_id: this.behavior});
+      p=beh.points;
+      Meteor.call('studentXP',  this.student, -p);
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
-    Meteor.call('behaviourLogDelete',event.target.name);
+    Meteor.call('behaviourLogDelete',this._id);
   }
 });
