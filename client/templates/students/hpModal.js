@@ -41,6 +41,10 @@ Template.hpModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'HP',
+        'XP': 0,
+        'HP': p,
+        Coins: 0,
+        Energy:0,
         comment: $("#commentHP").val(),
         evaluation: Session.get('evaluation'),
         createdOn: new Date()
@@ -48,7 +52,24 @@ Template.hpModal.events({
       Meteor.call('behaviourLogInsert', behaviour);
       Meteor.call('studentHP', Session.get('studentId'), p);
     });
-    Meteor.call('studentHP', Session.get('studentId'), -Session.get('addedHP'));
+    if ( Session.get('addedHP') != 0) {
+      var behaviour = {
+        classId: Session.get('classId'),
+        student: Session.get('studentId'),
+        behavior: 'teacherHP',
+        behaviourType: 'teacherHP',
+        'XP': 0,
+        'HP': Session.get('addedHP'),
+        Coins: 0,
+        Energy:0,
+        evaluation: Session.get('evaluation'),
+        comment: Session.get('addedHP') + " HP by teacher",
+        createdOn: new Date()
+      };
+      // Meteor.call('historyInsert', historyItem);
+      Meteor.call('behaviourLogInsert', behaviour);
+      Meteor.call('studentHP', Session.get('studentId'), -Session.get('addedHP'));
+    }
     wc=wc-Session.get('addedHP');
     Modal.hide('hpModal');
     if (hp <= wc) {

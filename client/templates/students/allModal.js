@@ -139,7 +139,7 @@ Template.allXPModal.events({
   },
   'click #xpModalSubmit': function(event) {
     event.preventDefault();
-    $('#xp_modal_group').find(".list-group-item-danger").each( function() {
+    $('#all_xp_modal').find(".list-group-item-danger").each( function() {
       i=this.id;
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
@@ -151,17 +151,39 @@ Template.allXPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'XP',
+          'XP': p,
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
           evaluation: Session.get('evaluation'),
           comment: $("#commentXPGroup").val(),
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', item["_id"], p);
+
       });
     });
-    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-      Meteor.call('studentXP', item["_id"], Session.get('addedXP'));
-    });
+    if ( Session.get('addedXP') != 0) {
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: 'teacherXP',
+          behaviourType: 'teacherXP',
+          'XP': Session.get('addedXP'),
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
+          evaluation: Session.get('evaluation'),
+          comment: Session.get('addedXP') + " XP by teacher",
+          createdOn: new Date()
+        };
+        // Meteor.call('historyInsert', historyItem);
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentXP', item["_id"], Session.get('addedXP'));
+      });
+    }
     Modal.hide('allXPModal');
   },
   'click .btn-info': function(event) {
@@ -225,7 +247,7 @@ Template.allHPModal.events({
   },
   'click #hpModalSubmit': function(event) {
     event.preventDefault();
-    $('#hp_modal_group').find(".list-group-item-danger").each( function() {
+    $('#all_hp_modal').find(".list-group-item-danger").each( function() {
       i=this.id;
       p=parseInt($(this).find(".badge").text());
       var user = Meteor.user();
@@ -237,6 +259,10 @@ Template.allHPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'HP',
+          'XP': 0,
+          'HP': p,
+          Coins: 0,
+          Energy:0,
           evaluation: Session.get('evaluation'),
           comment: $("#commentHPGroup").val(),
           createdOn: new Date()
@@ -245,9 +271,26 @@ Template.allHPModal.events({
         Meteor.call('studentHP', item["_id"], p);
       });
     });
-    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-      Meteor.call('studentHP', item["_id"], -Session.get('addedHP'));
-    });
+    if ( Session.get('addedHP') != 0) {
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: 'teacherHP',
+          behaviourType: 'teacherHP',
+          'XP': 0,
+          'HP': Session.get('addedHP'),
+          Coins: 0,
+          Energy:0,
+          evaluation: Session.get('evaluation'),
+          comment: Session.get('addedHP') + " HP by teacher",
+          createdOn: new Date()
+        };
+        // Meteor.call('historyInsert', historyItem);
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentHP', item["_id"], -Session.get('addedHP'));
+      });
+    }
     Modal.hide('groupHPModal');
   },
   'click .btn-info': function(event) {
