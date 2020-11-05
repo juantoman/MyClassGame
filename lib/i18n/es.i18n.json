@@ -337,5 +337,7 @@
     "win": "Ganar",
     "lose": "Perder",
     "coinsperXP": "monedas por cada",
-    "install": "Instalar"
+    "install": "Instalar",
+    "medals": "Medallas visibles",
+    "chat": "Chat"
 }

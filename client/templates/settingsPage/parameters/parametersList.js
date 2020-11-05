@@ -144,6 +144,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('chatVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
+  'change #medalsVisible': function(event) {
+    event.preventDefault();
+    Meteor.call('medalsVisibleChange', Session.get('classId'), event.currentTarget.checked);
+  },
   'click #btn-reset': function(event) {
     event.preventDefault();
     Modal.show('resetClass');
