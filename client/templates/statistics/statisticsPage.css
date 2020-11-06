@@ -1,0 +1,7 @@
+.table-responsive .table > tbody > tr:nth-child(2n) > td, .table-responsive  .table > tbody > tr:nth-child(2n) > th {
+   background-color: rgba(0, 100, 150, .2);
+}
+
+.table-responsive tr:hover td {
+   background-color: rgba(0, 100, 150 , .3) !important;
+}

@@ -5,80 +5,105 @@
   -->
   <h3 class="nameSection">{{_ "history"}}</h3>
   <div class="container-fluid float-up">
-    <div class="settingsMenu">
-    <!--
-    {{#each statistics}}
-      <h3>{{student}}</h3>
-      <p>{{behavior}}</p>
-      <p>{{studentName}}</p>
-      <p>{{behaviour.behaviourDescription}}</p>
-      <p>{{behaviour.points}}</p>
-    {{/each}}
-     -->
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th id="student_th">
-            {{_ "student"}}
-          </th>
-          <th id="evaluation_th">
-            {{_ "evaluation"}}
-          </th>
-          <th id="behaviour_th">
-            {{_ "behaviour"}}
-          </th>
-          <th>
-            {{_ "comments"}}
-          </th>
-          <th>
-            {{_ "points"}}
-          </th>
-           <th id="behaviour_type_th">
-            {{_ "type"}}
-          </th>
-          <th id="date_th">
-            {{_ "date"}}
-          </th>
-          {{#if teacher}}
-            <th id="date_th">
-              {{_ "delete"}}
-            </th>
-          {{/if}}
-        </tr>
-      </thead>
-      <tbody>
+    <div class="table-responsive">
+      <!--
       {{#each statistics}}
-            <tr>
-              <td>
-                {{student.studentName}}
-              </td>
-              <td>
-                {{evaluation}}
-              </td>
-              <td>
-                {{behaviour.behaviourDescription}}
-              </td>
-              <td>
-                {{comment}}
-              </td>
-              <td>
-                {{behaviour.points}}
-              </td>
-              <td>
-                {{behaviourType}}
-              </td>
-              <td>
-                {{createdOnFormatted createdOn}}
-              </td>
-              {{#if teacher}}
-                <td class="text-center">
-                  <button name="{{_id}}" class="borrar">{{_ "delete"}}</button>
-                </td>
-              {{/if}}
-            </tr>
+        <h3>{{student}}</h3>
+        <p>{{behavior}}</p>
+        <p>{{studentName}}</p>
+        <p>{{behaviour.behaviourDescription}}</p>
+        <p>{{behaviour.points}}</p>
       {{/each}}
-      </tbody>
-    </table>
+       -->
+      <table class="table table-bordered">
+        <thead class="bg-info">
+          <tr>
+            <th id="student_th">
+              {{_ "student"}}
+            </th>
+            <th id="evaluation_th">
+              {{_ "evaluation"}}
+            </th>
+            <th id="behaviour_th">
+              {{_ "behaviour"}}
+            </th>
+            <th>
+              {{_ "comments"}}
+            </th>
+            <!-- <th>
+              {{_ "points"}}
+            </th>
+             <th id="behaviour_type_th">
+              {{_ "type"}}
+            </th> -->
+            <th>
+              XP
+            </th>
+            <th>
+              HP
+            </th>
+            <th>
+              Coins
+            </th>
+            <th>
+              Energy
+            </th>
+            <th id="date_th">
+              {{_ "date"}}
+            </th>
+            {{#if teacher}}
+              <th id="date_th">
+                {{_ "delete"}}
+              </th>
+            {{/if}}
+          </tr>
+        </thead>
+        <tbody>
+        {{#each statistics}}
+              <tr>
+                <td>
+                  {{student.studentName}}
+                </td>
+                <td>
+                  {{evaluation}}
+                </td>
+                <td>
+                  {{behaviour.behaviourDescription}}
+                </td>
+                <td>
+                  {{comment}}
+                </td>
+                <!-- <td>
+                  {{behaviour.points}}
+                </td>
+                <td>
+                  {{behaviourType}}
+                </td> -->
+                <td>
+                  {{XP}}
+                </td>
+                <td>
+                  {{HP}}
+                </td>
+                <td>
+                  {{Coins}}
+                </td>
+                <td>
+                  {{Energy}}
+                </td>
+                <td>
+                  {{createdOnFormatted createdOn}}
+                </td>
+                {{#if teacher}}
+                  <td class="text-center">
+                    <button name="{{_id}}" class="borrar">{{_ "delete"}}</button>
+                  </td>
+                {{/if}}
+              </tr>
+        {{/each}}
+        </tbody>
+      </table>
     </div>
+    <br />
   </div>
 </template>

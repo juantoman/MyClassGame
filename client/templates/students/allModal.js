@@ -260,7 +260,7 @@ Template.allHPModal.events({
           behavior: i,
           behaviourType: 'HP',
           'XP': 0,
-          'HP': p,
+          'HP': -p,
           Coins: 0,
           Energy:0,
           evaluation: Session.get('evaluation'),
