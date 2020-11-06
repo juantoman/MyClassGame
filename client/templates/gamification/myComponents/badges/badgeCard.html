@@ -23,11 +23,11 @@
             <textarea class="form-control inputGroup badgeDesc" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
             <div class="input-group col-xs-6">
               <span class="input-group-addon">XP</span>
-              <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
+              <input type="number" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}" min="0" max="10000">
             </div>
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ "level"}}</span>
-              <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
+              <input type="number" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}"  min="0" max="100">
             </div>
             <div class="groupBtnCard">
               <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteBadge">
@@ -64,11 +64,15 @@
             <textarea class="form-control inputGroup badgeDesc" placeholder="{{_ 'description'}}" name="badgeDescription" {{teacher}} rows="2">{{badgeDescription}}</textarea>
             <div class="input-group col-xs-6">
               <span class="input-group-addon">XP</span>
-              <input type="text" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="{{points}}">
+              <input type="number" class="form-control inputGroup badgeDescription" name="badgePoints" {{teacher}} value="0" min="0" max="10000">
             </div>
+            <!-- <div class="input-group col-xs-5">
+              <span class="input-group-addon">{{_ 'level'}}</span>
+              <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="0">
+            </div> -->
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ 'level'}}</span>
-              <input type="text" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="{{level}}">
+              <input type="number" class="form-control badgeDescription" name="badgeLevel" {{teacher}} value="0" min="0" max="100">
             </div>
             <div class="groupBtnCard">
               <input type="submit" value="{{_ 'create'}}" class="btn btn-info createBadgeBtn">
