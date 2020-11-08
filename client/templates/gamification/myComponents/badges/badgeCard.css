@@ -55,3 +55,14 @@
   background-color: #000851 !important;
   border: 1px solid #000851;
 }
+
+input[type=number] {
+  /*for absolutely positioning spinners*/
+  padding: 0 0 0 5px!important;
+  font-size: 1.2em;
+}
+
+input[type=number]:hover::-webkit-inner-spin-button, input[type=number]:focus::-webkit-inner-spin-button {
+    width: 20px;
+    height: 35px;
+}

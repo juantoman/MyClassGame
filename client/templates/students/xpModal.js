@@ -74,7 +74,7 @@ Template.xpModal.events({
         Coins: 0,
         Energy:0,
         evaluation: Session.get('evaluation'),
-        comment: Session.get('addedXP') + " XP by teacher",
+        comment: Session.get('addedXP') + " XP by teacher (" + $("#commentXP").val() + ")",
         createdOn: new Date()
       };
       // Meteor.call('historyInsert', historyItem);

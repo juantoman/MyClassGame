@@ -176,7 +176,7 @@ Template.allXPModal.events({
           Coins: 0,
           Energy:0,
           evaluation: Session.get('evaluation'),
-          comment: Session.get('addedXP') + " XP by teacher",
+          comment: Session.get('addedXP') + " XP by teacher (" + $("#commentXPGroup").val() + ")",
           createdOn: new Date()
         };
         // Meteor.call('historyInsert', historyItem);
@@ -283,7 +283,7 @@ Template.allHPModal.events({
           Coins: 0,
           Energy:0,
           evaluation: Session.get('evaluation'),
-          comment: Session.get('addedHP') + " HP by teacher",
+          comment: Session.get('addedHP') + " HP by teacher (" + $("#commentHPGroup").val() + ")",
           createdOn: new Date()
         };
         // Meteor.call('historyInsert', historyItem);

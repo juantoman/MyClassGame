@@ -63,7 +63,7 @@ Template.hpModal.events({
         Coins: 0,
         Energy:0,
         evaluation: Session.get('evaluation'),
-        comment: Session.get('addedHP') + " HP by teacher",
+        comment: Session.get('addedHP') + " HP by teacher (" + $("#commentHP").val() + ")",
         createdOn: new Date()
       };
       // Meteor.call('historyInsert', historyItem);

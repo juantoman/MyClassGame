@@ -25,11 +25,11 @@
           <form class="behaviourForm">
             <input type="text" class="form-control inputGroup behaviourName" name="behaviourName" {{teacher}} aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
             <textarea class="form-control inputGroup behaviourDesc" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
-            <div class="input-group col-xs-5">
+            <div class="input-group col-xs-6" style="margin-right:0;padding-right:0;">
               <span class="input-group-addon">{{_ "points"}}</span>
-              <input type="text" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}">
+              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}" min="0" max="10000">
             </div>
-            <div class="switchCard col-xs-6">
+            <div class="switchCard col-xs-5" style="margin-left:0;padding-left:0;float:rigth">
               {{> behaviourTypeTemplate}}
             </div>
             <div class="input-group col-xs-12">
@@ -71,7 +71,7 @@
             <textarea class="form-control inputGroup behaviourDesc" placeholder="{{_ 'description'}}" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ "points"}}</span>
-              <input type="text" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="0">
+              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="0" min="0" max="100">
             </div>
             <div class="switchCard col-xs-6">
               {{> behaviourTypeCreateTemplate}}

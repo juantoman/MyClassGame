@@ -23,11 +23,11 @@
             <textarea class="form-control inputGroup itemDesc" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
             <div class="input-group col-xs-6">
               <span class="input-group-addon">{{_ 'price'}}</span>
-              <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}">
+              <input type="number" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="{{price}}" min="0" max="10000">
             </div>
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ 'level'}}</span>
-              <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}">
+              <input type="number" class="form-control itemDescription" name="itemLevel" {{teacher}} value="{{itemLevel}}" min="0" max="100">
             </div>
             <div class="groupBtnCard">
               <input type="button" value="{{_ 'delete'}}" class="btn btn-info btnDeleteItem">
@@ -64,11 +64,11 @@
             <textarea class="form-control inputGroup itemDesc" placeholder="{{_ 'description'}}" name="itemDescription" {{teacher}} rows="2">{{itemDescription}}</textarea>
             <div class="input-group col-xs-6">
               <span class="input-group-addon">{{_ 'price'}}</span>
-              <input type="text" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="0">
+              <input type="number" class="form-control inputGroup itemDescription" name="itemPrice" {{teacher}} value="0" min="0" max="10000">
             </div>
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ 'level'}}</span>
-              <input type="text" class="form-control itemDescription" name="itemLevel" {{teacher}} value="0">
+              <input type="number" class="form-control itemDescription" name="itemLevel" {{teacher}} value="0" min="0" max="100">
             </div>
             <div class="groupBtnCard">
               <input type="submit" value="{{_ 'create'}}" class="btn btn-info createItemBtn">
