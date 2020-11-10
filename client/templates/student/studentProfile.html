@@ -743,7 +743,16 @@
                 {{/each}}
               </div>
               -->
-              <h2>{{_ "collections"}}</h2>
+              <h2>{{_ "collections"}}
+                <div class="btn-group btn-group-badges" data-toggle="buttons">
+                  <label class="btn btn-info" id="allBadgesVisible">
+                    <input type="radio" name="all">{{_ "all"}}
+                  </label>
+                  <label class="btn btn-info" id="stockBadgesVisible">
+                    <input type="radio" name="stock">{{_ "stock"}}
+                  </label>
+                </div>
+              </h2>
           		<hr class="colorgraph">
               <ul class="list-items">
                 {{#each chromes}}
@@ -761,6 +770,54 @@
                     <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
                   </li>
                 {{/if}}
+              </ul>
+              <ul class="list-items">
+                {{#each allBadges}}
+                   {{#if onlyStudentBadgeStock}}
+                    <li class="flip-card float-up">
+                      <div class="flip-card-inner {{#if studentBadgeStock}}flip-card-inner-stock{{/if}}">
+                        <div class="flip-card-front">
+                          <span class="item-image {{#unless studentBadgeStock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>
+                          <div class="flip-card-level">
+                            {{level}}
+                          </div>
+                          <div class="flip-card-stock">
+                            {{studentBadgeStock}}
+                          </div>
+                          <div class="flip-card-front-name">
+                            {{badgeName}}
+                          </div>
+                        </div>
+                        <div class="flip-card-back">
+                          <img class="flip-card-back-img" src="{{image_url badgeImage}}" alt="">
+                          <div class="flip-card-back-text">
+                            <h4 class="flip-card-badge-name">{{badgeName}}</h4>
+                            <p class="flip-card-badge-desc">{{badgeDescription}}</p>
+                            <h5 class="flip-card-badge-XP">{{points}} XP</h5>
+                          </div>
+                          <div class="flip-card-back-buttons">
+                            {{#if teacher}}
+                              <a href="javascript:voclass" class="{{#if studentBadgeStock}}flip-card-remove{{/if}}">
+                                <i class="fa fa-minus"></i>
+                              </a>
+                            {{/if}}
+                            <span class="flip-card-number">
+                              {{studentBadgeStock}}
+                            </span>
+                            {{#if teacher}}
+                              <a href="javascript:voclass" class="flip-card-add">
+                                <i class="fa fa-plus"></i>
+                              </a>
+                            {{/if}}
+                          </div>
+                          <a href="javascript:voclass" class="flip-card-turn">
+                            <i class="fa fa-undo"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  {{/if}}
+                {{/each}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Artículos">
