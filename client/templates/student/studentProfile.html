@@ -585,10 +585,10 @@
               -->
               <h2>{{_ "badges"}}
                 <div class="btn-group btn-group-badges" data-toggle="buttons">
-                  <label class="btn btn-info" id="allBadgesVisible">
+                  <label class="btn btn-info" id="allVisible">
                     <input type="radio" name="all">{{_ "all"}}
                   </label>
-                  <label class="btn btn-info" id="stockBadgesVisible">
+                  <label class="btn btn-info" id="stockVisible">
                     <input type="radio" name="stock">{{_ "stock"}}
                   </label>
                 </div>
@@ -745,10 +745,10 @@
               -->
               <h2>{{_ "collections"}}
                 <div class="btn-group btn-group-badges" data-toggle="buttons">
-                  <label class="btn btn-info" id="allBadgesVisible">
+                  <label class="btn btn-info" id="allVisible">
                     <input type="radio" name="all">{{_ "all"}}
                   </label>
-                  <label class="btn btn-info" id="stockBadgesVisible">
+                  <label class="btn btn-info" id="stockVisible">
                     <input type="radio" name="stock">{{_ "stock"}}
                   </label>
                 </div>
@@ -772,37 +772,37 @@
                 {{/if}}
               </ul>
               <ul class="list-items">
-                {{#each allBadges}}
-                   {{#if onlyStudentBadgeStock}}
+                {{#each allChromes}}
+                   {{#if onlyStudentChromeStock}}
                     <li class="flip-card float-up">
-                      <div class="flip-card-inner {{#if studentBadgeStock}}flip-card-inner-stock{{/if}}">
+                      <div class="flip-card-inner {{#if studentChromeStock}}flip-card-inner-stock{{/if}}">
                         <div class="flip-card-front">
-                          <span class="item-image {{#unless studentBadgeStock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>
+                          <span class="item-image {{#unless studentChromeStock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
                           <div class="flip-card-level">
                             {{level}}
                           </div>
                           <div class="flip-card-stock">
-                            {{studentBadgeStock}}
+                            {{studentChromeeStock}}
                           </div>
                           <div class="flip-card-front-name">
-                            {{badgeName}}
+                            {{chromeName}}
                           </div>
                         </div>
                         <div class="flip-card-back">
-                          <img class="flip-card-back-img" src="{{image_url badgeImage}}" alt="">
+                          <img class="flip-card-back-img" src="{{image_url chromeImage}}" alt="">
                           <div class="flip-card-back-text">
-                            <h4 class="flip-card-badge-name">{{badgeName}}</h4>
-                            <p class="flip-card-badge-desc">{{badgeDescription}}</p>
-                            <h5 class="flip-card-badge-XP">{{points}} XP</h5>
+                            <h4 class="flip-card-badge-name">{{chromeName}}</h4>
+                            <p class="flip-card-badge-desc">{{chromeDescription}}</p>
+                            <h5 class="flip-card-badge-XP">{{chromePrice}} <i class="fa fa-coins"></i></h5>
                           </div>
                           <div class="flip-card-back-buttons">
                             {{#if teacher}}
-                              <a href="javascript:voclass" class="{{#if studentBadgeStock}}flip-card-remove{{/if}}">
+                              <a href="javascript:voclass" class="{{#if studentChromeStock}}flip-card-remove{{/if}}">
                                 <i class="fa fa-minus"></i>
                               </a>
                             {{/if}}
                             <span class="flip-card-number">
-                              {{studentBadgeStock}}
+                              {{studentChromeStock}}
                             </span>
                             {{#if teacher}}
                               <a href="javascript:voclass" class="flip-card-add">

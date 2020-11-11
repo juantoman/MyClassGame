@@ -130,6 +130,10 @@ Template.studentProfile.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return badges.find( { classId : Session.get('classId') } , { sort : { level : 1 } } );
   },
+  allChromes: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return chromes.find( { classId : Session.get('classId') } , { sort : { level : 1 } } );
+  },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
@@ -148,12 +152,45 @@ Template.studentProfile.helpers({
     //   return false;
     // }
   },
+  studentChromeStock: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
+    if ( n == 0 ) {
+      return 0;
+    } else {
+      return n;
+    }
+    // s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).chromes.find( badge => chrome.chromeId == this._id).stock;
+    // if ( s ) {
+    //   return s;
+    // } else {
+    //   return 1;
+    // }
+    // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  },
   onlyStudentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     if ( Session.get("allVisible") ) {
       return true;
     } else {
       n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
+      if ( n == 0 ) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  },
+  onlyStudentChromeStock: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    if ( Session.get("allVisible") ) {
+      return true;
+    } else {
+      n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
       if ( n == 0 ) {
         return false;
       } else {
@@ -1336,11 +1373,11 @@ Template.studentProfile.events({
     })
     event.stopPropagation();
   },
-  'click #allBadgesVisible': function(event) {
+  'click #allVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",true);
   },
-  'click #stockBadgesVisible': function(event) {
+  'click #stockVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",false);
   }
