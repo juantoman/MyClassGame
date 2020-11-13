@@ -1312,7 +1312,7 @@ Template.studentProfile.events({
     $('.flip-card-inner').removeClass('flip-card-inner-rotated');
     event.stopPropagation();
   },
-  'click .flip-card-add': function(event) {
+  'click .flip-card-badge-add': function(event) {
     event.preventDefault();
     l=0;
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
@@ -1350,7 +1350,7 @@ Template.studentProfile.events({
     }
     event.stopPropagation();
   },
-  'click .flip-card-remove': function(event) {
+  'click .flip-card-badge-remove': function(event) {
     event.preventDefault();
     swal({
       title: TAPi18n.__('delete') + " " +  TAPi18n.__('badge'),
@@ -1366,6 +1366,69 @@ Template.studentProfile.events({
         Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
           title: TAPi18n.__('badge') + " " +  TAPi18n.__('fdeleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    event.stopPropagation();
+  },
+  'click .flip-card-chrome-add': function(event) {
+    event.preventDefault();
+    l=0;
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: Session.get('studentId')}).XP;
+      l=parseInt(XP/levelXP);
+    } else {
+      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+    }
+    if (this.level > l ) {
+      swal({
+        title: "Nivel del usuario inferior al del coleccionable",
+        type: 'warning'
+      })
+    } else {
+      swal({
+        title: TAPi18n.__('add') + " " +  TAPi18n.__('collectionable'),
+        text: TAPi18n.__('areYouSure'),
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: TAPi18n.__('yes'),
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+            Meteor.call('studentChrome', Session.get('studentId'), this._id);
+            // Meteor.call('studentBadge', Session.get('studentId'), this._id);
+            // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
+          swal({
+            title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('added'),
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
+    event.stopPropagation();
+  },
+  'click .flip-card-chrome-remove': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('collectionable'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        p=$(event.currentTarget).data('points');
+        Meteor.call('studentChromePull', Session.get('studentId'), this._id);
+        // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
+        // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
+        swal({
+          title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
