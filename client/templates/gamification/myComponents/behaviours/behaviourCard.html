@@ -27,7 +27,7 @@
             <textarea class="form-control inputGroup behaviourDesc" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
             <div class="input-group col-xs-6" style="margin-right:0;padding-right:0;">
               <span class="input-group-addon">{{_ "points"}}</span>
-              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}" min="0" max="10000">
+              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="{{points}}" min="-10000" max="10000">
             </div>
             <div class="switchCard col-xs-5" style="margin-left:0;padding-left:0;float:rigth">
               {{> behaviourTypeTemplate}}
@@ -71,7 +71,7 @@
             <textarea class="form-control inputGroup behaviourDesc" placeholder="{{_ 'description'}}" name="behaviourDescription" {{teacher}} rows="2">{{behaviourDescription}}</textarea>
             <div class="input-group col-xs-5">
               <span class="input-group-addon">{{_ "points"}}</span>
-              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="0" min="0" max="10000">
+              <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" {{teacher}} value="0" min="-10000" max="10000">
             </div>
             <div class="switchCard col-xs-6">
               {{> behaviourTypeCreateTemplate}}
