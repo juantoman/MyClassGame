@@ -339,5 +339,6 @@
     "coinsperXP": "monedes per cada",
     "install": "Instal·lar",
     "medals": "Medalles visibles",
-    "chat": "Xat"
+    "chat": "Xat",
+    "lowLevel": "Nivell de l'estudiant inferior al necessari"
 }

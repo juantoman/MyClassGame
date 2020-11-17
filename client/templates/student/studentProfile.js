@@ -157,15 +157,13 @@ Template.studentProfile.helpers({
     n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
     if ( n == 0 ) {
       return 0;
-    } else {
-      return n;
     }
-    // s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).chromes.find( badge => chrome.chromeId == this._id).stock;
-    // if ( s ) {
-    //   return s;
-    // } else {
-    //   return 1;
-    // }
+    s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).chromes.find( chrome => chrome.chromeId == this._id).stock;
+    if ( s ) {
+      return s;
+    } else {
+      return 1;
+    }
     // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
     //   return true;
     // } else {
@@ -859,19 +857,19 @@ Template.studentProfile.events({
   'click #cloudinaryList': function(event) {
     event.preventDefault();
     //cloudinary.image("sample", {"crop":"fill","gravity":"faces","width":300,"height":200,"format":"jpg"});
-
+    /*
     cloudinary.openMediaLibrary({
       cloud_name: 'myclassgame',
       api_key: '614497274192783',
       multiple: true,
       max_files: 8,
       }, {
-           /*insertHandler: function (data) {
+           insertHandler: function (data) {
              data.assets.forEach(asset => { console.log("Inserted asset:",
                JSON.stringify(asset, null, 2)) })
-           }*/
+
          }
-      )
+      )}*/
   },
   'change .Diary': function(event) {
     event.preventDefault();
@@ -1384,9 +1382,15 @@ Template.studentProfile.events({
     } else {
       l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
     }
-    if (this.level > l ) {
+    coins=students.findOne({_id: Session.get('studentId')}).coins;
+    if (this.chromeLevel > l ) {
       swal({
-        title: "Nivel del usuario inferior al del coleccionable",
+        title: TAPi18n.__('lowLevel'),
+        type: 'warning'
+      })
+    } else if (this.chromePrice > coins ) {
+      swal({
+        title: TAPi18n.__('noMoney'),
         type: 'warning'
       })
     } else {
@@ -1400,6 +1404,7 @@ Template.studentProfile.events({
       }).then((result) => {
         if (result.value) {
             Meteor.call('studentChrome', Session.get('studentId'), this._id);
+            Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.chromePrice));
             // Meteor.call('studentBadge', Session.get('studentId'), this._id);
             // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
           swal({
@@ -1425,6 +1430,7 @@ Template.studentProfile.events({
       if (result.value) {
         p=$(event.currentTarget).data('points');
         Meteor.call('studentChromePull', Session.get('studentId'), this._id);
+        Meteor.call('incCoins', Session.get('studentId'), parseInt(this.chromePrice));
         // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({

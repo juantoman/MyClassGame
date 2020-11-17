@@ -339,5 +339,6 @@
     "coinsperXP": "coins per",
     "install": "Install",
     "medals": "Visible medals",
-    "chat": "Chat"
+    "chat": "Chat",
+    "lowLevel": "Student level lower than necessary"
 }

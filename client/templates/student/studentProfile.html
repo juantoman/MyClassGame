@@ -754,7 +754,7 @@
                 </div>
               </h2>
           		<hr class="colorgraph">
-              <ul class="list-items">
+              <ul class="list-items oculto">
                 {{#each chromes}}
                   <li class="list-item">
                     <span class="power-icon">{{chrome.chromeName}}</span>
@@ -779,10 +779,10 @@
                         <div class="flip-card-front">
                           <span class="item-image {{#unless studentChromeStock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
                           <div class="flip-card-level">
-                            {{level}}
+                            {{chromeLevel}}
                           </div>
                           <div class="flip-card-stock">
-                            {{studentChromeeStock}}
+                            {{studentChromeStock}}
                           </div>
                           <div class="flip-card-front-name">
                             {{chromeName}}
