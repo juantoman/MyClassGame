@@ -21,7 +21,8 @@
                   <ul class="list-group">
                     {{#each cards}}
                       <button type="button" class="list-group-item {{cardIn _id}}" id="{{_id}}">
-                        <img src="{{srcImage cardImage}}" style="height:50px;float:left;margin-right:10px;"/>
+                        <span class="elementLevel">{{cardLevel}}</span>
+                        <img src="{{srcImage cardImage}}" class="elementImage" />
                         <div style="width:74%;float:left;">
                           <h3>{{cardName}}</h3>
                           <p>{{cardDescription}}</p>
@@ -38,7 +39,8 @@
                   <ul class="list-group">
                     {{#each chromes}}
                       <button type="button" class="list-group-item" data-chromeId="{{_id}}">
-                        <img src="{{srcImage chromeImage}}" style="height:50px;float:left;margin-right:10px;"/>
+                        <span class="elementLevel">{{chromeLevel}}</span>
+                        <img src="{{srcImage chromeImage}}" class="elementImage" />
                         <div style="width:72%;float:left;">
                           <h3>{{chromeName}}</h3>
                           <p>{{chromeDescription}}</p>

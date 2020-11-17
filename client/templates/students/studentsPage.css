@@ -167,7 +167,7 @@ p {
   padding: 10px !important;
 }
 
-.badgeLevel {
+.elementLevel {
   position:absolute;
   background-color: DodgerBlue !important;
   top:0;
@@ -178,7 +178,7 @@ p {
   text-align: center;
 }
 
-.badgeImage {
+.elementImage {
   height:50px;
   float:left;
   margin-right:10px !important;
