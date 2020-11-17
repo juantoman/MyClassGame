@@ -37,7 +37,7 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
-                      <button type="button" class="list-group-item {{chromeIn _id}}" id="{{_id}}">
+                      <button type="button" class="list-group-item" data-chromeId="{{_id}}">
                         <img src="{{srcImage chromeImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{chromeName}}</h3>
