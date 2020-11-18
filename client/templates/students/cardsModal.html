@@ -38,7 +38,7 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
-                      <button type="button" class="list-group-item" data-chromeId="{{_id}}">
+                      <button type="button" class="list-group-item" data-chromeId="{{_id}}" {{chromeDisabled}} >
                         <span class="elementLevel">{{chromeLevel}}</span>
                         <img src="{{srcImage chromeImage}}" class="elementImage" />
                         <div style="width:72%;float:left;">

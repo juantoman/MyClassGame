@@ -195,3 +195,8 @@ p {
   color:white;
   border:1px solid lightblue !important;
 }
+
+.chromesModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;  
+}

@@ -29,6 +29,11 @@ Template.cardsModal.helpers({
       }
     //});
     return list;
+  },
+  chromeDisabled: function() {
+    if ( students.findOne({_id:Session.get('studentId')}).level < this.chromeLevel ) {
+      return "disabled";
+    }
   }
 });
 
