@@ -585,10 +585,10 @@
               -->
               <h2>{{_ "badges"}}
                 <div class="btn-group btn-group-badges" data-toggle="buttons">
-                  <label class="btn btn-info" id="allVisible">
+                  <label class="btn btn-info allVisible">
                     <input type="radio" name="all">{{_ "all"}}
                   </label>
-                  <label class="btn btn-info" id="stockVisible">
+                  <label class="btn btn-info stockVisible">
                     <input type="radio" name="stock">{{_ "stock"}}
                   </label>
                 </div>
@@ -629,7 +629,7 @@
                 {{/each}}
               </ul> -->
               <ul class="list-items">
-              {{#each allBadges}}
+                {{#each allBadges}}
                  {{#if onlyStudentBadgeStock}}
                   <li class="flip-card float-up">
                     <div class="flip-card-inner {{#if studentBadgeStock}}flip-card-inner-stock{{/if}}">
@@ -675,7 +675,7 @@
                   </li>
                 {{/if}}
               {{/each}}
-              </ul>
+            </ul>
 
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Cartas">
@@ -745,16 +745,16 @@
               -->
               <h2>{{_ "collections"}}
                 <div class="btn-group btn-group-badges" data-toggle="buttons">
-                  <label class="btn btn-info" id="allVisible">
+                  <label class="btn btn-info allVisible">
                     <input type="radio" name="all">{{_ "all"}}
                   </label>
-                  <label class="btn btn-info" id="stockVisible">
+                  <label class="btn btn-info stockVisible">
                     <input type="radio" name="stock">{{_ "stock"}}
                   </label>
                 </div>
               </h2>
           		<hr class="colorgraph">
-              <ul class="list-items oculto">
+              <!-- <ul class="list-items oculto">
                 {{#each chromes}}
                   <li class="list-item">
                     <span class="power-icon">{{chrome.chromeName}}</span>
@@ -762,7 +762,6 @@
                       <span class="stock-icon btn removeBtn"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
                     {{/if}}
                     <span class="item-image"><img src="{{image_url chrome.chromeImage}}" alt=""></span>
-                    <!--<span class="item-strength">{{chrome.chromePrice}} €</span>-->
                   </li>
                 {{/each}}
                 {{#if teacher}}
@@ -770,7 +769,7 @@
                     <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
                   </li>
                 {{/if}}
-              </ul>
+              </ul> -->
               <ul class="list-items">
                 {{#each allChromes}}
                    {{#if onlyStudentChromeStock}}

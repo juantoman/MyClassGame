@@ -1442,11 +1442,11 @@ Template.studentProfile.events({
     })
     event.stopPropagation();
   },
-  'click #allVisible': function(event) {
+  'click .allVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",true);
   },
-  'click #stockVisible': function(event) {
+  'click .stockVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",false);
   }
