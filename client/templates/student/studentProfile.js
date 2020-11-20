@@ -133,6 +133,31 @@ Template.studentProfile.helpers({
   allChromes: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return chromes.find( { classId : Session.get('classId') } , { sort : { level : 1 } } );
+    // groups.find({'classId': cId}).forEach(function(item){
+    //   ida=item._id;
+    //   delete item._id;
+    //   item.classId=cnId;
+    //   var idn = groups.insert(item);
+    //   students.update({'classId': cnId, 'groupId': ida}, {$set: {'groupId': idn}}, { multi: true} );
+    // });
+  },
+  allChromesStock: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    chromesWithStock = new Mongo.Collection('chromesWithStock');
+    chromes.find( { classId : Session.get('classId') } , { sort : { level : 1 } } ).forEach(function(item){
+      bid=item._id;
+      n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': bid}).count();
+      if ( n != 0 ) {
+        s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': bid}).badges.find( badge => badge.badgeId == bid).stock;
+        if ( s ) {
+          n=s;
+        } else {
+          n=1;
+        }
+      }
+      chromesWithStock.insert(item,'stock':n);
+    });
+    return chromesWithStock.find();
   },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;

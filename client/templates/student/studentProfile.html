@@ -817,6 +817,52 @@
                     </li>
                   {{/if}}
                 {{/each}}
+                {{#each allChromesStock}}
+                   {{#if onlyStudentChromeStock}}
+                    <li class="flip-card float-up">
+                      <div class="flip-card-inner {{#if studentChromeStock}}flip-card-inner-stock{{/if}}">
+                        <div class="flip-card-front">
+                          <span class="item-image {{#unless studentChromeStock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
+                          <div class="flip-card-level">
+                            {{chromeLevel}}
+                          </div>
+                          <div class="flip-card-stock">
+                            {{studentChromeStock}}
+                          </div>
+                          <div class="flip-card-front-name">
+                            {{chromeName}}
+                          </div>
+                        </div>
+                        <div class="flip-card-back">
+                          <img class="flip-card-back-img" src="{{image_url chromeImage}}" alt="">
+                          <div class="flip-card-back-text">
+                            <h4 class="flip-card-name">{{chromeName}}</h4>
+                            <p class="flip-card-desc">{{chromeDescription}}</p>
+                            <h5 class="flip-card-XP">{{chromePrice}} <i class="fa fa-coins"></i></h5>
+                          </div>
+                          <div class="flip-card-back-buttons">
+                            {{#if teacher}}
+                              <a href="javascript:voclass" class="{{#if studentChromeStock}}flip-card-chrome-remove{{/if}}">
+                                <i class="fa fa-minus"></i>
+                              </a>
+                            {{/if}}
+                            <span class="flip-card-number">
+                              {{studentChromeStock}}
+                            </span>
+                            {{#if teacher}}
+                              <a href="javascript:voclass" class="flip-card-chrome-add">
+                                <i class="fa fa-plus"></i>
+                              </a>
+                            {{/if}}
+                          </div>
+                          <a href="javascript:voclass" class="flip-card-turn">
+                            <i class="fa fa-undo"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  {{/if}}
+                {{/each}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Artículos">
