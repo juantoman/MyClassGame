@@ -155,9 +155,11 @@ Template.studentProfile.helpers({
           n=1;
         }
       }
-      chromesWithStock.insert(item,'stock':n);
+      chromesWithStock.insert(item);
     });
-    return chromesWithStock.find();
+    c=chromesWithStock.find();
+    console.log(c);
+    return c;
   },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
