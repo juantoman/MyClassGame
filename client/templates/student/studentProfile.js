@@ -144,13 +144,21 @@ Template.studentProfile.helpers({
   },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
-    if ( n == 0 ) {
+    // n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
+    // if ( n == 0 ) {
+    //   return 0;
+    // }
+    // s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).badges.find( badge => badge.badgeId == this._id).stock;
+    // if ( s ) {
+    //   return s;
+    // } else {
+    //   return 1;
+    // }
+    s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id});
+    if ( ! s ) {
       return 0;
-    }
-    s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).badges.find( badge => badge.badgeId == this._id).stock;
-    if ( s ) {
-      return s;
+    } else if ( s.badges.find( badge => badge.badgeId == this._id).stock  ) {
+      return s.badges.find( badge => badge.badgeId == this._id).stock;
     } else {
       return 1;
     }

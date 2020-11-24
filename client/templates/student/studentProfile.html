@@ -631,16 +631,16 @@
               <ul class="list-items">
                 {{#each allBadges}}
                   {{#if onlyStudentBadgeStock}}
-                    {{#if studentBadgeStock}}
+                    {{#let stock=studentBadgeStock}}
                       <li class="flip-card float-up">
-                        <div class="flip-card-inner flip-card-inner-stock">
+                        <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
-                            <span class="item-image"><img src="{{image_url badgeImage}}" alt=""></span>
+                            <span class="item-image {{#unless stock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>
                             <div class="flip-card-level">
                               {{level}}
                             </div>
                             <div class="flip-card-stock">
-                              {{studentBadgeStock}}
+                              {{stock}}
                             </div>
                             <div class="flip-card-front-name">
                               {{badgeName}}
@@ -655,12 +655,12 @@
                             </div>
                             <div class="flip-card-back-buttons">
                               {{#if teacher}}
-                                <a href="javascript:voclass" class="flip-card-badge-remove">
+                                <a href="javascript:voclass" class="{{#if stock}}flip-card-badge-remove{{/if}}">
                                   <i class="fa fa-minus"></i>
                                 </a>
                               {{/if}}
                               <span class="flip-card-number">
-                                {{studentBadgeStock}}
+                                {{stock}}
                               </span>
                               {{#if teacher}}
                                 <a href="javascript:voclass" class="flip-card-badge-add">
@@ -674,50 +674,7 @@
                           </div>
                         </div>
                       </li>
-                    {{else}}
-                      <li class="flip-card float-up">
-                        <div class="flip-card-inner">
-                          <div class="flip-card-front">
-                            <span class="item-image studentHasntBadge"><img src="{{image_url badgeImage}}" alt=""></span>
-                            <div class="flip-card-level">
-                              {{level}}
-                            </div>
-                            <div class="flip-card-stock">
-                              0
-                            </div>
-                            <div class="flip-card-front-name">
-                              {{badgeName}}
-                            </div>
-                          </div>
-                          <div class="flip-card-back">
-                            <img class="flip-card-back-img" src="{{image_url badgeImage}}" alt="">
-                            <div class="flip-card-back-text">
-                              <h4 class="flip-card-name">{{badgeName}}</h4>
-                              <p class="flip-card-desc">{{badgeDescription}}</p>
-                              <h5 class="flip-card-XP">{{points}} XP</h5>
-                            </div>
-                            <div class="flip-card-back-buttons">
-                              {{#if teacher}}
-                                <a href="javascript:voclass" class="">
-                                  <i class="fa fa-minus"></i>
-                                </a>
-                              {{/if}}
-                              <span class="flip-card-number">
-                                0
-                              </span>
-                              {{#if teacher}}
-                                <a href="javascript:voclass" class="flip-card-badge-add">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              {{/if}}
-                            </div>
-                            <a href="javascript:voclass" class="flip-card-turn">
-                              <i class="fa fa-undo"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    {{/if}}
+                    {{/let}}
                   {{/if}}
                 {{/each}}
               </ul>
