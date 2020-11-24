@@ -818,16 +818,16 @@
               <ul class="list-items">
                 {{#each allChromes}}
                   {{#if onlyStudentChromeStock}}
-                    {{#if studentChromeStock}}
+                    {{#let stock=studentChromeStock}}
                       <li class="flip-card float-up">
-                        <div class="flip-card-inner flip-card-inner-stock">
+                        <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
-                            <span class="item-image"><img src="{{image_url chromeImage}}" alt=""></span>
+                            <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
                             <div class="flip-card-level">
                               {{chromeLevel}}
                             </div>
                             <div class="flip-card-stock">
-                              {{studentChromeStock}}
+                              {{stock}}
                             </div>
                             <div class="flip-card-front-name">
                               {{chromeName}}
@@ -842,12 +842,12 @@
                             </div>
                             <div class="flip-card-back-buttons">
                               {{#if teacher}}
-                                <a href="javascript:voclass" class="flip-card-chrome-remove">
+                                <a href="javascript:voclass" class="{{#if stock}}flip-card-chrome-remove{{/if}}">
                                   <i class="fa fa-minus"></i>
                                 </a>
                               {{/if}}
                               <span class="flip-card-number">
-                                {{studentChromeStock}}
+                                {{stock}}
                               </span>
                               {{#if teacher}}
                                 <a href="javascript:voclass" class="flip-card-chrome-add">
@@ -861,50 +861,7 @@
                           </div>
                         </div>
                       </li>
-                    {{else}}
-                      <li class="flip-card float-up">
-                        <div class="flip-card-inner">
-                          <div class="flip-card-front">
-                            <span class="item-image studentHasntChrome"><img src="{{image_url chromeImage}}" alt=""></span>
-                            <div class="flip-card-level">
-                              {{chromeLevel}}
-                            </div>
-                            <div class="flip-card-stock">
-                              0
-                            </div>
-                            <div class="flip-card-front-name">
-                              {{chromeName}}
-                            </div>
-                          </div>
-                          <div class="flip-card-back">
-                            <img class="flip-card-back-img" src="{{image_url chromeImage}}" alt="">
-                            <div class="flip-card-back-text">
-                              <h4 class="flip-card-name">{{chromeName}}</h4>
-                              <p class="flip-card-desc">{{chromeDescription}}</p>
-                              <h5 class="flip-card-XP">{{chromePrice}} <i class="fa fa-coins"></i></h5>
-                            </div>
-                            <div class="flip-card-back-buttons">
-                              {{#if teacher}}
-                                <a href="javascript:voclass">
-                                  <i class="fa fa-minus"></i>
-                                </a>
-                              {{/if}}
-                              <span class="flip-card-number">
-                                0
-                              </span>
-                              {{#if teacher}}
-                                <a href="javascript:voclass" class="flip-card-chrome-add">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              {{/if}}
-                            </div>
-                            <a href="javascript:voclass" class="flip-card-turn">
-                              <i class="fa fa-undo"></i>
-                            </a>
-                          </div>
-                        </div>
-                      </li>
-                    {{/if}}
+                    {{/let}}
                   {{/if}}
                 {{/each}}
               </ul>
