@@ -39,6 +39,7 @@ function grafica() {
     }
   });
 }
+
 function ami(){
     try {
       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
@@ -60,12 +61,12 @@ function ami(){
 Template.studentProfile.onRendered(function() {
    $.getScript("https://widget.cloudinary.com/v2.0/global/all.js");
    $.getScript("https://media-library.cloudinary.com/global/all.js");
-   if ( classes.findOne({_id: Session.get("classId")}).backImg != "" ) {
+   if ( classes.findOne({_id: Session.get("classId")}).backImg ) {
     $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
     $(".opacityDiv").addClass('opacityProfile');
    }
-   grafica();
    $('[data-toggle="tooltip"]').tooltip();
+   //grafica();
 });
 
 Template.studentProfile.helpers({
@@ -141,26 +142,6 @@ Template.studentProfile.helpers({
     //   students.update({'classId': cnId, 'groupId': ida}, {$set: {'groupId': idn}}, { multi: true} );
     // });
   },
-  allChromesStock: function() {
-    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    chromesWithStock = new Mongo.Collection('chromesWithStock');
-    chromes.find( { classId : Session.get('classId') } , { sort : { level : 1 } } ).forEach(function(item){
-      bid=item._id;
-      n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': bid}).count();
-      if ( n != 0 ) {
-        s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': bid}).badges.find( badge => badge.badgeId == bid).stock;
-        if ( s ) {
-          n=s;
-        } else {
-          n=1;
-        }
-      }
-      chromesWithStock.insert(item);
-    });
-    c=chromesWithStock.find();
-    console.log(c);
-    return c;
-  },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
@@ -168,24 +149,6 @@ Template.studentProfile.helpers({
       return 0;
     }
     s=students.findOne({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).badges.find( badge => badge.badgeId == this._id).stock;
-    if ( s ) {
-      return s;
-    } else {
-      return 1;
-    }
-    // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
-    //   return true;
-    // } else {
-    //   return false;
-    // }
-  },
-  studentChromeStock: function() {
-    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
-    if ( n == 0 ) {
-      return 0;
-    }
-    s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).chromes.find( chrome => chrome.chromeId == this._id).stock;
     if ( s ) {
       return s;
     } else {
@@ -210,12 +173,29 @@ Template.studentProfile.helpers({
       }
     }
   },
+  studentChromeStock: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id);
+    if ( ! n ) {
+      return 0;
+    } else if ( n.stock ) {
+      return n.stock;
+    } else {
+      return 1;
+    }
+    // if (students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count()!=0) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+  },
   onlyStudentChromeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     if ( Session.get("allVisible") ) {
       return true;
     } else {
-      n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
+      //n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
+      n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id).stock;
       if ( n == 0 ) {
         return false;
       } else {
@@ -988,10 +968,6 @@ Template.studentProfile.events({
   },
   'click #graphBtn': function(event) {
     event.preventDefault();
-    $("#myChart").toggleClass("visible");
-  },
-  'click #graphBtn': function(event) {
-    event.preventDefault();
     $("#myChart").toggleClass("oculto");
   },
   'click .challengeText': function(event) {
@@ -1432,6 +1408,7 @@ Template.studentProfile.events({
         if (result.value) {
             Meteor.call('studentChrome', Session.get('studentId'), this._id);
             Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.chromePrice));
+            Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
             // Meteor.call('studentBadge', Session.get('studentId'), this._id);
             // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
           swal({
@@ -1458,6 +1435,7 @@ Template.studentProfile.events({
         p=$(event.currentTarget).data('points');
         Meteor.call('studentChromePull', Session.get('studentId'), this._id);
         Meteor.call('incCoins', Session.get('studentId'), parseInt(this.chromePrice));
+        Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
         // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
@@ -1476,5 +1454,9 @@ Template.studentProfile.events({
   'click .stockVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",false);
+  },
+  'click #myChromes': function(event) {
+    event.preventDefault();
+    Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
   }
 });
