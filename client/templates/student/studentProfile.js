@@ -187,11 +187,19 @@ Template.studentProfile.helpers({
     // if ( n == 0 ) {
     //   return 0;
     // }
-    s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id});
-    if ( ! s ) {
+    // s=students.findOne({'_id':Session.get('studentId'), 'chromes.chromeId': this._id});
+    // if ( ! s ) {
+    //   return 0;
+    // } else if ( s.chromes.find( chrome => chrome.chromeId == this._id).stock  ) {
+    //   return s.chromes.find( chrome => chrome.chromeId == this._id).stock;
+    // } else {
+    //   return 1;
+    // }
+    n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id);
+    if ( ! n ) {
       return 0;
-    } else if ( s.chromes.find( chrome => chrome.chromeId == this._id).stock  ) {
-      return s.chromes.find( chrome => chrome.chromeId == this._id).stock;
+    } else if ( n.stock ) {
+      return n.stock;
     } else {
       return 1;
     }
@@ -206,8 +214,8 @@ Template.studentProfile.helpers({
     if ( Session.get("allVisible") ) {
       return true;
     } else {
-      n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
-      //n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id).stock;
+      //n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
+      n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id).stock;
       if ( n == 0 ) {
         return false;
       } else {
@@ -1420,7 +1428,7 @@ Template.studentProfile.events({
         if (result.value) {
             Meteor.call('studentChrome', Session.get('studentId'), this._id);
             Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.chromePrice));
-            //Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
+            Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
             // Meteor.call('studentBadge', Session.get('studentId'), this._id);
             // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
           swal({
@@ -1447,7 +1455,7 @@ Template.studentProfile.events({
         p=$(event.currentTarget).data('points');
         Meteor.call('studentChromePull', Session.get('studentId'), this._id);
         Meteor.call('incCoins', Session.get('studentId'), parseInt(this.chromePrice));
-        //Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
+        Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
         // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
@@ -1469,6 +1477,6 @@ Template.studentProfile.events({
   },
   'click #myChromes': function(event) {
     event.preventDefault();
-    //Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
+    Session.set("myChromes",students.findOne({_id: Session.get('studentId')}).chromes);
   }
 });
