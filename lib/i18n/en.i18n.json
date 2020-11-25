@@ -340,5 +340,7 @@
     "install": "Install",
     "medals": "Visible medals",
     "chat": "Chat",
-    "lowLevel": "Student level lower than necessary"
+    "lowLevel": "Student level lower than necessary",
+    "myCollection": "My collection",
+    "myBadges": "My badges"
 }

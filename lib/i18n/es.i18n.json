@@ -340,5 +340,7 @@
     "install": "Instalar",
     "medals": "Medallas visibles",
     "chat": "Chat",
-    "lowLevel": "Nivel del estudiante inferior al necesario"
+    "lowLevel": "Nivel del estudiante inferior al necesario",
+    "myCollection": "Mi colección",
+    "myBadges": "Mis insignias"
 }

@@ -340,5 +340,7 @@
     "install": "Instal·lar",
     "medals": "Medalles visibles",
     "chat": "Xat",
-    "lowLevel": "Nivell de l'estudiant inferior al necessari"
+    "lowLevel": "Nivell de l'estudiant inferior al necessari",
+    "myCollection": "La meua col·lecció",
+    "myBadges": "Les meues insignies"
 }
