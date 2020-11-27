@@ -142,6 +142,10 @@ Template.studentProfile.helpers({
     //   students.update({'classId': cnId, 'groupId': ida}, {$set: {'groupId': idn}}, { multi: true} );
     // });
   },
+  allItems: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return store.find( { classId : Session.get('classId') } , { sort : { itemLevel : 1 } } );
+  },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     // n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
@@ -168,7 +172,7 @@ Template.studentProfile.helpers({
     //   return false;
     // }
   },
-  onlyStudentBadgeStock: function() {
+  onlyStudentStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     if ( Session.get("allVisible") ) {
       return true;
@@ -210,20 +214,23 @@ Template.studentProfile.helpers({
     //   return false;
     // }
   },
-  onlyStudentChromeStock: function(stock) {
-    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
-    if ( Session.get("allVisible") ) {
-      return true;
+  studentItemStock: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
+    if ( ! s ) {
+      return 0;
+    } else if ( s.items.find( item => item.itemId == this._id).stock  ) {
+      return s.items.find( item => item.itemId == this._id).stock;
     } else {
-      //n=students.find({'_id':Session.get('studentId'), 'chromes.chromeId': this._id}).count();
-      // n=Session.get('myChromes').find( chrome => chrome.chromeId == this._id).stock;
-      // if ( n == 0 ) {
-      //   return false;
-      // } else {
-      //   return true;
-      // }
-      return false;
+      return 1;
     }
+  },
+  studentItemUsabled: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
+    return s.items.find( item => item.itemId == this._id).usabled;
+  },
+  studentItemWaiting: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
+    return s.items.find( item => item.itemId == this._id).waiting;
   },
   cards: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;

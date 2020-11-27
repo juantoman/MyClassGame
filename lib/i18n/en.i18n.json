@@ -342,5 +342,6 @@
     "chat": "Chat",
     "lowLevel": "Student level lower than necessary",
     "myCollection": "My collection",
-    "myBadges": "My badges"
+    "myBadges": "My badges",
+    "myItems": "My items"
 }

@@ -637,7 +637,7 @@
                 {{#each allBadges}}
 
                     {{#let stock=studentBadgeStock}}
-                      <li class="flip-card float-up {{#unless onlyStudentChromeStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
+                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
                         <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
                             <span class="item-image {{#unless stock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>
@@ -787,7 +787,7 @@
 
                     {{#let stock=studentChromeStock}}
 
-                      <li class="flip-card float-up {{#unless onlyStudentChromeStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
+                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
                         <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
                             <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
@@ -852,7 +852,16 @@
                 {{/each}}
               </div>
               -->
-              <h2>{{_ "store"}}</h2>
+              <h2>{{_ "store"}}
+                <div class="btn-group btn-group-badges" data-toggle="buttons">
+                  <label class="btn btn-info stockVisible">
+                    <input type="radio" name="stock">{{_ "myItems"}}
+                  </label>
+                  <label class="btn btn-info allVisible">
+                    <input type="radio" name="all">{{_ "all"}}
+                  </label>
+                </div>
+              </h2>
           		<hr class="colorgraph">
               <ul class="list-items">
                 {{#each items}}
@@ -864,8 +873,8 @@
                     {{#if myuser}}
                       {{#if stock}}
                         <span class="btn card-btns {{#if usabled}}useItem{{/if}} {{#if waiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
-                          {{#unless usabled}}<span>{{#if waiting}}W{{else}}D{{/if}}</span>{{/unless}}
-                          {{#if usabled}}<span>U</span>{{/if}}
+                          {{#unless usabled}}<span>{{#if waiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
+                          {{#if usabled}}<span>{{_ "use"}}</span>{{/if}}
                         </span>
                       {{/if}}
                     {{/if}}
@@ -876,6 +885,71 @@
                     <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
                   </li>
                 {{/if}}
+              </ul>
+              <ul class="list-items">
+                {{#if myuser}}
+                  <li class="list-item addBtn btn-store">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
+                {{#each allItems}}
+
+                    {{#let stock=studentItemStock}}
+
+                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
+                        <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
+                          <div class="flip-card-front">
+                            <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{image_url itemImage}}" alt=""></span>
+                            <div class="flip-card-level">
+                              {{itemLevel}}
+                            </div>
+                            <div class="flip-card-stock">
+                              {{stock}}
+                            </div>
+                            <div class="flip-card-front-name">
+                              {{itemName}}
+                            </div>
+                          </div>
+                          <div class="flip-card-back">
+                            <img class="flip-card-back-img" src="{{image_url itemImage}}" alt="">
+                            <div class="flip-card-back-text">
+                              <h4 class="flip-card-name">{{itemName}}</h4>
+                              <p class="flip-card-desc">{{itemDescription}}</p>
+                              <h5 class="flip-card-XP">{{price}} <i class="fa fa-coins"></i></h5>
+                            </div>
+                            <div class="flip-card-back-buttons">
+                              {{#if teacher}}
+                                <a href="javascript:voclass" class="{{#if stock}}flip-card-item-remove{{/if}}">
+                                  <i class="fa fa-minus"></i>
+                                </a>
+                              {{/if}}
+                              <span class="flip-card-number">
+                                {{stock}}
+                              </span>
+                              {{#if teacher}}
+                                <a href="javascript:voclass" class="flip-card-item-add">
+                                  <i class="fa fa-plus"></i>
+                                </a>
+                              {{/if}}
+                            </div>
+                            <a href="javascript:voclass" class="flip-card-turn">
+                              <i class="fa fa-undo"></i>
+                            </a>
+                            {{#if myuser}}
+                              {{#if stock}}
+                                <span class="btn card-btns {{#if studentItemUsabled}}useItem{{/if}} {{#if studentItemWaiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
+                                  {{#unless studentItemUsabled}}<span>{{#if studentItemWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
+                                  {{#if studentItemUsabled}}<span>{{_ "use"}}</span>{{/if}}
+                                </span>
+                              {{/if}}
+                            {{/if}}
+                          </div>
+                        </div>
+                      </li>
+
+                    {{/let}}
+
+                {{/each}}
               </ul>
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Historial">

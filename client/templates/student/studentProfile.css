@@ -185,12 +185,13 @@
 
 .studentInventory .card-btns {
   position: absolute;
-  left: -2px;
-  bottom: -2px;
-  border-radius: 6px;
-  padding: .5rem 1rem;
+  left: 6px;
+  top: 6px;
+  border-radius: 2px;
+  padding: .1rem .2rem;
   background-color: red;
   color: white;
+  font-size:1em !important;
 }
 
 .studentInventory .waitingCard, .studentInventory .waitingItem {
