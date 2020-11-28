@@ -9,11 +9,14 @@
           {{#each notiItem}}
             <li class="list-item validarItem">
               <div class="{{#if used}}elementUsed{{/if}}">
-                <span class="power-icon">{{item.itemName}}</span>
+                <span class="notification-name text-center">{{item.itemName}}</span>
                 <span class="item-image"><img src="{{element_src item.itemImage}}" alt=""></span>
-                <span class="item-strength">{{student.studentName}}</span>
+                <span class="notification-student text-center">{{student.studentName}}</span>
               </div>
               {{#if used}}
+                <div class="notification-remove">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </div>
                 <span class="displayUsed">{{_ 'accepted'}}</span>
               {{/if}}
             </li>
@@ -27,11 +30,14 @@
           {{#each notiCards}}
             <li class="list-item validarCard">
               <div class="{{#if used}}elementUsed{{/if}}">
-                <span class="power-icon">{{card.cardName}}</span>
+                <span class="notification-name text-center">{{card.cardName}}</span>
                 <span class="item-image"><img src="{{element_src  card.cardImage}}" alt=""></span>
-                <span class="item-strength">{{student.studentName}}</span>
+                <span class="notification-student text-center">{{student.studentName}}</span>
               </div>
               {{#if used}}
+                <div class="notification-remove">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </div>
                 <span class="displayUsed">{{_ 'accepted'}}</span>
               {{/if}}
             </li>

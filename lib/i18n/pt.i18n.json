@@ -90,6 +90,7 @@
     "battles": "Batalhas",
     "tools": "Ferramentas",
     "history": "Historial",
+    "notification": "Notificação",
     "notifications": "Notificações",
     "configuration": "Configuração",
     "help": "Ajuda",
@@ -346,5 +347,6 @@
     "myItems": "Meus artigos",
     "demand": "Pedir",
     "waiting": "Esperando...",
-    "use": "Usar"
+    "use": "Usar",
+    "remove": "Remover"
 }

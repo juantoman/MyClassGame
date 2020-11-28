@@ -90,6 +90,7 @@
     "battles": "Batalles",
     "tools": "Ferramentes",
     "history": "Historial",
+    "notification": "Notificació",
     "notifications": "Notificacions",
     "configuration": "Configuració",
     "help": "Ajuda",
@@ -346,5 +347,6 @@
     "myItems": "Els meus articles",
     "demand": "Sol·licitar",
     "waiting": "Esperant...",
-    "use": "Utilitzar"
+    "use": "Utilitzar",
+    "remove": "Eliminar"
 }

@@ -1234,20 +1234,6 @@ h4.panel-title {
   opacity: 0.5 !important;
 }
 
-.displayUsed{
-  position: absolute;
-  left: 8px;
-  bottom: 50px;
-  border-radius: 6px;
-  padding: .5rem 1rem;
-  outline: 1px solid grey;
-  outline-offset: -6px;
-  background-color: lime;
-  color: white;
-  font-size: 2em;
-  opacity: 1 !important;
-}
-
 .messageRead{
   background-color: lightgreen;
 }
