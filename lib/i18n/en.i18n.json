@@ -343,5 +343,8 @@
     "lowLevel": "Student level lower than necessary",
     "myCollection": "My collection",
     "myBadges": "My badges",
-    "myItems": "My items"
+    "myItems": "My items",
+    "demand": "Demand",
+    "waiting": "Waiting...",
+    "use": "Use"
 }

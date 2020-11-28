@@ -863,6 +863,7 @@
                 </div>
               </h2>
           		<hr class="colorgraph">
+              <!--
               <ul class="list-items">
                 {{#each items}}
                   <li class="list-item {{#unless stock}}difuminar{{/unless}}">
@@ -886,9 +887,10 @@
                   </li>
                 {{/if}}
               </ul>
+              -->
               <ul class="list-items">
                 {{#if myuser}}
-                  <li class="list-item addBtn btn-store">
+                  <li class="list-item addBtn btn-store float-up">
                     <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
                   </li>
                 {{/if}}
@@ -909,6 +911,14 @@
                             <div class="flip-card-front-name">
                               {{itemName}}
                             </div>
+                            {{#if myuser}}
+                              {{#if stock}}
+                                <span class="btn card-btns {{#if studentItemUsabled}}useItem{{/if}} {{#if studentItemWaiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
+                                  {{#unless studentItemUsabled}}<span>{{#if studentItemWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
+                                  {{#if studentItemUsabled}}<span>{{_ "use"}}</span>{{/if}}
+                                </span>
+                              {{/if}}
+                            {{/if}}
                           </div>
                           <div class="flip-card-back">
                             <img class="flip-card-back-img" src="{{image_url itemImage}}" alt="">
@@ -926,7 +936,7 @@
                               <span class="flip-card-number">
                                 {{stock}}
                               </span>
-                              {{#if teacher}}
+                              {{#if myuser}}
                                 <a href="javascript:voclass" class="flip-card-item-add">
                                   <i class="fa fa-plus"></i>
                                 </a>
@@ -935,14 +945,6 @@
                             <a href="javascript:voclass" class="flip-card-turn">
                               <i class="fa fa-undo"></i>
                             </a>
-                            {{#if myuser}}
-                              {{#if stock}}
-                                <span class="btn card-btns {{#if studentItemUsabled}}useItem{{/if}} {{#if studentItemWaiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
-                                  {{#unless studentItemUsabled}}<span>{{#if studentItemWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
-                                  {{#if studentItemUsabled}}<span>{{_ "use"}}</span>{{/if}}
-                                </span>
-                              {{/if}}
-                            {{/if}}
                           </div>
                         </div>
                       </li>

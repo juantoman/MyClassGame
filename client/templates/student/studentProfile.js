@@ -216,12 +216,10 @@ Template.studentProfile.helpers({
   },
   studentItemStock: function() {
     s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
-    if ( ! s ) {
+    if (!s) {
       return 0;
-    } else if ( s.items.find( item => item.itemId == this._id).stock  ) {
-      return s.items.find( item => item.itemId == this._id).stock;
     } else {
-      return 1;
+      return s.items.find( item => item.itemId == this._id).stock;
     }
   },
   studentItemUsabled: function() {
@@ -1101,8 +1099,8 @@ Template.studentProfile.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        Meteor.call('studentWaitingItem', Session.get('studentId'), this.itemId);
-        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.itemId,"item");
+        Meteor.call('studentWaitingItem', Session.get('studentId'), this._id);
+        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this._id,"item");
         swal({
           title: TAPi18n.__('solicitated') + " " +  TAPi18n.__('item'),
           type: 'success'
@@ -1110,6 +1108,7 @@ Template.studentProfile.events({
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })
+    event.stopPropagation();
     /*
     swal({
       title: "¿Estás seguro de querer solicitar el uso de este artículo?",
@@ -1139,7 +1138,7 @@ Template.studentProfile.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        Meteor.call('studentItemUse', Session.get('studentId'), this.itemId);
+        Meteor.call('studentItemUse', Session.get('studentId'), this._id);
         swal({
           title: TAPi18n.__('item') + " " +  TAPi18n.__('used'),
           type: 'success'
@@ -1147,6 +1146,7 @@ Template.studentProfile.events({
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })
+    event.stopPropagation();
     /*
     swal({
       title: "¿Estás seguro de querer utilizar este artículo?",
@@ -1467,6 +1467,77 @@ Template.studentProfile.events({
         // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
           title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('deleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    event.stopPropagation();
+  },
+  'click .flip-card-item-add': function(event) {
+    event.preventDefault();
+    l=0;
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: Session.get('studentId')}).XP;
+      l=parseInt(XP/levelXP);
+    } else {
+      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+    }
+    coins=students.findOne({_id: Session.get('studentId')}).coins;
+    if (this.itemLevel > l ) {
+      swal({
+        title: TAPi18n.__('lowLevel'),
+        type: 'warning'
+      })
+    } else if (this.price > coins ) {
+      swal({
+        title: TAPi18n.__('noMoney'),
+        type: 'warning'
+      })
+    } else {
+      swal({
+        title: TAPi18n.__('add') + " " +  TAPi18n.__('item'),
+        text: TAPi18n.__('areYouSure'),
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: TAPi18n.__('yes'),
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+            Meteor.call('buyingItem', Session.get('studentId'), this._id, this.price);
+            //Meteor.call('incCoins', Session.get('studentId'), parseInt(this.price));
+            // Meteor.call('studentBadge', Session.get('studentId'), this._id);
+            // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
+          swal({
+            title: TAPi18n.__('item') + " " +  TAPi18n.__('added'),
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
+    event.stopPropagation();
+  },
+  'click .flip-card-item-remove': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('item'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        //p=$(event.currentTarget).data('points');
+        Meteor.call('studentItemUse', Session.get('studentId'), this._id);
+        Meteor.call('incCoins', Session.get('studentId'), parseInt(this.price));
+        // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
+        // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
+        swal({
+          title: TAPi18n.__('item') + " " +  TAPi18n.__('deleted'),
           type: 'success'
         })
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'

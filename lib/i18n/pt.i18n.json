@@ -343,5 +343,8 @@
     "lowLevel": "Nível do aluno abaixo do necessário",
     "myCollection": "Minha coleção",
     "myBadges": "Meus emblemas",
-    "myItems": "Meus artigos"
+    "myItems": "Meus artigos",
+    "demand": "Pedir",
+    "waiting": "Esperando...",
+    "use": "Usar"
 }

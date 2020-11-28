@@ -343,5 +343,8 @@
     "lowLevel": "Nivell de l'estudiant inferior al necessari",
     "myCollection": "La meua col·lecció",
     "myBadges": "Les meues insignies",
-    "myItems": "Els meus articles"
+    "myItems": "Els meus articles",
+    "demand": "Sol·licitar",
+    "waiting": "Esperant...",
+    "use": "Utilitzar"
 }
