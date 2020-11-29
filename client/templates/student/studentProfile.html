@@ -706,7 +706,16 @@
                 {{/each}}
               </div>
               -->
-              <h2>{{_ "powers"}}</h2>
+              <h2>{{_ "powers"}}
+                <div class="btn-group btn-group-badges" data-toggle="buttons">
+                  <label class="btn btn-info stockVisible">
+                    <input type="radio" name="stock">{{_ "myPowers"}}
+                  </label>
+                  <label class="btn btn-info allVisible">
+                    <input type="radio" name="all">{{_ "all"}}
+                  </label>
+                </div>
+              </h2>
           		<hr class="colorgraph">
               <ul class="list-items">
                 {{#each cards}}
@@ -730,7 +739,71 @@
                   </li>
                 {{/if}}
               </ul>
+              <ul class="list-items">
+                {{#if myuser}}
+                  <li class="list-item addBtn btn-cards float-up">
+                    <span class="item-image btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></span>
+                  </li>
+                {{/if}}
+                {{#each allCards}}
 
+                    {{#let stock=studentCardStock}}
+
+                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
+                        <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
+                          <div class="flip-card-front">
+                            <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{image_url cardImage}}" alt=""></span>
+                            <div class="flip-card-level">
+                              {{cardLevel}}
+                            </div>
+                            <div class="flip-card-stock">
+                              {{stock}}
+                            </div>
+                            <div class="flip-card-front-name">
+                              {{cardName}}
+                            </div>
+                            {{#if myuser}}
+                              {{#if stock}}
+                                <span class="btn card-btns {{#if studentCardUsabled}}useCard{{/if}} {{#if studentCardWaiting}}waitingCard{{else}}demandCard{{/if}}" title="{{cardPrice}}">
+                                  {{#unless studentCardUsabled}}<span>{{#if studentCardWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
+                                  {{#if studentCardUsabled}}<span>{{_ "use"}}</span>{{/if}}
+                                </span>
+                              {{/if}}
+                            {{/if}}
+                          </div>
+                          <div class="flip-card-back">
+                            <img class="flip-card-back-img" src="{{image_url itemImage}}" alt="">
+                            <div class="flip-card-back-text">
+                              <h4 class="flip-card-name">{{cardName}}</h4>
+                              <p class="flip-card-desc">{{cardDescription}}</p>
+                              <h5 class="flip-card-XP">{{cardPrice}} <i class="fa fa-coins"></i></h5>
+                            </div>
+                            <div class="flip-card-back-buttons">
+                              {{#if teacher}}
+                                <a href="javascript:voclass" class="{{#if stock}}flip-card-card-remove{{/if}}">
+                                  <i class="fa fa-minus"></i>
+                                </a>
+                              {{/if}}
+                              <span class="flip-card-number">
+                                {{stock}}
+                              </span>
+                              {{#if myuser}}
+                                <a href="javascript:voclass" class="flip-card-card-add">
+                                  <i class="fa fa-plus"></i>
+                                </a>
+                              {{/if}}
+                            </div>
+                            <a href="javascript:voclass" class="flip-card-turn">
+                              <i class="fa fa-undo"></i>
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+
+                    {{/let}}
+
+                {{/each}}
+              </ul>
             </div>
             <div role="tabpanel" class="tab-pane float-up" id="Cromos">
               <!--

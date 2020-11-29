@@ -146,6 +146,10 @@ Template.studentProfile.helpers({
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     return store.find( { classId : Session.get('classId') } , { sort : { itemLevel : 1 } } );
   },
+  allCards: function() {
+    //return students.findOne({ _id: Session.get('studentId') } ).challenges;
+    return cards.find( { classId : Session.get('classId') } , { sort : { cardLevel : 1 } } );
+  },
   studentBadgeStock: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
     // n=students.find({'_id':Session.get('studentId'), 'badges.badgeId': this._id}).count();
@@ -222,6 +226,14 @@ Template.studentProfile.helpers({
       return s.items.find( item => item.itemId == this._id).stock;
     }
   },
+  studentCardStock: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'cards.cardId': this._id});
+    if (!s) {
+      return 0;
+    } else {
+      return 1;
+    }
+  },
   studentItemUsabled: function() {
     s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
     return s.items.find( item => item.itemId == this._id).usabled;
@@ -229,6 +241,14 @@ Template.studentProfile.helpers({
   studentItemWaiting: function() {
     s=students.findOne({'_id':Session.get('studentId'), 'items.itemId': this._id});
     return s.items.find( item => item.itemId == this._id).waiting;
+  },
+  studentCardUsabled: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'cards.cardId': this._id});
+    return s.cards.find( card => card.cardId == this._id).usabled;
+  },
+  studentCardWaiting: function() {
+    s=students.findOne({'_id':Session.get('studentId'), 'cards.cardId': this._id});
+    return s.cards.find( card => card.cardId == this._id).waiting;
   },
   cards: function() {
     //return students.findOne({ _id: Session.get('studentId') } ).challenges;
@@ -1015,8 +1035,8 @@ Template.studentProfile.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        Meteor.call('studentWaitingCard', Session.get('studentId'), this.cardId);
-        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this.cardId,"card");
+        Meteor.call('studentWaitingCard', Session.get('studentId'), this._id);
+        Meteor.call('notificationInsert', Session.get('classId'), Session.get('studentId'), this._id,"card");
         swal({
           title: TAPi18n.__('solicitated') + " " +  TAPi18n.__('power'),
           type: 'success'
@@ -1024,6 +1044,7 @@ Template.studentProfile.events({
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })
+    event.stopPropagation();
     /*
     swal({
       title: "¿Estás seguro de querer solicitar el uso de esta carta?",
@@ -1054,7 +1075,7 @@ Template.studentProfile.events({
         cancelButtonText: 'No'
       }).then((result) => {
         if (result.value) {
-          Meteor.call('studentCardPull', Session.get('studentId'), this.cardId);
+          Meteor.call('studentCardPull', Session.get('studentId'), this._id);
           Meteor.call('usingCard', Session.get('studentId'), event.currentTarget.title);
           swal({
             title: TAPi18n.__('power') + " " +  TAPi18n.__('used'),
@@ -1087,6 +1108,7 @@ Template.studentProfile.events({
         icon: "warning",
       });
     }
+    event.stopPropagation();
   },
   'click .demandItem': function(event) {
     event.preventDefault();
@@ -1534,6 +1556,77 @@ Template.studentProfile.events({
         //p=$(event.currentTarget).data('points');
         Meteor.call('studentItemUse', Session.get('studentId'), this._id);
         Meteor.call('incCoins', Session.get('studentId'), parseInt(this.price));
+        // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
+        // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
+        swal({
+          title: TAPi18n.__('item') + " " +  TAPi18n.__('deleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
+    event.stopPropagation();
+  },
+  'click .flip-card-card-add': function(event) {
+    event.preventDefault();
+    l=0;
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      XP=students.findOne({_id: Session.get('studentId')}).XP;
+      l=parseInt(XP/levelXP);
+    } else {
+      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+    }
+    coins=students.findOne({_id: Session.get('studentId')}).coins;
+    if (this.cardLevel > l ) {
+      swal({
+        title: TAPi18n.__('lowLevel'),
+        type: 'warning'
+      })
+    } else if (this.cardPrice > coins ) {
+      swal({
+        title: TAPi18n.__('noMoney'),
+        type: 'warning'
+      })
+    } else {
+      swal({
+        title: TAPi18n.__('add') + " " +  TAPi18n.__('power'),
+        text: TAPi18n.__('areYouSure'),
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: TAPi18n.__('yes'),
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+            Meteor.call('studentCard', Session.get('studentId'), this._id);
+            Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.cardPrice));
+            // Meteor.call('studentBadge', Session.get('studentId'), this._id);
+            // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
+          swal({
+            title: TAPi18n.__('power') + " " +  TAPi18n.__('added'),
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
+    event.stopPropagation();
+  },
+  'click .flip-card-card-remove': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('delete') + " " +  TAPi18n.__('power'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        //p=$(event.currentTarget).data('points');
+        Meteor.call('studentCardPull', Session.get('studentId'), this._id);
+        Meteor.call('incCoins', Session.get('studentId'), parseInt(this.cardPrice));
         // Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         // Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
         swal({
