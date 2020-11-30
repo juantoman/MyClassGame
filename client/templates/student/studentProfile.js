@@ -1569,47 +1569,50 @@ Template.studentProfile.events({
   },
   'click .flip-card-card-add': function(event) {
     event.preventDefault();
-    l=0;
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      XP=students.findOne({_id: Session.get('studentId')}).XP;
-      l=parseInt(XP/levelXP);
-    } else {
-      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
-    }
-    coins=students.findOne({_id: Session.get('studentId')}).coins;
-    if (this.cardLevel > l ) {
-      swal({
-        title: TAPi18n.__('lowLevel'),
-        type: 'warning'
-      })
-    } else if (this.cardPrice > coins ) {
-      swal({
-        title: TAPi18n.__('noMoney'),
-        type: 'warning'
-      })
-    } else {
-      swal({
-        title: TAPi18n.__('add') + " " +  TAPi18n.__('power'),
-        text: TAPi18n.__('areYouSure'),
-        type: 'warning',
-        showCancelButton: true,
-        confirmButtonText: TAPi18n.__('yes'),
-        cancelButtonText: 'No'
-      }).then((result) => {
-        if (result.value) {
-            Meteor.call('studentCard', Session.get('studentId'), this._id);
-            Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.cardPrice));
-            // Meteor.call('studentBadge', Session.get('studentId'), this._id);
-            // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
-          swal({
-            title: TAPi18n.__('power') + " " +  TAPi18n.__('added'),
-            type: 'success'
-          })
-        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
-        }
-      })
+    s=students.findOne({'_id':Session.get('studentId'), 'cards.cardId': this._id});
+    if (!s) {
+      l=0;
+      xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+      if (xpChecked) {
+        levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+        XP=students.findOne({_id: Session.get('studentId')}).XP;
+        l=parseInt(XP/levelXP);
+      } else {
+        l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+      }
+      coins=students.findOne({_id: Session.get('studentId')}).coins;
+      if (this.cardLevel > l ) {
+        swal({
+          title: TAPi18n.__('lowLevel'),
+          type: 'warning'
+        })
+      } else if (this.cardPrice > coins ) {
+        swal({
+          title: TAPi18n.__('noMoney'),
+          type: 'warning'
+        })
+      } else {
+        swal({
+          title: TAPi18n.__('add') + " " +  TAPi18n.__('power'),
+          text: TAPi18n.__('areYouSure'),
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: TAPi18n.__('yes'),
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.value) {
+              Meteor.call('studentCard', Session.get('studentId'), this._id);
+              Meteor.call('incCoins', Session.get('studentId'), -parseInt(this.cardPrice));
+              // Meteor.call('studentBadge', Session.get('studentId'), this._id);
+              // Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
+            swal({
+              title: TAPi18n.__('power') + " " +  TAPi18n.__('added'),
+              type: 'success'
+            })
+          // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+          }
+        })
+      }
     }
     event.stopPropagation();
   },
