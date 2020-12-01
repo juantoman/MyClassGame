@@ -6,7 +6,20 @@ Template.badgeModal.helpers({
     cloudinary_url=images.findOne({_id: imgId }).image_url;
     cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
     return cloudinary_url;
-  }
+  },
+  badgeDisabled: function() {
+    s=students.findOne({_id: Session.get('studentId')});
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      l=parseInt(s.XP/levelXP);
+    } else {
+      l=parseInt(s.level);
+    }
+    if ( l < this.cardLevel ) {
+      return "disabled";
+    }
+  },
 });
 
 Template.badgeModal.events({

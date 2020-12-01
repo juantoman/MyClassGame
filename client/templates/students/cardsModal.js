@@ -35,7 +35,28 @@ Template.cardsModal.helpers({
     return list;
   },
   chromeDisabled: function() {
-    if ( students.findOne({_id:Session.get('studentId')}).level < this.chromeLevel ) {
+    s=students.findOne({_id: Session.get('studentId')});
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      l=parseInt(s.XP/levelXP);
+    } else {
+      l=parseInt(s.level);
+    }
+    if ( l < this.chromeLevel ) {
+      return "disabled";
+    }
+  },
+  cardDisabled: function() {
+    s=students.findOne({_id: Session.get('studentId')});
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      l=parseInt(s.XP/levelXP);
+    } else {
+      l=parseInt(s.level);
+    }
+    if ( l < this.cardLevel ) {
       return "disabled";
     }
   },
@@ -84,7 +105,6 @@ Template.cardsModal.events({
           title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('added'),
           type: 'success'
         })
-        Modal.hide('cardsModal');
         // if (c.chromeLevel > l ) {
         //   swal({
         //     title: TAPi18n.__('lowLevel'),
@@ -127,8 +147,9 @@ Template.cardsModal.events({
         // }
       });
     }
+    Modal.hide('cardsModal');
   },
-  'click .list-group-item': function(event) {
+  'click .chromesModal .list-group-item': function(event) {
     event.preventDefault();
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
       $(event.currentTarget).removeClass("list-group-item-danger");
@@ -136,6 +157,14 @@ Template.cardsModal.events({
     } else {
       $(event.currentTarget).addClass("list-group-item-danger");
       Session.set('spentCoins', Session.get('spentCoins')+parseInt(this.chromePrice));
+    }
+  },
+  'click .cardsModal .list-group-item': function(event) {
+    event.preventDefault();
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      $(event.currentTarget).removeClass("list-group-item-danger");
+    } else {
+      $(event.currentTarget).addClass("list-group-item-danger");
     }
   }
 });

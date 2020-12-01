@@ -196,7 +196,12 @@ p {
   border:1px solid lightblue !important;
 }
 
+.cardsModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;
+}
+
 .chromesModal button:disabled {
   background-color: lightgray;
-  opacity:0.3;  
+  opacity:0.3;
 }
