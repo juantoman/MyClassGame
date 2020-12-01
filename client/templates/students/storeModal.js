@@ -27,15 +27,28 @@ Template.storeModal.helpers({
     } else {
      return false;
     };
-  }
+  },
+  itemDisabled: function() {
+    s=students.findOne({_id: Session.get('studentId')});
+    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    if (xpChecked) {
+      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      l=parseInt(s.XP/levelXP);
+    } else {
+      l=parseInt(s.level);
+    }
+    if ( l < this.itemLevel ) {
+      return "disabled";
+    }
+  },
 });
 
 Template.storeModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
-    $(event.currentTarget).toggleClass("list-item-selected");
+    $(event.currentTarget).toggleClass("list-group-item-danger");
     coins=parseInt($(event.currentTarget).find(".price").text());
-    if ($(event.currentTarget).hasClass("list-item-selected")){
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
       Session.set('spentCoins', Session.get('spentCoins') + coins);
     } else {
       Session.set('spentCoins', Session.get('spentCoins') - coins);
@@ -64,7 +77,7 @@ Template.storeModal.events({
       price+=parseInt($(this).find(".price").text());
     });
     if ( coins >= price ) {
-      $('.storeModal').find(".list-item-selected").each( function() {
+      $('.storeModal').find(".list-group-item-danger").each( function() {
         itemId=this.id;
         price=parseInt($(this).find(".price").text());
         Meteor.call('buyingItem', Session.get('studentId'), itemId, price);

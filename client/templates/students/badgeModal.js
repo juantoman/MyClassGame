@@ -16,10 +16,10 @@ Template.badgeModal.helpers({
     } else {
       l=parseInt(s.level);
     }
-    if ( l < this.cardLevel ) {
+    if ( l < this.level ) {
       return "disabled";
     }
-  },
+  }
 });
 
 Template.badgeModal.events({

@@ -88,7 +88,7 @@ p {
 }
 @-webkit-keyframes float-up {
   0% {
-    -webkit-transform: translateY(8%);
+    -webkit-transform: translateY(10px);
     opacity: 0;
   }
   100% {
@@ -98,7 +98,7 @@ p {
 }
 @-moz-keyframes float-up {
   0% {
-    transform: translateY(8%);
+    transform: translateY(10px);
     opacity: 0;
   }
   100% {
@@ -108,7 +108,7 @@ p {
 }
 @-webkit-keyframes float-up {
   0% {
-    transform: translateY(8%);
+    transform: translateY(10px);
     opacity: 0;
   }
   100% {
@@ -118,7 +118,7 @@ p {
 }
 @-o-keyframes float-up {
   0% {
-    transform: translateY(8%);
+    transform: translateY(10px);
     opacity: 0;
   }
   100% {
@@ -128,7 +128,7 @@ p {
 }
 @keyframes float-up {
   0% {
-    transform: translateY(8%);
+    transform: translateY(10px);
     opacity: 0;
   }
   100% {
@@ -202,6 +202,16 @@ p {
 }
 
 .chromesModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;
+}
+
+.badgeModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;
+}
+
+.storeModal button:disabled {
   background-color: lightgray;
   opacity:0.3;
 }

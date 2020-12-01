@@ -1,4 +1,4 @@
-<template name="storeModal">
+<template name="storeModal2">
       <!-- Store Modal -->
 
   <div class="modal storeModal studentModal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -75,7 +75,8 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each itemList}}
-                      <button type="button" class="list-group-item" id="{{_id}}">
+                      <button type="button" class="list-group-item" id="{{_id}}" {{itemDisabled}}>
+                        <span class="elementLevel">{{itemLevel}}</span>
                         <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{itemName}}</h3>
@@ -95,6 +96,51 @@
                 <span class="label label-warning">{{spentCoins}} <i class="fa fa-coins"></i></span>
               </h2>
             </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default">{{_ "close"}}</button>
+            <input type="submit" id="storeModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<template name="storeModal">
+      <!-- Store Modal -->
+
+  <div class="modal storeModal fade studentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div id="group_form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GroupModalLabel">{{_ "buy"}}</h4>
+          </div>
+          <div class="modal-body">
+              <div class="form-group">
+                <ul class="list-group">
+                  {{#each itemList}}
+                    <button type="button" class="list-group-item" id="{{_id}}" data-level="{{level}}" {{itemDisabled}}>
+                      <span class="elementLevel">{{itemLevel}}</span>
+                      <img src="{{srcImage badgeImage}}" class="elementImage" />
+                      <span class="price badge badgeXP">{{price}} <i class="fa fa-coins"></i></span>
+                      <div style="width:86%;">
+                        <h3>{{itemName}}</h3>
+                        <p>{{itemDescription}}</p>
+                      </div>
+                    </button>
+                  {{/each}}
+                </ul>
+              </div>
+              <div class="text-center ">
+                <h2>
+                  <span class="label label-primary">{{coins}} <i class="fa fa-coins"></i></span>
+                  <span class="label label-warning">{{spentCoins}} <i class="fa fa-coins"></i></span>
+                </h2>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">{{_ "close"}}</button>
