@@ -22,12 +22,14 @@ Template.badgesList.helpers({
 Template.badgesList.events({
   'submit form.createBadgeForm': function(event) {
     event.preventDefault();
+    points = isNaN($(event.target).find('[name=badgePoints]').val()) || $(event.target).find('[name=badgePoints]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=badgePoints]').val());
+    level = isNaN($(event.target).find('[name=badgeLevel]').val()) || $(event.target).find('[name=badgeLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=badgeLevel]').val());
     var badge = {
       classId: Session.get('classId'),
       badgeName: $(event.target).find('[name=badgeName]').val(),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
-      points: parseInt($(event.target).find('[name=badgePoints]').val()),
-      level: parseInt($(event.target).find('[name=badgeLevel]').val()),
+      points: points,
+      level: level,
       badgeImage: Session.get('selectedImage'),
       createdOn: new Date()
     };
@@ -35,11 +37,13 @@ Template.badgesList.events({
   },
   'submit form.badgeForm': function(event) {
     event.preventDefault();
+    points = isNaN($(event.target).find('[name=badgePoints]').val()) || $(event.target).find('[name=badgePoints]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=badgePoints]').val());
+    level = isNaN($(event.target).find('[name=badgeLevel]').val()) || $(event.target).find('[name=badgeLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=badgeLevel]').val());
     var badge = {
       badgeName: $(event.target).find('[name=badgeName]').val(),
       badgeDescription: $(event.target).find('[name=badgeDescription]').val(),
-      points: parseInt($(event.target).find('[name=badgePoints]').val()),
-      level: parseInt($(event.target).find('[name=badgeLevel]').val()),
+      points: points,
+      level: level,
       badgeImage: Session.get('selectedImage')
     };
     Meteor.call('badgeUpdate', this._id, badge);

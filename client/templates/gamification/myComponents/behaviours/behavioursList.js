@@ -55,7 +55,7 @@ Template.behavioursList.events({
     } else {
       positiveBehaviour=false;
     }*/
-    var points = isNaN($(event.target).find('[name=behaviourPoints]').val()) ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
+    points = isNaN($(event.target).find('[name=behaviourPoints]').val()) || $(event.target).find('[name=behaviourPoints]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
     var behaviour = {
       classId: Session.get('classId'),
       behaviourName: $(event.target).find('[name=behaviourName]').val(),
@@ -76,7 +76,7 @@ Template.behavioursList.events({
     } else {
       positiveBehaviour=false;
     }*/
-    var points = isNaN($(event.target).find('[name=behaviourPoints]').val()) ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
+    points = isNaN($(event.target).find('[name=behaviourPoints]').val()) || $(event.target).find('[name=behaviourPoints]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=behaviourPoints]').val());
     var behaviour = {
       behaviourName: $(event.target).find('[name=behaviourName]').val(),
       behaviourDescription: $(event.target).find('[name=behaviourDescription]').val(),

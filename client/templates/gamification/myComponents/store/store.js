@@ -22,23 +22,27 @@ Template.store.helpers({
 Template.store.events({
   'submit form.createItemForm': function(event) {
     event.preventDefault();
+    price = isNaN($(event.target).find('[name=itemPrice]').val()) || $(event.target).find('[name=itemPrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=itemPrice]').val());
+    level = isNaN($(event.target).find('[name=itemLevel]').val()) || $(event.target).find('[name=itemLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=itemLevel]').val());
     var item = {
       classId: Session.get('classId'),
       itemName: $(event.target).find('[name=itemName]').val(),
       itemDescription: $(event.target).find('[name=itemDescription]').val(),
-      itemLevel: $(event.target).find('[name=itemLevel]').val(),
-      price: $(event.target).find('[name=itemPrice]').val(),
+      itemLevel: level,
+      price: price,
       createdOn: new Date()
     };
     Meteor.call('itemInsert', item);
   },
   'submit form.itemForm': function(event) {
     event.preventDefault();
+    price = isNaN($(event.target).find('[name=itemPrice]').val()) || $(event.target).find('[name=itemPrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=itemPrice]').val());
+    level = isNaN($(event.target).find('[name=itemLevel]').val()) || $(event.target).find('[name=itemLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=itemLevel]').val());
     var item = {
       itemName: $(event.target).find('[name=itemName]').val(),
       itemDescription: $(event.target).find('[name=itemDescription]').val(),
-      itemLevel: $(event.target).find('[name=itemLevel]').val(),
-      price: $(event.target).find('[name=itemPrice]').val()
+      itemLevel: level,
+      price: price
     };
     Meteor.call('itemUpdate', this._id, item);
   },

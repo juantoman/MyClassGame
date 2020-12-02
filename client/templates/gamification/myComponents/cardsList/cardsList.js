@@ -33,12 +33,14 @@ Template.cardsList.events({
   'submit form.createCardForm': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
+    price = isNaN($(event.target).find('[name=cardPrice]').val()) || $(event.target).find('[name=cardPrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardPrice]').val());
+    level = isNaN($(event.target).find('[name=cardLevel]').val()) || $(event.target).find('[name=cardLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardLevel]').val());
     var card = {
       classId: Session.get('classId'),
       cardName: $(event.target).find('[name=cardName]').val(),
       cardDescription: $(event.target).find('[name=cardDescription]').val(),
-      cardLevel: $(event.target).find('[name=cardLevel]').val(),
-      cardPrice: $(event.target).find('[name=cardPrice]').val(),
+      cardLevel: level,
+      cardPrice: price,
       cardImage: Session.get('selectedImage'),
       cardType: $(event.target).find('[name=cardType]').val(),
       createdOn: new Date()
@@ -48,11 +50,13 @@ Template.cardsList.events({
   'submit form.cardForm': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
+    price = isNaN($(event.target).find('[name=cardPrice]').val()) || $(event.target).find('[name=cardPrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardPrice]').val());
+    level = isNaN($(event.target).find('[name=cardLevel]').val()) || $(event.target).find('[name=cardLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardLevel]').val());
     var card = {
       cardName: $(event.target).find('[name=cardName]').val(),
       cardDescription: $(event.target).find('[name=cardDescription]').val(),
-      cardLevel: $(event.target).find('[name=cardLevel]').val(),
-      cardPrice: $(event.target).find('[name=cardPrice]').val(),
+      cardLevel: level,
+      cardPrice: price,
       cardImage: Session.get('selectedImage'),
       cardType: $(event.target).find('[name=cardType]').val()
     };

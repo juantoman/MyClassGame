@@ -22,12 +22,14 @@ Template.chromesList.helpers({
 Template.chromesList.events({
   'submit form.createChromeForm': function(event) {
     event.preventDefault();
+    price = isNaN($(event.target).find('[name=chromePrice]').val()) || $(event.target).find('[name=chromePrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromePrice]').val());
+    level = isNaN($(event.target).find('[name=chromeLevel]').val()) || $(event.target).find('[name=chromeLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromeLevel]').val());
     var chrome = {
       classId: Session.get('classId'),
       chromeName: $(event.target).find('[name=chromeName]').val(),
       chromeDescription: $(event.target).find('[name=chromeDescription]').val(),
-      chromeLevel: $(event.target).find('[name=chromeLevel]').val(),
-      chromePrice: $(event.target).find('[name=chromePrice]').val(),
+      chromeLevel: level,
+      chromePrice: price,
       chromeImage: Session.get('selectedImage'),
       createdOn: new Date()
     };
@@ -35,11 +37,13 @@ Template.chromesList.events({
   },
   'submit form.chromeForm': function(event) {
     event.preventDefault();
+    price = isNaN($(event.target).find('[name=chromePrice]').val()) || $(event.target).find('[name=chromePrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromePrice]').val());
+    level = isNaN($(event.target).find('[name=chromeLevel]').val()) || $(event.target).find('[name=chromeLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromeLevel]').val());
     var chrome = {
       chromeName: $(event.target).find('[name=chromeName]').val(),
       chromeDescription: $(event.target).find('[name=chromeDescription]').val(),
-      chromeLevel: $(event.target).find('[name=chromeLevel]').val(),
-      chromePrice: $(event.target).find('[name=chromePrice]').val()
+      chromeLevel: level,
+      chromePrice: price
     };
     Meteor.call('chromeUpdate', this._id, chrome);
   },
