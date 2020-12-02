@@ -319,7 +319,7 @@ Template.allHPModal.events({
 
 Template.allBGModal.helpers({
   bgs: function() {
-    return badges.find({ classId: Session.get('classId') });
+    return badges.find({ classId: Session.get('classId') }, { sort : { level : 1 } } );
   },
   hps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: false });
@@ -334,7 +334,27 @@ Template.allBGModal.helpers({
     cloudinary_url=images.findOne({_id: imgId }).image_url;
     cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
     return cloudinary_url;
-  }
+  },
+  badgeDisabled: function() {
+    // xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    // if (!xpChecked) {
+      l= students.findOne( { $and: [ { 'selected': 1 } , { 'classId': Session.get('classId')  } ] } , { sort : {level: 1} }).level;
+      alert(l);
+      if ( l < this.level ) {
+        return "disabled";
+      }
+    //}
+    // students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (s){
+    //   if (xpChecked) {
+    //     levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //     l=parseInt(s.XP/levelXP);
+    //   } else {
+    //     l=parseInt(s.level);
+    //   }
+    //   if ( l < this.chromeLevel ) {
+    //     return "disabled";
+    //   }
+  },
 });
 
 Template.allBGModal.events({

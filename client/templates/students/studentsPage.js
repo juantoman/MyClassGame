@@ -162,12 +162,16 @@ Template.studentsPage.helpers({
   },
   levelAutomatic: function(id) {
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    na=students.findOne({_id: id}).level;
     if (xpChecked) {
       levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
       XP=students.findOne({_id: id}).XP;
       n=parseInt(XP/levelXP);
+      if ( na != n ) {
+        Meteor.call('studentLevel', this._id, n);
+      }
     } else {
-      n=students.findOne({_id: id}).level;
+      n=na;
     }
     return n;
   },
