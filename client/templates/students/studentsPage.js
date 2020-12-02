@@ -166,7 +166,11 @@ Template.studentsPage.helpers({
     if (xpChecked) {
       levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
       XP=students.findOne({_id: id}).XP;
-      n=parseInt(XP/levelXP);
+      if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
+        n=0;
+      } else {
+        n=parseInt(XP/levelXP);
+      }
       if ( na != n ) {
         Meteor.call('studentLevel', this._id, n);
       }

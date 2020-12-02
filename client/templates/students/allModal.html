@@ -244,7 +244,7 @@
 
 <!-- All BG Modal -->
 <template name="allBGModal">
-   <div class="modal fade studentModal" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal allBGModal" id="bg_modal_group" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="add_bg_form">
@@ -303,7 +303,8 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each cards}}
-                      <button type="button" class="list-group-item" id="{{_id}}">
+                      <button type="button" class="list-group-item" id="{{_id}}" {{cardDisabled}}>
+                        <span class="elementLevel">{{cardLevel}}</span>
                         <img src="{{srcImage cardImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:74%;float:left;">
                           <h3>{{cardName}}</h3>
@@ -319,7 +320,8 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
-                      <button type="button" class="list-group-item" id="{{_id}}">
+                      <button type="button" class="list-group-item" id="{{_id}}" {{chromeDisabled}}>
+                        <span class="elementLevel">{{chromeLevel}}</span>
                         <img src="{{srcImage chromeImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{chromeName}}</h3>
@@ -455,7 +457,7 @@
 
 <!-- All Store Modal -->
 <template name="allStoreModal">
-   <div class="modal fade studentModal" id="all_store_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+   <div class="modal fade studentModal storeModal" id="all_store_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div id="group_form">
@@ -525,7 +527,8 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each itemList}}
-                      <button type="button" class="list-group-item" id="{{_id}}">
+                      <button type="button" class="list-group-item" id="{{_id}}" {{itemDisabled}}>
+                        <span class="elementLevel">{{itemLevel}}</span>
                         <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
                           <h3>{{itemName}}</h3>

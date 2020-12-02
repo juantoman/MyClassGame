@@ -215,3 +215,13 @@ p {
   background-color: lightgray;
   opacity:0.3;
 }
+
+.allBGModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;
+}
+
+.storeModal button:disabled {
+  background-color: lightgray;
+  opacity:0.3;
+}

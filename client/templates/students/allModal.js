@@ -336,8 +336,6 @@ Template.allBGModal.helpers({
     return cloudinary_url;
   },
   badgeDisabled: function() {
-    //xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    //if (!xpChecked) {
       l=100000;
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
         if (s.level < l) {
@@ -347,18 +345,7 @@ Template.allBGModal.helpers({
       if ( l < this.level ) {
         return "disabled";
       }
-    //}
-    // students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (s){
-    //   if (xpChecked) {
-    //     levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-    //     l=parseInt(s.XP/levelXP);
-    //   } else {
-    //     l=parseInt(s.level);
-    //   }
-    //   if ( l < this.chromeLevel ) {
-    //     return "disabled";
-    //   }
-  },
+  }
 });
 
 Template.allBGModal.events({
@@ -404,6 +391,28 @@ Template.allCardsModal.helpers({
   },
   students: function() {
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  cardDisabled: function() {
+      l=100000;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+        if (s.level < l) {
+          l=s.level;
+        }
+      });
+      if ( l < this.cardLevel ) {
+        return "disabled";
+      }
+  },
+  chromeDisabled: function() {
+      l=100000;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+        if (s.level < l) {
+          l=s.level;
+        }
+      });
+      if ( l < this.chromeLevel ) {
+        return "disabled";
+      }
   }
 });
 
@@ -570,7 +579,13 @@ Template.allCoinsModal.events({
 /* allStoreModal */
 
 Template.allStoreModal.rendered = function() {
-  Session.set('wonCoins', 0);
+  c=100000000000;
+  students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+    if (s.coins < c) {
+      c=s.coins;
+    }
+  });
+  Session.set('maxCoins', c);
   Session.set('spentCoins', 0);
 }
 
@@ -590,10 +605,24 @@ Template.allStoreModal.helpers({
     return students.findOne({_id: Session.get('studentId') }).coins;
   },
   wonCoins: function() {
-    return Session.get('wonCoins');
+    return Session.get('maxCoins');
   },
   spentCoins: function() {
     return Session.get('spentCoins');
+  },
+  itemDisabled: function() {
+      l=100000;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+        if (s.level < l) {
+          l=s.level;
+        }
+      });
+      if ( l < this.itemLevel ) {
+        return "disabled";
+      }
+      if ( Session.get('maxCoins') - Session.get('spentCoins') < this.price ) {
+        return "disabled";
+      }
   }
 });
 
