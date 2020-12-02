@@ -319,7 +319,7 @@ Template.allHPModal.events({
 
 Template.allBGModal.helpers({
   bgs: function() {
-    return badges.find({ classId: Session.get('classId') }, { sort : { level : 1 } } );
+    return badges.find({ classId: Session.get('classId') }, { sort : { level : 1 } });
   },
   hps: function() {
     return behaviours.find({classId: Session.get('classId'), positive: false });
@@ -336,10 +336,14 @@ Template.allBGModal.helpers({
     return cloudinary_url;
   },
   badgeDisabled: function() {
-    // xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    // if (!xpChecked) {
-      l= students.findOne( { $and: [ { 'selected': 1 } , { 'classId': Session.get('classId')  } ] } , { sort : {level: 1} }).level;
-      alert(l);
+    //xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    //if (!xpChecked) {
+      l=100000;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+        if (s.level < l) {
+          l=s.level;
+        }
+      });
       if ( l < this.level ) {
         return "disabled";
       }
