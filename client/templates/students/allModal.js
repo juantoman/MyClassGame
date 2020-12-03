@@ -377,12 +377,31 @@ Template.allBGModal.events({
 
 /* allCardsModal */
 
+Template.allCardsModal.rendered = function() {
+  c=100000000000;
+  students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+    if (s.coins < c) {
+      c=s.coins;
+    }
+  });
+  Session.set('maxCoins', c);
+  Session.set('spentCoins', 0);
+  $(".allCardsModal").find(".itemEnabled").each( function() {
+    price=$(this).find(".badge").text();
+    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  })
+}
+
 Template.allCardsModal.helpers({
   cards: function() {
-    return cards.find({ classId: Session.get('classId') });
+    return cards.find({ classId: Session.get('classId') }, { sort : { cardLevel : 1 } });
   },
   chromes: function() {
-    return chromes.find({classId: Session.get('classId')});
+    return chromes.find({classId: Session.get('classId')}, { sort : { chromeLevel : 1 } });
   },
   srcImage: function(imgId) {
     cloudinary_url=images.findOne({_id: imgId }).image_url;
@@ -400,7 +419,7 @@ Template.allCardsModal.helpers({
         }
       });
       if ( l < this.cardLevel ) {
-        return "disabled";
+        return true;
       }
   },
   chromeDisabled: function() {
@@ -411,8 +430,14 @@ Template.allCardsModal.helpers({
         }
       });
       if ( l < this.chromeLevel ) {
-        return "disabled";
+        return true;
       }
+  },
+  maxCoins: function() {
+    return Session.get('maxCoins');
+  },
+  spentCoins: function() {
+    return Session.get('spentCoins');
   }
 });
 
@@ -420,6 +445,20 @@ Template.allCardsModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
     $(event.currentTarget).toggleClass("list-group-item-danger");
+    coins=parseInt($(event.currentTarget).find(".price").text());
+    if ($(event.currentTarget).hasClass("list-group-item-danger")){
+      Session.set('spentCoins', Session.get('spentCoins') + coins);
+    } else {
+      Session.set('spentCoins', Session.get('spentCoins') - coins);
+    }
+    $(".allCardsModal").find(".itemEnabled").each( function() {
+      price=$(this).find(".badge").text();
+      if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+        $(this).prop('disabled', true);
+      } else {
+         $(this).prop('disabled', false);
+      }
+    })
   },
   'click .btn-default': function(event) {
     event.preventDefault();
@@ -612,7 +651,7 @@ Template.allStoreModal.helpers({
   coins: function() {
     return students.findOne({_id: Session.get('studentId') }).coins;
   },
-  wonCoins: function() {
+  maxCoins: function() {
     return Session.get('maxCoins');
   },
   spentCoins: function() {
