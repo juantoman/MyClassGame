@@ -163,8 +163,10 @@ Template.cardsModal.events({
     event.preventDefault();
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
       $(event.currentTarget).removeClass("list-group-item-danger");
+      Session.set('spentCoins', Session.get('spentCoins')-parseInt(this.cardPrice));
     } else {
       $(event.currentTarget).addClass("list-group-item-danger");
+      Session.set('spentCoins', Session.get('spentCoins')+parseInt(this.cardPrice));
     }
   }
 });
