@@ -587,6 +587,14 @@ Template.allStoreModal.rendered = function() {
   });
   Session.set('maxCoins', c);
   Session.set('spentCoins', 0);
+  $(".storeModal").find(".itemEnabled").each( function() {
+    price=$(this).find(".badge").text();
+    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  })
 }
 
 Template.allStoreModal.helpers({
@@ -594,7 +602,7 @@ Template.allStoreModal.helpers({
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
   },
   itemList: function() {
-    return store.find({ classId: Session.get('classId') });
+    return store.find({ classId: Session.get('classId') }, { sort : { itemLevel : 1 } });
   },
   srcImage: function(imgId) {
     cloudinary_url=images.findOne({_id: imgId }).image_url;
@@ -610,7 +618,7 @@ Template.allStoreModal.helpers({
   spentCoins: function() {
     return Session.get('spentCoins');
   },
-  itemDisabled: function() {
+  itemLevelDisabled: function() {
       l=100000;
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
         if (s.level < l) {
@@ -618,10 +626,9 @@ Template.allStoreModal.helpers({
         }
       });
       if ( l < this.itemLevel ) {
-        return "disabled";
-      }
-      if ( Session.get('maxCoins') - Session.get('spentCoins') < this.price ) {
-        return "disabled";
+        return true;
+      // } else if ( Session.get('maxCoins') - Session.get('spentCoins') < this.price ) {
+      //   return "disabled";
       }
   }
 });
@@ -636,6 +643,14 @@ Template.allStoreModal.events({
     } else {
       Session.set('spentCoins', Session.get('spentCoins') - coins);
     }
+    $(".storeModal").find(".itemEnabled").each( function() {
+      price=$(this).find(".badge").text();
+      if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+        $(this).prop('disabled', true);
+      } else {
+         $(this).prop('disabled', false);
+      }
+    })
   },
   'click .btn-default': function(event) {
     event.preventDefault();

@@ -527,7 +527,7 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each itemList}}
-                      <button type="button" class="list-group-item" id="{{_id}}" {{itemDisabled}}>
+                      <button type="button" class="list-group-item {{#unless itemLevelDisabled}}itemEnabled{{/unless}}" id="{{_id}}" disabled="{{#if itemLevelDisabled}}disabled{{/if}}">
                         <span class="elementLevel">{{itemLevel}}</span>
                         <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">

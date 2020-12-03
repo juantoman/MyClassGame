@@ -21,6 +21,21 @@ Template.levelsTemplate.events({
   'change .xpCheck': function(event) {
     event.preventDefault();
     Meteor.call('xpChangeLevel', Session.get('classId'), event.currentTarget.checked);
+    if (event.currentTarget.checked) {
+      students.find( { classId: Session.get('classId') }).forEach(function (s){
+        na=s.level;
+        levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+        XP=s.XP;
+        if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
+          n=0;
+        } else {
+          n=parseInt(XP/levelXP);
+        }
+        if ( na != n ) {
+          Meteor.call('studentLevel', s._id, n);
+        }
+      })
+    }
   },
   'submit form': function(event) {
     event.preventDefault();
