@@ -186,6 +186,12 @@ Template.studentsMainPage.events({
       Modal.show('allCardsModal');
     }
   },
+  'click .btn-chromes': function(event) {
+    event.preventDefault();
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('allChromesModal');
+    }
+  },
   'click .btn-coins3': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {

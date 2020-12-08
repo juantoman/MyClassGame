@@ -377,24 +377,24 @@ Template.allBGModal.events({
 
 /* allCardsModal */
 
-Template.allCardsModal.rendered = function() {
-  c=100000000000;
-  students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
-    if (s.coins < c) {
-      c=s.coins;
-    }
-  });
-  Session.set('maxCoins', c);
-  Session.set('spentCoins', 0);
-  $(".allCardsModal").find(".itemEnabled").each( function() {
-    price=$(this).find(".badge").text();
-    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
-      $(this).prop('disabled', true);
-    } else {
-      $(this).prop('disabled', false);
-    }
-  })
-}
+// Template.allCardsModal.rendered = function() {
+//   n=0;
+//   students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+//     n++;
+//     if ( n==1 || s.coins < c ) { c=s.coins; }
+//   });
+//   if (n==0) { c=0; }
+//   Session.set('maxCoins', c);
+//   Session.set('spentCoins', 0);
+//   $(".allCardsModal").find(".itemEnabled").each( function() {
+//     price=$(this).find(".badge").text();
+//     if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+//       $(this).prop('disabled', true);
+//     } else {
+//       $(this).prop('disabled', false);
+//     }
+//   })
+// }
 
 Template.allCardsModal.helpers({
   cards: function() {
@@ -412,23 +412,23 @@ Template.allCardsModal.helpers({
     return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
   },
   cardDisabled: function() {
-      l=100000;
-      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
-        if (s.level < l) {
-          l=s.level;
-        }
-      });
-      if ( l < this.cardLevel ) {
-        return true;
-      }
+    n=0;
+    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+      n++;
+      if ( n==1 || s.level < l ) { l=s.level; }
+    });
+    if (n==0) { l=0; }
+    if ( l < this.cardLevel ) {
+      return true;
+    }
   },
   chromeDisabled: function() {
-      l=100000;
+      n=0;
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
-        if (s.level < l) {
-          l=s.level;
-        }
+        n++;
+        if ( n==1 || s.level < l ) { l=s.level; }
       });
+      if (n==0) { l=0; }
       if ( l < this.chromeLevel ) {
         return true;
       }
@@ -445,13 +445,141 @@ Template.allCardsModal.events({
   'click .list-group-item': function(event) {
     event.preventDefault();
     $(event.currentTarget).toggleClass("list-group-item-danger");
+    // coins=parseInt($(event.currentTarget).find(".price").text());
+    // if ($(event.currentTarget).hasClass("list-group-item-danger")){
+    //   Session.set('spentCoins', Session.get('spentCoins') + coins);
+    // } else {
+    //   Session.set('spentCoins', Session.get('spentCoins') - coins);
+    // }
+    // $(".allCardsModal").find(".itemEnabled").each( function() {
+    //   price=$(this).find(".badge").text();
+    //   if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+    //     $(this).prop('disabled', true);
+    //   } else {
+    //      $(this).prop('disabled', false);
+    //   }
+    // })
+  },
+  'click .btn-default': function(event) {
+    event.preventDefault();
+    Modal.hide('allCardsModal');
+  },
+  'click #cardModalSubmit': function(event) {
+    event.preventDefault();
+    // $('.all_cards_modal').find(".list-group-item-danger").each( function() {
+    //   itemId=this.id;
+    //   price=parseInt($(this).find(".badge").text());
+    //   students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+    //     coins = students.findOne({_id: item["_id"]}).coins;
+    //     if ( coins >= price ) {
+    //       Meteor.call('buyingItem', item["_id"], itemId, price);
+    //       coins-=price;
+    //     } else {
+    //       //alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
+    //       swal({
+    //         title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+    //         text: TAPi18n.__('workHard'),
+    //         icon: "warning",
+    //       });
+    //     }
+    //   });
+    // });
+    $('.cardsModal').find(".list-group-item-danger").each( function() {
+      cardId=this.id;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+        Meteor.call('studentCard', item["_id"], cardId);
+      });
+
+    });
+    // $('.chromesModal').find(".list-group-item").each( function() {
+    //   chromeId=this.id;
+    //   if ($(this).hasClass("list-group-item-danger")) {
+    //     students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+    //       Meteor.call('studentChrome', item["_id"], chromeId);
+    //     });
+    //   }
+    // });
+    Modal.hide('all_cards_modal');
+  },
+});
+
+/* allChromesModal */
+
+Template.allChromesModal.rendered = function() {
+  n=0;
+  students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+    n++;
+    if ( n==1 || s.coins < c ) { c=s.coins; }
+  });
+  if (n==0) { c=0; }
+  Session.set('maxCoins', c);
+  Session.set('spentCoins', 0);
+  $(".allChromesModal").find(".itemEnabled").each( function() {
+    price=$(this).find(".badge").text();
+    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  })
+}
+
+Template.allChromesModal.helpers({
+  cards: function() {
+    return cards.find({ classId: Session.get('classId') }, { sort : { cardLevel : 1 } });
+  },
+  chromes: function() {
+    return chromes.find({classId: Session.get('classId')}, { sort : { chromeLevel : 1 } });
+  },
+  srcImage: function(imgId) {
+    cloudinary_url=images.findOne({_id: imgId }).image_url;
+    cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/');
+    return cloudinary_url;
+  },
+  students: function() {
+    return students.find({classId: Session.get('classId')}, { $or: [ { groupId: 0 }, { groupId: Session.get('groupId') } ] });
+  },
+  cardDisabled: function() {
+    n=0;
+    students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+      n++;
+      if ( n==1 || s.level < l ) { l=s.level; }
+    });
+    if (n==0) { l=0; }
+    if ( l < this.cardLevel ) {
+      return true;
+    }
+  },
+  chromeDisabled: function() {
+      n=0;
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+        n++;
+        if ( n==1 || s.level < l ) { l=s.level; }
+      });
+      if (n==0) { l=0; }
+      if ( l < this.chromeLevel ) {
+        return true;
+      }
+  },
+  maxCoins: function() {
+    return Session.get('maxCoins');
+  },
+  spentCoins: function() {
+    return Session.get('spentCoins');
+  }
+});
+
+Template.allChromesModal.events({
+  'click .list-group-item': function(event) {
+    event.preventDefault();
+    $(event.currentTarget).toggleClass("list-group-item-danger");
     coins=parseInt($(event.currentTarget).find(".price").text());
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
       Session.set('spentCoins', Session.get('spentCoins') + coins);
     } else {
       Session.set('spentCoins', Session.get('spentCoins') - coins);
     }
-    $(".allCardsModal").find(".itemEnabled").each( function() {
+    $(".allChromesModal").find(".itemEnabled").each( function() {
       price=$(this).find(".badge").text();
       if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
         $(this).prop('disabled', true);
@@ -462,45 +590,45 @@ Template.allCardsModal.events({
   },
   'click .btn-default': function(event) {
     event.preventDefault();
-    Modal.hide('allCardsModal');
+    Modal.hide('allChromesModal');
   },
-  'click #cardModalSubmit': function(event) {
+  'click #chromesModalSubmit': function(event) {
     event.preventDefault();
-    $('.all_cards_modal').find(".list-group-item-danger").each( function() {
-      itemId=this.id;
+    // $('.all_chromes_modal').find(".list-group-item-danger").each( function() {
+    //   itemId=this.id;
+    //   price=parseInt($(this).find(".badge").text());
+    //   students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+    //     coins = students.findOne({_id: item["_id"]}).coins;
+    //     if ( coins >= price ) {
+    //       Meteor.call('buyingItem', item["_id"], itemId, price);
+    //       coins-=price;
+    //     } else {
+    //       //alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
+    //       swal({
+    //         title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+    //         text: TAPi18n.__('workHard'),
+    //         icon: "warning",
+    //       });
+    //     }
+    //   });
+    // });
+    // $('.cardsModal').find(".list-group-item").each( function() {
+    //   cardId=this.id;
+    //   if ($(this).hasClass("list-group-item-danger")) {
+    //     students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+    //       Meteor.call('studentCard', item["_id"], cardId);
+    //     });
+    //   }
+    // });
+    $('.chromesModal').find(".list-group-item-danger").each( function() {
+      chromeId=this.id;
       price=parseInt($(this).find(".badge").text());
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-        coins = students.findOne({_id: item["_id"]}).coins;
-        if ( coins >= price ) {
-          Meteor.call('buyingItem', item["_id"], itemId, price);
-          coins-=price;
-        } else {
-          //alert(students.findOne({_id: item["_id"]}).studentName + " no tiene suficiente dinero");
-          swal({
-            title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
-            text: TAPi18n.__('workHard'),
-            icon: "warning",
-          });
-        }
+        Meteor.call('studentChrome', item["_id"], chromeId);
+        Meteor.call('incCoins', item["_id"], -price);
       });
     });
-    $('.cardsModal').find(".list-group-item").each( function() {
-      cardId=this.id;
-      if ($(this).hasClass("list-group-item-danger")) {
-        students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-          Meteor.call('studentCard', item["_id"], cardId);
-        });
-      }
-    });
-    $('.chromesModal').find(".list-group-item").each( function() {
-      chromeId=this.id;
-      if ($(this).hasClass("list-group-item-danger")) {
-        students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-          Meteor.call('studentChrome', item["_id"], chromeId);
-        });
-      }
-    });
-    Modal.hide('all_cards_modal');
+    Modal.hide('all_chromes_modal');
   },
 });
 
@@ -618,12 +746,12 @@ Template.allCoinsModal.events({
 /* allStoreModal */
 
 Template.allStoreModal.rendered = function() {
-  c=100000000000;
+  n=0;
   students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
-    if (s.coins < c) {
-      c=s.coins;
-    }
+    n++;
+    if ( n==1 || s.coins < c ) { c=s.coins; }
   });
+  if (n==0) { c=0; }
   Session.set('maxCoins', c);
   Session.set('spentCoins', 0);
   $(".storeModal").find(".itemEnabled").each( function() {

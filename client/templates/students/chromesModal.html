@@ -1,4 +1,4 @@
-<template name="cardsModal">
+<template name="chromesModal">
   <!-- HP Modal -->
    <div class="modal fade studentModal" id="cards_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
@@ -6,16 +6,16 @@
         <div id="add_card_form">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="cardsModalLabel">{{_ "powers"}}</h4>
+            <h4 class="modal-title" id="cardsModalLabel">{{_ "collections"}}</h4>
           </div>
           <div class="modal-body">
             <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "powers"}}</a></li>
-              <!--<li role="presentation"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "collections"}}</a></li>-->
+              <!--<li role="presentation" class="active"><a href="#cartas" aria-controls="cartas" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> {{_ "powers"}}</a></li>-->
+              <li role="presentation" class="active"><a href="#cromos" aria-controls="cromos" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> {{_ "collections"}}</a></li>
             </ul>
             <!-- Tab panels -->
             <div class="tab-content container-responsive">
-              <div role="tabpanel" class="tab-pane active cardsModal" id="cartas">
+              <div role="tabpanel" class="tab-pane cardsModal" id="cartas">
                 <h2 class="text-center bg-info">{{_ "powers"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
@@ -33,12 +33,12 @@
                   </ul>
                 </div>
               </div>
-              <div role="tabpanel" class="tab-pane chromesModal" id="cromos">
+              <div role="tabpanel" class="tab-pane active chromesModal" id="cromos">
                 <h2 class="text-center bg-info">{{_ "collections"}}</h2>
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each chromes}}
-                      <button type="button" class="list-group-item" data-chromeId="{{_id}}" {{chromeDisabled}} >
+                      <button type="button" class="list-group-item {{#unless chromeDisabled}}itemEnabled{{/unless}}" data-chromeId="{{_id}}" disabled="{{#if chromeDisabled}}disabled{{/if}}">
                         <span class="elementLevel">{{chromeLevel}}</span>
                         <img src="{{srcImage chromeImage}}" class="elementImage" />
                         <div style="width:72%;float:left;">
@@ -51,19 +51,17 @@
                   </ul>
                 </div>
               </div>
-              <!--
               <div class="text-center ">
                 <h2>
                   <span class="label label-primary">{{coins}} <i class="fa fa-coins"></i></span>
                   <span class="label label-warning">{{spentCoins}} <i class="fa fa-coins"></i></span>
                 </h2>
               </div>
-              -->
             </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
-            <input type="submit" id="cardModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
+            <input type="submit" id="chromesModalSubmit" class="btn btn-primary" value="{{_ "save"}}">
           </div>
         </div>
       </div>

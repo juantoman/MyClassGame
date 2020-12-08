@@ -1,13 +1,23 @@
-Template.cardsModal.rendered = function() {
+Template.chromesModal.rendered = function() {
+  c=students.findOne( { _id : Session.get("studentId") } ).coins;
+  Session.set('maxCoins', c);
   Session.set('spentCoins', 0);
+  $(".chromesModal").find(".itemEnabled").each( function() {
+    price=$(this).find(".badge").text();
+    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  })
 }
 
-Template.cardsModal.helpers({
+Template.chromesModal.helpers({
   cards: function() {
     return cards.find({classId: Session.get('classId')});
   },
   chromes: function() {
-    return chromes.find({classId: Session.get('classId')});
+    return chromes.find({classId: Session.get('classId')}, { sort : { chromeLevel : 1 } });
   },
   srcImage: function(imgId) {
     cloudinary_url=images.findOne({_id: imgId }).image_url;
@@ -35,18 +45,23 @@ Template.cardsModal.helpers({
     return list;
   },
   chromeDisabled: function() {
-    s=students.findOne({_id: Session.get('studentId')});
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
-    if ( l < this.chromeLevel ) {
-      return "disabled";
-    }
+      if ( students.findOne( { _id : Session.get("studentId") } ).level < this.chromeLevel ) {
+        return true;
+      }
   },
+  // chromeDisabled: function() {
+  //   s=students.findOne({_id: Session.get('studentId')});
+  //   xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+  //   if (xpChecked) {
+  //     levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+  //     l=parseInt(s.XP/levelXP);
+  //   } else {
+  //     l=parseInt(s.level);
+  //   }
+  //   if ( l < this.chromeLevel ) {
+  //     return "disabled";
+  //   }
+  // },
   cardDisabled: function() {
     s=students.findOne({_id: Session.get('studentId')});
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
@@ -68,8 +83,8 @@ Template.cardsModal.helpers({
   }
 });
 
-Template.cardsModal.events({
-  'click #cardModalSubmit': function(event) {
+Template.chromesModal.events({
+  'click #chromesModalSubmit': function(event) {
     event.preventDefault();
     $('.cardsModal').find(".list-group-item").each( function() {
       cardId=this.id;
@@ -81,7 +96,6 @@ Template.cardsModal.events({
         Meteor.call('studentCardPull', Session.get('studentId'), cardId);
       }
     });
-    /*
     l=0;
     s=students.findOne({_id: Session.get('studentId')});
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
@@ -148,7 +162,6 @@ Template.cardsModal.events({
         // }
       });
     }
-    */
     Modal.hide('cardsModal');
   },
   'click .chromesModal .list-group-item': function(event) {
@@ -160,7 +173,15 @@ Template.cardsModal.events({
       $(event.currentTarget).addClass("list-group-item-danger");
       Session.set('spentCoins', Session.get('spentCoins')+parseInt(this.chromePrice));
     }
-  },
+    $(".chromesModal").find(".itemEnabled").each( function() {
+      price=$(this).find(".badge").text();
+      if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+        $(this).prop('disabled', true);
+      } else {
+        $(this).prop('disabled', false);
+      }
+    })
+  }/*,
   'click .cardsModal .list-group-item': function(event) {
     event.preventDefault();
     if ($(event.currentTarget).hasClass("list-group-item-danger")){
@@ -170,5 +191,5 @@ Template.cardsModal.events({
       $(event.currentTarget).addClass("list-group-item-danger");
       Session.set('spentCoins', Session.get('spentCoins')+parseInt(this.cardPrice));
     }
-  }
+  }*/
 });

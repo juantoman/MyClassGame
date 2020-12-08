@@ -845,6 +845,18 @@ Template.studentProfile.events({
       Modal.show('cardsModal');
     }
   },
+  'click .btn-chromes': function(event) {
+    event.preventDefault();
+    if ($(event.target).closest('div').attr("id")){
+      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    } else {
+      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    }
+    Session.set('studentId',this._id);
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('chromesModal');
+    }
+  },
   'click .btn-store': function(event) {
     event.preventDefault();
     if ($(event.target).closest('div').attr("id")){

@@ -1,6 +1,15 @@
 Template.storeModal.rendered = function() {
-  Session.set('wonCoins', 0);
+  c=students.findOne( { _id : Session.get("studentId") } ).coins;
+  Session.set('maxCoins', c);
   Session.set('spentCoins', 0);
+  $(".storeModal").find(".itemEnabled").each( function() {
+    price=$(this).find(".badge").text();
+    if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+      $(this).prop('disabled', true);
+    } else {
+      $(this).prop('disabled', false);
+    }
+  })
 }
 
 Template.storeModal.helpers({
@@ -16,7 +25,7 @@ Template.storeModal.helpers({
     return students.findOne({_id: Session.get('studentId') }).coins;
   },
   wonCoins: function() {
-    return Session.get('wonCoins');
+    return Session.get('maxCoins');
   },
   spentCoins: function() {
     return Session.get('spentCoins');
@@ -29,16 +38,8 @@ Template.storeModal.helpers({
     };
   },
   itemDisabled: function() {
-    s=students.findOne({_id: Session.get('studentId')});
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
-    if ( l < this.itemLevel ) {
-      return "disabled";
+    if ( students.findOne( { _id : Session.get("studentId") } ).level < this.itemLevel ) {
+      return true;
     }
   },
 });
@@ -53,6 +54,14 @@ Template.storeModal.events({
     } else {
       Session.set('spentCoins', Session.get('spentCoins') - coins);
     }
+    $(".storeModal").find(".itemEnabled").each( function() {
+      price=$(this).find(".badge").text();
+      if ( price > Session.get('maxCoins') - Session.get('spentCoins') && ! $(this).hasClass("list-group-item-danger")) {
+        $(this).prop('disabled', true);
+      } else {
+        $(this).prop('disabled', false);
+      }
+    })
   },
   'click .btn-info': function(event) {
     event.preventDefault();

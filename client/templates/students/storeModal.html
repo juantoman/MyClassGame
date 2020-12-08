@@ -75,7 +75,7 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each itemList}}
-                      <button type="button" class="list-group-item" id="{{_id}}" {{itemDisabled}}>
+                      <button type="button" class="list-group-item {{#unless itemDisabled}}itemEnabled{{/unless}}" id="{{_id}}" disabled="{{#if itemDisabled}}disabled{{/if}}">
                         <span class="elementLevel">{{itemLevel}}</span>
                         <img src="{{srcImage itemImage}}" style="height:50px;float:left;margin-right:10px;"/>
                         <div style="width:72%;float:left;">
@@ -123,7 +123,7 @@
               <div class="form-group">
                 <ul class="list-group">
                   {{#each itemList}}
-                    <button type="button" class="list-group-item" id="{{_id}}" data-level="{{level}}" {{itemDisabled}}>
+                    <button type="button" class="list-group-item {{#unless itemDisabled}}itemEnabled{{/unless}}" id="{{_id}}" disabled="{{#if itemDisabled}}disabled{{/if}}">
                       <span class="elementLevel">{{itemLevel}}</span>
                       <img src="{{srcImage badgeImage}}" class="elementImage" />
                       <span class="price badge badgeXP">{{price}} <i class="fa fa-coins"></i></span>
