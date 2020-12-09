@@ -20,7 +20,7 @@
                 <div class="form-group">
                   <ul class="list-group">
                     {{#each cards}}
-                      <button type="button" class="list-group-item {{cardIn _id}}" id="{{_id}}" {{cardDisabled}}>
+                      <button type="button" class="list-group-item {{cardIn _id}}" id="{{_id}}" disabled="{{#if cardDisabled}}disabled{{/if}}">
                         <span class="elementLevel">{{cardLevel}}</span>
                         <img src="{{srcImage cardImage}}" class="elementImage" />
                         <div style="width:74%;float:left;">

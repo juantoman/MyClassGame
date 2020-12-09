@@ -96,15 +96,15 @@ Template.chromesModal.events({
         Meteor.call('studentCardPull', Session.get('studentId'), cardId);
       }
     });
-    l=0;
-    s=students.findOne({_id: Session.get('studentId')});
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
+    // l=0;
+    // s=students.findOne({_id: Session.get('studentId')}).level;
+    // xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   l=parseInt(s.XP/levelXP);
+    // } else {
+    //   l=parseInt(s.level);
+    // }
     if ( Session.get('spentCoins') > students.findOne({_id: Session.get('studentId') }).coins ){
       swal({
         title: TAPi18n.__('noMoney'),

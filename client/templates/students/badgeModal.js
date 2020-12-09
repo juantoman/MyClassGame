@@ -8,16 +8,19 @@ Template.badgeModal.helpers({
     return cloudinary_url;
   },
   badgeDisabled: function() {
-    s=students.findOne({_id: Session.get('studentId')});
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
-    if ( l < this.level ) {
-      return "disabled";
+    // s=students.findOne({_id: Session.get('studentId')});
+    // xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   l=parseInt(s.XP/levelXP);
+    // } else {
+    //   l=parseInt(s.level);
+    // }
+    // if ( l < this.level ) {
+    //   return "disabled";
+    // }
+    if ( students.findOne( { _id : Session.get("studentId") } ).level < this.level ) {
+      return true;
     }
   }
 });
@@ -33,27 +36,27 @@ Template.badgeModal.events({
   },
   'click #badgeModalSubmit': function(event) {
     event.preventDefault();
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    //xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
     $('.badgeModal').find(".list-group-item-danger").each( function() {
-      l=0;
-      if (xpChecked) {
-        levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-        XP=students.findOne({_id: Session.get('studentId')}).XP;
-        l=parseInt(XP/levelXP);
-      } else {
-        l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
-      }
-      if (parseInt(this.getAttribute("data-level")) > l ) {
-        swal({
-          title: "Nivel del usuario inferior al de la insignia",
-          type: 'warning'
-        })
-      } else {
+      // l=0;
+      // if (xpChecked) {
+      //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      //   XP=students.findOne({_id: Session.get('studentId')}).XP;
+      //   l=parseInt(XP/levelXP);
+      // } else {
+      //   l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+      // }
+      // if (parseInt(this.getAttribute("data-level")) > l ) {
+      //   swal({
+      //     title: "Nivel del usuario inferior al de la insignia",
+      //     type: 'warning'
+      //   })
+      // } else {
         badgeId=this.id;
         Meteor.call('studentBadge', Session.get('studentId'), badgeId);
         p=parseInt($(this).find(".badge").text());
         Meteor.call('studentXP', Session.get('studentId'), p);
-      }
+      //}
     });
     Modal.hide('badgeModal');
   },

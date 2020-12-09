@@ -48,16 +48,19 @@ Template.cardsModal.helpers({
     }
   },
   cardDisabled: function() {
-    s=students.findOne({_id: Session.get('studentId')});
-    xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
-    if ( l < this.cardLevel ) {
-      return "disabled";
+    // s=students.findOne({_id: Session.get('studentId')});
+    // xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   l=parseInt(s.XP/levelXP);
+    // } else {
+    //   l=parseInt(s.level);
+    // }
+    // if ( l < this.cardLevel ) {
+    //   return "disabled";
+    // }
+    if ( students.findOne( { _id : Session.get("studentId") } ).level < this.cardLevel ) {
+      return true;
     }
   },
   coins: function() {

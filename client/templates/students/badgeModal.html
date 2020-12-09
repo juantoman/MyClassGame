@@ -13,7 +13,7 @@
               <div class="form-group">
                 <ul class="list-group">
                   {{#each badgesList}}
-                    <button type="button" class="list-group-item" id="{{_id}}" data-level="{{level}}" {{badgeDisabled}}>
+                    <button type="button" class="list-group-item" id="{{_id}}" data-level="{{level}}" disabled="{{#if badgeDisabled}}disabled{{/if}}">
                       <span class="elementLevel">{{level}}</span>
                       <img src="{{srcImage badgeImage}}" class="elementImage" />
                       <span class="badge badgeXP">{{points}} XP</span>
