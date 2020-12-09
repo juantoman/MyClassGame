@@ -336,14 +336,23 @@ Template.allBGModal.helpers({
     return cloudinary_url;
   },
   badgeDisabled: function() {
-      l=100000;
+      // l=100000;
+      // students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
+      //   if (s.level < l) {
+      //     l=s.level;
+      //   }
+      // });
+      // if ( l < this.level ) {
+      //   return "disabled";
+      // }
+      n=0;
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] }).forEach(function (s){
-        if (s.level < l) {
-          l=s.level;
-        }
+        n++;
+        if ( n==1 || s.level < l ) { l=s.level; }
       });
+      if (n==0) { l=0; }
       if ( l < this.level ) {
-        return "disabled";
+        return true;
       }
   }
 });
