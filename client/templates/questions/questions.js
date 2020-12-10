@@ -4,6 +4,13 @@ Template.questions.helpers({
   },
   quizzes: function() {
     return quizzes.find({'classId': Session.get('classId')});
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
   }
 })
 

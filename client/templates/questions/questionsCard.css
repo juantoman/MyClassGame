@@ -1,0 +1,175 @@
+
+.taskCard
+{
+  width:200px;
+  height:200px;
+  margin:10px;
+  background-color:#292929;
+  background: linear-gradient(120deg, #21c4b6 0%, #09665f 100%);
+  display:inline-block;
+  background-size:cover;
+  position:relative;
+  cursor:pointer;
+  transition: all 0.4s ease-out;
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.44);
+  overflow:hidden;
+  color:white;
+  font-family:'Roboto';
+  border:3px solid white;
+}
+.taskCard img
+{
+  height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:0;
+  transition: all 0.4s ease-out;
+  opacity: 0.7;
+}
+.taskCard .text, .taskCard .textsecret
+{
+/*   z-index:99; */
+  position:absolute;
+  padding:20px;
+  height:calc(100% - 40px);
+  width:100%;
+}
+
+.taskCard h1
+{
+  font-size:1.5em;
+  margin: 0 0 5px 0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+
+}
+
+.taskCard h1.fasIcon {
+  position:relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  font-size: 6em;
+}
+
+.taskCard h2
+{
+  font-size:1.2em;
+  margin:20px 0 0 0;
+  font-style:italic;
+  /*transform: translateX(200px);*/
+}
+
+.taskCard p
+{
+  font-size:1em;
+  margin:20px 0 0 0;
+  line-height: 15px;
+  /*   opacity:0;
+  transform: translateX(-200px);*/
+  transition-delay: 0.2s;
+}
+
+.taskCard .animate-text
+{
+  opacity:0.5;
+  transition: all 0.6s ease-in-out;
+}
+
+.taskCard:hover
+{
+    /*   background-color:#99aeff; */
+  box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
+  transform:scale(1.05);
+}
+
+.taskCard img.taskImg
+{
+  opacity: 0.4;
+}
+
+.taskCard:hover img.taskImg
+{
+  opacity: 0.2;
+}
+
+.taskCard:hover .animate-text
+{
+  transform:translateX(0);
+  opacity:1;
+}
+
+.taskCard .taskButtons{
+  font-size: 1.5em;
+  opacity: 0.5;
+  transition: font-size 0.4s ease-out, opacity 0.5s ease;
+  cursor: pointer;
+}
+
+.chalMissionUp {
+  opacity: 1 !important;
+}
+
+.taskCard:hover .taskButtons {
+  font-size: 1.7em;
+  opacity: 1;
+}
+
+.taskCard .taskButtons .chalMissionDel{
+  position: absolute;
+  top:5px;
+  right: 10px;
+}
+
+.taskCard .taskButtons .taskVisible{
+  position: absolute;
+  top:5px;
+  left: 10px;
+}
+
+.taskCard .taskButtons .taskOrderDown{
+  position: absolute;
+  bottom:75px;
+  right: 10px;
+}
+
+.taskCard .taskButtons .taskOrderUp{
+  position: absolute;
+  bottom:75px;
+  left: 10px;
+}
+
+.taskCard .taskButtons .taskBtnCenter{
+  position: absolute;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  padding:2px;
+  transition: all 0.4s;
+}
+
+.taskCard:hover .taskButtons .taskBtnCenter{
+  background: transparent !important;
+}
+
+.taskCard .taskButtons .taskBtnCenter *{
+  margin: 0 15px;
+  transition: all 0.4s;
+}
+
+.taskCard:hover .taskButtons .taskBtnCenter *{
+  margin: 0 20px;
+}
+
+.taskCardNotVisible {
+	opacity: .9;
+	filter: grayscale(100%);
+}
+
+.taskCard .tasksecret {
+  position:absolute;
+  top:40px;
+  transform: scale(0.9);
+  width:100%;
+  -webkit-filter: drop-shadow(5px 5px 7px #FFF );
+}

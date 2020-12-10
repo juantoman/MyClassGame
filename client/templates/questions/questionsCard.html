@@ -1,0 +1,56 @@
+<template name="questionsCardTemplate">
+  <div class="taskCard {{#unless visible}}{{#if isTeacher}}taskCardNotVisible{{/if}}{{/unless}}" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
+    {{#if taskImg}}<img src=''/>{{/if}}
+    <img class="taskImg" src='{{cardPic ../missionImg}}'/>
+    {{#if TeacherOrVisible}}
+      <div class="text">
+        <h1 class="text-center">{{_ 'quiz'}} {{order}}</h1>
+        <h2 class="text-center">{{chalMissionXP}} XP</h2>
+        <p class="text-center">{{chalMissionDesc}}</p>
+      </div>
+      <h2 class="taskButtons">
+        <!-- <div class="missionVisibleBtn">
+          <i class="far {{#if missionVisible}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
+        </div> -->
+        {{#if isTeacher}}
+          <!-- <i class="taskVisible far fa-eye"></i> -->
+          <div class="taskVisibleBtn">
+            {{#if visible}}
+              <span class="glyphicon glyphicon-eye-open taskVisible" aria-hidden="true"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-eye-close taskVisible" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+          <i class="taskDel fas fa-times chalMissionDel"></i>
+        {{/if}}
+        <span class="taskBtnCenter" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
+          <!-- <i class="fas fa-th-list"></i><i class="taskBtnInfo fas fa-plus-circle"></i><i class="fas fa-graduation-cap chalMissionGrades"></i> -->
+          {{#if isTeacher}}
+            <i class="fas fa-chevron-left chalMissionUp"></i>
+          {{/if}}
+          <i class="taskBtnInfo fas fa-plus-circle"></i>
+          {{#if isTeacher}}
+            <i class="fas fa-chevron-right chalMissionDown"></i>
+          {{/if}}
+        </span>
+      </h2>
+    {{else}}
+      <div class="textsecret">
+        <h1 class="text-center">{{_ 'task'}} {{order}}</h1>
+        <img class="tasksecret" src="/images/topsecret.png" />
+      </div>
+    {{/if}}
+  </div>
+</template>
+
+<template name="questionsCardCreateTemplate">
+  <div class="taskCard" style="background: linear-gradient(120deg, {{otherColor missionColor}} 0%, {{missionColor}} 100%);">
+    {{#if quizImg}}<img src=''/>{{/if}}
+    <img src=''/>
+    <div class="text">
+      <h1 class="text-center">{{_ 'quiz'}}</h1>
+      <h1 class="text-center fasIcon"><i class="fas fa-plus-circle"></i></h1>
+      <p class="text-center">{{_ 'new'}} {{_ 'quiz'}}</p>
+    </div>
+  </div>
+</template>

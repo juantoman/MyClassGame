@@ -112,5 +112,11 @@
         </div>
       </div>
     {{/each}}
+    {{#if isTeacher}}
+      {{> questionsCardCreateTemplate}}
+    {{/if}}
+    {{#each quizzes}}
+      {{> questionsCardTemplate}}
+    {{/each}}
   </div>
 </template>
