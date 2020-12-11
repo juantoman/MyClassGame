@@ -28,7 +28,7 @@ function LightenDarkenColor(col, amt) {
 
 }
 
-Template.questionsCardTemplate.helpers({
+Template.quizCardTemplate.helpers({
   otherColor: function(color) {
     /*
     var c1 = 0x000851; // Stored as 16777215
@@ -99,7 +99,7 @@ Template.questionsCardTemplate.helpers({
   }
 });
 
-Template.questionsCardTemplate.events({
+Template.quizCardTemplate.events({
   'click .quizBtnInfo,.quizCard .text': function(event) {
     event.preventDefault();
     Session.set('quizId',this._id);
@@ -108,10 +108,31 @@ Template.questionsCardTemplate.events({
   'click .quizVisibleBtn': function(event) {
     event.preventDefault();
     Meteor.call('quizVisibleToggle', this._id);
+  },
+  'click .quizDel': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('delete') + " " + TAPi18n.__('quiz'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        Meteor.call('quizDelete', this._id);
+        Meteor.call('questionsQuizDelete', this._id);
+        swal({
+          title: TAPi18n.__('quiz') + " " + TAPi18n.__('deleted'),
+          type: 'success'
+        })
+      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+      }
+    })
   }
 });
 
-Template.questionsCardCreateTemplate.helpers({
+Template.quizCardCreateTemplate.helpers({
   otherColor: function(color) {
     /*
     var c1 = 0x000851; // Stored as 16777215
@@ -158,9 +179,9 @@ Template.questionsCardCreateTemplate.helpers({
   }
 });
 
-Template.questionsCardCreateTemplate.events({
+Template.quizCardCreateTemplate.events({
   'click .quizCard': function(event) {
     event.preventDefault();
-    Modal.show("newquizModal");
+    Modal.show("newQuizModal");
   }
 });

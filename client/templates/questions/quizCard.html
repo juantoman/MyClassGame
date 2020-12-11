@@ -1,12 +1,12 @@
-<template name="questionsCardTemplate">
+<template name="quizCardTemplate">
   <div class="quizCard {{#unless visible}}{{#if isTeacher}}quizCardNotVisible{{/if}}{{/unless}}" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
     {{#if quizImg}}<img src=''/>{{/if}}
     <img class="quizImg" src='{{cardPic ../missionImg}}'/>
     {{#if TeacherOrVisible}}
       <div class="text">
         <h1 class="text-center">{{_ 'quiz'}} {{order}}</h1>
-        <h2 class="text-center">{{chalMissionXP}} XP</h2>
-        <p class="text-center">{{chalMissionDesc}}</p>
+        <h2 class="text-center">{{quizName}}</h2>
+        <p class="text-center">{{quizDesc}}</p>
       </div>
       <h2 class="quizButtons">
         <!-- <div class="missionVisibleBtn">
@@ -43,7 +43,7 @@
   </div>
 </template>
 
-<template name="questionsCardCreateTemplate">
+<template name="quizCardCreateTemplate">
   <div class="quizCard" style="background: linear-gradient(120deg, {{otherColor missionColor}} 0%, {{missionColor}} 100%);">
     {{#if quizImg}}<img src=''/>{{/if}}
     <img src=''/>

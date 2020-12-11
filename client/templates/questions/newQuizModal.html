@@ -1,0 +1,35 @@
+<template name="newQuizModal">
+  <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GroupModalLabel">{{_ 'new'}} {{_ 'quiz'}}</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form" class="newQuizForm">
+              <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <label for="quizName" class="control-label">{{_ 'name'}}</label>
+                      <input type="text" name="quizName" class="form-control input-lg quizName" placeholder="Nombre" tabindex="1">
+                    </div>
+                  </div>
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <label>{{_ "description"}}</label>
+                      <textarea class="form-control quizDesc" name="quizDesc" rows="3"></textarea>
+                    </div>
+                  </div>
+              </div>
+              <br />
+              <div class="row">
+                <div class="col-xs-6 text-center"><button type="button" class="btn btn-default btn-block btn-lg">{{_ 'close'}}</button></div>
+                <div class="col-xs-6 text-center"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+              </div>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>

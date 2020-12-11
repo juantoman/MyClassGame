@@ -112,11 +112,13 @@
         </div>
       </div>
     {{/each}}
-    {{#if isTeacher}}
-      {{> questionsCardCreateTemplate}}
-    {{/if}}
-    {{#each quizzes}}
-      {{> questionsCardTemplate}}
-    {{/each}}
+    <div class="text-center">
+      {{#if isTeacher}}
+        {{> quizCardCreateTemplate}}
+      {{/if}}
+      {{#each quizzes}}
+        {{> quizCardTemplate}}
+      {{/each}}
+    </div>
   </div>
 </template>
