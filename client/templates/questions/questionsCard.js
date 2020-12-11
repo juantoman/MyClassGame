@@ -100,14 +100,14 @@ Template.questionsCardTemplate.helpers({
 });
 
 Template.questionsCardTemplate.events({
-  'click .taskBtnInfo,.taskCard .text': function(event) {
+  'click .quizBtnInfo,.quizCard .text': function(event) {
     event.preventDefault();
-    Session.set('taskId',this._id);
-    Modal.show("taskModal");
+    Session.set('quizId',this._id);
+    Modal.show("quizModal");
   },
-  'click .taskVisibleBtn': function(event) {
+  'click .quizVisibleBtn': function(event) {
     event.preventDefault();
-    Meteor.call('taskVisibleToggle', this._id);
+    Meteor.call('quizVisibleToggle', this._id);
   }
 });
 
@@ -159,8 +159,8 @@ Template.questionsCardCreateTemplate.helpers({
 });
 
 Template.questionsCardCreateTemplate.events({
-  'click .taskCard': function(event) {
+  'click .quizCard': function(event) {
     event.preventDefault();
-    Modal.show("newTaskModal");
+    Modal.show("newquizModal");
   }
 });

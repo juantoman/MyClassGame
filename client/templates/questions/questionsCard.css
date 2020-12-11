@@ -1,5 +1,5 @@
 
-.taskCard
+.quizCard
 {
   width:200px;
   height:200px;
@@ -17,7 +17,7 @@
   font-family:'Roboto';
   border:3px solid white;
 }
-.taskCard img
+.quizCard img
 {
   height:100%;
   position:absolute;
@@ -27,7 +27,7 @@
   transition: all 0.4s ease-out;
   opacity: 0.7;
 }
-.taskCard .text, .taskCard .textsecret
+.quizCard .text, .quizCard .textsecret
 {
 /*   z-index:99; */
   position:absolute;
@@ -36,7 +36,7 @@
   width:100%;
 }
 
-.taskCard h1
+.quizCard h1
 {
   font-size:1.5em;
   margin: 0 0 5px 0;
@@ -44,7 +44,7 @@
 
 }
 
-.taskCard h1.fasIcon {
+.quizCard h1.fasIcon {
   position:relative;
   top: 50%;
   left: 50%;
@@ -52,7 +52,7 @@
   font-size: 6em;
 }
 
-.taskCard h2
+.quizCard h2
 {
   font-size:1.2em;
   margin:20px 0 0 0;
@@ -60,7 +60,7 @@
   /*transform: translateX(200px);*/
 }
 
-.taskCard p
+.quizCard p
 {
   font-size:1em;
   margin:20px 0 0 0;
@@ -70,36 +70,36 @@
   transition-delay: 0.2s;
 }
 
-.taskCard .animate-text
+.quizCard .animate-text
 {
   opacity:0.5;
   transition: all 0.6s ease-in-out;
 }
 
-.taskCard:hover
+.quizCard:hover
 {
     /*   background-color:#99aeff; */
   box-shadow: 0px 35px 77px -17px rgba(0,0,0,0.64);
   transform:scale(1.05);
 }
 
-.taskCard img.taskImg
+.quizCard img.quizImg
 {
   opacity: 0.4;
 }
 
-.taskCard:hover img.taskImg
+.quizCard:hover img.quizImg
 {
   opacity: 0.2;
 }
 
-.taskCard:hover .animate-text
+.quizCard:hover .animate-text
 {
   transform:translateX(0);
   opacity:1;
 }
 
-.taskCard .taskButtons{
+.quizCard .quizButtons{
   font-size: 1.5em;
   opacity: 0.5;
   transition: font-size 0.4s ease-out, opacity 0.5s ease;
@@ -110,36 +110,36 @@
   opacity: 1 !important;
 }
 
-.taskCard:hover .taskButtons {
+.quizCard:hover .quizButtons {
   font-size: 1.7em;
   opacity: 1;
 }
 
-.taskCard .taskButtons .chalMissionDel{
+.quizCard .quizButtons .chalMissionDel{
   position: absolute;
   top:5px;
   right: 10px;
 }
 
-.taskCard .taskButtons .taskVisible{
+.quizCard .quizButtons .quizVisible{
   position: absolute;
   top:5px;
   left: 10px;
 }
 
-.taskCard .taskButtons .taskOrderDown{
+.quizCard .quizButtons .quizOrderDown{
   position: absolute;
   bottom:75px;
   right: 10px;
 }
 
-.taskCard .taskButtons .taskOrderUp{
+.quizCard .quizButtons .quizOrderUp{
   position: absolute;
   bottom:75px;
   left: 10px;
 }
 
-.taskCard .taskButtons .taskBtnCenter{
+.quizCard .quizButtons .quizBtnCenter{
   position: absolute;
   left:0px;
   bottom:0px;
@@ -148,25 +148,25 @@
   transition: all 0.4s;
 }
 
-.taskCard:hover .taskButtons .taskBtnCenter{
+.quizCard:hover .quizButtons .quizBtnCenter{
   background: transparent !important;
 }
 
-.taskCard .taskButtons .taskBtnCenter *{
+.quizCard .quizButtons .quizBtnCenter *{
   margin: 0 15px;
   transition: all 0.4s;
 }
 
-.taskCard:hover .taskButtons .taskBtnCenter *{
+.quizCard:hover .quizButtons .quizBtnCenter *{
   margin: 0 20px;
 }
 
-.taskCardNotVisible {
+.quizCardNotVisible {
 	opacity: .9;
 	filter: grayscale(100%);
 }
 
-.taskCard .tasksecret {
+.quizCard .quizsecret {
   position:absolute;
   top:40px;
   transform: scale(0.9);
