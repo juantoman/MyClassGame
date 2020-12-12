@@ -3,7 +3,7 @@ Template.questions.helpers({
     return questions.find({'classId': Session.get('classId'),'quizId':this._id});
   },
   quizzes: function() {
-    return quizzes.find({'classId': Session.get('classId')});
+    return quizzes.find({'classId': Session.get('classId')},{sort: {order: 1}});
   },
   isTeacher: function() {
     if (Session.get('userType')=="teacher") {
@@ -106,5 +106,15 @@ Template.questions.events({
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })
+  },
+  'click .allQuizzes': function(event) {
+    event.preventDefault();
+    $("#myQuizzes").removeClass("oculto");
+    $("#myQuiz").addClass("oculto");
+  },
+  'click .oneQuiz': function(event) {
+    event.preventDefault();
+    $("#myQuizzes").addClass("oculto");
+    $("#myQuiz").removeClass("oculto");
   }
 });

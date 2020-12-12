@@ -26,11 +26,11 @@
         <span class="quizBtnCenter" style="background: linear-gradient(120deg, {{otherColor ../missionColor}} 0%, {{../missionColor}} 100%);">
           <!-- <i class="fas fa-th-list"></i><i class="quizBtnInfo fas fa-plus-circle"></i><i class="fas fa-graduation-cap chalMissionGrades"></i> -->
           {{#if isTeacher}}
-            <i class="fas fa-chevron-left chalMissionUp"></i>
+            <i class="fas fa-chevron-left quizUp"></i>
           {{/if}}
           <i class="quizBtnInfo fas fa-plus-circle"></i>
           {{#if isTeacher}}
-            <i class="fas fa-chevron-right chalMissionDown"></i>
+            <i class="fas fa-chevron-right quizDown"></i>
           {{/if}}
         </span>
       </h2>
@@ -47,10 +47,11 @@
   <div class="quizCard" style="background: linear-gradient(120deg, {{otherColor missionColor}} 0%, {{missionColor}} 100%);">
     {{#if quizImg}}<img src=''/>{{/if}}
     <img src=''/>
-    <div class="text">
+    <div class="textCreate">
+      <h1 class="text-center">{{_ 'new'}}</h1>
       <h1 class="text-center">{{_ 'quiz'}}</h1>
       <h1 class="text-center fasIcon"><i class="fas fa-plus-circle"></i></h1>
-      <p class="text-center">{{_ 'new'}} {{_ 'quiz'}}</p>
+      <p class="text-center">{{_ 'create'}} {{_ 'quiz'}}</p>
     </div>
   </div>
 </template>

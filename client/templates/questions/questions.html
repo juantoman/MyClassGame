@@ -1,11 +1,31 @@
 <template name="questions">
   <h3 class="nameSection">{{_ 'quizzes'}}</h3>
   <div class="container-fluid float-up quizContainer">
-    <div class="input-group quizCreateContainer">
+    <!-- <div class="input-group quizCreateContainer">
       <input type="text" class="form-control" id="quizName" name="quizName" placeholder="{{_ 'name'}} {{_ 'quiz'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
       <div class="input-group-addon btn quizCreateBtn">
         <span class="input-group-text">{{_ 'create'}} {{_ 'quiz'}}</span>
       </div>
+    </div> -->
+    <div class="missionsBtns text-center">
+      <span class="btn btn-info allQuizzes">{{_ 'quizzes'}} <i class="fas fa-th"></i></span>
+      {{#each quizzes}}
+        <span class="btn {{#if visible}}btn-info{{else}}btn-default{{/if}} oneQuiz {{#if TeacherOrVisible}}oneQuiz{{/if}}" data-toggle="tooltip" data-placement="bottom" title="{{quizName}}">Q{{order}}</span>
+      {{/each}}
+    </div>
+    <div id="myQuizzes">
+      <div class="text-center">
+        {{#if isTeacher}}
+          {{> quizCardCreateTemplate}}
+        {{/if}}
+        {{#each quizzes}}
+          {{> quizCardTemplate}}
+        {{/each}}
+      </div>
+    </div>
+    <div id="myQuiz" class="oculto">
+      <p>Hola</p>
+
     </div>
     {{#each quizzes}}
       <div class="list-group">
@@ -112,13 +132,5 @@
         </div>
       </div>
     {{/each}}
-    <div class="text-center">
-      {{#if isTeacher}}
-        {{> quizCardCreateTemplate}}
-      {{/if}}
-      {{#each quizzes}}
-        {{> quizCardTemplate}}
-      {{/each}}
-    </div>
   </div>
 </template>

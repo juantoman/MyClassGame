@@ -129,7 +129,21 @@ Template.quizCardTemplate.events({
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })
-  }
+  },
+  'click .quizUp': function(event) {
+    event.preventDefault
+    o=this.order;
+    a=quizzes.findOne({classId: Session.get('classId'), order: o-1})._id;
+    Meteor.call('quizOrder', a, o);
+    Meteor.call('quizOrder', this._id, o-1);
+  },
+  'click .quizDown': function(event) {
+    event.preventDefault();
+    o=this.order;
+    s=quizzes.findOne({classId: Session.get('classId'), order: o+1})._id;
+    Meteor.call('quizOrder', s, o);
+    Meteor.call('quizOrder', this._id, o+1);
+  },
 });
 
 Template.quizCardCreateTemplate.helpers({
