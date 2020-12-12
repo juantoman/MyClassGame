@@ -103,7 +103,8 @@ Template.quizCardTemplate.events({
   'click .quizBtnInfo,.quizCard .text': function(event) {
     event.preventDefault();
     Session.set('quizId',this._id);
-    Modal.show("quizModal");
+    $("#myQuizzes").addClass("oculto");
+    $("#myQuiz").removeClass("oculto");
   },
   'click .quizVisibleBtn': function(event) {
     event.preventDefault();
@@ -143,7 +144,7 @@ Template.quizCardTemplate.events({
     s=quizzes.findOne({classId: Session.get('classId'), order: o+1})._id;
     Meteor.call('quizOrder', s, o);
     Meteor.call('quizOrder', this._id, o+1);
-  },
+  }
 });
 
 Template.quizCardCreateTemplate.helpers({
