@@ -11,7 +11,19 @@ Template.quizTemplate.helpers({
     } else {
       return false;
     };
-  }
+  },
+  questionImage: function() {
+    img=this.questionImg;
+    //return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/v1582290869/myclassgame/darth-vader-pajamas-officially-licensed-merch-the-23_kjngzn.png";
+    if (img.substring(0, 4)=="http") {
+      img=img.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
+      return img;
+    } else {
+      cloudinary_url=images.findOne({_id: img}).image_url;
+      cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
+      return cloudinary_url;
+    }
+  },
 })
 
 Template.questions.events({
@@ -72,4 +84,10 @@ Template.questions.events({
       }
     })
   },
+  'click .questionImage, click .questionBtnImage': function(event) {
+    event.preventDefault();
+    Session.set('imageType','question');
+    Session.set('idElementImage',this._id);
+    Modal.show('imagesTemplate');
+  }
 })

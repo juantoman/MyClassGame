@@ -12,3 +12,8 @@
 .quizContainer .quizRemoveBtn, .quizContainer .quizCreateBtn {
   background-color: #cb4b16 !important;
 }
+.questionImage {
+  height:190px !important;
+  margin:auto;
+  color: lightgray;
+}

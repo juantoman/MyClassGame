@@ -59,38 +59,56 @@
           {{/each}}
         </div>
       </div>
-      <form class="newQuestionForm">
-        <div class="form-group">
-          <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label>
-          <div class="input-group mb-3">
-            <div class="input-group-addon">
-              <span class="input-group-text">{{_ 'question'}}</span>
-            </div>
-            <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1">
+
+        <div class="panel panel-info" id="{{_id}}">
+          <div class="panel-heading">
+            {{_ 'create'}} {{_ 'question'}}
           </div>
-          <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
-          <div class="input-group mb-3">
-            <div class="input-group-addon btn answerBtn">
-              <span class="input-group-text">A</span>
-            </div>
-            <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} A" aria-label="repuestaA" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-addon btn answerBtn">
-              <span class="input-group-text">B</span>
-            </div>
-            <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
-          </div>
-          <div class="input-group mb-3">
-            <div class="input-group-addon btn answerBtn">
-              <span class="input-group-text">C</span>
-            </div>
-            <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
-          </div>
-          <div class=" mb-3">
-            <input type="submit" value="{{_ 'fnew'}} {{_ 'question'}}" class="btn btn-info">
+          <div class="panel-body newQuestionPanel">
+            <form class="newQuestionForm">
+              <div class="form-group">
+                <!-- <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label> -->
+                {{#if questionImg}}
+                  <div class="col-xs-12 text-center">
+                      <div class="thumbnail questionImage">
+                        <img src="{{questionImage}}">
+                      </div>
+                  </div>
+                {{/if}}
+                <div class="col-xs-12">
+                  <div class="input-group col-xs-12">
+                    <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1">
+                  </div>
+                  <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">A</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} A" aria-label="repuestaA" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">B</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">C</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
+                  </div>
+
+                </div>
+                <div class="text-center">
+                  {{#unless questionImg}}<input type="button" value="{{_ 'image'}}" class="btn btn-warning questionBtnImage">{{/unless}}
+                  <input type="submit" value="{{_ 'fnew'}} {{_ 'question'}}" class="btn btn-info">
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-      </form>
+
+
     </div>
 </template>
