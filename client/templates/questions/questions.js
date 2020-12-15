@@ -46,6 +46,8 @@ Template.questions.events({
           title: TAPi18n.__('quiz') + " " + TAPi18n.__('deleted'),
           type: 'success'
         })
+        $("#myQuizzes").removeClass("oculto");
+        $("#myQuiz").addClass("oculto");
       // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
       }
     })

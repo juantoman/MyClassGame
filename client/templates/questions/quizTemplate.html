@@ -1,20 +1,29 @@
 <template name="quizTemplate">
     <div class="container-fluid float-up">
-      <label class="control-label" for="inputGroupSuccess1">{{_ 'quiz'}}</label>
-      <div class="input-group">
-        <div class="input-group-addon">
-          <span class="input-group-text">{{_ 'name'}}</span>
-        </div>
-        {{#with quiz}}
-        <input type="text" class="form-control quizName" name="quizName" placeholder="{{_ 'name'}} {{_ 'quiz'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{quizName}}">
-        {{/with}}
-        <div class="input-group-addon btn quizUpdateBtn">
-          <span class="input-group-text">{{_ 'save'}}</span>
-        </div>
-        <div class="input-group-addon btn quizRemoveBtn">
-          <span class="input-group-text">{{_ 'delete'}} {{_ 'quiz'}}</span>
-        </div>
-      </div>
+      {{#with quiz}}
+        <form role="form" class="quizForm">
+          <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="quizName" class="control-label">{{_ 'name'}}</label>
+                  <input type="text" name="quizName" class="form-control input-lg quizName" placeholder="Nombre" tabindex="1" value="{{quizName}}">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label>{{_ "description"}}</label>
+                  <textarea class="form-control quizDesc" name="quizDesc" rows="3">{{quizDesc}}</textarea>
+                </div>
+              </div>
+          </div>
+          <br />
+          <div class="mb-3">
+            <button type="button" class="btn btn-default btn-lg quizRemoveBtn">{{_ 'delete'}}</button>
+            <input type="submit" class="btn btn-success btn-lg quizUpdateBtn" value="{{_ 'save'}}">
+          </div>
+        </form>
+      {{/with}}
+      <br />
       <div class="form-group has-info">
         <div class="panel panel-info" id="{{_id}}">
           <div class="panel-heading">
