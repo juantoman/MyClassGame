@@ -1,0 +1,8 @@
+#accordionQuestions .panel-heading {
+  background-color: LightSkyBlue;
+
+}
+#accordionQuestions .panel-body {
+  border: 1px solid LightSkyBlue !important;
+  background-color: #F5F5FF;
+}
