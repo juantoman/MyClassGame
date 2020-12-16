@@ -98,4 +98,8 @@ Template.quizTemplate.events({
     }
     Meteor.call('quizUpdate',Session.get('quizId'),quiz);
   },
+  'click .quizVisibleBtn': function(event) {
+    event.preventDefault();
+    Meteor.call('quizVisibleToggle', this._id);
+  }
 })

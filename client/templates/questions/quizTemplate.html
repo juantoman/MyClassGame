@@ -1,6 +1,17 @@
 <template name="quizTemplate">
     <div class="container-fluid float-up">
       {{#with quiz}}
+        <h2>
+          {{_ 'quiz'}} {{order}}
+          <span class="quizVisibleBtn pull-right">
+            {{#if visible}}
+              <span class="glyphicon glyphicon-eye-open quizVisible" aria-hidden="true"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-eye-close quizVisible" aria-hidden="true"></span>
+            {{/if}}
+          </span>
+        </h2>
+        <hr class="colorgraph">
         <form role="form" class="quizForm">
           <div class="row">
               <div class="col-xs-12">
@@ -131,7 +142,5 @@
             </form>
           </div>
         </div>
-
-
     </div>
 </template>
