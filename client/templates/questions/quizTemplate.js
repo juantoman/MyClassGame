@@ -89,5 +89,13 @@ Template.quizTemplate.events({
     Session.set('imageType','question');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
-  }
+  },
+  'submit form.quizForm': function(event) {
+    event.preventDefault();
+    var quiz = {
+      quizName: $(event.target).find('[name=quizName]').val(),
+      quizDesc: $(event.target).find('[name=quizDesc]').val(),
+    }
+    Meteor.call('quizUpdate',Session.get('quizId'),quiz);
+  },
 })
