@@ -727,6 +727,10 @@ td button {
 
 }
 
+.settingsMenu h2{
+  color:white;
+}
+
 .settingsMenu .nav-pills{
   background-color:#fff;
 }
@@ -1394,6 +1398,10 @@ h4.panel-title {
  .nameSection {
    width: 90%;
  }
+}
+
+.panel-heading {
+  font-size:2rem;
 }
 
 @media (max-width: 510px) {
