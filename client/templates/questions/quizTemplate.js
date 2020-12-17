@@ -30,27 +30,27 @@ Template.quizTemplate.events({
   'click .answerBtn': function(event) {
     $(event.currentTarget).toggleClass("answerSelected");
   },
-  'submit .newQuestionForm': function(event) {
-    event.preventDefault();
-    var desc=$(event.currentTarget .questionDescription).val();
-    var answers=[];
-    $(event.currentTarget .answer).each(function(i,a){
-      var answer = {
-        answer: $(a).val(),
-        correct: $(a).prev().hasClass('answerSelected')
-      };
-      answers.push(answer);
-    })
-    var question = {
-      classId: Session.get('classId'),
-      quizId: Session.get('quizId'),
-      question: desc,
-      answers: answers,
-      used: false,
-      createdOn: new Date()
-    };
-    Meteor.call('questionInsert', question);
-  },
+  // 'submit .newQuestionForm': function(event) {
+  //   event.preventDefault();
+  //   var desc=$(event.currentTarget .questionDescription).val();
+  //   var answers=[];
+  //   $(event.currentTarget .answer).each(function(i,a){
+  //     var answer = {
+  //       answer: $(a).val(),
+  //       correct: $(a).prev().hasClass('answerSelected')
+  //     };
+  //     answers.push(answer);
+  //   })
+  //   var question = {
+  //     classId: Session.get('classId'),
+  //     quizId: Session.get('quizId'),
+  //     question: desc,
+  //     answers: answers,
+  //     used: false,
+  //     createdOn: new Date()
+  //   };
+  //   Meteor.call('questionInsert', question);
+  // },
   'submit .questionForm': function(event) {
     event.preventDefault();
     var question=$(event.currentTarget .questionDescription).val();
@@ -101,5 +101,10 @@ Template.quizTemplate.events({
   'click .quizVisibleBtn': function(event) {
     event.preventDefault();
     Meteor.call('quizVisibleToggle', this._id);
+  },
+  'click .newQuestionBtn': function(event) {
+    event.preventDefault();
+    $('#newQuestionForm').toggleClass('oculto');
+    //Modal.show('newQuestionModal');
   }
 })

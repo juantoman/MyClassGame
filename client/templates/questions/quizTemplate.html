@@ -29,6 +29,7 @@
           </div>
           <br />
           <div class="mb-3">
+            <button type="button" class="btn btn-danger btn-lg newQuestionBtn">{{_ 'fnew'}} {{_ 'question'}}</button>
             <button type="button" class="btn btn-default btn-lg quizRemoveBtn">{{_ 'delete'}}</button>
             <input type="submit" class="btn btn-success btn-lg" value="{{_ 'save'}}">
           </div>
@@ -73,7 +74,7 @@
                             <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
                           </div>
                           {{#each answers}}
-                          <div class="col-xs-6">
+                          <div class="col-xs-12 col-md-6">
                             <div class="input-group mb-3">
                               <div class="input-group-addon btn {{#if correct}}answerSelected{{/if}} answerBtn">
                                 <span class="input-group-text">{{_ 'answer'}} {{@index}}</span>
@@ -97,69 +98,72 @@
           </div>
         </div>
       </div>
-
-        <div class="panel panel-info" id="{{_id}}">
-          <div class="panel-heading">
-            {{_ 'create'}} {{_ 'question'}}
-          </div>
-          <div class="panel-body newQuestionPanel">
-            <form class="newQuestionForm">
-              <div class="form-group">
-                <!-- <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label>
-                {{#if questionImage}}
-                  <div class="col-xs-12 text-center">
-                      <div class="thumbnail questionImage">
-                        <img src="{{questionImageUrl}}">
-                      </div>
-                  </div>
-                {{/if}} -->
+      {{> newQuestionModal}}
+      <!-- <div class="panel panel-info" id="{{_id}}">
+        <div class="panel-heading">
+          {{_ 'create'}} {{_ 'question'}}
+        </div>
+        <div class="panel-body newQuestionPanel">
+          <form class="newQuestionForm">
+            <div class="form-group">
+              <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label>
+              {{#if questionImage}}
+                <div class="col-xs-12 text-center">
+                    <div class="thumbnail questionImage">
+                      <img src="{{questionImageUrl}}">
+                    </div>
+                </div>
+              {{/if}}
                 <div class="col-xs-12">
                   <div class="input-group col-xs-12">
                     <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1">
                   </div>
-                  <div class="input-group col-xs-12">
-                  <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-group">
-                      <div class="input-group-addon btn answerBtn">
-                        <span class="input-group-text">A</span>
-                      </div>
-                      <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} A" aria-label="repuestaA" aria-describedby="basic-addon1">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-group">
-                      <div class="input-group-addon btn answerBtn">
-                        <span class="input-group-text">B</span>
-                      </div>
-                      <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-group">
-                      <div class="input-group-addon btn answerBtn">
-                        <span class="input-group-text">C</span>
-                      </div>
-                      <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
-                    </div>
-                  </div>
-                  <div class="col-xs-6">
-                    <div class="input-group">
-                      <div class="input-group-addon btn answerBtn">
-                        <span class="input-group-text">D</span>
-                      </div>
-                      <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} D" aria-label="respuestaD" aria-describedby="basic-addon1">
-                    </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="input-group">
+                    <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
                   </div>
                 </div>
-                <div class="text-center">
-                  <!-- {{#unless questionImage}}<input type="button" value="{{_ 'image'}}" class="btn btn-warning questionBtnImage">{{/unless}} -->
-                  <input type="submit" value="{{_ 'fnew'}} {{_ 'question'}}" class="btn btn-info">
+                <div class="col-xs-12 col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">A</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} A" aria-label="repuestaA" aria-describedby="basic-addon1">
+                  </div>
                 </div>
+                <div class="col-xs-12 col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">B</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">C</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div class="input-group">
+                    <div class="input-group-addon btn answerBtn">
+                      <span class="input-group-text">D</span>
+                    </div>
+                    <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} D" aria-label="respuestaD" aria-describedby="basic-addon1">
+                  </div>
+                </div>
+
+              <div class="text-center">
+                {{#unless questionImage}}<input type="button" value="{{_ 'image'}}" class="btn btn-warning questionBtnImage">{{/unless}}
+                <input type="submit" value="{{_ 'fnew'}} {{_ 'question'}}" class="btn btn-info">
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
+      </div> -->
     </div>
 </template>
