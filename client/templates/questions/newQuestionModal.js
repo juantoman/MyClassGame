@@ -1,6 +1,6 @@
 Template.newQuestionModal.events({
   'click .answerBtn': function(event) {
-    $(event.currentTarget).toggleClass("answerSelected");
+    $(event.target).toggleClass("answerSelected");
   },
   'submit #newQuestionForm': function(event) {
     event.preventDefault();
@@ -22,12 +22,16 @@ Template.newQuestionModal.events({
       createdOn: new Date()
     };
     Meteor.call('questionInsert', question);
-    $('#newQuestionForm').toggleClass('oculto');
+    $('#myBackground').fadeOut(500);
   },
   'click .questionImage, click .questionBtnImage': function(event) {
     event.preventDefault();
     Session.set('imageType','question');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
+  },
+  'click .questionModalClose': function(event) {
+    //$('#myBackground').toggleClass('oculto');
+    $('#myBackground').fadeOut(500);
   },
 })

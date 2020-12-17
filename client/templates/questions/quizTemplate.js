@@ -104,7 +104,8 @@ Template.quizTemplate.events({
   },
   'click .newQuestionBtn': function(event) {
     event.preventDefault();
-    $('#newQuestionForm').toggleClass('oculto');
+    //$('#myBackground').toggleClass('oculto');
+    $('#myBackground').fadeIn(500);
     //Modal.show('newQuestionModal');
   }
 })
