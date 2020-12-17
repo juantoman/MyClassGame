@@ -1,4 +1,4 @@
-#myBackground {
+#newQuestionModal {
   position:fixed;
   width:100%;
   top:0;
@@ -7,6 +7,7 @@
   height:100vh;
   z-index:100;
   display: none;
+  overflow: hidden;
 }
 #newQuestionForm {
   position:fixed;

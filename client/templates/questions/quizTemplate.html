@@ -29,7 +29,6 @@
           </div>
           <br />
           <div class="mb-3">
-            <button type="button" class="btn btn-danger btn-lg newQuestionBtn">{{_ 'fnew'}} {{_ 'question'}}</button>
             <button type="button" class="btn btn-default btn-lg quizRemoveBtn">{{_ 'delete'}}</button>
             <input type="submit" class="btn btn-success btn-lg" value="{{_ 'save'}}">
           </div>
@@ -94,6 +93,14 @@
                   </div>
                 </div>
               {{/each}}
+              <div class="text-center">
+                {{#if isTeacher}}
+                  {{> questionCardCreateTemplate}}
+                {{/if}}
+                {{#each questions}}
+                  {{> questionCardTemplate}}
+                {{/each}}
+              </div>
             </div>
           </div>
         </div>

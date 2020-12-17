@@ -1,6 +1,6 @@
 Template.newQuestionModal.events({
   'click .answerBtn': function(event) {
-    $(event.target).toggleClass("answerSelected");
+    $(this).toggleClass("answerSelected");
   },
   'submit #newQuestionForm': function(event) {
     event.preventDefault();
@@ -13,16 +13,20 @@ Template.newQuestionModal.events({
       };
       answers.push(answer);
     })
+    n=questions.find({quizId: Session.get("quizId")}).count()+1;
     var question = {
       classId: Session.get('classId'),
       quizId: Session.get('quizId'),
       question: desc,
       answers: answers,
       used: false,
+      order: n,
+      visible: false,
       createdOn: new Date()
     };
     Meteor.call('questionInsert', question);
-    $('#myBackground').fadeOut(500);
+    $('#newQuestionModal').fadeOut(500);
+    $('html').css('overflow','auto');
   },
   'click .questionImage, click .questionBtnImage': function(event) {
     event.preventDefault();
@@ -32,6 +36,7 @@ Template.newQuestionModal.events({
   },
   'click .questionModalClose': function(event) {
     //$('#myBackground').toggleClass('oculto');
-    $('#myBackground').fadeOut(500);
+    $('#newQuestionModal').fadeOut(500);
+    $('html').css('overflow','auto');
   },
 })
