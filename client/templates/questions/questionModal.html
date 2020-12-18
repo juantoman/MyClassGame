@@ -1,0 +1,78 @@
+<template name="questionModal">
+  <div id="questionModal" class="float-up">
+    <form class="questionForm">
+      <h3 class="questionModalHeading">
+        {{_ 'question'}}
+        <i class="questionModalClose fas fa-times  pull-right"></i>
+      </h3>
+      <div class="form-group">
+        <!-- <label class="control-label" for="inputGroupSuccess1">{{_ 'create'}} {{_ 'question'}}</label>
+        {{#if questionImage}}
+          <div class="col-xs-12 text-center">
+              <div class="thumbnail questionImage">
+                <img src="{{questionImageUrl}}">
+              </div>
+          </div>
+        {{/if}} -->
+        {{#with questionSelected}}
+          <div class="col-xs-12">
+            <div class="input-group col-xs-12">
+              <input type="text" class="form-control questionDescription" name="questionDescription" placeholder="{{_ 'question'}}" aria-label="pregunta" aria-describedby="basic-addon1" value="{{question}}">
+            </div>
+          </div>
+          {{#if questionImage}}
+            <div class="col-xs-12 text-center">
+                <div class="thumbnail questionImage">
+                  <img src="{{questionImageUrl}}">
+                </div>
+            </div>
+          {{/if}}
+          <div class="col-xs-12">
+            <div class="input-group">
+              <label class="control-label" for="inputGroupSuccess1">{{_ 'answers'}}</label>
+            </div>
+          </div>
+          {{#each answers}}
+            <div class="col-xs-12 col-md-6">
+              <div class="input-group">
+                <div class="input-group-addon btn answerBtn {{#if correct}}answerSelected{{/if}}">
+                  <span class="input-group-text">{{_ 'answer'}} {{@index}}</span>
+                </div>
+                <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}}" aria-label="{{_ 'answer'}}" aria-describedby="basic-addon1" value="{{answer}}">
+              </div>
+            </div>
+          {{/each}}
+          <!-- <div class="col-xs-12 col-md-6">
+            <div class="input-group">
+              <div class="input-group-addon btn answerBtn">
+                <span class="input-group-text">B</span>
+              </div>
+              <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} B" aria-label="respuestaB" aria-describedby="basic-addon1">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="input-group">
+              <div class="input-group-addon btn answerBtn">
+                <span class="input-group-text">C</span>
+              </div>
+              <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} C" aria-label="respuestaC" aria-describedby="basic-addon1">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="input-group">
+              <div class="input-group-addon btn answerBtn">
+                <span class="input-group-text">D</span>
+              </div>
+              <input type="text" class="form-control answer" name="answer" placeholder="{{_ 'answer'}} D" aria-label="respuestaD" aria-describedby="basic-addon1">
+            </div>
+          </div> -->
+        {{/with}}
+        <div class="text-center">
+          {{#unless questionImage}}<input type="button" value="{{_ 'image'}}" class="btn btn-warning questionBtnImage">{{/unless}}
+          <input type="button" value="{{_ 'close'}}" class="btn btn-default questionModalClose">
+          <input type="submit" value="{{_ 'save'}}" class="btn btn-info">
+        </div>
+      </div>
+    </form>
+  </div>
+</template>

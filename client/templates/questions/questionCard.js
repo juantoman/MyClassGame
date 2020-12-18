@@ -103,8 +103,8 @@ Template.questionCardTemplate.events({
   'click .questionBtnInfo,.questionCard .text': function(event) {
     event.preventDefault();
     Session.set('questionId',this._id);
-    $("#myQuizzes").addClass("oculto");
-    $("#myQuiz").removeClass("oculto");
+    $('#questionModal').fadeIn(500);
+    $('html').css('overflow','hidden');
   },
   'click .questionVisibleBtn': function(event) {
     event.preventDefault();
