@@ -31,14 +31,14 @@ Template.questionModal.events({
       };
       answers.push(answer);
     })
-    Meteor.call('questionUpdate', question, answers);
+    Meteor.call('questionUpdate', Session.get('questionId'), desc, answers);
     $('#questionModal').fadeOut(500);
     $('html').css('overflow','auto');
   },
   'click .questionImage, click .questionBtnImage': function(event) {
     event.preventDefault();
     Session.set('imageType','question');
-    Session.set('idElementImage',this._id);
+    Session.set('idElementImage',Session.get('questionId'));
     Modal.show('imagesTemplate');
   },
   'click .questionModalClose': function(event) {

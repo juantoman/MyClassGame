@@ -84,12 +84,12 @@ Template.quizTemplate.events({
       }
     })
   },
-  'click .questionImage, click .questionBtnImage': function(event) {
-    event.preventDefault();
-    Session.set('imageType','question');
-    Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
-  },
+  // 'click .questionImage, click .questionBtnImage': function(event) {
+  //   event.preventDefault();
+  //   Session.set('imageType','question');
+  //   Session.set('idElementImage',this._id);
+  //   Modal.show('imagesTemplate');
+  // },
   'submit form.quizForm': function(event) {
     event.preventDefault();
     var quiz = {
