@@ -27,9 +27,9 @@ Template.quizTemplate.helpers({
 })
 
 Template.quizTemplate.events({
-  'click .answerBtn': function(event) {
-    $(event.currentTarget).toggleClass("answerSelected");
-  },
+  // 'click .answerBtn': function(event) {
+  //   $(event.currentTarget).toggleClass("answerSelected");
+  // },
   // 'submit .newQuestionForm': function(event) {
   //   event.preventDefault();
   //   var desc=$(event.currentTarget .questionDescription).val();
@@ -51,39 +51,39 @@ Template.quizTemplate.events({
   //   };
   //   Meteor.call('questionInsert', question);
   // },
-  'submit .questionForm': function(event) {
-    event.preventDefault();
-    var question=$(event.currentTarget .questionDescription).val();
-    var answers=[];
-    $(event.currentTarget .answer).each(function(i,a){
-      var answer = {
-        answer: $(a).val(),
-        correct: $(a).prev().hasClass('answerSelected')
-      };
-      answers.push(answer);
-    })
-    Meteor.call('questionUpdate', this._id, question, answers);
-  },
-  'click .deleteQuestionBtn': function(event) {
-    event.preventDefault();
-    swal({
-      title: TAPi18n.__('delete') + " " + TAPi18n.__('question'),
-      text: TAPi18n.__('areYouSure'),
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: TAPi18n.__('yes'),
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-        Meteor.call('questionDelete', this._id);
-        swal({
-          title: TAPi18n.__('question') + " " + TAPi18n.__('deleted'),
-          type: 'success'
-        })
-      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
-      }
-    })
-  },
+  // 'submit .questionForm': function(event) {
+  //   event.preventDefault();
+  //   var question=$(event.currentTarget .questionDescription).val();
+  //   var answers=[];
+  //   $(event.currentTarget .answer).each(function(i,a){
+  //     var answer = {
+  //       answer: $(a).val(),
+  //       correct: $(a).prev().hasClass('answerSelected')
+  //     };
+  //     answers.push(answer);
+  //   })
+  //   Meteor.call('questionUpdate', this._id, question, answers);
+  // },
+  // 'click .deleteQuestionBtn': function(event) {
+  //   event.preventDefault();
+  //   swal({
+  //     title: TAPi18n.__('delete') + " " + TAPi18n.__('question'),
+  //     text: TAPi18n.__('areYouSure'),
+  //     type: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonText: TAPi18n.__('yes'),
+  //     cancelButtonText: 'No'
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       Meteor.call('questionDelete', this._id);
+  //       swal({
+  //         title: TAPi18n.__('question') + " " + TAPi18n.__('deleted'),
+  //         type: 'success'
+  //       })
+  //     // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+  //     }
+  //   })
+  // },
   // 'click .questionImage, click .questionBtnImage': function(event) {
   //   event.preventDefault();
   //   Session.set('imageType','question');
@@ -101,12 +101,12 @@ Template.quizTemplate.events({
   'click .quizVisibleBtn': function(event) {
     event.preventDefault();
     Meteor.call('quizVisibleToggle', this._id);
-  },
-  'click .newQuestionBtn': function(event) {
-    event.preventDefault();
-    //$('#myBackground').toggleClass('oculto');
-    $('#newQuestionModal').fadeIn(500);
-    $('html').css('overflow','hidden');
-    //Modal.show('newQuestionModal');
   }
+  // 'click .newQuestionBtn': function(event) {
+  //   event.preventDefault();
+  //   //$('#myBackground').toggleClass('oculto');
+  //   $('#newQuestionModal').fadeIn(500);
+  //   $('html').css('overflow','hidden');
+  //   //Modal.show('newQuestionModal');
+  // }
 })

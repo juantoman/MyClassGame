@@ -42,7 +42,7 @@
           </div>
           <div class="panel-body questionsPanel">
             <div class="panel-group" id="accordionQuestions" role="tablist" aria-multiselectable="true">
-              {{#each questions}}
+              <!-- {{#each questions}}
                 <div class="panel" >
                   <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#accordionQuestions" href="#collapse{{_id}}" aria-expanded="false" aria-controls="collapse{{_id}}" id="heading{{_id}}" style="padding:0px;">
                     <div class="input-group" style="margin:0px;padding:0px;">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                           {{/if}}
-                          <!-- <label class="control-label" for="inputGroupSuccess1">{{_ 'question'}}:</label> -->
+                          <label class="control-label" for="inputGroupSuccess1">{{_ 'question'}}:</label>
                           <div class="input-group mb-3">
                             <div class="input-group-addon">
                               <span class="input-group-text">{{_ 'question'}}</span>
@@ -92,7 +92,7 @@
                     </div>
                   </div>
                 </div>
-              {{/each}}
+              {{/each}} -->
               <div class="text-center">
                 {{#if isTeacher}}
                   {{> questionCardCreateTemplate}}

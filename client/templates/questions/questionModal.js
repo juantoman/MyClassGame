@@ -18,7 +18,7 @@ Template.questionModal.helpers({
 
 Template.questionModal.events({
   'click .answerBtn': function(event) {
-    $(this).toggleClass("answerSelected");
+    $(event.currentTarget).toggleClass("answerSelected");
   },
   'submit form.questionForm': function(event) {
     event.preventDefault();
