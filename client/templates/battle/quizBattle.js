@@ -51,7 +51,7 @@ Template.quizBattle.helpers({
     }
   },
   imageVillain: function() {
-    if (this.villainImage.substring(0, 4)=="http") {
+    if (this.villainImage.substring(0, 4)=="http" || this.villainImage.substring(0, 1)=="/") {
       return this.villainImage;
     } else {
       cloudinary_url=images.findOne({_id: this.villainImage}).image_url;

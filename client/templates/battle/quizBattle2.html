@@ -1,22 +1,43 @@
-<template name="quizBattle2">
-  <h1>{{_ "questionsBattle"}}</h1>
-
+<template name="quizBattle">
     <div class="quiz">
-      <div class="fight">
-        <div class="photo">
-          <img class="logoBattle" src="/images/@mcgnb.png"/>
-          {{#with student1Battle}}
-            <img class="photoFighter oculto" src="{{image avatar}}" />
-          {{/with}}
-        </div>
-        <div class="content">
-          <div class="text align-middle">
-              <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}<span class=" vs "> vs </span>{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}</h1>
+      <h2>{{_ "questionsBattle"}}</h2>
+      <div class="row">
+        <div class="fight col-xs-5 leftFigher">
+          <div class="photo">
+            <img class="logoBattle" src="/images/@mcgnb.png"/>
+            {{#with student1Battle}}
+              <img class="photoFighter oculto" src="{{image avatar}}" />
+            {{/with}}
           </div>
+          <div class="content">
+            <div class="text align-middle">
+                <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}</h1>
+            </div>
+          </div>
+          <!-- <div class="photo2">
+            <img class="logoBattle" src="/images/@mcgnb.png"/>
+            <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}' />
+          </div> -->
         </div>
-        <div class="photo2">
-          <img class="logoBattle" src="/images/@mcgnb.png"/>
-          <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}' />
+        <div class="col-xs-1">
+            <img width="90%" src="/images/swords.png" />
+        </div>
+        <div class="fight col-xs-5">
+          <!-- <div class="photo">
+            <img class="logoBattle" src="/images/@mcgnb.png"/>
+            {{#with student1Battle}}
+              <img class="photoFighter oculto" src="{{image avatar}}" />
+            {{/with}}
+          </div> -->
+          <div class="content">
+            <div class="text align-middle">
+                <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}</h1>
+            </div>
+          </div>
+          <div class="photo2">
+            <img class="logoBattle" src="/images/@mcgnb.png"/>
+            <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}' />
+          </div>
         </div>
       </div>
       <!--

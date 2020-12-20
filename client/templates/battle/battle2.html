@@ -1,0 +1,31 @@
+<template name="battle">
+  <h3 class="nameSection">{{_ "battles"}}</h3>
+
+  <div class="container-fluid battle float-up">
+    <div class="btn-group btn-group-battle" data-toggle="buttons">
+      <label class="btn btn-info" id="resetBattle">
+        <input type="radio" name="options"><img class="battleBtn" src="/images/@mcgnb.png"> <span class="vs">vs</span> <img class="battleBtn" src="/images/@mcgnb.png">
+      </label>
+      <label class="btn btn-info" id="svsmBattle">
+        <input type="radio" name="options"><i class="fas fa-user"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+      </label>
+      <label class="btn btn-info disabled" id="evsmBattle">
+        <input type="radio" name="options"><i class="fas fa-users"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+      </label>
+      <label class="btn btn-info" id="svssBattle">
+        <input type="radio" name="options"><i class="fas fa-user"></i> <span class="vs">vs</span> <i class="fas fa-user"></i>
+      </label>
+      <label class="btn btn-info disabled" id="evseBattle">
+        <input type="radio" name="options"><i class="fas fa-users"></i> <span class="vs">vs</span> <i class="fas fa-users"></i>
+      </label>
+      <label class="btn btn-info disabled" id="cvsmBattle">
+        <input type="radio" name="options"><i class="fas fa-chalkboard-teacher"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+      </label>
+    </div>
+    <div class="col-xs-12 col-md-12 quizBattle battlePanel">
+      {{> quizBattle}}
+    </div>
+  </div>
+  <br />
+  <br />
+</template>

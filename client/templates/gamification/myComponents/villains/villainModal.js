@@ -7,7 +7,7 @@ Template.addVillainModal.events({
         var villain = {
           classId: Session.get('classId'),
           villainName: villainName.trim(),
-          villainImage: "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/v1582290869/myclassgame/darth-vader-pajamas-officially-licensed-merch-the-23_kjngzn.png",
+          villainImage: "/images/angry.png",
           HP:10,
           createdOn: new Date()
         };

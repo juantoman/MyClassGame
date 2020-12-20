@@ -1,7 +1,7 @@
 
  .quiz {
-   margin: 1em auto;
-	 max-width: 90%;
+   margin: 0 auto;
+	 max-width: 100%;
 	 display: grid;
 	 grid-auto-rows: auto;
 	 grid-columns: 1fr;
@@ -27,8 +27,8 @@
 	 box-shadow: 0px 2px 2px 1px rgba(0, 10, 20, 0.07);
 }
 
-.question, .fight {
-    width: 80%;
+.question {
+    width: 70%;
     height: 90px;
     border-radius: 5px;
     background-color: #fafafa;
@@ -37,7 +37,17 @@
     margin:auto;
 }
 
-.question .photo, .fight .photo {
+.fight {
+    width: 70%;
+    height: 120px;
+    border-radius: 5px;
+    background-color: #fafafa;
+    box-shadow: 0 0 2rem #babbbc;
+    position:relative;
+    margin:auto;
+}
+
+.question .photo {
     position:absolute;
     width: 90px;
     height: 90px;
@@ -53,7 +63,23 @@
     transition: ease 0.5s;
 }
 
-.question .photo2, .fight .photo2 {
+.fight .photo {
+    position:absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fafafa;
+    margin-left: 30px;
+    box-shadow: 0 0 .5rem #babbbc;
+    left:0;
+    top:0;
+    background: linear-gradient(#268BD2, white);
+    z-index:1;
+    transition: ease 0.5s;
+}
+
+.question .photo2 {
     position:absolute;
     width: 90px;
     height: 90px;
@@ -63,6 +89,22 @@
     right:0;
     top:0;
     margin-right: -50px;
+    box-shadow: 0 0 .5rem #babbbc;
+    background: linear-gradient(#268BD2, white);
+    z-index:1;
+    transition: ease 0.5s;
+}
+
+.fight .photo2 {
+    position:absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #fafafa;
+    right:0;
+    top:0;
+    margin-right: 30px;
     box-shadow: 0 0 .5rem #babbbc;
     background: linear-gradient(#268BD2, white);
     z-index:1;
@@ -151,6 +193,10 @@
   background-color:rgb(100, 200, 255,0.6) !important;
 }
 
+.quizBattle h2{
+  margin-top:-20px;
+}
+
 .logoBattle{
   max-height:35px;
   margin-top:20px;
@@ -160,4 +206,8 @@
   color: yellow;
   font-size: 0.7em;
   font-weight: bold;
+}
+
+.leftFigher {
+
 }
