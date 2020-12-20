@@ -208,6 +208,10 @@
   font-weight: bold;
 }
 
-.leftFigher {
-
+.swords {
+  position:absolute;
+  width:100px;
+  top:10px;
+  -webkit-transform: translate(-50%, 0%);
+  z-index:100;
 }
