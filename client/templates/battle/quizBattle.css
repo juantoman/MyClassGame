@@ -9,6 +9,7 @@
 	 grid-gap: 1em;
 	 border: 1px solid #e9e9eb;
 	 box-shadow: 0px 5px 8px rgba(0, 10, 20, 0.06);
+   border-radius: 10px;
 }
  .quiz-title {
 	 font-size: 2em;
@@ -184,10 +185,16 @@
   transition: ease 2s;
 }
 
+.quiz .form-inline .input-group-addon{
+  font-size: 1.5em;
+}
+
+.quiz .form-inline .input{
+  font-size: 1.5em;
+}
+
 .quiz .form-inline select{
-  color: #268BD2;
-  background-color: white;
-  font-size: 2vh;
+  font-size: 1.1em;
 }
 
 .quizBattle {
@@ -199,7 +206,7 @@
 }
 
 .logoBattle{
-  max-height:35px;
+  max-height:70px;
   margin-top:20px;
 }
 
@@ -214,7 +221,7 @@
   width:100px;
   top:10px;
   -webkit-transform: translate(-50%, 0%);
-  z-index:100;
+  z-index:1;
   background-color: gold;
   border:3px solid black;
   border-radius: 20%;
@@ -233,5 +240,21 @@
   margin-top:30px;
   padding: 10px;
   border-radius: 20px;
-  background-color: rgba(255,255,255,.1);
+  background-color: rgba(255,255,255,.3);
+}
+
+.fighter1Points,.fighter2Points {
+  position:absolute;
+  background-color: white !important;
+  color:red !important;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.fighter1Points {
+  right: 30px;
+}
+
+.fighter2Points {
+  left: 0px;
 }

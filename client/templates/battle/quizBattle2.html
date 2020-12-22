@@ -11,7 +11,7 @@
           </div>
           <div class="content">
             <div class="text align-middle">
-                <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}</h1>
+                <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}<span class="badge fighter1Points">0</span></h1>
                 <h2 class="badge fighters fighterHP oculto">{{#with student1Battle}}{{HP}}{{/with}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
@@ -32,7 +32,7 @@
           </div> -->
           <div class="content">
             <div class="text align-middle">
-                <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}</h1>
+                <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}<span class="badge fighter2Points">0</span></h1>
                 <h2 class="badge fighters fighterHP oculto">{{#if opponent "student"}}{{#with student2Battle}}{{HP}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{HP}}{{/with}}{{/if}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
@@ -73,16 +73,60 @@
         </div>
         <form class="form-inline">
           <div class="form-group">
-            <label>
+            <!-- <label>
               {{_ "quiz"}}
             </label>
+            <br />
             <select id="quizId">
               {{#each quizzes}}
                 <option value='{{_id}}'>{{quizName}}</option>
               {{/each}}
-            </select>
+            </select> -->
+            <div class="input-group col-xs-12 col-md-8">
+              <span class="input-group-addon">{{_ "quiz"}}</span>
+              <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
+                {{#each quizzes}}
+                  <option value='{{_id}}'>{{quizName}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="input-group col-xs-12 col-md-3">
+              <span class="input-group-addon">{{_ "questions"}}</span>
+              <input type="number" class="form-control inputGroup behaviourDescription" name="battleQuestions" {{teacher}} value="10" min="-10000" max="10000">
+            </div>
             <br />
-            <button class="btn btn-info" id="startBattle">
+            <div class="input-group col-xs-12 col-md-3">
+              <span class="input-group-addon">XP</span>
+              <input type="number" class="form-control inputGroup behaviourDescription" name="battleXP" {{teacher}} value="10" min="-10000" max="10000">
+            </div>
+            <div class="input-group col-xs-12 col-md-3">
+              <span class="input-group-addon">HP</span>
+              <input type="number" class="form-control inputGroup behaviourDescription" name="battleHP" {{teacher}} value="10" min="-10000" max="10000">
+            </div>
+            <div class="input-group col-xs-12 col-md-3">
+              <span class="input-group-addon">{{_ "money"}}</span>
+              <input type="number" class="form-control inputGroup behaviourDescription" name="battleCoins" {{teacher}} value="10" min="-10000" max="10000">
+            </div>
+            <br />
+            <div class="input-group col-xs-12 col-md-5">
+              <span class="input-group-addon">{{_ "fighter"}} 1</span>
+              <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
+                {{#each quizzes}}
+                  <option value='{{_id}}'>{{quizName}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="input-group col-xs-12 col-md-5">
+              <span class="input-group-addon">{{_ "fighter"}} 2</span>
+              <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
+                {{#each quizzes}}
+                  <option value='{{_id}}'>{{quizName}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <br />
+            <br />
+            <button class="btn btn-warning" id="startBattle">
               {{_ "init"}} {{_ "battle"}}
             </button>
           </div>
@@ -99,7 +143,7 @@
         {{#each answers}}
           <div class="question float-up">
             <div class="photo photoMCG">
-              <img class="logoBattle" src="/images/@mcgnb.png"/>
+              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
               {{#with student1Battle}}
                 <img class="photoFighter oculto" src="{{image avatar}}"/>
               {{/with}}
@@ -110,7 +154,7 @@
               </div>
             </div>
             <div class="photo2">
-              <img class="logoBattle" src="/images/@mcgnb.png"/>
+              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
               <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
             </div>
           </div>
