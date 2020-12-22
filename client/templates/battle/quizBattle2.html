@@ -12,6 +12,7 @@
           <div class="content">
             <div class="text align-middle">
                 <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}</h1>
+                <h2 class="badge fighters fighterHP oculto">{{#with student1Battle}}{{HP}}{{/with}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
           <!-- <div class="photo2">
@@ -32,6 +33,7 @@
           <div class="content">
             <div class="text align-middle">
                 <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}</h1>
+                <h2 class="badge fighters fighterHP oculto">{{#if opponent "student"}}{{#with student2Battle}}{{HP}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{HP}}{{/with}}{{/if}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
           <div class="photo2">
@@ -47,21 +49,46 @@
         Iniciar Batalla
       </label>
       -->
-      <form class="form-inline">
-        <div class="form-group">
-          <label>
-            {{_ "quiz"}}
+      <div class="battleParameters">
+        <h3>{{_ "parameters"}} {{_ "battle"}}</h3>
+        <div class="btn-group btn-group-battle" data-toggle="buttons">
+          <label class="btn btn-info" id="resetBattle">
+            <input type="radio" name="options"><img class="battleBtn" src="/images/@mcgnb.png"> <span class="vs">vs</span> <img class="battleBtn" src="/images/@mcgnb.png">
           </label>
-          <select id="quizId">
-            {{#each quizzes}}
-              <option value='{{_id}}'>{{quizName}}</option>
-            {{/each}}
-          </select>
-          <button class="btn btn-info" id="startBattle">
-            {{_ "init"}} {{_ "battle"}}
-          </button>
+          <label class="btn btn-info" id="svsmBattle">
+            <input type="radio" name="options"><i class="fas fa-user"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+          </label>
+          <label class="btn btn-info disabled" id="evsmBattle">
+            <input type="radio" name="options"><i class="fas fa-users"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+          </label>
+          <label class="btn btn-info" id="svssBattle">
+            <input type="radio" name="options"><i class="fas fa-user"></i> <span class="vs">vs</span> <i class="fas fa-user"></i>
+          </label>
+          <label class="btn btn-info disabled" id="evseBattle">
+            <input type="radio" name="options"><i class="fas fa-users"></i> <span class="vs">vs</span> <i class="fas fa-users"></i>
+          </label>
+          <label class="btn btn-info disabled" id="cvsmBattle">
+            <input type="radio" name="options"><i class="fas fa-chalkboard-teacher"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
+          </label>
         </div>
-      </form>
+        <form class="form-inline">
+          <div class="form-group">
+            <label>
+              {{_ "quiz"}}
+            </label>
+            <select id="quizId">
+              {{#each quizzes}}
+                <option value='{{_id}}'>{{quizName}}</option>
+              {{/each}}
+            </select>
+            <br />
+            <button class="btn btn-info" id="startBattle">
+              {{_ "init"}} {{_ "battle"}}
+            </button>
+          </div>
+        </form>
+      </div>
+
       {{#with nextQuestion}}
         <!--
         <div class="quiz-question">

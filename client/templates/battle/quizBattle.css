@@ -29,7 +29,7 @@
 
 .question {
     width: 70%;
-    height: 90px;
+    height: 70px;
     border-radius: 5px;
     background-color: #fafafa;
     box-shadow: 0 0 2rem #babbbc;
@@ -49,12 +49,12 @@
 
 .question .photo {
     position:absolute;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #fafafa;
-    margin-left: -50px;
+    margin-left: -40px;
     box-shadow: 0 0 .5rem #babbbc;
     left:0;
     top:0;
@@ -81,14 +81,14 @@
 
 .question .photo2 {
     position:absolute;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid #fafafa;
     right:0;
     top:0;
-    margin-right: -50px;
+    margin-right: -40px;
     box-shadow: 0 0 .5rem #babbbc;
     background: linear-gradient(#268BD2, white);
     z-index:1;
@@ -137,7 +137,8 @@
 }
 
 .fight h1 {
-  margin:25px 0;
+  font-size: 4em;
+  margin:30px 0;
 }
 
 .question .answerSelected {
@@ -214,4 +215,23 @@
   top:10px;
   -webkit-transform: translate(-50%, 0%);
   z-index:100;
+  background-color: gold;
+  border:3px solid black;
+  border-radius: 20%;
+}
+
+.badge.fighterHP {
+  background-color:red !important;
+  font-size: 3em !important;
+  margin-top:-20px;
+  padding: 5px 20px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+}
+
+.battleParameters {
+  border: 1px solid white;
+  margin-top:30px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(255,255,255,.1);
 }
