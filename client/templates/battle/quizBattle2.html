@@ -11,7 +11,7 @@
           </div>
           <div class="content">
             <div class="text align-middle">
-                <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}<span class="badge fighter1Points">0</span></h1>
+                <h1 class="fighters oculto">{{#with student1Battle}}{{studentName}}{{/with}}<span class="badge fighter1Points">{{fighter1Corrects}}</span></h1>
                 <h2 class="badge fighters fighterHP oculto">{{#with student1Battle}}{{HP}}{{/with}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
@@ -32,7 +32,7 @@
           </div> -->
           <div class="content">
             <div class="text align-middle">
-                <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}<span class="badge fighter2Points">0</span></h1>
+                <h1 class="fighters oculto">{{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}<span class="badge fighter2Points">{{fighter2Corrects}}</span></h1>
                 <h2 class="badge fighters fighterHP oculto">{{#if opponent "student"}}{{#with student2Battle}}{{HP}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{HP}}{{/with}}{{/if}} <i class="fas fa-heart"></i></h2>
             </div>
           </div>
@@ -82,7 +82,7 @@
                 <option value='{{_id}}'>{{quizName}}</option>
               {{/each}}
             </select> -->
-            <div class="input-group col-xs-12 col-md-8">
+            <div class="input-group col-xs-12 col-md-11">
               <span class="input-group-addon">{{_ "quiz"}}</span>
               <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
                 {{#each quizzes}}
@@ -90,7 +90,7 @@
                 {{/each}}
               </select>
             </div>
-            <div class="input-group col-xs-12 col-md-3">
+            <div class="input-group col-xs-12 col-md-4">
               <span class="input-group-addon">{{_ "questions"}}</span>
               <input type="number" class="form-control inputGroup behaviourDescription" name="battleQuestions" {{teacher}} value="10" min="-10000" max="10000">
             </div>
@@ -133,44 +133,44 @@
         </form>
       </div>
 
-      {{#with nextQuestion}}
-        <!--
-        <div class="quiz-question">
-          {{question}}
-        </div>
-        -->
-        <div class="quiz-title float-up">{{question}}</div>
-        {{#each answers}}
-          <div class="question float-up">
-            <div class="photo photoMCG">
-              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
-              {{#with student1Battle}}
-                <img class="photoFighter oculto" src="{{image avatar}}"/>
-              {{/with}}
-            </div>
-            <div class="content {{#if correct}}cuestionAnswer{{else}}questionAnswer{{/if}}">
-              <div class="text">
-                  <h3>{{answer}}</h3>
+      <div class="battleQuestions oculto">
+        <h3>{{_ "questions"}}</h3>
+        {{#with nextQuestion}}
+          <!--
+          <div class="quiz-question">
+            {{question}}
+          </div>
+          -->
+          <div class="quiz-title float-up">{{question}}</div>
+          {{#each answers}}
+            <div class="question float-up">
+              <div class="photo photoMCG">
+                <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
+                {{#with student1Battle}}
+                  <img class="photoFighter" src="{{image avatar}}"/>
+                {{/with}}
+              </div>
+              <div class="content {{#if correct}}cuestionAnswer{{else}}questionAnswer{{/if}}">
+                <div class="text">
+                    <h3>{{answer}}</h3>
+                </div>
+              </div>
+              <div class="photo2">
+                <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
+                <img class="photoFighter" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
               </div>
             </div>
-            <div class="photo2">
-              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
-              <img class="photoFighter oculto" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
-            </div>
+          {{/each}}
+          <div class="battleCorrectBtn btn-group btn-group-battle" data-toggle="buttons">
+            <label class="btn btn-info" id="correctAnswer">
+              {{_ "correct"}}
+            </label>
+            <label class="btn btn-info oculto" id="nextQuestion">
+              {{_ "next"}}
+            </label>
           </div>
-        {{/each}}
-        <div class="battleCorrectBtn btn-group btn-group-battle" data-toggle="buttons">
-          <label class="btn btn-info" id="correctAnswer">
-            {{_ "correct"}}
-          </label>
-          <label class="btn btn-info oculto" id="nextQuestion">
-            {{_ "next"}}
-          </label>
-        </div>
 
-      {{/with}}
-
+        {{/with}}
+      </div>
     </div>
-
-
 </template>

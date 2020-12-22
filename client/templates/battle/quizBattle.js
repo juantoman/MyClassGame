@@ -58,6 +58,12 @@ Template.quizBattle.helpers({
       cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
       return cloudinary_url;
     }
+  },
+  fighter1Corrects: function() {
+    return Session.get('fighter1Corrects');
+  },
+  fighter2Corrects: function() {
+    return Session.get('fighter2Corrects');
   }
 });
 
@@ -75,6 +81,14 @@ Template.quizBattle.events({
     $('.battleCorrectBtn .btn').toggleClass('oculto');
     $('.questionAnswer').parent().find('.answerSelected').toggleClass('incorrectAnswer');
     $('.cuestionAnswer').parent().find('.answerSelected').addClass('cAnswer');
+    $('.cAnswer').each(function( index ) {
+      if ( $( this ).hasClass('photo') ) {
+        Session.set('fighter1Corrects',Session.get('fighter1Corrects')+1)
+      }
+      if ( $( this ).hasClass('photo2') ) {
+        Session.set('fighter2Corrects',Session.get('fighter2Corrects')+1)
+      }
+    });
   },
   'click #nextQuestion': function(event) {
     Meteor.call('questionUsed', Session.get('questionId'));
@@ -86,6 +100,8 @@ Template.quizBattle.events({
     var r = Math.floor(Math.random() * q.length);
     if (q.length ==0 ) {
       Session.set('questionId','');
+      $('.battleParameters').toggleClass('oculto');
+      $('.battleQuestions').toggleClass('oculto');
     } else {
       Session.set('questionId',q[r]._id);
     }
@@ -99,6 +115,10 @@ Template.quizBattle.events({
     Session.set('questionId',q[r]._id);
     $('.battleCorrectBtn #correctAnswer').removeClass('oculto');
     $('.battleCorrectBtn #nextQuestion').addClass('oculto');
+    $('.battleParameters').toggleClass('oculto');
+    $('.battleQuestions').toggleClass('oculto');
+    Session.set('fighter1Corrects',0);
+    Session.set('fighter2Corrects',0);
   },
   'change #quizId': function(event) {
     event.preventDefault();
