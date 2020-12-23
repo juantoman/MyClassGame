@@ -12,7 +12,9 @@
    border-radius: 10px;
 }
  .quiz-title {
-	 font-size: 2em;
+	 font-size: 3em;
+   font-weight: bold;
+   color: darkblue;
 }
  .quiz-question {
 	 font-size: 1.15em;
@@ -235,7 +237,7 @@
   box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
 }
 
-.battleParameters, .battleQuestions {
+.battleParameters {
   border: 1px solid white;
   margin-top:40px;
   padding: 10px;
@@ -243,8 +245,8 @@
   background-color: rgba(0,0,0,.05);
 }
 
-.battleParameters h3, .battleQuestions h3{
-  color: #268BD2;
+.battleParameters h3, .battleQuestions h3.questionN{
+  color: white;
 }
 
 .fighter1Points,.fighter2Points {
@@ -261,4 +263,36 @@
 
 .fighter2Points {
   left: 0px;
+}
+
+.questionImage {
+  width: 80% !important;
+}
+
+.battleModal {
+  position:fixed;
+  width:100%;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,0.7);
+  height:100vh;
+  z-index:100;
+  display: none;
+  overflow: hidden;
+}
+
+.battleQuestions {
+  position:fixed;
+  top:50px;
+  left:50%;
+  width:90%;
+  -webkit-transform: translate(-50%, 0%);
+  border: 1px solid white;
+  margin-top:40px;
+  padding: 10px;
+  /* border-radius: 20px; */
+  background-color:rgb(100, 200, 255,0.9) !important;
+  z-index:20;
+  overflow-y:scroll;
+  max-height: 90%;
 }
