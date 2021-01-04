@@ -117,10 +117,10 @@ Template.battle.events({
     var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
     var rv = Math.floor(Math.random() * v.length);
     Session.set('villainId',v[rv]._id);
-    //Session.set('studentId2Battle','');
+    /*Session.set('studentId2Battle','');
     $('#card1Battle').click();
     $('#card2Battle').click();
-    /*if ( $('#card2Battle').hasClass('card-turned') ) {
+    if ( $('#card2Battle').hasClass('card-turned') ) {
       $('#card2Battle').toggleClass('card card-turned');
       //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
       $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
@@ -138,10 +138,13 @@ Template.battle.events({
     var r1 = Math.floor(Math.random() * e1.length);
     var e2 = students.find({classId: Session.get('classId'),'random':true}).fetch();
     var r2 = Math.floor(Math.random() * e2.length);
+    while ( r1 == r2 ) {
+      r2 = Math.floor(Math.random() * e2.length);
+    }
     Session.set('studentId1Battle',e1[r1]._id);
     Session.set('studentId2Battle',e2[r2]._id);
-    $('#card1Battle').click();
-    $('#card2Battle').click();
+    //$('#card1Battle').click();
+    //$('#card2Battle').click();
     $('.photo').find('.logoBattle').addClass('oculto');
     $('.photo').find('.photoFighter').removeClass('oculto');
     $('.photo2').find('.logoBattle').addClass('oculto');

@@ -229,6 +229,25 @@
   border-radius: 20%;
 }
 
+.swordsResults {
+  position:absolute;
+  width:10vw;
+  top:40vh;
+  -webkit-transform: translate(-50%, 0%);
+  z-index:1;
+  background-color: gold;
+  border:3px solid #268BD2;
+  border-radius: 20%;
+  transition: all .5s;
+}
+
+.swordsResults:hover {
+  background-color: #268BD2;
+  width:11vw;
+  top:39vh;
+  cursor: pointer;
+}
+
 .badge.fighterHP {
   background-color:red !important;
   font-size: 3em !important;
@@ -283,16 +302,219 @@
 
 .battleQuestions {
   position:fixed;
-  top:50px;
+  top:50%;
   left:50%;
-  width:90%;
-  -webkit-transform: translate(-50%, 0%);
+  width:90vw;
+  -webkit-transform: translate(-50%, -50%);
   border: 1px solid white;
-  margin-top:40px;
   padding: 10px;
   /* border-radius: 20px; */
   background-color:rgb(100, 200, 255,0.9) !important;
   z-index:20;
   overflow-y:scroll;
-  max-height: 90%;
+  max-height: 95vh;
+}
+
+.photoFighter1Question, .photoFighter2Question {
+  position:absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #268BD2;
+  box-shadow: 5px 5px 20px black;
+  top:20px;
+  background: linear-gradient(#268BD2, white);
+  z-index:1;
+  transition: ease 0.5s;
+}
+
+.photoFighter1Question {
+  left:20px;
+}
+
+.photoFighter2Question {
+  right: 20px;
+}
+
+.photoFighter1Question img, .photoFighter2Question img {
+    height: 100%;
+    opacity: 1;
+}
+
+.badge.fighter1HP, .badge.fighter2HP {
+  position:absolute;
+  background-color:red !important;
+  font-size: 3em !important;
+  padding: 10px 20px;
+  margin: 0 20px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+  top:180px;
+
+}
+
+.badge.fighter1HP {
+  left:0px;
+}
+
+.badge.fighter2HP {
+  right:0px;
+}
+
+.badge.fighter1Incorrects, .badge.fighter2Incorrects {
+  position:absolute;
+  background-color:blue !important;
+  font-size: 3em !important;
+  padding: 10px 20px;
+  margin: 0 20px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+  top:250px;
+}
+
+.badge.fighter1Incorrects {
+  left:0px;
+}
+
+.badge.fighter2Incorrects {
+  right:0px;
+}
+
+.badge.fighter1Name, .badge.fighter2Name {
+  position:absolute;
+  background-color:#268BD2 !important;
+  font-size: 4em !important;
+  padding: 10px 25px;
+  margin: 0 20px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+  top:60px;
+}
+
+.badge.fighter1Name {
+  left:135px;
+}
+
+.badge.fighter2Name {
+  right:135px;
+}
+
+.closeBattle {
+  position:absolute;
+  right:10px;
+  font-size: 2em !important;
+  cursor: pointer;
+}
+
+.battleResults {
+  position:fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  transition: opacity 1s ease-out 2s;
+  margin:0 !important;
+}
+
+.resultsFighter {
+  position: relative;
+  height: 85vh;
+  background:linear-gradient(180deg, rgba( 36, 113, 163, 0.7) 54%, rgba( 174, 214, 241 , 0.7) 83%);
+  margin: auto;
+  border-radius: 50px;
+  border: 10px solid rgba( 174, 214, 241 , 0.7);
+}
+
+.photoResult {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 10px solid #268BD2;
+  box-shadow: 5px 5px 20px black;
+  background: linear-gradient(#268BD2, white);
+  /* background: linear-gradient(gold, white); */
+  transition: all 0.5s;
+  margin:auto;
+  -webkit-transform: translate(-50%, -80%);
+  z-index: 2;
+}
+
+/* .photoResult:hover {
+  width: 27vw;
+  height: 27vw;
+} */
+
+.photoResult img {
+    height: 100%;
+    opacity: 1;
+}
+
+.photoWinner {
+  border: 10px solid gold;
+  background: linear-gradient(gold, white);
+}
+
+.badge.fighterName {
+  position:absolute;
+  top:50%;
+  left:50%;
+  background-color:#268BD2 !important;
+  font-size: 6vh !important;
+  padding: 10px 25px;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+  -webkit-transform: translate(-50%, 10vh);
+  transition: all 0.5s;
+}
+
+.badge.fighterWinnerName {
+  background-color:gold !important;
+  color:red;
+  text-shadow: 2px 2px 5px black;
+}
+
+.wonElements{
+  position: absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%, 24vh);
+  width:100%;
+}
+
+.wonElements .badge{
+  margin: 2px 1vw;
+  font-size: 3.5vw !important;
+  background-color: red;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+}
+
+.closeResultsBattle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2em;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.closeResultsBattle:hover {
+  color:red;
+  transform: rotate(90deg);
+}
+
+.fighter1Results, .fighter2Results {
+  color:green;
+  background-color: white;
+  padding: 0 20px;
+  border-radius:10px;
+}
+
+.fighter1Results {
+  margin:0 -22px 0 10px;
+}
+
+.fighter2Results {
+  margin:0 10px 0 -22px;
 }

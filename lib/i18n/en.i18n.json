@@ -349,5 +349,8 @@
     "demand": "Demand",
     "waiting": "Waiting...",
     "use": "Use",
-    "remove": "Remove"
+    "remove": "Remove",
+    "fighter": "Opponent",
+    "results": "Results",
+    "saved": "Saved"
 }

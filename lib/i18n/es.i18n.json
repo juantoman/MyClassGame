@@ -349,5 +349,8 @@
     "demand": "Solicitar",
     "waiting": "Esperando...",
     "use": "Utilizar",
-    "remove": "Eliminar"
+    "remove": "Eliminar",
+    "fighter": "Adversario",
+    "results": "Resultados",
+    "saved": "Guardados"
 }

@@ -2,7 +2,7 @@
     <div class="quiz">
       <h2>{{_ "questionsBattle"}}</h2>
       <div class="row">
-        <div class="fight col-xs-5 leftFigher">
+        <div class="fight col-xs-5">
           <div class="photo">
             <img class="logoBattle" src="/images/@mcgnb.png"/>
             {{#with student1Battle}}
@@ -71,7 +71,7 @@
             <input type="radio" name="options"><i class="fas fa-chalkboard-teacher"></i> <span class="vs">vs</span> <i class="fas fa-angry"></i>
           </label>
         </div>
-        <form class="form-inline">
+        <form class="form-inline battleParameters">
           <div class="form-group">
             <!-- <label>
               {{_ "quiz"}}
@@ -92,7 +92,7 @@
             </div>
             <div class="input-group col-xs-12 col-md-4">
               <span class="input-group-addon">{{_ "questions"}}</span>
-              <input type="number" class="form-control inputGroup behaviourDescription" name="battleQuestions" {{teacher}} value="10" min="-10000" max="10000">
+              <input type="number" class="form-control inputGroup nQuestions" name="nQuestions" {{teacher}} value="{{maxNumberQuestions}}" min="0" max="{{maxNumberQuestions}}">
             </div>
             <br />
             <div class="input-group col-xs-12 col-md-3">
@@ -110,18 +110,25 @@
             <br />
             <div class="input-group col-xs-12 col-md-5">
               <span class="input-group-addon">{{_ "fighter"}} 1</span>
-              <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
-                {{#each quizzes}}
-                  <option value='{{_id}}'>{{quizName}}</option>
+              <select class="form-control inputGroup fighter1Select" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
+                {{#each students}}
+                  <option value='{{_id}}' selected="{{#if student1Selected}}selected{{/if}}">{{studentName}}</option>
                 {{/each}}
               </select>
             </div>
             <div class="input-group col-xs-12 col-md-5">
               <span class="input-group-addon">{{_ "fighter"}} 2</span>
-              <select class="form-control inputGroup behaviourDescription" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
-                {{#each quizzes}}
-                  <option value='{{_id}}'>{{quizName}}</option>
-                {{/each}}
+              <select class="form-control inputGroup fighter2Select" name="behaviourType" id="quizId" aria-describedby="inputGroupSuccess1Status">>
+                {{#if opponent "student"}}
+                  {{#each students}}
+                    <option value='{{_id}}' selected="{{#if student2Selected}}selected{{/if}}">{{studentName}}</option>
+                  {{/each}}
+                {{/if}}
+                {{#if opponent "villain"}}
+                  {{#each villains}}
+                    <option value='{{_id}}' selected="{{#if villainSelected}}selected{{/if}}">{{villainName}}</option>
+                  {{/each}}
+                {{/if}}
               </select>
             </div>
             <br />
@@ -135,6 +142,41 @@
 
       <div class="battleModal float-up">
         <div class="battleQuestions oculto">
+          <div class="Fighter1Question">
+            {{#with student1Battle}}
+            <div class="photoFighter1Question">
+              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
+                <img class="photoFighter" src="{{image avatar}}"/>
+            </div>
+            <div class="badge fighter1HP">
+                {{HP}} <i class="fas fa-heart"></i>
+            </div>
+            <div class="badge fighter1Incorrects">
+                {{fighter1Incorrects}} <i class="fas fa-heart-broken"></i>
+            </div>
+            <div class="badge fighter1Name">
+              {{studentName}}
+              <span class="fighter1Results">{{fighter1Corrects}}</span>
+            </div>
+            {{/with}}
+          </div>
+          <div class="Fighter2Question">
+            <div class="photoFighter2Question">
+              <!-- <img class="logoBattle" src="/images/@mcgnb.png"/> -->
+              <img class="photoFighter" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
+            </div>
+            <div class="badge fighter2HP">
+              {{#if opponent "student"}}{{#with student2Battle}}{{HP}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{HP}}{{/with}}{{/if}} <i class="fas fa-heart"></i>
+            </div>
+            <div class="badge fighter2Incorrects">
+                {{fighter2Incorrects}} <i class="fas fa-heart-broken"></i>
+            </div>
+            <div class="badge fighter2Name">
+              <span class="fighter2Results">{{fighter2Corrects}}</span>
+              {{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}
+            </div>
+          </div>
+          <i class="closeBattle fas fa-times"></i>
 
           {{#with nextQuestion}}
             <!--
@@ -181,6 +223,88 @@
               </div>
             </div>
           {{/with}}
+        </div>
+        <div class="battleResults row">
+          <div class="resultsFighter col-xs-5 {{#if fighter1Winner}}photoWinner{{/if}}">
+            <div class="photoResult {{#if fighter1Winner}}photoWinner{{/if}}">
+              <!-- {{#if fighter1Winner}} -->
+                <img class="photoFighter" src="{{#with student1Battle}}{{image avatar}}{{/with}}"/>
+              <!-- {{else}}
+                <img class="photoFighter" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
+              {{/if}} -->
+            </div>
+            <div class="badge fighterName {{#if fighter1Winner}}fighterWinnerName{{/if}}">
+              <!-- {{#if fighter1Winner}} -->
+                {{#with student1Battle}}{{studentName}}{{/with}}
+              <!-- {{else}}
+                {{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}
+              {{/if}}
+              {{_ "wins"}} -->
+            </div>
+            <div class="wonElements">
+              <!-- {{#if opponent "student"}}
+                <span class="badge">{{battleXP}} XP</span>
+                <span class="badge">{{battleHPFighter1}} <i class="fas fa-heart"></i></span>
+                <span class="badge">{{battleCoins}} <i class="fa fa-coins"></i></span>
+              {{/if}}
+
+              {{#if opponent "villain"}} -->
+                {{#if fighter1Winner}}
+                  <span class="badge">{{battleXP}} XP</span>
+                  <span class="badge">{{battleHPFighter1}} <i class="fas fa-heart"></i></span>
+                  <span class="badge">{{battleCoins}} <i class="fa fa-coins"></i></span>
+                {{else}}
+                  <span class="badge">-{{fighter1Incorrects}} <i class="fas fa-heart"></i></span>
+                {{/if}}
+              <!-- {{/if}} -->
+            </div>
+          </div>
+          <div class="col-xs-1">
+              <img class="swordsResults" src="/images/swords.png" />
+          </div>
+          <div class="resultsFighter col-xs-5 {{#if fighter2Winner}}photoWinner{{/if}}">
+            <div class="photoResult {{#if fighter2Winner}}photoWinner{{/if}}">
+              <!-- {{#if fighter1Winner}}
+                <img class="photoFighter" src="{{#with student1Battle}}{{image avatar}}{{/with}}"/>
+              {{else}} -->
+                <img class="photoFighter" src='{{#if opponent "student"}}{{#with student2Battle}}{{image avatar}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{imageVillain}}{{/with}}{{/if}}'/>
+              <!-- {{/if}} -->
+            </div>
+            <div class="badge fighterName {{#if fighter2Winner}}fighterWinnerName{{/if}}">
+              <!-- {{#if fighter1Winner}}
+                {{#with student1Battle}}{{studentName}}{{/with}}
+              {{else}} -->
+                {{#if opponent "student"}}{{#with student2Battle}}{{studentName}}{{/with}}{{/if}}{{#if opponent "villain"}}{{#with villainBattle}}{{villainName}}{{/with}}{{/if}}
+              <!-- {{/if}}
+              {{_ "wins"}} -->
+            </div>
+            <div class="wonElements">
+              <!-- {{#if opponent "student"}}
+                <span class="badge">{{battleXP}} XP</span>
+                <span class="badge">{{battleHP}} <i class="fas fa-heart"></i></span>
+                <span class="badge">{{battleCoins}} <i class="fa fa-coins"></i></span>
+              {{/if}}
+
+              {{#if opponent "villain"}}
+                {{#if fighter1Winner}}
+                  <span class="badge">{{battleXP}} XP</span>
+                  <span class="badge">{{battleHP}} <i class="fas fa-heart"></i></span>
+                  <span class="badge">{{battleCoins}} <i class="fa fa-coins"></i></span>
+                {{/if}}
+              {{/if}} -->
+              {{#if opponent "student"}}
+                {{#if fighter2Winner}}
+                  <span class="badge">{{battleXP}} XP</span>
+                  <span class="badge">{{battleHPFighter2}} <i class="fas fa-heart"></i></span>
+                  <span class="badge">{{battleCoins}} <i class="fa fa-coins"></i></span>
+                {{else}}
+                  <span class="badge">-{{fighter2Incorrects}} <i class="fas fa-heart"></i></span>
+                {{/if}}
+              {{/if}}
+            </div>
+          </div>
+          <i class="closeResultsBattle fas fa-times"></i>
+          <!-- <button class="saveResults btn btn-info">{{_ "save"}}</button> -->
         </div>
       </div>
     </div>

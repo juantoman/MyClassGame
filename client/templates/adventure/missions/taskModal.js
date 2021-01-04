@@ -36,7 +36,7 @@ Template.taskModal.helpers({
   },
   activeInput: function(n) {
     per=challengesXP.findOne({'chalId':Session.get('taskId'),'studentId':this._id}).per;
-    if (per==n) {
+    if (parseInt(per)==parseInt(n)) {
       return "active";
     }
   },
@@ -180,7 +180,7 @@ Template.taskModal.events({
     if( tipoM == "Grupal" ) {
       n=challengesXP.find({'studentId':this._id,chalId:Session.get('taskId')}).count();
       if ( n==1 ) {
-        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), XP);
+        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, XP);
       } else {
         var chalXP = {
           classId: Session.get('classId'),
