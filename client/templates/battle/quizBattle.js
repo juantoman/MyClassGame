@@ -9,7 +9,16 @@ Template.quizBattle.onRendered(function() {
 
 Template.quizBattle.helpers({
   student1Battle: function() {
-    return students.findOne({'_id': Session.get('studentId1Battle')});
+    if (Session.get('opponent1')!='class'){
+      return students.findOne({'_id': Session.get('studentId1Battle')});
+    } else {
+      c=classes.findOne({ _id: Session.get('classId') });
+      data={
+        studentName:c.className,
+        HP:villains.findOne({'_id': Session.get('villainId')}).HP
+      };
+      return data;
+    }
   },
   student2Battle: function() {
     return students.findOne({'_id': Session.get('studentId2Battle')});
@@ -18,6 +27,20 @@ Template.quizBattle.helpers({
     return villains.findOne({'_id': Session.get('villainId')});
   },
   image: function(avatar) {
+    if (Session.get('opponent1')=='class'){
+      avatar=classes.findOne({ _id: Session.get('classId') }).groupImg;
+      if (avatar) {
+        if (avatar.substring(0, 4)=="http") {
+          return avatar;
+        } else {
+          cloudinary_url=images.findOne({_id: avatar}).image_url;
+          cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/')
+          return cloudinary_url;
+        }
+      } else {
+        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/v1543412151/proves/grupo.png";
+      }
+    }
     avatarVisible=classes.findOne({ _id: Session.get('classId') }).avatarVisible;
     if ( avatar=="" || !avatar || (  Session.get('userType') != "teacher"  &&  !avatarVisible ) ) {
       if ( classes.findOne({_id: Session.get('classId')}).studentImg ) {
@@ -54,8 +77,8 @@ Template.quizBattle.helpers({
   villains: function() {
     return villains.find({'classId': Session.get('classId')});
   },
-  opponent: function(opponentType) {
-    if (Session.get('opponent') == opponentType) {
+  opponent2: function(opponentType) {
+    if (Session.get('opponent2') == opponentType) {
       return true;
     } else {
       return false;
@@ -186,7 +209,7 @@ Template.quizBattle.events({
     $(event.currentTarget).toggleClass('answerSelected');
   },
   'click .question .photo2': function(event) {
-    if ( Session.get('opponent') != "villain") {
+    if ( Session.get('opponent2') != "villain") {
       $('.question .photo2').removeClass('answerSelected');
       $(event.currentTarget).toggleClass('answerSelected');
     }
@@ -204,7 +227,7 @@ Template.quizBattle.events({
         Session.set('fighter2Corrects',Session.get('fighter2Corrects')+1)
       }
     });
-    if ( Session.get('opponent') == "villain") {
+    if ( Session.get('opponent2') == "villain") {
       if ( $('.incorrectAnswer').length == 1 || $('.answerSelected').length == 1 ) {
         Session.set('fighter2Corrects',Session.get('fighter2Corrects')+1);
       }
@@ -214,25 +237,33 @@ Template.quizBattle.events({
   },
   'click #nextQuestion': function(event) {
     Session.set('withoutHP',"none");
-    if ( Session.get('fighter1Incorrects') == students.findOne({'_id': Session.get('studentId1Battle')}).HP ) {
-      //alert( students.findOne({'_id': Session.get('studentId1Battle')}).studentName + " se ha quedado sin HP");
-      Session.set('withoutHP',"fighter1");
-      Session.set('winner',"fighter2");
-    }
-    if ( Session.get('fighter2Incorrects') == students.findOne({'_id': Session.get('studentId2Battle')}).HP ) {
-      if ( Session.get('withoutHP') == "fighter1") {
-        Session.set('withoutHP',"both");
-        Session.set('winner',"none");
-      } else {
+    if (Session.get('opponent1')!='class'){
+      if ( Session.get('fighter1Incorrects') == students.findOne({'_id': Session.get('studentId1Battle')}).HP ) {
+        //alert( students.findOne({'_id': Session.get('studentId1Battle')}).studentName + " se ha quedado sin HP");
+        Session.set('withoutHP',"fighter1");
+        Session.set('winner',"fighter2");
+      }
+      if (Session.get('opponent2')!='villain'){
+        if ( Session.get('fighter2Incorrects') == students.findOne({'_id': Session.get('studentId2Battle')}).HP ) {
+          if ( Session.get('withoutHP') == "fighter1") {
+            Session.set('withoutHP',"both");
+            Session.set('winner',"none");
+          } else {
+            Session.set('withoutHP',"fighter2");
+            Session.set('winner',"fighter1");
+          }
+        }
+      }
+    } else {
+      if ( Session.get('fighter1Incorrects') == villains.findOne({'_id': Session.get('villainId')}).HP ) {
+        //alert( students.findOne({'_id': Session.get('studentId1Battle')}).studentName + " se ha quedado sin HP");
+        Session.set('withoutHP',"fighter1");
+        Session.set('winner',"fighter2");
+      }
+      if ( Session.get('fighter2Incorrects') == villains.findOne({'_id': Session.get('villainId')}).HP ) {
         Session.set('withoutHP',"fighter2");
         Session.set('winner',"fighter1");
       }
-      // if (Session.get('opponent') == 'villain' ) {
-      //   alert( villains.findOne({'_id': Session.get('villainId')}).villainName + " se ha quedado sin HP");
-      // }
-      // if (Session.get('opponent') == 'student' ) {
-      //   alert( students.findOne({'_id': Session.get('studentId2Battle')}).studentName + " se ha quedado sin HP");
-      // }
     }
     if (Session.get('questionN') <= nQuestions ) {
       Meteor.call('questionUsed', Session.get('questionId'));
@@ -321,27 +352,29 @@ Template.quizBattle.events({
     }).then((result) => {
       if (result.value) {
         if (Session.get('winner') == "fighter1") {
-          //winner
-          hp=parseInt(Session.get('battleHP')-Session.get('fighter1Incorrects'));
-          var behaviour = {
-            classId: Session.get('classId'),
-            student: Session.get('studentId1Battle'),
-            behavior: 'Battle',
-            behaviourType: 'Battle',
-            'XP': Session.get('battleXP'),
-            'HP': hp,
-            Coins: Session.get('battleCoins'),
-            Energy:0,
-            evaluation: Session.get('evaluation'),
-            comment: $("#commentXP").val(),
-            createdOn: new Date()
-          };
-          Meteor.call('behaviourLogInsert', behaviour);
-          Meteor.call('studentXP', Session.get('studentId1Battle'), Session.get('battleXP'));
-          Meteor.call('studentHP', Session.get('studentId1Battle'), -hp);
-          Meteor.call('incCoins', Session.get('studentId1Battle'), Session.get('battleCoins'));
-          //loser
-          if (Session.get('opponent') != "villain") {
+          //Student Winner
+          if ( Session.get('opponent1') == "student" ) {
+            hp=parseInt(Session.get('battleHP')-Session.get('fighter1Incorrects'));
+            var behaviour = {
+              classId: Session.get('classId'),
+              student: Session.get('studentId1Battle'),
+              behavior: 'Battle',
+              behaviourType: 'Battle',
+              'XP': Session.get('battleXP'),
+              'HP': hp,
+              Coins: Session.get('battleCoins'),
+              Energy:0,
+              evaluation: Session.get('evaluation'),
+              comment: $("#commentXP").val(),
+              createdOn: new Date()
+            };
+            Meteor.call('behaviourLogInsert', behaviour);
+            Meteor.call('studentXP', Session.get('studentId1Battle'), Session.get('battleXP'));
+            Meteor.call('studentHP', Session.get('studentId1Battle'), -hp);
+            Meteor.call('incCoins', Session.get('studentId1Battle'), Session.get('battleCoins'));
+          }
+          //Student Loser
+          if ( Session.get('opponent2') == "student" ) {
             hp=-Session.get('fighter2Incorrects');
             var behaviour = {
               classId: Session.get('classId'),
@@ -359,10 +392,33 @@ Template.quizBattle.events({
             Meteor.call('behaviourLogInsert', behaviour);
             Meteor.call('studentHP', Session.get('studentId2Battle'), -hp);
           }
+          //class
+          if ( Session.get('opponent1') == "class" ) {
+            hp=parseInt(Session.get('battleHP')-Session.get('fighter1Incorrects'));
+            students.find( { $and: [ { present: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (student){
+              var behaviour = {
+                classId: Session.get('classId'),
+                student: student["_id"],
+                behavior: 'Battle',
+                behaviourType: 'Battle',
+                'XP': Session.get('battleXP'),
+                'HP': hp,
+                Coins: Session.get('battleCoins'),
+                Energy:0,
+                evaluation: Session.get('evaluation'),
+                comment: $("#commentXP").val(),
+                createdOn: new Date()
+              };
+              Meteor.call('behaviourLogInsert', behaviour);
+              Meteor.call('studentXP', student["_id"], Session.get('battleXP'));
+              Meteor.call('studentHP', student["_id"], -hp);
+              Meteor.call('incCoins', student["_id"], Session.get('battleCoins'));
+            });
+          }
         }
-        if (Session.get('winner') == "fighter2" ) {
-          //winner
-          if (Session.get('opponent') != "villain") {
+        if ( Session.get('winner') == "fighter2" ) {
+          //Student Winner
+          if (Session.get('opponent2') == "student") {
             hp=parseInt(Session.get('battleHP')-Session.get('fighter2Incorrects'));
             var behaviour = {
               classId: Session.get('classId'),
@@ -382,23 +438,47 @@ Template.quizBattle.events({
             Meteor.call('studentHP', Session.get('studentId2Battle'), -hp);
             Meteor.call('incCoins', Session.get('studentId2Battle'), Session.get('battleCoins'));
           }
-          //loser
-          hp=-Session.get('fighter1Incorrects');
-          var behaviour = {
-            classId: Session.get('classId'),
-            student: Session.get('studentId1Battle'),
-            behavior: 'Battle',
-            behaviourType: 'Battle',
-            'XP': 0,
-            'HP': hp,
-            Coins: 0,
-            Energy:0,
-            evaluation: Session.get('evaluation'),
-            comment: $("#commentXP").val(),
-            createdOn: new Date()
-          };
-          Meteor.call('behaviourLogInsert', behaviour);
-          Meteor.call('studentHP', Session.get('studentId1Battle'), -hp);
+          //Student Loser
+          if (Session.get('opponent1') == "student") {
+            hp=-Session.get('fighter1Incorrects');
+            var behaviour = {
+              classId: Session.get('classId'),
+              student: Session.get('studentId1Battle'),
+              behavior: 'Battle',
+              behaviourType: 'Battle',
+              'XP': 0,
+              'HP': hp,
+              Coins: 0,
+              Energy:0,
+              evaluation: Session.get('evaluation'),
+              comment: $("#commentXP").val(),
+              createdOn: new Date()
+            };
+            Meteor.call('behaviourLogInsert', behaviour);
+            Meteor.call('studentHP', Session.get('studentId1Battle'), -hp);
+          }
+          //class
+          if ( Session.get('opponent1') == "class" ) {
+            students.find( { $and: [ { present: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (student){
+              hp=Session.get('fighter1Incorrects');
+              if ( student["HP"]<hp ) { hp=student["HP"]; }
+              var behaviour = {
+                classId: Session.get('classId'),
+                student: student["_id"],
+                behavior: 'Battle',
+                behaviourType: 'Battle',
+                'XP': 0,
+                'HP': -hp,
+                Coins: 0,
+                Energy:0,
+                evaluation: Session.get('evaluation'),
+                comment: $("#commentXP").val(),
+                createdOn: new Date()
+              };
+              Meteor.call('behaviourLogInsert', behaviour);
+              Meteor.call('studentHP', student["_id"], hp);
+            });
+          }
         }
         if (Session.get('winner') == "both") {
           // Fighter1
@@ -457,10 +537,10 @@ Template.quizBattle.events({
   },
   'change .fighter2Select': function(event) {
     event.preventDefault();
-    if (Session.get('opponent') == 'villain' ) {
+    if (Session.get('opponent2') == 'villain' ) {
       Session.set('villainId',$('.fighter2Select').val());
     }
-    if (Session.get('opponent') == 'student' ) {
+    if (Session.get('opponent2') == 'student' ) {
       Session.set('studentId2Battle',$('.fighter2Select').val());
     }
   },
