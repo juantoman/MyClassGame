@@ -352,5 +352,9 @@
     "remove": "Remove",
     "fighter": "Opponent",
     "results": "Results",
-    "saved": "Saved"
+    "saved": "Saved",
+    "considerHP": "Opponent without HP, lose",
+    "errorLoseHP": "Incorrect answers subtract HP",
+    "minCorrectAnswers": "Minimum number of correct answers",
+    "time": "Time (s)"
 }

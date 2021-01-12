@@ -11,14 +11,27 @@
 	 box-shadow: 0px 5px 8px rgba(0, 10, 20, 0.06);
    border-radius: 10px;
 }
- .quiz-title {
-	 font-size: 3em;
+ .quiz-title{
    font-weight: bold;
    color: darkblue;
+   margin: auto;
+   margin-top:100px;
+   width: 80%;
+   background-color: rgba(255,255,255,0.8);
+   padding:10px 30px;
+   border: 1px solid gray;
+   box-shadow: 5px 5px 10px rgba(0,0,0,0.6);
+   border-radius: 10px;
 }
+
+.quiz-title p{
+  font-size: 2em;
+}
+
  .quiz-question {
 	 font-size: 1.15em;
 }
+
  .quiz-answer {
 	 position: relative;
 	 display: flex;
@@ -164,7 +177,11 @@
   color: #268BD2;
 }
 
-.question .content .text h3, .question .content .text h6 {
+.question .content .text p {
+    font-weight: bold;
+    font-size: 2.7em;
+}
+.question .content .text h6 {
     font-weight: bold;
 }
 
@@ -266,6 +283,10 @@
 
 .battleParameters h3, .battleQuestions h3.questionN{
   color: white;
+}
+
+.battleParameters .btn-group-battle .btn.active {
+  background-color: navy;
 }
 
 .fighter1Points,.fighter2Points {
@@ -420,8 +441,19 @@
   height: 85vh;
   background:linear-gradient(180deg, rgba( 36, 113, 163, 0.7) 54%, rgba( 174, 214, 241 , 0.7) 83%);
   margin: auto;
-  border-radius: 50px;
+  border-radius: 2vw;
   border: 10px solid rgba( 174, 214, 241 , 0.7);
+}
+
+.resultsFighter h1.badge{
+  position: absolute;
+  left:1vw;
+  font-size:6vh !important;
+  font-weight: bold;
+  background-color: white;
+  color: red;
+  border:1px solid black;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
 }
 
 .photoResult {
@@ -517,4 +549,22 @@
 
 .fighter2Results {
   margin:0 10px 0 -22px;
+}
+
+label.considerHP, label.errorLoseHP{
+  color:white;
+  background-color: #268BD2;
+  margin:0px 0 0 0;
+  padding:2px 20px;
+}
+
+#timerBtn.badge {
+  font-size: 4em !important;
+  font-weight: bold;
+  margin:0;
+  padding: 5px 20px;
+  background-color: navy;
+  color:white;
+  box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.6);
+  transition: all 1s;
 }

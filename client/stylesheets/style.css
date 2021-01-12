@@ -16,7 +16,6 @@ body {
   background: white;
   /*background-image: url("http://i.huffpost.com/gen/4393678/images/n-THE-MATRIX-628x314.jpg");*/
   color: #666666;
-  padding-top: 66px;
   padding-bottom: 0px;
 }
 
@@ -49,6 +48,9 @@ body {
 #spinner {
   height: 300px; }
 
+#allClasses {
+  padding-top:40px;
+}
 
 .jumbotron{
   color:#073642;
@@ -148,7 +150,7 @@ a:hover, a:link {
 }
 
 .main-tab-content {
-  margin-top:40px;
+  padding-top:100px;
 }
 
 #mainTab {

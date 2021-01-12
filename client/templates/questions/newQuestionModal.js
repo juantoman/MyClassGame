@@ -1,6 +1,6 @@
 Template.newQuestionModal.events({
   'click .answerBtn': function(event) {
-    $(this).toggleClass("answerSelected");
+    $(event.currentTarget).toggleClass("answerSelected");
   },
   'submit #newQuestionForm': function(event) {
     event.preventDefault();

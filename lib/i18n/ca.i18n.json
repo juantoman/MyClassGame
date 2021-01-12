@@ -352,5 +352,9 @@
     "remove": "Eliminar",
     "fighter": "Adversari",
     "results": "Resultats",
-    "saved": "Guardats"
+    "saved": "Guardats",
+    "considerHP": "Adversari sense HP, perd",
+    "errorLoseHP": "Respostes incorrectes resten HP",
+    "minCorrectAnswers": "Número mínim de respostes correctes",
+    "time": "Temps (s)"
 }
