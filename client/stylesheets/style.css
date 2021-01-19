@@ -1396,6 +1396,9 @@ h4.panel-title {
  .nameSection {
    width: 90%;
  }
+ .marketing  {
+   margin-top: 64px;
+ }
 }
 
 .panel-heading {
@@ -1405,5 +1408,8 @@ h4.panel-title {
 @media (max-width: 510px) {
   #mylogo span, .welearnplaying {
     display:none;
+  }
+  .marketing  {
+    margin-top: 64px;
   }
 }
