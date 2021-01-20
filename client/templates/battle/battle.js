@@ -102,122 +102,130 @@ Template.battle.events({
     $(event.currentTarget).find('.backlogocard').toggleClass('oculto');
   },
   'click #svsmBattle': function(event) {
-    Session.set('opponent1','student');
-    Session.set('opponent2','villain');
-    /*$('.photo').find('img').removeClass('logoBattle');
-    $('.photo2').find('img').addClass('logoBattle');*/
-    $('.logoBattle').addClass('oculto');
-    // $('.photo').find('.photoFighter').removeClass('oculto');
-    // $('.photo2').find('.logoBattle').addClass('oculto');
-    // $('.photo2').find('.photoFighter').removeClass('oculto');
-    //Elegir alumne aleatoriament
-    if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomStudents',Session.get('classId'));
+    if (villains.find({'classId': Session.get('classId')}).count() !=0 && students.find({'classId': Session.get('classId')}).count() !=0) {
+      Session.set('opponent1','student');
+      Session.set('opponent2','villain');
+      /*$('.photo').find('img').removeClass('logoBattle');
+      $('.photo2').find('img').addClass('logoBattle');*/
+      $('.logoBattle').addClass('oculto');
+      // $('.photo').find('.photoFighter').removeClass('oculto');
+      // $('.photo2').find('.logoBattle').addClass('oculto');
+      // $('.photo2').find('.photoFighter').removeClass('oculto');
+      //Elegir alumne aleatoriament
+      if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomStudents',Session.get('classId'));
+      }
+      var e = students.find({classId: Session.get('classId'),'random':true}).fetch();
+      var re = Math.floor(Math.random() * e.length);
+      Session.set('opponentId1Battle',e[re]._id);
+      //Elegir malvat aleatoriament
+      if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomVillains',Session.get('classId'));
+      }
+      var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
+      var rv = Math.floor(Math.random() * v.length);
+      Session.set('villainId',v[rv]._id);
+      /*Session.set('opponentId2Battle','');
+      $('#card1Battle').click();
+      $('#card2Battle').click();
+      if ( $('#card2Battle').hasClass('card-turned') ) {
+        $('#card2Battle').toggleClass('card card-turned');
+        //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
+        $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
+        $('#card2Battle').find('.backlogocard').toggleClass('oculto');
+      }*/
+      $('.fighters').removeClass('oculto');
+      $('.fighter2').addClass('oculto');
     }
-    var e = students.find({classId: Session.get('classId'),'random':true}).fetch();
-    var re = Math.floor(Math.random() * e.length);
-    Session.set('opponentId1Battle',e[re]._id);
-    //Elegir malvat aleatoriament
-    if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomVillains',Session.get('classId'));
-    }
-    var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
-    var rv = Math.floor(Math.random() * v.length);
-    Session.set('villainId',v[rv]._id);
-    /*Session.set('opponentId2Battle','');
-    $('#card1Battle').click();
-    $('#card2Battle').click();
-    if ( $('#card2Battle').hasClass('card-turned') ) {
-      $('#card2Battle').toggleClass('card card-turned');
-      //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
-      $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
-      $('#card2Battle').find('.backlogocard').toggleClass('oculto');
-    }*/
-    $('.fighters').removeClass('oculto');
-    $('.fighter2').addClass('oculto');
   },
   'click #evsmBattle': function(event) {
-    Session.set('opponent1','team');
-    Session.set('opponent2','villain');
-    /*$('.photo').find('img').removeClass('logoBattle');
-    $('.photo2').find('img').addClass('logoBattle');*/
-    $('.logoBattle').addClass('oculto');
-    //$('.photoFighter').removeClass('oculto');
-    // $('.photo2').find('.logoBattle').addClass('oculto');
-    // $('.photo2').find('.photoFighter').removeClass('oculto');
-    //Elegir equip aleatoriament
-    if ( groups.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomGroups',Session.get('classId'));
+    if (villains.find({'classId': Session.get('classId')}).count() !=0 && groups.find({'classId': Session.get('classId')}).count() !=0) {
+      Session.set('opponent1','team');
+      Session.set('opponent2','villain');
+      /*$('.photo').find('img').removeClass('logoBattle');
+      $('.photo2').find('img').addClass('logoBattle');*/
+      $('.logoBattle').addClass('oculto');
+      //$('.photoFighter').removeClass('oculto');
+      // $('.photo2').find('.logoBattle').addClass('oculto');
+      // $('.photo2').find('.photoFighter').removeClass('oculto');
+      //Elegir equip aleatoriament
+      if ( groups.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomGroups',Session.get('classId'));
+      }
+      var g = groups.find({classId: Session.get('classId'),'random':true}).fetch();
+      var rg = Math.floor(Math.random() * g.length);
+      Session.set('opponentId1Battle',g[rg]._id);
+      //Elegir malvat aleatoriament
+      if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomVillains',Session.get('classId'));
+      }
+      var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
+      var rv = Math.floor(Math.random() * v.length);
+      Session.set('villainId',v[rv]._id);
+      /*Session.set('opponentId2Battle','');
+      $('#card1Battle').click();
+      $('#card2Battle').click();
+      if ( $('#card2Battle').hasClass('card-turned') ) {
+        $('#card2Battle').toggleClass('card card-turned');
+        //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
+        $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
+        $('#card2Battle').find('.backlogocard').toggleClass('oculto');
+      }*/
+      $('.fighters').removeClass('oculto');
+      $('.fighter2').addClass('oculto');
     }
-    var g = groups.find({classId: Session.get('classId'),'random':true}).fetch();
-    var rg = Math.floor(Math.random() * g.length);
-    Session.set('opponentId1Battle',g[rg]._id);
-    //Elegir malvat aleatoriament
-    if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomVillains',Session.get('classId'));
-    }
-    var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
-    var rv = Math.floor(Math.random() * v.length);
-    Session.set('villainId',v[rv]._id);
-    /*Session.set('opponentId2Battle','');
-    $('#card1Battle').click();
-    $('#card2Battle').click();
-    if ( $('#card2Battle').hasClass('card-turned') ) {
-      $('#card2Battle').toggleClass('card card-turned');
-      //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
-      $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
-      $('#card2Battle').find('.backlogocard').toggleClass('oculto');
-    }*/
-    $('.fighters').removeClass('oculto');
-    $('.fighter2').addClass('oculto');
   },
   'click #svssBattle': function(event) {
-    Session.set('opponent1','student');
-    Session.set('opponent2','student');
-    if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomStudents',Session.get('classId'));
+    if (students.find({'classId': Session.get('classId')}).count() >1) {
+      Session.set('opponent1','student');
+      Session.set('opponent2','student');
+      if ( students.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomStudents',Session.get('classId'));
+      }
+      var e1 = students.find({classId: Session.get('classId'),'random':true}).fetch();
+      var r1 = Math.floor(Math.random() * e1.length);
+      var e2 = students.find({classId: Session.get('classId'),'random':true}).fetch();
+      var r2 = Math.floor(Math.random() * e2.length);
+      while ( r1 == r2 ) {
+        r2 = Math.floor(Math.random() * e2.length);
+      }
+      Session.set('opponentId1Battle',e1[r1]._id);
+      Session.set('opponentId2Battle',e2[r2]._id);
+      //$('#card1Battle').click();
+      //$('#card2Battle').click();
+      $('.logoBattle').addClass('oculto');
+      // $('.photo').find('.photoFighter').removeClass('oculto');
+      // $('.photo2').find('.logoBattle').addClass('oculto');
+      // $('.photo2').find('.photoFighter').removeClass('oculto');
+      $('.fighters').removeClass('oculto');
+      $('.fighter2').removeClass('oculto');
     }
-    var e1 = students.find({classId: Session.get('classId'),'random':true}).fetch();
-    var r1 = Math.floor(Math.random() * e1.length);
-    var e2 = students.find({classId: Session.get('classId'),'random':true}).fetch();
-    var r2 = Math.floor(Math.random() * e2.length);
-    while ( r1 == r2 ) {
-      r2 = Math.floor(Math.random() * e2.length);
-    }
-    Session.set('opponentId1Battle',e1[r1]._id);
-    Session.set('opponentId2Battle',e2[r2]._id);
-    //$('#card1Battle').click();
-    //$('#card2Battle').click();
-    $('.logoBattle').addClass('oculto');
-    // $('.photo').find('.photoFighter').removeClass('oculto');
-    // $('.photo2').find('.logoBattle').addClass('oculto');
-    // $('.photo2').find('.photoFighter').removeClass('oculto');
-    $('.fighters').removeClass('oculto');
-    $('.fighter2').removeClass('oculto');
   },
   'click #evseBattle': function(event) {
-    Session.set('opponent1','team');
-    Session.set('opponent2','team');
-    if ( groups.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomGroups',Session.get('classId'));
+    if (groups.find({'classId': Session.get('classId')}).count() >1) {
+      Session.set('opponent1','team');
+      Session.set('opponent2','team');
+      if ( groups.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomGroups',Session.get('classId'));
+      }
+      var e1 = groups.find({classId: Session.get('classId'),'random':true}).fetch();
+      var r1 = Math.floor(Math.random() * e1.length);
+      var e2 = groups.find({classId: Session.get('classId'),'random':true}).fetch();
+      var r2 = Math.floor(Math.random() * e2.length);
+      while ( r1 == r2 ) {
+        r2 = Math.floor(Math.random() * e2.length);
+      }
+      Session.set('opponentId1Battle',e1[r1]._id);
+      Session.set('opponentId2Battle',e2[r2]._id);
+      //$('#card1Battle').click();
+      //$('#card2Battle').click();
+      $('.logoBattle').addClass('oculto');
+      // $('.photo').find('.photoFighter').removeClass('oculto');
+      // $('.photo2').find('.logoBattle').addClass('oculto');
+      // $('.photo2').find('.photoFighter').removeClass('oculto');
+      $('.fighters').removeClass('oculto');
+      $('.fighter2').removeClass('oculto');
     }
-    var e1 = groups.find({classId: Session.get('classId'),'random':true}).fetch();
-    var r1 = Math.floor(Math.random() * e1.length);
-    var e2 = groups.find({classId: Session.get('classId'),'random':true}).fetch();
-    var r2 = Math.floor(Math.random() * e2.length);
-    while ( r1 == r2 ) {
-      r2 = Math.floor(Math.random() * e2.length);
-    }
-    Session.set('opponentId1Battle',e1[r1]._id);
-    Session.set('opponentId2Battle',e2[r2]._id);
-    //$('#card1Battle').click();
-    //$('#card2Battle').click();
-    $('.logoBattle').addClass('oculto');
-    // $('.photo').find('.photoFighter').removeClass('oculto');
-    // $('.photo2').find('.logoBattle').addClass('oculto');
-    // $('.photo2').find('.photoFighter').removeClass('oculto');
-    $('.fighters').removeClass('oculto');
-    $('.fighter2').removeClass('oculto');
   },
   'click #resetBattle': function(event) {
     Session.set('opponent1','');
@@ -242,31 +250,33 @@ Template.battle.events({
     $('.fighter2').addClass('oculto');
   },
   'click #cvsmBattle': function(event) {
-    Session.set('opponent1','class');
-    Session.set('opponent2','villain');
-    /*$('.photo').find('img').removeClass('logoBattle');
-    $('.photo2').find('img').addClass('logoBattle');*/
-    $('.logoBattle').addClass('oculto');
-    //$('.photoFighter').removeClass('oculto');
-    //$('.photo2').find('.logoBattle').addClass('oculto');
-    //$('.photo2').find('.photoFighter').removeClass('oculto');
-    //Elegir malvat aleatoriament
-    if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
-      Meteor.call('allRandomVillains',Session.get('classId'));
+    if (villains.find({'classId': Session.get('classId')}).count() !=0 && students.find({'classId': Session.get('classId')}).count() !=0) {
+      Session.set('opponent1','class');
+      Session.set('opponent2','villain');
+      /*$('.photo').find('img').removeClass('logoBattle');
+      $('.photo2').find('img').addClass('logoBattle');*/
+      $('.logoBattle').addClass('oculto');
+      //$('.photoFighter').removeClass('oculto');
+      //$('.photo2').find('.logoBattle').addClass('oculto');
+      //$('.photo2').find('.photoFighter').removeClass('oculto');
+      //Elegir malvat aleatoriament
+      if ( villains.find({'classId': Session.get('classId'),'random': true }).count() <= 1 ) {
+        Meteor.call('allRandomVillains',Session.get('classId'));
+      }
+      var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
+      var rv = Math.floor(Math.random() * v.length);
+      Session.set('villainId',v[rv]._id);
+      /*Session.set('opponentId2Battle','');
+      $('#card1Battle').click();
+      $('#card2Battle').click();
+      if ( $('#card2Battle').hasClass('card-turned') ) {
+        $('#card2Battle').toggleClass('card card-turned');
+        //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
+        $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
+        $('#card2Battle').find('.backlogocard').toggleClass('oculto');
+      }*/
+      $('.fighters').removeClass('oculto');
+      $('.fighter2').addClass('oculto');
     }
-    var v = villains.find({classId: Session.get('classId'),'random':true}).fetch();
-    var rv = Math.floor(Math.random() * v.length);
-    Session.set('villainId',v[rv]._id);
-    /*Session.set('opponentId2Battle','');
-    $('#card1Battle').click();
-    $('#card2Battle').click();
-    if ( $('#card2Battle').hasClass('card-turned') ) {
-      $('#card2Battle').toggleClass('card card-turned');
-      //$('.photo2').find('img').attr('src',"/images/@mcgnb.png");
-      $('#card2Battle').find('.card-inside').toggleClass('card-back card-front');
-      $('#card2Battle').find('.backlogocard').toggleClass('oculto');
-    }*/
-    $('.fighters').removeClass('oculto');
-    $('.fighter2').addClass('oculto');
   }
 });
