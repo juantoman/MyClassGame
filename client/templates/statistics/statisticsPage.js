@@ -47,6 +47,10 @@ Template.statisticsPage.events({
     if (this.behaviourType=="teacherXP") {
       Meteor.call('studentXP', this.student, -parseInt(this.XP));
     }
+    if (this.behaviourType=="Task") {
+      Meteor.call('chalDeleteXP', this.student, this.behavior);
+      Meteor.call('studentXP', this.student, -parseInt(this.XP));
+    }
     if (this.behaviourType=="HP") {
       beh=behaviours.findOne({_id: this.behavior});
       p=beh.points;

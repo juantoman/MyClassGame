@@ -210,16 +210,21 @@ Template.taskModal.events({
         } else {
           aXP=challengesXP.findOne({'studentId': u._id, 'chalId': Session.get('taskId')} ).chalXP;
           Meteor.call('studentXP', u._id, -aXP);
-          var behaviour = {
-            classId: Session.get('classId'),
-            student: u._id,
-            behavior: "",
-            behaviourType: 'XP',
-            comment: "Cambio XP Tarea: '" + task.chalMissionDesc + "' ( " + -aXP + " XP )",
-            evaluation: Session.get('evaluation'),
-            createdOn: new Date()
-          };
-          Meteor.call('behaviourLogInsert', behaviour);
+          // var behaviour = {
+          //   classId: Session.get('classId'),
+          //   student: u._id,
+          //   behavior: Session.get('taskId'),
+          //   behaviourType: 'Task',
+          //   'XP': -aXP,
+          //   'HP': 0,
+          //   Coins: 0,
+          //   Energy:0,
+          //   evaluation: Session.get('evaluation'),
+          //   comment: "Cambio XP Tarea: '" + task.chalMissionDesc + "' ( " + -aXP + " XP )",
+          //   createdOn: new Date()
+          // };
+          Meteor.call('deleteLogTask', u._id, Session.get('taskId'));
+          //Meteor.call('behaviourLogInsert', behaviour);
           //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
           Meteor.call('chalUpdateXP', u._id, Session.get('taskId'), per, XP);
           //Meteor.call('addStar', Session.get('studentId'), stars[per]);
@@ -227,11 +232,15 @@ Template.taskModal.events({
         Meteor.call('studentXP',  u._id, XP);
         var behaviour = {
           classId: Session.get('classId'),
-          student:  u._id,
-          behavior: "",
-          behaviourType: 'XP',
-          comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
+          student: u._id,
+          behavior: Session.get('taskId'),
+          behaviourType: 'Task',
+          'XP': XP,
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
           evaluation: Session.get('evaluation'),
+          comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
@@ -265,16 +274,21 @@ Template.taskModal.events({
       } else {
         aXP=challengesXP.findOne({'studentId': this._id, 'chalId': Session.get('taskId')} ).chalXP;
         Meteor.call('studentXP', this._id, -aXP);
-        var behaviour = {
-          classId: Session.get('classId'),
-          student: this._id,
-          behavior: "",
-          behaviourType: 'XP',
-          comment: "Cambio XP Tarea: '" + task.chalMissionDesc + "' ( " + -aXP + " XP )",
-          evaluation: Session.get('evaluation'),
-          createdOn: new Date()
-        };
-        Meteor.call('behaviourLogInsert', behaviour);
+        // var behaviour = {
+        //   classId: Session.get('classId'),
+        //   student: this._id,
+        //   behavior: Session.get('taskId'),
+        //   behaviourType: 'Task',
+        //   'XP': -aXP,
+        //   'HP': 0,
+        //   Coins: 0,
+        //   Energy:0,
+        //   evaluation: Session.get('evaluation'),
+        //   comment: "Cambio XP Tarea: '" + task.chalMissionDesc + "' ( " + -aXP + " XP )",
+        //   createdOn: new Date()
+        // };
+        Meteor.call('deleteLogTask', this._id, Session.get('taskId'));
+        //Meteor.call('behaviourLogInsert', behaviour);
         //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
         Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, XP);
         //Meteor.call('addStar', Session.get('studentId'), stars[per]);
@@ -282,11 +296,15 @@ Template.taskModal.events({
       Meteor.call('studentXP',  this._id, XP);
       var behaviour = {
         classId: Session.get('classId'),
-        student:  this._id,
-        behavior: "",
-        behaviourType: 'XP',
-        comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
+        student: this._id,
+        behavior: Session.get('taskId'),
+        behaviourType: 'Task',
+        'XP': XP,
+        'HP': 0,
+        Coins: 0,
+        Energy:0,
         evaluation: Session.get('evaluation'),
+        comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);
