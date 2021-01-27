@@ -148,11 +148,10 @@ Template.parametersList.events({
     event.preventDefault();
     Meteor.call('medalsVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
-  'click #btn-reset': function(event) {
-    event.preventDefault();
-    Modal.show('resetClass');
-    //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
-  },
+  // 'click #btn-reset': function(event) {
+  //   event.preventDefault();
+  //   Modal.show('resetClass');
+  // },
   'click #btn-reset': function(event) {
     event.preventDefault();
     swal({
@@ -188,7 +187,7 @@ Template.parametersList.events({
           break;
       }
     })*/
-    Modal.show('resetClass');
+    //Modal.show('resetClass');
     //Meteor.call('avatarVisibleChange', Session.get('classId'), event.currentTarget.checked);
   },
   'click #btn-resetXPHP': function(event) {

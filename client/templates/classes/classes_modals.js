@@ -58,7 +58,7 @@ Template.classesModals.events({
           createdOn: new Date()
         };
         cId=Meteor.call('classInsert', classe);
-        Meteor.call('teacherInClass',Session.get("classId"));
+        //Meteor.call('teacherInClass',Session.get("classId"));
       }
       var otherClassId= $("#class-name-other-teacher").val();
       if (otherClassId !=""){
