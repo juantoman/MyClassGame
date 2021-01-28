@@ -173,14 +173,14 @@ Template.taskModal.events({
     var stars = {0:"rs", 20:"os", 40:"ys", 60:"ws", 80:"bs", 100:"gs"};
     per=$(event.currentTarget).find("input").val();
     task=chalMissions.findOne({'_id':Session.get('taskId')});
-    XP=parseInt(per*task.chalMissionXP/100);
+    nXP=parseInt(per*task.chalMissionXP/100);
     mId=task.missionId;
     max=task.chalMissionXP;
     tipoM=challenges.findOne({_id: mId}).IoG;
     if( tipoM == "Grupal" ) {
       n=challengesXP.find({'studentId':this._id,chalId:Session.get('taskId')}).count();
       if ( n==1 ) {
-        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, XP);
+        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, nXP);
       } else {
         var chalXP = {
           classId: Session.get('classId'),
@@ -188,7 +188,7 @@ Template.taskModal.events({
           missionId:mId,
           chalId: Session.get('taskId'),
           per: per,
-          chalXP: XP,
+          chalXP: nXP,
           createdOn: new Date()
         };
         Meteor.call('chalInsertXP', chalXP);
@@ -202,7 +202,7 @@ Template.taskModal.events({
             missionId:mId,
             chalId: Session.get('taskId'),
             per: per,
-            chalXP: XP,
+            chalXP: nXP,
             createdOn: new Date()
           };
           Meteor.call('chalInsertXP', chalXP);
@@ -226,21 +226,21 @@ Template.taskModal.events({
           Meteor.call('deleteLogTask', u._id, Session.get('taskId'));
           //Meteor.call('behaviourLogInsert', behaviour);
           //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
-          Meteor.call('chalUpdateXP', u._id, Session.get('taskId'), per, XP);
+          Meteor.call('chalUpdateXP', u._id, Session.get('taskId'), per, nXP);
           //Meteor.call('addStar', Session.get('studentId'), stars[per]);
         }
-        Meteor.call('studentXP',  u._id, XP);
+        Meteor.call('studentXP',  u._id, nXP);
         var behaviour = {
           classId: Session.get('classId'),
           student: u._id,
           behavior: Session.get('taskId'),
           behaviourType: 'Task',
-          'XP': XP,
+          'XP': nXP,
           'HP': 0,
           Coins: 0,
           Energy:0,
           evaluation: Session.get('evaluation'),
-          comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
+          comment: "Tarea: '" + task.chalMissionDesc + "' ( " + nXP + " XP )",
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
@@ -266,7 +266,7 @@ Template.taskModal.events({
           missionId:mId,
           chalId: Session.get('taskId'),
           per: per,
-          chalXP: XP,
+          chalXP: nXP,
           createdOn: new Date()
         };
         Meteor.call('chalInsertXP', chalXP);
@@ -287,24 +287,24 @@ Template.taskModal.events({
         //   comment: "Cambio XP Tarea: '" + task.chalMissionDesc + "' ( " + -aXP + " XP )",
         //   createdOn: new Date()
         // };
+        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, nXP);
         Meteor.call('deleteLogTask', this._id, Session.get('taskId'));
         //Meteor.call('behaviourLogInsert', behaviour);
         //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
-        Meteor.call('chalUpdateXP', this._id, Session.get('taskId'), per, XP);
         //Meteor.call('addStar', Session.get('studentId'), stars[per]);
       }
-      Meteor.call('studentXP',  this._id, XP);
+      Meteor.call('studentXP',  this._id, nXP);
       var behaviour = {
         classId: Session.get('classId'),
         student: this._id,
         behavior: Session.get('taskId'),
         behaviourType: 'Task',
-        'XP': XP,
+        'XP':nXP,
         'HP': 0,
         Coins: 0,
         Energy:0,
         evaluation: Session.get('evaluation'),
-        comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
+        comment: "Tarea: '" + task.chalMissionDesc + "' ( " + nXP + " XP )",
         createdOn: new Date()
       };
       Meteor.call('behaviourLogInsert', behaviour);

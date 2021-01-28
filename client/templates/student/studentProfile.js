@@ -996,7 +996,7 @@ Template.studentProfile.events({
     var stars = {0:"rs", 20:"os", 40:"ys", 60:"ws", 80:"bs", 100:"gs"};
     per=$(event.currentTarget).find("input").val();
     cXP=this.chalMissionXP;
-    XP=parseInt(per*cXP/100);
+    nXP=parseInt(per*cXP/100);
     mId=$(event.currentTarget).closest(".panel-info").attr("id");
     max=this.chalMissionXP;
     n=challengesXP.find({'studentId': Session.get('studentId'), 'chalId': this._id} ).count();
@@ -1007,7 +1007,7 @@ Template.studentProfile.events({
         missionId:mId,
         chalId: this._id,
         per: per,
-        chalXP: XP,
+        chalXP: nXP,
         createdOn: new Date()
       };
       Meteor.call('chalInsertXP', chalXP);
@@ -1027,10 +1027,10 @@ Template.studentProfile.events({
       Meteor.call('deleteLogTask', Session.get('studentId'), this._id);
       //Meteor.call('behaviourLogInsert', behaviour);
       //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
-      Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
+      Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, nXP);
       //Meteor.call('addStar', Session.get('studentId'), stars[per]);
     }
-    Meteor.call('studentXP', Session.get('studentId'), XP);
+    Meteor.call('studentXP', Session.get('studentId'), nXP);
     // var behaviour = {
     //   classId: Session.get('classId'),
     //   student: Session.get('studentId'),
@@ -1045,12 +1045,12 @@ Template.studentProfile.events({
       student: Session.get('studentId'),
       behavior: this._id,
       behaviourType: 'Task',
-      'XP': XP,
+      'XP': nXP,
       'HP': 0,
       Coins: 0,
       Energy:0,
       evaluation: Session.get('evaluation'),
-      comment: "Tarea: '" + this.chalMissionDesc + "' ( " + XP + " XP )",
+      comment: "Tarea: '" + this.chalMissionDesc + "' ( " + nXP + " XP )",
       createdOn: new Date()
     };
     Meteor.call('behaviourLogInsert', behaviour);
