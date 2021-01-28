@@ -887,26 +887,54 @@ Template.studentProfile.events({
     Meteor.call('studentMission',Session.get('studentId'),missionId);
   },
   'click .borrar': function(event) {
+    // event.preventDefault();
+    // log=behavioursLog.findOne({_id: event.target.name});
+    // student=log.student;
+    // bType=log.behaviourType;
+    // bId=log.behavior;
+    // beh=behaviours.findOne({_id: log.behavior});
+    // p=beh.points;
+    // if (log.behaviourType=="XP") {
+    //   Meteor.call('studentXP', student, -p);
+    // }
+    // if (log.behaviourType=="HP") {
+    //   Meteor.call('studentHP', student, -p);
+    // }
+    // if (log.behaviourType=="BG") {
+    //   beh=badges.findOne({_id: log.behavior});
+    //   p=beh.points;
+    //   Meteor.call('studentXP', student, -p);
+    // }
+    // //alert(event.target.parentElement.parentElement.childElementCount);
+    // Meteor.call('behaviourLogDelete',event.target.name);
     event.preventDefault();
-    log=behavioursLog.findOne({_id: event.target.name});
-    student=log.student;
-    bType=log.behaviourType;
-    bId=log.behavior;
-    beh=behaviours.findOne({_id: log.behavior});
-    p=beh.points;
-    if (log.behaviourType=="XP") {
-      Meteor.call('studentXP', student, -p);
-    }
-    if (log.behaviourType=="HP") {
-      Meteor.call('studentHP', student, -p);
-    }
-    if (log.behaviourType=="BG") {
-      beh=badges.findOne({_id: log.behavior});
+    if (this.behaviourType=="XP") {
+      beh=behaviours.findOne({_id: this.behavior});
       p=beh.points;
-      Meteor.call('studentXP', student, -p);
+      Meteor.call('studentXP', this.student, -p);
+    }
+    if (this.behaviourType=="teacherXP") {
+      Meteor.call('studentXP', this.student, -parseInt(this.XP));
+    }
+    if (this.behaviourType=="Task") {
+      Meteor.call('chalDeleteXP', this.student, this.behavior);
+      Meteor.call('studentXP', this.student, -parseInt(this.XP));
+    }
+    if (this.behaviourType=="HP") {
+      beh=behaviours.findOne({_id: this.behavior});
+      p=beh.points;
+      Meteor.call('studentHP',  this.student, -p);
+    }
+    if (this.behaviourType=="teacherHP") {
+      Meteor.call('studentHP', this.student, parseInt(this.HP));
+    }
+    if (this.behaviourType=="BG") {
+      beh=badges.findOne({_id: this.behavior});
+      p=beh.points;
+      Meteor.call('studentXP',  this.student, -p);
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
-    Meteor.call('behaviourLogDelete',event.target.name);
+    Meteor.call('behaviourLogDelete',this._id);
   },
   /*
   'click .avatarCloudinary': function(event) {
@@ -996,7 +1024,7 @@ Template.studentProfile.events({
       //   evaluation: Session.get('evaluation'),
       //   createdOn: new Date()
       // };
-      Meteor.call('deleteLogTask', Session.get('studentId'), Session.get('taskId'));
+      Meteor.call('deleteLogTask', Session.get('studentId'), this._id);
       //Meteor.call('behaviourLogInsert', behaviour);
       //Meteor.call('removeStar', Session.get('studentId'), stars[aper]);
       Meteor.call('chalUpdateXP', Session.get('studentId'), this._id, per, XP);
@@ -1015,14 +1043,14 @@ Template.studentProfile.events({
     var behaviour = {
       classId: Session.get('classId'),
       student: Session.get('studentId'),
-      behavior: Session.get('taskId'),
+      behavior: this._id,
       behaviourType: 'Task',
       'XP': XP,
       'HP': 0,
       Coins: 0,
       Energy:0,
       evaluation: Session.get('evaluation'),
-      comment: "Tarea: '" + task.chalMissionDesc + "' ( " + XP + " XP )",
+      comment: "Tarea: '" + this.chalMissionDesc + "' ( " + XP + " XP )",
       createdOn: new Date()
     };
     Meteor.call('behaviourLogInsert', behaviour);
