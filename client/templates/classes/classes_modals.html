@@ -122,23 +122,23 @@
 </template>
 
 <template name="adminClass">
-  <div class="modal" id="add_class_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form id="add_class_form">
+        <form>
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="exampleModalLabel">Código clase administrar</h4>
+            <h4 class="modal-title" id="exampleModalLabel">Administrador</h4>
           </div>
           <div class="modal-body">
               <div class="form-group">
                 <label for="class-name" class="control-label">Código clase administrar</label>
                 <input type="text" class="form-control" id="adminClassId" name="class-name">
                 <br />
-                <input class="btn btn-info" id="adminClassBtn" value="Entrar clase">
-                <input class="btn btn-info" id="deleteUsers" value="Borrar usuarios">
-                <input class="btn btn-info" id="deleteClasses" value="Borrar clases">
               </div>
+              <input class="btn btn-info" id="adminClassBtn" value="Entrar clase">
+              <input class="btn btn-info" id="deleteUsers" value="Borrar usuarios no usados">
+              <input class="btn btn-info" id="deleteClasses" value="Borrar clases no usadas">
               <!--
               <div class="form-group">
                 <label for="class-name" class="control-label">Password</label>

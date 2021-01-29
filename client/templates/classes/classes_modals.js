@@ -174,5 +174,13 @@ Template.adminClass.events({
     } else {
       alert("No se ha encontrado la clase");
     }*/
+  },
+  'click #deleteUsers': function(event) {
+    event.preventDefault();
+    Meteor.call('deleteUsers');
+  },
+  'click #deleteClasses': function(event) {
+    event.preventDefault();
+    Meteor.call('deleteClassesNotAlive');
   }
 });
