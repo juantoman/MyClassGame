@@ -136,10 +136,11 @@ Template.deleteClass.events({
 });
 
 Template.adminClass.events({
-  'submit form': function(event) {
+  'click #adminClassBtn': function(event) {
     //alert($(event.target).find('[name=class-name]').val());
     event.preventDefault();
-    regla="^" + $(event.target).find('[name=class-name]').val();
+    //regla="^" + $(event.target).find('[name=class-name]').val();
+    regla="^" + $('#adminClassId').val();
     //Meteor.subscribe('classes','all');
     Meteor.call('adminClass', regla,function(error,data){
       if (error) {
