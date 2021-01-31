@@ -463,7 +463,8 @@ Template.studentProfile.helpers({
     }
   },
   selectMissions: function(){
-    return challenges.find( { classId: Session.get('classId'), type : "Misión" });
+    //return challenges.find( { classId: Session.get('classId'), type : "Misión" });
+    return challenges.find( { classId: Session.get('classId') } );
   },
   missionSelected: function(m){
     if ( students.findOne({_id: Session.get('studentId')}).mission == m ) {
@@ -1711,5 +1712,9 @@ Template.studentProfile.events({
   'click .stockVisible': function(event) {
     event.preventDefault();
     Session.set("allVisible",false);
+  },
+  'click .seeDiary': function(event) {
+    event.preventDefault();
+    $('.diario').fadeIn();
   }
 });

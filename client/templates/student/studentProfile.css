@@ -604,3 +604,8 @@
   font-size: 1.2em !important;
   font-weight: normal;
 }
+
+.diario {
+  margin-top: 10px;
+  display: none;
+}
