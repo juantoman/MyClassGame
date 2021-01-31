@@ -182,5 +182,10 @@ Template.adminClass.events({
   'click #deleteClasses': function(event) {
     event.preventDefault();
     Meteor.call('deleteClassesNotAlive');
+  },
+  'click #aliveFalse': function(event) {
+    event.preventDefault();
+    Meteor.call('aliveFalseUsers');
+    Meteor.call('aliveFalseClasses');
   }
 });
