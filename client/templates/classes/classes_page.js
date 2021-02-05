@@ -170,6 +170,7 @@ Template.classesPage.events({
     c.iniHP=10;
     Meteor.call('classDuplicate',c,cId);
     Meteor.subscribe("classes");
+    Meteor.subscribe('images');
     $('#add_class_modal').modal('hide');
     /*students.find({'classId': cId}).forEach(function(student){
       var newStudent = student;
