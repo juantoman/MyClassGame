@@ -1716,5 +1716,10 @@ Template.studentProfile.events({
   'click .seeDiary': function(event) {
     event.preventDefault();
     $('.diario').fadeIn();
+  },
+  'click .studentHistory': function(event) {
+    event.preventDefault();
+    Meteor.subscribe('behavioursLog',"class",Session.get('classId'));
+    //Router.go('statisticsPage',{_id:Session.get('classId')});
   }
 });

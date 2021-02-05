@@ -267,13 +267,16 @@ Template.leftNav.events({
       Modal.show('imagesTemplate');
     }
   },
-  'click #statistics': function(event) {
+  'click #statistics2': function(event) {
     event.preventDefault();
-    Router.go('statisticsPage',{_id:Session.get('classId')});
+    Meteor.subscribe('behavioursLog',"class",Session.get('classId'));
+    //Router.go('statisticsPage',{_id:Session.get('classId')});
   },
-  'click #questions': function(event) {
+  'click #questions2': function(event) {
     event.preventDefault();
-    Router.go('questions',{_id:Session.get('classId')});
+    Meteor.subscribe('questions',Session.get('classId'));
+    Meteor.subscribe('quizzes',Session.get('classId'));
+    //Router.go('questions',{_id:Session.get('classId')});
   },
   'click #studentsMain': function(event) {
     event.preventDefault();
@@ -303,9 +306,11 @@ Template.leftNav.events({
     event.preventDefault();
     Router.go('gamification',{_id:Session.get('classId')});
   },
-  'click #battle': function(event) {
+  'click #battle2': function(event) {
     event.preventDefault();
-    Router.go('battle',{_id:Session.get('classId')});
+    Meteor.subscribe('questions',Session.get('classId'));
+    Meteor.subscribe('quizzes',Session.get('classId'));
+    //Router.go('battle',{_id:Session.get('classId')});
   },
   'click .collaborate': function(event) {
     event.preventDefault();
