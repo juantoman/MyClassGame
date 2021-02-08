@@ -3,7 +3,7 @@
 }
 
 .eventCard {
-  height: 150px;
+  height: 170px;
   background: linear-gradient(rgba(199,24,0,1),rgba(252,194,69,1));
 }
 
@@ -15,16 +15,22 @@
   background: linear-gradient(120deg, rgba(252,194,69,1) 0%, rgba(199,24,0,1) 100%);
 }
 
-.eventName, .eventDesc {
+.eventName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
 	background-color: lightblue;
+  height:5rem !important;
 }
 
 .eventDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

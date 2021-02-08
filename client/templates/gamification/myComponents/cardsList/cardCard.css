@@ -3,7 +3,7 @@
 }
 
 .cardCard {
-  height: 200px;
+  height: 210px;
   background: linear-gradient(rgba(111,184,235,1),rgba(202,234,246,1));
 }
 
@@ -24,7 +24,25 @@
 	background-color: lightblue;
 }
 
+.cardName {
+  font-size: 1em !important;
+}
+.cardName {
+  text-align: center;
+	text-transform: none;
+	font-size: 3rem !important;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
+  height:5rem !important;
+}
+
 .cardDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

@@ -1428,6 +1428,19 @@ Template.studentProfile.events({
     $('.flip-card-inner').removeClass('flip-card-inner-rotated');
     event.stopPropagation();
   },
+  'click .flip-card-back': function(event) {
+    event.preventDefault();
+    //alert($(event.currentTarget).find(".flip-card-name").text());
+    swal({
+      title: $(event.currentTarget).find(".flip-card-name").text(),
+      text: $(event.currentTarget).find(".flip-card-desc").text(),
+      imageUrl: $(event.currentTarget).find(".flip-card-back-img").attr("src"),
+      imageWidth: 200,
+      imageAlt: $(event.currentTarget).find(".flip-card-name").text(),
+      width: '300px'
+    })
+    event.stopPropagation();
+  },
   'click .flip-card-badge-add': function(event) {
     event.preventDefault();
     l=0;

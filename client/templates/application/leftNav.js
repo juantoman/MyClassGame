@@ -310,6 +310,11 @@ Template.leftNav.events({
     event.preventDefault();
     Meteor.subscribe('questions',Session.get('classId'));
     Meteor.subscribe('quizzes',Session.get('classId'));
+    Session.set('quizId',$('#quizId').val());
+    Session.set('nQuestions',questions.find({quizId: Session.get('quizId')}).count());
+    n=questions.find({'quizId': $('#quizId').val()}).count();
+    Session.set('maxNumberQuestions',n);
+    Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
     //Router.go('battle',{_id:Session.get('classId')});
   },
   'click .collaborate': function(event) {

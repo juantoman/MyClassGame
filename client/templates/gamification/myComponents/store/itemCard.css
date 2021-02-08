@@ -3,7 +3,7 @@
 }
 
 .itemCard {
-  height: 200px;
+  height: 210px;
   background: linear-gradient(#016800,lime);
 }
 
@@ -15,16 +15,22 @@
   background: linear-gradient(120deg, lime 0%, #016800 100%);
 }
 
-.itemName, .itemDesc {
+.itemName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
 	background-color: lightblue;
+  height:5rem !important;
 }
 
 .itemDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

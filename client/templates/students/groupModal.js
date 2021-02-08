@@ -74,8 +74,8 @@ Template.groupModal.events({
         student: Session.get('studentId'),
         behavior: i,
         behaviourType: 'XP',
-        evaluation: Session.get('evaluation'),       
-        comment: $("#commentXPGroup").val(),        
+        evaluation: Session.get('evaluation'),
+        comment: $("#commentXPGroup").val(),
         comment: $("#commentXP").val(),
         createdOn: new Date()
       };
@@ -147,7 +147,7 @@ Template.groupXPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'XP',
-          evaluation: Session.get('evaluation'),           
+          evaluation: Session.get('evaluation'),
           comment: $("#commentXPGroup").val(),
           createdOn: new Date()
         };
@@ -201,7 +201,7 @@ Template.groupHPModal.events({
           student: item["_id"],
           behavior: i,
           behaviourType: 'HP',
-          evaluation: Session.get('evaluation'),           
+          evaluation: Session.get('evaluation'),
           comment: $("#commentHPGroup").val(),
           createdOn: new Date()
         };
@@ -216,6 +216,7 @@ Template.groupHPModal.events({
 
 Template.deleteGroup.events({
   'submit form': function(event) {
+    event.preventDefault();
     students.find( { $and: [ { groupId: Session.get('groupId') } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
       studentId=item._id;
       Meteor.call('studentGroup', 0, studentId);

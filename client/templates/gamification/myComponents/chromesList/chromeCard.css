@@ -3,7 +3,7 @@
 }
 
 .chromeCard {
-  height: 200px;
+  height: 215px;
   background: linear-gradient(#333,gray);
 }
 
@@ -15,16 +15,22 @@
   background: linear-gradient(120deg, gray 0%, #333 100%);
 }
 
-.chromeName, .chromeDesc {
+.chromeName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
 	background-color: lightblue;
+  height:5rem !important;
 }
 
 .chromeDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

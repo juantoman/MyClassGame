@@ -3,7 +3,7 @@
 }
 
 .behaviourCard {
-  height: 238px;
+  height: 250px;
   background: linear-gradient(green,#37ff00);
 }
 
@@ -15,15 +15,22 @@
   background: linear-gradient(120deg, #37ff00 0%, green 100%);
 }
 
-.behaviourName, .behaviourDesc {
+.behaviourName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
+	background-color: lightblue;
+  height:5rem !important;
 }
 
 .behaviourDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

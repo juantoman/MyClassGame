@@ -3,7 +3,7 @@
 }
 
 .convictionCard {
-  height: 150px;
+  height: 170px;
   background: linear-gradient(#6d1010,#ff0000);
 }
 
@@ -15,16 +15,22 @@
   background: linear-gradient(120deg, #ff0000 0%, #6d1010 100%);
 }
 
-.convictionName, .convictionDesc {
+.convictionName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
 	background-color: lightblue;
+  height:5rem !important;
 }
 
 .convictionDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 

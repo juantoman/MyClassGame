@@ -3,7 +3,7 @@
 }
 
 .badgeCard {
-  height: 200px;
+  height: 210px;
   background: linear-gradient(#000851,#1CB5E0);
 }
 
@@ -15,16 +15,22 @@
   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
-.badgeName, .badgeDesc {
+.badgeName {
   text-align: center;
 	text-transform: none;
-	font-size: 2em !important;
+	font-size: 3rem !important;
 	width:90%;
 	margin:10px auto;
 	background-color: lightblue;
+  height:5rem !important;
 }
 
 .badgeDesc {
+  text-align: center;
+	text-transform: none;
+	width:90%;
+	margin:10px auto;
+	background-color: lightblue;
   font-size: 1em !important;
 }
 
