@@ -498,10 +498,6 @@ Template.quizBattle.events({
       Session.set('battleCoins',$(event.target).find('[name=battleCoins]').val());
       Session.set('questionN',1);
       Session.set('answerTime',$('.answerTime').val());
-      Session.set('nQuestions',questions.find({quizId: Session.get('quizId')}).count());
-      n=questions.find({'quizId': $('#quizId').val()}).count();
-      Session.set('maxNumberQuestions',n);
-      Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
       timeLeft = Session.get('answerTime');
       timePassed = 0;
       $('.battleModal').fadeIn(500);
@@ -515,6 +511,7 @@ Template.quizBattle.events({
     n=questions.find({'quizId': $('#quizId').val()}).count();
     Session.set('maxNumberQuestions',n);
     Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
+    Session.set('nQuestions',n);
   },
   'click .closeBattle': function(event) {
     event.preventDefault();

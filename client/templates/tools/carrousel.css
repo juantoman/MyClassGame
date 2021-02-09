@@ -3,7 +3,7 @@
 .scene {
   font-family: sans-serif;
   text-align: center;
-  border: 2px solid #CCC;
+  /* border: 2px solid #CCC; */
   position: relative;
   width: 410px;
   height: 240px;
@@ -62,7 +62,6 @@
   text-align: center;
   position: relative;
   z-index: 2;
-  background: hsla(0, 0%, 100%, 0.8);
 }
 
 .carousel__cell span.removeCarousel {
@@ -90,4 +89,12 @@
   vertical-align: middle;
   mix-blend-mode: difference;
   font-weight: bold;
+}
+
+.randomJumbotron {
+  background-color: rgba(0,0,0,0.9)!important;
+}
+
+.randomJumbotron h2 {
+  color: white;
 }
