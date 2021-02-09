@@ -126,7 +126,7 @@ Template.randomCarousel.helpers({
 });
 
 Template.randomCarousel.events({
-  'click .randomButton': function(event) {
+  'click #randomButton': function(event) {
     $('.random_carousel').show();
     var carousel = document.querySelector('.random_carousel');
     var cells = carousel.querySelectorAll('.carousel__cell');
@@ -194,7 +194,7 @@ Template.randomCarousel.events({
     if (Session.get("randomElement")=="evento") {
       var delayInMilliseconds = 3000;
       setTimeout(function() {
-        cells[elementNumber].getElementsByTagName('img')[0].click();
+        cells[Math.round(elementNumber)].getElementsByTagName('img')[0].click();
       }, delayInMilliseconds);
     }
   },
@@ -278,7 +278,7 @@ Template.randomCarousel.events({
         }
         break;
     }
-    $('.randomButton').click();
+    $('#randomButton').click();
   },
   'click img': function(event) {
     event.preventDefault();
@@ -309,9 +309,9 @@ Template.randomCarousel.events({
         title: this.eventName,
         text: this.eventDescription,
         imageUrl: event.target.src,
-        imageWidth: 500,
+        imageWidth: '50%',
         imageAlt: this.eventName,
-        width: '80%'
+        width: '50%'
       })
     }
   }
