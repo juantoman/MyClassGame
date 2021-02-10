@@ -505,7 +505,7 @@ Template.quizBattle.events({
       $("#timerBtn").text(formatTime(timeLeft));
     }
   },
-  'change #battleQuizId': function(event) {
+  'change #battleQuizId, click #battleQuizId': function(event) {
     event.preventDefault();
     Session.set('battleQuizId',$('#battleQuizId').val());
     n=questions.find({'quizId': $('#battleQuizId').val()}).count();
@@ -1008,6 +1008,7 @@ Template.quizBattle.events({
   'change .nQuestions': function(event) {
     event.preventDefault();
     Session.set('nQuestions',$('.nQuestions').val());
+    Session.set('minCorrectAnswers',parseInt(Math.ceil(Session.get('nQuestions')/2)));
   },
   'click .considerHP': function(event) {
     if (Session.get('considerHP')) {
