@@ -1,6 +1,6 @@
 Template.quizTemplate.helpers({
   questions: function() {
-    return questions.find({'classId': Session.get('classId'),'quizId':Session.get('quizId')},{sort: {order: 1}});
+    return questions.find({'quizId':Session.get('quizId')},{sort: {order: 1}});
   },
   quiz: function() {
     return quizzes.findOne({'_id': Session.get('quizId')});

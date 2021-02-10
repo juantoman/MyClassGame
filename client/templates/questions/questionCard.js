@@ -88,7 +88,7 @@ Template.questionCardTemplate.helpers({
       return true;
     } else {
       return false;
-    };
+    }
   },
   TeacherOrVisible: function() {
     if (Session.get('userType')=="teacher" || this.visible) {

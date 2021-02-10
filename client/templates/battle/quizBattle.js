@@ -13,19 +13,19 @@ function formatTime(time) {
   return `${minutes}:${seconds}`;
 }
 
-Template.quizBattle.onRendered(function() {
-  Session.set('quizId',$('#quizId').val());
-  Session.set('fighter1Corrects',0);
-  Session.set('fighter2Corrects',0);
-  Session.set('considerHP',true);
-  Session.set('errorLoseHP',true);
-  Session.set('nQuestions',questions.find({quizId: Session.get('quizId')}).count());
-  n=questions.find({'quizId': $('#quizId').val()}).count();
-  Session.set('maxNumberQuestions',n);
-  Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
-  Session.set('opponent1','');
-  Session.set('opponent2','');
-});
+// Template.quizBattle.onRendered(function() {
+//   Session.set('battleQuizId',$('#battleQuizId').val());
+//   Session.set('fighter1Corrects',0);
+//   Session.set('fighter2Corrects',0);
+//   Session.set('considerHP',true);
+//   Session.set('errorLoseHP',true);
+//   Session.set('nQuestions',questions.find({quizId: Session.get('battleQuizId')}).count());
+//   n=questions.find({'quizId': $('#battleQuizId').val()}).count();
+//   Session.set('maxNumberQuestions',n);
+//   Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
+//   Session.set('opponent1','');
+//   Session.set('opponent2','');
+// });
 
 Template.quizBattle.helpers({
   student1Battle: function() {
@@ -449,7 +449,7 @@ Template.quizBattle.events({
       $('.question .photo').removeClass('answerSelected incorrectAnswer cAnswer');
       $('.question .photo2').removeClass('answerSelected incorrectAnswer cAnswer');
       $('.battleCorrectBtn .btn').toggleClass('oculto');
-      var q = questions.find({quizId: Session.get('quizId'),'used':false}).fetch();
+      var q = questions.find({quizId: Session.get('battleQuizId'),'used':false}).fetch();
       var r = Math.floor(Math.random() * q.length);
       if (q.length ==0 || Session.get('questionN') == Session.get('nQuestions') || Session.get('withoutHP') != "none") {
         Session.set('questionId','');
@@ -482,7 +482,7 @@ Template.quizBattle.events({
     event.preventDefault();
     if ( Session.get('opponent1')!='' ) {
       Meteor.call('questionResetUsed');
-      var q = questions.find({quizId: Session.get('quizId'),'used':false}).fetch();
+      var q = questions.find({quizId: Session.get('battleQuizId'),'used':false}).fetch();
       var r = Math.floor(Math.random() * q.length);
       Session.set('questionId',q[r]._id);
       $('.battleCorrectBtn #correctAnswer').removeClass('oculto');
@@ -505,10 +505,10 @@ Template.quizBattle.events({
       $("#timerBtn").text(formatTime(timeLeft));
     }
   },
-  'change #quizId': function(event) {
+  'change #battleQuizId': function(event) {
     event.preventDefault();
-    Session.set('quizId',$('#quizId').val());
-    n=questions.find({'quizId': $('#quizId').val()}).count();
+    Session.set('battleQuizId',$('#battleQuizId').val());
+    n=questions.find({'quizId': $('#battleQuizId').val()}).count();
     Session.set('maxNumberQuestions',n);
     Session.set('minCorrectAnswers',parseInt(Math.ceil(n/2)));
     Session.set('nQuestions',n);
