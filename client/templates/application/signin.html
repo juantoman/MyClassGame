@@ -14,6 +14,10 @@
           		<form action="#" class="login-form-code">
                 <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
           			<h1>{{_ "student"}}</h1>
+                <div class="btn-group btn-group-xs" role="group" aria-label="...">
+                  <p type="button" class="btn btn-info btn-student">Email</p>
+                  <p type="button" class="btn btn-student">Code</p>
+                </div>
                 <!--
           			<div class="social-container">
           				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -21,9 +25,20 @@
           				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           			</div>
                 -->
-          			<input type="text" placeholder="Alias" id="aliasStudent" />
-          			<input type="password" placeholder="Code" id="codeStudent" />
-          			<button type="submit">{{_ "signin"}}</button>
+                <div class="oculto">
+            			<input type="text" placeholder="Alias" id="aliasStudent" />
+            			<input type="password" placeholder="Code" id="codeStudent" />
+            			<button type="submit">{{_ "signin"}}</button>
+                </div>
+                <div class="">
+                  <img id="google" src="/images/btn_google_signin_dark_normal_web.png" /><br />
+            			<span>{{_ "useAnEmail"}}</span>
+            			<input type="email" placeholder="Email" id="emailStudent"/>
+            			<input type="password" placeholder="Contraseña" id="passwordStudent"/>
+            			<a href="#" id="reset">{{_ "remember"}}</a>
+            			<button type="submit">{{_ "signin"}}</button>
+                  <button id="register">{{_ "register"}}</button>
+                </div>
           		</form>
               <p class="oculto bottom_button text-center btn" id="signIn">{{_ "teacher"}}</p>
           	</div>
