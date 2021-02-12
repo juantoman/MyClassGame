@@ -22,6 +22,7 @@ Template.carrusel.events({
   'click .btnSignin': function(event) {
     event.preventDefault();
     //location.href = 'https://www.myclassgame.tk/';
+    Session.set('userType', "teacher");
     Modal.show('signinModal');
   },
   'click .hiddenBtnSignin': function(event) {

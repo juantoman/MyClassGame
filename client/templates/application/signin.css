@@ -247,6 +247,14 @@
 	cursor: pointer;
 }
 
+.btn-group-student-login label {
+	border: 1px solid #268bd2 !important;;
+}
+
+.btn-group-student-login label:hover {
+	color: #268bd2 !important;
+}
+
 @media (max-width: 740px) {
 	#signinTemplate h1 {
   	font-size: 1.2em;
