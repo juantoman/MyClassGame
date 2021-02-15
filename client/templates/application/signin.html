@@ -11,20 +11,20 @@
 
           <div class="container" id="container_sign">
           	<div class="form-container sign-up-container">
-          		<form action="#" class="login-form-code">
+          		<form action="#" class="signupForm">
                 <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
           			<h1>{{_ "register"}}</h1>
-                <span class="btn-group btn-group-student-login btn-group-xs" data-toggle="buttons">
-                  <label class="btn btn-info">
-                    <input type="radio" name="options" value="teacher"><i class="fas fa-chalkboard-teacher"></i>
+                <div class="btn-group-student-login" data-toggle="buttons">
+                  <label class="btn active" data-toggle="tooltip" title="{{_ 'teacher'}}" data-placement="bottom">
+                    <input type="radio" name="userType" value="teacher"><i class="fas fa-chalkboard-teacher"></i>
                   </label>
-                  <label class="btn">
-                    <input type="radio" name="options" value="student"><i class="fas fa-user-graduate"></i>
+                  <label class="btn" data-toggle="tooltip" title="{{_ 'student'}}" data-placement="bottom">
+                    <input type="radio" name="userType" value="student"><i class="fas fa-user-graduate"></i>
                   </label>
-                  <label class="btn">
-                    <input type="radio" name="options" value="parent"><i class="fas fa-home"></i>
+                  <label class="btn" data-toggle="tooltip" title="{{_ 'parent'}}" data-placement="bottom">
+                    <input type="radio" name="userType" value="parent"><i class="fas fa-home"></i>
                   </label>
-                </span>
+                </div>
 
                 <!--
           			<div class="social-container">
@@ -41,37 +41,36 @@
                 <div class="signupDiv">
                   <!-- <img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" /><br />
             			<span>{{_ "useAnEmail"}}</span> -->
-            			<input type="email" placeholder="Email" id="emailStudent"/>
-            			<input type="password" placeholder="Contraseña" id="passwordStudent"/>
+            			<input type="email" placeholder="Email" id="newUserEmail"/>
+            			<input type="password" placeholder="Contraseña" id="newUserPassword"/>
             			<!-- <a href="#" class="resetPassword">{{_ "remember"}}</a><br />
             			<button type="submit">{{_ "signin"}}</button> -->
                   <button class="registerMCG">{{_ "register"}}</button>
                 </div>
           		</form>
-              <!-- <p class="oculto bottom_button text-center btn" id="signIn">{{_ "teacher"}}</p> -->
+              <p class="oculto bottom_button text-center btn" id="signIn">{{_ "signin"}}</p>
           	</div>
           	<div class="form-container sign-in-container">
-          		<form action="#" class="login-form-email">
+          		<form action="#" class="siginForm">
                 <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
                 <h1>{{_ "signin"}}</h1>
                 <span class="btn-group btn-group-student-login btn-group-xs" data-toggle="buttons">
-                  <label class="btn btn-info" id="studentEmailLogin">
+                  <label class="btn btn-info" id="emailLogin">
                     <input type="radio" name="options" value="email">Email
                   </label>
-                  <label class="btn" id="studentCodeLogin">
+                  <label class="btn" id="codeLogin">
                     <input type="radio" name="options" value="code">{{_ "code"}}
                   </label>
                 </span>
                 <br />
           			<img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" />
           			<span>{{_ "useAnEmail"}}</span>
-          			<input type="email" placeholder="Email" id="emailTeacher"/>
-          			<input type="password" placeholder="Contraseña" id="passwordTeacher"/>
+          			<input type="email" placeholder="Email" id="userEmail"/>
+          			<input type="password" placeholder="Contraseña" id="userPassword"/>
           			<a href="#" class="resetPassword">{{_ "remember"}}</a>
           			<button type="submit">{{_ "signin"}}</button>
-                <!-- <button class="registerMCG">{{_ "register"}}</button> -->
           		</form>
-              <!-- <p class="oculto bottom_button text-center btn" id="signUp">{{_ "student"}}</p> -->
+              <p class="oculto bottom_button text-center btn" id="signUp">{{_ "register"}}</p>
           	</div>
           	<div class="overlay-container">
           		<div class="overlay">

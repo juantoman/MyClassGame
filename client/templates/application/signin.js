@@ -1,3 +1,7 @@
+Template.signinModal.onRendered(function() {
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 Template.signinModal.events({
   'click .btnSignin': function(event) {
     event.preventDefault();
@@ -21,10 +25,10 @@ Template.signinModal.events({
   //   $(".btn-group-student-login .btn").toggleClass("btn-info");
   //   $(".studentLoginDiv").toggleClass("oculto");
   // },
- 'submit .login-form-email': function(e) {
+ 'submit .siginForm': function(e) {
       e.preventDefault();
-      var user = e.target.emailTeacher.value;
-      var password = e.target.passwordTeacher.value;
+      var user = e.target.userEmail.value;
+      var password = e.target.userPassword.value;
       Meteor.loginWithPassword(user, password,function(error){
         if(error) {
           swal({
@@ -48,19 +52,19 @@ Template.signinModal.events({
             backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
             $("#fondo").css("background-image", "url("+backImg+")");
           }
-          if ( Session.get("loginType") == "studentLogin" ) {
-            Session.setPersistent('userType','student');
-            Router.go('studentsMainPage',{_id:Session.get('classId')});
-          } else if ( Session.get("loginType") == "parentLogin" ) {
-            Session.setPersistent('userType','parent');
-            Router.go('studentsMainPage',{_id:Session.get('classId')});
-          } else {
-            Session.setPersistent('userType','teacher');
+          // if ( Session.get("loginType") == "studentLogin" ) {
+          //   Session.setPersistent('userType','student');
+          //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+          // } else if ( Session.get("loginType") == "parentLogin" ) {
+          //   Session.setPersistent('userType','parent');
+          //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+          // } else {
+          //   Session.setPersistent('userType','teacher');
             Router.go('classesPage');
-          }
+          // }
         }
       });
-      Session.set('userType', "teacher");
+      // Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
    'submit .login-form-code': function(e) {
@@ -198,13 +202,10 @@ Template.signinModal.events({
    },
    'click .registerMCG': function(e) {
       e.preventDefault();
-      if ( Session.get('userType') == "teacher" ) {
-        var email = $("#emailTeacher").val();
-        var password = $("#passwordTeacher").val();
-      } else {
-        var email = $("#emailStudent").val();
-        var password = $("#passwordStudent").val();
-      }
+      var email = $("#newUserEmail").val();
+      var password = $("#newUserPassword").val();
+      var userType = $(".btn-group-student-login").find(".active").find("input").val();
+      Session.set('userType', userType);
       Accounts.createUser({email: email,password: password}, function (e, r) {
           if (e) {
               swal({
