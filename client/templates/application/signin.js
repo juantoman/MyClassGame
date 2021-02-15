@@ -16,11 +16,11 @@ Template.signinModal.events({
     container.classList.remove("right-panel-active");
     Session.set('userType', "teacher");
   },
-  'click .btn-group-student-login .btn': function(event) {
-    event.preventDefault();
-    $(".btn-group-student-login .btn").toggleClass("btn-info");
-    $(".studentLoginDiv").toggleClass("oculto");
-  },
+  // 'click .btn-group-student-login .btn': function(event) {
+  //   event.preventDefault();
+  //   $(".btn-group-student-login .btn").toggleClass("btn-info");
+  //   $(".studentLoginDiv").toggleClass("oculto");
+  // },
  'submit .login-form-email': function(e) {
       e.preventDefault();
       var user = e.target.emailTeacher.value;
@@ -163,6 +163,7 @@ Template.signinModal.events({
             });
           }else{
             //Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
+
             Meteor.call('userTypeInsert', Session.get('userType'));
             Router.go('classesPage');
           }

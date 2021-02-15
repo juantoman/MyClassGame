@@ -356,5 +356,6 @@
     "considerHP": "Adversario sin HP, pierde",
     "errorLoseHP": "Respuestas incorrectas restan HP",
     "minCorrectAnswers": "Número mínimo de respuestas correctas",
-    "time": "Tiempo (s)"
+    "time": "Tiempo (s)",
+    "ifNotRegistered": "Si no tienes cuenta "
 }

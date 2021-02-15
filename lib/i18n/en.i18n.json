@@ -103,7 +103,7 @@
     "signin": "Sign in",
     "userWithEmail": "User with e-mail",
     "useAnEmail": "or use your e-mail",
-    "register": "Register",
+    "register": "Sign up",
     "remember": "Have you forgotten your password?",
     "welcomeTo": "Welcome to",
     "ifUseEmail": "If you use an e-mail",
@@ -356,5 +356,6 @@
     "considerHP": "Opponent without HP, lose",
     "errorLoseHP": "Incorrect answers subtract HP",
     "minCorrectAnswers": "Minimum number of correct answers",
-    "time": "Time (s)"
+    "time": "Time (s)",
+    "ifNotRegistered": "If you haven't got an account "
 }
