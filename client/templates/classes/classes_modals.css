@@ -1,0 +1,8 @@
+.userTypeModalForm h3{
+  font-size: 2rem;
+}
+
+.userTypeModalForm label{
+  font-size: 10vw !important;
+  margin: 2vw 0;
+}

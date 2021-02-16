@@ -8,17 +8,17 @@ Template.signinModal.events({
     //$("#container").toggleClass("hiddenContainer");
     Modal.show('signinModal');
   },
-  'click #signUp': function(event) {
+  'click .signUp': function(event) {
     event.preventDefault();
     container = document.getElementById('container_sign');
     container.classList.add("right-panel-active");
-    Session.set('userType', "student");
+    //Session.set('userType', "student");
   },
-  'click #signIn': function(event) {
+  'click .signIn': function(event) {
     event.preventDefault();
     container = document.getElementById('container_sign');
     container.classList.remove("right-panel-active");
-    Session.set('userType', "teacher");
+    //Session.set('userType', "teacher");
   },
   // 'click .btn-group-student-login .btn': function(event) {
   //   event.preventDefault();
@@ -39,8 +39,8 @@ Template.signinModal.events({
         }else{
 
           //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-          Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
-          Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
+          // Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
+          // Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
           Session.setPersistent('navItem', "Students");
           Session.setPersistent('sogBtn',"students");
           Session.setPersistent('golBtn',"grid");
@@ -60,6 +60,7 @@ Template.signinModal.events({
           //   Router.go('studentsMainPage',{_id:Session.get('classId')});
           // } else {
           //   Session.setPersistent('userType','teacher');
+
             Router.go('classesPage');
           // }
         }
@@ -99,16 +100,16 @@ Template.signinModal.events({
               backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
               $("#fondo").css("background-image", "url("+backImg+")");
             }
-            if ( Session.get("loginType") == "studentLogin" ) {
-              Session.setPersistent('userType','student');
-              Router.go('studentsMainPage',{_id:Session.get('classId')});
-            } else if ( Session.get("loginType") == "parentLogin" ) {
-              Session.setPersistent('userType','parent');
-              Router.go('studentsMainPage',{_id:Session.get('classId')});
-            } else {
-              Session.setPersistent('userType','teacher');
+            // if ( Session.get("loginType") == "studentLogin" ) {
+            //   Session.setPersistent('userType','student');
+            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+            // } else if ( Session.get("loginType") == "parentLogin" ) {
+            //   Session.setPersistent('userType','parent');
+            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+            // } else {
+            //   Session.setPersistent('userType','teacher');
               Router.go('classesPage');
-            }
+            // }
           }
         });
       } else {
@@ -137,20 +138,20 @@ Template.signinModal.events({
               backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
               $("#fondo").css("background-image", "url("+backImg+")");
             }
-            if ( Session.get("loginType") == "studentLogin" ) {
-              Session.setPersistent('userType','student');
-              Router.go('studentsMainPage',{_id:Session.get('classId')});
-            } else if ( Session.get("loginType") == "parentLogin" ) {
-              Session.setPersistent('userType','parent');
-              Router.go('studentsMainPage',{_id:Session.get('classId')});
-            } else {
-              Session.setPersistent('userType','student');
+            // if ( Session.get("loginType") == "studentLogin" ) {
+            //   Session.setPersistent('userType','student');
+            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+            // } else if ( Session.get("loginType") == "parentLogin" ) {
+            //   Session.setPersistent('userType','parent');
+            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+            // } else {
+            //   Session.setPersistent('userType','student');
               Router.go('classesPage');
-            }
+            // }
           }
         });
       }
-      Session.set('userType', "student");
+      // Session.set('userType', "student");
       Modal.hide('signinModal');
    },
 
@@ -168,11 +169,11 @@ Template.signinModal.events({
           }else{
             //Meteor.call('mcgLog', 'loginGoogle -> ' + Meteor.userId());
 
-            Meteor.call('userTypeInsert', Session.get('userType'));
+            //Meteor.call('userTypeInsert', Session.get('userType'));
             Router.go('classesPage');
           }
       });
-      Session.set('userType', Session.get('userType'));
+      //Session.set('userType', Session.get('userType'));
       Modal.hide('signinModal');
    },
    'click .resetPassword': function(e) {

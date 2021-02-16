@@ -155,3 +155,31 @@
     </div>
   </div>
 </template>
+
+<template name="userTypeModal">
+  <div class="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form class="userTypeModalForm">
+          <h3 class="text-center">Tipo de usuario</h3>
+          <div class="btn-group-student-login text-center" data-toggle="buttons">
+            <label class="btn active" data-toggle="tooltip" title="{{_ 'teacher'}}" data-placement="bottom">
+              <input type="radio" name="userType" value="teacher"><i class="fas fa-chalkboard-teacher"></i>
+            </label>
+            <label class="btn" data-toggle="tooltip" title="{{_ 'student'}}" data-placement="bottom">
+              <input type="radio" name="userType" value="student"><i class="fas fa-user-graduate"></i>
+            </label>
+            <label class="btn" data-toggle="tooltip" title="{{_ 'parent'}}" data-placement="bottom">
+              <input type="radio" name="userType" value="parent"><i class="fas fa-home"></i>
+            </label>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-info">{{_ "save"}}</button>
+          </div>
+          <br />
+        </form>
+      </div>
+
+    </div>
+  </div>
+</template>
