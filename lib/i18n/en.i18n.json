@@ -357,5 +357,6 @@
     "errorLoseHP": "Incorrect answers subtract HP",
     "minCorrectAnswers": "Minimum number of correct answers",
     "time": "Time (s)",
+    "ifRegistered": "If you have got an account ",
     "ifNotRegistered": "If you haven't got an account "
 }

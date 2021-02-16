@@ -196,6 +196,6 @@ Template.userTypeModal.events({
     var userType = $(".btn-group-student-login").find(".active").find("input").val();
     Session.set('userType', userType);
     Meteor.call('userTypeInsert', Session.get('userType'));
-    Modal.hide('userTypeModal');  
+    Modal.hide('userTypeModal');
   },
 });

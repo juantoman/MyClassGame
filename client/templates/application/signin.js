@@ -1,5 +1,6 @@
 Template.signinModal.onRendered(function() {
   $('[data-toggle="tooltip"]').tooltip();
+  Session.set('signInType', "email");
 });
 
 Template.signinModal.events({
@@ -25,10 +26,62 @@ Template.signinModal.events({
   //   $(".btn-group-student-login .btn").toggleClass("btn-info");
   //   $(".studentLoginDiv").toggleClass("oculto");
   // },
- 'submit .siginForm': function(e) {
+ // 'submit .siginForm': function(e) {
+ //      e.preventDefault();
+ //      var user = e.target.userEmail.value;
+ //      var password = e.target.userPassword.value;
+ //      Meteor.loginWithPassword(user, password,function(error){
+ //        if(error) {
+ //          swal({
+ //              title: TAPi18n.__('loginError'),
+ //              text: error.reason,
+ //              icon: "warning",
+ //          });
+ //        }else{
+ //
+ //          //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
+ //          // Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
+ //          // Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
+ //          Session.setPersistent('navItem', "Students");
+ //          Session.setPersistent('sogBtn',"students");
+ //          Session.setPersistent('golBtn',"grid");
+ //          Session.set('studentSelected', false);
+ //          Session.set('orderStudents', "XP");
+ //          Session.set('invertOrder', "checked");
+ //          if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
+ //            Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+ //            backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
+ //            $("#fondo").css("background-image", "url("+backImg+")");
+ //          }
+ //          // if ( Session.get("loginType") == "studentLogin" ) {
+ //          //   Session.setPersistent('userType','student');
+ //          //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+ //          // } else if ( Session.get("loginType") == "parentLogin" ) {
+ //          //   Session.setPersistent('userType','parent');
+ //          //   Router.go('studentsMainPage',{_id:Session.get('classId')});
+ //          // } else {
+ //          //   Session.setPersistent('userType','teacher');
+ //
+ //            Router.go('classesPage');
+ //          // }
+ //        }
+ //      });
+ //      // Session.set('userType', "teacher");
+ //      Modal.hide('signinModal');
+ //   },
+   'submit .siginForm': function(e) {
       e.preventDefault();
-      var user = e.target.userEmail.value;
-      var password = e.target.userPassword.value;
+      signInType=Session.get('signInType');
+      if ( signInType == "code" ) {
+        var user = e.target.codeStudent.value;
+        var password = e.target.aliasStudent.value;
+        if ( user.indexOf("@") === -1 ) {
+          user+="@myclassgame.tk";
+        }
+      } else {
+        var user = e.target.userEmail.value;
+        var password = e.target.userPassword.value;
+      }
       Meteor.loginWithPassword(user, password,function(error){
         if(error) {
           swal({
@@ -37,16 +90,16 @@ Template.signinModal.events({
               icon: "warning",
           });
         }else{
-
           //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-          // Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
-          // Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
+          Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
+          Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
           Session.setPersistent('navItem', "Students");
           Session.setPersistent('sogBtn',"students");
           Session.setPersistent('golBtn',"grid");
           Session.set('studentSelected', false);
           Session.set('orderStudents', "XP");
           Session.set('invertOrder', "checked");
+
           if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
             Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
             backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
@@ -60,97 +113,10 @@ Template.signinModal.events({
           //   Router.go('studentsMainPage',{_id:Session.get('classId')});
           // } else {
           //   Session.setPersistent('userType','teacher');
-
             Router.go('classesPage');
           // }
         }
       });
-      // Session.set('userType', "teacher");
-      Modal.hide('signinModal');
-   },
-   'submit .login-form-code': function(e) {
-      e.preventDefault();
-      if ( $("#studentCodeLogin").hasClass("btn-info") ) {
-        var user = e.target.codeStudent.value;
-        var password = e.target.aliasStudent.value;
-        if ( user.indexOf("@") === -1 ) {
-          user+="@myclassgame.tk";
-        }
-
-        Meteor.loginWithPassword(user, password,function(error){
-          if(error) {
-            swal({
-                title: TAPi18n.__('loginError'),
-                text: error.reason,
-                icon: "warning",
-            });
-          }else{
-            //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-            Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
-            Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
-            Session.setPersistent('navItem', "Students");
-            Session.setPersistent('sogBtn',"students");
-            Session.setPersistent('golBtn',"grid");
-            Session.set('studentSelected', false);
-            Session.set('orderStudents', "XP");
-            Session.set('invertOrder', "checked");
-
-            if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
-              Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-              backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
-              $("#fondo").css("background-image", "url("+backImg+")");
-            }
-            // if ( Session.get("loginType") == "studentLogin" ) {
-            //   Session.setPersistent('userType','student');
-            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
-            // } else if ( Session.get("loginType") == "parentLogin" ) {
-            //   Session.setPersistent('userType','parent');
-            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
-            // } else {
-            //   Session.setPersistent('userType','teacher');
-              Router.go('classesPage');
-            // }
-          }
-        });
-      } else {
-        var user = e.target.emailStudent.value;
-        var password = e.target.passwordStudent.value;
-        Meteor.loginWithPassword(user, password,function(error){
-          if(error) {
-            swal({
-                title: TAPi18n.__('loginError'),
-                text: error.reason,
-                icon: "warning",
-            });
-          }else{
-
-            //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-            Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
-            Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
-            Session.setPersistent('navItem', "Students");
-            Session.setPersistent('sogBtn',"students");
-            Session.setPersistent('golBtn',"grid");
-            Session.set('studentSelected', false);
-            Session.set('orderStudents', "XP");
-            Session.set('invertOrder', "checked");
-            if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
-              Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-              backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
-              $("#fondo").css("background-image", "url("+backImg+")");
-            }
-            // if ( Session.get("loginType") == "studentLogin" ) {
-            //   Session.setPersistent('userType','student');
-            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
-            // } else if ( Session.get("loginType") == "parentLogin" ) {
-            //   Session.setPersistent('userType','parent');
-            //   Router.go('studentsMainPage',{_id:Session.get('classId')});
-            // } else {
-            //   Session.setPersistent('userType','student');
-              Router.go('classesPage');
-            // }
-          }
-        });
-      }
       // Session.set('userType', "student");
       Modal.hide('signinModal');
    },
@@ -226,5 +192,17 @@ Template.signinModal.events({
       });
       //Session.set('userType', "teacher");
       Modal.hide('signinModal');
-   }
+   },
+   'change .signInType input': function(e) {
+      e.preventDefault();
+      var signInType = $(".signInType").find(".active").find("input").val();
+      Session.set('signInType', signInType);
+      if ( signInType == "email" ) {
+        $(".emailSignIn").removeClass("oculto");
+        $(".codeSignIn").addClass("oculto");
+      } else {
+        $(".codeSignIn").removeClass("oculto");
+        $(".emailSignIn").addClass("oculto");
+      }
+    }
 });

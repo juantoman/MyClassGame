@@ -357,5 +357,6 @@
     "errorLoseHP": "Respostes incorrectes resten HP",
     "minCorrectAnswers": "Número mínim de respostes correctes",
     "time": "Temps (s)",
+    "ifRegistered": "Si tens compte ",
     "ifNotRegistered": "Si no tens compte "
 }

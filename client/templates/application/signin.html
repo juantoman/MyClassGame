@@ -33,20 +33,15 @@
           				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
           			</div>
                 -->
-                <div class="studentLoginDiv oculto">
-            			<input type="text" placeholder="Alias" id="aliasStudent" />
-            			<input type="password" placeholder="Code" id="codeStudent" />
-            			<button type="submit">{{_ "signin"}}</button>
-                </div>
-                <div class="signupDiv">
-                  <!-- <img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" /><br />
-            			<span>{{_ "useAnEmail"}}</span> -->
-            			<input type="email" placeholder="Email" id="newUserEmail"/>
-            			<input type="password" placeholder="Contraseña" id="newUserPassword"/>
-            			<!-- <a href="#" class="resetPassword">{{_ "remember"}}</a><br />
-            			<button type="submit">{{_ "signin"}}</button> -->
-                  <button class="registerMCG">{{_ "register"}}</button>
-                </div>
+
+                <!-- <img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" /><br />
+          			<span>{{_ "useAnEmail"}}</span> -->
+          			<input type="email" placeholder="Email" id="newUserEmail"/>
+          			<input type="password" placeholder="Contraseña" id="newUserPassword"/>
+          			<!-- <a href="#" class="resetPassword">{{_ "remember"}}</a><br />
+          			<button type="submit">{{_ "signin"}}</button> -->
+                <button class="registerMCG">{{_ "register"}}</button>
+
           		</form>
               <p class="oculto bottom_button text-center btn signIn">{{_ "signin"}}</p>
           	</div>
@@ -54,20 +49,26 @@
           		<form action="#" class="siginForm">
                 <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
                 <h1>{{_ "signin"}}</h1>
-                <span class="btn-group btn-group-student-login btn-group-xs" data-toggle="buttons">
-                  <label class="btn btn-info" id="emailLogin">
-                    <input type="radio" name="options" value="email">Email
+                <span class="signInType" data-toggle="buttons">
+                  <label class="btn active">
+                    <input type="radio" name="signInType" value="email">Email
                   </label>
-                  <label class="btn" id="codeLogin">
-                    <input type="radio" name="options" value="code">{{_ "code"}}
+                  <label class="btn">
+                    <input type="radio" name="signInType" value="code">{{_ "code"}}
                   </label>
                 </span>
                 <br />
-          			<img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" />
-          			<span>{{_ "useAnEmail"}}</span>
-          			<input type="email" placeholder="Email" id="userEmail"/>
-          			<input type="password" placeholder="Contraseña" id="userPassword"/>
-          			<a href="#" class="resetPassword">{{_ "remember"}}</a>
+                <div class="codeSignIn oculto">
+            			<input type="text" placeholder="Alias" id="aliasStudent" />
+            			<input type="password" placeholder="Code" id="codeStudent" />
+                </div>
+                <div class="emailSignIn">
+            			<img class="googleSignin" src="/images/btn_google_signin_dark_normal_web.png" /><br />
+            			<span>{{_ "useAnEmail"}}</span>
+            			<input type="email" placeholder="Email" id="userEmail"/>
+            			<input type="password" placeholder="Contraseña" id="userPassword"/>
+                  <a href="#" class="resetPassword">{{_ "remember"}}</a>
+                </div>		
           			<button type="submit">{{_ "signin"}}</button>
           		</form>
               <p class="oculto bottom_button text-center btn signUp">{{_ "register"}}</p>
@@ -78,7 +79,7 @@
                   <img width="60vmax" src="/images/@mcgnb.png">
                   <br />
           				<h1>{{_ "welcomeTo"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
-          				<p>{{_ "ifUseEmail"}}</p>
+          				<p>{{_ "ifRegistered"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></p>
           				<button class="ghost signIn">{{_ "signin"}}</button>
           			</div>
           			<div class="overlay-panel overlay-right">

@@ -256,6 +256,29 @@
 	box-shadow: inset 0 0px 0px rgb(0,0, 0, 0) !important;
 }
 
+.signInType label {
+	font-size: 1em !important;
+	padding:0 !important;
+}
+
+.signInType label:hover {
+	color: orange !important;
+}
+
+.signInType label.btn.active {
+	color: red !important;
+	box-shadow: inset 0 0px 0px rgb(0,0, 0, 0) !important;
+	font-weight: bold;
+}
+
+.emailSignIn {
+	margin-top:-20px !important;
+}
+
+.siginForm h1 {
+	margin: 2px !important;
+}
+
 @media (max-width: 740px) {
 	#signinTemplate h1 {
   	font-size: 1.2em;
