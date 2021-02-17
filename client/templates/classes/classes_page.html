@@ -73,6 +73,16 @@
           </figcaption>
         </figure>
       {{/if}}
+      {{#unless teacher}}
+        <figure class="card card--electric" data-toggle="modal" data-target="#newClassSFModal" style="margin:5px auto;">
+          <div class="card__image-container" >
+            <img src="/images/@mcgnb.png" class="card__image">
+          </div>
+          <figcaption class="card__caption">
+            <h1 class="card__name">{{_ "nclass"}}</h1>
+          </figcaption>
+        </figure>
+      {{/unless}}
       <!--
       <div class="col-xs-6 col-md-3 col-lg-2">
         <div class="thumbnail btn" data-toggle="modal" data-target="#add_class_modal">
@@ -135,7 +145,7 @@
           </figcaption>
         </figure>
       {{/each}}
-      
+
     </div>
   </div>
   <br />
@@ -150,4 +160,5 @@
   {{/if}}-->
 
   {{> classesModals}}
+  {{> newClassSFModal}}
 </template>

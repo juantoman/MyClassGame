@@ -12,18 +12,22 @@ Template.leftNav.helpers({
    return classes.find({"teacherId": Meteor.userId()});
  },
  userN: function() {
-   if (Meteor.user().userType=="student"){
-     alias=students.findOne({userId:Meteor.userId()}).alias;
-     return alias;
+   if ( Meteor.user().username ) {
+     return Meteor.user().username;
    } else {
-     try {
-       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+     if (Meteor.user().userType=="student"){
+       alias=students.findOne({userId:Meteor.userId()}).alias;
+       return alias;
+     } else {
+       try {
+         emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+       }
+       catch(err) {
+         emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+       }
+       n=emailUser.indexOf("@");
+       return emailUser.substring(0,n);
      }
-     catch(err) {
-       emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-     }
-     n=emailUser.indexOf("@");
-     return emailUser.substring(0,n);
    }
  },
  userType: function() {
@@ -34,7 +38,7 @@ Template.leftNav.helpers({
     return "ESTUDIANTE";
   }
   if (Session.get('userType')=="parent") {
-    return "PADRE/MADRE";
+    return "FAMILIA";
   }
  },
  onlyMyStudent: function() {
