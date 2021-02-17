@@ -173,23 +173,43 @@ Template.signinModal.events({
       var password = $("#newUserPassword").val();
       var userType = $(".btn-group-student-login").find(".active").find("input").val();
       Session.set('userType', userType);
-      Accounts.createUser({email: email,password: password}, function (e, r) {
-          if (e) {
-              swal({
-                  title: TAPi18n.__('resgisterError'),
-                  text: e.reason,
-                  icon: "warning",
-              });
-          } else {
-              // success
-              swal({
-                  title: TAPi18n.__('resgisteredUser'),
-                  text: TAPi18n.__('emailUserRegistered') + email,
-                  icon: "info",
-              });
-              Meteor.call('userTypeInsert', Session.get('userType'));
-          }
-      });
+      if ( email.indexOf("@") === -1 ) {
+        Accounts.createUser({username: email,password: password}, function (e, r) {
+            if (e) {
+                swal({
+                    title: TAPi18n.__('resgisterError'),
+                    text: e.reason,
+                    icon: "warning",
+                });
+            } else {
+                // success
+                swal({
+                    title: TAPi18n.__('resgisteredUser'),
+                    text: TAPi18n.__('emailUserRegistered') + email,
+                    icon: "info",
+                });
+                Meteor.call('userTypeInsert', Session.get('userType'));
+            }
+        });
+      } else {
+        Accounts.createUser({email: email,password: password}, function (e, r) {
+            if (e) {
+                swal({
+                    title: TAPi18n.__('resgisterError'),
+                    text: e.reason,
+                    icon: "warning",
+                });
+            } else {
+                // success
+                swal({
+                    title: TAPi18n.__('resgisteredUser'),
+                    text: TAPi18n.__('emailUserRegistered') + email,
+                    icon: "info",
+                });
+                Meteor.call('userTypeInsert', Session.get('userType'));
+            }
+        });
+      }
       //Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
