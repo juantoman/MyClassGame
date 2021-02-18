@@ -106,37 +106,12 @@
             <h4 class="modal-title" id="exampleModalLabel">{{_ "nclass"}}</h4>
           </div>
           <div class="modal-body">
-            <ul class="nav nav-tabs" role="tablist">
-              <!-- <li role="presentation" class="active"><a href="#nclass" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "nclass"}}</a></li> -->
-              <li role="presentation"><a href="#newClassStudent" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "classCode"}}</a></li>
-              <!--
-              <li role="presentation"><a href="#tclasses" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "tclasses"}}</a></li>
-              <li role="presentation"><a href="#googleClassroom" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "Google Classroom"}}</a></li>
 
-              <li role="presentation"><a href="#student" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Estudiante</a></li>
-              <li role="presentation"><a href="#parent" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Padre/Madre</a></li>
-              -->
-            </ul>
-            <!-- Tab panels -->
-            <div class="tab-content container-responsive">
-
-
-
-              <div role="tabpanel" class="tab-pane active" id="newClassStudent">
-
-                <div class="form-group">
-                  <label for="class-name-student" class="control-label">Código de la clase</label>
-                  <input type="text" class="form-control" id="class-name-student" name="class-name-student">
-                </div>
+              <div class="form-group">
+                <label for="class-name-student" class="control-label">Código de la clase</label>
+                <input type="text" class="form-control" id="class-name-student" name="class-name-student">
               </div>
-              <div role="tabpanel" class="tab-pane" id="parent">
 
-                <div class="form-group">
-                  <label for="class-name-parent" class="control-label">Código de la clase</label>
-                  <input type="text" class="form-control" id="class-name-parent" name="class-name-parent">
-                </div>
-              </div>
-            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>
@@ -217,12 +192,15 @@
           <div class="btn-group-student-login text-center" data-toggle="buttons">
             <label class="btn active" data-toggle="tooltip" title="{{_ 'teacher'}}" data-placement="bottom">
               <input type="radio" name="userType" value="teacher"><i class="fas fa-chalkboard-teacher"></i>
+              <h4>{{_ 'teacher'}}</h4>
             </label>
             <label class="btn" data-toggle="tooltip" title="{{_ 'student'}}" data-placement="bottom">
               <input type="radio" name="userType" value="student"><i class="fas fa-user-graduate"></i>
+              <h4>{{_ 'student'}}</h4>
             </label>
             <label class="btn" data-toggle="tooltip" title="{{_ 'parent'}}" data-placement="bottom">
               <input type="radio" name="userType" value="parent"><i class="fas fa-home"></i>
+              <h4>{{_ 'parent'}}</h4>
             </label>
           </div>
           <div class="text-center">
