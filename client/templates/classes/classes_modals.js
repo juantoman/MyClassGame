@@ -109,19 +109,24 @@ Template.classesModals.events({
           }
         });
       }
-    } else {
-      event.preventDefault();
-      if ( userType == "student") {
-        var classId= $("#class-name-student").val();
-        Meteor.call('studentClassInsert', classId);
-      } else {
-        var classId= $(event.target).find('[name=class-name-parent]').val();
-        Meteor.call('parentClassInsert', classId);
-      }
     }
     Meteor.subscribe("classes");
     $('#add_class_modal').modal('hide');
     return false;
+  }
+});
+
+Template.newClassSFModal.events({
+  'submit form#newClassSFForm': function(event) {
+    event.preventDefault();
+    var classId=$("#classIdInput").val();
+    alert(Session.get('userType'));
+    if (  Session.get('userType') == "student") {
+      $("#classIdInput").val();
+      Meteor.call('studentClassInsert', classId);
+    } else {
+      Meteor.call('parentClassInsert', classId);
+    }
   }
 });
 

@@ -1734,5 +1734,9 @@ Template.studentProfile.events({
     event.preventDefault();
     Meteor.subscribe('behavioursLog',"class",Session.get('classId'));
     //Router.go('statisticsPage',{_id:Session.get('classId')});
+  },
+  'click .studentUserId': function(event) {
+    event.preventDefault();
+    Meteor.call('studentUserId', Session.get('studentId'));
   }
 });
