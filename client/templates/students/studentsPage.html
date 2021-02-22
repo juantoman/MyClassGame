@@ -18,7 +18,7 @@
 
       {{#each students}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent float-up {{#unless present}}{{#if hideAbsents}}oculto{{/if}}{{/unless}}">
-          <figure class="card card__water {{#if myuser email}}myuser{{/if}} {{#if selected}}selected{{/if}} {{#unless present}}absent{{/unless}}">
+          <figure class="card card__water {{#if myuser email}}myuser{{/if}} {{#if studentUserId}}myuser{{/if}} {{#if selected}}selected{{/if}} {{#unless present}}absent{{/unless}}">
             <div class="card__image-container" name="{{_id}}">
               <!--<img class="cardLogo" src="/images/@mcgnb.png">-->
               {{#if teacher}}

@@ -136,7 +136,6 @@ Template.studentsModals.events({
   },
   'click #hpModalSubmit': function(event) {
     event.preventDefault();
-    alert("Hola");
     $('#hp_modal').find(".list-group-item-danger").each( function() {
       i=this.id;
       p=parseInt($(this).find(".badge").text());
@@ -182,5 +181,9 @@ Template.studentsModals.events({
       Meteor.call('studentGroup', Session.get('groupId'), i);
     });
     $('#group_modal').modal('hide');
+  },
+  'click .resetTeams': function(event) {
+    event.preventDefault();
+    Meteor.call('resetTeams', Session.get('classId'));
   }
 });

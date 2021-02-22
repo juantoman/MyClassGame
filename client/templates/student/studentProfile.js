@@ -726,6 +726,22 @@ Template.studentProfile.helpers({
     } else {
       return false;
     };
+  },
+  studentUserId: function() {
+    if (!this.userId) {
+      if ( students.find( {classId: Session.get('classId'), userId:Meteor.userId() } ).count()==0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+    // else {
+    //   if (Meteor.userId()==this.userId) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
   }
 });
 

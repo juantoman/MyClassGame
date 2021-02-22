@@ -201,6 +201,13 @@ Template.studentsPage.helpers({
   },
   hideAbsents: function() {
     return Session.get('hideAbsents');
+  },
+  studentUserId: function() {
+    if (Meteor.userId()== this.userId) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 

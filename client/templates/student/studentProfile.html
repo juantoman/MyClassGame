@@ -277,11 +277,9 @@
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">{{_ "reset"}}</button></div>
                           <div class="col-xs-6 col-sm-2"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
                         {{/if}}
-                        {{#unless teacher}}
-                          {{#unless userId}}
-                            <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-block btn-lg studentUserId">{{_ "user"}}</button></div>
-                          {{/unless}}
-                        {{/unless}}
+                        {{#if studentUserId}}
+                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-block btn-lg studentUserId">{{_ "user"}}</button></div>
+                        {{/if}}
                         <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
                   		</div>
                 	</form>
