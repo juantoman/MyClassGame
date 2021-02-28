@@ -3,7 +3,7 @@ Template.classesPage.onRendered(function() {
   Meteor.call('userAlive');
   //alert(Meteor.user().userType + ":" + Session.get('userType'));
   //Modal.show('userTypeModal');
-  if ( typeof Meteor.user().userType == "undefined" ) {
+  if ( !Meteor.user().userType ) {
     //Meteor.call('userTypeInsert', "teacher");
     Modal.show('userTypeModal');
     //Meteor.call('userTypeInsert', Session.get('userType'));

@@ -481,39 +481,78 @@ Template.studentProfile.helpers({
     return challenges.findOne({_id: this.mission});
   },
   myuser: function() {
-    try {
-      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
-    }
-    catch(err) {
-      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-    }
-    emailStudent=$('#sEmail').val();
-    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
-      return true;
-    }
-    if (!emailStudent) {emailStudent=""}
-    if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+    // try {
+    //   emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    // }
+    // catch(err) {
+    //   emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    // }
+    //
+    // if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
+    //   return true;
+    // }
+
+    // if ( Meteor.user().emails[0].address ) {
+    //   emailUser=Meteor.user().emails[0].address;
+    // }
+    //
+    // if ( Meteor.user().services.google.email ) {
+    //   emailUser=Meteor.user().services.google.email;
+    // }
+    //
+    // if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
+    //   return true;
+    // }
+
+    myUserId=$('#myUserId').attr("data-userId");
+
+    if (Meteor.userId()==myUserId) {
       return true;
     } else {
       return false;
     }
+
+    // emailStudent=$('#sEmail').val();
+    // if (!emailStudent) {emailStudent=""}
+    // if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   },
   myuserEnabled: function() {
-    try {
-      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
-    }
-    catch(err) {
-      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
-    }
-    emailStudent=$('#sEmail').val();
-    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
-      return "";
-    }
-    if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+    // try {
+    //   emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
+    // }
+    // catch(err) {
+    //   emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
+    // }
+
+    // if ( Meteor.user().emails[0].address ) {
+    //   emailUser=Meteor.user().emails[0].address;
+    // }
+    //
+    // if ( Meteor.user().services.google.email ) {
+    //   emailUser=Meteor.user().services.google.email;
+    // }
+    //
+    // if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
+    //   return "";
+    // }
+
+    myUserId=$('#myUserId').attr("data-userId");
+    if (Meteor.userId()==myUserId) {
       return "";
     } else {
       return "readonly";
     }
+
+    // emailStudent=$('#sEmail').val();
+    // if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
+    //   return "";
+    // } else {
+    //   return "readonly";
+    // }
   },
   /*
   notaXP: function(xp){
@@ -735,13 +774,20 @@ Template.studentProfile.helpers({
         return false;
       }
     }
-    // else {
-    //   if (Meteor.userId()==this.userId) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
+    else {
+      if (Meteor.userId()==this.userId) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
+  myStudent: function() {
+    if (Meteor.userId()==this.userId) {
+      return true;
+    } else {
+      return false;
+    }
   }
 });
 
@@ -1753,6 +1799,11 @@ Template.studentProfile.events({
   },
   'click .studentUserId': function(event) {
     event.preventDefault();
-    Meteor.call('studentUserId', Session.get('studentId'));
+    if ( !this.userId && students.find( {classId: Session.get('classId'), userId:Meteor.userId() } ).count()==0 && Meteor.user().userType == "student" ) {
+      Meteor.call('studentUserId', Session.get('studentId'));
+    }
+    if ( this.userId && Meteor.user().userType == "teacher" ) {
+      Meteor.call('studentUserId', Session.get('studentId'));
+    }
   }
 });

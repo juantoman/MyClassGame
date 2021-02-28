@@ -120,7 +120,7 @@ Template.newClassSFModal.events({
   'submit form#newClassSFForm': function(event) {
     event.preventDefault();
     var classId=$("#classIdInput").val();
-    alert(Session.get('userType'));
+    //alert(Session.get('userType'));
     if (  Session.get('userType') == "student") {
       $("#classIdInput").val();
       Meteor.call('studentClassInsert', classId);

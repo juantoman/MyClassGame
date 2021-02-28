@@ -609,3 +609,8 @@
   margin-top: 10px;
   display: none;
 }
+
+.studentUserId {
+  width:50px !important;
+  float: right;
+}

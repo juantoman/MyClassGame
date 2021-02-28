@@ -198,6 +198,17 @@
           <div id="studentTab" class="col tab-content">
             <div role="tabpanel" class="tab-pane active float-up" id="Datos">
               <h2>{{_ "data"}} {{#if teacher}}<span class="btn btn-info copyCodeBtn" style="text-transform: none;" data-toggle="tooltip" data-placement="right" title="{{studentId}}" value="{{studentId}}"> {{ _"copy"}} {{ _"code"}} </span>{{/if}}</h2>
+              <button type="button" id="myUserId" data-userId="{{userId}}" class="btn {{#if myStudent}}btn-warning{{else}}btn-info{{/if}} btn-block btn-xs studentUserId">
+                {{#if userId}}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                  </svg>
+                {{else}}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+                    <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+                  </svg>
+                {{/if}}
+              </button>
           		<hr class="colorgraph">
               <div class="row">
                 <div class="col-xs-12">
@@ -276,9 +287,6 @@
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">{{_ "delete"}}</button></div>
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">{{_ "reset"}}</button></div>
                           <div class="col-xs-6 col-sm-2"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
-                        {{/if}}
-                        {{#if studentUserId}}
-                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-block btn-lg studentUserId">{{_ "user"}}</button></div>
                         {{/if}}
                         <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
                   		</div>
