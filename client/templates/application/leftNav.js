@@ -185,6 +185,27 @@ Template.leftNav.events({
   'click .student_button': function(event) {
     event.preventDefault();
     Session.set('studentId',this._id);
+    emailUser="";
+
+    if ( Meteor.users.find( { '_id': Meteor.userId(), 'emails' : { $exists: true } } ).count() > 0 ) {
+      emailUser=Meteor.user().emails[0].address;
+    }
+
+    if ( Meteor.users.find( { '_id': Meteor.userId(), 'services.google.email' : { $exists: true } } ).count() > 0 ) {
+      emailUser=Meteor.user().services.google.email;
+    }
+
+    if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
+      Session.set('IsMyUser', true);
+    }
+
+    myUserId=students.findOne({_id:Session.get('studentId')}).userId;
+
+    if (Meteor.userId()==myUserId) {
+      Session.set('IsMyUser', true);
+    } else {
+      Session.set('IsMyUser', false);
+    }
     //Router.go('studentPage',{_id:Session.get('classId')});
     Session.set('studentSelected', true);
     Session.setPersistent('sogBtn', "students");

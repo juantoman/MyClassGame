@@ -139,6 +139,10 @@ Template.studentsPage.helpers({
     }
     if ( emailStudent.toUpperCase() == emailUser.toUpperCase() ) {
       return true;
+    }
+
+    if (Meteor.userId()== this.userId) {
+      return true;
     } else {
       return false;
     }
@@ -330,6 +334,28 @@ Template.studentsPage.events({
     if (event.target.name!=""){
       Session.set('studentId', this._id);
       Session.set('studentSelected', true);
+
+      emailUser="";
+
+      if ( Meteor.users.find( { '_id': Meteor.userId(), 'emails' : { $exists: true } } ).count() > 0 ) {
+        emailUser=Meteor.user().emails[0].address;
+      }
+
+      if ( Meteor.users.find( { '_id': Meteor.userId(), 'services.google.email' : { $exists: true } } ).count() > 0 ) {
+        emailUser=Meteor.user().services.google.email;
+      }
+
+      if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
+        Session.set('IsMyUser', true);
+      }
+
+      myUserId=students.findOne({_id:Session.get('studentId')}).userId;
+
+      if (Meteor.userId()==myUserId) {
+        Session.set('IsMyUser', true);
+      } else {
+        Session.set('IsMyUser', false);
+      }
     }
     //Meteor.call('mcgLog', 'selectStudent -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId') + ' , studentId : ' + Session.get('studentId'));
     //Router.go('studentPage',{_id:Session.get('studentId')});

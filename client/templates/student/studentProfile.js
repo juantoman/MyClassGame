@@ -492,25 +492,27 @@ Template.studentProfile.helpers({
     //   return true;
     // }
 
-    // if ( Meteor.user().emails[0].address ) {
+    // emailUser="";
+    //
+    // if ( Meteor.users.find( { '_id': Meteor.userId(), 'emails' : { $exists: true } } ).count() > 0 ) {
     //   emailUser=Meteor.user().emails[0].address;
     // }
     //
-    // if ( Meteor.user().services.google.email ) {
+    // if ( Meteor.users.find( { '_id': Meteor.userId(), 'services.google.email' : { $exists: true } } ).count() > 0 ) {
     //   emailUser=Meteor.user().services.google.email;
     // }
     //
     // if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
     //   return true;
     // }
-
-    myUserId=$('#myUserId').attr("data-userId");
-
-    if (Meteor.userId()==myUserId) {
-      return true;
-    } else {
-      return false;
-    }
+    //
+    // myUserId=this.userId;
+    //
+    // if (Meteor.userId()==myUserId) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
 
     // emailStudent=$('#sEmail').val();
     // if (!emailStudent) {emailStudent=""}
@@ -519,6 +521,11 @@ Template.studentProfile.helpers({
     // } else {
     //   return false;
     // }
+    if (Session.get('IsMyUser')) {
+      return true;
+    } else {
+      return false;
+    }
   },
   myuserEnabled: function() {
     // try {
@@ -528,24 +535,27 @@ Template.studentProfile.helpers({
     //   emailUser=Meteor.users.findOne({_id: Meteor.userId()}).services.google.email;
     // }
 
-    // if ( Meteor.user().emails[0].address ) {
+    // emailUser="";
+    //
+    // if ( Meteor.users.find( { '_id': Meteor.userId(), 'emails' : { $exists: true } } ).count() > 0 ) {
     //   emailUser=Meteor.user().emails[0].address;
     // }
     //
-    // if ( Meteor.user().services.google.email ) {
+    // if ( Meteor.users.find( { '_id': Meteor.userId(), 'services.google.email' : { $exists: true } } ).count() > 0 ) {
     //   emailUser=Meteor.user().services.google.email;
     // }
     //
     // if (emailUser.substring(0,6)==Session.get('studentId').substring(0,6)) {
     //   return "";
     // }
-
-    myUserId=$('#myUserId').attr("data-userId");
-    if (Meteor.userId()==myUserId) {
-      return "";
-    } else {
-      return "readonly";
-    }
+    //
+    // myUserId=this.userId;
+    //
+    // if (Meteor.userId()==myUserId) {
+    //   return "";
+    // } else {
+    //   return "readonly";
+    // }
 
     // emailStudent=$('#sEmail').val();
     // if ( emailStudent.toUpperCase() == emailUser.toUpperCase() || Session.get('userType')=="teacher" ) {
@@ -553,6 +563,11 @@ Template.studentProfile.helpers({
     // } else {
     //   return "readonly";
     // }
+    if (Session.get('IsMyUser')) {
+      return "";
+    } else {
+      return "readonly";
+    }
   },
   /*
   notaXP: function(xp){
@@ -904,7 +919,7 @@ Template.studentProfile.events({
       Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
     }
     Session.set('studentId',this._id);
-    if ( Session.get('userType')=="teacher") {
+    if ( Session.get('userType')=="teacher" || $(event.currentTarget).hasClass("addBtn") ) {
       Modal.show('cardsModal');
     }
   },
