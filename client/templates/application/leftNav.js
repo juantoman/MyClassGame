@@ -184,7 +184,7 @@ Template.leftNav.events({
   },
   'click .student_button': function(event) {
     event.preventDefault();
-    Session.setPersistent('studentId',this._id);
+    Session.set('studentId',this._id);
     //Router.go('studentPage',{_id:Session.get('classId')});
     Session.set('studentSelected', true);
     Session.setPersistent('sogBtn', "students");

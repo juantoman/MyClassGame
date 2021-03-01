@@ -328,10 +328,9 @@ Template.studentsPage.events({
     Session.set('nR',0);
     Session.set('nHP',0);
     if (event.target.name!=""){
-      Session.setPersistent('studentId', this._id);
+      Session.set('studentId', this._id);
       Session.set('studentSelected', true);
     }
-    alert(Session.get('studentId'));
     //Meteor.call('mcgLog', 'selectStudent -> userId: ' + Meteor.userId() + ' , classId : ' + Session.get('classId') + ' , studentId : ' + Session.get('studentId'));
     //Router.go('studentPage',{_id:Session.get('studentId')});
     event.stopPropagation();
