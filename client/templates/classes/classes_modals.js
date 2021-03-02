@@ -120,12 +120,12 @@ Template.newClassSFModal.events({
   'submit form#newClassSFForm': function(event) {
     event.preventDefault();
     var classId=$("#classIdInput").val();
+    var studentId=$("#studentIdInput").val();
     //alert(Session.get('userType'));
     if (  Session.get('userType') == "student") {
-      $("#classIdInput").val();
-      Meteor.call('studentClassInsert', classId);
+      Meteor.call('studentClassInsert', classId, studentId);
     } else {
-      Meteor.call('parentClassInsert', classId);
+      Meteor.call('parentClassInsert', classId, studentId);
     }
   }
 });
