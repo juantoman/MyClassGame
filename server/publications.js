@@ -86,7 +86,7 @@ Meteor.publish('students', function(type,classId) {
   }*/
 });
 Meteor.publish('allStudents', function() {
-  return students.find({},{_id:1});
+  return students.find({},{_id:1,userId:1});
 });
 Meteor.publish('groups', function(type,classId) {
   if (classId){

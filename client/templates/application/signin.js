@@ -149,21 +149,41 @@ Template.signinModal.events({
       } else {
         var email = $("#emailStudent").val();
       }
-      Accounts.forgotPassword({email: email}, function (e, r) {
-          if (e) {
-            swal({
-                title: TAPi18n.__('error'),
-                text: e.reason,
-                icon: "warning",
-            });
-          } else {
+      if ( email.indexOf("@") === -1 ) {
+
+        Accounts.forgotPassword({username: email}, function (e, r) {
+            if (e) {
               swal({
-                  title: TAPi18n.__('emailSended'),
-                  text: TAPi18n.__('to') + " " + email,
-                  icon: "info",
+                  title: TAPi18n.__('error'),
+                  text: e.reason,
+                  icon: "warning",
               });
-          }
-      });
+            } else {
+                swal({
+                    title: TAPi18n.__('emailSended'),
+                    text: TAPi18n.__('to') + " " + email,
+                    icon: "info",
+                });
+            }
+        });
+
+      } else {
+        Accounts.forgotPassword({email: email}, function (e, r) {
+            if (e) {
+              swal({
+                  title: TAPi18n.__('error'),
+                  text: e.reason,
+                  icon: "warning",
+              });
+            } else {
+                swal({
+                    title: TAPi18n.__('emailSended'),
+                    text: TAPi18n.__('to') + " " + email,
+                    icon: "info",
+                });
+            }
+        });
+      }
       //Session.set('userType', "teacher");
       Modal.hide('signinModal');
    },
@@ -174,7 +194,7 @@ Template.signinModal.events({
       var userType = $(".btn-group-student-login").find(".active").find("input").val();
       Session.set('userType', userType);
       if ( email.indexOf("@") === -1 ) {
-        Accounts.createUser({username: email,password: password}, function (e, r) {
+        Accounts.createUser({username: email,email: 'myclassgame@gmail.com',password: password}, function (e, r) {
             if (e) {
                 swal({
                     title: TAPi18n.__('resgisterError'),
