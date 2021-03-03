@@ -8,7 +8,7 @@ Meteor.startup(() => {
 
   API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
   process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
-  
+
   //process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
   //Escribir en fichero local
   //fs = Npm.require('fs');
@@ -85,5 +85,27 @@ Meteor.methods({
   },
   adminClass: function(hash) {
     return classes.findOne({"_id" : {'$regex' : hash }});
-  }
+  },
+  studentClassInsertServer: function(classId, studentId) {
+    reglaClass="^" + classId;
+    nc=classes.find({"_id" : {'$regex' : reglaClass }}).count();
+    reglaStudent="^" + studentId;
+    ns=students.find({"_id" : {'$regex' : reglaStudent }}).count();
+    sId=students.findOne({"_id" : {'$regex' : reglaStudent }})._id;
+    if (nc==1){
+      cId=classes.findOne({"_id" : {'$regex' : reglaClass }})._id;
+      if(Meteor.user().classes.indexOf(cId)!=-1){
+        var Id = Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
+      }
+    }
+    if (ns==1){
+      s=students.findOne({"_id" : {'$regex' : reglaStudent }});
+      if(Meteor.user().classes.indexOf(s.classId)!=-1){
+        Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: s.classId} });
+      }
+      if (!s.userId) {
+        students.update({ _id: s._id }, { $set: {userId: Meteor.userId() } });
+      }
+    }
+  },
 });
