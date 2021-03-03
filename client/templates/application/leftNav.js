@@ -250,11 +250,11 @@ Template.leftNav.events({
   },
   'click .closeSession': function(event) {
     event.preventDefault();
-    Session.set('className', '');
-    Session.set('studentSelected', false);
-    Session.set('groupSelected', false);
-    $("#fondo").css("background-image", "");
-    Router.go('/');
+    // Session.set('className', '');
+    // Session.set('studentSelected', false);
+    // Session.set('groupSelected', false);
+    // $("#fondo").css("background-image", "");
+    // Router.go('/');
     //Session.keys = {}
     //gapi.auth2.getAuthInstance().signOut();
     //Meteor.call('mcgLog', 'closeSession -> userId: ' + Meteor.userId());
@@ -271,10 +271,9 @@ Template.leftNav.events({
         //gapiSignOut();
         //Router.go("/");
         //Meteor.logout();
-
-        Session.keys = {};
+        //Session.keys = {};
         Meteor.logout();
-        window.location.replace('https://accounts.google.com/Logout');
+        // window.location.replace('https://accounts.google.com/Logout');
         window.location.href = "/";
         // Meteor.logout(function(){
           //window.location.replace('https://accounts.google.com/Logout');

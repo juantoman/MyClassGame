@@ -121,9 +121,9 @@ Template.newClassSFModal.events({
     event.preventDefault();
     var classId=$("#classIdInput").val();
     var studentId=$("#studentIdInput").val();
-    if (studentId) {
-      Meteor.subscribe('allStudents');
-    }
+    // if (studentId) {
+    //   Meteor.subscribe('allStudents');
+    // }
     //alert(Session.get('userType'));
     if (  Session.get('userType') == "student") {
       Meteor.call('studentClassInsert', classId, studentId);

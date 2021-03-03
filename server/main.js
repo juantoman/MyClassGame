@@ -85,5 +85,36 @@ Meteor.methods({
   },
   adminClass: function(hash) {
     return classes.findOne({"_id" : {'$regex' : hash }});
-  }
+  },
+  studentClassInsert: function(classId, studentId) {
+    /*var user = Meteor.user();
+    var type = _.extend(user.profile, {
+      userType: userType
+    });*/
+    reglaClass="^" + classId;
+    nc=classes.find({"_id" : {'$regex' : reglaClass }}).count();
+
+    reglaStudent="^" + studentId;
+    ns=students.find({"_id" : {'$regex' : reglaStudent }}).count();
+
+    if (nc==1){
+      cId=classes.findOne({"_id" : {'$regex' : reglaClass }})._id;
+      if (Meteor.user().classes.indexOf(cId)==-1){;
+        var Id = Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
+      }
+    }
+    if (ns==1){
+      s=students.findOne({"_id" : {'$regex' : reglaStudent }});
+      if(Meteor.user().classes) {
+        if(Meteor.user().classes.indexOf(s.classId)==-1){
+          Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: s.classId} });
+        }
+      } else {
+        Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: s.classId} });
+      }
+      if (!s.userId) {
+        students.update({ _id: s._id }, { $set: {userId: Meteor.userId() } });
+      }
+    }
+  },
 });
