@@ -70,6 +70,7 @@ Meteor.publish('students', function(type,classId) {
   } else {
     return students.find();
   }
+});
   /*
   if (classId){
     return students.find({"classId":classId});
@@ -85,11 +86,11 @@ Meteor.publish('students', function(type,classId) {
   } else {
       c=Meteor.users.find({_id:Meteor.userId()}).fetch()[0].classes;
       return students.find({"classId": { "$in": c }});
-  }*/
+  }
 });
 Meteor.publish('allStudents', function() {
   return students.find({},{_id:1,userId:1});
-});
+});*/
 Meteor.publish('groups', function(type,classId) {
   if (classId){
     return groups.find({"classId":classId});

@@ -113,15 +113,21 @@ Template.studentsModals.events({
           groupName: groupName,
           createdOn: new Date()
         };
-        Meteor.call('groupInsert', group)
-        g=Session.get("ngId");
-        n= $(event.target).find('[name=studentsNumber]').val();
-        s= students.find({'classId': Session.get('classId'),'groupId':0}).fetch();
-        for (i=0;i<n;i++){
-          r= Math.floor(Math.random() * s.length);
-          Meteor.call('studentGroup',g,s[r]._id);
-          s.splice(r, 1);
-        }
+        //Meteor.call('groupInsert', group);
+        Meteor.call('groupInsert', group, function(error,groupId){
+          Session.set('ngId',"");
+          if (error) {
+            console.log(error);
+          } else {
+            n= $(event.target).find('[name=studentsNumber]').val();
+            s= students.find({'classId': Session.get('classId'),'groupId':0}).fetch();
+            for (i=0;i<n;i++){
+              r= Math.floor(Math.random() * s.length);
+              Meteor.call('studentGroup',groupId,s[r]._id);
+              s.splice(r, 1);
+            }
+          }
+        });
       }
     });
     $('#add_group_modal').modal('hide');
