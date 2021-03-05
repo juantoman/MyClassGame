@@ -377,6 +377,20 @@ Template.allBGModal.events({
       p=parseInt($(this).find(".badge").text());
       students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
         Meteor.call('studentBadge', item["_id"], badgeId);
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: item["_id"],
+          behavior: badgeId,
+          behaviourType: 'Badge',
+          'XP': p,
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
+          evaluation: Session.get('evaluation'),
+          comment: 'Insignia ('+p+'XP)',
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', item["_id"], p);
       });
     });

@@ -1006,9 +1006,10 @@ Template.studentProfile.events({
     if (this.behaviourType=="teacherHP") {
       Meteor.call('studentHP', this.student, parseInt(this.HP));
     }
-    if (this.behaviourType=="BG") {
+    if (this.behaviourType=="Badge") {
       beh=badges.findOne({_id: this.behavior});
       p=beh.points;
+      Meteor.call('studentBadgePull', Session.get('studentId'), this.behavior);
       Meteor.call('studentXP',  this.student, -p);
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
@@ -1545,6 +1546,20 @@ Template.studentProfile.events({
       }).then((result) => {
         if (result.value) {
           Meteor.call('studentBadge', Session.get('studentId'), this._id);
+          var behaviour = {
+            classId: Session.get('classId'),
+            student: Session.get('studentId'),
+            behavior: this._id,
+            behaviourType: 'Badge',
+            'XP': parseInt(this.points),
+            'HP': 0,
+            Coins: 0,
+            Energy:0,
+            evaluation: Session.get('evaluation'),
+            comment: 'Insignia ('+parseInt(this.points)+'XP)',
+            createdOn: new Date()
+          };
+          Meteor.call('behaviourLogInsert', behaviour);
           Meteor.call('studentXP', Session.get('studentId'), parseInt(this.points));
           swal({
             title: TAPi18n.__('badge') + " " +  TAPi18n.__('fadded'),

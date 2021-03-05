@@ -55,6 +55,20 @@ Template.badgeModal.events({
         badgeId=this.id;
         Meteor.call('studentBadge', Session.get('studentId'), badgeId);
         p=parseInt($(this).find(".badge").text());
+        var behaviour = {
+          classId: Session.get('classId'),
+          student: Session.get('studentId'),
+          behavior: badgeId,
+          behaviourType: 'Badge',
+          'XP': p,
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
+          evaluation: Session.get('evaluation'),
+          comment: 'Badge ('+p+'XP)',
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', Session.get('studentId'), p);
       //}
     });
