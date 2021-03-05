@@ -483,7 +483,7 @@ Meteor.publish('questions', function(classId) {
   if (classId){
     return questions.find({"classId":classId});
   } else {
-    return questions.find();
+    return questions.find({"userId":Meteor.userId()});
   }
   /*
   if (classId){
@@ -506,7 +506,7 @@ Meteor.publish('quizzes', function(classId) {
   if (classId){
     return quizzes.find({"classId":classId});
   } else {
-    return quizzes.find();
+    return quizzes.find({"userId":Meteor.userId()});
   }
   /*
   if (classId){

@@ -332,8 +332,8 @@ Template.leftNav.events({
   },
   'click #battle2': function(event) {
     event.preventDefault();
-    Meteor.subscribe('questions',Session.get('classId'));
-    Meteor.subscribe('quizzes',Session.get('classId'));
+    Meteor.subscribe('questions');
+    Meteor.subscribe('quizzes');
     Session.set('battleQuizId',$('#battleQuizId').val());
     n=questions.find({'quizId': Session.get('battleQuizId')}).count();
     Session.set('nQuestions',n);

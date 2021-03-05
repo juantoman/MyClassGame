@@ -35,6 +35,7 @@ Template.newQuizModal.events({
     event.preventDefault();
     n=quizzes.find({classId: Session.get("classId")}).count()+1;
     var quiz = {
+      userId: Meteor.userId(),
       classId: Session.get('classId'),
       quizName: $(event.target).find('[name=quizName]').val(),
       quizDesc: $(event.target).find('[name=quizDesc]').val(),

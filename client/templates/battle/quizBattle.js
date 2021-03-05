@@ -137,7 +137,7 @@ Template.quizBattle.helpers({
     //return questions.find({'classId': Session.get('classId')});
   },
   quizzes: function() {
-    return quizzes.find({'classId': Session.get('classId')});
+    return quizzes.find({'userId': Meteor.userId()});
   },
   students: function() {
     return students.find({'classId': Session.get('classId')});

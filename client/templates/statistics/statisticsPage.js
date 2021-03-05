@@ -59,10 +59,11 @@ Template.statisticsPage.events({
     if (this.behaviourType=="teacherHP") {
       Meteor.call('studentHP', this.student, parseInt(this.HP));
     }
-    if (this.behaviourType=="BG") {
+    if (this.behaviourType=="Badge") {
       beh=badges.findOne({_id: this.behavior});
       p=beh.points;
       Meteor.call('studentXP',  this.student, -p);
+      Meteor.call('studentBadgePull', this.student, this.behavior);
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',this._id);
