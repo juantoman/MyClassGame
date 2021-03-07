@@ -15,6 +15,7 @@ Template.newQuestionModal.events({
     })
     n=questions.find({quizId: Session.get("quizId")}).count()+1;
     var question = {
+      userId: Meteor.userId(),
       classId: Session.get('classId'),
       quizId: Session.get('quizId'),
       question: desc,

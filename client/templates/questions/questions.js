@@ -18,6 +18,7 @@ Template.questions.events({
   'click .quizCreateBtn': function(event) {
     event.preventDefault();
     var quiz = {
+      userId: Meteor.userId(),
       classId: Session.get('classId'),
       quizName: $('#quizName').val(),
       createdOn: new Date()

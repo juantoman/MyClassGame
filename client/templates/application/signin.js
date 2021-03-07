@@ -194,7 +194,7 @@ Template.signinModal.events({
       var userType = $(".btn-group-student-login").find(".active").find("input").val();
       Session.set('userType', userType);
       if ( email.indexOf("@") === -1 ) {
-        Accounts.createUser({username: email,email: 'myclassgame@gmail.com',password: password}, function (e, r) {
+        Accounts.createUser({username: email,password: password}, function (e, r) {
             if (e) {
                 swal({
                     title: TAPi18n.__('resgisterError'),

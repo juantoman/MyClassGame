@@ -12,12 +12,22 @@ Template.imagesTemplate.onRendered(function() {
       image_url=result.info.url;
       image_url=image_url.replace('http:','https:');
       if (Session.get('imageType')!="userAvatar") {
-        var imgObject = {
-           classId:Session.get('classId'),
-           type: Session.get('imageType'),
-           image_url: image_url,
-           createdOn: new Date()
-        };
+        if (Session.get('imageType')=="question") {
+          var imgObject = {
+             userId:Meteor.userId(),
+             classId:Session.get('classId'),
+             type: Session.get('imageType'),
+             image_url: image_url,
+             createdOn: new Date()
+          };
+        } else {
+          var imgObject = {
+             classId:Session.get('classId'),
+             type: Session.get('imageType'),
+             image_url: image_url,
+             createdOn: new Date()
+          };
+        }
       } else {
         var imgObject = {
            userId:Meteor.userId(),

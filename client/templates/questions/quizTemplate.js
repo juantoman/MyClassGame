@@ -93,7 +93,6 @@ Template.quizTemplate.events({
   'submit form.quizForm': function(event) {
     event.preventDefault();
     var quiz = {
-      userId: Meteor.userId(),
       quizName: $(event.target).find('[name=quizName]').val(),
       quizDesc: $(event.target).find('[name=quizDesc]').val(),
     }

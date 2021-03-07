@@ -3,7 +3,7 @@
 }
 
 .behaviourCard {
-  height: 250px;
+  height: 260px;
   background: linear-gradient(green,#37ff00);
 }
 
@@ -72,7 +72,7 @@
 }
 
 .behaviourCard.hp {
-  height: 238px;
+  
   background: linear-gradient(#641E16,red);
 }
 

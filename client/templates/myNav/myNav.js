@@ -6,6 +6,10 @@ Template.myNav.onRendered(function () {
     $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
     $(".opacityDiv").addClass('opacityProfile');
    }
+   if ( Meteor.user().userType == "teacher" ) {
+     Meteor.call('quizzesUpdateUser', Session.get('classId'));
+     Meteor.call('questionsUpdateUser', Session.get('classId'));
+   }
 });
 
 Template.myNav.helpers({
