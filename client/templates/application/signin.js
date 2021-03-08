@@ -91,8 +91,8 @@ Template.signinModal.events({
           });
         }else{
           //Meteor.call('mcgLog', 'loginEmail -> ' + Meteor.userId());
-          Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
-          Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
+          // Session.setPersistent('classId',Meteor.users.findOne({_id:Meteor.userId()}).classes[0]);
+          // Session.setPersistent('className', classes.findOne({"_id" :Session.get('classId')}));
           Session.setPersistent('navItem', "Students");
           Session.setPersistent('sogBtn',"students");
           Session.setPersistent('golBtn',"grid");
@@ -100,11 +100,11 @@ Template.signinModal.events({
           Session.set('orderStudents', "XP");
           Session.set('invertOrder', "checked");
 
-          if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
-            Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
-            backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
-            $("#fondo").css("background-image", "url("+backImg+")");
-          }
+          // if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
+          //   Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+          //   backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
+          //   $("#fondo").css("background-image", "url("+backImg+")");
+          // }
           // if ( Session.get("loginType") == "studentLogin" ) {
           //   Session.setPersistent('userType','student');
           //   Router.go('studentsMainPage',{_id:Session.get('classId')});
@@ -113,7 +113,7 @@ Template.signinModal.events({
           //   Router.go('studentsMainPage',{_id:Session.get('classId')});
           // } else {
           //   Session.setPersistent('userType','teacher');
-            Router.go('classesPage');
+          Router.go('classesPage');
           // }
         }
       });

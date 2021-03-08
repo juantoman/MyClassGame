@@ -13,9 +13,9 @@ Template.index.onRendered(function () {
     //Session.set('userType', "student");
     Router.go('classesPage');
   }*/
-  if (Meteor.user().userType != "") {
-    Router.go('classesPage');
-  }
+  // if (Meteor.user().userType != "") {
+  //   Router.go('classesPage');
+  // }
 });
 
 Template.index.helpers({

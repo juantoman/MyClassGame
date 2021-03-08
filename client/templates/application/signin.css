@@ -254,6 +254,7 @@
 .btn-group-student-login label.btn.active {
 	color: red !important;
 	box-shadow: inset 0 0px 0px rgb(0,0, 0, 0) !important;
+	-webkit-filter: drop-shadow(5px 5px 5px #222 );
 }
 
 .signInType label {
@@ -266,7 +267,7 @@
 }
 
 .signInType label.btn.active {
-	color: red !important;
+	color: bl !important;
 	box-shadow: inset 0 0px 0px rgb(0,0, 0, 0) !important;
 	font-weight: bold;
 }

@@ -13,6 +13,7 @@
         <li role="presentation"><a href="#chrono" aria-controls="chrono" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span class="spanMenu">{{_ "chrono"}}</span></a></li>
         <li role="presentation"><a href="#countdown" aria-controls="countdown" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-hourglass" aria-hidden="true"></span> <span class="spanMenu">{{_ "countDown"}}</span></a></li>
         <li role="presentation"><a href="#dessign" aria-controls="story" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span class="spanMenu">{{_ "dessign"}}</span></a></li>
+        <li role="presentation"><a href="#importexport" aria-controls="importexport" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span class="spanMenu">{{_ "import_export"}}</span></a></li>
 
         <!--
         <li role="presentation"><a href="#ClassroomScreen" aria-controls="ClassroomScreen" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span> <span class="spanMenu">ClassroomScreen</span></a></li>
@@ -37,6 +38,10 @@
         <div role="tabpanel" class="tab-pane" id="dessign">
           <br />
           {{> dessignTemplate}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="importexport">
+          <br />
+          {{> import_export}}
         </div>
         <!--
         <div role="tabpanel" class="tab-pane" id="ClassroomScreen">
