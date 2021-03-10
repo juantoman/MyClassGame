@@ -1,0 +1,26 @@
+.import_export .form-group input[type="checkbox"] {
+    display: none;
+}
+
+.import_export .form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.import_export .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.import_export .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;
+}
+
+.import_export .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.import_export .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;
+}
+
+.import_export .btn-default {
+  color: #268BD2 !important;
+  background-color: rgba(0,0,0,0.05) !important;
+}
