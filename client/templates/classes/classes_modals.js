@@ -130,6 +130,7 @@ Template.newClassSFModal.events({
     } else {
       Meteor.call('parentClassInsert', classId, studentId);
     }
+    Meteor.subscribe('classes')
     Modal.hide('newClassSFModal');
   }
 });

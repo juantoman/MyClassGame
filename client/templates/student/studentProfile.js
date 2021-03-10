@@ -521,7 +521,7 @@ Template.studentProfile.helpers({
     // } else {
     //   return false;
     // }
-    if (Session.get('IsMyUser')) {
+    if (Session.get('IsMyUser') || Session.get('userType')=="teacher") {
       return true;
     } else {
       return false;

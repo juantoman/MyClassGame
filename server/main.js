@@ -99,8 +99,12 @@ Meteor.methods({
 
     if (nc==1){
       cId=classes.findOne({"_id" : {'$regex' : reglaClass }})._id;
-      if (Meteor.user().classes.indexOf(cId)==-1){;
-        var Id = Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
+      if(Meteor.user().classes) {
+        if (Meteor.user().classes.indexOf(cId)==-1){;
+          Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
+        }
+      } else {
+        Meteor.users.update({ _id:Meteor.userId() }, { $push: {classes: cId} });
       }
     }
     if (ns==1){
