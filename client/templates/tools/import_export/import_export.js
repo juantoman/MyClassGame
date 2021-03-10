@@ -1,16 +1,17 @@
 Template.import_export.events({
   'click .import': function(event) {
     event.preventDefault();
-    var data;
-    var file = document.getElementById('csvFile').files[0];
-    Papa.parse(file, {
-      header: true,
-      dynamicTyping: true,
-      complete: function(results) {
-        console.log("Finished:", results.data);
-        data = results.data;
-      }
-    });
+    // var data;
+    // var file = document.getElementById('csvFile').files[0];
+    // Papa.parse(file, {
+    //   header: true,
+    //   dynamicTyping: true,
+    //   complete: function(results) {
+    //     console.log("Finished:", results.data);
+    //     data = results.data;
+    //   }
+    // });
+    alert($(".import_export input:checkbox:checked").length)
   },
   'click .export': function(event) {
     event.preventDefault();

@@ -1,80 +1,166 @@
 <template name="import_export">
-  <div class="btn btn-info export">Export</div>
-  <div class="btn btn-info import">Import</div>
-  <input type="file" id="csvFile">
-  <div class="[ import_export col-xs-12 col-sm-6 ]">
-        <h3>Standard Checkboxes</h3><hr />
+  <div class="[ import_export col-xs-12 ]">
+        <h3>Importar elementos</h3><hr />
         <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-default" id="fancy-checkbox-default" autocomplete="off" />
+          <div class="[ btn-group ]">
+              <label for="fancy-text-classId">
+                  ClassId
+              </label>
+              <input type="text" name="fancy-text-classId" id="fancy-text-classId" class="[ input-lg ]" />
+          </div>
+        </div>
+        <div class="[ form-group ]">
+            <input type="checkbox" name="fancy-checkbox-students" id="fancy-checkbox-students" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-default" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-students" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-default" class="[ btn btn-default active ]">
-                    Default Checkbox
+                <label for="fancy-checkbox-students" class="[ btn btn-default active ]">
+                    {{_ 'students'}}
                 </label>
             </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-primary" id="fancy-checkbox-primary" autocomplete="off" />
+
+            <input type="checkbox" name="fancy-checkbox-teams" id="fancy-checkbox-teams" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-primary" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-teams" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-primary" class="[ btn btn-default active ]">
-                    Primary Checkbox
+                <label for="fancy-checkbox-teams" class="[ btn btn-default active ]">
+                    {{_ 'teams'}}
                 </label>
             </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off" />
+
+            <input type="checkbox" name="fancy-checkbox-behaviours" id="fancy-checkbox-behaviours" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-success" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-behaviours" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
-                    Success Checkbox
+                <label for="fancy-checkbox-behaviours" class="[ btn btn-default active ]">
+                    {{_ 'behaviours'}}
                 </label>
             </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-info" id="fancy-checkbox-info" autocomplete="off" />
+
+            <input type="checkbox" name="fancy-checkbox-events" id="fancy-checkbox-events" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-info" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-events" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-info" class="[ btn btn-default active ]">
-                    Info Checkbox
+                <label for="fancy-checkbox-events" class="[ btn btn-default active ]">
+                    {{_ 'events'}}
                 </label>
             </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-warning" id="fancy-checkbox-warning" autocomplete="off" />
+
+            <input type="checkbox" name="fancy-checkbox-badges" id="fancy-checkbox-badges" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-warning" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-badges" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-warning" class="[ btn btn-default active ]">
-                    Warning Checkbox
+                <label for="fancy-checkbox-badges" class="[ btn btn-default active ]">
+                    {{_ 'badges'}}
                 </label>
             </div>
-        </div>
-        <div class="[ form-group ]">
-            <input type="checkbox" name="fancy-checkbox-danger" id="fancy-checkbox-danger" autocomplete="off" />
+
+            <input type="checkbox" name="fancy-checkbox-powers" id="fancy-checkbox-powers" autocomplete="off" />
             <div class="[ btn-group ]">
-                <label for="fancy-checkbox-danger" class="[ btn btn-info ]">
+                <label for="fancy-checkbox-powers" class="[ btn btn-info ]">
                     <span class="[ glyphicon glyphicon-ok ]"></span>
                     <span> </span>
                 </label>
-                <label for="fancy-checkbox-danger" class="[ btn btn-default active ]">
-                    Danger Checkbox
+                <label for="fancy-checkbox-powers" class="[ btn btn-default active ]">
+                    {{_ 'powers'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-collections" id="fancy-checkbox-collections" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-collections" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-collections" class="[ btn btn-default active ]">
+                    {{_ 'collections'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-store" id="fancy-checkbox-store" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-store" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-store" class="[ btn btn-default active ]">
+                    {{_ 'store'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-quotes" id="fancy-checkbox-quotes" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-quotes" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-quotes" class="[ btn btn-default active ]">
+                    {{_ 'quotes'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-levels" id="fancy-checkbox-levels" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-levels" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-levels" class="[ btn btn-default active ]">
+                    {{_ 'levels'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-villains" id="fancy-checkbox-villains" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-villains" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-villains" class="[ btn btn-default active ]">
+                    {{_ 'villains'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-quizzes" id="fancy-checkbox-quizzes" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-quizzes" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-quizzes" class="[ btn btn-default active ]">
+                    {{_ 'quizzes'}}
+                </label>
+            </div>
+
+            <input type="checkbox" name="fancy-checkbox-missions" id="fancy-checkbox-missions" autocomplete="off" />
+            <div class="[ btn-group ]">
+                <label for="fancy-checkbox-missions" class="[ btn btn-info ]">
+                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                    <span> </span>
+                </label>
+                <label for="fancy-checkbox-missions" class="[ btn btn-default active ]">
+                    {{_ 'missions'}}
                 </label>
             </div>
         </div>
+        <hr />
+        <label class="btn btn-info export">
+            {{_ 'Export'}}
+        </label>
+        <label class="btn btn-info import">
+            {{_ 'Import'}}
+        </label>
     </div>
+    <input type="file" id="csvFile">
+    <br />
 </template>

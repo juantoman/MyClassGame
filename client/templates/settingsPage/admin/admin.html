@@ -69,13 +69,13 @@
         </li>
         {{/if}}
         <li class="list-item addBtn" id="btn-store-class">
-          <span class="item-image btn"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true"></span></span>
+          <span class="item-image btn"><span class="glyphicon glyphicon-floppy-save" aria-hidden="true" style="color:{{#if stored}}white{{/if}};"></span></span>
           <p class="text-center" style="padding:5px;">{{_ "vstore"}}</p>
         </li>
-        <li class="list-item addBtn" id="btn-restore">
+        <!-- <li class="list-item addBtn" id="btn-restore">
           <span class="item-image btn"><span class="glyphicon glyphicon-floppy-open" aria-hidden="true"></span></span>
           <p class="text-center" style="padding:5px;">{{_ "restore"}}</p>
-        </li>
+        </li> -->
         <li class="list-item addBtn" id="btn-duplicar">
           <span class="item-image btn"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span></span>
           <p class="text-center" style="padding:5px;">{{_ 'double'}} {{_ 'class'}}</p>

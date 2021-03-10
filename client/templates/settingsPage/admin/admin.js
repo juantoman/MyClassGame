@@ -16,6 +16,9 @@ Template.admin.helpers({
     } else {
       return false;
     }
+  },
+  stored: function() {
+    return classes.findOne({'_id':Session.get('classId')}).stored;
   }
 });
 Template.admin.events({
