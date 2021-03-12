@@ -11,7 +11,12 @@ Template.import_export.events({
     //     data = results.data;
     //   }
     // });
-    alert($(".import_export input:checkbox:checked").length)
+
+    classId=$("#fancy-text-classId").val();
+    $(".import_export input:checkbox:checked").each(function(){
+      alert($(this).attr("id"));
+    });
+
   },
   'click .export': function(event) {
     event.preventDefault();
