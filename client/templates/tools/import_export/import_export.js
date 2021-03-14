@@ -13,10 +13,27 @@ Template.import_export.events({
     // });
 
     classId=$("#fancy-text-classId").val();
+    elements=[];
     $(".import_export input:checkbox:checked").each(function(){
-      alert($(this).attr("id"));
+      elements.push($(this).attr("id"));
     });
-
+    Meteor.call('importFromClassId',classId,Session.get('classId'),elements,function(error,imported){
+      if (error) {
+        console.log(error);
+      } else {
+        if (imported){
+          swal({
+            title: TAPi18n.__('importedData'),
+            icon: "success",
+          });
+        } else {
+          swal({
+            title: TAPi18n.__('incorrectClassId'),
+            icon: "warning",
+          });
+        }
+      }
+    });
   },
   'click .export': function(event) {
     event.preventDefault();

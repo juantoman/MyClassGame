@@ -359,5 +359,7 @@
     "minCorrectAnswers": "Número mínimo de respostas corretas",
     "time": "Tempo (s)",
     "ifRegistered": "Se você possui uma conta ",
-    "ifNotRegistered": "Se você não possui uma conta "
+    "ifNotRegistered": "Se você não possui uma conta ",
+    "importedData": "Dados importados com sucesso",
+    "incorrectClassId": "ClassId errado"
 }
