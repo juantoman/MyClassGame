@@ -12,6 +12,7 @@
         <li role="presentation" class="active"><a href="#parameters" aria-controls="parameters" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span><span class="spanMenu"> {{_ "parameters"}}</span></a></li>
         <li role="presentation"><a href="#teachers" aria-controls="teachers" role="tab" data-toggle="tab" class="allUsers"><span class="glyphicon glyphicon-education" aria-hidden="true"></span><span class="spanMenu"> {{_ "teachers"}}</span></a></li>
         <li role="presentation"><a href="#admin" aria-controls="admin" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-king" aria-hidden="true"></span><span class="spanMenu"> {{_ "admin"}}</span></a></li>
+        <li role="presentation"><a href="#importexport" aria-controls="importexport" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> <span class="spanMenu">{{_ "import"}}</span></a></li>
       </ul>
 
       <!-- Tab panels -->
@@ -27,6 +28,9 @@
         <div role="tabpanel" class="tab-pane" id="admin">
           <!--<h2 class="text-center bg-info">Administrar</h2>-->
           {{> admin}}
+        </div>
+        <div role="tabpanel" class="tab-pane" id="importexport">
+          {{> import_export}}
         </div>
       </div>
 

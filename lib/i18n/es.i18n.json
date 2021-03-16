@@ -361,5 +361,6 @@
     "ifRegistered": "Si tienes cuenta ",
     "ifNotRegistered": "Si no tienes cuenta ",
     "importedData": "Datos importados correctamente",
-    "incorrectClassId": "ClassId incorrecto"
+    "incorrectClassId": "ClassId incorrecto",
+    "import": "Importar"
 }
