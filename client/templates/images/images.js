@@ -108,6 +108,13 @@ Template.imagesTemplate.helpers({
     } else {
       return "";
     }
+  },
+  teacher: function() {
+    if (Session.get('userType')=="teacher") {
+     return true;
+    } else {
+     return false;
+    };
   }
 });
 
@@ -162,6 +169,7 @@ Template.imagesTemplate.events({
     } else {
       Session.set('selectedImage',$("input[name='imageId']:checked").val());
     }
+    Meteor.call('studentCanChangeImage', Session.get('studentId'),false);
     Modal.hide('imagesTemplate');
   },
   'click .btn-default': function(event) {

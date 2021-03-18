@@ -45,7 +45,9 @@
               {{/each}}
             </div>
             <br />
-            <button class="btn btn-info cloudinary" name="cloudinary" {{inputDisabled}}>{{_ 'uploadImages'}}</button>
+            <!-- {{#if teacher}} -->
+              <button class="btn btn-info cloudinary" name="cloudinary" {{inputDisabled}}>{{_ 'uploadImages'}}</button>
+            <!-- {{/if}} -->
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default">{{_ 'close'}}</button>

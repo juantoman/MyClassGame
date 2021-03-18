@@ -284,14 +284,14 @@
                       <br />
                       <div class="[ import_export text-center ]">
                         <div class="[ form-group ]">
-                            <input type="checkbox" name="studentCanChangeImage" id="studentCanChangeImage" autocomplete="off" />
+                            <input type="checkbox" name="studentCanChangeImage" id="studentCanChangeImage" autocomplete="off" checked="{{#if canChangeImage}}}checked{{/if}}" />
                             <div class="[ btn-group ]">
                                 <label for="studentCanChangeImage" class="[ btn btn-info ]">
                                     <span class="[ glyphicon glyphicon-ok ]"></span>
                                     <span> </span>
                                 </label>
                                 <label for="studentCanChangeImage" class="[ btn btn-default active ]">
-                                    Estudiante puede cambiar su imagen
+                                    {{_ 'studentCanChangeImage'}}
                                 </label>
                             </div>
                         </div>
@@ -299,15 +299,20 @@
                     {{/if}}
                 		<hr class="colorgraph">
                 		<div class="row">
-                  			{{#if teacher}}
+                      {{#if myStudent}}
+                        {{#if canChangeImage}}
                           <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning eImage btn-block btn-lg">{{_ "image"}}</button></div>
-                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-create-student btn-block btn-lg">{{#if userCreated}}Borrar{{else}}Crear{{/if}} cuenta</button></div>
-                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">{{_ "delete"}}</button></div>
-                          <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">{{_ "reset"}}</button></div>
-                          <div class="col-xs-6 col-sm-2"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
                         {{/if}}
-                        <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-default btn-block btn-lg">{{_ "close"}}</button></div>
-                  		</div>
+                      {{/if}}
+                			{{#if teacher}}
+                        <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning eImage btn-block btn-lg">{{_ "image"}}</button></div>
+                        <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-info btn-create-student btn-block btn-lg">{{#if userCreated}}Borrar{{else}}Crear{{/if}} cuenta</button></div>
+                        <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-danger btn-delete-student btn-block btn-lg">{{_ "delete"}}</button></div>
+                        <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-warning btn-reset-student btn-block btn-lg">{{_ "reset"}}</button></div>
+                        <div class="col-xs-6 col-sm-2"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ "save"}}"></div>
+                      {{/if}}
+                      <div class="col-xs-6 col-sm-2"><button type="button" class="btn btn-default btn-close btn-block btn-lg">{{_ "close"}}</button></div>
+                		</div>
                 	</form>
                 </div>
               </div>

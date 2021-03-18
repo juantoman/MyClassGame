@@ -362,5 +362,6 @@
     "ifNotRegistered": "If you haven't got an account ",
     "importedData": "Data imported successfully",
     "incorrectClassId": "Incorrect ClassId",
-    "import": "Import"
+    "import": "Import",
+    "studentCanChangeImage": "Student can change the avatar"
 }

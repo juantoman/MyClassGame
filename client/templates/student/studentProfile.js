@@ -872,7 +872,8 @@ Template.studentProfile.events({
     }
 
   },
-  'click .btn-default': function() {
+  'click .btn-close': function() {
+    event.preventDefault();
     Session.set('studentSelected', false);
   },
   'click .btn-xp': function(event) {
@@ -1357,7 +1358,7 @@ Template.studentProfile.events({
     event.preventDefault();
     Session.set('imageType','avatar');
     Session.set('idElementImage',this._id);
-    if (Session.get('userType')=="teacher") {
+    if (Session.get('userType')=="teacher" || (this.canChangeImage && Meteor.userId()==this.userId)) {
       Modal.show('imagesTemplate');
     }
   },
@@ -1837,5 +1838,8 @@ Template.studentProfile.events({
     if ( this.userId && Meteor.user().userType == "teacher" ) {
       Meteor.call('studentUserId', Session.get('studentId'));
     }
+  },
+  'click #studentCanChangeImage': function(event) {
+    Meteor.call('studentCanChangeImage', Session.get('studentId'),$(event.target).prop('checked'));
   }
 });

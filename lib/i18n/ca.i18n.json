@@ -362,5 +362,6 @@
     "ifNotRegistered": "Si no tens compte ",
     "importedData": "Dades importades correctament",
     "incorrectClassId": "ClassId incorrecte",
-    "import": "Importar"
+    "import": "Importar",
+    "studentCanChangeImage": "Estudiant pot canviar l'avatar"
 }
