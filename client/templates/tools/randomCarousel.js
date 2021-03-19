@@ -207,13 +207,10 @@ Template.randomCarousel.events({
       case "evento":
         Meteor.call('allRandomEvents',Session.get('classId'));
         break;
-      case "carta":
+      case "poder":
         Meteor.call('allRandomCards',Session.get('classId'));
         break;
-      case "carta":
-        Meteor.call('allRandomCards',Session.get('classId'));
-        break;
-      case "cromo":
+      case "logro":
         Meteor.call('allRandomChromes',Session.get('classId'));
         break;
       case "equipo":
@@ -241,19 +238,13 @@ Template.randomCarousel.events({
           Meteor.call('allRandomEvents',Session.get('classId'));
         }
         break;
-      case "carta":
+      case "poder":
         Meteor.call('noRandomCard',this._id);
         if ( cards.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
           Meteor.call('allRandomCards',Session.get('classId'));
         }
         break;
-      case "carta":
-        Meteor.call('noRandomCard',this._id);
-        if ( cards.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
-          Meteor.call('allRandomCards',Session.get('classId'));
-        }
-        break;
-      case "cromo":
+      case "logro":
         Meteor.call('noRandomChrome',this._id);
         if ( chromes.find({'classId': Session.get('classId'),'random': true }).count() == 1 ) {
           Meteor.call('allRandomChromes',Session.get('classId'));
