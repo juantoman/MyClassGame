@@ -1,3 +1,13 @@
+Template.chromesList.onRendered(function() {
+  c=classes.findOne({_id: Session.get('classId')});
+  if (!c.envelopePrice) {
+    Meteor.call('envelopePrice',Session.get("classId"),0);
+  }
+  if (!c.stickersEnvelope) {
+    Meteor.call('stickersEnvelope',Session.get("classId"),0);
+  }
+})
+
 Template.chromesList.helpers({
   chromes: function() {
     return chromes.find({classId: Session.get('classId')});
@@ -16,6 +26,9 @@ Template.chromesList.helpers({
         return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_100,f_auto,dpr_auto/v1554809984/images/22190738841_41626354b7_b.jpg";
       }
     }
+  },
+  myClass: function() {
+    return classes.findOne({_id: Session.get('classId')});
   }
 });
 
@@ -56,5 +69,13 @@ Template.chromesList.events({
     Session.set('imageType','chrome');
     Session.set('idElementImage',event.currentTarget.title);
     Modal.show('imagesTemplate');
+  },
+  'change .envelopePrice': function(event) {
+    event.preventDefault();
+    Meteor.call('envelopePrice',Session.get("classId"),parseInt($(event.target).val()));
+  },
+  'change .stickersEnvelope': function(event) {
+    event.preventDefault();
+    Meteor.call('stickersEnvelope',Session.get("classId"),parseInt($(event.target).val()));
   }
 });

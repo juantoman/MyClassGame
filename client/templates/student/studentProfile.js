@@ -1841,5 +1841,40 @@ Template.studentProfile.events({
   },
   'click #studentCanChangeImage': function(event) {
     Meteor.call('studentCanChangeImage', Session.get('studentId'),$(event.target).prop('checked'));
+  },
+  'click .buyStickers': function(event) {
+    event.preventDefault();
+    coins=students.findOne({_id: Session.get('studentId')}).coins;
+    myclass=classes.findOne({_id: Session.get('classId')});
+    if (myclass.stickersEnvelope>0) {
+      if ( coins <= myclass.envelopePrice ) {
+        swal({
+          title: TAPi18n.__('noMoney'),
+          type: 'warning'
+        })
+      } else {
+        swal({
+          title: TAPi18n.__('add') + " " + myclass.stickersEnvelope + " " + TAPi18n.__('collectionable') + "s (" + TAPi18n.__('money') + ":" + myclass.envelopePrice + ")",
+          text: TAPi18n.__('areYouSure'),
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: TAPi18n.__('yes'),
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.value) {
+            var e = chromes.find({classId: Session.get('classId')}).fetch();
+            for (i = 1; i <= myclass.stickersEnvelope; i++) {
+              var r = Math.floor(Math.random() * e.length);
+              Meteor.call('studentChrome', Session.get('studentId'), e[r]._id);
+            }
+            Meteor.call('incCoins', Session.get('studentId'), -myclass.envelopePrice);
+            swal({
+              title: TAPi18n.__('collectionable') + " " +  TAPi18n.__('added'),
+              type: 'success'
+            })
+          }
+        })
+      }
+    }
   }
 });

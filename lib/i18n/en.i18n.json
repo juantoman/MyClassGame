@@ -363,5 +363,8 @@
     "importedData": "Data imported successfully",
     "incorrectClassId": "Incorrect ClassId",
     "import": "Import",
-    "studentCanChangeImage": "Student can change the avatar"
+    "studentCanChangeImage": "Student can change the avatar",
+    "envelopeParameters": "Envelope parameters",
+    "envelopePrice": "Envelope price",
+    "stickersEnvelope": "Stickers per envelope"
 }

@@ -363,5 +363,8 @@
     "importedData": "Dades importades correctament",
     "incorrectClassId": "ClassId incorrecte",
     "import": "Importar",
-    "studentCanChangeImage": "Estudiant pot canviar l'avatar"
+    "studentCanChangeImage": "Estudiant pot canviar l'avatar",
+    "envelopeParameters": "Paràmetres del sobre",
+    "envelopePrice": "Preu del sobre",
+    "stickersEnvelope": "Número de cromos per sobre"
 }
