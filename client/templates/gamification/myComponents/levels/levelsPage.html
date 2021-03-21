@@ -12,6 +12,10 @@
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
           <div class="input-group col-xs-11">
+            <span class="input-group-addon">{{_ 'levelXPRatio'}}</span>
+            <input type="number" class="form-control input-lg" name="levelXPRatio" value="{{levelXPRatio}}" id="levelXPRatio" min="1" max="3" step="0.1">
+          </div>
+          <div class="input-group col-xs-11">
             <input type="checkbox" class="xpCheck" checked="{{xpChangeLevel}}">
             <label class="control-label" for="xpCheck"> {{_ 'autoLevelChange'}}</label>
           </div>

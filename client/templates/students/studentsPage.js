@@ -168,12 +168,14 @@ Template.studentsPage.helpers({
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
     na=students.findOne({_id: id}).level;
     if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      c=classes.findOne({_id: Session.get('classId')});
+      levelXP=c.levelXP;
+      levelXPRatio=c.levelXPRatio;
       XP=students.findOne({_id: id}).XP;
       if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
         n=0;
       } else {
-        n=parseInt(XP/levelXP);
+        n=parseInt((XP/levelXP-1)/levelXPRatio+1);
       }
       if ( na != n ) {
         Meteor.call('studentLevel', this._id, n);
@@ -186,9 +188,11 @@ Template.studentsPage.helpers({
   levelDesc: function(id) {
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
     if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+      c=classes.findOne({_id: Session.get('classId')});
+      levelXP=c.levelXP;
+      levelXPRatio=c.levelXPRatio;
       XP=students.findOne({_id: id}).XP;
-      n=String(parseInt(XP/levelXP));
+      n=String(parseInt((XP/levelXP-1)/levelXPRatio+1));
     } else {
       n=String(students.findOne({_id: id}).level);
     }

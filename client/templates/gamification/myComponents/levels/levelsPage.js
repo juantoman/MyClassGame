@@ -18,18 +18,27 @@ Template.levelsTemplate.events({
       Meteor.call('levelXPUpdate', Session.get('classId'), event.currentTarget.value);
     }
   },
+  'change #levelXPRatio': function(event) {
+    event.preventDefault();
+    if (event.currentTarget.value )
+    {
+      Meteor.call('levelXPRatioUpdate', Session.get('classId'), event.currentTarget.value);
+    }
+  },
   'change .xpCheck': function(event) {
     event.preventDefault();
     Meteor.call('xpChangeLevel', Session.get('classId'), event.currentTarget.checked);
     if (event.currentTarget.checked) {
+      c=classes.findOne({_id: Session.get('classId')});
+      levelXP=c.levelXP;
+      levelXPRatio=c.levelXPRatio;
       students.find( { classId: Session.get('classId') }).forEach(function (s){
         na=s.level;
-        levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
         XP=s.XP;
         if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
           n=0;
         } else {
-          n=parseInt(XP/levelXP);
+          n=parseInt((XP/levelXP-1)/levelXPRatio+1);
         }
         if ( na != n ) {
           Meteor.call('studentLevel', s._id, n);
