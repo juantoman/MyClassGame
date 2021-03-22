@@ -37,12 +37,13 @@ Template.cardsModal.helpers({
   chromeDisabled: function() {
     s=students.findOne({_id: Session.get('studentId')});
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      l=parseInt(s.XP/levelXP);
-    } else {
-      l=parseInt(s.level);
-    }
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   l=parseInt(s.XP/levelXP);
+    // } else {
+    //   l=parseInt(s.level);
+    // }
+    l=parseInt(s.level);
     if ( l < this.chromeLevel ) {
       return "disabled";
     }

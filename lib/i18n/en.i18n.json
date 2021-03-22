@@ -366,5 +366,6 @@
     "studentCanChangeImage": "Student can change the avatar",
     "envelopeParameters": "Envelope parameters",
     "envelopePrice": "Envelope price",
-    "stickersEnvelope": "Stickers per envelope"
+    "stickersEnvelope": "Stickers per envelope",
+    "levelXPRatio": "Ratio between levels"
 }

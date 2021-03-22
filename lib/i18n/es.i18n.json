@@ -366,5 +366,6 @@
     "studentCanChangeImage": "Estudiante puede cambiar el avatar",
     "envelopeParameters": "Parámetros del sobre",
     "envelopePrice": "Precio del sobre",
-    "stickersEnvelope": "Número de cromos por sobre"
+    "stickersEnvelope": "Número de cromos por sobre",
+    "levelXPRatio": "Ratio entre niveles"
 }

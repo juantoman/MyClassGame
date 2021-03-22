@@ -1,3 +1,10 @@
+Template.levelsTemplate.onRendered(function() {
+  c=classes.findOne({_id: Session.get('classId')});
+  if (!c.levelXPRatio) {
+    Meteor.call('levelXPRatioUpdate',Session.get("classId"),1);
+  }
+})
+
 Template.levelsTemplate.helpers({
   parametersClass: function() {
     return classes.findOne({_id: Session.get('classId')});
@@ -38,7 +45,7 @@ Template.levelsTemplate.events({
         if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
           n=0;
         } else {
-          n=parseInt((XP/levelXP-1)/levelXPRatio+1);
+          n=parseInt(parseFloat(XP/levelXP-1).toFixed(3)/levelXPRatio+1);
         }
         if ( na != n ) {
           Meteor.call('studentLevel', s._id, n);

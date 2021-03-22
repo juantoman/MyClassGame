@@ -1524,13 +1524,14 @@ Template.studentProfile.events({
     event.preventDefault();
     l=0;
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      XP=students.findOne({_id: Session.get('studentId')}).XP;
-      l=parseInt(XP/levelXP);
-    } else {
-      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
-    }
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   XP=students.findOne({_id: Session.get('studentId')}).XP;
+    //   l=parseInt(XP/levelXP);
+    // } else {
+    //   l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+    // }
+    l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
     if (this.level > l ) {
       swal({
         title: "Nivel del usuario inferior al de la insignia",
@@ -1601,13 +1602,14 @@ Template.studentProfile.events({
     event.preventDefault();
     l=0;
     xpChecked=classes.findOne({_id: Session.get('classId')}).xpChangeLevel;
-    if (xpChecked) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      XP=students.findOne({_id: Session.get('studentId')}).XP;
-      l=parseInt(XP/levelXP);
-    } else {
-      l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
-    }
+    // if (xpChecked) {
+    //   levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
+    //   XP=students.findOne({_id: Session.get('studentId')}).XP;
+    //   l=parseInt(XP/levelXP);
+    // } else {
+    //   l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
+    // }
+    l=parseInt(students.findOne({_id: Session.get('studentId')}).level);
     coins=students.findOne({_id: Session.get('studentId')}).coins;
     if (this.chromeLevel > l ) {
       swal({
