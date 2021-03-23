@@ -238,17 +238,24 @@
                   			<input type="email" name="sEmail" id="sEmail" class="form-control input-lg" placeholder="Email" tabindex="3" value="{{email}}">
                   		</div>
                   	{{/if}}
-                		{{#unless xpChangeLevel}}
-                  		<div class="form-group">
-                  			<label for="sLevel" class="control-label">{{_ "level"}}</label>
-                        <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
-                        <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}} {{levelDisabled}}>
-                          {{#each selectLevels}}
-                            <option value="{{level}}" {{levelSelected level ../XP}}>{{level}}.- {{levelDescription}}</option>
-                          {{/each}}
-                        </select>
-                  		</div>
-                		{{/unless}}
+
+                		<div class="form-group">
+                			<label for="sLevel" class="control-label">{{_ "level"}}</label>
+                      <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
+                      <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}} {{levelDisabled}}>
+                        {{#each selectLevels}}
+                          <option value="{{level}}" {{levelSelected level ../XP}}>{{level}}.- {{levelDescription}}</option>
+                        {{/each}}
+                      </select>
+                		</div>
+
+                    {{#if myclass.xpChangeLevel}}
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{percentXPLevel}}">
+                          {{XP}}
+                        </div>
+                      </div>
+                		{{/if}}
                 		{{#if teacher}}
                       <br />
                   		<div class="row">

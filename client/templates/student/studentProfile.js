@@ -70,6 +70,9 @@ Template.studentProfile.onRendered(function() {
 });
 
 Template.studentProfile.helpers({
+  myclass: function() {
+    return classes.findOne({ _id: Session.get('classId') } );
+  },
   student: function() {
     return students.findOne({ _id: Session.get('studentId') } );
   },

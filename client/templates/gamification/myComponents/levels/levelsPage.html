@@ -15,9 +15,23 @@
             <span class="input-group-addon">{{_ 'levelXPRatio'}}</span>
             <input type="number" class="form-control input-lg" name="levelXPRatio" value="{{levelXPRatio}}" id="levelXPRatio" min="1" max="3" step="0.1">
           </div>
-          <div class="input-group col-xs-11">
-            <input type="checkbox" class="xpCheck" checked="{{xpChangeLevel}}">
+          <!-- <div class="input-group col-xs-11">
+            <input type="checkbox" checked="{{xpChangeLevel}}">
             <label class="control-label" for="xpCheck"> {{_ 'autoLevelChange'}}</label>
+          </div> -->
+          <div class="[ import_export ]">
+            <div class="[ form-group ]">
+                <input type="checkbox" name="xpCheck" id="xpCheck" autocomplete="off" checked="{{xpChangeLevel}}" />
+                <div class="[ btn-group ]">
+                    <label for="xpCheck" class="[ btn btn-info ]">
+                        <span class="[ glyphicon glyphicon-ok ]"></span>
+                        <span> </span>
+                    </label>
+                    <label for="xpCheck" class="[ btn btn-default active ]">
+                        {{_ 'autoLevelChange'}}
+                    </label>
+                </div>
+            </div>
           </div>
         </div>
       </div>
@@ -33,7 +47,13 @@
                   <span class="input-group-addon">{{_ 'level'}}</span>
                   <input type="text" class="form-control inputGroup input-lg level text-center" aria-describedby="inputGroupSuccess1Status" value="{{level}}">
                 </div>
-                <div class="input-group col-xs-9">
+                {{#if parametersClass.xpChangeLevel}}
+                  <div class="input-group col-xs-2">
+                    <span class="input-group-addon">{{_ 'levelChange'}}</span>
+                    <input type="text" class="form-control inputGroup input-lg level text-center" aria-describedby="inputGroupSuccess1Status" value="{{levelChange level}}" readonly>
+                  </div>
+                {{/if}}
+                <div class="input-group col-xs-7">
                   <span class="input-group-addon">{{_ 'description'}}</span>
                   <input type="text" class="form-control inputGroup input-lg" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
                 </div>
