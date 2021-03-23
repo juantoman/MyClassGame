@@ -18,9 +18,9 @@ Template.levelsTemplate.helpers({
   levelChange: function(l) {
     c=classes.findOne({_id: Session.get('classId')});
     if (c.levelXPRatio>1){
-      return parseInt(Math.ceil(c.levelXP*(1-Math.pow(c.levelXPRatio,l))/(1-c.levelXPRatio)));
+      return parseInt(Math.trunc(Math.ceil(c.levelXP*(1-Math.pow(c.levelXPRatio,l))/(1-c.levelXPRatio))));
     } else {
-      return  parseInt(c.levelXP*l);
+      return  parseInt(Math.trunc(c.levelXP*l));
     }
   }
 });
@@ -54,7 +54,7 @@ Template.levelsTemplate.events({
           n=0;
         } else {
           //n=parseInt(parseFloat(XP/levelXP-1).toFixed(3)/levelXPRatio+1);
-          n=parseInt(Math.log(1-XP/levelXP*(1-levelXPRatio))/Math.log(levelXPRatio));
+          n=parseInt(Math.trunc(Math.log(1-XP/levelXP*(1-levelXPRatio))/Math.log(levelXPRatio)));
         }
         if ( na != n ) {
           Meteor.call('studentLevel', s._id, n);

@@ -448,22 +448,12 @@ Template.studentProfile.helpers({
   selectLevels: function(){
     return levels.find({classId: Session.get('classId')});
   },
-  levelSelected: function(l,xp){
-    if (classes.findOne({_id: Session.get('classId')}).xpChangeLevel ) {
-      levelXP=classes.findOne({_id: Session.get('classId')}).levelXP;
-      n=parseInt(xp/levelXP);
-      if ( n == l ) {
+  levelSelected: function(l){
+      if ( this.level == l ) {
         return "selected"
       } else {
         return "";
       }
-    } else {
-      if ( students.findOne({_id: Session.get('studentId')}).level == l ) {
-        return "selected"
-      } else {
-        return "";
-      }
-    }
   },
   selectMissions: function(){
     //return challenges.find( { classId: Session.get('classId'), type : "Misión" });
@@ -805,6 +795,32 @@ Template.studentProfile.helpers({
       return true;
     } else {
       return false;
+    }
+  },
+  percentXPLevel: function() {
+    c=classes.findOne({_id: Session.get('classId')});
+    levelXP=c.levelXP;
+    levelXPRatio=c.levelXPRatio;
+    n=Math.log(1-this.XP/levelXP*(1-levelXPRatio))/Math.log(levelXPRatio);
+    d=Math.trunc((n-Math.trunc(n))*100);
+    return d;
+  },
+  minXPLevel: function() {
+    l=this.level;
+    c=classes.findOne({_id: Session.get('classId')});
+    if (c.levelXPRatio>1){
+      return parseInt(Math.trunc(Math.ceil(c.levelXP*(1-Math.pow(c.levelXPRatio,l))/(1-c.levelXPRatio))));
+    } else {
+      return  parseInt(Math.trunc(c.levelXP*l));
+    }
+  },
+  maxXPLevel: function(l) {
+    l=this.level+1;
+    c=classes.findOne({_id: Session.get('classId')});
+    if (c.levelXPRatio>1){
+      return parseInt(Math.trunc(Math.ceil(c.levelXP*(1-Math.pow(c.levelXPRatio,l))/(1-c.levelXPRatio))));
+    } else {
+      return  parseInt(Math.trunc(c.levelXP*l));
     }
   }
 });

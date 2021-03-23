@@ -244,14 +244,18 @@
                       <!-- <input type="text" class="form-control" id="sLevel" name="sLevel" value="{{level}}" {{inputDisabled}}>-->
                       <select class="form-control input-lg" id="sLevel" name="sLevel" {{inputDisabled}} {{levelDisabled}}>
                         {{#each selectLevels}}
-                          <option value="{{level}}" {{levelSelected level ../XP}}>{{level}}.- {{levelDescription}}</option>
+                          <option value="{{level}}" {{levelSelected ../level}}>{{level}}.- {{levelDescription}}</option>
                         {{/each}}
                       </select>
                 		</div>
 
                     {{#if myclass.xpChangeLevel}}
+                      <div class="levelValues">
+                        <span>{{minXPLevel}}</span>
+                        <span style="float:right;">{{maxXPLevel}}</span>
+                      </div>
                       <div class="progress">
-                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: {{percentXPLevel}}">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuemin="0" aria-valuemax="99" style="width: {{percentXPLevel}}%">
                           {{XP}}
                         </div>
                       </div>

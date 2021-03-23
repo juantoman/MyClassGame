@@ -614,3 +614,18 @@
   width:50px !important;
   float: right;
 }
+
+.levelValues {
+  font-size:2em;
+}
+
+.progress {
+  height: 30px !important;
+  background: lightblue !important;
+}
+
+.progress-bar  {
+  padding-top: 4px;
+  font-size:1.7em !important;
+
+}
