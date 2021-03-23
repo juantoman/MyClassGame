@@ -53,8 +53,11 @@ Template.levelsTemplate.events({
         if ( isNaN(levelXP) || levelXP =="" || levelXP == 0 ) {
           n=0;
         } else {
-          //n=parseInt(parseFloat(XP/levelXP-1).toFixed(3)/levelXPRatio+1);
-          n=parseInt(Math.trunc(Math.log(1-XP/levelXP*(1-levelXPRatio))/Math.log(levelXPRatio)));
+          if (levelXPRatio>1) {
+            n=parseInt(Math.trunc(Math.log(1-XP/levelXP*(1-levelXPRatio))/Math.log(levelXPRatio)));
+          } else {
+            n=parseInt(Math.trunc(XP/levelXP));
+          }
         }
         if ( na != n ) {
           Meteor.call('studentLevel', s._id, n);
