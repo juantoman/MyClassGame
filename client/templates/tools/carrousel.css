@@ -6,7 +6,7 @@
   /* border: 2px solid #CCC; */
   position: relative;
   width: 410px;
-  height: 240px;
+  height: 220px;
   margin: 10px auto;
   perspective: 300px;
 }
@@ -25,15 +25,27 @@
   position: absolute;
   width: 390px;
   height: 220px;
-  left: 10px;
+  /* left: 10px;
   top: 10px;
   border: 2px solid black;
-  line-height: 116px;
+  line-height: 116px;*/
   font-size: 2vh;
   font-weight: bold;
   color: white;
   text-align: center;
   transition: transform 1s, opacity 1s;
+}
+
+.carousel__students {
+  display: table;
+  position: absolute;
+  width: 390px;
+  height: 220px;
+  background: transparent !important;
+}
+
+.carousel__students h1{
+  font-size: 2em !important;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.9); }
