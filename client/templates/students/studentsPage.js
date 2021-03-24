@@ -26,9 +26,10 @@ Template.studentsPage.helpers({
     }
     sortOrder["_id"]=-1;
     if (classes.findOne({'_id': Session.get('classId')}).onlyMyStudent && Meteor.user().userType!="teacher") {
-      emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address.substring(0,6);
-      regla='^'+emailUser;
-      currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
+      // emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address.substring(0,6);
+      // regla='^'+emailUser;
+      // currentStudent=students.findOne({'_id':{'$regex' :regla}})._id;
+      currentStudent=students.findOne({'classId':Session.get('classId'),'userId':Meteor.userId()})._id;
       Session.setPersistent('studentId', currentStudent);
       Session.setPersistent('studentSelected', true);
       return students.find({'_id': currentStudent});
