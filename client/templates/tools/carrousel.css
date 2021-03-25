@@ -6,9 +6,9 @@
   /* border: 2px solid #CCC; */
   position: relative;
   width: 410px;
-  height: 220px;
+  height: 240px;
   margin: 10px auto;
-  perspective: 300px;
+  perspective: 700px;
 }
 
 .random_carousel {
@@ -45,7 +45,11 @@
 }
 
 .carousel__students h1{
-  font-size: 2em !important;
+  font-size: 1.5em !important;
+}
+
+.carousel__students .cardIcons{
+  font-size: 1em !important;
 }
 
 .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.9); }
@@ -79,8 +83,8 @@
 .carousel__cell span.removeCarousel {
   position: absolute;
   color: white;
-  top:5px;
-  right:5px;
+  top:10px;
+  right:50px;
 }
 
 .carousel__cell img {

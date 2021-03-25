@@ -132,7 +132,7 @@ Template.randomCarousel.events({
     var cells = carousel.querySelectorAll('.carousel__cell');
     var cellCount; // cellCount set from cells-range input value
 
-    var cellWidth = 410;
+    var cellWidth = 510;
     var cellHeight = 240;
     var isHorizontal = true;
     var rotateFn = isHorizontal ? 'rotateY' : 'rotateX';
