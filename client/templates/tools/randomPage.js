@@ -3,6 +3,8 @@ Template.randomPage.events({
     randomElement=event.target.id;
     Session.set("randomElement",randomElement);
     $('.random_carousel').hide();
+    $(".rBtn").removeClass("btn-warning");
+    $(event.target).addClass("btn-warning");
     //$('.randomButton').click();
     //Modal.show("randomModal");
     /*

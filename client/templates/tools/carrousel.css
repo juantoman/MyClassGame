@@ -113,6 +113,7 @@
 
 .randomJumbotron {
   background-color: transparent !important;
+  height: 650px;
 }
 
 .randomJumbotron h2 {

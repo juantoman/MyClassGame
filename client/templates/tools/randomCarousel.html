@@ -1,7 +1,18 @@
 <template name="randomCarousel">
-    <h2>
-      {{element}}
-    </h2>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <button id="estudiante" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "student"}}</button>
+      <button id="equipo" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "team"}}</button>
+      <button id="evento" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "event"}}</button>
+      <button id="penalización" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "penalty"}}</button>
+      <button id="poder" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "power"}}</button>
+      <button id="logro" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "collectionable"}}</button>
+      <button id="frase" class="btn btn-info btn-lg rBtn"  data-toggle="modal" role="button">{{_ "quote"}}</button>
+      <button id="todosR" class="btn btn-info btn-lg" role="button">{{_ "all"}}</button>
+    </div>
+    <br /><br />
+    <button id="randomButton" class="btn btn-info">Random</button>
+    <button class="allInRandomButton btn btn-info">{{_ 'reset'}}</button>
     <div class="scene">
       <div class="random_carousel">
         {{#if equals "estudiante"}}
@@ -72,6 +83,7 @@
                     </li>
                   </ul>
                 </figcaption>
+
               </figure>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
             </div>
@@ -135,11 +147,11 @@
       </div>
     </div>
 
-    <div class="carousel-options">
+    <!-- <div class="carousel-options">
       <p>
         <button id="randomButton">Random</button>
         <button class="allInRandomButton">{{_ 'reset'}}</button>
       </p>
-    </div>
+    </div> -->
 
 </template>
