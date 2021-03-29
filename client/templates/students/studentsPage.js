@@ -217,6 +217,9 @@ Template.studentsPage.helpers({
     } else {
       return false;
     }
+  },
+  compressCard: function() {
+    return Session.get("compressCard");
   }
 });
 

@@ -367,5 +367,7 @@
     "envelopeParameters": "Paràmetres del sobre",
     "envelopePrice": "Preu del sobre",
     "stickersEnvelope": "Número de cromos per sobre",
-    "levelXPRatio": "Ratio entre nivells"
+    "levelXPRatio": "Ratio entre nivells",
+    "compress": "Comprimir",
+    "decompress": "Descomprimir"
 }

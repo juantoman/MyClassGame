@@ -367,5 +367,7 @@
     "envelopeParameters": "Envelope parameters",
     "envelopePrice": "Envelope price",
     "stickersEnvelope": "Stickers per envelope",
-    "levelXPRatio": "Ratio between levels"
+    "levelXPRatio": "Ratio between levels",
+    "compress": "Compress",
+    "decompress": "Decompress"
 }

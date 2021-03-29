@@ -86,6 +86,9 @@ Template.studentsMainPage.helpers({
   },
   hideAbsents: function() {
     return Session.get('hideAbsents');
+  },
+  compressCard: function() {
+    return Session.get("compressCard");
   }
 });
 
@@ -359,5 +362,9 @@ Template.studentsMainPage.events({
       }
     })
 
+  },
+  'click .btn-compressCard': function(event) {
+    event.preventDefault();
+    Session.set("compressCard",!Session.get("compressCard"))
   }
  });

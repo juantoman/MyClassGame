@@ -367,5 +367,7 @@
     "envelopeParameters": "Parâmetros de envelope",
     "envelopePrice": "Preço do envelope",
     "stickersEnvelope": "Número de adesivos por envelope",
-    "levelXPRatio": "Razão entre os níveis"
+    "levelXPRatio": "Razão entre os níveis",
+    "compress": "Comprimir",
+    "decompress": "Descomprimir"
 }
