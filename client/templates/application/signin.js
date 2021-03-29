@@ -144,11 +144,13 @@ Template.signinModal.events({
    },
    'click .resetPassword': function(e) {
       e.preventDefault();
-      if ( Session.get('userType') == "teacher" ) {
-        var email = $("#emailTeacher").val();
-      } else {
-        var email = $("#emailStudent").val();
-      }
+      // if ( Session.get('userType') == "teacher" ) {
+      //   var email = $("#emailTeacher").val();
+      // } else {
+      //   var email = $("#emailStudent").val();
+      // }
+
+      var email = $("#userEmail").val();
       if ( email.indexOf("@") === -1 ) {
 
         Accounts.forgotPassword({username: email}, function (e, r) {

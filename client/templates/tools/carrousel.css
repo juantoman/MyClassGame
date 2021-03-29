@@ -83,6 +83,13 @@
 .carousel__cell span.removeCarousel {
   position: absolute;
   color: white;
+  top:5px;
+  right:10px;
+}
+
+.carousel__students span.removeCarousel {
+  position: absolute;
+  color: white;
   top:10px;
   right:50px;
 }
@@ -113,7 +120,7 @@
 
 .randomJumbotron {
   background-color: transparent !important;
-  height: 650px;
+  height: 740px !important;
 }
 
 .randomJumbotron h2 {
