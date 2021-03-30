@@ -11,14 +11,12 @@
       </div>
       <div class="clash-card__level clash-card__level--barbarian">{{_ 'level'}} {{cardLevel}}</div>
       <div class="clash-card__unit-name">{{cardName}}</div>
-      <div class="clash-card__unit-description">
-        {{cardDescription}}
-      </div>
+      <div class="clash-card__unit-description">{{cardDescription}}</div>
 
       <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
         <div class="one-third">
-          <div class="stat">20<sup>S</sup></div>
-          <div class="stat-value">Training</div>
+          <div class="stat">{{cardLevel}}<sup></sup></div>
+          <div class="stat-value">{{_ 'level'}}</div>
         </div>
 
         <div class="one-third">
