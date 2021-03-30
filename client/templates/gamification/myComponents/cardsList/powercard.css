@@ -44,10 +44,13 @@
  .clash-card__image {
 	 position: relative;
 	 margin-bottom: 10px;
-   padding:10px 0;
+   padding:30px 0;
+   height:220px;
 	 border-top-left-radius: 14px;
 	 border-top-right-radius: 14px;
    background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+   font-size: 10em;
+   color:white;
 }
  /* .clash-card__image--barbarian {
 	 background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg');
@@ -55,6 +58,20 @@
  .clash-card__image img {
 	 height: auto;
    width:auto;
+   max-width: 250px;
+}
+
+.clash-card-data {
+  height: 8em;
+}
+
+.clash-card-data {
+  transition: 0.8s ease;
+  background-color: white;
+  overflow:auto;
+}
+
+.clash-card-data {
 
 }
 
@@ -63,9 +80,7 @@
 	 font-size: 18px;
 	 font-weight: 700;
 	 margin-bottom: 3px;
-}
- .clash-card__level--barbarian {
-	 color: #ec9b3b;
+   color: #ec9b3b;
 }
 
  .clash-card__unit-name {
@@ -78,24 +93,19 @@
 	 padding: 2px 20px;
 	 margin-bottom: 10px;
 }
- .clash-card__unit-stats--barbarian {
-	 /* background: #ec9b3b; */
-   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
-}
- .clash-card__unit-stats--barbarian .one-third {
-	 border-right: 1px solid white;
-}
 
  .clash-card__unit-stats {
 	 color: white;
 	 font-weight: 700;
 	 border-bottom-left-radius: 14px;
 	 border-bottom-right-radius: 14px;
+   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
  .clash-card__unit-stats .one-third {
 	 width: 33%;
 	 float: left;
 	 padding: 10px 5px;
+   border-right: 1px solid white;
 }
  .clash-card__unit-stats sup {
 	 position: absolute;
