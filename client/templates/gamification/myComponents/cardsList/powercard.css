@@ -41,6 +41,18 @@
   box-shadow: -2px 25px 50px -12px black;
   transform: translateY(-5px);
 }
+
+.clash-card-data:hover{
+  scroll-behavior: smooth;
+}
+
+.clash-card-data {
+  height: 8em;
+  transition: 0.8s ease;
+  background-color: white;
+  overflow:scroll;
+}
+
  .clash-card__image {
 	 position: relative;
 	 margin-bottom: 10px;
@@ -59,20 +71,6 @@
 	 height: auto;
    width:auto;
    max-width: 250px;
-}
-
-.clash-card-data {
-  height: 8em;
-}
-
-.clash-card-data {
-  transition: 0.8s ease;
-  background-color: white;
-  overflow:auto;
-}
-
-.clash-card-data {
-
 }
 
  .clash-card__level {

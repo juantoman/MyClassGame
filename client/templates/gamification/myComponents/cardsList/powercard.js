@@ -22,5 +22,11 @@ Template.powercard.events({
     Session.set('imageType','card');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
-  }
+  },
+  'mouseover .clash-card-data': function(event) {
+     event.target.scrollTo(0,500);
+   },
+   'mouseleave .clash-card-data': function(event) {
+      event.target.scrollTo(0,-500);
+    }
 });
