@@ -17,16 +17,27 @@ Template.powercard.helpers({
 });
 
 Template.powercard.events({
- 'click img, click .glyphicon': function(event) {
+  'click .change_card_image': function(event) {
     event.preventDefault();
     Session.set('imageType','card');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
+    event.stopPropagation();
   },
-  'mouseover .clash-card-data': function(event) {
-     event.target.scrollTo(0,500);
-   },
-   'mouseleave .clash-card-data': function(event) {
-      event.target.scrollTo(0,-500);
-    }
+  'click .powercard_wrapper': function(event) {
+    event.preventDefault();
+    $('.clash-card-inner').removeClass('clash-card-rotated');
+    $(event.target).closest('.clash-card-inner').addClass('clash-card-rotated');
+  },
+  'click .cardCancel': function(event) {
+    event.preventDefault();
+    $('.clash-card-inner').removeClass('clash-card-rotated');
+    event.stopPropagation();
+  }
+  // 'mouseover .clash-card-data': function(event) {
+  //    event.target.scrollTo(0,500);
+  // },
+  // 'mouseleave .clash-card-data': function(event) {
+  //   event.target.scrollTo(0,-500);
+  // }
 });

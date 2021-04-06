@@ -1,38 +1,58 @@
 <template name="powercard">
   <div class="powercard_wrapper">
-    <div class="clash-card barbarian">
-      <img class="cardgem" src="/images/green.png" alt="green" />
-      <div class="clash-card__image clash-card__image--barbarian">
-        {{#if cardImage}}
-          <img width="100%" alt="Imagen artículo" class="center" src="{{card_src cardImage}}" />
-        {{else}}
-          <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
-        {{/if}}
-      </div>
-      <div class="clash-card-data">
-        <div class="clash-card__level clash-card__level--barbarian">{{_ 'level'}} {{cardLevel}}</div>
-        <div class="clash-card__unit-name">{{cardName}}</div>
-        <div class="clash-card__unit-description">{{cardDescription}}</div>
-      </div>
-
-      <div class="clash-card__unit-stats clearfix">
-        <div class="one-third">
-          <div class="stat">{{cardLevel}}<sup></sup></div>
-          <div class="stat-value">{{_ 'level'}}</div>
+    <div class="clash-card-inner">
+      <div class="clash-card-front">
+        <img class="cardgem" src="/images/green.png" alt="green" />
+        <div class="clash-card__image">
+          {{#if cardImage}}
+            <img width="100%" alt="Imagen artículo" class="center" src="{{card_src cardImage}}" />
+          {{else}}
+            <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+          {{/if}}
+        </div>
+        <div class="clash-card-data">
+          <!-- <div class="clash-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+          <div class="clash-card__unit-name">{{cardName}}</div>
+          <div class="clash-card__unit-description">{{cardDescription}}</div>
         </div>
 
-        <div class="one-third">
-          <div class="stat">16</div>
-          <div class="stat-value">Speed</div>
-        </div>
+        <div class="clash-card__unit-stats clearfix">
+          <div class="one-third">
+            <div class="stat">{{cardLevel}}<sup></sup></div>
+            <div class="stat-value">{{_ 'level'}}</div>
+          </div>
 
-        <div class="one-third no-border">
-          <div class="stat">{{cardPrice}}</div>
-          <div class="stat-value">{{_ 'price'}}</div>
-        </div>
+          <div class="one-third">
+            <div class="stat">16</div>
+            <div class="stat-value">Speed</div>
+          </div>
 
+          <div class="one-third no-border">
+            <div class="stat">{{cardPrice}}</div>
+            <div class="stat-value">{{_ 'price'}}</div>
+          </div>
+        </div>
+      </div> <!-- end clash-card -->
+      <div class="clash-card-back">
+        <img class="cardgem" src="/images/green.png" alt="green" />
+        <div class="clash-card__image change_card_image">
+          {{#if cardImage}}
+            <img width="100%" alt="Imagen artículo" class="center" src="{{card_src cardImage}}" />
+          {{else}}
+            <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+          {{/if}}
+        </div>
+        <div class="clash-card-inputs">
+          <label>{{_ 'level'}}</label> <input type="number" value="{{cardLevel}}" />
+          <label>{{_ 'name'}}</label> <input type="text" value="{{cardName}}" />
+          <label>{{_ 'price'}}</label> <input type="number" value="{{cardPrice}}" />
+          <textarea name="name" rows="2">{{cardDescription}}</textarea>
+          <button class="btn btn-info btn-xs">{{_ "MCG"}}</button>
+          <button class="btn btn-info btn-xs cardCancel">{{_ "cancel"}}</button>
+          <button class="btn btn-info btn-xs">{{_ "delete"}}</button>
+          <button class="btn btn-info btn-xs">{{_ "save"}}</button>
+        </div>
       </div>
-
-    </div> <!-- end clash-card barbarian-->
+    </div>
   </div> <!-- end wrapper -->
 </template>

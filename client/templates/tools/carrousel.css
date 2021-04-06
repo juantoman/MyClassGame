@@ -42,6 +42,8 @@
   width: 390px;
   height: 220px;
   background: transparent !important;
+  /* transform-style: preserve-3d;
+  backface-visibility: hidden; */
 }
 
 .carousel__students h1{
