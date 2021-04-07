@@ -20,22 +20,21 @@
    perspective: 1000px;
 }
 
-.clash-card-inner {
+.power-card-inner {
   position: relative;
   width: 270px;
-  height: 410px;
+  height: 403px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-.powercard_wrapper:hover .clash-card-inner {
+.powercard_wrapper:hover .power-card-inner {
   /* transform: rotateY(180deg); */
 }
 
-.clash-card-front {
+.power-card-front {
   position:absolute;
   top:0;
-  background: white;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -45,66 +44,102 @@
   box-shadow: -1px 15px 30px -12px black;
   transition: 0.3s ease;
   transform: rotateY(0deg);
+  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
-.clash-card-front, .clash-card-back {
+.power-card-front-MCG {
+  position:absolute;
+  top:0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  margin: auto;
+  border-radius: 19px;
+  text-align: center;
+  filter: drop-shadow(0px 5px 10px #000);
+  transition: 0.3s ease;
+  transform: rotateY(0deg);
+  background: transparent !important;
+}
+
+.power-card-front, .power-card-back, .power-card-front-MCG {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
-.clash-card-back {
+.power-card-back {
   position:absolute;
   background: white;
   border-radius: 19px;
-  transform: rotateY(180deg) translateY(-10px);
+  transform: rotateY(180deg) translateY(-15px);
   width: 100%;
-  height: 100%;
+  height: 440px;
   top:0;
   text-align: center;
   box-shadow: -2px 30px 50px -12px black;
+  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
-.clash-card-front:hover {
+.power-card-front:hover {
   box-shadow: -2px 30px 50px -12px black;
-  transform: translateY(-10px);
+  transform: translateY(-15px);
 }
 
-.clash-card-rotated {
+.power-card-front-MCG:hover {
+  filter: drop-shadow(0px 20px 20px #000);
+  transform: translateY(-15px);
+}
+
+.power-card-front:hover .power-card__image{
+  filter: drop-shadow(0px 3px 6px #000);
+  transform: scale(1.15);
+}
+
+.power-card-rotated {
   transform: rotateY(180deg);
 }
 
-.clash-card-data:hover{
+.power-card-data:hover{
   scroll-behavior: smooth;
 }
 
-.clash-card-data {
-  min-height:8em;
+.power-card-data {
   transition: 0.8s ease;
   background-color: white;
-  overflow:scroll;
 }
 
- .clash-card__image {
+ .power-card__image {
 	 position: relative;
-	 margin-bottom: 10px;
    padding:30px 0;
    height:220px;
 	 border-top-left-radius: 14px;
 	 border-top-right-radius: 14px;
-   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+   /* background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%); */
    font-size: 10em;
    color:white;
+   transition: all 0.5s ease;
 }
- /* .clash-card__image--barbarian {
+
+.power-card-full__image{
+  position: relative;
+  margin-bottom: 10px;
+  padding:30px 0;
+  height:403px;
+  border-radius: 19px;
+  font-size: 10em;
+  color:white;
+}
+
+ /* .power-card__image--barbarian {
 	 background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/barbarian-bg.jpg');
 } */
- .clash-card__image img {
+ .power-card__image img {
 	 height: auto;
    width:auto;
    max-width: 250px;
 }
 
- .clash-card__level {
+ .power-card__level {
 	 text-transform: uppercase;
 	 font-size: 18px;
 	 font-weight: 700;
@@ -112,47 +147,48 @@
    color: #ec9b3b;
 }
 
- .clash-card__unit-name {
+ .power-card__unit-name {
 	 font-size: 26px;
-	 color: black;
+	 color: #000851;
 	 font-weight: 900;
 	 margin-bottom: 5px;
 }
- .clash-card__unit-description {
+ .power-card__unit-description {
 	 padding: 2px 20px;
-	 margin-bottom: 10px;
+   overflow:scroll;
+   height:80px;
 }
 
- .clash-card__unit-stats {
+ .power-card__unit-stats {
 	 color: white;
 	 font-weight: 700;
 	 border-bottom-left-radius: 14px;
 	 border-bottom-right-radius: 14px;
-   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+   /* background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%); */
 }
- .clash-card__unit-stats .one-third {
+ .power-card__unit-stats .one-third {
 	 width: 33%;
 	 float: left;
-	 padding: 10px 5px;
+	 padding: 5px 5px;
    border-right: 1px solid white;
 }
- .clash-card__unit-stats sup {
+ .power-card__unit-stats sup {
 	 position: absolute;
 	 top: 5px;
 	 font-size: 45%;
 	 margin-left: 0px;
 }
- .clash-card__unit-stats .stat {
+ .power-card__unit-stats .stat {
 	 position: relative;
 	 font-size: 24px;
 	 margin-bottom: 0px;
 }
- .clash-card__unit-stats .stat-value {
+ .power-card__unit-stats .stat-value {
 	 text-transform: uppercase;
 	 font-weight: 400;
 	 font-size: 12px;
 }
- .clash-card__unit-stats .no-border {
+ .power-card__unit-stats .no-border {
 	 border-right: none;
 }
  .clearfix:after {
@@ -180,27 +216,28 @@
   filter: drop-shadow(2px 2px 1px #000);
 }
 
-.clash-card-inputs {
-
-}
-
-.clash-card-inputs label{
+.power-card-inputs label{
   margin:3px;
   width:20%;
   font-size: 1em !important;
   text-align: right;
+  color: white;
 }
 
-.clash-card-inputs input{
+.power-card-inputs input{
   margin:3px;
   width:70%;
 }
 
-.clash-card-inputs textarea{
+.power-card-inputs textarea{
   margin:3px;
   width:93%;
 }
 
-.clash-card-inputs .btn{
+.power-card-inputs .btn{
   font-size: 1em !important;
+}
+
+.MCGCard {
+  background-color: red !important;
 }
