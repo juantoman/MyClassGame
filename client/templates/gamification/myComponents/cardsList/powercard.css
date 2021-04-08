@@ -16,7 +16,7 @@
 	 text-align: center;
 } */
  .powercard_wrapper {
-   margin:10px;
+   margin:15px;
    perspective: 1000px;
 }
 
@@ -47,7 +47,7 @@
   background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
-.power-card-front-MCG {
+.power-card-front-noMCG {
   position:absolute;
   top:0;
   width: 100%;
@@ -62,7 +62,7 @@
   background: transparent !important;
 }
 
-.power-card-front, .power-card-back, .power-card-front-MCG {
+.power-card-front, .power-card-back, .power-card-front-noMCG {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -85,7 +85,7 @@
   transform: translateY(-15px);
 }
 
-.power-card-front-MCG:hover {
+.power-card-front-noMCG:hover {
   filter: drop-shadow(0px 20px 20px #000);
   transform: translateY(-15px);
 }
@@ -106,6 +106,8 @@
 .power-card-data {
   transition: 0.8s ease;
   background-color: white;
+  overflow:scroll;
+  height:122px;
 }
 
  .power-card__image {
@@ -153,10 +155,23 @@
 	 font-weight: 900;
 	 margin-bottom: 5px;
 }
+
+.power-card-noMCG__unit-name {
+  position:relative;
+  bottom:45px;
+  font-size: 26px;
+  color: #000851;
+  font-weight: 900;
+  background-color:white;
+  margin:0 30px;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding:0 15px;
+}
  .power-card__unit-description {
 	 padding: 2px 20px;
-   overflow:scroll;
-   height:80px;
 }
 
  .power-card__unit-stats {

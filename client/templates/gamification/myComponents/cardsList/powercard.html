@@ -1,15 +1,16 @@
 <template name="powercard">
-  <div class="powercard_wrapper">
+  <div class="powercard_wrapper float-up">
     <div class="power-card-inner">
       {{#unless cardMCG}}
-        <div class="power-card-front-MCG">
+        <div class="power-card-front-noMCG">
           <div class="power-card-full__image">
             {{#if cardImage}}
               <img width="100%" class="center" src="{{card_src cardImage true}}" />
             {{else}}
-              <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
             {{/if}}
           </div>
+          <div class="power-card-noMCG__unit-name">{{cardName}}</div>
         </div>
       {{else}}
         <div class="power-card-front">
@@ -18,7 +19,7 @@
             {{#if cardImage}}
               <img width="100%" class="center" src="{{card_src cardImage false}}" />
             {{else}}
-              <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
             {{/if}}
           </div>
           <div class="power-card-data">
@@ -51,7 +52,7 @@
           {{#if cardImage}}
             <img width="100%" class="center" src="{{card_src cardImage false}}" />
           {{else}}
-            <span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
           {{/if}}
         </div>
         <div class="power-card-inputs">
@@ -62,7 +63,7 @@
             <label>{{_ 'price'}}</label> <input type="number" name="cardPrice" value="{{cardPrice}}"  min="0" max="10000" />
             <label>{{_ 'energy'}}</label> <input type="number" name="cardEnergy" value="{{cardEnergy}}"  min="0" max="100" />
 
-            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard">{{_ "MCG"}}</button>
+            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if cardMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
             <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
             <button class="btn btn-info btn-xs btnDeletePowerCard">{{_ "delete"}}</button>
             <button type="submit" class="btn btn-info btn-xs btnUpdatePowerCard">{{_ "save"}}</button>

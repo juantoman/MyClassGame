@@ -1,4 +1,4 @@
-Template.powercard.helpers({
+Template.newpowercard.helpers({
   card_src: function(imageId,high) {
     if (high) {
       h="h_400";
@@ -21,14 +21,7 @@ Template.powercard.helpers({
   }
 });
 
-Template.powercard.events({
-  'click .change_card_image': function(event) {
-    event.preventDefault();
-    Session.set('imageType','card');
-    Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
-    event.stopPropagation();
-  },
+Template.newpowercard.events({
   'click .power-card__image, click .power-card-full__image, click .power-card-noMCG__unit-name': function(event) {
     event.preventDefault();
     $('.power-card-inner').removeClass('power-card-rotated');
@@ -44,7 +37,7 @@ Template.powercard.events({
     $(event.target).toggleClass('MCGCard');
     event.stopPropagation();
   },
-  'submit form.powerCardForm': function(event) {
+  'submit form.newPowerCardForm': function(event) {
     event.preventDefault();
     //console.log($(event.target).find('[name=eventDescription]').val())
     price = isNaN($(event.target).find('[name=cardPrice]').val()) || $(event.target).find('[name=cardPrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardPrice]').val());
@@ -52,6 +45,7 @@ Template.powercard.events({
     energy = isNaN($(event.target).find('[name=cardLevel]').val()) || $(event.target).find('[name=cardEnergy]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=cardEnergy]').val());
     mcgType=$(event.target).find('[name=btnMCGCard]').hasClass("MCGCard");
     var card = {
+      classId: Session.get('classId'),
       cardName: $(event.target).find('[name=cardName]').val(),
       cardDescription: $(event.target).find('[name=cardDescription]').val(),
       cardLevel: level,
@@ -59,34 +53,9 @@ Template.powercard.events({
       cardEnergy: energy,
       cardMCG: mcgType,
       cardImage: Session.get('selectedImage'),
-      cardType: $(event.target).find('[name=cardType]').val()
+      cardType: $(event.target).find('[name=cardType]').val(),
+      createdOn: new Date()
     };
-    Meteor.call('cardUpdate', this._id, card);
-  },
-  'click .btnDeletePowerCard': function(event) {
-    event.preventDefault();
-    swal({
-      title: TAPi18n.__('delete') + " " +  TAPi18n.__('power'),
-      text: TAPi18n.__('areYouSure'),
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: TAPi18n.__('yes'),
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.value) {
-        Meteor.call('cardDelete',this._id);
-        swal({
-          title: TAPi18n.__('power') + " " +  TAPi18n.__('deleted'),
-          type: 'success'
-        })
-      // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
-      }
-    })
-  },
-  // 'mouseover .power-card-data': function(event) {
-  //    event.target.scrollTo(0,500);
-  // },
-  // 'mouseleave .power-card-data': function(event) {
-  //   event.target.scrollTo(0,-500);
-  // }
+    Meteor.call('cardInsert', card);
+  }
 });

@@ -1,7 +1,8 @@
 <template name="cardsList">
   <div class="container-fluid">
+    <!--
     <div class="row">
-      <!--
+
       <div class="form-group">
         <div class="input-group" style="padding:0px 10px;">
           <label for="chalDesc">Tipos de cartas</label>
@@ -25,10 +26,10 @@
           </div>
         </div>
       </div>
-      -->
+
     {{#each cards}}
      {{> cardCard}}
-      <!--
+
       <div class="form-group">
         <div class="input-group" style="width:15%;float:left;margin-top:20px;">
           <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen carta" src="{{card_src cardImage}}" /></div>
@@ -61,15 +62,18 @@
           </div>
         </div>
       </div>
-      -->
+
     {{/each}}
     {{> cardCardCreate}}
 
     </div>
+    -->
+    <br />
     <div class="row">
       {{#each cards}}
         {{> powercard}}
       {{/each}}
+      {{> newpowercard}}
     </div>
     <br />
     <!--
