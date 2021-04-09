@@ -102,11 +102,62 @@
         {{/if}}
         {{#if equals "poder"}}
           {{#each cards}}
-            <div class="carousel__cell">
+            <!-- <div class="carousel__cell">
               <p>{{cardName}}</p>
               <img height="65%" src="{{oimage cardImage}}" name="{{_id}}">
               <p>{{cardDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div> -->
+            <div class="carousel__cell carousel__card">
+
+                <div class="power-card-inner center">
+                  {{#unless cardMCG}}
+                    <div class="power-card-front-noMCG">
+                      <div class="power-card-full__image">
+                        {{#if cardImage}}
+                          <img width="100%" class="center" src="{{card_src cardImage true}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                      <div class="power-card-noMCG__unit-name">{{cardName}}</div>
+                    </div>
+                  {{else}}
+                    <div class="power-card-front">
+                      <img class="cardgem" src="/images/green.png" alt="green" />
+                      <div class="power-card__image">
+                        {{#if cardImage}}
+                          <img width="100%" class="center" src="{{card_src cardImage false}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                      <div class="power-card-data">
+                        <!-- <div class="power-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+                        <div class="power-card__unit-name">{{cardName}}</div>
+                        <div class="power-card__unit-description">{{cardDescription}}</div>
+                      </div>
+
+                      <div class="power-card__unit-stats clearfix">
+                        <div class="one-third">
+                          <div class="stat">{{cardLevel}}<sup></sup></div>
+                          <div class="stat-value">{{_ 'level'}}</div>
+                        </div>
+
+                        <div class="one-third">
+                          <div class="stat">{{#unless cardEnergy}}0{{else}}{{cardEnergy}}{{/unless}}</div>
+                          <div class="stat-value">{{_ 'energy'}}</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                          <div class="stat">{{cardPrice}}</div>
+                          <div class="stat-value">{{_ 'price'}}</div>
+                        </div>
+                      </div>
+                    </div> <!-- end power-card -->
+                  {{/unless}}
+                </div>
+
             </div>
           {{/each}}
         {{/if}}
