@@ -6,6 +6,12 @@ Template.chromesList.onRendered(function() {
   if (!c.stickersEnvelope) {
     Meteor.call('stickersEnvelope',Session.get("classId"),0);
   }
+  // document.getElementById("logosvg").addEventListener("load", function() {
+  //   var doc = this.contentDocument;
+  //   var star = doc.getElementById("starsvg").addEventListener("click", function() {
+  //     this.setAttribute("fill", "green");
+  //   });
+  // });
 })
 
 Template.chromesList.helpers({
@@ -77,5 +83,9 @@ Template.chromesList.events({
   'change .stickersEnvelope': function(event) {
     event.preventDefault();
     Meteor.call('stickersEnvelope',Session.get("classId"),parseInt($(event.target).val()));
+  },
+  'click #logosvg': function(event) {
+    event.preventDefault();
+    $('#starsvg').attr("href","/svg/CartaAzul.svg")
   }
 });

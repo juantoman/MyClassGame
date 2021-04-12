@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
+		<link href="fas/css/all.css" rel="stylesheet">
+		<script src="fas/js/all.js"></script>
+		<script type="text/javascript" src="bg.js"></script>
+	</head>
+	<body>
+		<div class="svg-badge">
+      <svg>
+        <use xlink:href="fas/sprites/solid.svg#address-book"></use>
+      </svg>
+		</div>
+	</body>
+</html>

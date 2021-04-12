@@ -1,0 +1,74 @@
+<template name="collectionableCard">
+  <div class="elementcard_wrapper float-up">
+    <div class="element-card-inner">
+      {{#unless chromeMCG}}
+        <div class="element-card-front-noMCG">
+          <div class="element-card-full__image">
+            {{#if chromeImage}}
+              <img width="100%" class="center" src="{{card_src chromeImage true}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+          <div class="element-card-noMCG__unit-name">{{chromeName}}</div>
+        </div>
+      {{else}}
+        <div class="element-card-front">
+          <img class="cardgem" src="/images/green.png" alt="green" />
+          <div class="element-card__image">
+            {{#if chromeImage}}
+              <img width="100%" class="center" src="{{card_src chromeImage false}}" />
+            {{else}}
+              <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+            {{/if}}
+          </div>
+          <div class="element-card-data">
+            <!-- <div class="element-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+            <div class="element-card__unit-name">{{chromeName}}</div>
+            <div class="element-card__unit-description">{{chromeDescription}}</div>
+          </div>
+
+          <div class="element-card__unit-stats clearfix">
+            <div class="one-third">
+              <div class="stat">{{chromeLevel}}<sup></sup></div>
+              <div class="stat-value">{{_ 'level'}}</div>
+            </div>
+
+            <div class="one-third">
+              <div class="stat">0</div>
+              <div class="stat-value">{{_ 'energy'}}</div>
+            </div>
+
+            <div class="one-third no-border">
+              <div class="stat">{{chromePrice}}</div>
+              <div class="stat-value">{{_ 'price'}}</div>
+            </div>
+          </div>
+        </div> <!-- end element-card -->
+      {{/unless}}
+      <div class="element-card-back">
+        <img class="cardgem" src="/images/green.png" alt="green" />
+        <div class="element-card__image change_card_image">
+          {{#if chromeImage}}
+            <img width="100%" class="center" src="{{card_src chromeImage false}}" />
+          {{else}}
+            <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+          {{/if}}
+        </div>
+        <div class="element-card-inputs">
+          <form class="elementCardForm">
+            <label>{{_ 'name'}}</label> <input type="text" value="{{chromeName}}" name="chromeName" />
+            <textarea name="chromeDescription" rows="2" placeholder="{{_ 'description'}}" >{{chromeDescription}}</textarea>
+            <label>{{_ 'level'}}</label> <input type="number" name="chromeLevel" value="{{chromeLevel}}"  min="0" max="100" />
+            <label>{{_ 'price'}}</label> <input type="number" name="chromePrice" value="{{chromePrice}}"  min="0" max="10000" />
+
+            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if chromeMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
+            <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
+            <button class="btn btn-info btn-xs btnDeleteElementCard">{{_ "delete"}}</button>
+            <button type="submit" class="btn btn-info btn-xs btnUpdateelementCard">{{_ "save"}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end wrapper -->
+</template>

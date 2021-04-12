@@ -1,0 +1,40 @@
+@font-face {
+  font-family: FontAwesome;
+  src:url(fas/webfonts/fa-brands-400.ttf);
+}
+
+.oculto {
+  display:none;
+}
+.visible {
+  display:block;
+}
+
+/* .svg-inline--fa path {
+  color:red;
+  max-width: 200px !important;
+  max-height: 200px !important;
+} */
+
+.svgtext {
+  font-family: FontAwesome;
+  font-size: 20px;
+  color:red;
+}
+
+/*
+#star {
+  transition: all 0.5s ease;
+}
+
+#star:hover {
+  transform: rotate(-10deg) scale(.9);
+  transform-origin: center;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+}
+*/
+
+.logosvg #starsvg {
+  color-fill:blue !important;
+}

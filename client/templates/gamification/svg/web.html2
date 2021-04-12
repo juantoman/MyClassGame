@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="estilos.css">
+		<link href="fas/css/all.css" rel="stylesheet">
+		<script src="fas/js/all.js"></script>
+		<script type="text/javascript" src="bg.js"></script>
+	</head>
+	<body>
+		<div class="svg-badge">
+      <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+				<defs
+			     id="defs54">
+			    <inkscape:tag
+			       id="Set 1"
+			       inkscape:label="Letrero">
+			      <inkscape:tagref
+			         xlink:href="#path64-2"
+			         id="tagref947" />
+			      <inkscape:tagref
+			         xlink:href="#path64-2-0"
+			         id="tagref949" />
+			      <inkscape:tagref
+			         xlink:href="#path64"
+			         id="tagref951" />
+			      <inkscape:tagref
+			         xlink:href="#path942"
+			         id="tagref953" />
+			      <inkscape:tagref
+			         xlink:href="#path944"
+			         id="tagref955" />
+			    </inkscape:tag>
+			    <linearGradient
+			       inkscape:collect="always"
+			       id="linearGradient912">
+			      <stop
+			         style="stop-color:#00ffff;stop-opacity:1"
+			         offset="0"
+			         id="stop908" />
+			      <stop
+			         style="stop-color:#ffff00;stop-opacity:1"
+			         offset="1"
+			         id="stop910" />
+			    </linearGradient>
+			    <linearGradient
+			       id="linearGradient882"
+			       inkscape:collect="always">
+			      <stop
+			         id="stop878"
+			         offset="0"
+			         style="stop-color:#ffff00;stop-opacity:1" />
+			      <stop
+			         id="stop880"
+			         offset="1"
+			         style="stop-color:#00ffff;stop-opacity:1" />
+			    </linearGradient>
+			    <linearGradient
+			       inkscape:collect="always"
+			       xlink:href="#linearGradient882"
+			       id="linearGradient960"
+			       gradientUnits="userSpaceOnUse"
+			       gradientTransform="matrix(0.75,0,0,0.7288587,5.0693423,18.101199)"
+			       x1="78.471027"
+			       y1="582.63637"
+			       x2="671.58537"
+			       y2="582.63637" />
+			    <linearGradient
+			       inkscape:collect="always"
+			       xlink:href="#linearGradient912"
+			       id="linearGradient964"
+			       gradientUnits="userSpaceOnUse"
+			       gradientTransform="matrix(0.15779887,0,0,0.7288587,34.6038,28.242349)"
+			       x1="78.471024"
+			       y1="582.63635"
+			       x2="671.58539"
+			       y2="582.63635" />
+			    <linearGradient
+			       inkscape:collect="always"
+			       xlink:href="#linearGradient912"
+			       id="linearGradient968"
+			       gradientUnits="userSpaceOnUse"
+			       gradientTransform="matrix(0.15779888,0,0,0.7288587,418.4514,27.651471)"
+			       x1="78.471024"
+			       y1="582.63635"
+			       x2="671.58539"
+			       y2="582.63635" />
+			  </defs>
+				<g id="ghexagono" class="oculto">
+					<path
+				     sodipodi:type="star"
+				     style="display:inline;fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.35602066;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+				     id="path62"
+				     sodipodi:sides="6"
+				     sodipodi:cx="260.04211"
+				     sodipodi:cy="247.81932"
+				     sodipodi:r1="284.80435"
+				     sodipodi:r2="229.48987"
+				     sodipodi:arg1="1.048084"
+				     sodipodi:arg2="1.5716827"
+				     inkscape:flatsided="true"
+				     inkscape:rounded="0"
+				     inkscape:randomized="0"
+				     d="M 402.22559,494.59326 117.42135,494.3408 -24.762126,247.56686 117.85863,1.0453816 402.66287,1.297846 544.84635,248.07179 Z"
+				     inkscape:transform-center-x="-0.13553254"
+				     inkscape:transform-center-y="-27.946596"
+				     transform="matrix(1,0,0,1.0366457,-4.4806765,0.85782659)"
+				     inkscape:label="path63" />
+				  <path
+				     sodipodi:type="star"
+				     style="display:inline;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.35602066;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+				     id="path62-3"
+				     sodipodi:sides="6"
+				     sodipodi:cx="260.04211"
+				     sodipodi:cy="247.81932"
+				     sodipodi:r1="284.80435"
+				     sodipodi:r2="229.48987"
+				     sodipodi:arg1="1.048084"
+				     sodipodi:arg2="1.5716827"
+				     inkscape:flatsided="true"
+				     inkscape:rounded="0"
+				     inkscape:randomized="0"
+				     d="M 402.22559,494.59326 117.42135,494.3408 -24.762126,247.56686 117.85863,1.0453816 402.66287,1.297846 544.84635,248.07179 Z"
+				     inkscape:transform-center-x="-0.12077952"
+				     inkscape:transform-center-y="-24.90424"
+				     transform="matrix(0.89113678,0,0,0.9237931,23.467374,29.832997)" />
+				</g>
+				<path id="bg-badge" d="m512 256c0 68.378906-26.628906 132.671875-74.980469 181.019531-48.347656 48.351563-112.640625 74.980469-181.019531 74.980469s-132.671875-26.628906-181.019531-74.980469c-48.351563-48.347656-74.980469-112.640625-74.980469-181.019531s26.628906-132.671875 74.980469-181.019531c48.347656-48.351563 112.640625-74.980469 181.019531-74.980469s132.671875 26.628906 181.019531 74.980469c48.351563 48.347656 74.980469 112.640625 74.980469 181.019531zm0 0" fill="#00bff0"/>
+				<path id="med-badge" d="m437.5 256c0 100.238281-81.261719 181.5-181.5 181.5s-181.5-81.261719-181.5-181.5 81.261719-181.5 181.5-181.5 181.5 81.261719 181.5 181.5zm0 0" fill="#ff501a"/>
+				<path id="int-badge" d="m256 59.5c-108.351562 0-196.5 88.148438-196.5 196.5s88.148438 196.5 196.5 196.5 196.5-88.148438 196.5-196.5-88.148438-196.5-196.5-196.5zm0 363c-91.808594 0-166.5-74.691406-166.5-166.5s74.691406-166.5 166.5-166.5 166.5 74.691406 166.5 166.5-74.691406 166.5-166.5 166.5zm0 0" fill="#fff"/>
+				<!--
+				<path d="m512 256c0 68.378906-26.628906 132.671875-74.980469 181.019531-48.347656 48.351563-112.640625 74.980469-181.019531 74.980469v-512c68.378906 0 132.671875 26.628906 181.019531 74.980469 48.351563 48.347656 74.980469 112.640625 74.980469 181.019531zm0 0" fill="#0099e3"/>
+				<path d="m437.5 256c0 100.238281-81.261719 181.5-181.5 181.5v-363c100.238281 0 181.5 81.261719 181.5 181.5zm0 0" fill="#c91d00"/>
+				<path d="m452.5 256c0 108.351562-88.148438 196.5-196.5 196.5v-30c91.808594 0 166.5-74.691406 166.5-166.5s-74.691406-166.5-166.5-166.5v-30c108.351562 0 196.5 88.148438 196.5 196.5zm0 0" fill="#e0e0e2"/>
+				-->
+				<g>
+					<path id="star" d="m316.539062 281.089844 14.289063 83.332031-74.828125-39.34375-74.828125 39.34375 14.289063-83.332031-60.539063-59.011719 83.65625-12.15625 37.421875-75.8125 37.421875 75.8125 83.65625 12.15625zm0 0" fill="#ffdc2e"/>
+					<!--<image x="150" y="150" width="200px" height="200px" href="fas/svgs/brands/amazon.svg" />-->
+					<animateTransform attributeName="transform" attributeType="XML" type="rotate" begin="mouseover" end="mouseout" from="0 256 256" to="360 256 256" dur="5s" repeatCount="indefinite" />
+				</g>
+				<text class='fa fa-wheelchair fa-2x'></text>
+				<!--
+ 				<image x="150" y="150" width="200px" height="200px" href="fas/svgs/brands/amazon.svg" />
+
+				<path d="m330.828125 364.421875-74.828125-39.34375v-190.96875l37.421875 75.8125 83.65625 12.15625-60.539063 59.011719zm0 0" fill="#ffbf02"/>
+				-->
+				<path
+			     style="display:inline;fill:url(#linearGradient968);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.28698376;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+			     d="m 430.90081,452.31104 v -32.6377 h 46.72962 46.72962 v 32.6377 32.6377 h -46.72962 -46.72962 z"
+			     id="path64-2"
+			     inkscape:connector-curvature="0"
+			     inkscape:label="arruga2" />
+			  <path
+			     style="display:inline;fill:url(#linearGradient964);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.28698376;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+			     d="m 47.05321,452.90191 v -32.6377 h 46.72962 46.72962 v 32.6377 32.6377 H 93.78283 47.05321 Z"
+			     id="path64-2-0"
+			     inkscape:connector-curvature="0"
+			     inkscape:label="arruga1" />
+			  <path
+			     style="display:inline;fill:url(#linearGradient960);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.62565655;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+			     d="m 64.239947,442.76078 v -32.6377 H 286.34049 508.44103 v 32.6377 32.6377 H 286.34049 64.239947 Z"
+			     id="path64"
+			     inkscape:connector-curvature="0"
+			     inkscape:label="lienzo" />
+			  <path
+			     style="display:inline;fill:none;stroke:#000000;stroke-width:0.7242285px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+			     d="m 47.05321,485.53961 92.98736,-10.18472"
+			     id="path942"
+			     inkscape:connector-curvature="0"
+			     sodipodi:nodetypes="cc"
+			     inkscape:label="l2" />
+			  <path
+			     style="display:inline;fill:none;stroke:#000000;stroke-width:0.7242285px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+			     d="m 524.36005,484.94874 -94.73331,-9.59386"
+			     id="path944"
+			     inkscape:connector-curvature="0"
+			     inkscape:label="l1" />
+				<text
+			      xml:space="preserve"
+			      style="font-style:italic;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:46px;line-height:1.25;font-family:Verdana;-inkscape-font-specification:'Verdana Bold Italic';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000080;fill-opacity:1;stroke:none"
+			      x="286.56842"
+			      y="458.20312"
+			      id="text55"><tspan
+			        sodipodi:role="line"
+			        id="tspan53"
+			        x="286.56842"
+			        y="458.20312">SuperHéroe</tspan></text>
+			</svg>
+			<!--<i class='fa fa-wheelchair fa-10x'></i>-->
+		</div>
+		<div class="buttons-badge">
+			<label for="bg-color">Color</label>
+			<input type="color" name="bg-color" id="bg-color-btn" />
+			<input type="button" id="hexagono" value="Hexágono"/>
+			<input type="button" id="circulo" value="Círculo"/>
+			<input type="text" id="texto" value="Círculo"/>
+		</div>
+	</body>
+</html>
