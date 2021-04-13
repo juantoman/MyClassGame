@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
+
 .chromeCard {
   border: 2px solid gray;
 }
@@ -60,4 +62,15 @@
 .chromeCard .groupBtnCard *{
   background-color: #333 !important;
   border: 1px solid gray;
+}
+
+#logosvg {
+  position: relative !important;
+  border:1px solid black;
+}
+
+.bi-alarm {
+  position: absolute;
+  top:10px;
+  font-size: 2em !important;
 }
