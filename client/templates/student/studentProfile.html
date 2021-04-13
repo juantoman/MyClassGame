@@ -818,7 +818,7 @@
                             <div class="flip-card-front-name">
                               {{cardName}}
                             </div>
-                            {{#if myStudent}}
+                            {{#if myStudent  ../userId}}
                               {{#if stock}}
                                 <span class="btn card-btns {{#if studentCardUsabled}}useCard{{/if}} {{#if studentCardWaiting}}waitingCard{{else}}demandCard{{/if}}" title="{{cardPrice}}">
                                   {{#unless studentCardUsabled}}<span>{{#if studentCardWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}
@@ -1045,7 +1045,7 @@
                             <div class="flip-card-front-name">
                               {{itemName}}
                             </div>
-                            {{#if myStudent}}
+                            {{#if myStudent ../userId}}
                               {{#if stock}}
                                 <span class="btn card-btns {{#if studentItemUsabled}}useItem{{/if}} {{#if studentItemWaiting}}waitingItem{{else}}demandItem{{/if}}" title="{{item.price}}">
                                   {{#unless studentItemUsabled}}<span>{{#if studentItemWaiting}}{{_ "waiting"}}{{else}}{{_ "demand"}}{{/if}}</span>{{/unless}}

@@ -790,8 +790,9 @@ Template.studentProfile.helpers({
       }
     }
   },
-  myStudent: function() {
-    if (Meteor.userId()==this.userId || Session.get('userType')=="teacher") {
+  myStudent: function(userId) {
+    if (!userId) {userId=this.userId;}
+    if (Meteor.userId()==userId || Session.get('userType')=="teacher") {
       return true;
     } else {
       return false;
