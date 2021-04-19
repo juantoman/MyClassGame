@@ -24,11 +24,11 @@
 
 .badge-container .badge:hover {
   border: 1px solid white;
-  transform: scale(1.1);
+  transform: translateY(-5px);
   box-shadow: -1px 10px 20px -5px black;
 }
 
-.badge-container .badge-add:focus {
+.badge-container .badge-add:focus, .badge-container .badge-update:focus {
   outline: 0;
 }
 

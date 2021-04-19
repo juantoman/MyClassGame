@@ -1,6 +1,6 @@
 <template name="chromesList">
   <div class="container-fluid">
-
+      <br />
       <div class="form-group">
         <label>{{_ "envelopeParameters"}}</label>
         <div class="input-group col-xs-12 col-md-6">
@@ -12,10 +12,19 @@
           <input type="number" class="form-control inputGroup stickersEnvelope" name="stickersEnvelope" {{teacher}} value="{{myClass.stickersEnvelope}}" min="0" max="10">
         </div>
       </div>
-
+      <br />
+      <label>{{_ "collections"}}</label>
+      <div class="badge-container">
+        {{#each chromeTypes}}
+          <span class="badge" style="background-color:{{chromeTypeColor}};"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <span class="badge-update" contenteditable>{{chromeTypeDesc}}</span> <span class="glyphicon glyphicon-remove delChromeType" aria-hidden="true"></span></span>
+        {{/each}}
+        <span class="badge"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="badge-add" contenteditable>{{_ "fnew"}}</span></span>
+        <!-- <span class="badge badge-add2" data-placeholder="Add" contenteditable> </span> -->
+    	</div>
+      <!--
     <div class="row">
       {{#each chromes}}
-        <!--
+
         <div class="form-group">
           <div class="input-group" style="width:15%;float:left;margin-top:20px;">
             <div class="eImage" title="{{_id}}"><img width="70%" alt="Imagen carta" src="{{chrome_src chromeImage}}" /></div>
@@ -39,11 +48,12 @@
             </div>
           </div>
         </div>
-        -->
+
         {{> chromeCard}}
       {{/each}}
       {{> chromeCardCreate}}
     </div>
+    -->
     <div class="row">
       {{#each chromes}}
         {{> collectionableCard}}
@@ -91,6 +101,8 @@
   </div>
   <!-- <object type="image/svg+xml" data="/svg/superhero.svg" id="logosvg">
   </object> -->
+
+  <!--
   <div id="logosvg">
     <svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <image id="starsvg" href="/svg/superhero.svg" />
@@ -98,13 +110,6 @@
     <i class="bi-alarm"></i>
   </div>
 
-  <div class="badge-container">
-    {{#each chromeTypes}}
-      <span class="badge"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <span class="badge-add" contenteditable>{{chromeTypeDesc}}</span> <span class="glyphicon glyphicon-remove delChromeType" aria-hidden="true"></span></span>
-    {{/each}}
-    <span class="badge"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="badge-add" contenteditable>{{_ "fnew"}}</span></span>
-    <!-- <span class="badge badge-add2" data-placeholder="Add" contenteditable> </span> -->
-	</div>
 
   <div class="form-group">
     <div class="input-group" style="padding:0px 10px;">
@@ -130,7 +135,7 @@
     </div>
   </div>
 
-  <!-- <div class="badge-container">
+  <div class="badge-container">
     <span class="badge"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <input type="input" class="badge-add" value="Uno" /> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
     <span class="badge"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <input type="input" class="badge-add" value="{{_ 'add'}}" /></span>
     <span class="badge badge-add2" data-placeholder="Add" contenteditable> </span> <span class="badge-add" contenteditable>{{_ "add"}}</span>

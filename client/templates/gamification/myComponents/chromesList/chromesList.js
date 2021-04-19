@@ -95,11 +95,12 @@ Template.chromesList.events({
     event.preventDefault();
     //alert($(event.target).val());
     $(event.target).closest('.badge').css('background-color',$(event.target).val());
+    Meteor.call('updateChromeTypeColor',Session.get('classId'),this._id, $(event.target).val());
   },
-  'click .badge-add': function(event) {
+  'click .badge-add, click .badge-update': function(event) {
     event.preventDefault();
     //alert($(event.target).val());
-    document.execCommand('selectAll')
+    document.execCommand('selectAll');
     //$(event.target).select();
   },
   'keypress .badge-container .badge-add': function(event) {
@@ -107,8 +108,23 @@ Template.chromesList.events({
 			event.preventDefault();
       //alert($(event.target).text());
       Meteor.call('addChromeType',Session.get('classId'),$(event.target).text());
-      $(event.target).text("Nueva")
+      $(event.target).text("Nueva");
+      document.execCommand('selectAll');
     }
+  },
+  'keypress .badge-container .badge-update': function(event) {
+    if (event.keyCode === 13) {
+			event.preventDefault();
+      //alert($(event.target).text());
+      Meteor.call('updateChromeTypeDesc',Session.get('classId'),this._id, $(event.target).text());
+      $('.badge-add').focus();
+      document.execCommand('selectAll');
+    }
+  },
+  'focusout .badge-container .badge-update': function(event) {
+			event.preventDefault();
+      //alert($(event.target).text());
+      Meteor.call('updateChromeTypeDesc',Session.get('classId'),this._id, $(event.target).text());
   },
   'change .chromeType': function(event) {
     event.preventDefault();
