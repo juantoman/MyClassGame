@@ -5,21 +5,27 @@
 .badge-container .badge {
   padding: 7px 10px !important;
   font-size: 1.5em !important;
-  background-color: rgba(0,255,0,0.2);
-  border: 1px solid green;
+  background-color: #268BD2;
+  border: 1px solid transparent;
   font-weight: bold !important;
   margin: 5px;
+  transition: all 0.3s ease;
 }
 
 .badge-container .badge-add, .badge-container .badge-add2  {
   text-align: left;
   background-color: transparent;
   border: 1px solid transparent !important;
-  width: fit-content(40%)
 }
 
 .badge-container .badge:focus {
   outline: 0;
+}
+
+.badge-container .badge:hover {
+  border: 1px solid white;
+  transform: scale(1.1);
+  box-shadow: -1px 10px 20px -5px black;
 }
 
 .badge-container .badge-add:focus {

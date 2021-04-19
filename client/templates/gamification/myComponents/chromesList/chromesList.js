@@ -35,6 +35,9 @@ Template.chromesList.helpers({
   },
   myClass: function() {
     return classes.findOne({_id: Session.get('classId')});
+  },
+  chromeTypes: function() {
+    return classes.findOne({_id: Session.get('classId')}).chromeTypes;
   }
 });
 
@@ -99,10 +102,24 @@ Template.chromesList.events({
     document.execCommand('selectAll')
     //$(event.target).select();
   },
-  'keypress .badge-container .badge': function(event) {
+  'keypress .badge-container .badge-add': function(event) {
     if (event.keyCode === 13) {
 			event.preventDefault();
-      alert("A")
+      //alert($(event.target).text());
+      Meteor.call('addChromeType',Session.get('classId'),$(event.target).text());
+      $(event.target).text("Nueva")
     }
+  },
+  'change .chromeType': function(event) {
+    event.preventDefault();
+    Meteor.call('chromeType', event.target.name, event.target.id, event.currentTarget.value);
+  },
+ 'click .addChromeType': function(event) {
+    event.preventDefault();
+    Meteor.call('addChromeType',Session.get('classId'),$("#addChromeTypeInput").val());
+  },
+ 'click .delChromeType': function(event) {
+    event.preventDefault();
+    Meteor.call('delChromeType',Session.get('classId'),this._id);
   }
 });

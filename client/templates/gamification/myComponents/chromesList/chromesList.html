@@ -99,10 +99,36 @@
   </div>
 
   <div class="badge-container">
-    <span class="badge"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <span class="badge-add" contenteditable>Uno</span> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
-    <span class="badge"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="badge-add" contenteditable>{{_ "add"}}</span></span>
+    {{#each chromeTypes}}
+      <span class="badge"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <span class="badge-add" contenteditable>{{chromeTypeDesc}}</span> <span class="glyphicon glyphicon-remove delChromeType" aria-hidden="true"></span></span>
+    {{/each}}
+    <span class="badge"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="badge-add" contenteditable>{{_ "fnew"}}</span></span>
     <!-- <span class="badge badge-add2" data-placeholder="Add" contenteditable> </span> -->
 	</div>
+
+  <div class="form-group">
+    <div class="input-group" style="padding:0px 10px;">
+      <label for="chalDesc">Colecciones</label>
+      <div class="row">
+        <div class="input-group col-xs-4 input-group-sm">
+          <input type="text" class="form-control" id="addChromeTypeInput" placeholder="Nuevo tipo de carta" >
+          <div class="input-group-btn">
+            <button class="btn btn-info addChromeType btn-sm" type="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+          </div>
+        </div>
+        </div>
+      <div class="row">
+        {{#each chromeTypes}}
+          <div class="input-group col-xs-4 input-group-sm">
+            <input type="text" class="form-control" placeholder="" value="{{chromeTypeDesc}}">
+            <div class="input-group-btn">
+              <button class="btn btn-warning delChromeType" title="{{_id}}" type="button"><span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
 
   <!-- <div class="badge-container">
     <span class="badge"><span class="badge-color-span"><input class="badge-color" type="color" /></span> <input type="input" class="badge-add" value="Uno" /> <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></span>
