@@ -87,5 +87,22 @@ Template.chromesList.events({
   'click #logosvg': function(event) {
     event.preventDefault();
     $('#starsvg').attr("href","/svg/CartaAzul.svg")
+  },
+  'change .badge-color': function(event) {
+    event.preventDefault();
+    //alert($(event.target).val());
+    $(event.target).closest('.badge').css('background-color',$(event.target).val());
+  },
+  'click .badge-add': function(event) {
+    event.preventDefault();
+    //alert($(event.target).val());
+    document.execCommand('selectAll')
+    //$(event.target).select();
+  },
+  'keypress .badge-container .badge': function(event) {
+    if (event.keyCode === 13) {
+			event.preventDefault();
+      alert("A")
+    }
   }
 });

@@ -1,0 +1,60 @@
+.badge-container {
+  font-size: 10px !important;
+}
+
+.badge-container .badge {
+  padding: 7px 10px !important;
+  font-size: 1.5em !important;
+  background-color: rgba(0,255,0,0.2);
+  border: 1px solid green;
+  font-weight: bold !important;
+  margin: 5px;
+}
+
+.badge-container .badge-add, .badge-container .badge-add2  {
+  text-align: left;
+  background-color: transparent;
+  border: 1px solid transparent !important;
+  width: fit-content(40%)
+}
+
+.badge-container .badge:focus {
+  outline: 0;
+}
+
+.badge-container .badge-add:focus {
+  outline: 0;
+}
+
+input.badge-color[type="color"] {
+	width: 15px;
+	height: 15px;
+  outline:0;
+  border:1px solid red !important;
+  opacity: 0;
+}
+
+.badge-container .badge-color-span {
+  border:2px solid white;
+  border-radius: 20%;
+  margin-bottom: 5px;
+}
+
+input.badge-color[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input.badge-color[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+/* .badge-container .glyphicon {
+  text-align: left;
+}
+
+.badge-container .badge-add2::before {
+			content: "+";
+}
+
+.badge-container .badge-add2::after {
+	content: attr(data-placeholder);
+} */

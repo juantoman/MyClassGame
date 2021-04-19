@@ -1,3 +1,25 @@
-path:hover{
-  fill:red;
+.collectionable-card-front, .collectionable-card-back {
+  background: linear-gradient(120deg, gray 0%, black 100%) !important;
+}
+
+#logosvg {
+  position: relative !important;
+  width:200px;
+  height:200px;
+}
+
+#logosvg image{
+  width:200px;
+  height:200px;
+}
+
+.bi-alarm {
+  position: absolute;
+  top:75px;
+  left:75px;
+  font-size: 50px !important;
+}
+
+.bi-alarm:hover {
+  color:white;
 }

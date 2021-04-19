@@ -1869,7 +1869,7 @@ Template.studentProfile.events({
     coins=students.findOne({_id: Session.get('studentId')}).coins;
     myclass=classes.findOne({_id: Session.get('classId')});
     if (myclass.stickersEnvelope>0) {
-      if ( coins <= myclass.envelopePrice ) {
+      if ( coins < myclass.envelopePrice ) {
         swal({
           title: TAPi18n.__('noMoney'),
           type: 'warning'

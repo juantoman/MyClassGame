@@ -24,7 +24,7 @@ Template.collectionableCard.helpers({
 Template.collectionableCard.events({
   'click .change_card_image': function(event) {
     event.preventDefault();
-    Session.set('imageType','card');
+    Session.set('imageType','chrome');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
     event.stopPropagation();
