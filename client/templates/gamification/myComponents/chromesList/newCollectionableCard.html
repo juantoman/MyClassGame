@@ -1,0 +1,59 @@
+<template name="newCollectionableCard">
+  <div class="elementcard_wrapper float-up">
+    <div class="element-card-inner">
+      <div class="element-card-front collectionable-card-front">
+        <img class="cardgem" src="/images/green.png" alt="green" />
+        <div class="element-card__image">
+          <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+        </div>
+        <div class="element-card-type" style="background-color:{{chromeTypeColor}};">{{_ 'collection'}}</div>
+        <div class="element-card-data">
+          <!-- <div class="element-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+          <div class="element-card__unit-name">{{_ 'new'}} {{_ 'collectionable'}}</div>
+          <div class="element-card__unit-description">{{_ 'createNewCollectionable'}}</div>
+        </div>
+
+        <div class="element-card__unit-stats clearfix">
+          <div class="one-third">
+            <div class="stat">0<sup></sup></div>
+            <div class="stat-value">{{_ 'level'}}</div>
+          </div>
+
+          <div class="one-third">
+            <div class="stat">0</div>
+            <div class="stat-value">{{_ 'energy'}}</div>
+          </div>
+
+          <div class="one-third no-border">
+            <div class="stat">0</div>
+            <div class="stat-value">{{_ 'price'}}</div>
+          </div>
+        </div>
+      </div> <!-- end element-card -->
+      <div class="element-card-back collectionable-card-back">
+        <img class="cardgem ncardgem" src="/images/green.png" alt="green" />
+        <div class="element-card__image change_card_image">
+          <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+        </div>
+        <div class="element-card-inputs">
+          <form class="elementCardForm">
+            <label>{{_ 'name'}}</label> <input type="text" value="{{chromeName}}" name="chromeName" />
+            <textarea name="chromeDescription" rows="2" placeholder="{{_ 'description'}}" >{{chromeDescription}}</textarea>
+            <label>{{_ 'level'}}</label> <input type="number" name="chromeLevel" value="{{chromeLevel}}"  min="0" max="100" />
+            <label>{{_ 'price'}}</label> <input type="number" name="chromePrice" value="{{chromePrice}}"  min="0" max="10000" />
+            <label>Tipo</label>
+            <select class="form-control chromeType" name="chromeType">
+              <option value="" selected></option>
+              {{#each chromeTypes}}
+                <option value="{{_id}}">{{chromeTypeDesc}}</option>
+              {{/each}}
+            </select>
+            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if chromeMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
+            <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
+            <button type="submit" class="btn btn-info btn-xs btnUpdateelementCard">{{_ "create"}}</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> <!-- end wrapper -->
+</template>
