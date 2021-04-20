@@ -18,7 +18,26 @@ Template.collectionableCard.helpers({
         return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto," + h + ",f_auto,dpr_auto/v1554810211/images/event-2930674_960_720.png";
       }
     }
-  }
+  },
+  chromeTypes: function() {
+    return classes.findOne({_id: Session.get('classId')}).chromeTypes;
+  },
+  selType: function(e1,e2) {
+    if (e1==e2) {
+      return "selected"
+    } else {
+      return "";
+    }
+  },
+  chromeTypeData: function(chromeType) {
+    chromeTypes=classes.findOne({_id: Session.get('classId')}).chromeTypes;
+    let obj = chromeTypes.find(o => o._id === chromeType);
+    if (obj) {
+      return obj;
+    } else {
+      return true;
+    }
+  },
 });
 
 Template.collectionableCard.events({
@@ -81,6 +100,13 @@ Template.collectionableCard.events({
       }
     })
   },
+  'change .chromeType': function(event) {
+    event.preventDefault();
+    var chrome = {
+      chromeType: $(event.target).val()
+    };
+    Meteor.call('chromeUpdate', this._id, chrome);
+  }
   // 'mouseover .element-card-data': function(event) {
   //    event.target.scrollTo(0,500);
   // },

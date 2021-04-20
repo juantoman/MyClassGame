@@ -23,7 +23,7 @@
 	font-weight: bold;
 	margin: 0.5em;
   text-transform: none !important;
-	font-size: 1.5em;
+	font-size: 2em;
 }
 
 #signinTemplate h2 {
@@ -258,8 +258,9 @@
 }
 
 .signInType label {
-	font-size: 1em !important;
+	font-size: 1.5em !important;
 	padding:0 !important;
+	color: red !important;
 }
 
 .signInType label:hover {
@@ -273,7 +274,7 @@
 }
 
 .emailSignIn {
-	margin-top:-20px !important;
+
 }
 
 .siginForm h1 {

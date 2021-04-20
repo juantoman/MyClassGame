@@ -22,6 +22,9 @@
               <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
             {{/if}}
           </div>
+          {{#with chromeTypeData chromeType}}
+            <div class="element-card-type" style="background-color:{{chromeTypeColor}};">{{chromeTypeDesc}}</div>
+          {{/with}}
           <div class="element-card-data">
             <!-- <div class="element-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
             <div class="element-card__unit-name">{{chromeName}}</div>
@@ -61,7 +64,13 @@
             <textarea name="chromeDescription" rows="2" placeholder="{{_ 'description'}}" >{{chromeDescription}}</textarea>
             <label>{{_ 'level'}}</label> <input type="number" name="chromeLevel" value="{{chromeLevel}}"  min="0" max="100" />
             <label>{{_ 'price'}}</label> <input type="number" name="chromePrice" value="{{chromePrice}}"  min="0" max="10000" />
-
+            <label>Tipo</label>
+            <select class="form-control chromeType" name="{{_id}}">
+              <option value="" selected></option>
+              {{#each chromeTypes}}
+                <option value="{{_id}}" {{selType ../chromeType _id}}>{{chromeTypeDesc}}</option>
+              {{/each}}
+            </select>
             <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if chromeMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
             <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
             <button class="btn btn-info btn-xs btnDeleteElementCard">{{_ "delete"}}</button>
