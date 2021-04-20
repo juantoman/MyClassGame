@@ -106,6 +106,25 @@ Template.collectionableCard.events({
       chromeType: $(event.target).val()
     };
     Meteor.call('chromeUpdate', this._id, chrome);
+  },
+  'click .cardgem': function(event) {
+    event.preventDefault();
+    ccolor = $(event.target).attr('src');
+    if (ccolor.indexOf("green")!=-1) {
+      ncolor="orange";
+    }
+    if (ccolor.indexOf("orange")!=-1) {
+      ncolor="red";
+    }
+    if (ccolor.indexOf("red")!=-1) {
+      ncolor="green";
+    }
+    //var res = str.replace("Microsoft", "W3Schools");
+    //alert($(event.target).attr('src'));
+    var chrome = {
+      chromeWeird: ncolor
+    };
+    Meteor.call('chromeUpdate', this._id, chrome);
   }
   // 'mouseover .element-card-data': function(event) {
   //    event.target.scrollTo(0,500);

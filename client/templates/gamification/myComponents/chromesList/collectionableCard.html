@@ -14,7 +14,7 @@
         </div>
       {{else}}
         <div class="element-card-front collectionable-card-front">
-          <img class="cardgem" src="/images/green.png" alt="green" />
+          <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
           <div class="element-card__image">
             {{#if chromeImage}}
               <img width="100%" class="center" src="{{card_src chromeImage false}}" />
@@ -50,7 +50,7 @@
         </div> <!-- end element-card -->
       {{/unless}}
       <div class="element-card-back collectionable-card-back">
-        <img class="cardgem" src="/images/green.png" alt="green" />
+        <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
         <div class="element-card__image change_card_image">
           {{#if chromeImage}}
             <img width="100%" class="center" src="{{card_src chromeImage false}}" />
