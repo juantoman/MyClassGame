@@ -14,17 +14,12 @@
         </div>
 
         <div class="element-card__unit-stats clearfix">
-          <div class="one-third">
+          <div class="one-half">
             <div class="stat">0<sup></sup></div>
             <div class="stat-value">{{_ 'level'}}</div>
           </div>
 
-          <div class="one-third">
-            <div class="stat">0</div>
-            <div class="stat-value">{{_ 'energy'}}</div>
-          </div>
-
-          <div class="one-third no-border">
+          <div class="one-half no-border">
             <div class="stat">0</div>
             <div class="stat-value">{{_ 'price'}}</div>
           </div>
@@ -32,7 +27,7 @@
       </div> <!-- end element-card -->
       <div class="element-card-back collectionable-card-back">
         <img class="cardgem ncardgem" src="/images/green.png" alt="green" />
-        <div class="element-card__image change_card_image">
+        <div class="element-card__image collectionable-card__image change_card_image">
           <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
         </div>
         <div class="element-card-inputs">
@@ -48,7 +43,11 @@
                 <option value="{{_id}}">{{chromeTypeDesc}}</option>
               {{/each}}
             </select>
-            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if chromeMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
+            <div class="chrome_options">
+              <button name="btnMCGCard" class="btn btn btn-xs btnMCGCard {{#if chromeMCG}}btnCardSelected{{/if}}">{{_ "MCG"}}</button>
+              <button name="btnEnvelopeChrome" class="btn btn btn-xs btnEnvelopeChrome">Sobre </button>
+              <button name="btnSingleChrome" class="btn btn btn-xs btnSingleChrome">Cromo</button>
+            </div>
             <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
             <button type="submit" class="btn btn-info btn-xs btnUpdateelementCard">{{_ "create"}}</button>
           </form>

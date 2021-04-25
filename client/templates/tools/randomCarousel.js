@@ -142,6 +142,15 @@ Template.randomCarousel.helpers({
        return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto," + h + ",f_auto,dpr_auto/v1554810211/images/event-2930674_960_720.png";
      }
    }
+ },
+ chromeTypeData: function(chromeType) {
+   chromeTypes=classes.findOne({_id: Session.get('classId')}).chromeTypes;
+   let obj = chromeTypes.find(o => o._id === chromeType);
+   if (obj) {
+     return obj;
+   } else {
+     return true;
+   }
  }
 });
 

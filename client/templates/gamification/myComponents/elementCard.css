@@ -44,7 +44,7 @@
   box-shadow: -1px 15px 30px -12px black;
   transition: 0.3s ease;
   transform: rotateY(0deg);
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+  /* background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%); */
 }
 
 .element-card-front-noMCG {
@@ -187,6 +187,13 @@
 	 padding: 5px 5px;
    border-right: 1px solid white;
 }
+
+.element-card__unit-stats .one-half{
+  width: 50%;
+  float: left;
+  padding: 5px 5px;
+  border-right: 1px solid white;
+}
  .element-card__unit-stats sup {
 	 position: absolute;
 	 top: 5px;
@@ -272,6 +279,6 @@
   font-size: 1em !important;
 }
 
-.MCGCard {
-  background-color: red !important;
+.btnCardSelected {
+  background-color: orange !important;
 }

@@ -13,7 +13,7 @@
           <div class="element-card-noMCG__unit-name">{{chromeName}}</div>
         </div>
       {{else}}
-        <div class="element-card-front collectionable-card-front">
+        <div class="element-card-front collectionable-card-front" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
           <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
           <div class="element-card__image">
             {{#if chromeImage}}
@@ -38,8 +38,8 @@
             </div>
 
             <div class="one-third">
-              <div class="stat">0</div>
-              <div class="stat-value">{{_ 'energy'}}</div>
+              <div class="stat-button" style="background: {{#if envelopeChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">Sobre<sup></sup></div>
+              <div class="stat-button" style="background: {{#if singleChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">Cromo</div>
             </div>
 
             <div class="one-third no-border">
@@ -49,9 +49,9 @@
           </div>
         </div> <!-- end element-card -->
       {{/unless}}
-      <div class="element-card-back collectionable-card-back">
+      <div class="element-card-back collectionable-card-back" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
         <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
-        <div class="element-card__image change_card_image">
+        <div class="element-card__image collectionable-card__image change_card_image">
           {{#if chromeImage}}
             <img width="100%" class="center" src="{{card_src chromeImage false}}" />
           {{else}}
@@ -71,7 +71,11 @@
                 <option value="{{_id}}" {{selType ../chromeType _id}}>{{chromeTypeDesc}}</option>
               {{/each}}
             </select>
-            <button name="btnMCGCard" class="btn btn-info btn-xs btnMCGCard {{#if chromeMCG}}MCGCard{{/if}}">{{_ "MCG"}}</button>
+            <div class="chrome_options">
+              <button name="btnMCGCard" class="btn btn btn-xs btnMCGCard {{#if chromeMCG}}btnCardSelected{{/if}}">{{_ "MCG"}}</button>
+              <button name="btnEnvelopeChrome" class="btn btn btn-xs btnEnvelopeChrome {{#if envelopeChrome}}btnCardSelected{{/if}}">Sobre </button>
+              <button name="btnSingleChrome" class="btn btn btn-xs btnSingleChrome {{#if singleChrome}}btnCardSelected{{/if}}">Cromo</button>
+            </div>
             <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
             <button class="btn btn-info btn-xs btnDeleteElementCard">{{_ "delete"}}</button>
             <button type="submit" class="btn btn-info btn-xs btnUpdateelementCard">{{_ "save"}}</button>

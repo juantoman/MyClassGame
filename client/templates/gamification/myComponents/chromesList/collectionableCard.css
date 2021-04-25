@@ -1,5 +1,5 @@
 .collectionable-card-front, .collectionable-card-back {
-  background: linear-gradient(120deg, gray 0%, black 100%) !important;
+  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
 }
 
 #logosvg {
@@ -22,4 +22,19 @@
 
 .bi-alarm:hover {
   color:white;
+}
+
+.stat-button {
+  font-size: 11px;
+  border: 2px solid white;
+  border-radius: 5px;
+  margin:4px 0;
+}
+
+.chrome_options {
+  margin-bottom: 2px;
+}
+
+.collectionable-card__image {
+  height:200px !important;
 }

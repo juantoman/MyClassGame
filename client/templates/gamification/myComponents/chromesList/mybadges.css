@@ -4,7 +4,7 @@
 
 .badge-container .badge {
   padding: 7px 10px !important;
-  font-size: 1.5em !important;
+  font-size: 2rem !important;
   background-color: #268BD2;
   border: 1px solid transparent;
   font-weight: bold !important;
@@ -32,12 +32,22 @@
   outline: 0;
 }
 
-input.badge-color[type="color"] {
-	width: 15px;
-	height: 15px;
+input.badge-color {
+	width: 20px;
+	height: 20px;
   outline:0;
   border:1px solid red !important;
   opacity: 0;
+}
+
+input.badge-color:hover {
+	cursor:pointer;
+}
+
+.badge-color-span:hover {
+  cursor:pointer;
+  border:2px solid yellow !important;
+  box-shadow: -1px 5px 10px -5px black;
 }
 
 .badge-container .badge-color-span {

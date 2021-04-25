@@ -58,9 +58,9 @@ Template.collectionableCard.events({
     $('.element-card-inner').removeClass('element-card-rotated');
     event.stopPropagation();
   },
-  'click .btnMCGCard': function(event) {
+  'click .btnMCGCard, click .btnEnvelopeChrome, click .btnSingleChrome': function(event) {
     event.preventDefault();
-    $(event.target).toggleClass('MCGCard');
+    $(event.target).toggleClass('btnCardSelected');
     event.stopPropagation();
   },
   'submit form.elementCardForm': function(event) {
@@ -68,13 +68,17 @@ Template.collectionableCard.events({
     //console.log($(event.target).find('[name=eventDescription]').val())
     price = isNaN($(event.target).find('[name=chromePrice]').val()) || $(event.target).find('[name=chromePrice]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromePrice]').val());
     level = isNaN($(event.target).find('[name=chromeLevel]').val()) || $(event.target).find('[name=chromeLevel]').val() == "" ? parseInt(0): parseInt($(event.target).find('[name=chromeLevel]').val());
-    mcgType=$(event.target).find('[name=btnMCGCard]').hasClass("MCGCard");
+    mcgType=$(event.target).find('[name=btnMCGCard]').hasClass("btnCardSelected");
+    envelopeChrome=$(event.target).find('[name=btnEnvelopeChrome]').hasClass("btnCardSelected");
+    singleChrome=$(event.target).find('[name=btnSingleChrome]').hasClass("btnCardSelected");
     var chrome = {
       chromeName: $(event.target).find('[name=chromeName]').val(),
       chromeDescription: $(event.target).find('[name=chromeDescription]').val(),
       chromeLevel: level,
       chromePrice: price,
       chromeMCG: mcgType,
+      envelopeChrome: envelopeChrome,
+      singleChrome: singleChrome,
       chromeImage: Session.get('selectedImage'),
       chromeType: $(event.target).find('[name=chromeType]').val()
     };

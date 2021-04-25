@@ -163,11 +163,57 @@
         {{/if}}
         {{#if equals "logro"}}
           {{#each chromes}}
-            <div class="carousel__cell">
+            <!-- <div class="carousel__cell">
               <p>{{chromeName}}</p>
               <img height="65%" src="{{oimage chromeImage}}" name="{{_id}}">
               <p>{{chromeDescription}}</p>
               <span class="glyphicon glyphicon-remove removeCarousel" aria-hidden="true"></span>
+            </div> -->
+            <div class="carousel__cell carousel__collectionable">
+              <div class="element-card-inner center">
+                {{#unless chromeMCG}}
+                  <div class="element-card-front-noMCG">
+                    <div class="element-card-full__image">
+                      {{#if chromeImage}}
+                        <img width="100%" class="center" src="{{card_src chromeImage true}}" />
+                      {{else}}
+                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                      {{/if}}
+                    </div>
+                    <div class="element-card-noMCG__unit-name">{{chromeName}}</div>
+                  </div>
+                {{else}}
+                  <div class="element-card-front collectionable-card-front" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
+                    <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
+                    <div class="element-card__image">
+                      {{#if chromeImage}}
+                        <img width="100%" class="center" src="{{card_src chromeImage false}}" />
+                      {{else}}
+                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                      {{/if}}
+                    </div>
+                    {{#with chromeTypeData chromeType}}
+                      <div class="element-card-type" style="background-color:{{chromeTypeColor}};">{{chromeTypeDesc}}</div>
+                    {{/with}}
+                    <div class="element-card-data">
+                      <!-- <div class="element-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+                      <div class="element-card__unit-name">{{chromeName}}</div>
+                      <div class="element-card__unit-description">{{chromeDescription}}</div>
+                    </div>
+
+                    <div class="element-card__unit-stats clearfix">
+                      <div class="one-half">
+                        <div class="stat">{{chromeLevel}}<sup></sup></div>
+                        <div class="stat-value">{{_ 'level'}}</div>
+                      </div>
+                      <div class="one-half no-border">
+                        <div class="stat">{{chromePrice}}</div>
+                        <div class="stat-value">{{_ 'price'}}</div>
+                      </div>
+                    </div>
+                  </div> <!-- end element-card -->
+                {{/unless}}
+              </div>
             </div>
           {{/each}}
         {{/if}}
