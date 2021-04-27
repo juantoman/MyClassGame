@@ -792,7 +792,15 @@ Template.studentProfile.helpers({
   },
   myStudent: function(userId) {
     if (!userId) {userId=this.userId;}
-    if (Meteor.userId()==userId || Session.get('userType')=="teacher") {
+    if ( Meteor.userId() || Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  myStudentSingleChrome: function(userId) {
+    if (!userId) {userId=this.userId;}
+    if ( ( Meteor.userId()==userId && this.singleChrome ) || Session.get('userType')=="teacher") {
       return true;
     } else {
       return false;
