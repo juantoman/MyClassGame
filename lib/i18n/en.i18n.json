@@ -370,5 +370,7 @@
     "stickersEnvelope": "Stickers per envelope",
     "levelXPRatio": "Ratio between levels",
     "compress": "Compress",
-    "decompress": "Decompress"
+    "decompress": "Decompress",
+    "envelope": "Envelope",
+    "sticker": "Sticker"
 }

@@ -370,5 +370,7 @@
     "stickersEnvelope": "Número de adesivos por envelope",
     "levelXPRatio": "Razão entre os níveis",
     "compress": "Comprimir",
-    "decompress": "Descomprimir"
+    "decompress": "Descomprimir",
+    "envelope": "Sobre",
+    "sticker": "Estampa"
 }

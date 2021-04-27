@@ -370,5 +370,7 @@
     "stickersEnvelope": "Número de cromos por sobre",
     "levelXPRatio": "Ratio entre niveles",
     "compress": "Comprimir",
-    "decompress": "Descomprimir"
+    "decompress": "Descomprimir",
+    "envelope": "Sobre",
+    "sticker": "Cromo"
 }

@@ -38,8 +38,8 @@
             </div>
 
             <div class="one-third">
-              <div class="stat-button" style="background: {{#if envelopeChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">Sobre<sup></sup></div>
-              <div class="stat-button" style="background: {{#if singleChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">Cromo</div>
+              <div class="stat-button" style="background: {{#if envelopeChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">{{_ "envelope"}}<sup></sup></div>
+              <div class="stat-button" style="background: {{#if singleChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">{{_ "sticker"}}</div>
             </div>
 
             <div class="one-third no-border">
@@ -73,8 +73,8 @@
             </select>
             <div class="chrome_options">
               <button name="btnMCGCard" class="btn btn btn-xs btnMCGCard {{#if chromeMCG}}btnCardSelected{{/if}}">{{_ "MCG"}}</button>
-              <button name="btnEnvelopeChrome" class="btn btn btn-xs btnEnvelopeChrome {{#if envelopeChrome}}btnCardSelected{{/if}}">Sobre </button>
-              <button name="btnSingleChrome" class="btn btn btn-xs btnSingleChrome {{#if singleChrome}}btnCardSelected{{/if}}">Cromo</button>
+              <button name="btnEnvelopeChrome" class="btn btn btn-xs btnEnvelopeChrome {{#if envelopeChrome}}btnCardSelected{{/if}}">{{_ "envelope"}}</button>
+              <button name="btnSingleChrome" class="btn btn btn-xs btnSingleChrome {{#if singleChrome}}btnCardSelected{{/if}}">{{_ "sticker"}}</button>
             </div>
             <button class="btn btn-info btn-xs cardClose">{{_ "close"}}</button>
             <button class="btn btn-info btn-xs btnDeleteElementCard">{{_ "delete"}}</button>
