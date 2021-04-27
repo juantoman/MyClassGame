@@ -1884,22 +1884,31 @@ Template.studentProfile.events({
           cancelButtonText: 'No'
         }).then((result) => {
           if (result.value) {
+            var e = chromes.find({classId: Session.get('classId'),'envelopeChrome':true}).fetch();
             var eg = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'green'}).fetch();
             var eo = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'orange'}).fetch();
             var er = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'red'}).fetch();
             for (i = 1; i <= myclass.stickersEnvelope; i++) {
               var r = Math.floor(Math.random() * 10);
+              var given=false;
               if ( r < 6 && eg.length > 0 ) {
                 var rg = Math.floor(Math.random() * eg.length);
                 Meteor.call('studentChrome', Session.get('studentId'), eg[rg]._id);
+                given=true;
               }
               if ( r >= 6 && r < 9 && eo.length > 0) {
                 var ro = Math.floor(Math.random() * eo.length);
                 Meteor.call('studentChrome', Session.get('studentId'), eo[ro]._id);
+                given=true;
               }
               if ( r >= 9 && er.length > 0 ) {
                 var rr = Math.floor(Math.random() * er.length);
                 Meteor.call('studentChrome', Session.get('studentId'), er[rr]._id);
+                given=true;
+              }
+              if (  given==false ) {
+                var ra = Math.floor(Math.random() * e.length);
+                Meteor.call('studentChrome', Session.get('studentId'), e[ra]._id);
               }
             }
             Meteor.call('incCoins', Session.get('studentId'), -myclass.envelopePrice);
