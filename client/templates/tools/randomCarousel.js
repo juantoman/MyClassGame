@@ -222,7 +222,7 @@ Template.randomCarousel.events({
       while ( given==false ) {
         var r = Math.floor(Math.random() * cells.length+10*cells.length);
         s=(selectedIndex+r)%cells.length;
-        if ( w < 6 && c[s].chromeWeird == "green" ) {
+        if ( w < 6 && ( c[s].chromeWeird == "green" || !c[s].chromeWeird ) ) {
           given=true;
         }
         if ( w >= 6 && w < 9 && c[s].chromeWeird == "orange" ) {

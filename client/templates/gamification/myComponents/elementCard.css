@@ -141,6 +141,10 @@
    max-width: 250px;
 }
 
+.element-card__image .glyphicon, .element-card-full__image .glyphicon{
+  font-size: 1em !important;
+}
+
  .element-card__level {
 	 text-transform: uppercase;
 	 font-size: 18px;

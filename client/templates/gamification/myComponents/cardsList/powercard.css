@@ -258,3 +258,7 @@
 .MCGCard {
   background-color: red !important;
 }
+
+.power-card__image .glyphicon, .power-card-full__image .glyphicon {
+  font-size: 1em !important;
+}

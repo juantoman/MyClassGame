@@ -1892,8 +1892,8 @@ Template.studentProfile.events({
           cancelButtonText: 'No'
         }).then((result) => {
           if (result.value) {
-            var e = chromes.find({classId: Session.get('classId'),'envelopeChrome':true}).fetch();
-            var eg = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'green'}).fetch();
+            //var e = chromes.find({classId: Session.get('classId'),'envelopeChrome':true}).fetch();
+            var eg = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, $or:[{'chromeWeird':'green'}, { 'chromeWeird': { $exists:false } }] } ).fetch();
             var eo = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'orange'}).fetch();
             var er = chromes.find({classId: Session.get('classId'),'envelopeChrome':true, 'chromeWeird':'red'}).fetch();
             for (i = 1; i <= myclass.stickersEnvelope; i++) {
@@ -1915,8 +1915,8 @@ Template.studentProfile.events({
                 given=true;
               }
               if (  given==false ) {
-                var ra = Math.floor(Math.random() * e.length);
-                Meteor.call('studentChrome', Session.get('studentId'), e[ra]._id);
+                var ra = Math.floor(Math.random() * eg.length);
+                Meteor.call('studentChrome', Session.get('studentId'), eg[ra]._id);
               }
             }
             Meteor.call('incCoins', Session.get('studentId'), -myclass.envelopePrice);
