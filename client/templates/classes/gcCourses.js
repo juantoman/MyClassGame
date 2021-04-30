@@ -9,9 +9,9 @@ Template.gcCourses.helpers({
   gc: function() {
     var url = "https://classroom.googleapis.com/v1/courses";
     var myAccessToken=Meteor.user().services.google.accessToken;
-
     var params = {
-       access_token: myAccessToken
+       access_token: myAccessToken,
+       teacherId: Meteor.user().services.google.email
     }
 
     HTTP.get(url,{params:params},function(error,resp){
