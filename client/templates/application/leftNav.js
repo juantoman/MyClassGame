@@ -146,6 +146,14 @@ Template.leftNav.helpers({
       return "https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg";
      };
    }
+ },
+ notificationsNotUsed: function() {
+   n=notifications.find({classId: Session.get('classId'),'used':false}).count();
+   if (n == 0) {
+     return false;
+   } else {
+     return true;
+   }
  }
 })
 

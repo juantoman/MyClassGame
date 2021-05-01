@@ -257,6 +257,11 @@
                     <a id="notifications2" href="#notifications" role="tab" data-toggle="tab">
                       <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                       <span>{{_ "notifications"}}</span>
+                      {{#if notificationsNotUsed}}
+                        <span class="user-notifications">
+                          <i class="fa fa-circle"></i>
+                        </span>
+                      {{/if}}
                     </a>
                   </li>
                   <li>

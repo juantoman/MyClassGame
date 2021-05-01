@@ -57,62 +57,106 @@ Template.classesModals.events({
           CoinXP: true,
           createdOn: new Date()
         };
-        cId=Meteor.call('classInsert', classe);
+        //Meteor.call('classInsert', classe);
+        Meteor.call('classInsert', classe,function(error,data){
+          if (error) {
+            console.log(error);
+          } else {
+            Session.set('classId',data);
+            if (Session.get("gcId")!="") {
+              var url = 'https://classroom.googleapis.com/v1/courses/'+Session.get("gcId")+'/students';
+              var myAccessToken=Meteor.user().services.google.accessToken;
+
+              var params = {
+                 access_token: myAccessToken
+              }
+
+              HTTP.get(url,{params:params},function(error,resp){
+                if (error) {
+                  //console.log(error);
+                } else {
+                  console.log(resp);
+                  resp.data.students.forEach(function (gcStudent) {
+                    var student = {
+                      classId: Session.get('classId'),
+                      studentName: gcStudent.profile.name.fullName,
+                      alias: gcStudent.profile.name.givenName,
+                      email:gcStudent.profile.emailAddress,
+                      gcsId:gcStudent.userId,
+                      groupId: 0,
+                      XP: 0,
+                      HP: 10,
+                      level: 0,
+                      coins: 0,
+                      rs: 0,
+                      os: 0,
+                      ys: 0,
+                      ws: 0,
+                      bs: 0,
+                      gs: 0,
+                      badges: [],
+                      items: [],
+                      cards: [],
+                      powers: [],
+                      collection: [],
+                      selected: 0,
+                      conected: 0,
+                      createdOn: new Date()
+                    };
+                    Meteor.call('studentInsert', student);
+                  });
+                }
+              });
+            }
+          }
+        });
         //Meteor.call('teacherInClass',Session.get("classId"));
       }
       var otherClassId= $("#class-name-other-teacher").val();
       if (otherClassId !=""){
         Meteor.call('otherTeacherInsert', otherClassId);
       }
-      if (Session.get("gcId")!="") {
-        var url = 'https://classroom.googleapis.com/v1/courses/'+Session.get("gcId")+'/students';
-        var myAccessToken=Meteor.user().services.google.accessToken;
-
-        var params = {
-           access_token: myAccessToken
-        }
-
-        HTTP.get(url,{params:params},function(error,resp){
-          if (error) {
-            //console.log(error);
-          } else {
-            //console.log(resp);
-            resp.data.students.forEach(function (gcStudent) {
-              var student = {
-                classId: Session.get('classId'),
-                studentName: gcStudent.profile.name.fullName,
-                alias: gcStudent.profile.name.givenName,
-                email:gcStudent.profile.emailAddress,
-                gcsId:gcStudent.userId,
-                groupId: 0,
-                XP: 0,
-                HP: 10,
-                level: 0,
-                coins: 0,
-                rs: 0,
-                os: 0,
-                ys: 0,
-                ws: 0,
-                bs: 0,
-                gs: 0,
-                badges: [],
-                items: [],
-                cards: [],
-                powers: [],
-                collection: [],
-                selected: 0,
-                conected: 0,
-                createdOn: new Date()
-              };
-              Meteor.call('studentInsert', student);
-            });
-          }
-        });
-      }
     }
     Meteor.subscribe("classes");
     $('#add_class_modal').modal('hide');
     return false;
+  },
+  'click #GCli': function(event) {
+    event.preventDefault();
+    if (!Session.get('lc')) {
+      var url = "https://classroom.googleapis.com/v1/courses";
+      var myAccessToken=Meteor.user().services.google.accessToken;
+      var params = {
+         access_token: myAccessToken,
+         teacherId: Meteor.user().services.google.email
+      }
+
+      HTTP.get(url,{params:params},function(error,resp){
+        if (error) {
+          console.log(error);
+        } else {
+          //console.log(resp);
+          Session.set('lc',resp.data.courses);
+          /*
+          if (courses.length > 0) {
+            for (i = 0; i < courses.length; i++) {
+              var course = courses[i];
+              url_students='https://classroom.googleapis.com/v1/courses/'+course.id+'/students';
+              HTTP.get(url_students,{params:params},function(error,respS){
+                if (error) {
+                  console.log(error);
+                } else {
+                  console.log(respS);
+                  Session.set('sc'+course.id,respS.data.students);
+                }
+              });
+            }
+          } else {
+            appendPre('No courses found.');
+          }*/
+        }
+      })
+    }
   }
 });
 

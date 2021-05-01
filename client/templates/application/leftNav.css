@@ -213,6 +213,15 @@ body {
   color: lime !important;
 }
 
+.user-notifications {
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+.user-notifications svg{
+  color: yellow !important;
+}
+
 /*-----------------------sidebar-search------------------------*/
 
 .sidebar-wrapper .sidebar-search > div {
