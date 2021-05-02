@@ -217,18 +217,21 @@ Template.randomCarousel.events({
     // set initials
     if (Session.get("randomElement") == "logro" ) {
       c=chromes.find({classId: Session.get('classId')}).fetch();
+      ncg=chromes.find({classId: Session.get('classId'), $or:[{'chromeWeird':'green'}, { 'chromeWeird': { $exists:false } }]}).count();
+      nco=chromes.find({classId: Session.get('classId'),chromeWeird:'orange'}).count();
+      ncr=chromes.find({classId: Session.get('classId'),chromeWeird:'red'}).count();
       var given=false;
       w=Math.floor(Math.random() * 10);
       while ( given==false ) {
         var r = Math.floor(Math.random() * cells.length+10*cells.length);
         s=(selectedIndex+r)%cells.length;
-        if ( w < 6 && ( c[s].chromeWeird == "green" || !c[s].chromeWeird ) ) {
+        if ( ( w < 6 && ( c[s].chromeWeird == "green" || !c[s].chromeWeird )) ) {
           given=true;
         }
-        if ( w >= 6 && w < 9 && c[s].chromeWeird == "orange" ) {
+        if ( ( w >= 6 && w < 9 && c[s].chromeWeird == "orange" ) || ( nco == 0 && ncr == 0 ) ) {
           given=true;
         }
-        if ( w >= 9 && c[s].chromeWeird == "red" ) {
+        if ( ( w >= 9 && c[s].chromeWeird == "red" ) || ncr == 0 ) {
           given=true;
         }
       }
