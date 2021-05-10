@@ -22,5 +22,14 @@ Template.badgeCard.events({
     Session.set('imageType','badge');
     Session.set('idElementImage',this._id);
     Modal.show('imagesTemplate');
+  },
+  'click .btnUrlBadge': function(event) {
+    event.preventDefault();
+    const el = document.createElement('textarea');
+    el.value = "https://www.myclassgame.es/mcgapi/mcgapi.html?e=badge&id="+this._id;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 });

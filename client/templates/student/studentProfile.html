@@ -692,7 +692,7 @@
                 {{#each allBadges}}
 
                     {{#let stock=studentBadgeStock}}
-                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
+                      <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}" name="{{_id}}">
                         <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
                             <span class="item-image {{#unless stock}}studentHasntBadge{{/unless}}"><img src="{{image_url badgeImage}}" alt=""></span>

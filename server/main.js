@@ -349,8 +349,31 @@ Meteor.methods({
     console.log(e + " " + eId + " " +sId);
     regla="^"+sId;
     student=students.findOne({'_id':{$regex: regla}});
-    Meteor.call('studentXP', student._id, 100);
-    return student.studentName + ' +100XP!!!';
+    if (e=="badge") {
+      badge=badges.findOne({'_id':eId});
+      s=students.findOne({'_id':student._id, 'badges.badgeId': eId});
+      if ( ! s || s.badges.find( badge => badge.badgeId == eId).stock == 0) {
+        Meteor.call('studentBadge', student._id, eId);
+        var behaviour = {
+          classId: student.classId,
+          student: student._id,
+          behavior: badge._id,
+          behaviourType: 'Badge',
+          'XP': parseInt(badge.points),
+          'HP': 0,
+          Coins: 0,
+          Energy:0,
+          evaluation: 1,
+          comment: 'Insignia ('+parseInt(badge.points)+'XP)',
+          createdOn: new Date()
+        };
+        Meteor.call('behaviourLogInsert', behaviour);
+        Meteor.call('studentXP', student._id, parseInt(badge.points));
+        return student.studentName + ' ' + badge.badgeName;
+      } else {
+        return student.studentName + ' ya tiene esa insignia';
+      }
+    }
   }
 });
 
