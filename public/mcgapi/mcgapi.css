@@ -1,3 +1,36 @@
+body {
+  background-color: #268BD2;
+}
+
+.myheaderapi {
+  position:absolute;
+  top:calc(50% - 75px);
+  left:calc(50% - 250px);
+  width: 500px;
+  padding: 20px;
+  box-shadow: 1px 1px 10px #000000;
+}
+
+.myheaderapi h1{
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #000000;
+}
+.myheaderapi img{
+  -webkit-filter: drop-shadow(2px 2px 5px #000 );
+}
+
+.myheaderapi h3{
+  color:white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #000000;
+}
+
+.myheaderapi {
+  border: 1px solid white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
 #mcgapi{
   position:absolute;
   display:none;

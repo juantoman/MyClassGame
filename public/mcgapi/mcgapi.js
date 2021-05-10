@@ -1,4 +1,4 @@
-function mcgapi(a)
+function mcgapi()
 {
   queryString = window.location.search;
   urlParams = new URLSearchParams(queryString);
