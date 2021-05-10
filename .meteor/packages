@@ -48,3 +48,4 @@ http
 percolate:google-api
 mixmax:smart-disconnect
 konecty:autolinker
+simple:rest
