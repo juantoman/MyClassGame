@@ -1,0 +1,5 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target" : { "namespace": "android_app", "package_name": "es.myclassgame.www.twa",
+                   "sha256_cert_fingerprints": ["CE:FD:06:14:17:2B:91:D0:61:4C:C5:D4:D8:61:EB:97:5C:23:7E:40:66:A1:83:E8:A6:4D:97:40:51:B6:3E:3C","44:09:0B:CA:B4:BD:49:E9:EE:9E:EE:12:75:FC:A4:BA:9B:BD:CF:2A:5F:0E:F6:AF:1C:EE:66:9C:87:7E:61:ED"] }
+    }]

@@ -346,9 +346,10 @@ Meteor.methods({
 
 WebApp.connectHandlers.use('/studentXP', (req, res, next) => {
   res.writeHead(200);
-  student="^"+req.url.substring(1);
-  studentId=students.findOne({'_id':{$regex: student}})._id;
-  console.log(studentId);
+  //student="^"+req.url.substring(1);
+  // studentId=students.findOne({'_id':{$regex: student}})._id;
+  console.log(req.query);
   //Meteor.call('studentXP', studentId, 100);
-  res.end(studentId + ' +100XP!!!');
+  //res.end(studentId + ' +100XP!!!');
+  res.end('<h1>' + req.url + '</h1>');
 });
