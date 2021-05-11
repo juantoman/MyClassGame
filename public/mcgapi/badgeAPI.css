@@ -4,9 +4,10 @@ body {
 
 .myheaderapi {
   position:absolute;
-  top:calc(50% - 75px);
-  left:calc(50% - 250px);
-  width: 500px;
+  top:calc(50% - 90px);
+  left:calc(50% - 225px);
+  width: 450px;
+  height:180px;
   padding: 20px;
   box-shadow: 1px 1px 10px #000000;
   background-color: #268BD2;

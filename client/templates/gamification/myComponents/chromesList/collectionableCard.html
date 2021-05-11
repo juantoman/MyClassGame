@@ -15,9 +15,9 @@
       {{else}}
         <div class="element-card-front collectionable-card-front" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
           <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
-          <div class="element-card__image">
+          <div class="element-card__image collectionable-card__image">
             {{#if chromeImage}}
-              <img width="100%" class="center" src="{{card_src chromeImage false}}" />
+              <img width="80%" class="center" src="{{card_src chromeImage false}}" />
             {{else}}
               <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
             {{/if}}

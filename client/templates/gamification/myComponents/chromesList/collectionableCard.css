@@ -36,5 +36,6 @@
 }
 
 .collectionable-card__image {
-  height:200px !important;
+  height:180px !important;
+  margin: 20px 0;
 }
