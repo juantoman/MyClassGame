@@ -343,6 +343,7 @@ Meteor.methods({
     }
   },
   'badgeAPI': function (res) {
+    console.log(res);
     e=res.elementType;
     eId=res.elementId;
     sId=res.studentId;

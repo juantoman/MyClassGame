@@ -10,14 +10,23 @@ function badgeAPI()
 }
 
 
-$("#btnBadgeAPI").click(function(){
-  alert("A");
-  // $.post("demo_test_post.asp",
-  // {
-  //   name: "Donald Duck",
-  //   city: "Duckburg"
-  // },
-  // function(data, status){
-  //   alert("Data: " + data + "\nStatus: " + status);
-  // });
+$( document ).ready(function(){
+  $( "#btnBadgeAPI" ).click(function() {
+    $.ajax({
+      url: "/methods/badgeAPI",
+      data: {
+        elementType: $( "#elementType" ).value,
+        elementId: $( "#elementId" ).value,
+        studentId: $( "#studentId" ).value
+      },
+      // Whether this is a POST or GET request
+      type: "POST",
+
+      // The type of data we expect back
+      //dataType : "json"
+    })
+    .done(function( res ) {
+        $( "#apiresult" ).html( res );
+    });
+  });
 });

@@ -3,8 +3,8 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="stylesheet" href="badgeAPI.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="badgeAPI.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="badgeAPI()">
 
@@ -14,12 +14,14 @@
       <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>
     </h1>
     <h3>Badge API</h3>
-    <form>
-      <input type='hidden' id='elementType' name='elementType'>
-      <input type='hidden' id='elementId' name='elementId'>
-      <input type='text' id='studentId' name='studentId' placeholder="StudentId">
-      <input type='button' value='Enviar' id="btnBadgeAPI">
-    </form>
+    <div id="apiresult">
+      <form>
+        <input type='hidden' id='elementType' name='elementType'>
+        <input type='hidden' id='elementId' name='elementId'>
+        <input type='text' id='studentId' name='studentId' placeholder="StudentId">
+        <input type='button' value='Enviar' id="btnBadgeAPI">
+      </form>
+    </div>
   </div>
 
 
