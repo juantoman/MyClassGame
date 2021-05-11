@@ -15,15 +15,15 @@ $( document ).ready(function(){
     $.ajax({
       url: "/methods/badgeAPI",
       data: {
-        elementType: $( "#elementType" ).value,
-        elementId: $( "#elementId" ).value,
-        studentId: $( "#studentId" ).value
+        'elementType': $( "#elementType" ).val(),
+        'elementId': $( "#elementId" ).val(),
+        'studentId': $( "#studentId" ).val()
       },
       // Whether this is a POST or GET request
       type: "POST",
 
       // The type of data we expect back
-      //dataType : "json"
+      dataType : "json"
     })
     .done(function( res ) {
         $( "#apiresult" ).html( res );

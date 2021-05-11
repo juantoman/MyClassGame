@@ -32,6 +32,11 @@ body {
   border-radius: 20px;
 }
 
+#apiresult {
+  color:white;
+  font-size: 1.3em;
+}
+
 #mcgapi{
   position:absolute;
   display:none;

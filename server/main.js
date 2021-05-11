@@ -343,11 +343,10 @@ Meteor.methods({
     }
   },
   'badgeAPI': function (res) {
-    console.log(res);
     e=res.elementType;
     eId=res.elementId;
     sId=res.studentId;
-    console.log(e + " " + eId + " " +sId);
+    //console.log(e + " " + eId + " " +sId);
     regla="^"+sId;
     student=students.findOne({'_id':{$regex: regla}});
     if (e=="badge") {
@@ -370,7 +369,7 @@ Meteor.methods({
         };
         Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', student._id, parseInt(badge.points));
-        return student.studentName + ' ' + badge.badgeName;
+        return student.studentName + ': ' + badge.badgeName;
       } else {
         return student.studentName + ' ya tiene esa insignia';
       }
@@ -387,3 +386,18 @@ Meteor.methods({
 //   //res.end(studentId + ' +100XP!!!');
 //   res.end("Hola");
 // });
+
+Meteor.method("add-numbers", function (a, b) {
+  return a + b;
+}, {
+  url: "add-numbers",
+  getArgsFromRequest: function (request) {
+    // Let's say we want this function to accept a form-encoded request with
+    // fields named `a` and `b`.
+    var content = request.body;
+
+    // Since form enconding doesn't distinguish numbers and strings, we need
+    // to parse it manually
+    return [ parseInt(content.a, 10), parseInt(content.b, 10) ];
+  }
+})
