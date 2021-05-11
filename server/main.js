@@ -342,7 +342,7 @@ Meteor.methods({
       return false;
     }
   },
-  'apiprova': function (res) {
+  'badgeAPI': function (res) {
     e=res.elementType;
     eId=res.elementId;
     sId=res.studentId;
