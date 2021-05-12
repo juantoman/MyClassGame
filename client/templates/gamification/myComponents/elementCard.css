@@ -23,7 +23,7 @@
 .element-card-inner {
   position: relative;
   width: 270px;
-  height: 403px;
+  height: 423px;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -113,7 +113,7 @@
  .element-card__image {
 	 position: relative;
    padding-top:30px;
-   height:220px;
+   height:240px;
 	 border-top-left-radius: 14px;
 	 border-top-right-radius: 14px;
    /* background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%); */

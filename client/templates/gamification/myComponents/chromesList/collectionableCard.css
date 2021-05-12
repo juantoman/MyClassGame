@@ -35,7 +35,10 @@
   margin-bottom: 2px;
 }
 
-.collectionable-card__image {
-  height:180px !important;
-  margin: 20px 0;
+.element-card-front .collectionable-card__image {
+  height:240px !important;
+}
+
+.element-card-back .collectionable-card__image {
+  height:220px !important;
 }
