@@ -364,7 +364,7 @@ Meteor.methods({
           Coins: 0,
           Energy:0,
           evaluation: 1,
-          comment: 'Insignia ('+parseInt(badge.points)+'XP)',
+          comment: 'Insignia Externa ('+parseInt(badge.points)+'XP)',
           createdOn: new Date()
         };
         Meteor.call('behaviourLogInsert', behaviour);
@@ -372,6 +372,24 @@ Meteor.methods({
         return student.studentName + ': ' + badge.badgeName;
       } else {
         return student.studentName + ' ya tiene esa insignia';
+      }
+    }
+  },
+  'powerAPI': function (res) {
+    e=res.elementType;
+    eId=res.elementId;
+    sId=res.studentId;
+    //console.log(e + " " + eId + " " +sId);
+    regla="^"+sId;
+    student=students.findOne({'_id':{$regex: regla}});
+    if (e=="power") {
+      card=cards.findOne({'_id':eId});
+      s=students.findOne({'_id':student._id, 'cards.cardId': eId});
+      if ( ! s ) {
+        Meteor.call('studentCard', student._id, eId);
+        return student.studentName + ': ' + card.cardName;
+      } else {
+        return student.studentName + ' ya tiene ese poder';
       }
     }
   }

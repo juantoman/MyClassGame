@@ -83,6 +83,16 @@ Template.powercard.events({
       }
     })
   },
+  'click .btnUrlPower': function(event) {
+    event.preventDefault();
+    const el = document.createElement('textarea');
+    //el.value = "https://www.myclassgame.es/mcgapi/mcgapi.html?e=badge&id="+this._id;
+    el.value = '<div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/powerAPI.html?e=power&amp;id='+ this._id +'" type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div>'
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+  }
   // 'mouseover .power-card-data': function(event) {
   //    event.target.scrollTo(0,500);
   // },
