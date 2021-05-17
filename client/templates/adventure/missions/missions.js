@@ -520,10 +520,10 @@ Template.missions.events({
     $("#missionPage").removeClass("oculto");
     Session.set('chalId',this._id);
   },
-  'click #missionId': function(event) {
+  'click #missionSvg': function(event) {
     event.preventDefault();
-    var x = event.pageX - $('#missionId').offset().left;
-    var y = event.pageY - $('#missionId').offset().top;
+    var x = event.pageX - $('#missionSvg').offset().left;
+    var y = event.pageY - $('#missionSvg').offset().top;
     alert(x + " " + y);
   }
 });

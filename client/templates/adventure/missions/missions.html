@@ -22,16 +22,16 @@
     </div>
     <br />
   </div>
-  <div id="missionPage">
-    <div id="missionId" style=" display: flex; justify-content: center; align-items: center;">
-      <svg height="1000" width="1000">
-        <line x1="100" y1="100" x2="200" y2="300" style="stroke:rgb(255,0,0);stroke-width:2" />
-      </svg>
-      <p class="missionP" id="missionP1">M1</p>
-      <p class="missionP" id="missionP2">M2</p>
-    </div>
+  <div class="oculto" id="missionPage">
     {{> mission}}
   </div>
+  <div id="missionId" class="text-center">
+    <svg width="auto" height="750" viewBox="0 0 1500 750" preserveAspectRatio="xMidYMid meet">
+      <image id="missionSvg" xlink:href="https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg" width="1500" height="750"></image>
+      <line x1="0" y1="0" x2="1500" y2="750" style="stroke:rgb(255,0,0);stroke-width:2" />
+    </svg>
+  </div>
+  <br />
 </template>
 
 <template name="mission">
