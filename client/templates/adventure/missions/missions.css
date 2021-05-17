@@ -4,14 +4,16 @@
 
 #missionId {
   position: relative;
-  width:500px;
-  height:400px;
+  width:1000px;
+  height:800px;
   border:1px solid blue;
+  margin:auto;
+  background-image: url("https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg");
 }
 
 .missionP {
   position:absolute;
-  padding:.1em;
+  padding:1em;
   margin:0;
   background-color: red;
 }
