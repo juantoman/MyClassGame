@@ -1,6 +1,9 @@
 #mynetwork {
-  width: 800px;
+  margin:auto;
+  width: 1000px;
   height: 800px;
-  border: 1px solid lightgray;
-  background-color: transparent;
+  /* border: 1px solid lightgray; */
+  background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
+  background-repeat:no-repeat;
+  background-size:contain;
 }
