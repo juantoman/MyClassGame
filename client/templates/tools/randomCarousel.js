@@ -228,7 +228,7 @@ Template.randomCarousel.events({
         if ( ( w < 6 && ( c[s].chromeWeird == "green" || !c[s].chromeWeird )) ) {
           given=true;
         }
-        if ( ( w >= 6 && w < 9 && c[s].chromeWeird == "orange" ) || ( nco == 0 && ncr == 0 ) ) {
+        if ( ( w >= 6 && w < 9 && c[s].chromeWeird == "orange" ) || ( nco == 0 ) ) {
           given=true;
         }
         if ( ( w >= 9 && c[s].chromeWeird == "red" ) || ncr == 0 ) {
