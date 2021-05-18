@@ -13,22 +13,25 @@ Template.mcgmap.events({
       m=challenges.find({classId: Session.get('classId')}, {sort: {order: 1}}).fetch();
       n=m.length;
       var nodes = new vis.DataSet();
+      var edges = new vis.DataSet();
       for (i=1;i<=n;i++) {
         node={
             id: i,
-            label: i,
-            x:200,
-            y:200,
-            color: "#FFA807"
+            label: "M"+i,
+            x:100*i,
+            y:100,
+            color: "white"
         };
-        console.log(node);
         nodes.add(node);
+        if ( i != n) {
+          edge={
+              from: i,
+              to: i+1,
+              arrows: "to"
+          };
+          edges.add(edge)
+        }
       }
-
-      // create an array with edges
-      var edges = new vis.DataSet([
-          {from: 1, to: 2, arrows: "to" }
-      ]);
 
       // create a network
       var container = document.getElementById('missionMap');
