@@ -13,8 +13,10 @@ Template.mcgmap.events({
     // create an array with nodes
       m=challenges.find({classId: Session.get('classId')}, {sort: {order: 1}}).fetch();
       n=m.length;
-      var nodes = new vis.DataSet();
-      var edges = new vis.DataSet();
+      var nodes = null
+      var edges = null
+      nodes = new vis.DataSet();
+      edges = new vis.DataSet();
       for (i=1;i<=n;i++) {
         if (m[i-1].x) {
           x=parseInt(m[i-1].x);
@@ -54,6 +56,9 @@ Template.mcgmap.events({
           edges: edges
       };
       var options = {
+        autoResize: false,
+        height: '1000',
+        width: '800',
         physics:{
               enabled: false
         },
@@ -63,23 +68,28 @@ Template.mcgmap.events({
         interaction:{
               zoomView: false,
               dragView: false
+        },
+        layout:{
+          hierarchical: false,
+          improvedLayout: false
         }
       };
 
 
 
       // initialize your network!
-      var network = new vis.Network(container, data, options);
+      var network = null
+      network = new vis.Network(container, data, options);
 
       network.on("dragEnd", function (params) {
+        //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
     	  params.event = "[original event]";
     	  document.getElementById("eventSpanHeading").innerText = "dragEnd event:";
     	  document.getElementById("eventSpanContent").innerText = JSON.stringify(params,null,4);
     	  coord={
-          x:parseInt(params.pointer.canvas.x),
-          y:parseInt(params.pointer.canvas.y-400)
+          x:parseInt(params.pointer.DOM.x),
+          y:parseInt(params.pointer.DOM.y)
         }
-        console.log(parseInt(params.pointer.DOM.x) +" "+ parseInt(params.pointer.DOM.y));
         mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
         Meteor.call('chalUpdate', mId, coord);
     	  console.log("dragEnd event, getNodeAt returns: " + this.getNodeAt(params.pointer.DOM));
