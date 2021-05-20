@@ -1,7 +1,60 @@
 $.getScript("https://unpkg.com/vis-network/standalone/umd/vis-network.min.js");
 
 Template.mcgmap.onRendered(function() {
+  const nodes = [
+    { id: 1, label: 1 },
+    { id: 2, label: 2 },
+    { id: 3, label: 3 },
+    { id: 4, label: 4 },
+  ]
 
+  const edges = [
+    { id: '1-2',  from: 1, to: 2 },
+    { id: '1-3', from: 1, to: 3 },
+    { id: '2-3', from: 2, to: 3 },
+    { id: '1-4', from: 1, to: 4 },
+  ]
+
+  const positionsElement = document.getElementById('positions')
+  const container = document.getElementById('missionMap')
+  const data = {
+    nodes: new vis.DataSet(nodes),
+    edges: new vis.DataSet(edges),
+  }
+  const options = {
+    layout: {
+      improvedLayout: false,
+    },
+    edges: {
+      smooth: false,
+    },
+    physics: false,
+  }
+
+  let network = null
+
+  function initGraph(generateRandomPosition = true) {
+    if (generateRandomPosition) {
+      data.nodes.forEach(node => {
+        data.nodes.update({ id: node.id, x: undefined, x: undefined })
+      })
+    }
+    network = new vis.Network(container, data, options)
+  }
+
+  document.getElementById('generate-graph').addEventListener('click', initGraph)
+
+  document.getElementById('extract-positions').addEventListener('click', e => {
+    network.storePositions()
+    const nodePositions = data.nodes.map(({ id, x, y }) => ({ id, x, y }))
+    positionsElement.value = JSON.stringify(nodePositions)
+  })
+
+  document.getElementById('load-positions').addEventListener('click', e => {
+    const nodePositions = JSON.parse(positionsElement.value)
+    nodePositions.forEach(nodePosition => data.nodes.update(nodePosition))
+    initGraph(false)
+  })
 
 })
 
