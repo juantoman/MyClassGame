@@ -22,6 +22,8 @@ Template.mcgmap.onRendered(function() {
     edges: new vis.DataSet(edges),
   }
   const options = {
+    width: '1000px',
+    height: '800px',
     layout: {
       improvedLayout: false,
     },
@@ -29,6 +31,11 @@ Template.mcgmap.onRendered(function() {
       smooth: false,
     },
     physics: false,
+    interaction: {
+        dragNodes: true,// do not allow dragging nodes
+        zoomView: false, // do not allow zooming
+        dragView: false  // do not allow dragging
+    }
   }
 
   let network = null
@@ -39,7 +46,10 @@ Template.mcgmap.onRendered(function() {
         data.nodes.update({ id: node.id, x: undefined, x: undefined })
       })
     }
-    network = new vis.Network(container, data, options)
+    network = new vis.Network(container, data, options);
+    // network.moveTo({
+    //     position: {x: 0, y: 0}
+    // })
   }
 
   document.getElementById('generate-graph').addEventListener('click', initGraph)
@@ -110,8 +120,8 @@ Template.mcgmap.events({
       };
       var options = {
         autoResize: false,
-        height: '1000',
-        width: '800',
+        width: '1000px',
+        height: '800px',
         physics:{
               enabled: false
         },
@@ -133,6 +143,11 @@ Template.mcgmap.events({
       // initialize your network!
       var network = null
       network = new vis.Network(container, data, options);
+      network.moveTo({
+          position: {x: 0, y: 0},
+          // offset: {x: -width/2, y: -height/2},
+          // scale: 1
+      })
 
       network.on("dragEnd", function (params) {
         //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
@@ -140,8 +155,8 @@ Template.mcgmap.events({
     	  document.getElementById("eventSpanHeading").innerText = "dragEnd event:";
     	  document.getElementById("eventSpanContent").innerText = JSON.stringify(params,null,4);
     	  coord={
-          x:parseInt(params.pointer.DOM.x),
-          y:parseInt(params.pointer.DOM.y)
+          x:parseInt(params.pointer.canvas.x),
+          y:parseInt(params.pointer.canvas.y)
         }
         mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
         Meteor.call('chalUpdate', mId, coord);

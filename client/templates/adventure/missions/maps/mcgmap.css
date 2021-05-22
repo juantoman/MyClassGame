@@ -6,9 +6,16 @@
   background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
   background-repeat:no-repeat;
   background-size:contain;
+  /* display: inline-block; */
 }
 
 #positions {
   width: 100%;
   min-height: 60px;
+}
+
+#mynetwork {
+    border: 1px solid black;
+    background: white;
+    display: inline-block;
 }
