@@ -1,21 +1,19 @@
-#missionMap {
+#missionMapContainer {
+  position:relative;
   margin:auto;
-  width: 1000px;
-  height: 800px;
+  width: 90%;
   /* border: 1px solid lightgray; */
-  background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
+  /* background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
   background-repeat:no-repeat;
   background-size:contain;
-  /* display: inline-block; */
+  display: inline-block; */
 }
 
-#positions {
-  width: 100%;
-  min-height: 60px;
+#missionMapContainer img {
+  display: inline-block;
 }
 
-#mynetwork {
-    border: 1px solid black;
-    background: white;
-    display: inline-block;
+#missionMap {
+  position:absolute;
+  top:0;
 }
