@@ -91,6 +91,9 @@ Template.imagesTemplate.helpers({
     if ( Session.get('imageType') == "backImg" ) {
       idElement=classes.findOne({_id: Session.get('idElementImage')}).groupImg;
     }
+    if ( Session.get('imageType') == "map" ) {
+      idElement=classes.findOne({_id: Session.get('idElementImage')}).mapImg;
+    }
     if ( Session.get('imageType') == "villains" ) {
       idElement=villains.findOne({_id: Session.get('idElementImage')}).villainImage;
     }
@@ -156,6 +159,9 @@ Template.imagesTemplate.events({
         $("#mainTab").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
         $(".studentProfile").css('background-image','url("'+images.findOne({_id: classes.findOne({_id: Session.get("classId")}).backImg}).image_url+'")');
         $(".opacityDiv").toggleClass('opacityProfile');
+      }
+      if (Session.get('imageType')=="map") {
+        Meteor.call('mapUpdate',Session.get('idElementImage'),$("input[name='imageId']:checked").val());
       }
       if (Session.get('imageType')=="userAvatar") {
         Meteor.call('userAvatarUpdate',$("input[name='imageId']:checked").val());

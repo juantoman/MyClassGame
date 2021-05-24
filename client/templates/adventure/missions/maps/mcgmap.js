@@ -4,8 +4,17 @@ Template.mcgmap.onRendered(function() {
 
 })
 
+Template.mcgmap.helpers({
+  mapImg: function() {
+    mapImg=classes.findOne({_id:Session.get('classId')}).mapImg;
+    url=images.findOne({_id: mapImg}).image_url;
+    url=url.replace('/upload/','/upload/q_auto,w_auto,h_1000,f_auto,dpr_auto/');
+    return url
+  }
+})
+
 Template.mcgmap.events({
-  'click #verMapa': function(event) {
+  'click #seeMap': function(event) {
     event.preventDefault();
     $('#missionMapContainer').toggleClass("oculto");
     if(!$('#missionMapContainer').hasClass("oculto")) {
@@ -54,7 +63,6 @@ Template.mcgmap.events({
       var height = img.clientHeight;
       var widthIni=1697;
       var r=width/widthIni;
-      alert(width)
 
       // provide the data in the vis format
       var data = {
@@ -112,6 +120,14 @@ Template.mcgmap.events({
         network.setSize(width,height);
         network.redraw();
       }
+    }
+  },
+  'click #changeMap': function(event) {
+    event.preventDefault();
+    if (Session.get('userType')=="teacher") {
+      Session.set('imageType','map');
+      Session.set('idElementImage',Session.get("classId"));
+      Modal.show('imagesTemplate');
     }
   }
 });
