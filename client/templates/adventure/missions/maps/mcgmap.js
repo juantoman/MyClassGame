@@ -129,5 +129,9 @@ Template.mcgmap.events({
       Session.set('idElementImage',Session.get("classId"));
       Modal.show('imagesTemplate');
     }
+  },
+  'click .closeImage': function(event) {
+    event.preventDefault();
+    $('#missionMapContainer').toggleClass("oculto");
   }
 });

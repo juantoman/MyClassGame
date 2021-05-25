@@ -1,19 +1,49 @@
 #missionMapContainer {
-  position:relative;
-  margin:auto;
-  width: 90%;
-  /* border: 1px solid lightgray; */
-  /* background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
-  background-repeat:no-repeat;
-  background-size:contain;
-  display: inline-block; */
+  position:fixed;
+  width:100vw;
+  height:100vh;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,0.7);
+  z-index:100;
+  overflow: hidden;
+}
+
+#missionMapImageContainer {
+  position:fixed;
+  top:50%;
+  left:50%;
+  border: 5px solid white;
+  -webkit-transform: translate(-50%, -50%);
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  background-color: lightgray;
 }
 
 #missionMapContainer img {
   display: inline-block;
+  width: auto;
+  height:90vh;
+  z-index:101;
 }
 
 #missionMap {
   position:absolute;
   top:0;
+  z-index:102;
+}
+
+.closeImage {
+  position:absolute;
+  right:5px;
+  top:5px;
+  color:white;
+  font-size: 2rem !important;
+  z-index:103;
+}
+
+.closeImage:hover {
+  cursor: pointer;
+  color:red;
 }
