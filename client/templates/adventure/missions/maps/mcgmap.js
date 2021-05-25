@@ -36,7 +36,6 @@ Template.mcgmap.events({
         } else {
           y=100;
         }
-        console.log(x +" "+ y)
         node={
             id: i,
             label: "M"+i,
@@ -110,6 +109,15 @@ Template.mcgmap.events({
         }
         mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
         Meteor.call('chalUpdate', mId, coord);
+      });
+
+      network.on("click", function (params) {
+        //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
+        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
+        $('#missionMapContainer').toggleClass("oculto");
+        $("#missionsPage").addClass("oculto");
+        $("#missionPage").removeClass("oculto");
+        Session.set('chalId',mId);
       });
 
       window.visualViewport.addEventListener("resize", viewportHandler);
