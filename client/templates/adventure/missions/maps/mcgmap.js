@@ -41,7 +41,8 @@ Template.mcgmap.events({
             label: "M"+i,
             x:x,
             y:y,
-            color: "white"
+            color: m[i-1].missionColor,
+            font: {size:50}
         };
         nodes.add(node);
         if ( i != n) {
