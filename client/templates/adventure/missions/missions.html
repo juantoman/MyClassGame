@@ -5,6 +5,7 @@
     {{#each challenge}}
       <span class="btn {{#if missionVisible}}btn-info{{else}}btn-default{{/if}} {{#if TeacherOrVisible}}oneMission{{/if}}" data-toggle="tooltip" data-placement="bottom" title="{{chalName}}">M{{order}}</span>
     {{/each}}
+    {{> mcgmap}}
   </div>
   {{> scheduler}}
   <div class="container-fluid" id="missionsPage">
@@ -25,7 +26,6 @@
   <div class="oculto" id="missionPage">
     {{> mission}}
   </div>
-  {{> mcgmap}}
   <br />
 </template>
 
@@ -102,9 +102,10 @@
               {{#if isTeacher}}
                 <hr class="colorgraph">
                 <div class="row">
-                  <div class="col-xs-4"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">{{_ "double"}}</button></div>
-                  <div class="col-xs-4"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">{{_ "delete"}}</button></div>
-                  <div class="col-xs-4"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
+                  <div class="col-xs-3"><button type="button" class="btn btn-danger duplicarMision btn-block btn-lg" name="duplicarMision">{{_ "double"}}</button></div>
+                  <div class="col-xs-3"><button type="button" class="btn btn-warning chalDel btn-block btn-lg" name="chalDel">{{_ "delete"}}</button></div>
+                  <div class="col-xs-3"><button type="button" class="btn btn-default chalRelocate btn-block btn-lg" name="chalRelocate">{{_ "relocate"}}</button></div>
+                  <div class="col-xs-3"><input type="submit" class="btn btn-success btn-block btn-lg" value="{{_ 'save'}}"></div>
                 </div>
               {{/if}}
             </form>

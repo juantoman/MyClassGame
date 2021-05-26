@@ -1,14 +1,10 @@
 $.getScript("https://unpkg.com/vis-network/standalone/umd/vis-network.min.js");
 
-Template.mcgmap.onRendered(function() {
-
-})
-
 Template.mcgmap.helpers({
   mapImg: function() {
     mapImg=classes.findOne({_id:Session.get('classId')}).mapImg;
     url=images.findOne({_id: mapImg}).image_url;
-    url=url.replace('/upload/','/upload/q_auto,w_auto,h_1000,f_auto,dpr_auto/');
+    url=url.replace('/upload/','/upload/q_auto,w_auto,h_2000,f_auto,dpr_auto/');
     return url
   }
 })
@@ -41,15 +37,41 @@ Template.mcgmap.events({
             label: "M"+i,
             x:x,
             y:y,
-            color: m[i-1].missionColor,
-            font: {size:50}
+            borderWidth: 3,
+            font: {
+              size:30,
+              color: 'white',
+              bold: true
+            },
+            color: {
+              border: 'white',
+              background: m[i-1].missionColor
+            },
+            shadow:{
+             enabled: true,
+             color: 'rgba(0,0,0,1)',
+             size:7,
+             x:10,
+             y:10
+           },
+           shape: 'box',
+           margin: 10
         };
         nodes.add(node);
         if ( i != n) {
           edge={
               from: i,
               to: i+1,
-              arrows: "to"
+              arrows: "to",
+              width: 8,
+              color: m[i-1].missionColor,
+              shadow:{
+               enabled: true,
+               color: 'rgba(0,0,0,1)',
+               size:7,
+               x:10,
+               y:10
+             }
           };
           edges.add(edge)
         }
@@ -121,9 +143,7 @@ Template.mcgmap.events({
         Session.set('chalId',mId);
       });
 
-      window.visualViewport.addEventListener("resize", viewportHandler);
-      function viewportHandler(event) {
-        // NOTE: This doesn't actually work at time of writing
+      window.onresize=function viewportHandler(event) {
         var width = img.clientWidth;
         var height = img.clientHeight;
         network.setSize(width,height);
@@ -131,7 +151,7 @@ Template.mcgmap.events({
       }
     }
   },
-  'click #changeMap': function(event) {
+  'click .changeMap, click .changeMap2': function(event) {
     event.preventDefault();
     if (Session.get('userType')=="teacher") {
       Session.set('imageType','map');

@@ -294,6 +294,15 @@ Template.missions.events({
     Modal.show('deleteMission');
     //Meteor.call('chalDelete',event.target.name);
   },
+  'click .chalRelocate': function(event) {
+    event.preventDefault();
+    Session.set('missionId',this._id)
+    coord={
+      x:parseInt(100),
+      y:parseInt(100)
+    }
+    Meteor.call('chalUpdate', this._id, coord);
+  },
   'click #saveAdventure': function(event) {
     event.preventDefault();
     Meteor.call('saveAdventure', Session.get('classId'), $("#adventureName").val(), $("#adventureDesc").val(), $("#adventureWeb").val());

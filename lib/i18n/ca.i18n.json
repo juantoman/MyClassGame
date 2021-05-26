@@ -372,5 +372,8 @@
     "compress": "Comprimir",
     "decompress": "Descomprimir",
     "envelope": "Sobre",
-    "sticker": "Cromo"
+    "sticker": "Cromo",
+    "map": "Mapa",
+    "changeMap": "Canviar Mapa",
+    "relocate": "Reubicar"
 }

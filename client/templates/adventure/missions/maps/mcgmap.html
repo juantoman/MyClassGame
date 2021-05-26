@@ -5,15 +5,19 @@
       <line x1="0" y1="0" x2="1500" y2="750" style="stroke:rgb(255,0,0);stroke-width:2" />
     </svg>
   </div> -->
-  <div class="text-center">
-    <button id="seeMap" class="btn btn-warning">Ver Mapa</button>
-    <button id="changeMap" class="btn btn-warning">Cambiar Mapa</button>
-  </div>
-  <br />
+  <!-- <div class="text-center"> -->
+    <button id="seeMap" class="btn btn-warning">{{_ "map"}}</button>
+  <!-- </div>
+  <br /> -->
   <div id="missionMapContainer" class="oculto float-up">
     <div id="missionMapImageContainer">
       <i class="closeImage fas fa-times"></i>
-      <img id="missionMapImage" width="100%" src="{{mapImg}}" />
+      {{#if mapImg}}
+        <button class="changeMap btn btn-info">{{_ "changeMap"}}</button>
+        <img id="missionMapImage" src="{{mapImg}}" />
+      {{else}}
+        <button class="changeMap2 btn btn-info">{{_ "changeMap"}}</button>
+      {{/if}}
       <div id="missionMap">
       </div>
     </div>

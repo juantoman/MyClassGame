@@ -372,5 +372,7 @@
     "compress": "Comprimir",
     "decompress": "Descomprimir",
     "envelope": "Sobre",
-    "sticker": "Estampa"
+    "sticker": "Estampa",
+    "map": "Mapa",
+    "changeMap": "Mudança Mapa"
 }

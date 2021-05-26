@@ -22,9 +22,9 @@
 
 #missionMapContainer img {
   display: inline-block;
-  width: auto;
-  height:90vh;
+  max-height:90vh;
   z-index:101;
+  max-width: 90vw;
 }
 
 #missionMap {
@@ -45,4 +45,18 @@
 .closeImage:hover {
   cursor: pointer;
   color:red;
+}
+
+.changeMap {
+  position: absolute;
+  z-index:103;
+  opacity: .8;
+  margin:5px;
+}
+
+.changeMap2 {
+  position:relative;
+  margin: 50px;
+  top:-20px;
+  z-index:103;
 }
