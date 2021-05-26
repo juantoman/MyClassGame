@@ -6,6 +6,13 @@ Template.mcgmap.helpers({
     url=images.findOne({_id: mapImg}).image_url;
     url=url.replace('/upload/','/upload/q_auto,w_auto,h_2000,f_auto,dpr_auto/');
     return url
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
   }
 })
 
@@ -85,6 +92,11 @@ Template.mcgmap.events({
       var height = img.clientHeight;
       var widthIni=1697;
       var r=width/widthIni;
+      if (Session.get('userType')=="teacher") {
+        drag=true;
+      } else {
+        drag=false;
+      }
 
       // provide the data in the vis format
       var data = {
@@ -103,7 +115,8 @@ Template.mcgmap.events({
         },
         interaction:{
               zoomView: false,
-              dragView: false
+              dragView: false,
+              dragNodes:drag
         },
         layout:{
           hierarchical: false,
@@ -126,12 +139,14 @@ Template.mcgmap.events({
 
       network.on("dragEnd", function (params) {
         //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
-    	  coord={
-          x:parseInt(params.pointer.canvas.x),
-          y:parseInt(params.pointer.canvas.y)
+        if (Session.get('userType')=="teacher") {
+      	  coord={
+            x:parseInt(params.pointer.canvas.x),
+            y:parseInt(params.pointer.canvas.y)
+          }
+          mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
+          Meteor.call('chalUpdate', mId, coord);
         }
-        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
-        Meteor.call('chalUpdate', mId, coord);
       });
 
       network.on("click", function (params) {

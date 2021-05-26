@@ -13,10 +13,14 @@
     <div id="missionMapImageContainer">
       <i class="closeImage fas fa-times"></i>
       {{#if mapImg}}
-        <button class="changeMap btn btn-info">{{_ "changeMap"}}</button>
+        {{#if isTeacher}}
+          <button class="changeMap btn btn-info">{{_ "changeMap"}}</button>
+        {{/if}}
         <img id="missionMapImage" src="{{mapImg}}" />
       {{else}}
-        <button class="changeMap2 btn btn-info">{{_ "changeMap"}}</button>
+        {{#if isTeacher}}
+          <button class="changeMap2 btn btn-info">{{_ "changeMap"}}</button>
+        {{/if}}
       {{/if}}
       <div id="missionMap">
       </div>
