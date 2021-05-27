@@ -38,59 +38,21 @@ Template.import_export.events({
   'click .export': function(event) {
     event.preventDefault();
 
-    var fields = [
-      "id",
-      "alias",
-      "name",
-      "level",
-      "XP",
-      "HP"
-    ];
-
-    var data = [];
-    data.push(fields);
-
-    var s = students.find({classId:Session.get('classId')}).fetch();
-    var c = chromes.find({classId:Session.get('classId')}).fetch();
-    // _.each(pp, function(c) {
-    //   data.push([
-    //     c._id,
-    //     c.alias,
-    //     c.studentName,
-    //     c.level,
-    //     c.XP,
-    //     c.HP
-    //   ]);
-    // });
-
-    //var csv = Papa.unparse(elements);
-
-    var jsons = JSON.stringify(s);
-    var jsonc = JSON.stringify(c);
-
-    var blob = new Blob([jsons,jsonc], {type: "application/json"});
-		var a = window.document.createElement("a");
-    a.href = window.URL.createObjectURL(blob, {type: "text/plain"});
-    a.download = "students_" + Session.get("className") + ".json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    /*
-    rows= datos;
-    let csvContent = "data:text/csv;charset=utf-8,";
-
-    rows.forEach(function(rowArray) {
-        let row = rowArray.join(",");
-        csvContent += row + "\r\n";
-    });
-
-    var encodedUri = encodeURI(csvContent);
-    var link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "my_data.csv");
-    document.body.appendChild(link);
-    link.click();
-    */
+    students = students.find({classId:Session.get('classId')}).fetch();
+    chromes = chromes.find({classId:Session.get('classId')}).fetch();
+    cards = cards.find({classId:Session.get('classId')}).fetch();
+    var data = {
+       students: students,
+       cards: cards,
+       chromes: chromes
+    }
+    console.log(data.cards);
+    var jsondata = JSON.stringify(data);
+    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(jsondata);
+    let exportFileDefaultName = 'data.json';
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
   }
 });

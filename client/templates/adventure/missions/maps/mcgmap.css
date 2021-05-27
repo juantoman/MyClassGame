@@ -1,17 +1,5 @@
 #missionMapContainer {
   position:fixed;
-<<<<<<< HEAD
-  top:50%;
-  left:50%;
-
-  z-index:2;
-  width: 90%;
-  /* border: 1px solid lightgray; */
-  /* background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
-  background-repeat:no-repeat;
-  background-size:contain;
-  display: inline-block; */
-=======
   width:100vw;
   height:100vh;
   top:0;
@@ -30,20 +18,13 @@
   -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
   background-color: lightgray;
->>>>>>> 142f5e58721a03053c739232924c8edb1a7dfcf8
 }
 
 #missionMapContainer img {
   display: inline-block;
-<<<<<<< HEAD
-  height:90vh;
-  width:auto;
-  -webkit-transform: translate(-50%, -50%);
-=======
   max-height:90vh;
   z-index:101;
   max-width: 90vw;
->>>>>>> 142f5e58721a03053c739232924c8edb1a7dfcf8
 }
 
 #missionMap {
