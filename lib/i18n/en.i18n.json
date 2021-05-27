@@ -372,5 +372,8 @@
     "compress": "Compress",
     "decompress": "Decompress",
     "envelope": "Envelope",
-    "sticker": "Sticker"
+    "sticker": "Sticker",
+    "map": "Map",
+    "changeMap": "Change Map",
+    "relocate": "Relocate"
 }

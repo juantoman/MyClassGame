@@ -1,15 +1,18 @@
 $.getScript("https://unpkg.com/vis-network/standalone/umd/vis-network.min.js");
 
-Template.mcgmap.onRendered(function() {
-
-})
-
 Template.mcgmap.helpers({
   mapImg: function() {
     mapImg=classes.findOne({_id:Session.get('classId')}).mapImg;
     url=images.findOne({_id: mapImg}).image_url;
-    url=url.replace('/upload/','/upload/q_auto,w_auto,h_1000,f_auto,dpr_auto/');
+    url=url.replace('/upload/','/upload/q_auto,w_auto,h_2000,f_auto,dpr_auto/');
     return url
+  },
+  isTeacher: function() {
+    if (Session.get('userType')=="teacher") {
+      return true;
+    } else {
+      return false;
+    };
   }
 })
 
@@ -36,20 +39,46 @@ Template.mcgmap.events({
         } else {
           y=100;
         }
-        console.log(x +" "+ y)
         node={
             id: i,
             label: "M"+i,
             x:x,
             y:y,
-            color: "white"
+            borderWidth: 3,
+            font: {
+              size:30,
+              color: 'white',
+              bold: true
+            },
+            color: {
+              border: 'white',
+              background: m[i-1].missionColor
+            },
+            shadow:{
+             enabled: true,
+             color: 'rgba(0,0,0,1)',
+             size:7,
+             x:10,
+             y:10
+           },
+           shape: 'box',
+           margin: 10
         };
         nodes.add(node);
         if ( i != n) {
           edge={
               from: i,
               to: i+1,
-              arrows: "to"
+              arrows: "to",
+              width: 8,
+              color: m[i-1].missionColor,
+              shadow:{
+               enabled: true,
+               color: 'rgba(0,0,0,1)',
+               size:7,
+               x:10,
+               y:10
+             }
           };
           edges.add(edge)
         }
@@ -63,6 +92,11 @@ Template.mcgmap.events({
       var height = img.clientHeight;
       var widthIni=1697;
       var r=width/widthIni;
+      if (Session.get('userType')=="teacher") {
+        drag=true;
+      } else {
+        drag=false;
+      }
 
       // provide the data in the vis format
       var data = {
@@ -81,7 +115,8 @@ Template.mcgmap.events({
         },
         interaction:{
               zoomView: false,
-              dragView: false
+              dragView: false,
+              dragNodes:drag
         },
         layout:{
           hierarchical: false,
@@ -104,17 +139,26 @@ Template.mcgmap.events({
 
       network.on("dragEnd", function (params) {
         //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
-    	  coord={
-          x:parseInt(params.pointer.canvas.x),
-          y:parseInt(params.pointer.canvas.y)
+        if (Session.get('userType')=="teacher") {
+      	  coord={
+            x:parseInt(params.pointer.canvas.x),
+            y:parseInt(params.pointer.canvas.y)
+          }
+          mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
+          Meteor.call('chalUpdate', mId, coord);
         }
-        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
-        Meteor.call('chalUpdate', mId, coord);
       });
 
-      window.visualViewport.addEventListener("resize", viewportHandler);
-      function viewportHandler(event) {
-        // NOTE: This doesn't actually work at time of writing
+      network.on("click", function (params) {
+        //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
+        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
+        $('#missionMapContainer').toggleClass("oculto");
+        $("#missionsPage").addClass("oculto");
+        $("#missionPage").removeClass("oculto");
+        Session.set('chalId',mId);
+      });
+
+      window.onresize=function viewportHandler(event) {
         var width = img.clientWidth;
         var height = img.clientHeight;
         network.setSize(width,height);
@@ -122,12 +166,16 @@ Template.mcgmap.events({
       }
     }
   },
-  'click #changeMap': function(event) {
+  'click .changeMap, click .changeMap2': function(event) {
     event.preventDefault();
     if (Session.get('userType')=="teacher") {
       Session.set('imageType','map');
       Session.set('idElementImage',Session.get("classId"));
       Modal.show('imagesTemplate');
     }
+  },
+  'click .closeImage': function(event) {
+    event.preventDefault();
+    $('#missionMapContainer').toggleClass("oculto");
   }
 });

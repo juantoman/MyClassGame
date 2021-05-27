@@ -1,5 +1,6 @@
 #missionMapContainer {
   position:fixed;
+<<<<<<< HEAD
   top:50%;
   left:50%;
 
@@ -10,16 +11,71 @@
   background-repeat:no-repeat;
   background-size:contain;
   display: inline-block; */
+=======
+  width:100vw;
+  height:100vh;
+  top:0;
+  right:0;
+  background-color: rgba(0,0,0,0.7);
+  z-index:100;
+}
+
+#missionMapImageContainer {
+  position:fixed;
+  top:50%;
+  left:50%;
+  border: 5px solid white;
+  -webkit-transform: translate(-50%, -50%);
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7) !important;
+  background-color: lightgray;
+>>>>>>> 142f5e58721a03053c739232924c8edb1a7dfcf8
 }
 
 #missionMapContainer img {
   display: inline-block;
+<<<<<<< HEAD
   height:90vh;
   width:auto;
   -webkit-transform: translate(-50%, -50%);
+=======
+  max-height:90vh;
+  z-index:101;
+  max-width: 90vw;
+>>>>>>> 142f5e58721a03053c739232924c8edb1a7dfcf8
 }
 
 #missionMap {
   position:absolute;
   top:0;
+  z-index:102;
+}
+
+.closeImage {
+  position:absolute;
+  right:5px;
+  top:5px;
+  color:white;
+  font-size: 2rem !important;
+  z-index:103;
+}
+
+.closeImage:hover {
+  cursor: pointer;
+  color:red;
+}
+
+.changeMap {
+  position: absolute;
+  z-index:103;
+  opacity: .8;
+  margin:5px;
+}
+
+.changeMap2 {
+  position:relative;
+  margin: 50px;
+  top:-20px;
+  z-index:103;
 }
