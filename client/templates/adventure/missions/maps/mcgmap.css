@@ -1,6 +1,9 @@
 #missionMapContainer {
-  position:relative;
-  margin:auto;
+  position:fixed;
+  top:50%;
+  left:50%;
+
+  z-index:2;
   width: 90%;
   /* border: 1px solid lightgray; */
   /* background: url(https://i.pinimg.com/originals/9a/15/8b/9a158b5df36c5ca15d1d483af2602501.jpg);
@@ -11,6 +14,9 @@
 
 #missionMapContainer img {
   display: inline-block;
+  height:90vh;
+  width:auto;
+  -webkit-transform: translate(-50%, -50%);
 }
 
 #missionMap {

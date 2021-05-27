@@ -50,24 +50,28 @@ Template.import_export.events({
     var data = [];
     data.push(fields);
 
-    var elements = students.find().fetch();
-    _.each(elements, function(c) {
-      data.push([
-        c._id,
-        c.alias,
-        c.studentName,
-        c.level,
-        c.XP,
-        c.HP
-      ]);
-    });
+    var s = students.find({classId:Session.get('classId')}).fetch();
+    var c = chromes.find({classId:Session.get('classId')}).fetch();
+    // _.each(pp, function(c) {
+    //   data.push([
+    //     c._id,
+    //     c.alias,
+    //     c.studentName,
+    //     c.level,
+    //     c.XP,
+    //     c.HP
+    //   ]);
+    // });
 
-    var csv = Papa.unparse(data);
+    //var csv = Papa.unparse(elements);
 
-    var blob = new Blob([csv]);
+    var jsons = JSON.stringify(s);
+    var jsonc = JSON.stringify(c);
+
+    var blob = new Blob([jsons,jsonc], {type: "application/json"});
 		var a = window.document.createElement("a");
     a.href = window.URL.createObjectURL(blob, {type: "text/plain"});
-    a.download = "students_" + Session.get("className") + ".csv";
+    a.download = "students_" + Session.get("className") + ".json";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
