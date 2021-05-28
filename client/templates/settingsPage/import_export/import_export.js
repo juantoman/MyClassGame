@@ -69,7 +69,12 @@ Template.import_export.events({
         let reader = new FileReader();
         const self = this;
         reader.onload = (event) => {
-            console.log('FILE CONTENT', event.target.result);
+          var result = JSON.parse(event.target.result);
+          Meteor.call('deleteAllCards',Session.get('classId'));
+          _.each(result.cards, function(card) {
+            console.log(card);
+            Meteor.call('cardInsert',card);
+          });
         };
         reader.readAsText(file);
     } catch (err) {
