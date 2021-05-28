@@ -1,3 +1,5 @@
+
+
 Template.import_export.events({
   'click .import': function(event) {
     event.preventDefault();
@@ -54,5 +56,24 @@ Template.import_export.events({
     linkElement.setAttribute('href', dataUri);
     linkElement.setAttribute('download', exportFileDefaultName);
     linkElement.click();
+  },
+  'change #contentFile': function(event) {
+    event.preventDefault();
+    try {
+        let files = event.target.files;
+        if (!files.length) {
+            alert('No file selected!');
+            return;
+        }
+        let file = files[0];
+        let reader = new FileReader();
+        const self = this;
+        reader.onload = (event) => {
+            console.log('FILE CONTENT', event.target.result);
+        };
+        reader.readAsText(file);
+    } catch (err) {
+        console.error(err);
+    }
   }
 });
