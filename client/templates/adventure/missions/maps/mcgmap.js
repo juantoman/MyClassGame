@@ -39,6 +39,7 @@ Template.mcgmap.events({
         } else {
           y=100;
         }
+        if (m[i-1].missionVisible) {color=m[i-1].missionColor;} else {color='gray';}
         node={
             id: i,
             label: "M"+i,
@@ -52,7 +53,7 @@ Template.mcgmap.events({
             },
             color: {
               border: 'white',
-              background: m[i-1].missionColor
+              background: color
             },
             shadow:{
              enabled: true,
@@ -151,11 +152,13 @@ Template.mcgmap.events({
 
       network.on("click", function (params) {
         //https://stackoverflow.com/questions/40489700/visjs-save-manipulated-data-to-json
-        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]})._id;
-        $('#missionMapContainer').toggleClass("oculto");
-        $("#missionsPage").addClass("oculto");
-        $("#missionPage").removeClass("oculto");
-        Session.set('chalId',mId);
+        mId=challenges.findOne({classId: Session.get('classId'), order: params.nodes[0]});
+        if ( Session.get('userType')=="teacher" || mId.missionVisible ) {
+          $('#missionMapContainer').toggleClass("oculto");
+          $("#missionsPage").addClass("oculto");
+          $("#missionPage").removeClass("oculto");
+          Session.set('chalId',mId._id);
+        }
       });
 
       window.onresize=function viewportHandler(event) {
