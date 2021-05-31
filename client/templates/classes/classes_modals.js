@@ -157,6 +157,123 @@ Template.classesModals.events({
         }
       })
     }
+  },
+  'change #restoreBackupFile': function(event) {
+    event.preventDefault();
+    try {
+        let files = event.target.files;
+        if (!files.length) {
+            alert('No file selected!');
+            return;
+        }
+        swal({
+          title: TAPi18n.__('restore') + " " +  TAPi18n.__('class'),
+          text: TAPi18n.__('areYouSure'),
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: TAPi18n.__('yes'),
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.value) {
+            let file = files[0];
+            let reader = new FileReader();
+            const self = this;
+            reader.onload = (event) => {
+              var result = JSON.parse(event.target.result);
+              Meteor.call('classDelete',result.classId);
+              _.each(result.classes, function(e) {
+                Meteor.call('classInsert',e);
+              });
+              _.each(result.students, function(e) {
+                Meteor.call('studentInsert',e);
+              });
+              _.each(result.images, function(e) {
+                Meteor.call('imageInsert',e);
+              });
+              _.each(result.levels, function(e) {
+                Meteor.call('levelInsert',e);
+              });
+              _.each(result.badges, function(e) {
+                Meteor.call('badgeInsert',e);
+              });
+              _.each(result.groups, function(e) {
+                Meteor.call('groupInsert',e);
+              });
+              _.each(result.store, function(e) {
+                Meteor.call('itemInsert',e);
+              });
+              _.each(result.cards, function(e) {
+                Meteor.call('cardInsert',e);
+              });
+              _.each(result.chromes, function(e) {
+                Meteor.call('chromeInsert',e);
+              });
+              _.each(result.behaviours, function(e) {
+                Meteor.call('behaviourInsert',e);
+              });
+              _.each(result.behavioursLog, function(e) {
+                Meteor.call('behaviourLogInsert',e);
+              });
+              _.each(result.questions, function(e) {
+                Meteor.call('questionInsert',e);
+              });
+              _.each(result.quizzes, function(e) {
+                Meteor.call('quizInsert',e);
+              });
+              _.each(result.randomEvents, function(e) {
+                Meteor.call('randomEventInsert',e);
+              });
+              _.each(result.convictions, function(e) {
+                Meteor.call('convictionInsert',e);
+              });
+              _.each(result.quotes, function(e) {
+                Meteor.call('quoteInsert',e);
+              });
+              _.each(result.challenges, function(e) {
+                Meteor.call('chalInsert',e);
+              });
+              _.each(result.chalMissions, function(e) {
+                Meteor.call('chalMissionInsert',e);
+              });
+              _.each(result.challengesXP, function(e) {
+                Meteor.call('chalInsertXP',e);
+              });
+              _.each(result.diary, function(e) {
+                Meteor.call('diaryInsert',e);
+              });
+              _.each(result.notebook, function(e) {
+                Meteor.call('notebookInsert',e);
+              });
+              _.each(result.notebookWork, function(e) {
+                Meteor.call('notebookWorkInsert',e);
+              });
+              _.each(result.chatClass, function(e) {
+                Meteor.call('messageInsert',e);
+              });
+              _.each(result.chatStudentTeacher, function(e) {
+                Meteor.call('messageSTInsert',e);
+              });
+              _.each(result.chatTeachers, function(e) {
+                Meteor.call('messageTeacherInsert',e);
+              });
+              _.each(result.notifications, function(e) {
+                Meteor.call('notificationInsert',e);
+              });
+              _.each(result.villains, function(e) {
+                Meteor.call('villainInsert',e);
+              });
+            };
+            reader.readAsText(file);
+            swal({
+              title: TAPi18n.__('class') + " " +  TAPi18n.__('restored'),
+              type: 'success'
+            })
+          // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+          }
+        })
+    } catch (err) {
+        console.error(err);
+    }
   }
 });
 

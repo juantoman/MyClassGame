@@ -132,5 +132,76 @@ Template.admin.events({
   'click #btn-imprimir-estudiantes': function(event) {
     event.preventDefault();
     Modal.show('studentsPrint');
+  },
+  'click #btn-backup': function(event) {
+    event.preventDefault();
+    classes = classes.find({_id:Session.get('classId')}).fetch();
+    students = students.find({classId:Session.get('classId')}).fetch();
+    images = images.find({classId:Session.get('classId')}).fetch();
+    levels = levels.find({classId:Session.get('classId')}).fetch();
+    badges = badges.find({classId:Session.get('classId')}).fetch();
+    groups = groups.find({classId:Session.get('classId')}).fetch();
+    store = store.find({classId:Session.get('classId')}).fetch();
+    cards = cards.find({classId:Session.get('classId')}).fetch();
+    chromes = chromes.find({classId:Session.get('classId')}).fetch();
+    behaviours = behaviours.find({classId:Session.get('classId')}).fetch();
+    behavioursLog = behavioursLog.find({classId:Session.get('classId')}).fetch();
+    questions = questions.find({classId:Session.get('classId')}).fetch();
+    quizzes = quizzes.find({classId:Session.get('classId')}).fetch();
+    randomEvents = randomEvents.find({classId:Session.get('classId')}).fetch();
+    convictions = convictions.find({classId:Session.get('classId')}).fetch();
+    quotes = quotes.find({classId:Session.get('classId')}).fetch();
+    challenges = challenges.find({classId:Session.get('classId')}).fetch();
+    chalMissions = chalMissions.find({classId:Session.get('classId')}).fetch();
+    challengesXP = challengesXP.find({classId:Session.get('classId')}).fetch();
+    diary = diary.find({classId:Session.get('classId')}).fetch();
+    notebook = notebook.find({classId:Session.get('classId')}).fetch();
+    notebookWork = notebookWork.find({classId:Session.get('classId')}).fetch();
+    chatClass = chatClass.find({classId:Session.get('classId')}).fetch();
+    chatStudentTeacher = chatStudentTeacher.find({classId:Session.get('classId')}).fetch();
+    chatTeachers = chatTeachers.find({classId:Session.get('classId')}).fetch();
+    notifications = notifications.find({classId:Session.get('classId')}).fetch();
+    villains = villains.find({classId:Session.get('classId')}).fetch();
+
+    var data = {
+      classId: Session.get('classId'),
+      classes: classes,
+      students: students,
+      images: images,
+      levels: levels,
+      badges: badges,
+      groups: groups,
+      store: store,
+      cards: cards,
+      chromes: chromes,
+      behaviours: behaviours,
+      behavioursLog: behavioursLog,
+      questions: questions,
+      quizzes: quizzes,
+      randomEvents: randomEvents,
+      convictions: convictions,
+      quotes: quotes,
+      challenges: challenges,
+      chalMissions: chalMissions,
+      challengesXP: challengesXP,
+      diary: diary,
+      notebook: notebook,
+      notebookWork: notebookWork,
+      chatClass: chatClass,
+      chatStudentTeacher: chatStudentTeacher,
+      chatTeachers: chatTeachers,
+      notifications: notifications,
+      villains: villains
+    }
+    //console.log(data.cards);
+    var jsondata = JSON.stringify(data);
+    let dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(jsondata);
+    var d = new Date();
+    datetime=d.getFullYear().toString().padStart(4, "0")+d.getMonth().toString().padStart(2, "0")+d.getDate().toString().padStart(2, "0")+d.getHours().toString().padStart(2, "0")+d.getMinutes().toString().padStart(2, "0")+d.getSeconds().toString().padStart(2, "0");
+    let exportFileDefaultName = 'MCG_backup_'+ Session.get('className') + '_' + datetime + '.json';
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
   }
 });

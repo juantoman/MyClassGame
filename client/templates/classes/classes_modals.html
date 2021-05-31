@@ -14,6 +14,7 @@
               <li role="presentation"><a href="#classCode" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "classCode"}}</a></li>
               <li role="presentation"><a href="#tclasses" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "tclasses"}}</a></li>
               <li role="presentation" id="GCli"><a href="#googleClassroom" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "Google Classroom"}}</a></li>
+              <li role="presentation"><a href="#restoreBackup" aria-controls="earn" role="tab" data-toggle="tab"> {{_ "restoreBackup"}}</a></li>
               <!--
               <li role="presentation"><a href="#student" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-book" aria-hidden="true"></span> Estudiante</a></li>
               <li role="presentation"><a href="#parent" aria-controls="spend" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span> Padre/Madre</a></li>
@@ -84,6 +85,14 @@
                   <input type="text" class="form-control" id="class-name-parent" name="class-name-parent">
                 </div>
               </div>
+
+              <div role="tabpanel" class="tab-pane active" id="restoreBackup">
+                <div class="form-group">
+                  <label>{{_ 'restoreBackup'}}</label>
+                  <input id="restoreBackupFile" class="btn btn-info" type="file" accept="application/json" />
+                </div>
+              </div>
+
             </div>
           </div>
           <div class="modal-footer">
