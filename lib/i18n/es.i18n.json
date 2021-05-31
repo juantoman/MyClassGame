@@ -378,5 +378,6 @@
     "relocate": "Reubicar",
     "restore": "Recuperar",
     "restored": "Recuperada",
-    "fileBackup": "Fichero de Backup"
+    "fileBackup": "Fichero de Backup",
+    "noFile": "No has seleccionado ningún fichero"
 }

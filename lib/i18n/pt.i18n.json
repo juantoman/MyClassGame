@@ -377,5 +377,6 @@
     "changeMap": "Mudança Mapa",
     "restore": "Recuperar",
     "restored": "Recuperada",
-    "fileBackup": "Arquivo de Backup"
+    "fileBackup": "Arquivo de Backup",
+    "noFile": "Você não selecionou nenhum arquivo"
 }

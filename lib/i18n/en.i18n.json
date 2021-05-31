@@ -378,5 +378,6 @@
     "relocate": "Relocate",
     "restore": "Restore",
     "restored": "Restored",
-    "fileBackup": "Backup File"
+    "fileBackup": "Backup File",
+    "noFile": "No file selected"
 }

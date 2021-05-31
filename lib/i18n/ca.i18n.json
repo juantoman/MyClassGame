@@ -378,5 +378,6 @@
     "relocate": "Reubicar",
     "restore": "Recuperar",
     "restored": "Recuperada",
-    "fileBackup": "Fitxer de Backup"
+    "fileBackup": "Fitxer de Backup",
+    "noFile": "No has seleccionat cat fitxer"
 }

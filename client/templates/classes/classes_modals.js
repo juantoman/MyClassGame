@@ -163,8 +163,11 @@ Template.classesModals.events({
     try {
         let files = event.target.files;
         if (!files.length) {
-            alert('No file selected!');
-            return;
+          swal({
+            title: TAPi18n.__('noFile'),
+            type: 'info'
+          })
+          return;
         }
         swal({
           title: TAPi18n.__('restore') + " " +  TAPi18n.__('class'),
