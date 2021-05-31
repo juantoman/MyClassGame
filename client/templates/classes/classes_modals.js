@@ -262,6 +262,9 @@ Template.classesModals.events({
               _.each(result.villains, function(e) {
                 Meteor.call('villainInsert',e);
               });
+              Meteor.subscribe("classes");
+              Meteor.subscribe('images');
+              $('#add_class_modal').modal('hide');
             };
             reader.readAsText(file);
             swal({

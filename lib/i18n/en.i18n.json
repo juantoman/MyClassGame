@@ -375,5 +375,8 @@
     "sticker": "Sticker",
     "map": "Map",
     "changeMap": "Change Map",
-    "relocate": "Relocate"
+    "relocate": "Relocate",
+    "restore": "Restore",
+    "restored": "Restored",
+    "fileBackup": "Backup File"
 }

@@ -374,5 +374,8 @@
     "envelope": "Sobre",
     "sticker": "Estampa",
     "map": "Mapa",
-    "changeMap": "Mudança Mapa"
+    "changeMap": "Mudança Mapa",
+    "restore": "Recuperar",
+    "restored": "Recuperada",
+    "fileBackup": "Arquivo de Backup"
 }

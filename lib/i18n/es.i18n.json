@@ -375,5 +375,8 @@
     "sticker": "Cromo",
     "map": "Mapa",
     "changeMap": "Cambiar Mapa",
-    "relocate": "Reubicar"
+    "relocate": "Reubicar",
+    "restore": "Recuperar",
+    "restored": "Recuperada",
+    "fileBackup": "Fichero de Backup"
 }
