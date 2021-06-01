@@ -89,14 +89,14 @@
                   </div>
                 </div>
 
-                {{#unless order}}
-                  <div class="col-xs-12 col-md-3">
+                {{#if isTeacher}}
+                  <div class="col-xs-12 col-md-2">
                     <div class="form-group">
                       <label for="chalOrder" class="control-label">{{_ 'missionNumber'}}</label>
-                      <input type="text" name="chalOrder" class="form-control input-lg chalOrder" {{teacher}} placeholder="Order" tabindex="1" value="{{chalOrder}}">
+                      <input type="number" name="chalOrder" class="form-control input-lg chalOrder" {{teacher}} placeholder="Order" tabindex="1" value="{{order}}" min="1" max="100">
                     </div>
                   </div>
-                {{/unless}}
+                {{/if}}
 
               </div>
               {{#if isTeacher}}
