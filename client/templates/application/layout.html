@@ -7,7 +7,11 @@
       {{#if currentUser}}
         {{> yield}}
       {{else}}
-        {{> carrusel}}
+        {{#if routeView}}
+          {{> yield}}
+        {{else}}
+          {{> carrusel}}
+        {{/if}}
       {{/if}}
     </div>
     {{> footer}}
