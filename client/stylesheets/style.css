@@ -501,12 +501,12 @@ label {
   -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
   left:50%;
   -webkit-transform: translate(-50%, 0%);
   width:90%;
-  top:102px;
+  top:64px;
   border:1px solid lightblue;
 }
 
@@ -1272,7 +1272,7 @@ h4.panel-title {
 }
 
 .nameSection {
-  position:fixed;
+  position:absolute;
   left:50%;
   text-align: center;
   margin: 0;

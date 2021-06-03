@@ -548,3 +548,13 @@ Meteor.publish('villains', function(classId) {
       return students.find({"classId": { "$in": c }});
   }*/
 });
+Meteor.publish('classView', function(classId) {
+  if (classId){
+    return classes.find({"_id":classId});
+  }
+});
+Meteor.publish('imagesView', function(classId) {
+  if (classId){
+    return images.find({"classId":classId});
+  }
+});

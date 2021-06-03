@@ -1,5 +1,4 @@
 <template name="studentsMainPage">
-  <h3 class="nameSection" data-toggle="collapse" data-target="#mainPageMenu" aria-expanded="false" aria-controls="mainPageMenu">{{_ "classManagement"}} <i class="fas fa-caret-down"></i></h3>
   <div  class="container-fluid myContent">
     <!--
     <form class="form-inline text-center">
@@ -122,6 +121,8 @@
           </div>
         </div>
       </div>
+      <h3 class="nameSection" data-toggle="collapse" data-target="#mainPageMenu" aria-expanded="false" aria-controls="mainPageMenu">{{_ "classManagement"}} <i class="fas fa-caret-down"></i></h3>
+
       <div class="float-up">
         {{#if studentsSelected}}
           {{> studentsPage}}
