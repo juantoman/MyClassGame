@@ -1,0 +1,131 @@
+<template name="leftNavView">
+  <div class="page-wrapper chiller-theme">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <a id="show-sidebar-line" class="btn btn-sm btn-dark" href="#">
+      <img src="/images/@mcgnb.png" width="20px" class="logoNavbar">
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+      <img src="/images/@mcgnb.png" width="20px" class="logoNavbar">
+      <div class="sidebar-content">
+        <div class="sidebar-brand">
+          <img src="/images/@mcgnb.png" width="30px">
+          <a href="#"><span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></a>
+          <div id="close-sidebar">
+            <i class="fas fa-times"></i>
+          </div>
+        </div>
+        <div class="sidebar-header">
+          <div class="user-pic">
+            <img class="img-responsive img-rounded" src="/images/@mcgnb.png"
+              alt="User picture">
+          </div>
+        </div>
+        <div class="sidebar-menu">
+          <ul>
+            <li class="header-menu">
+              <span>General</span>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span class="clase">{{_ "className"}}</span>
+              </a>
+            </li>
+            <li class="header-menu">
+              <span>{{_ "PrincipalMenu"}}</span>
+            </li>
+            <li>
+              <ul>
+                <li class="active" id="studentsMenu">
+                  <a id="studentsMain2" href="#studentsView" role="tab" data-toggle="tab">
+                    <i class="fas fa-user"></i>
+                    <span>{{_ "students"}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a id="myAdventure2" href="#adventureView" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    <span>{{_ "adventure"}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a id="gamification2" href="#gamificationView" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+                    <span>{{_ "GameElements"}}</span>
+                  </a>
+                </li>
+                <li>
+                  <a id="tools2" href="#toolsView" role="tab" data-toggle="tab">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                    <span>{{_ "tools"}}</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="header-menu">
+              <span>{{_ "help"}}</span>
+            </li>
+            <li>
+              <a href="https://myclassgame.helpsite.com/" target="_blank">
+                <i class="fa fa-book"></i>
+                <span>FAQ</span>
+                <span class="badge badge-pill badge-primary">Beta</span>
+              </a>
+            </li>
+            <li class="header-menu">
+            </li>
+            <li class="text-center">
+              <a href="#" class="collaborate">
+                <span style="color:#268BD2;font-weight:bold;">{{_ "collaborate"}} @MyClassGame</span>
+              </a>
+            </li>
+            <li class="header-menu">
+            </li>
+            <li class="text-center">
+              <a href="https://forms.gle/BcsbesCnvFmTcs6g6" target="_blank" onclick="window.open('https://forms.gle/BcsbesCnvFmTcs6g6', '_system'); return false;">
+                <span style="color:#00bb00;font-weight:bold;">{{_ "suggestions"}}</span>
+              </a>
+            </li>
+            <li class="header-menu">
+            </li>
+            <li class="text-center">
+              <pwa-install id="installPWA">{{_ "install"}} @MyClassGame <img width="50px" src="/images/AppleAndroid.png" /></pwa-install>
+            </li>
+            <li class="header-menu">
+              <span>{{_ "contact"}}</span>
+            </li>
+            <li class="text-center">
+              <a href="mailto:myclassgame@gmail.com" target="_blank">
+                <span>myclassgame@gmail.com</span>
+              </a>
+            </li>
+            <div class="sidebar-social">
+                <a href="#" onclick="window.open('https://es-es.facebook.com/myclassgame/', '_system'); return false;" role="button">
+                  <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://twitter.com/myclassgame', '_system'); return false;" role="button">
+                  <i class="fab fa-twitter-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://www.youtube.com/watch?v=EeU82hHQcGQ', '_system'); return false;" role="button">
+                  <i class="fab fa-youtube-square"></i>
+                </a>
+                <a href="#" onclick="window.open('https://t.me/myclassgame', '_system'); return false;" role="button">
+                  <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+      <div class="sidebar-footer">
+        <a href="/" class="closeSession">
+          <i class="fa fa-power-off"></i>
+        </a>
+      </div>
+    </nav>
+  </div>
+  <!-- page-wrapper -->
+</template>

@@ -18,10 +18,12 @@ Template.badgeCard.helpers({
 
 Template.badgeCard.events({
  'click img, click .glyphicon': function(event) {
-    event.preventDefault();
-    Session.set('imageType','badge');
-    Session.set('idElementImage',this._id);
-    Modal.show('imagesTemplate');
+    if (location.pathname.substring(0, 6)!="/view/") {
+      event.preventDefault();
+      Session.set('imageType','badge');
+      Session.set('idElementImage',this._id);
+      Modal.show('imagesTemplate');
+    }
   },
   'click .btnUrlBadge': function(event) {
     event.preventDefault();

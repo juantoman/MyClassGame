@@ -1,62 +1,13 @@
 <template name="view">
-  <div class="row view">
-    {{#each students}}
-      <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent float-up">
-        <figure class="card card__water">
-          <div class="card__image-container" name="{{_id}}">
-            <img src="{{image avatar}}" class="card__image" name="{{_id}}">
-          </div>
+  {{> leftNavView}}
 
-          <figcaption class="card__caption">
-            <h3 class="studentTeam">
-              {{_ "team"}}
-            </h3>
-            <h3 class="card__type">
-              {{_ "level"}}
-            </h3>
-            <table class="card__stats">
-              <tbody>
-
-                <tr>
-                  <th><span class="btn-xp">{{_ "experience"}}</span></th>
-                  <td><span class="btn-xp">0</span></td>
-                </tr>
-                <tr>
-                  <th><span class="btn-hp">{{_ "life"}}</span></th>
-                  <td><span class="btn-hp">0</span></td>
-                </tr>
-                <!--
-                <tr>
-                  <th><span class="btn-energy">{{_ "energy"}}</span></th>
-                  <td><span class="btn-energy">0</span></td>
-                </tr>
-                -->
-                <tr>
-                  <th><span class="btn-coins">{{_ "money"}}</span></th>
-                  <td><span class="btn-coins">0</span></td>
-                </tr>
-
-              </tbody>
-            </table>
-            <div class="cardLine">
-            </div>
-            <ul class="cardIcons">
-              <li>
-                <i class="fas fa-award btn-badge"></i>
-              </li>
-              <li>
-                <i class="fas fa-bolt btn-cards"></i>
-              </li>
-              <li>
-                <span class="glyphicon glyphicon-duplicate btn-chromes" aria-hidden="true"></span>
-              </li>
-              <li>
-                <i class="fas fa-store-alt btn-store"></i>
-              </li>
-            </ul>
-          </figcaption>
-        </figure>
-      </div>
-    {{/each}}
+  <!-- Tab panels -->
+  <div class="tab-content main-tab-content view">
+    <!--{{> studentsMainPage}}-->
+    <div role="tabpanel" class="tab-pane active" id="studentsView">{{> studentsView}}</div>
+    <div role="tabpanel" class="tab-pane" id="toolsView">{{> toolsView}}</div>
+    <div role="tabpanel" class="tab-pane" id="gamificationView">{{> gamificationView}}</div>
+    <div role="tabpanel" class="tab-pane" id="adventureView">{{> adventureView}}</div>
   </div>
+
 </template>
