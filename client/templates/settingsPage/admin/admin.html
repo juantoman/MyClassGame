@@ -95,6 +95,13 @@
           <p class="text-center" style="padding:5px;">{{_ 'delete'}} {{_ 'class'}}</p>
         </li>
       </ul>
+
     </div>
+    {{#if visibleClass}}
+      <div class="text-center">
+        <p class="btn btn-info viewUrl">https://www.myclassgame.es/view/{{classId}}</p>
+      </div>
+    {{/if}}
+    <br />
   </div>
 </template>

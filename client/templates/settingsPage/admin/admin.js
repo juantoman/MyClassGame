@@ -19,6 +19,12 @@ Template.admin.helpers({
   },
   stored: function() {
     return classes.findOne({'_id':Session.get('classId')}).stored;
+  },
+  visibleClass: function() {
+    return classes.findOne({'_id':Session.get('classId')}).visibleClass;
+  },
+  classId: function() {
+    return Session.get('classId');
   }
 });
 Template.admin.events({
@@ -82,6 +88,14 @@ Template.admin.events({
       Meteor.call('typePush',Session.get('classId'));
     } else {
       Meteor.call('typePull',Session.get('classId'));
+    }
+  },
+  'click #btn-view': function(event) {
+    event.preventDefault();
+    if (classes.findOne({'_id':Session.get('classId')}).visibleClass) {
+      Meteor.call('visibleClass',Session.get('classId'),false);
+    } else {
+      Meteor.call('visibleClass',Session.get('classId'),true);
     }
   },
   'click #btn-store-class': function(event) {
@@ -203,5 +217,16 @@ Template.admin.events({
     linkElement.setAttribute('href', dataUri);
     linkElement.setAttribute('download', exportFileDefaultName);
     linkElement.click();
+  },
+  'click .viewUrl': function(event) {
+    event.preventDefault();
+    document.execCommand('selectAll');
+    const el = document.createElement('textarea');
+    //el.value = "https://www.myclassgame.es/mcgapi/mcgapi.html?e=badge&id="+this._id;
+    el.value = 'https://www.myclassgame.es/view/' + Session.get('classId');
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 });
