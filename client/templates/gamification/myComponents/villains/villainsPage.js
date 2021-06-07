@@ -1,6 +1,6 @@
 Template.villainsPage.helpers({
   villains: function() {
-    return villains.find();
+    return villains.find({classId: Session.get('classId')});
   },
   image: function() {
     if (this.villainImage.substring(0, 4)=="http" || this.villainImage.substring(0, 1)=="/") {

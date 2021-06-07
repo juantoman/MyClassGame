@@ -1,3 +1,7 @@
 .view {
   margin: -10px 40px 40px 40px !important;
 }
+
+#villainsView input {
+  background-color: transparent !important; 
+}

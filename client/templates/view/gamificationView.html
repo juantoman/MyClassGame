@@ -1,3 +1,448 @@
-<template name="toolsView">
-  toolsView
+<template name="gamificationView">
+  <div class="container-fluid float-up">
+
+    <div class="settingsMenu">
+      <!-- Nav tabs -->
+      <ul class="nav nav-pills" role="tablist">
+        <li role="presentation" class="active"><a href="#eventsView" aria-controls="eventsView" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span><span class="spanMenu"> {{_ "events"}}</span></a></li>
+        <li role="presentation"><a href="#behavioursView" aria-controls="behaviours" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span><span class="spanMenu"> {{_ "behaviours"}}</span></a></li>
+        <li role="presentation"><a href="#convictionsView" aria-controls="convictions" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span><span class="spanMenu"> {{_ "penalties"}}</span></a></li>
+        <li role="presentation"><a href="#badgesView" aria-controls="badges" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span><span class="spanMenu"> {{_ "badges"}}</span></a></li>
+        <li role="presentation"><a href="#cardsView" aria-controls="cards" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span><span class="spanMenu"> {{_ "powers"}}</span></a></li>
+        <li role="presentation"><a href="#chromesView" aria-controls="chromes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span><span class="spanMenu"> {{_ "collections"}}</span></a></li>
+        <li role="presentation"><a href="#storeView" aria-controls="store" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-gift" aria-hidden="true"></span><span class="spanMenu"> {{_ "store"}}</span></a></li>
+        <li role="presentation"><a href="#quotesView" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><span class="spanMenu"> {{_ "quotes"}}</span></a></li>
+        <li role="presentation"><a href="#levelsView" aria-controls="quotes" role="tab" data-toggle="tab"><span class="glyphicon glyphicon-list" aria-hidden="true"></span><span class="spanMenu"> {{_ "levels"}}</span></a></li>
+        <li role="presentation"><a href="#villainsView" aria-controls="villains" role="tab" data-toggle="tab"><i class="fas fa-angry"></i> <span class="spanMenu">{{_ "villains"}}</span></a></li>
+      </ul>
+      <!-- Tab panels -->
+      <div class="tab-content container-responsive mytab">
+        <div role="tabpanel" class="tab-pane active" id="eventsView">
+          <div class="container-fluid">
+            <div class="row float-up">
+              {{#each randomEvents}}
+                <div class="componentCard eventCard float-up">
+                  <div class="additional">
+                    <div class="user-card">
+                      <div class="level center">
+                        {{eventName}}
+                      </div>
+                      <div class="points center">
+                        {{eventDescription}}
+                      </div>
+                      <div class="center">
+                        {{#if eventImage}}
+                          <img width="100%" alt="Imagen evento" src="{{component_src eventImage}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-fire" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                    </div>
+                    <div class="more-info">
+                      <form class="eventForm">
+                        <input type="text" class="form-control inputGroup eventName" name="eventName" readonly aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+                        <textarea class="form-control inputGroup eventDesc" name="eventDescription" readonly rows="2">{{eventDescription}}</textarea>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <input type="text" class="form-control inputGroup eventName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{eventName}}">
+                    <textarea class="form-control inputGroup eventDesc" name="{{_id}}" rows="2">{{eventDescription}}</textarea>
+                    <!--
+                    <h1>{{eventName}}</h1>
+                    <p>{{eventDescription}}</p>
+                    -->
+                    <span class="more">{{_ "mouseToEdit"}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="behavioursView">
+          <div class="container-fluid">
+            <div class="row">
+              {{#each behaviourList}}
+                <div class="componentCard behaviourCard {{#unless positive}}hp{{/unless}} float-up">
+                  <div class="additional">
+                    <div class="user-card">
+                      <div class="level center">
+                        {{behaviourDescription}}
+                      </div>
+                      <div class="points center">
+                        {{_ "points"}}: {{points}}
+                      </div>
+                      <div class="center">
+                        {{#if behaviourImage}}
+                          <img width="100%" alt="Imagen comportamiento" src="{{component_src behaviourImage}}" />
+                        {{else}}
+                          {{#if positive}}
+                            <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                          {{else}}
+                            <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                          {{/if}}
+                        {{/if}}
+                      </div>
+                    </div>
+                    <div class="more-info">
+                      <form class="behaviourForm">
+                        <input type="text" class="form-control inputGroup behaviourName" name="behaviourName" readonly aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
+                        <textarea class="form-control inputGroup behaviourDesc" name="behaviourDescription" readonly rows="2">{{behaviourDescription}}</textarea>
+                        <div class="input-group col-xs-6" style="margin-right:0;padding-right:0;">
+                          <span class="input-group-addon">{{_ "points"}}</span>
+                          <input type="number" class="form-control inputGroup behaviourDescription" name="behaviourPoints" readonly value="{{points}}" min="-10000" max="10000">
+                        </div>
+                        <div class="switchCard col-xs-5" style="margin-left:0;padding-left:0;float:rigth">
+                          <div class="behaviourType">
+                            <span>HP</span>
+                            <label class="switch">
+                              <input type="checkbox" name="XPorHP" disabled="disabled" {{XPisChecked}}>
+                              <span class="slider round"></span>
+                            </label>
+                            <span>XP</span>
+                          </div>
+                        </div>
+                        <div class="input-group col-xs-12">
+                          <span class="input-group-addon">{{_ "competence"}}</span>
+                          <input type="text" class="form-control behaviourDescription" name="behaviourType" readonly value="{{behaviourType}}">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <input type="text" class="form-control inputGroup behaviourName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{behaviourName}}">
+                    <textarea class="form-control inputGroup behaviourDesc" name="{{_id}}" id="behaviourDescription" rows="2">{{behaviourDescription}}</textarea>
+                    <span class="more">{{_ "mouseToEdit"}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="badgesView">
+          <div class="container-fluid">
+            <div class="row float-up">
+              {{#each badgesList}}
+                <div class="componentCard badgeCard float-up">
+                  <div class="additional">
+                    <div class="user-card">
+                      <div class="level center">
+                        {{_ 'level'}} {{level}}
+                      </div>
+                      <div class="points center">
+                        XP: {{points}}
+                      </div>
+                      <div class="center">
+                        {{#if badgeImage}}
+                          <img width="100%" alt="Imagen insígnia" src="{{component_src badgeImage}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                    </div>
+                    <div class="more-info">
+                      <form class="badgeForm">
+                        <input type="text" class="form-control inputGroup badgeName" name="badgeName" readonly aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+                        <textarea class="form-control inputGroup badgeDesc" name="badgeDescription" readonly rows="2">{{badgeDescription}}</textarea>
+                        <div class="input-group col-xs-6">
+                          <span class="input-group-addon">XP</span>
+                          <input type="number" class="form-control inputGroup badgeDescription" name="badgePoints" readonly value="{{points}}" min="0" max="10000">
+                        </div>
+                        <div class="input-group col-xs-5">
+                          <span class="input-group-addon">{{_ "level"}}</span>
+                          <input type="number" class="form-control badgeDescription" name="badgeLevel" readonly value="{{level}}"  min="0" max="100">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <input type="text" class="form-control inputGroup badgeName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{badgeName}}">
+                    <textarea class="form-control inputGroup badgeDesc" name="{{_id}}" id="badgeDescription" rows="2">{{badgeDescription}}</textarea>
+                    <span class="more">{{_ "mouseToEdit"}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="cardsView">
+          <div class="container-fluid">
+            <div class="row">
+              {{#each cards}}
+              <div class="powercard_wrapper float-up">
+                <div class="power-card-inner">
+                  {{#unless cardMCG}}
+                    <div class="power-card-front-noMCG">
+                      <div class="power-card-full__image">
+                        {{#if cardImage}}
+                          <img width="100%" class="center" src="{{component_src cardImage true}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                      <div class="power-card-noMCG__unit-name">{{cardName}}</div>
+                    </div>
+                  {{else}}
+                    <div class="power-card-front">
+                      <img class="cardgem" src="/images/green.png" alt="green" />
+                      <div class="power-card__image">
+                        {{#if cardImage}}
+                          <img width="100%" class="center" src="{{component_src cardImage false}}" />
+                        {{else}}
+                          <span class="glyphicon glyphicon-flash" aria-hidden="true"></span>
+                        {{/if}}
+                      </div>
+                      <div class="power-card-data">
+                        <!-- <div class="power-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+                        <div class="power-card__unit-name">{{cardName}}</div>
+                        <div class="power-card__unit-description">{{cardDescription}}</div>
+                      </div>
+
+                      <div class="power-card__unit-stats clearfix">
+                        <div class="one-third">
+                          <div class="stat">{{cardLevel}}<sup></sup></div>
+                          <div class="stat-value">{{_ 'level'}}</div>
+                        </div>
+
+                        <div class="one-third">
+                          <div class="stat">{{#unless cardEnergy}}0{{else}}{{cardEnergy}}{{/unless}}</div>
+                          <div class="stat-value">{{_ 'energy'}}</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                          <div class="stat">{{cardPrice}}</div>
+                          <div class="stat-value">{{_ 'price'}}</div>
+                        </div>
+                      </div>
+                    </div> <!-- end power-card -->
+                  {{/unless}}
+                </div>
+              </div> <!-- end wrapper -->
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="chromesView">
+          <div class="container-fluid">
+            <div class="row">
+              {{#each chromes}}
+                <div class="elementcard_wrapper float-up">
+                  <div class="element-card-inner">
+                    {{#unless chromeMCG}}
+                      <div class="element-card-front-noMCG">
+                        <div class="element-card-full__image">
+                          {{#if chromeImage}}
+                            <img width="100%" class="center" src="{{component_src chromeImage true}}" />
+                          {{else}}
+                            <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+                          {{/if}}
+                        </div>
+                        <div class="element-card-noMCG__unit-name">{{chromeName}}</div>
+                      </div>
+                    {{else}}
+                      <div class="element-card-front collectionable-card-front" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
+                        <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
+                        <div class="element-card__image collectionable-card__image">
+                          {{#if chromeImage}}
+                            <img width="80%" class="center" src="{{component_src chromeImage false}}" />
+                          {{else}}
+                            <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span>
+                          {{/if}}
+                        </div>
+                        {{#with chromeTypeData chromeType}}
+                          <div class="element-card-type" style="background-color:{{chromeTypeColor}};">{{chromeTypeDesc}}</div>
+                        {{/with}}
+                        <div class="element-card-data">
+                          <!-- <div class="element-card__level">{{_ 'level'}} {{cardLevel}}</div> -->
+                          <div class="element-card__unit-name">{{chromeName}}</div>
+                          <div class="element-card__unit-description">{{chromeDescription}}</div>
+                        </div>
+
+                        <div class="element-card__unit-stats clearfix">
+                          <div class="one-third">
+                            <div class="stat">{{chromeLevel}}<sup></sup></div>
+                            <div class="stat-value">{{_ 'level'}}</div>
+                          </div>
+
+                          <div class="one-third">
+                            <div class="stat-button" style="background: {{#if envelopeChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">{{_ "envelope"}}<sup></sup></div>
+                            <div class="stat-button" style="background: {{#if singleChrome}}{{#if chromeType}}{{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}}{{else}}#268BD2{{/if}}{{/if}};">{{_ "sticker"}}</div>
+                          </div>
+
+                          <div class="one-third no-border">
+                            <div class="stat">{{chromePrice}}</div>
+                            <div class="stat-value">{{_ 'price'}}</div>
+                          </div>
+                        </div>
+                      </div> <!-- end element-card -->
+                    {{/unless}}
+                  </div>
+                </div> <!-- end wrapper -->
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="quotesView">
+          <div class="container-fluid">
+            <div class="row">
+              {{#each quotes}}
+                <div class="componentCard quoteCard float-up">
+                  <div class="additional">
+                    <div class="user-card">
+                      <div class="level center">
+                        {{quoteName}}
+                      </div>
+                      <div class="points center">
+                        {{quoteText}}
+                      </div>
+                      <div class="center">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                      </div>
+                    </div>
+                    <div class="more-info">
+                      <form class="quoteForm">
+                        <input type="text" class="form-control inputGroup quoteName" name="quoteName" readonly aria-describedby="inputGroupSuccess1Status" value="{{quoteName}}">
+                        <textarea class="form-control inputGroup quoteDesc" name="quoteDesc" readonly rows="2">{{quoteText}}</textarea>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <input type="text" class="form-control inputGroup quoteName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{quoteName}}">
+                    <textarea class="form-control inputGroup quoteDesc" name="{{_id}}" id="quoteDescription" rows="2">{{quoteText}}</textarea>
+                    <span class="more">{{_ "mouseToEdit"}}</span>
+                  </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="storeView">
+          <div class="container-fluid">
+            <div class="row float-up">
+              {{#each store}}
+              <div class="componentCard itemCard float-up">
+                <div class="additional">
+                  <div class="user-card">
+                    <div class="level center">
+                      {{_ 'level'}} {{itemLevel}}
+                    </div>
+                    <div class="points center">
+                      {{_ 'price'}}: {{price}}
+                    </div>
+                    <div class="center">
+                      {{#if itemImage}}
+                        <img width="100%" alt="Imagen artículo" src="{{component_src itemImage}}" />
+                      {{else}}
+                        <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                      {{/if}}
+                    </div>
+                  </div>
+                  <div class="more-info">
+                    <form class="itemForm">
+                      <input type="text" class="form-control inputGroup itemName" name="itemName" readonly aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+                      <textarea class="form-control inputGroup itemDesc" name="itemDescription" readonly rows="2">{{itemDescription}}</textarea>
+                      <div class="input-group col-xs-6">
+                        <span class="input-group-addon">{{_ 'price'}}</span>
+                        <input type="number" class="form-control inputGroup itemDescription" name="itemPrice" readonly value="{{price}}" min="0" max="10000">
+                      </div>
+                      <div class="input-group col-xs-5">
+                        <span class="input-group-addon">{{_ 'level'}}</span>
+                        <input type="number" class="form-control itemDescription" name="itemLevel" readonly value="{{itemLevel}}" min="0" max="100">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="general">
+                  <input type="text" class="form-control inputGroup itemName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{itemName}}">
+                  <textarea class="form-control inputGroup itemDesc" name="{{_id}}" id="itemDescription" rows="2">{{itemDescription}}</textarea>
+                  <span class="more">{{_ "mouseToEdit"}}</span>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="convictionsView">
+          <div class="container-fluid">
+            <div class="row">
+              {{#each convictions}}
+                <div class="componentCard convictionCard float-up">
+                  <div class="additional">
+                    <div class="user-card">
+                      <div class="level center">
+                        {{convictionName}}
+                      </div>
+                      <div class="points center">
+                        {{convictionDescription}}
+                      </div>
+                      <div class="center">
+                        <div class="center"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></div>
+                      </div>
+                    </div>
+                    <div class="more-info">
+                      <form class="convictionForm">
+                        <input type="text" class="form-control inputGroup convictionName" name="convictionName" readonly aria-describedby="inputGroupSuccess1Status" value="{{convictionName}}">
+                        <textarea class="form-control inputGroup convictionDesc" name="convictionDesc" readonly rows="2">{{convictionDescription}}</textarea>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="general">
+                    <input type="text" class="form-control inputGroup convictionName" name="{{_id}}" aria-describedby="inputGroupSuccess1Status" value="{{convictionName}}">
+                    <textarea class="form-control inputGroup convictionDesc" name="{{_id}}" id="convictionDescription" rows="2">{{convictionDescription}}</textarea>
+                    <span class="more">{{_ "mouseToEdit"}}</span>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="levelsView">
+          <div class="container float-up">
+            <div class="list-group">
+              <br />
+              <label class="control-label" for="inputGroupSuccess1">{{_ 'levels'}}</label>
+              {{#each levelObj}}
+                <div class="form-group">
+                  <div class="form-inline">
+                    <div class="input-group col-xs-2">
+                      <span class="input-group-addon">{{_ 'level'}}</span>
+                      <input type="text" class="form-control inputGroup input-lg level text-center" aria-describedby="inputGroupSuccess1Status" value="{{level}}">
+                    </div>
+                    {{#if parametersClass.xpChangeLevel}}
+                      <div class="input-group col-xs-2">
+                        <span class="input-group-addon">{{_ 'levelChange'}}</span>
+                        <input type="text" class="form-control inputGroup input-lg level text-center" aria-describedby="inputGroupSuccess1Status" value="{{levelChange level}}" readonly>
+                      </div>
+                    {{/if}}
+                    <div class="input-group col-xs-7">
+                      <span class="input-group-addon">{{_ 'description'}}</span>
+                      <input type="text" class="form-control inputGroup input-lg" aria-describedby="inputGroupSuccess1Status" value="{{levelDescription}}">
+                    </div>
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="villainsView">
+          <br />
+          {{#each villains}}
+            <div style="margin:auto;" class="thumbnailStudent float-up">
+              <figure class="card card__fire villainCard">
+                <div class="card__image-container">
+                  <!-- <img class="cardLogo" src="/images/@mcgnb.png"> -->
+                  <img src="{{component_src villainImage}}" class="card__image villainImage">
+                </div>
+
+                <figcaption class="card__caption">
+                  <input class="villainName" type="text" value="{{villainName}}" readonly />
+                  <input class="villainHP" type="text" value="{{HP}}" readonly /><span class="villainHeart glyphicon glyphicon-heart" aria-hidden="true"></span>
+                </figcaption>
+              </figure>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
