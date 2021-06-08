@@ -12,7 +12,14 @@
           <div class="container" id="container_sign">
           	<div class="form-container sign-up-container">
           		<form action="#" class="signupForm">
-                <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
+                <!-- <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto"> -->
+                <div class="hidden_logo oculto">
+                  <img width="60vmax" src="/images/@mcgnb.png">
+                  {{#if gamiright}}
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <img width="60vmax" src="/images/gamiright.png">
+                  {{/if}}
+                </div>
           			<h1>{{_ "register"}}</h1>
                 <div class="btn-group-student-login" data-toggle="buttons">
                   <label class="btn active" data-toggle="tooltip" title="{{_ 'teacher'}}" data-placement="bottom">
@@ -47,7 +54,14 @@
           	</div>
           	<div class="form-container sign-in-container">
           		<form action="#" class="siginForm">
-                <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto">
+                <!-- <img width="60vmax" src="/images/@mcgnb.png" class="hidden_logo oculto"> -->
+                <div class="hidden_logo oculto">
+                  <img width="60vmax" src="/images/@mcgnb.png">
+                  {{#if gamiright}}
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <img width="60vmax" src="/images/gamiright.png">
+                  {{/if}}
+                </div>
                 <h1>{{_ "signin"}}</h1>
                 <span class="signInType" data-toggle="buttons">
                   <label class="btn active">
@@ -76,14 +90,26 @@
           	<div class="overlay-container">
           		<div class="overlay">
           			<div class="overlay-panel overlay-left">
-                  <img width="60vmax" src="/images/@mcgnb.png">
+                  <div>
+                    <img width="60vmax" src="/images/@mcgnb.png">
+                    {{#if gamiright}}
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      <img width="60vmax" src="/images/gamiright.png">
+                    {{/if}}
+                  </div>
                   <br />
           				<h1>{{_ "welcomeTo"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
           				<p>{{_ "ifRegistered"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></p>
           				<button class="ghost signIn">{{_ "signin"}}</button>
           			</div>
           			<div class="overlay-panel overlay-right">
-                  <img width="60vmax" src="/images/@mcgnb.png">
+                  <div>
+                    <img width="60vmax" src="/images/@mcgnb.png">
+                    {{#if gamiright}}
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      <img width="60vmax" src="/images/gamiright.png">
+                    {{/if}}
+                  </div>
                   <br />
           				<h1>{{_ "welcomeTo"}} <span style="color:yellow;"> @</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>!</h1>
           				<p>{{_ "ifNotRegistered"}} <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span></p>

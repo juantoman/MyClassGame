@@ -63,6 +63,9 @@ Template.header.helpers({
     } else {
      return false;
     };
+  },
+  gamiright: function() {
+    return Session.get('gamiright');
   }
 });
 

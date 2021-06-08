@@ -1,3 +1,23 @@
+Template.studentsMainPage.onRendered(function() {
+  c=[];
+  teacherClasses=[];
+  studentClasses=[];
+  teacherClasses=Meteor.user().classesTeacher;
+  studentClasses=Meteor.user().classes;
+  c=c.concat(teacherClasses,studentClasses);
+  c=_.uniq(c);
+  classId=location.pathname.substring(10);
+  if ( ! c.includes(classId)  ) {
+    if ( location.host == 'localhost:8000' ) {
+      location.href = 'http://localhost:8000/';
+    }
+    if (location.origin == 'https://www.myclassgame.es') {
+      location.href = 'https://www.myclassgame.es/';
+    }
+  }
+})
+
+
 Template.studentsMainPage.helpers({
   className: function() {
     return Session.get('className');

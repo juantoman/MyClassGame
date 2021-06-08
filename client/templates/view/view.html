@@ -1,13 +1,15 @@
 <template name="view">
   {{> leftNavView}}
-
-  <!-- Tab panels -->
-  <div class="tab-content main-tab-content view">
-    <!--{{> studentsMainPage}}-->
-    <div role="tabpanel" class="tab-pane active" id="studentsView">{{> studentsView}}</div>
-    <div role="tabpanel" class="tab-pane" id="toolsView">{{> toolsView}}</div>
-    <div role="tabpanel" class="tab-pane" id="gamificationView">{{> gamificationView}}</div>
-    <div role="tabpanel" class="tab-pane" id="adventureView">{{> adventureView}}</div>
+  <div id="mainTab">
+    <div class="opacityDiv">
+      <!-- Tab panels -->
+      <div class="tab-content main-tab-content view">
+        <!--{{> studentsMainPage}}-->
+        <div role="tabpanel" class="tab-pane active" id="studentsView">{{> studentsView}}</div>
+        <div role="tabpanel" class="tab-pane" id="toolsView">{{> toolsView}}</div>
+        <div role="tabpanel" class="tab-pane" id="gamificationView">{{> gamificationView}}</div>
+        <div role="tabpanel" class="tab-pane" id="adventureView">{{> adventureView}}</div>
+      </div>
+    </div>
   </div>
-
 </template>

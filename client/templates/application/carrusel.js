@@ -23,6 +23,11 @@ Template.carrusel.events({
     event.preventDefault();
     //location.href = 'https://www.myclassgame.tk/';
     Session.set('userType', "teacher");
+    if ( $(event.currentTarget).hasClass("btnGamiRight") ) {
+      Session.set('gamiright', true);
+    } else {
+      Session.set('gamiright', false);
+    }
     Modal.show('signinModal');
   },
   'click .hiddenBtnSignin': function(event) {

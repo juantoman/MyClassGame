@@ -3,6 +3,12 @@ Template.signinModal.onRendered(function() {
   Session.set('signInType', "email");
 });
 
+Template.signinModal.helpers({
+  gamiright: function() {
+    return Session.get('gamiright');
+  }
+});
+
 Template.signinModal.events({
   'click .btnSignin': function(event) {
     event.preventDefault();
