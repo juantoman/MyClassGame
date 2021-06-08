@@ -368,14 +368,18 @@ body {
 #logoGamiRight {
   position: fixed;
   bottom: 20px;
-  right:10px;
-  -webkit-filter: drop-shadow(5px 5px 5px #333 );
-  filter: drop-shadow(0px 0px 5px #333);
+  right:20px;
   transition: all .5s;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-weight:400;
+  letter-spacing: 5px;
+  font-style:normal;
+  background-color: rgb(38, 139, 210, 0.7);
+  padding: 0 20px;
+  border-radius: 50px;
 }
 
 #logoGamiRight:hover {
   transform: scale(1.1);
-  -webkit-filter: drop-shadow(5px 5px 5px #000 );
-  filter: drop-shadow(0px 0px 5px #000);
 }
