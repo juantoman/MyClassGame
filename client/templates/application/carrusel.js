@@ -28,7 +28,34 @@ Template.carrusel.events({
     } else {
       Session.set('gamiright', false);
     }
-    Modal.show('signinModal');
+    if ( $(event.currentTarget).hasClass("btnMCGDemo") ) {
+      Session.set('mcgdemo', true);
+    } else {
+      Session.set('mcgdemo', false);
+    }
+    if (Session.get('mcgdemo')) {
+      user="demo";
+      password="mcgdemo";
+      Meteor.loginWithPassword(user, password,function(error){
+        if(error) {
+          swal({
+              title: TAPi18n.__('loginError'),
+              text: error.reason,
+              icon: "warning",
+          });
+        }else{
+          Session.setPersistent('navItem', "Students");
+          Session.setPersistent('sogBtn',"students");
+          Session.setPersistent('golBtn',"grid");
+          Session.set('studentSelected', false);
+          Session.set('orderStudents', "XP");
+          Session.set('invertOrder', "checked");
+          Router.go('classesPage');
+        }
+      });
+    } else {
+      Modal.show('signinModal');
+    }
   },
   'click .hiddenBtnSignin': function(event) {
     event.preventDefault();

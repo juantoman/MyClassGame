@@ -365,21 +365,26 @@ body {
   border: 1px solid transparent !important ;
 }
 
-#logoGamiRight {
+.rightButton {
   position: fixed;
-  bottom: 20px;
-  right:20px;
+  top: 70px;
+  right:5px;
   transition: all .5s;
-  color: white;
+  color: white !important;
   font-family: "Playfair Display", serif;
   font-weight:400;
   letter-spacing: 5px;
   font-style:normal;
-  background-color: rgb(38, 139, 210, 0.7);
-  padding: 0 20px;
+  background-color: rgb(38, 139, 210, 1);
+  padding: 0px 10px;
   border-radius: 50px;
+  box-shadow: 2px 2px 10px black;
 }
 
-#logoGamiRight:hover {
-  transform: scale(1.1);
+.rightButton:hover {
+  box-shadow: 2px 2px 10px white;
+}
+
+.rightButton * {
+  margin: 2px;
 }

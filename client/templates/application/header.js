@@ -66,6 +66,9 @@ Template.header.helpers({
   },
   gamiright: function() {
     return Session.get('gamiright');
+  },
+  mcgdemo: function() {
+    return Session.get('mcgdemo');
   }
 });
 
@@ -113,5 +116,10 @@ Template.header.events({
     $("#studentsMain").addClass("active");
     $("#sM").addClass("active");
     $("#collapseStudents").removeClass("in");
+  },
+  'click #mcgDemo': function(event) {
+    event.preventDefault();
+    Meteor.logout();
+    window.location.href = "/";
   }
 });
