@@ -55,6 +55,8 @@ Template.classesModals.events({
           studentImg:"",
           evaluation: 1,
           CoinXP: true,
+          CoinsRel: 1,
+          XPsRel: 1,
           createdOn: new Date()
         };
         //Meteor.call('classInsert', classe);
