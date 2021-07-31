@@ -3,17 +3,7 @@
     {{#with parametersClass}}
     <br />
     <form class="parametersList">
-      <div class="form-group">
-        <!--<label class="control-label" for="inputGroupSuccess1">Parámetros de mi clase</label>-->
-        <div class="input-group col-xs-11">
-          <span class="input-group-addon">{{_ 'evaluation'}}</span>
-          <select class="custom-select form-control input-lg" id="evaluacion" name="evaluacion">
-            <option value="1" {{selEval "1"}}>1 {{_ 'evaluation'}}</option>
-            <option value="2" {{selEval "2"}}>2 {{_ 'evaluation'}}</option>
-            <option value="3" {{selEval "3"}}>3 {{_ 'evaluation'}}</option>
-          </select>
-        </div>
-      </div>
+      
 
 
         <!-- <div class="form-group form-inline">
@@ -32,25 +22,26 @@
 
         </div> -->
         <div class="form-group">
-          <label class="control-label">{{_ "images"}}</label>
+          <!-- <label class="control-label">{{_ "images"}}</label> -->
+          <legend  class="w-auto">{{_ "images"}}</legend>
           <div class="row">
-            <div class="paramsImage">
+            <div class="paramsImage studentImage">
               <div class="thumbnail">
-                <h4 class="studentImage text-center">{{_ 'studentImage'}}</h4>
-                <img src="{{sImage}}" class="studentImage" style="padding:5%;">
+                <h4 class="text-center">{{_ 'studentImage'}}</h4>
+                <img src="{{sImage}}" style="padding:5%;">
               </div>
             </div>
-            <div class="paramsImage">
+            <div class="paramsImage groupImage">
               <div class="thumbnail">
-                <h4 class="groupImage text-center">{{_ 'teamImage'}}</h4>
-                <img src="{{gImage}}" class="groupImage" style="padding:5%;">
+                <h4 class="text-center">{{_ 'teamImage'}}</h4>
+                <img src="{{gImage}}" style="padding:5%;">
               </div>
             </div>
-            <div class="paramsImage">
+            <div class="paramsImage backImage">
               <div class="thumbnail">
                 <span class="glyphicon glyphicon-remove" id="delBackImage"></span>
-                <h4 class="backImage text-center">{{_ 'backgroundImage'}}</h4>
-                <img src="{{bImage}}" class="backImage" style="padding:5%;">
+                <h4 class="text-center">{{_ 'backgroundImage'}}</h4>
+                <img src="{{bImage}}" style="padding:5%;">
               </div>
             </div>
           </div>
@@ -75,7 +66,17 @@
         -->
 
         <div class="form-group">
-          <legend  class="w-auto">Your Legend</legend>
+          <legend  class="w-auto">{{_ "parameters"}}</legend>
+
+          <div class="input-group col-xs-11">
+            <span class="input-group-addon">{{_ 'evaluation'}}</span>
+            <select class="custom-select form-control input-lg" id="evaluacion" name="evaluacion">
+              <option value="1" {{selEval "1"}}>1 {{_ 'evaluation'}}</option>
+              <option value="2" {{selEval "2"}}>2 {{_ 'evaluation'}}</option>
+              <option value="3" {{selEval "3"}}>3 {{_ 'evaluation'}}</option>
+            </select>
+          </div>
+
           <div class="input-group col-xs-11">
               <input type="checkbox" id="avatarVisible" {{ch avatarVisible}}>
               <label class="control-label" for="xpCheck"> {{_ 'seeAvatars'}}</label>
@@ -128,7 +129,7 @@
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
-
+          <!--
           <div class="input-group col-xs-11">
             <span class="input-group-addon">{{_ 'XPWeight'}}</span>
             <input type="text" class="form-control input-lg" name="perXP" value="{{perXP}}" id="perXP" aria-describedby="inputGroupSuccess1Status">
@@ -170,16 +171,18 @@
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
           </div>
+          -->
         </div>
-
-      <div class="form-group">
+        <br />
+      <div class="form-group parametersButtons">
+        <legend  class="w-auto">{{_ "Reset"}}</legend>
         <div class="input-group mb-3">
-          <input type="submit" id="btn-reset" value="{{_ 'resetAll'}}" class="btn btn-info">
-          <br /><br />
-          <input type="submit" id="btn-resetXPHP" value="{{_ 'resetXP&HP'}}" class="btn btn-info">
+          <input type="button" id="btn-reset" value="{{_ 'resetAll'}}" class="btn btn-info">    
+          <input type="button" id="btn-resetXPHP" value="{{_ 'resetXP&HP'}}" class="btn btn-info">
         </div>
       </div>
     </form>
+    <br /><br />
     {{/with}}
   </div>
 </template>

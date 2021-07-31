@@ -23,3 +23,7 @@
   border-color: lightgray;
   color:gray;
 }
+
+.parametersButtons input{
+  margin-right: 10px;
+}
