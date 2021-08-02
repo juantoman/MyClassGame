@@ -1188,7 +1188,7 @@ Template.studentProfile.events({
   },
   'click .demandCard': function(event) {
     event.preventDefault();
-    if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
+    if (parseFloat(students.findOne({'_id':Session.get('studentId')}).coins) >= parseFloat(event.currentTarget.title)){
       swal({
         title: TAPi18n.__('use') + " " + TAPi18n.__('power'),
         text: TAPi18n.__('areYouSure'),
@@ -1235,7 +1235,7 @@ Template.studentProfile.events({
   },
   'click .useCard': function(event) {
     event.preventDefault();
-    if (students.findOne({'_id':Session.get('studentId')}).coins >= event.currentTarget.title){
+    if (parseFloat(students.findOne({'_id':Session.get('studentId')}).coins) >= parseFloat(event.currentTarget.title)){
       swal({
         title: TAPi18n.__('use') + " " + TAPi18n.__('power'),
         text: TAPi18n.__('areYouSure'),
@@ -1644,7 +1644,7 @@ Template.studentProfile.events({
         title: TAPi18n.__('lowLevel'),
         type: 'warning'
       })
-    } else if (this.chromePrice > coins ) {
+    } else if (parseFloat(this.chromePrice) > parseFloat(coins) ) {
       swal({
         title: TAPi18n.__('noMoney'),
         type: 'warning'
@@ -1715,7 +1715,7 @@ Template.studentProfile.events({
         title: TAPi18n.__('lowLevel'),
         type: 'warning'
       })
-    } else if (this.price > coins ) {
+    } else if (parseFloat(this.price) > parseFloat(coins) ) {
       swal({
         title: TAPi18n.__('noMoney'),
         type: 'warning'
@@ -1877,7 +1877,7 @@ Template.studentProfile.events({
     coins=students.findOne({_id: Session.get('studentId')}).coins;
     myclass=classes.findOne({_id: Session.get('classId')});
     if (myclass.stickersEnvelope>0) {
-      if ( coins < myclass.envelopePrice ) {
+      if ( parseFloat(coins) < parseFloat(myclass.envelopePrice) ) {
         swal({
           title: TAPi18n.__('noMoney'),
           type: 'warning'
