@@ -7,7 +7,7 @@ Template.studentsMainPage.onRendered(function() {
   c=c.concat(teacherClasses,studentClasses);
   c=_.uniq(c);
   classId=location.pathname.substring(10);
-  if ( ! c.includes(classId)  ) {
+  if ( ! c.includes(classId) && Meteor.user().services.google.email != "Juan.Torres@iestacio.com" ) {
     if ( location.host == 'localhost:8000' ) {
       location.href = 'http://localhost:8000/';
     }

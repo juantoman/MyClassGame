@@ -64,6 +64,11 @@ Meteor.publish('classes', function(classId) {
       return classes.find({"_id": { "$in": c }});
     }*/
 });
+
+Meteor.publish('visibleClasses', function() {
+  classes.find( { "visibleClass": true }, { fields: { 'className': 1, 'groupImg': 1 } } );
+});
+
 Meteor.publish('students', function(type,classId) {
   if (classId){
     return students.find({"classId":classId});
