@@ -12,4 +12,9 @@
       </div>
     </div>
   </div>
+  {{#if currentUser}}
+    <a href="#" class="copyVisibleClassButton">
+      <h4><i class="fas fa-copy"></i> {{_ "copy"}}</h4>
+    </a>
+  {{/if}}
 </template>

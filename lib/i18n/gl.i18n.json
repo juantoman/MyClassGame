@@ -379,5 +379,6 @@
     "restore": "Recuperar",
     "restored": "Recuperada",
     "fileBackup": "Ficheiro de Backup",
-    "noFile": "No tes seleccionado ningún ficheiro"
+    "noFile": "No tes seleccionado ningún ficheiro",
+    "sharedClasses": "Clases compartidas"
 }

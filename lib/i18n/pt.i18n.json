@@ -378,5 +378,6 @@
     "restore": "Recuperar",
     "restored": "Recuperada",
     "fileBackup": "Arquivo de Backup",
-    "noFile": "Você não selecionou nenhum arquivo"
+    "noFile": "Você não selecionou nenhum arquivo",
+    "sharedClasses": "Aulas compartilhadas"
 }

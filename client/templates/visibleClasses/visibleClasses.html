@@ -1,0 +1,22 @@
+<template name="visibleClasses">
+    {{> leftNav}}
+    <br/>
+    <h3 class="nameSection">{{_ "visibles"}}</h3>
+    <br/>
+    <br/>
+    <div class="container-fluid myContent activeClasses float-up">
+        <div class="row" id="allClasses">  
+        {{#each visibleClasses}}
+            <figure class="card card__ice btn-class btn-visibleClass" style="margin:5px auto;">
+            <div class="card__image-container" >
+                <img src="{{classImage}}" class="card__image">
+            </div>
+            <figcaption class="card__caption">
+                <h1 class="card__name">{{className}}</h1>
+            </figcaption>
+            </figure>
+        {{/each}}
+        </div>
+    </div>
+    <br />
+</template>

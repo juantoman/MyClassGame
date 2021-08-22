@@ -5,3 +5,28 @@
 #villainsView input {
   background-color: transparent !important;
 }
+
+.copyVisibleClassButton {
+  position: fixed;
+  bottom: 30px;
+  right:5px;
+  transition: all .5s;
+  color: white !important;
+  font-family: "Playfair Display", serif;
+  font-weight:400;
+  letter-spacing: 5px;
+  font-style:normal;
+  background-color: orangered;
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 10px black;
+  z-index: 100;
+}
+
+.copyVisibleClassButton:hover {
+  box-shadow: 2px 2px 10px white;
+}
+
+.copyVisibleClassButton * {
+  margin: 2px;
+}

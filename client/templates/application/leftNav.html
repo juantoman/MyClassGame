@@ -16,26 +16,28 @@
             <i class="fas fa-times"></i>
           </div>
         </div>
-        <div class="sidebar-header">
-          <div class="user-pic">
-            <img class="img-responsive img-rounded" src="{{userImage}}"
-              alt="User picture">
+        {{#if currentUser}}
+          <div class="sidebar-header">
+            <div class="user-pic">
+              <img class="img-responsive img-rounded" src="{{userImage}}"
+                alt="User picture">
+            </div>
+            <div class="user-info">
+              <span class="user-name">{{userN}}
+              </span>
+              <span class="user-role">{{userType}}</span>
+              <span class="user-status">
+                <i class="fa fa-circle"></i>
+                <span>Online</span>
+              </span>
+            </div>
+            <div id="closeSessionBtn">
+              <a href="#" class="closeSession">
+                <i class="fa fa-power-off"></i>
+              </a>
+            </div>
           </div>
-          <div class="user-info">
-            <span class="user-name">{{userN}}
-            </span>
-            <span class="user-role">{{userType}}</span>
-            <span class="user-status">
-              <i class="fa fa-circle"></i>
-              <span>Online</span>
-            </span>
-          </div>
-          <div id="closeSessionBtn">
-            <a href="#" class="closeSession">
-              <i class="fa fa-power-off"></i>
-            </a>
-          </div>
-        </div>
+        {{/if}}
         <!-- sidebar-header
         <div class="sidebar-search">
           <div>
@@ -85,6 +87,12 @@
                 </ul>
               </div>
               -->
+            </li>
+            <li>
+              <a href="/visibleClasses">
+                <i class="fas fa-eye"></i>
+                <span>{{_ "Visibles"}}</span>
+              </a>
             </li>
             {{#if className}}
             <li>

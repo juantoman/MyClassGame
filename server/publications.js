@@ -65,10 +65,6 @@ Meteor.publish('classes', function(classId) {
     }*/
 });
 
-Meteor.publish('visibleClasses', function() {
-  classes.find( { "visibleClass": true }, { fields: { 'className': 1, 'groupImg': 1 } } );
-});
-
 Meteor.publish('students', function(type,classId) {
   if (classId){
     return students.find({"classId":classId});
@@ -562,4 +558,14 @@ Meteor.publish('imagesView', function(classId) {
   if (classId){
     return images.find({"classId":classId});
   }
+});
+
+Meteor.publish('visibleClasses', function() {
+  return classes.find( { "visibleClass": true } );
+});
+
+Meteor.publish('imagesVisibleClasses', function() {
+  v=[];
+  classes.find({"visibleClass": true}).forEach(function(c){v.push(c._id);});
+  return images.find( { "classId": { "$in": v } } );
 });
