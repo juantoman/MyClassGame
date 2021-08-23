@@ -1,6 +1,6 @@
 Template.visibleClasses.helpers({
     visibleClasses: function() {
-      return classes.find( { "visibleClass": true });
+      return classes.find( { "visibleClass": true } , { sort: { ncopies: -1 } } );
     },
     classImage: function() {
       avatar=this.groupImg;

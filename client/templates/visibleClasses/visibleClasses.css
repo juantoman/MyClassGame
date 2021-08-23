@@ -1,0 +1,11 @@
+.btn-visibleClass {
+    position:relative;
+    margin:5px auto;
+}
+
+.ncopies {
+    position:absolute;
+    background-color: limegreen !important;
+    bottom: 20px;
+    right: 20px;
+}

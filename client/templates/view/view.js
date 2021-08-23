@@ -19,22 +19,34 @@ Template.view.onRendered(function() {
 Template.view.events({
   'click .copyVisibleClassButton': function(event) {
     event.preventDefault();
-    cId=Session.get('classId');
-    var c = classes.findOne({'_id': cId});
-    delete c._id;
-    c.teacherId=Meteor.userId();
-    c.className="Copia_" + c.className;
-    c.iniHP=10;
-    c.visibleClass=false;
-    Meteor.call('classDuplicate',c,cId);
     swal({
-      title: TAPi18n.__('duplicateClass'),
-      type: 'success'
-    });
-    Session.set('className', '');
-    Session.set('studentSelected', false);
-    Session.set('groupSelected', false);
-    $("#fondo").css("background-image", "");
-    Router.go('classesPage');
+      title: TAPi18n.__('copy') + " " + TAPi18n.__('class'),
+      text: TAPi18n.__('areYouSure'),
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes'),
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        cId=Session.get('classId');
+        var c = classes.findOne({'_id': cId});
+        delete c._id;
+        c.teacherId=Meteor.userId();
+        c.className="Copia_" + c.className;
+        c.iniHP=10;
+        c.visibleClass=false;
+        Meteor.call('classDuplicate',c,cId);
+        Meteor.call('incNCopies',cId);
+        swal({
+          title: TAPi18n.__('duplicateClass'),
+          type: 'success'
+        })
+        Session.set('className', '');
+        Session.set('studentSelected', false);
+        Session.set('groupSelected', false);
+        $("#fondo").css("background-image", "");
+        Router.go('classesPage');
+      }
+    })
   },
 })
