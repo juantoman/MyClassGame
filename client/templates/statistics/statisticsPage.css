@@ -5,3 +5,7 @@
 .table-responsive tr:hover td {
    background-color: rgba(0, 100, 150 , .3) !important;
 }
+
+#historytable {
+   height:80vh;
+}

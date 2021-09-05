@@ -5,7 +5,7 @@
   -->
   <h3 class="nameSection">{{_ "history"}}</h3>
   <div class="container-fluid float-up">
-    <div class="table-responsive">
+    <div id="historytable" class="table-responsive">
       <!--
       {{#each statistics}}
         <h3>{{student}}</h3>
@@ -103,7 +103,11 @@
         {{/each}}
         </tbody>
       </table>
+      <!-- <nav aria-label="...">
+        <ul class="pager pagination-lg">
+          <li class="nextpage"><a href="#">+</a></li>
+        </ul>
+      </nav> -->
     </div>
-    <br />
   </div>
 </template>

@@ -1857,7 +1857,7 @@ Template.studentProfile.events({
   },
   'click .studentHistory': function(event) {
     event.preventDefault();
-    Meteor.subscribe('behavioursLog',"class",Session.get('classId'));
+    Meteor.subscribe('behavioursLog',"class",Session.get('classId'),Session.get('npage'),Session.get('studentId'));
     //Router.go('statisticsPage',{_id:Session.get('classId')});
   },
   'click .studentUserId': function(event) {
@@ -1927,6 +1927,14 @@ Template.studentProfile.events({
           }
         })
       }
+    }
+  },
+  'scroll .studenthistorytable': function(event) {
+    event.preventDefault();
+    mainContainer=event.target;
+    if(mainContainer.scrollHeight - mainContainer.scrollTop <= mainContainer.clientHeight) {
+      Session.set('npage', Session.get('npage')+1);
+      Meteor.subscribe('behavioursLog',"class",Session.get('classId'),Session.get('npage'),Session.get('studentId'));
     }
   }
 });

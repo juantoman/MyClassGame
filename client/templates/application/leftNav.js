@@ -302,7 +302,7 @@ Template.leftNav.events({
   },
   'click #statistics2': function(event) {
     event.preventDefault();
-    Meteor.subscribe('behavioursLog',"class",Session.get('classId'));
+    Meteor.subscribe('behavioursLog',"class",Session.get('classId'),0);
     //Router.go('statisticsPage',{_id:Session.get('classId')});
   },
   'click #questions2': function(event) {

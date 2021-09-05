@@ -1,5 +1,6 @@
 var sort = new ReactiveVar({});
 sort.set({ createdOn: -1 });
+Session.set('npage',0);
 
 Template.statisticsPage.helpers({
   statistics: function() {
@@ -67,5 +68,18 @@ Template.statisticsPage.events({
     }
     //alert(event.target.parentElement.parentElement.childElementCount);
     Meteor.call('behaviourLogDelete',this._id);
+  },
+  'click .nextpage': function(event) {
+    event.preventDefault();
+    Session.set('npage', Session.get('npage')+1);
+    Meteor.subscribe('behavioursLog',"class",Session.get('classId'),Session.get('npage'));
+  },
+  'scroll #historytable': function(event) {
+    event.preventDefault();
+    mainContainer=event.target;
+    if(mainContainer.scrollHeight - mainContainer.scrollTop <= mainContainer.clientHeight) {
+      Session.set('npage', Session.get('npage')+1);
+      Meteor.subscribe('behavioursLog',"class",Session.get('classId'),Session.get('npage'));
+    }
   }
 });

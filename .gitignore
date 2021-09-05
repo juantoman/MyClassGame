@@ -1,2 +1,3 @@
 node_modules/
 /init.sh
+/.deploy2/mup.js

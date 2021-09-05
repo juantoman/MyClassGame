@@ -40,5 +40,9 @@ Template.leftNavView.events({
     Session.set('groupSelected', false);
     $("#fondo").css("background-image", "");
     Router.go('classesPage');
+  },
+  'click .ClassId': function(event) {
+    event.preventDefault();
+    Modal.show('messageModal');
   }
 })
