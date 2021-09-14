@@ -406,8 +406,8 @@ body {
 
 #mcgpet {
   position: absolute;
-  right: 10px;
-  top: 100px;
+  right: 0px;
+  top: 140px;
   transition: all .5s ease;
 }
 

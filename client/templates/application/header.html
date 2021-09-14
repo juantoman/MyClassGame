@@ -12,7 +12,18 @@
             <!-- {{#unless version "1.3"}} <a class="btn btn-warning" href="#" onclick="window.open('https://drive.google.com/drive/folders/1EsG8rrhcWK5NYvC_g7lxsveCO245rX3M?usp=sharing')" id="mcgMobileVersion">Update</a>{{/unless}} -->
           </div>
         </a>
-        <span id="i18nDropdown">{{> i18n_dropdown}}</span>
+        <span id="i18nDropdown">
+          <span class="tap-i18n-dropdown">
+            {{#if i18n_enabled}}
+              <select class="form-control">
+                {{#each i18n_sortedLanguages}}
+                  <option value="{{tag}}" selected={{i18n_isCurrentLanguage tag}}>{{langname name}}</option>
+                {{/each}}
+              </select>
+            {{else}}
+              <span class="i18n-not-found">No i18n files found</span>
+            {{/if}}
+          </span></span>
       </div><!-- /.container-fluid -->
     </nav>
     {{#if gamiright}}

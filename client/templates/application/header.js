@@ -69,6 +69,11 @@ Template.header.helpers({
   },
   mcgdemo: function() {
     return Session.get('mcgdemo');
+  },
+  langname: function(name) {
+    if ( name=="es-AS" ) { name="Asturianu"}
+    if ( name=="ca-VA" ) { name="Valencià"}
+    return name;
   }
 });
 
@@ -121,5 +126,8 @@ Template.header.events({
     event.preventDefault();
     Meteor.logout();
     window.location.href = "/";
+  },
+  'change .tap-i18n-dropdown select' : function(e) {
+    TAPi18n.setLanguageAmplify($(e.currentTarget).val());
   }
 });
