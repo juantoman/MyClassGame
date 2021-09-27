@@ -715,34 +715,34 @@ Template.allCoinsModal.events({
   'click #allCoinsModalSubmit': function(event) {
     event.preventDefault();
     $('#all_coins_modal').find(".activeTask").each( function() {
-      coins=parseInt($(this).find(".badge").text());
+      acoins=parseFloat($(this).find(".badge").text());
       win=$("#AllWinOrLose").is(":checked");
-      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (s){
         if (win) {
-          Meteor.call('incCoins', item["_id"], coins);
+          Meteor.call('incCoins', s["_id"], acoins);
         } else {
-          Meteor.call('incCoins', item["_id"], -coins);
+          Meteor.call('incCoins', s["_id"], -acoins);
         }
 
       });
     });
-    $('#all_coins_modal').find(".list-group-item-danger").each( function() {
-      itemId=this.id;
-      price=parseInt($(this).find(".badge").text());
-      students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
-        coins = students.findOne({_id: item["_id"]}).coins;
-        if ( coins >= price ) {
-          Meteor.call('buyingItem', item["_id"], itemId, price);
-          coins-=price;
-        } else {
-          swal({
-            title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
-            text: TAPi18n.__('workHard'),
-            icon: "warning",
-          });
-        }
-      });
-    });
+    // $('#all_coins_modal').find(".list-group-item-danger").each( function() {
+    //   itemId=this.id;
+    //   price=parseInt($(this).find(".badge").text());
+    //   students.find( { $and: [ { selected: 1 } , { classId: Session.get('classId')  } ] } ).forEach(function (item){
+    //     coins = students.findOne({_id: item["_id"]}).coins;
+    //     if ( coins >= price ) {
+    //       Meteor.call('buyingItem', item["_id"], itemId, price);
+    //       coins-=price;
+    //     } else {
+    //       swal({
+    //         title: students.findOne({_id: item["_id"]}).studentName + " " + TAPi18n.__('studentWithoutMoney'),
+    //         text: TAPi18n.__('workHard'),
+    //         icon: "warning",
+    //       });
+    //     }
+    //   });
+    // });
     Modal.hide('allCoinsModal');
   },
   'click .btn-info': function(event) {

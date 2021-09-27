@@ -29,9 +29,9 @@ Template.carrusel.events({
       Session.set('gamiright', false);
     }
     if ( $(event.currentTarget).hasClass("btnMCGDemo") ) {
-      Session.set('mcgdemo', true);
+      Session.setPersistent('mcgdemo', true);
     } else {
-      Session.set('mcgdemo', false);
+      Session.setPersistent('mcgdemo', false);
     }
     if (Session.get('mcgdemo')) {
       user="demo";

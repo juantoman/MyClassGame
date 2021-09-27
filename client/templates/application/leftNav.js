@@ -154,6 +154,13 @@ Template.leftNav.helpers({
    } else {
      return true;
    }
+ },
+ mcgdemo: function() {
+   if (Session.get('mcgdemo')) {
+    return true;
+   } else {
+    return false;
+   };
  }
 })
 
@@ -353,5 +360,22 @@ Template.leftNav.events({
   'click .collaborate': function(event) {
     event.preventDefault();
     Modal.show('notifyModal');
+  },
+  'click #studentRol': function(event) {
+    event.preventDefault();
+    swal({
+      title: TAPi18n.__('StudentRol'),
+      text: "¡¡¡PELIGRO!!! Este paso no tiene vuelta atrás, " + TAPi18n.__('areYouSure'),
+      type: 'error',
+      showCancelButton: true,
+      confirmButtonText: TAPi18n.__('yes') + ". Soy ESTUDIANTE y me he confundido en el registro. Quiero dejar de ser profesor para SIEMPRE.",
+      cancelButtonText: 'No. Soy PROFESOR y siempre lo seré.',
+      dangerMode: true
+    }).then((result) => {
+      if (result.value) {     
+        Meteor.call('userTypeInsert', 'student');
+        window.location.href = "/";
+      }
+    })
   }
 })

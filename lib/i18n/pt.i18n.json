@@ -365,6 +365,7 @@
     "incorrectClassId": "ClassId errado",
     "import": "Importar",
     "studentCanChangeImage": "Aluno pode mudar o avatar",
+    "studentsCanChangeImage": "Os alunos podem mudar o avatar",
     "envelopeParameters": "Parâmetros de envelope",
     "envelopePrice": "Preço do envelope",
     "stickersEnvelope": "Número de adesivos por envelope",

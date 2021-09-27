@@ -94,6 +94,16 @@
                 <span>{{_ "sharedClasses"}}</span>
               </a>
             </li>
+            {{#if teacher}}
+              {{#unless mcgdemo}}
+                <li>
+                  <a href="#" id="studentRol">
+                    <i class="fas fa-ban"></i>
+                    <span>{{_ "StudentRol"}}</span>
+                  </a>
+                </li>
+              {{/unless}}
+            {{/if}}
             {{#if className}}
             <li>
               <a href="#">

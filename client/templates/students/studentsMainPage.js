@@ -386,5 +386,29 @@ Template.studentsMainPage.events({
   'click .btn-compressCard': function(event) {
     event.preventDefault();
     Session.set("compressCard",!Session.get("compressCard"))
+  },
+  'click .btn-images': function(event) {
+    event.preventDefault();
+    if (students.find( { classId: Session.get('classId'), selected: 1  } ).count() > 0 ) {
+      swal({
+        title: TAPi18n.__('studentsCanChangeImage'),
+        text: TAPi18n.__('areYouSure'),
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: TAPi18n.__('yes'),
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.value) {
+          students.find( { classId: Session.get('classId'), selected: 1  } ).forEach(function (item){
+            Meteor.call('studentCanChangeImage', item["_id"],true);
+          });
+          swal({
+            title: TAPi18n.__('studentsCanChangeImage'),
+            type: 'success'
+          })
+        // result.dismiss can be 'overlay',e 'cancel', 'close', 'esc', 'timer'
+        }
+      })
+    }
   }
  });

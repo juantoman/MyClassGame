@@ -352,8 +352,14 @@ body {
 
 #i18nDropdown{
   position:absolute;
-  right:15px;
+  right:9rem;
   top:15px;
+}
+
+#i18nDropdown select{
+font-size: 1.1rem !important;
+width: 70px;
+padding:0;
 }
 
 .btnCF {
@@ -407,7 +413,7 @@ body {
 #mcgpet {
   position: absolute;
   right: 0px;
-  top: 140px;
+  top: 0px;
   transition: all .5s ease;
 }
 
@@ -418,5 +424,5 @@ body {
 }
 
 #mcgpet img {
-  width:20vmin;
+  width:9rem;
 }

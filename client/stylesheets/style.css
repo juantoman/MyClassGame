@@ -508,6 +508,8 @@ label {
   width:90%;
   top:104px;
   border:1px solid lightblue;
+  overflow-y:auto;
+  max-height:calc(90vh - 100px);
 }
 
 .submenu label{
