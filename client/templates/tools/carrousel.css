@@ -185,6 +185,7 @@
   font-weight: bold !important;
   margin:0 !important;
 }
+
 .carousel__cell p.onlyTextRandom {
   display: table-cell;
   vertical-align: middle;

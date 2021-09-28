@@ -9,9 +9,9 @@ Template.randomCarousel.onRendered(function() {
 Template.randomCarousel.helpers({
  students: function() {
    if (Session.get("randomAll")) {
-     return students.find({classId: Session.get('classId')});
+     return students.find({classId: Session.get('classId'), 'present': 1});
    } else {
-     return students.find({classId: Session.get('classId'),'random':true});
+     return students.find({classId: Session.get('classId'),'random':true, 'present': 1});
    }
  },
  events: function() {

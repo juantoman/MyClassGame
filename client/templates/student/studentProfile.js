@@ -1860,6 +1860,10 @@ Template.studentProfile.events({
     Meteor.subscribe('behavioursLog',"class",Session.get('classId'),Session.get('npage'),Session.get('studentId'));
     //Router.go('statisticsPage',{_id:Session.get('classId')});
   },
+  'click .studentChromes': function(event) {
+    event.preventDefault();
+    //Meteor.subscribe('chromes',"class",Session.get("classId"));
+  },
   'click .studentUserId': function(event) {
     event.preventDefault();
     if ( !this.userId && students.find( {classId: Session.get('classId'), userId:Meteor.userId() } ).count()==0 && Meteor.user().userType == "student" ) {
