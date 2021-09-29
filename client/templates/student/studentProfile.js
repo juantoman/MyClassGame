@@ -1862,7 +1862,7 @@ Template.studentProfile.events({
   },
   'click .studentChromes': function(event) {
     event.preventDefault();
-    //Meteor.subscribe('chromes',"class",Session.get("classId"));
+    Meteor.subscribe('chromes',"class",Session.get("classId"));
   },
   'click .studentUserId': function(event) {
     event.preventDefault();

@@ -130,211 +130,267 @@ Meteor.methods({
     if (cId!="") {
       if (elements.includes('fancy-checkbox-students')) {
         students.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          item.XP=0;
-          item.HP=10;
-          item.energy=0,
-          item.level=0;
-          item.coins=0;
-          item.present=1;
-          item.rs=0;
-          item.os=0;
-          item.ys=0;
-          item.ws=0;
-          item.bs=0;
-          item.gs=0;
-          item.badges=[];
-          item.items=[];
-          item.powers=[];
-          item.cards=[];
-          item.collection=[];
-          if (item.avatar) {
-            if (!item.avatar.includes('http')) {
-              i=images.findOne({'_id': item.avatar});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.avatar=idn;
+          copied=students.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            item.XP=0;
+            item.HP=10;
+            item.energy=0,
+            item.level=0;
+            item.coins=0;
+            item.present=1;
+            item.rs=0;
+            item.os=0;
+            item.ys=0;
+            item.ws=0;
+            item.bs=0;
+            item.gs=0;
+            item.badges=[];
+            item.items=[];
+            item.powers=[];
+            item.cards=[];
+            item.collection=[];
+            if (item.avatar) {
+              if (!item.avatar.includes('http')) {
+                i=images.findOne({'_id': item.avatar});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.avatar=idn;
+              }
             }
+            Meteor.call('studentInsert',item);
           }
-          Meteor.call('studentInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-teams')) {
         groups.find({'classId': cId}).forEach(function(item){
           ida=item._id;
-          delete item._id;
-          item.classId=cnId;
-          if (item.groupImg) {
-            if (!item.groupImg.includes('http')) {
-              i=images.findOne({'_id': item.groupImg});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.groupImg=idn;
+          copied=groups.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.groupImg) {
+              if (!item.groupImg.includes('http')) {
+                i=images.findOne({'_id': item.groupImg});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.groupImg=idn;
+              }
             }
+            var idn = groups.insert(item);
+            students.update({'classId': cnId, 'groupId': ida}, {$set: {'groupId': idn}}, { multi: true} );
           }
-          var idn = groups.insert(item);
-          students.update({'classId': cnId, 'groupId': ida}, {$set: {'groupId': idn}}, { multi: true} );
         });
       }
       if (elements.includes('fancy-checkbox-events')) {
         randomEvents.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.eventImage) {
-            if (!item.eventImage.includes('http')) {
-              i=images.findOne({'_id': item.eventImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.eventImage=idn;
+          copied=randomEvents.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.eventImage) {
+              if (!item.eventImage.includes('http')) {
+                i=images.findOne({'_id': item.eventImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.eventImage=idn;
+              }
             }
+            Meteor.call('randomEventInsert',item);
           }
-          Meteor.call('randomEventInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-behaviours')) {
         behaviours.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.behaviourImage) {
-            if (!item.behaviourImage.includes('http')) {
-              i=images.findOne({'_id': item.behaviourImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.behaviourImage=idn;
+          copied=behaviours.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.behaviourImage) {
+              if (!item.behaviourImage.includes('http')) {
+                i=images.findOne({'_id': item.behaviourImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.behaviourImage=idn;
+              }
             }
+            Meteor.call('behaviourInsert',item);
           }
-          Meteor.call('behaviourInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-convictions')) {
         convictions.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          Meteor.call('convictionInsert',item);
+          copied=convictions.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            Meteor.call('convictionInsert',item);
+          }
         });
       }
       if (elements.includes('fancy-checkbox-badges')) {
         badges.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.badgeImage) {
-            if (!item.badgeImage.includes('http')) {
-              i=images.findOne({'_id': item.badgeImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.badgeImage=idn;
+          copied=badges.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.badgeImage) {
+              if (!item.badgeImage.includes('http')) {
+                i=images.findOne({'_id': item.badgeImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.badgeImage=idn;
+              }
             }
+            Meteor.call('badgeInsert',item);
           }
-          Meteor.call('badgeInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-powers')) {
         cards.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.cardImage) {
-            if (!item.cardImage.includes('http')) {
-              i=images.findOne({'_id': item.cardImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.cardImage=idn;
+          copied=cards.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.cardImage) {
+              if (!item.cardImage.includes('http')) {
+                i=images.findOne({'_id': item.cardImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.cardImage=idn;
+              }
             }
+            Meteor.call('cardInsert',item);
           }
-          Meteor.call('cardInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-collections')) {
-        chromes.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.chromeImage) {
-            if (!item.chromeImage.includes('http')) {
-              i=images.findOne({'_id': item.chromeImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.chromeImage=idn;
+        chromes.find({'classId': cId}).forEach(function(item){   
+          copied=chromes.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.chromeImage) {
+              if (!item.chromeImage.includes('http')) {
+                i=images.findOne({'_id': item.chromeImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.chromeImage=idn;
+              }
             }
+            Meteor.call('chromeInsert',item);
           }
-          Meteor.call('chromeInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-store')) {
         store.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.itemImage) {
-            if (!item.itemImage.includes('http')) {
-              i=images.findOne({'_id': item.itemImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.itemImage=idn;
+          copied=store.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.itemImage) {
+              if (!item.itemImage.includes('http')) {
+                i=images.findOne({'_id': item.itemImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.itemImage=idn;
+              }
             }
+            Meteor.call('itemInsert',item);
           }
-          Meteor.call('itemInsert',item);
         });
       }
       if (elements.includes('fancy-checkbox-levels')) {
         levels.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          Meteor.call('levelInsert',item);
+          copied=levels.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            Meteor.call('levelInsert',item);
+          }
         });
       }
       if (elements.includes('fancy-checkbox-quotes')) {
         quotes.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          Meteor.call('quoteInsert',item);
+          copied=quotes.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            Meteor.call('quoteInsert',item);
+          }
         });
       }
       if (elements.includes('fancy-checkbox-missions')) {
         challenges.find({'classId': cId}).forEach(function(item){
           mId=item._id;
-          delete item._id;
-          item.classId=cnId;
-          if (item.missionImg) {
-            if (!item.missionImg.includes('http')) {
-              i=images.findOne({'_id': item.missionImg});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.missionImg=idn;
+          copied=challenges.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.missionImg) {
+              if (!item.missionImg.includes('http')) {
+                i=images.findOne({'_id': item.missionImg});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.missionImg=idn;
+              }
             }
+            Meteor.call('chalDuplicate',item,cnId,mId);
           }
-          Meteor.call('chalDuplicate',item,cnId,mId);
         });
       }
       if (elements.includes('fancy-checkbox-quizzes')) {
         quizzes.find({'classId': cId}).forEach(function(item){
           qId=item._id;
-          delete item._id;
-          item.classId=cnId;
-          Meteor.call('quizDuplicate',item,cnId,qId);
+          copied=quizzes.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            Meteor.call('quizDuplicate',item,cnId,qId);
+          }
         });
       }
       if (elements.includes('fancy-checkbox-villains')) {
         villains.find({'classId': cId}).forEach(function(item){
-          delete item._id;
-          item.classId=cnId;
-          if (item.villainImage) {
-            if (!item.villainImage.includes('http')) {
-              i=images.findOne({'_id': item.villainImage});
-              delete i._id;
-              i.classId=cnId;
-              var idn = images.insert(i);
-              item.villainImage=idn;
+          copied=villains.find({'classId': cnId,'originId':item._id}).count();
+          if (copied==0) {
+            item.classId=cnId;
+            item.originId=item._id;
+            delete item._id;
+            if (item.villainImage) {
+              if (!item.villainImage.includes('http')) {
+                i=images.findOne({'_id': item.villainImage});
+                delete i._id;
+                i.classId=cnId;
+                var idn = images.insert(i);
+                item.villainImage=idn;
+              }
             }
+            Meteor.call('villainInsert',item);
           }
-          Meteor.call('villainInsert',item);
         });
       }
       return true;
