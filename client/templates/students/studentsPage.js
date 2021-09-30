@@ -231,11 +231,11 @@ Template.studentsPage.events({
   },
   'click .btn-xp': function(event) {
     event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
     Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('xpModal');
@@ -244,11 +244,11 @@ Template.studentsPage.events({
   },
   'click .btn-hp': function(event) {
     event.preventDefault();
-    if ($(event.target).closest('div').attr("id")){
-      Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
-    } else {
-      Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
-    }
+    // if ($(event.target).closest('div').attr("id")){
+    //   Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
+    // } else {
+    //   Session.setPersistent('studentId', $(event.target).closest('tr').attr("id"));
+    // }
     Session.setPersistent('studentId', this._id);
     if ( Session.get('userType')=="teacher") {
       Modal.show('hpModal');

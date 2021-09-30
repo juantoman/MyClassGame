@@ -356,5 +356,28 @@ Template.randomCarousel.events({
         width: '50%'
       })
     }
+  },
+  'click .btn-xp': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId', this._id);
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('xpModal');
+    }
+    event.stopPropagation();
+  },
+  'click .btn-hp': function(event) {
+    Session.setPersistent('studentId', this._id);
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('hpModal');
+    }
+    event.stopPropagation();
+  },
+  'click .btn-coins': function(event) {
+    event.preventDefault();
+    Session.setPersistent('studentId', this._id);
+    if ( Session.get('userType')=="teacher") {
+      Modal.show('coinsModal');
+    }
+    event.stopPropagation();
   }
 });
