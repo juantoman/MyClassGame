@@ -212,6 +212,9 @@ Template.studentsMainPage.events({
   'click .btn-chromes': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
+      if( chromes.find({'classId': Session.get('classId')}).count() == 0 ) {
+        Meteor.subscribe('chromes',"class",Session.get("classId"));
+      }
       Modal.show('allChromesModal');
     }
   },
