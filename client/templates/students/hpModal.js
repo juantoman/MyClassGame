@@ -71,6 +71,8 @@ Template.hpModal.events({
       Meteor.call('studentHP', Session.get('studentId'), -Session.get('addedHP'));
     }
     wc=wc-Session.get('addedHP');
+    var audio = new Audio('/sound/video-game-points-lost-retro-glitchedtones.mp3');
+    audio.play();
     Modal.hide('hpModal');
     if (hp <= wc) {
      Modal.show('conviction');

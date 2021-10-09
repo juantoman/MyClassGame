@@ -81,6 +81,8 @@ Template.xpModal.events({
       Meteor.call('behaviourLogInsert', behaviour);
       Meteor.call('studentXP', Session.get('studentId'), Session.get('addedXP'));
     }
+    var audio = new Audio('/sound/level-up-retro-video-game-soundroll.mp3');
+    audio.play();
     Modal.hide('xpModal');
   },
   'click .list-group-item': function(event) {

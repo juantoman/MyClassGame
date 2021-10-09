@@ -98,6 +98,8 @@ Template.coinsModal.events({
     //     });
     //   }
     // });
+    var audio = new Audio('/sound/money.mp3');
+    audio.play();
     Modal.hide('coinsModal');
   },
   'click .btn-default': function(event) {

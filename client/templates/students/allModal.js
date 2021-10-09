@@ -161,7 +161,6 @@ Template.allXPModal.events({
         };
         Meteor.call('behaviourLogInsert', behaviour);
         Meteor.call('studentXP', item["_id"], p);
-
       });
     });
     if ( Session.get('addedXP') != 0) {
@@ -184,6 +183,8 @@ Template.allXPModal.events({
         Meteor.call('studentXP', item["_id"], Session.get('addedXP'));
       });
     }
+    var audio = new Audio('/sound/level-up-retro-video-game-soundroll.mp3');
+    audio.play();
     Modal.hide('allXPModal');
   },
   'click .btn-info': function(event) {
@@ -291,6 +292,8 @@ Template.allHPModal.events({
         Meteor.call('studentHP', item["_id"], -Session.get('addedHP'));
       });
     }
+    var audio = new Audio('/sound/video-game-points-lost-retro-glitchedtones.mp3');
+    audio.play();
     Modal.hide('groupHPModal');
   },
   'click .btn-info': function(event) {
@@ -743,6 +746,8 @@ Template.allCoinsModal.events({
     //     }
     //   });
     // });
+    var audio = new Audio('/sound/money.mp3');
+    audio.play();
     Modal.hide('allCoinsModal');
   },
   'click .btn-info': function(event) {

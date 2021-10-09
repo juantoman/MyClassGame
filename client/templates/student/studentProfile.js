@@ -954,9 +954,6 @@ Template.studentProfile.events({
   },
   'click .btn-chromes': function(event) {
     event.preventDefault();
-    if( chromes.find({'classId': Session.get('classId')}).count() == 0 ) {
-      Meteor.subscribe('chromes',"class",Session.get("classId"));
-    }
     if ($(event.target).closest('div').attr("id")){
       Session.setPersistent('studentId', $(event.target).closest('div').attr("id"));
     } else {
@@ -1867,6 +1864,9 @@ Template.studentProfile.events({
     event.preventDefault();
     if( chromes.find({'classId': Session.get('classId')}).count() == 0 ) {
       Meteor.subscribe('chromes',"class",Session.get("classId"));
+    }
+    if( images.find({'classId': Session.get('classId'),'type':'chrome'}).count() == 0 ) {        
+      Meteor.subscribe('images',Session.get("classId"),["chrome"]);
     }
   },
   'click .studentUserId': function(event) {

@@ -212,8 +212,11 @@ Template.studentsMainPage.events({
   'click .btn-chromes': function(event) {
     event.preventDefault();
     if ( Session.get('userType')=="teacher") {
-      if( chromes.find({'classId': Session.get('classId')}).count() == 0 ) {
+      if( chromes.find({'classId': Session.get('classId')}).count() == 0 ) {        
         Meteor.subscribe('chromes',"class",Session.get("classId"));
+      }
+      if( images.find({'classId': Session.get('classId'),'type':'chrome'}).count() == 0 ) {        
+          Meteor.subscribe('images',Session.get("classId"),["chrome"]);
       }
       Modal.show('allChromesModal');
     }
