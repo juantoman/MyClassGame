@@ -1,8 +1,9 @@
+$.getScript("https://media-library.cloudinary.com/global/all.js");
 var last_image="";
 var new_image="";
 
 Template.imagesTemplate.onRendered(function() {
-   $.getScript("https://media-library.cloudinary.com/global/all.js");
+   $.getScript("https://upload-widget.cloudinary.com/global/all.js");
    key=mcgParameters.findOne({'_id':1}).GoogleApiKeyForCloudinary;
    //cloudName: 'myclassgame', 'c4mcg1', 'c4mcg2'
    //widget = cloudinary.createUploadWidget({ cloudName: 'myclassgame', uploadPreset: 'myclassgame', googleApiKey: key, cropping: true, croppingAspectRatio: 1, searchBySites: ["all", "cloudinary.com"], searchByRights: true}, function(error, result){
@@ -211,5 +212,24 @@ Template.imagesTemplate.events({
     $(".thumbnail,.card_image").removeClass("checked");
     $(event.currentTarget).find("input").prop("checked", true);
     $(event.currentTarget).addClass("checked");
+  },
+  'click .delcloud': function(event) {
+    event.preventDefault();
+    
+    var cloudinary = require("cloudinary-core");
+
+    var cl = new cloudinary.Cloudinary({cloud_name: "c4mcg1", secure: true});
+
+    // Change cloud name, API Key, and API Secret below
+
+    cl.config({ 
+      cloud_name: 'c4mcg1', 
+      api_key: '411178996743237', 
+      api_secret: '2jLtsfPQfVrXtm63v5M-93Ek_cw' 
+    });
+
+    // // Change 'sample' to any public ID of your choice
+
+    cl.v2.uploader.upload("https://res.cloudinary.com/c4mcg1/image/upload/q_auto,w_auto,h_150,f_auto,dpr_auto/v1634072191/myclassgame/PP_icono_2019_gcz9cd.svg", function(error, result) {console.log(result, error); });
   }
 });

@@ -8,9 +8,11 @@
     "@babel/runtime": "^7.0.0-beta.55",
     "babel-runtime": "^6.26.0",
     "chart.js": "^2.9.3",
+    "cloudinary-core": "^2.12.0",
     "dhtmlx-scheduler": "^5.3.9",
     "google-auth-library": "^5.10.1",
     "googleapis": "^39.2.0",
+    "lodash": "^4.17.21",
     "meteor-node-stubs": "^0.2.6",
     "sweetalert": "^2.1.2"
   }
