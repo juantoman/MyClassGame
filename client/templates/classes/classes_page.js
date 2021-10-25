@@ -119,8 +119,8 @@ Template.classesPage.events({
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
     $("#fondo").css("background-image", "url("+backImg+")");
-    Session.set('orderStudents', "XP");
-    Session.set('invertOrder', "checked");
+    if (!Session.get('orderStudents')) { Session.setPersistent('orderStudents', "XP"); }
+    //if (!Session.get('invertOrder')) { Session.setPersistent('invertOrder', "checked"); }
     if ( $(event.currentTarget).hasClass("classAsTeacher") ) {
       Meteor.call('userTypeInsert', "teacher");
       Session.setPersistent('userType','teacher');

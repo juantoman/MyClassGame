@@ -103,8 +103,8 @@ Template.signinModal.events({
           Session.setPersistent('sogBtn',"students");
           Session.setPersistent('golBtn',"grid");
           Session.set('studentSelected', false);
-          Session.set('orderStudents', "XP");
-          Session.set('invertOrder', "checked");
+          //Session.set('orderStudents', "XP");
+          //Session.set('invertOrder', "checked");
 
           // if ( classes.findOne({_id:Session.get('classId'), evaluation: { $exists: true } } ) ){
           //   Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);

@@ -39,8 +39,8 @@ Template.admin.events({
     Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
     backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
     $("#fondo").css("background-image", "url("+backImg+")");
-    Session.set('orderStudents', "XP");
-    Session.set('invertOrder', "checked");
+    //Session.set('orderStudents', "XP");
+    //Session.set('invertOrder', "checked");
     Router.go('studentsMainPage',{_id:Session.get('classId')});
   },
   'click #btn-duplicar': function(event) {

@@ -99,13 +99,13 @@
               <label>{{_ "order"}} </label>
               <div class="btn-group" role="group" aria-label="orderSelect">
                 <select class="custom-select form-control" id="orderSelect" name="orderSelect">
-                  <option value="XP">XP</option>
-                  <option value="studentName">{{_ "name"}}</option>
-                  <option value="alias">Alias</option>
-                  <option value="groupId">{{_ "team"}}</option>
-                  <option value="HP">HP</option>
-                  <option value="level">{{_ "level"}}</option>
-                  <option value="coins">€</option>
+                  <option value="XP" {{selOrder 'XP'}}>XP</option>
+                  <option value="studentName" {{selOrder 'studentName'}}>{{_ "name"}}</option>
+                  <option value="alias" {{selOrder 'alias'}}>Alias</option>
+                  <option value="groupId" {{selOrder 'groupId'}} >{{_ "team"}}</option>
+                  <option value="HP" {{selOrder 'HP'}}>HP</option>
+                  <option value="level" {{selOrder 'level'}}>{{_ "level"}}</option>
+                  <option value="coins" {{selOrder 'coins'}}>€</option>
                 </select>
               </div>
 

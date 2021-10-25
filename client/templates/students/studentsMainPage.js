@@ -109,6 +109,13 @@ Template.studentsMainPage.helpers({
   },
   compressCard: function() {
     return Session.get("compressCard");
+  },
+  selOrder: function(s) {
+    if (Session.get('orderStudents')==s) {
+      return "selected"
+    } else {
+      return "";
+    }
   }
 });
 
@@ -295,7 +302,7 @@ Template.studentsMainPage.events({
   },
   'change #orderSelect': function(event) {
     event.preventDefault();
-    Session.set('orderStudents', $("#orderSelect").val());
+    Session.setPersistent('orderStudents', $("#orderSelect").val());
   },
   'change #invertCheck': function(event) {
     event.preventDefault();
@@ -304,7 +311,7 @@ Template.studentsMainPage.events({
     } else {
       c="";
     }
-    Session.set('invertOrder', c);
+    Session.setPersistent('invertOrder', c);
   },
   'change #floatMenu': function(event) {
     event.preventDefault();

@@ -48,8 +48,8 @@ Template.carrusel.events({
           Session.setPersistent('sogBtn',"students");
           Session.setPersistent('golBtn',"grid");
           Session.set('studentSelected', false);
-          Session.set('orderStudents', "XP");
-          Session.set('invertOrder', "checked");
+          //Session.set('orderStudents', "XP");
+          //Session.set('invertOrder', "checked");
           Router.go('classesPage');
         }
       });
