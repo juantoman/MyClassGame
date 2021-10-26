@@ -396,6 +396,12 @@ h1, h2, h3, h4, h5 {
     background: #ff8a95;
 }
 
+#printDiv .btn-xp, #printDiv .btn-hp {
+  color: #666666 !important;
+  font-size: 1.5rem !important;
+  font-weight: bold !important;
+}
+
 @media print {
   @page {
     size: A4;
@@ -415,9 +421,22 @@ h1, h2, h3, h4, h5 {
     margin-bottom:1.4vh;
   }
   .card__image {
-    width: 50%;
+    width: 60%;
   }
   .card__image-container {
     height: 75%;
+  }
+  .card__water {
+    background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%) !important;
+    box-shadow: 0px 5px 20px -10px #000851 !important;
+  }
+  .btn-xp, .btn-hp {
+      color: #666666 !important;
+      font-size: 1.5rem !important;
+      font-weight: bold !important;
+  }
+  .card__caption {
+      background-color: rgba(255,255,255, 0.65) !important;
+      height: 50px !important;
   }
 }

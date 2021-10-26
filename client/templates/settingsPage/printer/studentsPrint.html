@@ -7,7 +7,7 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="GroupModalLabel">{{_ "studentsCards"}}</h4>
           </div>
-          <div class="modal-body">
+          <div id="printDiv" class="modal-body">
             <div class="row">
               {{#each students}}
                 <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent">
@@ -16,19 +16,10 @@
                       <img class="cardLogo" src="/images/@mcgnb.png">
                       <img src="{{image avatar}}" class="card__image" name="{{_id}}">
                     </div>
-                    <figcaption class="card__caption">
-                      <table class="card__stats">
-                        <tbody>
-                          <tr>
-                            <th><span class="btn-xp">Alias:</span></th>
-                            <td><span class="btn-xp">{{alias}}</span></td>
-                          </tr>
-                          <tr>
-                            <th><span class="btn-hp">Code:</span></th>
-                            <td><span class="btn-hp">{{code}}</span></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <figcaption class="card__caption text-center">
+                      <span class="btn-xp">Alias: {{alias}}</span>
+                      <br />
+                      <span class="btn-hp">Code: {{code}}</span>
                     </figcaption>
                   </figure>
                 </div>
