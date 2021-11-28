@@ -83,16 +83,16 @@
 }
 
  .missionCard2 .front, .missionCard2 .back {
-	 border-radius: 10px;
-	 height: 100%;
-	 width: 100%;
-	 position: absolute;
-	 left: 0;
-	 top: 0;
-	 transform-style: preserve-3d;
-	 backface-visibility: hidden;
-	 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-   border:1px solid #268BD2;
+	border-radius: 10px;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform-style: preserve-3d;
+	backface-visibility: hidden !important;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  	border:1px solid #268BD2;
 }
 
 .missionCard2 .front:hover, .missionCard2 .back:hover {
@@ -175,6 +175,7 @@
 	 font-size: 13px;
 	 line-height: 20px;
 	 padding: 50px;
+	 overflow: hidden;
 }
  .missionCard2 .back .back-info {
 	 text-align: justify;

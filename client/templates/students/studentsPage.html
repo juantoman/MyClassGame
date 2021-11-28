@@ -14,8 +14,8 @@
   {{> import_export}}
 
   -->
-    <div class="row">
-
+    <div id="studentCardsPrinter" class="row">
+      <!-- <button id="printButton">Print</button> -->
       {{#each students}}
         <div id="{{_id}}" style="margin:auto;" class="thumbnailStudent float-up {{#unless present}}{{#if hideAbsents}}oculto{{/if}}{{/unless}}">
           <figure class="card card__water {{#if myuser email}}myuser{{/if}} {{#if studentUserId}}myuser{{/if}} {{#if selected}}selected{{/if}} {{#unless present}}absent{{/unless}}">
@@ -184,7 +184,7 @@
       -->
       {{#each students}}
 
-      <div class="user-card flex-container float-up delay-1">
+      <div class="user-card flex-container float-up delay-1 {{#unless present}}{{#if hideAbsents}}oculto{{/if}}{{/unless}} {{#unless present}}absent{{/unless}}">
 
           <div class="btn-group" role="group">
             <button type="button" class="btn btn-info info-list">

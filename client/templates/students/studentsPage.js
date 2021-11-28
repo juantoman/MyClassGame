@@ -1,5 +1,6 @@
 Template.studentsPage.onRendered(function() {
   $.getScript("https://apis.google.com/js/api.js");
+  // $.getScript("https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js");
   try {
     emailUser=Meteor.users.findOne({_id: Meteor.userId()}).emails[0].address;
   }
@@ -397,5 +398,22 @@ Template.studentsPage.events({
     //$(event.currentTarget).toggleClass('studentPresent studentAbsent');
     Meteor.call('studentPresent', this._id);
     event.stopPropagation();
+  },
+  'click #printButton': function(event) {
+    event.preventDefault();
+    const screenshotTarget = document.body;
+
+    html2canvas(screenshotTarget).then((canvas) => {
+      //const base64image = canvas.toDataURL("image/png");
+      //window.location.href = base64image;
+      // Cuando se resuelva la promesa traerá el canvas
+      // Crear un elemento <a>
+      let enlace = document.createElement('a');
+      enlace.download = "Captura de página web - myclassgame.es";
+      // Convertir la imagen a Base64
+      enlace.href = canvas.toDataURL();
+      // Hacer click en él
+      enlace.click();
+    });
   }
 });

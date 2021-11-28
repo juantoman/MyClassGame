@@ -407,28 +407,30 @@ Meteor.methods({
     student=students.findOne({'_id':{$regex: regla}});
     if (e=="badge") {
       badge=badges.findOne({'_id':eId});
-      s=students.findOne({'_id':student._id, 'badges.badgeId': eId});
-      if ( ! s || s.badges.find( badge => badge.badgeId == eId).stock == 0) {
-        Meteor.call('studentBadge', student._id, eId);
-        var behaviour = {
-          classId: student.classId,
-          student: student._id,
-          behavior: badge._id,
-          behaviourType: 'Badge',
-          'XP': parseInt(badge.points),
-          'HP': 0,
-          Coins: 0,
-          Energy:0,
-          evaluation: 1,
-          comment: 'Insignia Externa ('+parseInt(badge.points)+'XP)',
-          createdOn: new Date()
-        };
-        Meteor.call('behaviourLogInsert', behaviour);
-        Meteor.call('studentXP', student._id, parseInt(badge.points));
-        img=images.findOne({'_id':badge.badgeImage}).image_url;
-        return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + badge.badgeName + "</h4>";
-      } else {
-        return student.studentName + ' ya tiene esa insignia';
+      if (badge.classId == student.classId) {
+        s=students.findOne({'_id':student._id, 'badges.badgeId': eId});
+        if ( ! s || s.badges.find( badge => badge.badgeId == eId).stock == 0) {
+          Meteor.call('studentBadge', student._id, eId);
+          var behaviour = {
+            classId: student.classId,
+            student: student._id,
+            behavior: badge._id,
+            behaviourType: 'Badge',
+            'XP': parseInt(badge.points),
+            'HP': 0,
+            Coins: 0,
+            Energy:0,
+            evaluation: 1,
+            comment: 'Insignia Externa ('+parseInt(badge.points)+'XP)',
+            createdOn: new Date()
+          };
+          Meteor.call('behaviourLogInsert', behaviour);
+          Meteor.call('studentXP', student._id, parseInt(badge.points));
+          img=images.findOne({'_id':badge.badgeImage}).image_url;
+          return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + badge.badgeName + "</h4>";
+        } else {
+          return student.studentName + ' ya tiene esa insignia';
+        }
       }
     }
   },
@@ -441,13 +443,15 @@ Meteor.methods({
     student=students.findOne({'_id':{$regex: regla}});
     if (e=="power") {
       card=cards.findOne({'_id':eId});
-      s=students.findOne({'_id':student._id, 'cards.cardId': eId});
-      if ( ! s ) {
-        Meteor.call('studentCard', student._id, eId);
-        img=images.findOne({'_id':card.cardImage}).image_url;
-        return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + card.cardName + "</h4>";
-      } else {
-        return student.studentName + ' ya tiene ese poder';
+      if (card.classId == student.classId) {
+        s=students.findOne({'_id':student._id, 'cards.cardId': eId});
+        if ( ! s ) {
+          Meteor.call('studentCard', student._id, eId);
+          img=images.findOne({'_id':card.cardImage}).image_url;
+          return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + card.cardName + "</h4>";
+        } else {
+          return student.studentName + ' ya tiene ese poder';
+        }
       }
     }
   },
@@ -460,13 +464,15 @@ Meteor.methods({
     student=students.findOne({'_id':{$regex: regla}});
     if (e=="collectionable") {
       chrome=chromes.findOne({'_id':eId});
-      s=students.findOne({'_id':student._id, 'chromes.chromeId': eId});
-      if ( ! s || s.chromes.find( chrome => chrome.chromeId == eId).stock == 0) {
-        Meteor.call('studentChrome', student._id, eId);
-        img=images.findOne({'_id':chrome.chromeImage}).image_url;
-        return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + chrome.chromeName + "</h4>";
-      } else {
-        return student.studentName + ' ya tiene ese coleccionable';
+      if (chrome.classId == student.classId) {
+        s=students.findOne({'_id':student._id, 'chromes.chromeId': eId});
+        if ( ! s || s.chromes.find( chrome => chrome.chromeId == eId).stock == 0) {
+          Meteor.call('studentChrome', student._id, eId);
+          img=images.findOne({'_id':chrome.chromeImage}).image_url;
+          return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + chrome.chromeName + "</h4>";
+        } else {
+          return student.studentName + ' ya tiene ese coleccionable';
+        }
       }
     }
   },
@@ -479,13 +485,15 @@ Meteor.methods({
     student=students.findOne({'_id':{$regex: regla}});
     if (e=="item") {
       item=store.findOne({'_id':eId});
-      s=students.findOne({'_id':student._id, 'items.itemId': eId});
-      if ( ! s || s.items.find( item => item.itemId == eId).stock == 0) {
-        Meteor.call('buyingItem', student._id, eId, 0);
-        img=images.findOne({'_id':item.itemImage}).image_url;
-        return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + item.itemName + "</h4>";
-      } else {
-        return student.studentName + ' ya tiene ese artículo';
+      if (item.classId == student.classId) {
+        s=students.findOne({'_id':student._id, 'items.itemId': eId});
+        if ( ! s || s.items.find( item => item.itemId == eId).stock == 0) {
+          Meteor.call('buyingItem', student._id, eId, 0);
+          img=images.findOne({'_id':item.itemImage}).image_url;
+          return "<h5>" + student.studentName + " ha conseguido:</h5><img src='" + img + "' width='100px' /><h4>" + item.itemName + "</h4>";
+        } else {
+          return student.studentName + ' ya tiene ese artículo';
+        }
       }
     }
   }
