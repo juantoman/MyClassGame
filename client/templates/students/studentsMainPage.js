@@ -15,6 +15,9 @@ Template.studentsMainPage.onRendered(function() {
       location.href = 'https://www.myclassgame.es/';
     }
   }
+  if (!Session.get('evalXP')) {
+    Session.setPersistent('evalXP',"XP123");
+  }
 })
 
 
@@ -43,6 +46,10 @@ Template.studentsMainPage.helpers({
     } else {
       return false;
     }
+  },
+  evaluationSelected: function(option) {
+    if ( option == Session.get('evalXP') ) {return "btn-warning"; }
+
   },
   teacher: function() {
     if (Session.get('userType')=="teacher") {
@@ -127,6 +134,10 @@ Template.studentsMainPage.events({
   'click .btn-gol': function(event) {
     event.preventDefault();
     Session.setPersistent('golBtn', event.currentTarget.id);
+  },
+  'click .btn-eval': function(event) {
+    event.preventDefault();
+    Session.setPersistent('evalXP', event.currentTarget.id);
   },
   'click .btn-all': function(event) {
     event.preventDefault();

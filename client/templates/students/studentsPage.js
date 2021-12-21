@@ -221,6 +221,34 @@ Template.studentsPage.helpers({
   },
   compressCard: function() {
     return Session.get("compressCard");
+  },
+  evalXP: function() {
+    switch (Session.get('evalXP')) {
+      case "XP123":
+        return this.XP;
+        break;
+      case "XP1":
+        if (this.XP1) {
+          return this.XP1;
+        } else {
+          return 0;
+        }
+        break;
+      case "XP2":
+        if (this.XP2) {
+          return this.XP2;
+        } else {
+          return 0;
+        }
+        break;
+      case "XP3":
+        if (this.XP3) {
+          return this.XP3;
+        } else {
+          return 0;
+        }
+        break;
+    }
   }
 });
 

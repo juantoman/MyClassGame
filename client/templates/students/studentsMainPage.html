@@ -72,6 +72,12 @@
                   <button id="allStudentsAbsents" type="button" class="btn btn-sm">{{_ "allAbsents"}}</button>
                   <button id="hideAbsents" type="button" class="btn btn-sm">{{#if hideAbsents}}{{_ "showAbsents"}}{{else}}{{_ "hideAbsents"}}{{/if}}</button>
                 </div>
+                <div class="btn-group" role="group" aria-label="Evaluacion">
+                  <button id="XP123" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP123'}}">123</button>
+                  <button id="XP1" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP1'}}">1</button>
+                  <button id="XP2" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP2'}}">2</button>
+                  <button id="XP3" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP3'}}">3</button>
+                </div>
               </div>
               <!--
               <label> Menú flotante</label>
@@ -100,6 +106,9 @@
               <div class="btn-group" role="group" aria-label="orderSelect">
                 <select class="custom-select form-control" id="orderSelect" name="orderSelect">
                   <option value="XP" {{selOrder 'XP'}}>XP</option>
+                  <option value="XP1" {{selOrder 'XP1'}}>XP1</option>
+                  <option value="XP2" {{selOrder 'XP2'}}>XP2</option>
+                  <option value="XP3" {{selOrder 'XP3'}}>XP3</option>
                   <option value="studentName" {{selOrder 'studentName'}}>{{_ "name"}}</option>
                   <option value="alias" {{selOrder 'alias'}}>Alias</option>
                   <option value="groupId" {{selOrder 'groupId'}} >{{_ "team"}}</option>

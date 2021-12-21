@@ -116,7 +116,7 @@ Template.classesPage.events({
     Session.setPersistent('sogBtn',"students");
     Session.setPersistent('golBtn',"grid");
     Session.set('studentSelected', false);
-    Session.setPersistent('evaluation',classes.findOne({_id:Session.get('classId')}).evaluation);
+    Session.setPersistent('evaluation',this.evaluation);
     backImg=classes.findOne({"_id": Session.get('classId')}).backImg;
     $("#fondo").css("background-image", "url("+backImg+")");
     if (!Session.get('orderStudents')) { Session.setPersistent('orderStudents', "XP"); }
