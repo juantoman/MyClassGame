@@ -58,8 +58,8 @@
               </div>
             </div>
             <div class="submenuHide">
-              {{#if teacher}}
               <div class="form-group">
+              {{#if teacher}}      
                 <label>{{_ "selection"}}</label>
                 <div class="btn-group" role="group" aria-label="Basic example">
                   <button id="all" class="btn btn-all btn-sm">{{_ "all"}}</button>
@@ -72,20 +72,20 @@
                   <button id="allStudentsAbsents" type="button" class="btn btn-sm">{{_ "allAbsents"}}</button>
                   <button id="hideAbsents" type="button" class="btn btn-sm">{{#if hideAbsents}}{{_ "showAbsents"}}{{else}}{{_ "hideAbsents"}}{{/if}}</button>
                 </div>
-                <div class="btn-group" role="group" aria-label="Evaluacion">
-                  <button id="XP123" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP123'}}">123</button>
-                  <button id="XP1" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP1'}}">1</button>
-                  <button id="XP2" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP2'}}">2</button>
-                  <button id="XP3" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP3'}}">3</button>
+                <!--
+                <label> Menú flotante</label>
+                <div class="btn-group" role="group" aria-label="floatMenu">
+                  <input type="checkbox" class="big-checkbox" id="floatMenu" checked>
                 </div>
+                -->
+              {{/if}}
+              <div class="btn-group" role="group" aria-label="Evaluacion">
+                <button id="XP123" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP123'}}">123</button>
+                <button id="XP1" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP1'}}">1</button>
+                <button id="XP2" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP2'}}">2</button>
+                <button id="XP3" type="button" class="btn btn-sm btn-eval {{evaluationSelected 'XP3'}}">3</button>
               </div>
-              <!--
-              <label> Menú flotante</label>
-              <div class="btn-group" role="group" aria-label="floatMenu">
-                <input type="checkbox" class="big-checkbox" id="floatMenu" checked>
-              </div>
-              -->
-            {{/if}}
+            </div>
             <div class="form-group">
               {{#if teacher}}
                 <label>{{_ "actions"}}</label>
