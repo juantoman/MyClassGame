@@ -1612,7 +1612,8 @@ Template.studentProfile.events({
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        p=$(event.currentTarget).data('points');
+        //p=$(event.currentTarget).data('points');
+        //alert(p)
         bId=behavioursLog.findOne({classId:Session.get('classId'),student:Session.get('studentId'),behavior:this._id})._id;
         Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));

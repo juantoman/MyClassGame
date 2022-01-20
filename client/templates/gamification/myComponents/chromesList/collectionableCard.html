@@ -14,6 +14,13 @@
         </div>
       {{else}}
         <div class="element-card-front collectionable-card-front" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
+          <div class="colVisibleBtn">
+            {{#unless hidden}}
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            {{/unless}}
+          </div>
           <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
           <div class="element-card__image collectionable-card__image">
             {{#if chromeImage}}
@@ -50,6 +57,13 @@
         </div> <!-- end element-card -->
       {{/unless}}
       <div class="element-card-back collectionable-card-back" style="background: linear-gradient(120deg, {{#with chromeTypeData chromeType}}{{chromeTypeColor}}{{/with}} 0%, black 100%);">
+        <div class="colVisibleBtn">
+          {{#unless hidden}}
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          {{else}}
+            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+          {{/unless}}
+        </div>
         <img class="cardgem" src="/images/{{#if chromeWeird}}{{chromeWeird}}{{else}}green{{/if}}.png" alt="green" />
         <div class="element-card__image collectionable-card__image change_card_image">
           {{#if chromeImage}}

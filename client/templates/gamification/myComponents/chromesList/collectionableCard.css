@@ -42,3 +42,11 @@
 .element-card-back .collectionable-card__image {
   height:220px !important;
 }
+
+.colVisibleBtn {
+	position:absolute;
+	color: white;
+ 	left:5px;
+	font-size: 2em;
+	z-index:100;
+}

@@ -924,42 +924,47 @@
                       <li class="flip-card float-up {{#unless onlyStudentStock}}{{#unless stock}}oculto{{/unless}}{{/unless}}">
                         <div class="flip-card-inner {{#if stock}}flip-card-inner-stock{{/if}}">
                           <div class="flip-card-front">
-                            <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{image_url chromeImage}}" alt=""></span>
-                            <div class="flip-card-level">
-                              {{chromeLevel}}
-                            </div>
-                            <div class="flip-card-stock">
-                              {{stock}}
-                            </div>
-                            <div class="flip-card-front-name">
-                              {{chromeName}}
-                            </div>
+                            <span class="item-image {{#unless stock}}studentHasntChrome{{/unless}}"><img src="{{#unless hidden}}{{image_url chromeImage}}{{else}}/images/topsecret.png{{/unless}}" alt=""></span>
+                            {{#unless hidden}}
+                              <div class="flip-card-level">
+                                {{chromeLevel}}
+                              </div>
+                              <div class="flip-card-stock">
+                                {{stock}}
+                              </div>
+                              <div class="flip-card-front-name">
+                                {{chromeName}}
+                              </div>
+                            {{/unless}}
                           </div>
                           <div class="flip-card-back">
-                            <img class="flip-card-back-img" src="{{image_url chromeImage}}" alt="">
-                            <div class="flip-card-back-text">
-                              <h4 class="flip-card-name">{{chromeName}}</h4>
-                              <p class="flip-card-desc">{{chromeDescription}}</p>
-                              <h5 class="flip-card-XP">{{chromePrice}} <i class="fa fa-coins"></i></h5>
-                            </div>
-                            <div class="flip-card-back-buttons">
-                              {{#if teacher}}
-                                <a href="javascript:voclass" class="{{#if stock}}flip-card-chrome-remove{{/if}}">
-                                  <i class="fa fa-minus"></i>
-                                </a>
-                              {{/if}}
-                              <span class="flip-card-number">
-                                {{stock}}
-                              </span>
-                              {{#if myStudentSingleChrome ../userId}}
-                                <a href="javascript:voclass" class="flip-card-chrome-add">
-                                  <i class="fa fa-plus"></i>
-                                </a>
-                              {{/if}}
-                            </div>
+                            <img class="flip-card-back-img" src="{{#unless hidden}}{{image_url chromeImage}}{{else}}/images/topsecret.png{{/unless}}" alt="">
+                            {{#unless hidden}}
+                              <div class="flip-card-back-text">
+                                <h4 class="flip-card-name">{{chromeName}}</h4>
+                                <p class="flip-card-desc">{{chromeDescription}}</p>
+                                <h5 class="flip-card-XP">{{chromePrice}} <i class="fa fa-coins"></i></h5>
+                              </div>
+                              <div class="flip-card-back-buttons">
+                                {{#if teacher}}
+                                  <a href="javascript:voclass" class="{{#if stock}}flip-card-chrome-remove{{/if}}">
+                                    <i class="fa fa-minus"></i>
+                                  </a>
+                                {{/if}}
+                                <span class="flip-card-number">
+                                  {{stock}}
+                                </span>
+                                {{#if myStudentSingleChrome ../userId}}
+                                  <a href="javascript:voclass" class="flip-card-chrome-add">
+                                    <i class="fa fa-plus"></i>
+                                  </a>
+                                {{/if}}
+                              </div>
+                            {{/unless}}
                             <a href="javascript:voclass" class="flip-card-turn">
                               <i class="fa fa-undo"></i>
                             </a>
+                            
                           </div>
                         </div>
                       </li>

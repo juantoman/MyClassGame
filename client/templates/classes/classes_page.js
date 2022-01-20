@@ -234,8 +234,7 @@ Template.classesPage.events({
   'click .btnCF': function(event) {
     event.preventDefault();
     Modal.show('notifyModal');
-  }
-  ,
+  },
   'click .newClassSFModal': function(event) {
     event.preventDefault();
     Modal.show('newClassSFModal');

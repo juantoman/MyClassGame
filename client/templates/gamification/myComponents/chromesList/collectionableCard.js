@@ -139,6 +139,18 @@ Template.collectionableCard.events({
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+  },
+  'click .colVisibleBtn': function(event) {
+    event.preventDefault();
+    if (this.hidden) {
+      hidden=false;
+    } else {
+      hidden=true;
+    }
+    var chrome = {
+      hidden: hidden
+    };
+    Meteor.call('chromeUpdate', this._id, chrome);
   }
   // 'mouseover .element-card-data': function(event) {
   //    event.target.scrollTo(0,500);
