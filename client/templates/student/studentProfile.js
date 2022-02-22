@@ -1613,10 +1613,10 @@ Template.studentProfile.events({
     }).then((result) => {
       if (result.value) {
         //p=$(event.currentTarget).data('points');
-        //alert(p)
-        bId=behavioursLog.findOne({classId:Session.get('classId'),student:Session.get('studentId'),behavior:this._id})._id;
+        Meteor.subscribe('behavioursLog',"class",Session.get('classId'),1,Session.get('studentId'),this._id);
         Meteor.call('studentBadgePull', Session.get('studentId'), this._id);
         Meteor.call('studentXP', Session.get('studentId'), parseInt(-this.points));
+        bId=behavioursLog.findOne({'classId':Session.get('classId'),'student':Session.get('studentId'),'behavior':this._id})._id;
         Meteor.call('behaviourLogDelete',bId);
         swal({
           title: TAPi18n.__('badge') + " " +  TAPi18n.__('fdeleted'),

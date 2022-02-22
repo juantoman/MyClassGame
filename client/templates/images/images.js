@@ -1,9 +1,9 @@
-$.getScript("https://media-library.cloudinary.com/global/all.js");
+$.getScript("https://upload-widget.cloudinary.com/global/all.js");
 var last_image="";
 var new_image="";
 
 Template.imagesTemplate.onRendered(function() {
-   $.getScript("https://upload-widget.cloudinary.com/global/all.js");
+   //$.getScript("https://upload-widget.cloudinary.com/global/all.js");
    key=mcgParameters.findOne({'_id':1}).GoogleApiKeyForCloudinary;
    cloudNames=[ 'myclassgame', 'c4mcg1', 'c4mcg2', 'c4mcg3', 'c4mcg4'];
    var r = Math.floor(Math.random() * cloudNames.length);

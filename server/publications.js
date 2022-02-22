@@ -143,11 +143,15 @@ Meteor.publish('behaviours', function(type,classId) {
       return behaviours.find({"classId": { "$in": c }});
   }*/
 });
-Meteor.publish('behavioursLog', function(type,classId,n,studentId) {
+Meteor.publish('behavioursLog', function(type,classId,n,studentId,bId) {
   if (classId){
     if (!n) { n=0; }
     if (studentId) {
-      return behavioursLog.find({"classId":classId, "student": studentId }, { sort: { createdOn: -1 } , skip: 50*n, limit: 50 } );
+      if (bId) {
+        return behavioursLog.find({"classId":classId, "student": studentId , "behavior" : bId});
+      } else {
+        return behavioursLog.find({"classId":classId, "student": studentId }, { sort: { createdOn: -1 } , skip: 50*n, limit: 50 } );
+      }
     } else {
       return behavioursLog.find({"classId":classId}, { sort: { createdOn: -1 } , skip: 50*n, limit: 50 } );
     }
@@ -392,7 +396,7 @@ Meteor.publish('images', function(classId,types) {
       studentClasses=Meteor.user().classes;
       c=c.concat(tipos,teacherClasses,studentClasses);
       c=_.uniq(c);
-      return images.find( { $or: [ {"classId": { "$in": c } } , { "userId": Meteor.userId() } ] , "type": "group" } );
+      return images.find( { $or: [ {"classId": { "$in": c } } , { "userId": Meteor.userId() } ] , "type": { "$in": ["group","userAvatar"] } } );
 
     }
   }
