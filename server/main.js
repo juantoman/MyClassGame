@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { Email } from 'meteor/email';
+import { WebApp } from 'meteor/webapp'
 
 //Provar gmail-node
 
@@ -499,15 +500,15 @@ Meteor.methods({
   }
 });
 
-// WebApp.connectHandlers.use('/studentXP', (req, res, next) => {
-//   res.writeHead(200);
-//   //student="^"+req.url.substring(1);
-//   // studentId=students.findOne({'_id':{$regex: student}})._id;
-//   console.log(req.query);
-//   //Meteor.call('studentXP', studentId, 100);
-//   //res.end(studentId + ' +100XP!!!');
-//   res.end("Hola");
-// });
+WebApp.connectHandlers.use('/studentXP', (req, res, next) => {
+  res.writeHead(200);
+  student=req.url.substring(1);
+  //console.log(req.url);
+  //studentId=students.findOne({'_id':{$regex: student}})._id;
+  //console.log(req.query);
+  Meteor.call('studentXPapi', student, 100);
+  res.end(student + " 100XP");
+});
 
 Meteor.method("add-numbers", function (a, b) {
   return a + b;
