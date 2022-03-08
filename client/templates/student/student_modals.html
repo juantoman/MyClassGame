@@ -71,26 +71,28 @@
               <p class="lead">{{_ "areYouSure"}}</p>
             </div>
           </div>
-          <div class="row container-fluid">
-            <div class="col-xs-12 col-sm-4">
-              <div class="form-group">
-                <label for="xp" class="control-label">XP</label>
-                <input type="text" name="xp" class="form-control input-lg" placeholder="XP" tabindex="1" value=0>
+          {{#with student}}
+            <div class="row container-fluid">
+              <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                  <label for="xp" class="control-label">XP</label>
+                  <input type="text" name="xp" class="form-control input-lg" placeholder="XP" tabindex="1" value={{XP}}>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                  <label for="hp" class="control-label">HP</label>
+                  <input type="text" name="hp" class="form-control input-lg" placeholder="HP" tabindex="2" value={{HP}} {{inputDisabled}}>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <div class="form-group">
+                  <label for="money" class="control-label">{{_ "money"}}</label>
+                  <input type="text" name="money" class="form-control input-lg" placeholder="{{_ 'money'}}" tabindex="2" value={{coins}} {{inputDisabled}}>
+                </div>
               </div>
             </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="form-group">
-                <label for="money" class="control-label">{{_ "money"}}</label>
-                <input type="text" name="money" class="form-control input-lg" placeholder="{{_ 'money'}}" tabindex="2" value=0 {{inputDisabled}}>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-4">
-              <div class="form-group">
-                <label for="hp" class="control-label">HP</label>
-                <input type="text" name="hp" class="form-control input-lg" placeholder="HP" tabindex="2" value=0 {{inputDisabled}}>
-              </div>
-            </div>
-          </div>
+          {{/with}}
           <br />
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">{{_ "close"}}</button>

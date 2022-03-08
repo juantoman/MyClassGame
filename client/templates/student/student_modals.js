@@ -22,6 +22,12 @@ Template.deleteStudent.events({
   }
 });
 
+Template.resetStudent.helpers({
+  student: function() {
+    return students.findOne({ _id: Session.get('studentId') } );
+  }
+});
+
 Template.resetStudent.events({
   'submit form#reset_student_form': function(event) {
     event.preventDefault();
