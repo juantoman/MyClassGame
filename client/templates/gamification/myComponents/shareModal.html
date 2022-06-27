@@ -1,0 +1,28 @@
+<template name="shareModal">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div id="group_form">
+              <div class="modal-header">
+                <h4 class="modal-title" id="GroupModalLabel">{{_ 'share'}}</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row center">
+                    <img src="/images/mcg.png" width="100px" />
+                    <h5>iframe</h5>
+                    <textarea><div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id='+ this._id +'" type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div></textarea>
+                    <button type="button" class="btn btn-info shareModalIframe">iframe</button>
+                    <h5>url</h5>
+                    <textarea>https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id='+ this._id +'</textarea>
+                    <button type="button" class="btn btn-info shareModalURL">url</button>
+                </div>
+                <br />
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default shareModalClose">{{_ 'close'}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</template>

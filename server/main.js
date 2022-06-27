@@ -7,8 +7,8 @@ import { WebApp } from 'meteor/webapp'
 
 Meteor.startup(() => {
 
-  API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
-  process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
+  //API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
+  //process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
 
   //process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
   //Escribir en fichero local
