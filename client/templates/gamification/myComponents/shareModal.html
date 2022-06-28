@@ -4,19 +4,41 @@
           <div class="modal-content">
             <div id="group_form">
               <div class="modal-header">
-                <h4 class="modal-title" id="GroupModalLabel">{{_ 'share'}}</h4>
+                <h4 class="modal-title" id="GroupModalLabel">&lt;/&gt;</h4>
               </div>
               <div class="modal-body">
-                <div class="row center">
+                <!-- <div>
                     <img src="/images/mcg.png" width="100px" />
                     <h5>iframe</h5>
-                    <textarea><div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id='+ this._id +'" type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div></textarea>
+                    <input type="text" readonly value='<div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id= type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div>' />
                     <button type="button" class="btn btn-info shareModalIframe">iframe</button>
                     <h5>url</h5>
-                    <textarea>https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id='+ this._id +'</textarea>
+                    <input type="text" readonly value="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id=" />
                     <button type="button" class="btn btn-info shareModalURL">url</button>
+                </div> -->
+                <form>
+                  <div class="form-group">
+                    <!-- <label class="control-label" for="inputGroupSuccess1">{{_ 'newLevel'}}</label> -->
+                    <div class="form-inline">
+                      <div class="input-group col-xs-11">
+                        <span class="input-group-addon">URL</span>
+                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id=">
+                      </div>
+                      <input type="submit" id="btn-save" value="{{_ "copy"}}" class="btn btn-success shareModalURL">
+                    </div>
+                    <div class="form-inline">
+                      <div class="input-group col-xs-11">
+                        <span class="input-group-addon">IFRAME</span>
+                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value='<div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id= type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div>' />
+                      </div>
+                      <input type="submit" id="btn-save" value="{{_ "copy"}}" class="btn btn-success shareModalIframe">
+                    </div>
+                  </div>
+                </form>
+                <div class="form-row text-center">
+                  <input type="submit" id="btnQrCode" value="QR Code" class="btn btn-success shareModalQRCode text-center">
                 </div>
-                <br />
+                <div class="form-row text-center" id="qrcode"><br /></div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default shareModalClose">{{_ 'close'}}</button>
