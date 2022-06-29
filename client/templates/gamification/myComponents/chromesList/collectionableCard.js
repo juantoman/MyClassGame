@@ -132,7 +132,7 @@ Template.collectionableCard.events({
   },
   'click .btnUrlCollectionable': function(event) {
     event.preventDefault();
-    Session.set("sharedElementId", this._id)
+    Session.set("sharedElement", {'type': 'collectionable', 'id': this._id, 'name': this.chromeName} )
     Modal.show('shareModal');
   },
   'click .colVisibleBtn': function(event) {

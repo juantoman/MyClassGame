@@ -22,14 +22,14 @@
                     <div class="form-inline">
                       <div class="input-group col-xs-11">
                         <span class="input-group-addon">URL</span>
-                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id=">
+                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value="{{url}}">
                       </div>
                       <input type="submit" id="btn-save" value="{{_ "copy"}}" class="btn btn-success shareModalURL">
                     </div>
                     <div class="form-inline">
                       <div class="input-group col-xs-11">
                         <span class="input-group-addon">IFRAME</span>
-                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value='<div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.myclassgame.es/mcgapi/collectionableAPI.html?e=collectionable&amp;id= type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div>' />
+                        <input type="text" readonly class="form-control input-lg" name="levelDescription" aria-describedby="inputGroupSuccess1Status" value='<div style="width: 100%;"><div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;"><iframe frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="{{url}}" type="text/html" allowfullscreen="true" scrolling="yes"></iframe></div></div>' />
                       </div>
                       <input type="submit" id="btn-save" value="{{_ "copy"}}" class="btn btn-success shareModalIframe">
                     </div>
@@ -38,7 +38,7 @@
                 <div class="form-row text-center">
                   <input type="submit" id="btnQrCode" value="QR Code" class="btn btn-success shareModalQRCode text-center">
                 </div>
-                <div class="form-row text-center" id="qrcode"><br /></div>
+                <div class="form-row text-center" id="qrcode"></div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default shareModalClose">{{_ 'close'}}</button>
