@@ -1,0 +1,55 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<form>
+    <div class="mb-3">
+        <label for="studentID" class="form-label">StudentID </label>
+        <input type="studentID" class="form-control" id="studentIDinput">
+    </div>
+    <button type="button" class="btn btn-primary" id="studentIDBtn">Validar</button>
+</form>
+<div>
+    <br />
+    <h5 id="mcgStudentName"></h5>
+    <h5 id="mcgXP"></h5>
+    <h5 id="mcgHP"></h5>
+    <h5 id="mcgCoins"></h5>
+    <h5 id="mcgLevel"></h5>
+</div>
+
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+<script>
+    function studentID() {
+        let id=document.getElementById("studentIDinput").value;
+        localStorage.setItem('mcgStudentID', id);
+        let url='https://www.myclassgame.es/studentData/'+localStorage.getItem('mcgStudentID');
+        fetch(url, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            localStorage.setItem('mcgStudentData', data);
+            document.getElementById('mcgStudentName').textContent=data.studentName;
+            document.getElementById('mcgXP').textContent=data.XP + ' XP';
+            document.getElementById('mcgHP').textContent=data.HP + ' HP';
+            document.getElementById('mcgCoins').textContent=data.coins + ' Monedas';
+            document.getElementById('mcgLevel').textContent='Nivel ' + data.level;
+        })
+        .catch((err) => console.log(err));
+    }
+    const element = document.getElementById("studentIDBtn");
+    element.addEventListener("click", studentID);
+</script>
+

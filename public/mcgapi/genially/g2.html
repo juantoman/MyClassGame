@@ -1,0 +1,128 @@
+<!--html-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/sweetalert2.min.css">
+        <style>
+            .swal2-container {
+                background-color: rgba(0,0,0,0.1) !important;
+            }
+            .swal2-height-auto {
+                background-color: rgba(0,0,0,0.1) !important;
+            }
+            .swal2-title {
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                padding: 0;
+                font-weight: bold;
+                text-shadow: 2px 2px 5px #000000;
+            }
+            .swal2-image {
+                -webkit-filter: drop-shadow(2px 2px 5px #000 );
+            }
+            .swal2-input {
+                background-color: white;
+                height: 2em;
+            }
+            .mcgStudentData *{
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bold;
+                text-shadow: 2px 2px 5px #000000;
+                margin: 0 auto 10px auto !important;
+                color: rgb(146, 255, 250);
+            }
+            .mcgStudentData h4.mcgData{
+                margin: 2px auto !important;
+                color: gold;
+            }
+            #mcgLogo {
+                -webkit-filter: drop-shadow(2px 2px 5px #000 );
+                transition: 0.5s;
+            }
+            #mcgLogo:hover {
+                -webkit-filter: drop-shadow(2px 2px 5px rgb(0, 0, 255) );
+                transform: scale(1.05);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src='https://www.myclassgame.es/images/@mcgnb.png' id="mcgLogo" width="50px" />
+        </div>
+        
+        <script src="http://localhost:8000/mcgapi/genially/sweetalert2.min.js"></script>
+        <script>
+            function showStudentData(studentData) {
+                const student=studentData;    
+                let id=student.studentCode;
+                let url='https://www.myclassgame.es/studentData/'+id;
+                fetch(url, {
+                    method: 'GET',
+                    headers: new Headers({
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                    }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('mcgStudentID', id);
+                    localStorage.setItem('mcgStudentData', data);
+                    Swal.fire({
+                        title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+                        background: '#268bd2',
+                        showCloseButton: true,
+                        showCancelButton: true,
+                        confirmButtonColor: '#0f0',
+                        cancelButtonColor: '#d33',
+                        imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+                        imageWidth: 75,
+                        imageHeight: 75,
+                        imageAlt: '@MyClassGame',
+                        html:
+                            '<div class="mcgStudentData">' +
+                            '<h2>' + data.studentName + '</h2>' +
+                            '<h4> ('+ data.alias + ') </h4>' +
+                            '<h4 class="mcgData">' + data.XP + ' XP</h4>' +
+                            '<h4 class="mcgData">' + data.HP + ' HP</h4>' +
+                            '<h4 class="mcgData">' + data.coins + ' Monedas</h4>' +
+                            '<h4 class="mcgData">Nivel: ' + data.level + '</h4>' +
+                            '</div>',
+                        focusConfirm: false
+                    })
+                })
+                .catch((err) => console.log(err));
+            }
+            async function SA() {
+                const { value: formValues } = await Swal.fire({
+                    title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+                    background: '#268bd2',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonColor: '#0f0',
+                    cancelButtonColor: '#d33',
+                    imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+                    imageWidth: 75,
+                    imageHeight: 75,
+                    imageAlt: '@MyClassGame',
+                    html:
+                        '<input id="swal-input1" class="swal2-input" placeholder="Alias">' +
+                        '<input id="swal-input2" class="swal2-input" placeholder="StudentCode">',
+                    focusConfirm: false,
+                    preConfirm: () => {
+                        const student = {
+                            alias: document.getElementById('swal-input1').value,
+                            studentCode: document.getElementById('swal-input2').value
+                        }
+                        return student
+                    }
+                })
+                if (formValues) {
+                    showStudentData(formValues)
+                }
+            }
+            const element = document.getElementById("mcgLogo");
+            element.addEventListener("click", SA);
+        </script>
+
+    </body>
+</html>

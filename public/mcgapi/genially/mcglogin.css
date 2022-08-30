@@ -1,0 +1,59 @@
+.swal2-container {
+    background-color: rgba(38, 139, 210, 0.5) !important;
+  }
+  body.swal2-height-auto {
+      height: -webkit-fill-available !important;
+  }
+  .swal2-title {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding: 0;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000000;
+  }
+  .swal2-image {
+      -webkit-filter: drop-shadow(2px 2px 5px #000 );
+  }
+  .swal2-input {
+      background-color: white;
+      height: 2em;
+  }
+  .mcgStudentData *{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000000;
+      margin: 0 auto 10px auto !important;
+      color: rgb(146, 255, 250);
+  }
+  .mcgStudentData h4.mcgData{
+      margin: 2px auto !important;
+      color: gold;
+  }
+  #myclassgame .mcgName {
+      position:relative;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      font-size: 2em;
+      top: -15px;
+      opacity: 0;
+      text-shadow: 2px 2px 5px #000000;
+  }
+  .mcgLogo {
+      -webkit-filter: drop-shadow(2px 2px 5px #000 );
+      transition: 0.5s;
+  }
+  #myclassgame {
+    padding: 10px;
+  }
+  #myclassgame *{
+      cursor: pointer;
+      transition: 0.5s;
+  }
+  #myclassgame:hover .mcgLogo{
+      -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+      transform: scale(1.1);
+  }
+  #myclassgame:hover .mcgName{
+      -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+      transform: scale(1.1);
+      opacity: 1;
+  }

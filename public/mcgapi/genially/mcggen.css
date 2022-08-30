@@ -1,0 +1,32 @@
+.myheaderapi {
+  position:relative;
+  top:calc(50% - 90px);
+  left:calc(50% - 125px);
+  width: 250px !important;
+  /* height:180px; */
+  box-shadow: 1px 1px 10px #000000;
+  background-color: #268BD2;
+  border: 1px solid white;
+  padding-bottom: 10px !important;
+  border-radius: 20px;
+  text-align:center;
+}
+
+.myheaderapi .mcglogo{
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #000000;
+  font-size: 1.2em;
+  vertical-align: middle;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.myheaderapi img{
+  -webkit-filter: drop-shadow(2px 2px 5px #000 );
+  position:relative;
+  top:12px;
+}
+
+.myheaderapi h3{
+  color:white;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px #000000;
+}

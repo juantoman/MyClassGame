@@ -7,8 +7,8 @@ import { WebApp } from 'meteor/webapp'
 
 Meteor.startup(() => {
 
-  //API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
-  //process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
+  API_SendGrid=mcgParameters.findOne({'_id':1}).API_SendGrid;
+  process.env.MAIL_URL = 'smtp://apikey:'+API_SendGrid+'@smtp.sendgrid.net:587';
 
   //process.env.MAIL_URL = 'smtp://apikey:'+process.env.API_SendGrid+'@smtp.sendgrid.net:587';
   //Escribir en fichero local
@@ -508,6 +508,20 @@ WebApp.connectHandlers.use('/studentXP', (req, res, next) => {
   //console.log(req.query);
   Meteor.call('studentXPapi', student, 100);
   res.end(student + " 100XP");
+});
+
+WebApp.connectHandlers.use('/helloMCG', (req, res, next) => {
+  res.writeHead(200);
+  res.end(`Hello world from @MyClassGame!`);
+})
+
+//Allow CORS 
+WebApp.rawConnectHandlers.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Origin, Authorization, Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+  return next();
 });
 
 Meteor.method("add-numbers", function (a, b) {

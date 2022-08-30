@@ -1,0 +1,354 @@
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/mcggen.css">
+<script></script>
+<div id="myheaderapi" class="myheaderapi">
+  <div class="mcglogo">
+    <img src="https://www.myclassgame.es/images/@mcgnb.png" width="35px">
+    <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>
+  </div>
+  <br />
+  <div id="apiresult">
+    <form>
+      <input type='text' id='mcgAlias' name='mcgAlias' placeholder="Alias">
+      <br />
+      <input type='text' id='mcgCode' name='mcgCode' placeholder="StudentCode">
+      <br />
+      <input type='button' value='Login' id="mcgLogin">
+    </form>
+  </div>
+</div>
+
+<!--sweetalert2-->
+
+<div>
+  <input type="button" id="sweetalertBtn" value="SA" />
+  <input type="button" id="sweetalertBtn2" value="SA2" />
+</div>
+<script>
+  import Swal from ("https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js")
+  function SA() {
+    Swal.fire('Any fool can use a computer')
+  }
+  const element = document.getElementById("sweetalertBtn2");
+  element.addEventListener("click", SA);
+</script>
+
+<!--sa.js-->
+
+<div>
+  <input type="button" id="sweetalertBtn" value="SA" />
+  <input type="button" id="sweetalertBtn2" value="SA2" />
+</div>
+<script src="http://localhost:8000/mcgapi/genially/sa.js"></script>
+
+
+<!--addEventListener-->
+<h3 id="mcgprova">Click me to change my color.</h3>
+<script>
+  function red() {
+    document.getElementById('mcgprova').style.color = 'red';
+  }
+  const element = document.getElementById("mcgprova");
+  element.addEventListener("click", red);
+</script>
+
+
+<!--function onclick-->
+<h3 id="mcgprova">Click me to change my color.</h3>
+<script>
+  document.getElementById('mcgprova').onclick=function(){
+    document.getElementById('mcgprova').style.color = 'red';
+  }
+</script>
+
+<!--html-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11">
+  function SA() {
+    alert("A")
+  }
+  const element = document.getElementById("sweetalertBtn2");
+  element.addEventListener("click", SA);
+</script>
+
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+<div>
+  <input type="button" id="sweetalertBtn" value="SA" />
+  <input type="button" id="sweetalertBtn2" value="SA2" />
+</div>
+
+</body>
+</html>
+
+<!--genially embeded-->
+<div class="container-wrapper-genially" style="position: relative; min-height: 400px; max-width: 100%;">
+  <video class="loader-genially" autoplay="autoplay" loop="loop" playsinline="playsInline" muted="muted" style="position: absolute;top: 45%;left: 50%;transform: translate(-50%, -50%);width: 80px;height: 80px;margin-bottom: 10%">
+    <source src="https://static.genial.ly/resources/panel-loader-low.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div id="601f9b0f5115d20cf91ccc8b" class="genially-embed" style="margin: 0px auto; position: relative; height: auto; width: 100%;"></div>
+</div>
+<script>  
+  (function (d) { 
+    var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement("script"); 
+    js.id = id; 
+    js.async = true; 
+    js.src = "https://view.genial.ly/static/embed/embed.js"; 
+    ref.parentNode.insertBefore(js, ref)
+  }
+  (document)
+  );
+  </script>
+
+  <!--genially embeded 2-->
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/sweetalert2.min.css">
+<style>
+  .swal2-container {
+    background-color: rgba(38, 139, 210, 0.5) !important;
+  }
+  body.swal2-height-auto {
+      height: -webkit-fill-available !important;
+  }
+</style>
+<div>
+  <input type="button" id="sweetalertBtn" value="SA" />
+  <input type="button" id="sweetalertBtn2" value="SA2" />
+</div>
+<script>
+(function (d) { 
+  var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+  if (d.getElementById(id)) { return; }
+  js = d.createElement("script"); 
+  js.id = id; 
+  js.async = true; 
+  js.src = "http://localhost:8000/mcgapi/genially/sweetalert2.min.js"; 
+  ref.parentNode.insertBefore(js, ref); }
+  (document));
+  function SA() {
+    Swal.fire({
+      icon: 'question',
+      title: 'Do you want to save the changes?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Save',
+      denyButtonText: `Don't save`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire('Saved!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
+  }
+
+  const element = document.getElementById("sweetalertBtn2");
+  element.addEventListener("click", SA);
+</script>
+
+
+  <!--genially embeded 3-->
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/sweetalert2.min.css">
+<style>
+  .swal2-container {
+    background-color: rgba(38, 139, 210, 0.5) !important;
+  }
+  body.swal2-height-auto {
+      height: -webkit-fill-available !important;
+  }
+  .swal2-title {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      padding: 0;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000000;
+  }
+  .swal2-image {
+      -webkit-filter: drop-shadow(2px 2px 5px #000 );
+  }
+  .swal2-input {
+      background-color: white;
+      height: 2em;
+  }
+  .mcgStudentData *{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px #000000;
+      margin: 0 auto 10px auto !important;
+      color: rgb(146, 255, 250);
+  }
+  .mcgStudentData h4.mcgData{
+      margin: 2px auto !important;
+      color: gold;
+  }
+  #myclassgame .mcgName {
+      position:relative;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: bold;
+      font-size: 2em;
+      top: -15px;
+      opacity: 0;
+      text-shadow: 2px 2px 5px #000000;
+  }
+  .mcgLogo {
+      -webkit-filter: drop-shadow(2px 2px 5px #000 );
+      transition: 0.5s;
+  }
+  #myclassgame {
+    padding: 10px;
+  }
+  #myclassgame *{
+      cursor: pointer;
+      transition: 0.5s;
+  }
+  #myclassgame:hover .mcgLogo{
+      -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+      transform: scale(1.1);
+  }
+  #myclassgame:hover .mcgName{
+      -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+      transform: scale(1.1);
+      opacity: 1;
+  }
+</style>
+
+<div id="myclassgame">
+  <img src='https://www.myclassgame.es/images/@mcgnb.png' class="mcgLogo" width="50px" />
+  <span class="mcgName">
+      <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>
+  </span>
+</div>
+
+<script>
+  (function (d) { 
+    var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement("script"); 
+    js.id = id; 
+    js.async = true; 
+    js.src = "http://localhost:8000/mcgapi/genially/sweetalert2.min.js"; 
+    ref.parentNode.insertBefore(js, ref); }
+    (document));
+    function showStudentData(studentCreds) {
+        const student=studentCreds;    
+        let id=student.studentCode;
+        let url='https://www.myclassgame.es/studentData/'+id;
+        fetch(url, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          if ( data.alias == studentCreds.alias) {
+              localStorage.setItem('mcgStudentCreds', JSON.stringify(studentCreds));
+              localStorage.setItem('mcgStudentData', JSON.stringify(data));
+              Swal.fire({
+                  title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+                  background: '#268bd2',
+                  showCloseButton: true,
+                  showCancelButton: true,
+                  confirmButtonColor: '#d33',
+                  confirmButtonText: 'Logout',
+                  cancelButtonColor: '#0f0',
+                  imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+                  imageWidth: 75,
+                  imageHeight: 75,
+                  imageAlt: '@MyClassGame',
+                  html:
+                      '<div class="mcgStudentData">' +
+                      '<h2>' + data.studentName + '</h2>' +
+                      '<h4> ('+ data.alias + ') </h4>' +
+                      '<h4 class="mcgData">' + data.XP + ' XP</h4>' +
+                      '<h4 class="mcgData">' + data.HP + ' HP</h4>' +
+                      '<h4 class="mcgData">' + data.coins + ' Monedas</h4>' +
+                      '<h4 class="mcgData">Nivel: ' + data.level + '</h4>' +
+                      '</div>',
+                  focusConfirm: false
+              }).then((result) => {
+                  if (result.isConfirmed) {
+                      localStorage.setItem('mcgStudentCreds', '');
+                  }
+              })
+          } else {
+              Swal.fire({
+                  icon: 'warning',
+                  html:
+                      '<div class="mcgStudentData">' +
+                      '<h2>Alias o Código incorrectos</h2>' +
+                      '</div>',
+                  background: '#268bd2',
+                  confirmButtonColor: '#d33',
+              })
+              localStorage.setItem('mcgStudentCreds', '');
+          }
+        })
+        .catch((err) => console.log(err));
+    }
+    async function SA() {
+        if ( ! localStorage.getItem('mcgStudentCreds')) {
+            const { value: formValues } = await Swal.fire({
+                title: '<span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>',
+                background: '#268bd2',
+                showCloseButton: true,
+                showCancelButton: true,
+                confirmButtonColor: '#0f0',
+                confirmButtonText: 'Login',
+                cancelButtonColor: '#d33',
+                imageUrl: 'https://www.myclassgame.es/images/@mcgnb.png',
+                imageWidth: 75,
+                imageHeight: 75,
+                imageAlt: '@MyClassGame',
+                html:
+                    '<input id="swal-input1" class="swal2-input" placeholder="Alias">' +
+                    '<input id="swal-input2" class="swal2-input" placeholder="StudentCode">',
+                focusConfirm: false,
+                preConfirm: () => {
+                    const student = {
+                        alias: document.getElementById('swal-input1').value,
+                        studentCode: document.getElementById('swal-input2').value
+                    }
+                    return student
+                }
+            })
+            if (formValues) {
+                showStudentData(formValues)
+            }
+        } else {
+            showStudentData(JSON.parse(localStorage.getItem('mcgStudentCreds')))
+        }
+    }
+    const element = document.getElementById("myclassgame");
+    element.addEventListener("click", SA);
+</script>
+
+<!--genially embeded 3-->
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/sweetalert2.min.css">
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/mcglogin.css">
+<div id="myclassgame">
+  <img src='https://www.myclassgame.es/images/@mcgnb.png' class="mcgLogo" width="50px" />
+  <span class="mcgName">
+      <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>
+  </span>
+</div>
+<script src="http://localhost:8000/mcgapi/genially/mcglogin.js"></script>
+
+<!--genially embeded 4-->
+<link rel="stylesheet" href="https://www.myclassgame.es/mcgapi/genially/sweetalert2.min.css">
+<link rel="stylesheet" href="https://www.myclassgame.es/mcgapi/genially/mcglogin.css">
+<div id="myclassgame">
+  <img src='https://www.myclassgame.es/images/@mcgnb.png' class="mcgLogo" width="50px" />
+  <span class="mcgName">
+      <span style="color:yellow;">@</span><span style="color:red;">My</span><span style="color:blue;">Class</span><span style="color:lime;">Game</span>
+  </span>
+</div>
+<script src="https://www.myclassgame.es/mcgapi/genially/mcglogin.js"></script>
