@@ -9,8 +9,9 @@ ref.parentNode.insertBefore(js, ref); }
 (document));
 
 function loadImage() {
-    let id="ytpSjmipmBHwqEFqa"
-    let url='http://localhost:8000/mcgBadge/'+id;
+    let id="FtEWMztweQ8HujEJr"
+    let studentId='aiRkGX';
+    let url='http://localhost:8000/mcgBadge/'+id+'?sId='+studentId;
     fetch(url, {
         method: 'GET',
         headers: new Headers({
@@ -22,14 +23,18 @@ function loadImage() {
     .then((data) => {
         const element = document.getElementById("imgBadge");
         element.src=data.image_url;
+        if ( data.stock ) {
+            const check = document.getElementById("greenCheck");
+            check.style.opacity=1
+        }
     })
     .catch((err) => console.log(err));
 }
 
 function winBadge() {
-    let badgeId="ytpSjmipmBHwqEFqa"
+    let badgeId="FtEWMztweQ8HujEJr"
     //let studentCreds=JSON.parse(localStorage.getItem('mcgStudentCreds'));
-    let studentId='2GkimY';
+    let studentId='aiRkGX';
     let url='http://localhost:8000/winBadge/';
     data= {
         'elementType': 'badge',
