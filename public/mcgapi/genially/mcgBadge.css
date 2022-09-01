@@ -1,0 +1,19 @@
+#mcgBadge {relative;
+    position:absolute;
+}
+
+#imgBadge {
+    padding:20px;
+    transition: 0.5s;
+}
+
+#imgBadge:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+    transform: scale(1.05);
+}
+
+#greenCheck {
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
