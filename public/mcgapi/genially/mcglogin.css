@@ -57,3 +57,34 @@
       transform: scale(1.1);
       opacity: 1;
   }
+
+/*mcgBadge*/
+
+#mcgBadge {relative;
+    position:absolute;
+}
+
+#badgeDiv {
+    opacity:0;
+    transition: 0.2s;
+    padding: 50px;
+    border-radius: 10px;
+    background-color:white;
+}
+
+#imgBadge {
+    padding:20px;
+    transition: 0.2s;
+}
+
+#imgBadge:hover{
+    -webkit-filter: drop-shadow(0px 0px 5px rgb(255, 255, 255) );
+    transform: scale(1.05);
+}
+
+#greenCheck {
+    position: absolute;
+    top:10px;
+    right:10px;
+    opacity:0;
+}

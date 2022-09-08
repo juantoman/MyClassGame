@@ -1,7 +1,45 @@
 <link rel="stylesheet" href="https://www.myclassgame.es/mcgapi/genially/sweetalert2.min.css">
-<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/mcgBadge.css">
+<link rel="stylesheet" href="http://localhost:8000/mcgapi/genially/mcglogin.css">
 <div id="mcgBadge">
-  <img id="imgBadge" width="100%" />
-  <img id="greenCheck" src="http://localhost:8000/mcgapi/genially/green_check.png" width="20%" />
+  <img src='https://www.myclassgame.es/images/@mcgnb.png' class="mcgLogo" width="50px" id="mcgLogo" />
+  <div id="badgeDiv">
+    <img id="imgBadge" width="100%" />
+    <img id="greenCheck" src="http://localhost:8000/mcgapi/genially/green_check.png" width="20%" />
+  </div>
 </div>
 <script src="http://localhost:8000/mcgapi/genially/mcgBadge.js"></script>
+
+
+#Pruebas
+#CargarAPI (Pàgina inicial)
+<div id="mcgAPI">
+  <h1>Cargar API</h1>
+</div>
+<script src="http://localhost:8000/mcgapi/genially/prova.js">
+  (function (d) { 
+  var js, id = "genially-embed-js", ref = d.getElementsByTagName("script")[0];
+  if (d.getElementById(id)) { return; }
+  js = d.createElement("script"); 
+  js.id = id; 
+  js.async = true; 
+  js.src = "http://localhost:8000/mcgapi/genially/prova.js"; 
+  ref.parentNode.insertBefore(js, ref); }
+  (document));
+</script>
+
+#Eventos (en cada pàgina amb botons)
+<div id="mcgBadge">
+  <h1>Eventos</h1>
+</div>
+<script>
+  const collection = document.getElementsByClassName("mcgLogo");
+  for (let i = 0; i < collection.length; i++) {
+    collection[i].addEventListener("click", loadImage);
+  }
+</script>
+
+#Botones
+<div id="mcgBadge">
+  <img src='https://www.myclassgame.es/images/@mcgnb.png' class="mcgLogo" width="50px" id="mcgLogo" />
+</div>
+<script></script>
