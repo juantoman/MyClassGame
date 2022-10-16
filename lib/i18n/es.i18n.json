@@ -381,5 +381,9 @@
     "restored": "Recuperada",
     "fileBackup": "Fichero de Backup",
     "noFile": "No has seleccionado ningún fichero",
-    "sharedClasses": "Clases compartidas"
+    "sharedClasses": "Clases compartidas",
+    "myClassWords": "Mis Palabras",
+    "myXPName": "Mi XP",
+    "myHPName": "Mi HP",
+    "myMoneyName": "Mi Dinero"
 }

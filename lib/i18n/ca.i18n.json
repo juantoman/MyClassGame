@@ -381,5 +381,9 @@
     "restored": "Recuperada",
     "fileBackup": "Fitxer de Backup",
     "noFile": "No has seleccionat cat fitxer",
-    "sharedClasses": "Classes compartides"
+    "sharedClasses": "Classes compartides",
+    "myClassWords": "Les meves paraules",
+    "myXPName": "La meva XP",
+    "myHPName": "La meva HP",
+    "myMoneyName": "Els meus diners"
 }

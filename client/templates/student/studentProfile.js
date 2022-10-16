@@ -831,6 +831,42 @@ Template.studentProfile.helpers({
     } else {
       return  parseInt(Math.trunc(c.levelXP*l));
     }
+  },
+  myXPName: function() {
+    try {
+      myXPName=classes.findOne({ _id: Session.get('classId') }).myClassWords.myXPName
+      if (myXPName){
+        return myXPName
+      } else {
+        return TAPi18n.__('experience')
+      };
+    } catch(e) {
+      return TAPi18n.__('experience')
+    }
+  },
+  myHPName: function() {
+    try {
+      myHPName=classes.findOne({ _id: Session.get('classId') }).myClassWords.myHPName
+      if (myXPName){
+        return myHPName
+      } else {
+        return TAPi18n.__('life')
+      };
+    } catch(e) {
+      return TAPi18n.__('life')
+    }
+  },
+  myMoneyName: function() {
+    try {
+      myMoneyName=classes.findOne({ _id: Session.get('classId') }).myClassWords.myMoneyName
+      if (myMoneyName){
+        return myMoneyName
+      } else {
+        return TAPi18n.__('money')
+      };
+    } catch(e) {
+      return TAPi18n.__('money')
+    }
   }
 });
 

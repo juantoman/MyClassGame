@@ -51,7 +51,10 @@ Template.parametersList.helpers({
       cloudinary_url=cloudinary_url.replace('/upload/','/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/');
       return cloudinary_url;
     }
-  }
+  },
+  myClassWords: function() {
+    return classes.findOne({_id: Session.get('classId')}).myClassWords;
+  },
 });
 
 Template.parametersList.events({
@@ -258,5 +261,17 @@ Template.parametersList.events({
   'change #XPsRel': function(event) {
     event.preventDefault();
     Meteor.call('XPsRelChange', Session.get('classId'), $(event.target).val());
+  },
+  'change #myXPName': function(event) {
+    event.preventDefault();
+    Meteor.call('myXPName', Session.get('classId'), event.currentTarget.value);
+  },
+  'change #myHPName': function(event) {
+    event.preventDefault();
+    Meteor.call('myHPName', Session.get('classId'), event.currentTarget.value);
+  },
+  'change #myMoneyName': function(event) {
+    event.preventDefault();
+    Meteor.call('myMoneyName', Session.get('classId'), event.currentTarget.value);
   }
 });

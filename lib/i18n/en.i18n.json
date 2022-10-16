@@ -381,5 +381,9 @@
     "restored": "Restored",
     "fileBackup": "Backup File",
     "noFile": "No file selected",
-    "sharedClasses": "Shared classes"
+    "sharedClasses": "Shared classes",
+    "myClassWords": "My Words",
+    "myXPName": "My XP",
+    "myHPName": "My HP",
+    "myMoneyName": "My Money"
 }

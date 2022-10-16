@@ -174,15 +174,41 @@
           -->
         </div>
         <br />
-      <div class="form-group parametersButtons">
-        <legend  class="w-auto">{{_ "Reset"}}</legend>
-        <div class="input-group mb-3">
-          <input type="button" id="btn-reset" value="{{_ 'resetAll'}}" class="btn btn-info">    
-          <input type="button" id="btn-resetXPHP" value="{{_ 'resetXP&HP'}}" class="btn btn-info">
+        <div class="form-group">
+          <legend  class="w-auto">{{_ "myClassWords"}}</legend>
+
+          <div class="input-group col-xs-11">
+            <span class="input-group-addon">{{_ 'myXPName'}}</span>
+            <input type="text" class="form-control input-lg" name="myXPName" value="{{myClassWords.myXPName}}" id="myXPName" aria-describedby="inputGroupSuccess1Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+
+          <div class="input-group col-xs-11">
+            <span class="input-group-addon">{{_ 'myHPName'}}</span>
+            <input type="text" class="form-control input-lg" name="myHPName" value="{{myClassWords.myHPName}}" id="myHPName" aria-describedby="inputGroupSuccess1Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+
+          <div class="input-group col-xs-11">
+            <span class="input-group-addon">{{_ 'myMoneyName'}}</span>
+            <input type="text" class="form-control input-lg" name="myMoneyName" value="{{myClassWords.myMoneyName}}" id="myMoneyName" aria-describedby="inputGroupSuccess1Status">
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+          </div>
+        
         </div>
-      </div>
-    </form>
-    <br /><br />
+        <br />
+        <div class="form-group parametersButtons">
+          <legend  class="w-auto">{{_ "Reset"}}</legend>
+          <div class="input-group mb-3">
+            <input type="button" id="btn-reset" value="{{_ 'resetAll'}}" class="btn btn-info">    
+            <input type="button" id="btn-resetXPHP" value="{{_ 'resetXP&HP'}}" class="btn btn-info">
+          </div>
+        </div>
+      </form>
+      <br /><br />
     {{/with}}
   </div>
 </template>
