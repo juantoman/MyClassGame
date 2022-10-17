@@ -93,27 +93,32 @@
       </div>
       -->
       {{#each classesTeacher}}
-        <figure class="card card__ice btn-class classAsTeacher" style="margin:5px auto;">
-          <div class="card__image-container" >
-            <!--<img class="cardLogo" src="/images/@mcgnb.png">-->
-            <img src="{{classImage}}" class="card__image">
-            {{#if stored}}
-              <img class="cardStored" src="/images/stored.png">
-            {{/if}}
-            <img class="cardUserType" src="/images/teacher2.png">
-          </div>
-          <figcaption class="card__caption">
-            <h1 class="card__name">{{className}}</h1>
-          </figcaption>
-        </figure>
-        <!--
-        <div class="col-xs-6 col-md-3 col-lg-2">
-          <div class="thumbnail btn btn-class">
-              <h2 class="text-center">{{className}}</h2>
-              <img src="{{classImage}}" class="fotoClass" alt="...">
-          </div>
-        </div>
-        -->
+        {{#if stored}}
+          {{#if seeStoredClasses}}
+            <figure class="card card__ice btn-class classAsTeacher" style="margin:5px auto;">
+              <div class="card__image-container" >
+                <!--<img class="cardLogo" src="/images/@mcgnb.png">-->
+                <img src="{{classImage}}" class="card__image">
+                <img class="cardStored" src="/images/stored.png">
+                <img class="cardUserType" src="/images/teacher2.png">
+              </div>
+              <figcaption class="card__caption">
+                <h1 class="card__name">{{className}}</h1>
+              </figcaption>
+            </figure>
+          {{/if}}
+        {{else}}
+          <figure class="card card__ice btn-class classAsTeacher" style="margin:5px auto;">
+            <div class="card__image-container" >
+              <!--<img class="cardLogo" src="/images/@mcgnb.png">-->
+              <img src="{{classImage}}" class="card__image">
+              <img class="cardUserType" src="/images/teacher2.png">
+            </div>
+            <figcaption class="card__caption">
+              <h1 class="card__name">{{className}}</h1>
+            </figcaption>
+          </figure>
+        {{/if}}
       {{/each}}
 
       {{#each classesStudent}}
@@ -150,6 +155,7 @@
     </div>
   </div>
   <br />
+  <h6 id="seeStoredClasses" class="storedClassesBtn {{#unless seeStoredClasses}}notSeeStoredClass{{/unless}}">{{_ "sclasses"}}</h6>
   <!--
   <div class="container-fluid myContent storedClasses">
     <h4 id="adminClass">{{_ "sclasses"}}</h4>

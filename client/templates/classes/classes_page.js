@@ -37,15 +37,15 @@ Template.classesPage.onRendered(function() {
 Template.classesPage.helpers({
   classesStudent: function() {
     c=Meteor.users.findOne({_id:Meteor.userId()}).classes;
-    return classes.find({"_id": { "$in": c }});
+    return classes.find({"_id": { "$in": c } });
   },
   classesTeacher: function() {
     c=Meteor.users.findOne({'_id':Meteor.userId()}).classesTeacher;
-    return classes.find({"_id": { "$in": c }});
+    return classes.find({"_id": { "$in": c } } );
   },
   classesParent: function() {
     c=Meteor.users.findOne({_id:Meteor.userId()}).classesParent;
-    return classes.find({"_id": { "$in": c }});
+    return classes.find({"_id": { "$in": c } });
   },
   classe: function() {
     var teacherId = Meteor.user();
@@ -105,7 +105,10 @@ Template.classesPage.helpers({
     } else {
       return "https://res.cloudinary.com/myclassgame/image/upload/q_auto,w_auto,h_180,f_auto,dpr_auto/v1543412151/proves/grupo.png";
     }
-  }
+  },
+  seeStoredClasses: function() {
+    return Session.get('seeStoredClasses');
+  },
 });
 Template.classesPage.events({
   'click .btn-class': function(event) {
@@ -238,5 +241,13 @@ Template.classesPage.events({
   'click .newClassSFModal': function(event) {
     event.preventDefault();
     Modal.show('newClassSFModal');
-  }
+  },
+  'click #seeStoredClasses': function(event) {
+    event.preventDefault();
+    if ( Session.get('seeStoredClasses') ) {
+      Session.set('seeStoredClasses', false);
+    } else {
+      Session.set('seeStoredClasses', true);
+    }
+  },
 });

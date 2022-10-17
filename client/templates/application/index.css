@@ -397,17 +397,48 @@ padding:0;
   letter-spacing: 5px;
   font-style:normal;
   background-color: rgb(38, 139, 210, 1);
-  padding: 0px 10px;
+  padding: 5px 10px;
   border-radius: 50px;
   box-shadow: 2px 2px 10px black;
 }
 
 .rightButton:hover {
   box-shadow: 2px 2px 10px white;
+  cursor: pointer;
 }
 
 .rightButton * {
   margin: 2px;
+}
+
+.storedClassesBtn {
+  position: fixed;
+  bottom: 20px;
+  right:5px;
+  transition: all .5s;
+  color: white !important;
+  font-family: "Playfair Display", serif;
+  font-weight:400;
+  font-size:medium;
+  letter-spacing: 5px;
+  font-style:normal;
+  background-color: rgb(38, 139, 210, 1);
+  padding: 5px 10px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 10px black;
+}
+
+.storedClassesBtn:hover {
+  box-shadow: 2px 2px 10px white;
+  cursor: pointer;
+}
+
+.storedClassesBtn * {
+  margin: 2px;
+}
+
+.notSeeStoredClass {
+  background-color: gray !important;
 }
 
 #mcgpet {
