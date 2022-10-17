@@ -37,7 +37,7 @@ Meteor.publish('classes', function(classId) {
       studentClasses=Meteor.user().classes;
       c=c.concat(tipos,teacherClasses,studentClasses);
       c=_.uniq(c);
-      return classes.find({"_id": { "$in": c }},{fields: {'className':1, 'groupImg':1, 'evaluation':1 }});
+      return classes.find({"_id": { "$in": c }},{fields: {'className':1, 'groupImg':1, 'evaluation':1, 'stored':1 }});
     }
   }
   /*
