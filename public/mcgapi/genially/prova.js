@@ -1,4 +1,4 @@
 function loadImage() {
-    alert("A")
+    alert("B")
 }
 

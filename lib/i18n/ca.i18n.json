@@ -166,8 +166,8 @@
     "components": "Components",
     "storytelling": "Narrativa",
     "dessign": "Disseny",
-    "event": "Event",
-    "events": "Events",
+    "event": "Esdeveniment",
+    "events": "Esdeveniments",
     "penalty": "Penalització",
     "penalties": "Penalitzacions",
     "quote": "Frase",
@@ -186,8 +186,8 @@
     "maths": "Matemàtica",
     "initiative": "Iniciativa",
     "learnToLearn": "Aprendre a aprendre",
-    "newEvent": "Nou event",
-    "createNewEvent": "Crea un nou event",
+    "newEvent": "Nou esdeveniment",
+    "createNewEvent": "Crea un nou esdeveniment",
     "newPenalty": "Nova Penalització",
     "createNewPenalty": "Crea una nova penalització",
     "newBadge": "Nova Insignia",
@@ -385,5 +385,6 @@
     "myClassWords": "Les meves paraules",
     "myXPName": "La meva XP",
     "myHPName": "La meva HP",
-    "myMoneyName": "Els meus diners"
+    "myMoneyName": "Els meus diners",
+    "PremioSIMOEDU23":"En els XI Premis a la Innovació Educativa i Experiències Docents Innovadores SIMO EDUCACIÓ 2023, ha guanyat a la categoria 'Millor Recurs Digital de Creació Pròpia'"
 }
