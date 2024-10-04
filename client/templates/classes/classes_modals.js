@@ -51,7 +51,7 @@ Template.classesModals.events({
           gcId: Session.get("gcId"),
           iniHP: 10,
           stored: false,
-          groupImg: "https://avatars.dicebear.com/v2/jdenticon/"+cn+".svg",
+          groupImg: "https://api.dicebear.com/9.x/initials/svg?seed="+cn+".svg",
           studentImg:"",
           evaluation: 1,
           CoinXP: true,

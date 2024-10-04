@@ -350,7 +350,7 @@ Template.studentProfile.helpers({
           return cloudinary_url;
         }
       } else {
-        return "https://avatars.dicebear.com/v2/avataaars/"+this._id+".svg";
+        return "https://api.dicebear.com/9.x/lorelei/svg?seed="+this._id+".svg";
       }
     } else  {
       if (avatar.substring(0, 4)=="http") {
