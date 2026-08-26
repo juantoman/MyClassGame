@@ -10,8 +10,8 @@
     "chart.js": "^2.9.4",
     "dhtmlx-scheduler": "^5.3.9",
     "express": "^4.17.1",
-    "google-auth-library": "^5.10.1",
-    "googleapis": "^39.2.0",
+    "google-auth-library": "^10.9.0",
+    "googleapis": "^173.0.0",
     "html2canvas-proxy": "^1.0.1",
     "meteor-node-stubs": "^0.2.6",
     "sweetalert": "^2.1.2"
